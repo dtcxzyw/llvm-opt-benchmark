@@ -1879,7 +1879,6 @@ define hidden noalias noundef nonnull ptr @"_ZN5rowan3arc20ThinArc$LT$H$C$T$GT$2
 
 .lr.ph.preheader:                                 ; preds = %33
   %37 = getelementptr inbounds i8, ptr %30, i64 24
-  %umax = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %45
@@ -1920,7 +1919,7 @@ define hidden noalias noundef nonnull ptr @"_ZN5rowan3arc20ThinArc$LT$H$C$T$GT$2
   %48 = load i8, ptr %.sroa.0.166, align 1, !noalias !264, !noundef !4
   store i8 %48, ptr %.03168, align 1
   %49 = getelementptr inbounds i8, ptr %.03168, i64 1
-  %exitcond.not = icmp eq i64 %46, %umax
+  %exitcond.not = icmp eq i64 %46, %11
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 50:                                               ; preds = %51

@@ -283,13 +283,16 @@ invoke.cont:                                      ; preds = %for.inc23.i
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %mul = ashr exact i64 %sub.ptr.sub.i, 1
-  %add3 = add i64 %sub.ptr.sub.i, 160
   %cmp.i.not93 = icmp eq ptr %.pre107, %.pre
-  br i1 %cmp.i.not93, label %for.end, label %for.body
+  br i1 %cmp.i.not93, label %for.end, label %for.body.preheader
 
-for.body:                                         ; preds = %invoke.cont, %for.body
-  %total_size.095 = phi i64 [ %add11, %for.body ], [ %add3, %invoke.cont ]
-  %__begin1.sroa.0.094 = phi ptr [ %incdec.ptr.i, %for.body ], [ %.pre107, %invoke.cont ]
+for.body.preheader:                               ; preds = %invoke.cont
+  %add3 = add i64 %sub.ptr.sub.i, 160
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.preheader, %for.body
+  %total_size.095 = phi i64 [ %add11, %for.body ], [ %add3, %for.body.preheader ]
+  %__begin1.sroa.0.094 = phi ptr [ %incdec.ptr.i, %for.body ], [ %.pre107, %for.body.preheader ]
   %16 = load ptr, ptr %__begin1.sroa.0.094, align 8
   %length = getelementptr inbounds i8, ptr %16, i64 4
   %17 = load i32, ptr %length, align 4
@@ -318,11 +321,11 @@ lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %invoke.cont14, %if.
   br label %ehcleanup
 
 for.end:                                          ; preds = %for.body, %entry, %invoke.cont
-  %mul121 = phi i64 [ %mul, %invoke.cont ], [ 0, %entry ], [ %mul, %for.body ]
-  %sub.ptr.div.i120 = phi i64 [ %sub.ptr.div.i, %invoke.cont ], [ 0, %entry ], [ %sub.ptr.div.i, %for.body ]
+  %mul121 = phi i64 [ 0, %invoke.cont ], [ 0, %entry ], [ %mul, %for.body ]
+  %sub.ptr.div.i120 = phi i64 [ 0, %invoke.cont ], [ 0, %entry ], [ %sub.ptr.div.i, %for.body ]
   %top_base.sroa.0.4118 = phi ptr [ %top_base.sroa.0.3, %invoke.cont ], [ null, %entry ], [ %top_base.sroa.0.3, %for.body ]
   %top_base.sroa.7.2117 = phi ptr [ %top_base.sroa.7.1, %invoke.cont ], [ null, %entry ], [ %top_base.sroa.7.1, %for.body ]
-  %total_size.0.lcssa = phi i64 [ %add3, %invoke.cont ], [ 160, %entry ], [ %add11, %for.body ]
+  %total_size.0.lcssa = phi i64 [ 160, %invoke.cont ], [ 160, %entry ], [ %add11, %for.body ]
   %add13 = add nsw i64 %sub.ptr.div.i120, 1
   %call15 = invoke noundef i32 @_ZN3ue215calcPackedBytesEy(i64 noundef %add13)
           to label %invoke.cont14 unwind label %lpad.loopexit.split-lp.loopexit.split-lp

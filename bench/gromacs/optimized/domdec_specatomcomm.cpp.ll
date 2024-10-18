@@ -2019,7 +2019,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit294:            ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i
 
 _ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i: ; preds = %541, %540, %539, %.critedge.i
-  %.1.lcssa44.i = phi i64 [ -1, %541 ], [ -1, %540 ], [ %531, %539 ], [ %.1.lcssa.i, %.critedge.i ]
+  %.1.lcssa44.i = phi i64 [ -1, %541 ], [ 0, %540 ], [ %531, %539 ], [ %.1.lcssa.i, %.critedge.i ]
   %542 = phi ptr [ %503, %541 ], [ %503, %540 ], [ %.pre.i323, %539 ], [ %503, %.critedge.i ]
   %543 = trunc i64 %.1.lcssa44.i to i32
   %544 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %542, i64 %512, i32 2

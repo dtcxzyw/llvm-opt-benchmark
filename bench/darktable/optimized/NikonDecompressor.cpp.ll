@@ -293,7 +293,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor11createCurveERNS_10ByteStrea
   br label %88
 
 .loopexit46:                                      ; preds = %88, %71, %52, %23
-  %78 = phi i64 [ %30, %23 ], [ %30, %71 ], [ %30, %52 ], [ %76, %88 ]
+  %78 = phi i64 [ 0, %23 ], [ %30, %71 ], [ %30, %52 ], [ %76, %88 ]
   %79 = phi ptr [ %18, %23 ], [ %26, %71 ], [ %26, %52 ], [ %75, %88 ]
   %80 = getelementptr inbounds i8, ptr %1, i64 16
   %81 = load i32, ptr %80, align 8, !tbaa !20

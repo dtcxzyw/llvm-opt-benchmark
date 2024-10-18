@@ -2036,21 +2036,24 @@ invoke.cont:                                      ; preds = %call2.i.noexc, %cal
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %_M_finish.i, align 8, !tbaa !26
   %2 = load ptr, ptr %active_transactions, align 8, !tbaa !25
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %3 = load i64, ptr @_ZN6duckdb20TRANSACTION_ID_STARTE, align 8, !tbaa !23
   %4 = load i64, ptr @_ZN6duckdb18MAX_TRANSACTION_IDE, align 8, !tbaa !23
   %5 = load i64, ptr @_ZN6duckdb16MAXIMUM_QUERY_IDE, align 8, !tbaa !23
   %cmp402.not = icmp eq ptr %1, %2
-  br i1 %cmp402.not, label %for.cond.cleanup, label %for.body
+  br i1 %cmp402.not, label %for.cond.cleanup, label %for.body.preheader
+
+for.body.preheader:                               ; preds = %invoke.cont
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
+  br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.inc, %invoke.cont
   %lowest_active_query.0.lcssa = phi i64 [ %5, %invoke.cont ], [ %lowest_active_query.1, %for.inc ]
   %lowest_transaction_id.0.lcssa = phi i64 [ %4, %invoke.cont ], [ %lowest_transaction_id.1, %for.inc ]
   %lowest_start_time.0.lcssa = phi i64 [ %3, %invoke.cont ], [ %lowest_start_time.1, %for.inc ]
-  %t_index.0.lcssa = phi i64 [ %sub.ptr.div.i, %invoke.cont ], [ %t_index.1, %for.inc ]
+  %t_index.0.lcssa = phi i64 [ 0, %invoke.cont ], [ %t_index.1, %for.inc ]
   %lowest_active_start = getelementptr inbounds i8, ptr %this, i64 40
   store atomic i64 %lowest_start_time.0.lcssa, ptr %lowest_active_start seq_cst, align 8
   %lowest_active_id = getelementptr inbounds i8, ptr %this, i64 32
@@ -2059,12 +2062,12 @@ for.cond.cleanup:                                 ; preds = %for.inc, %invoke.co
   %call37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %active_transactions, i64 noundef %t_index.0.lcssa)
           to label %invoke.cont36 unwind label %terminate.lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-for.body:                                         ; preds = %invoke.cont, %for.inc
-  %t_index.0407 = phi i64 [ %t_index.1, %for.inc ], [ %sub.ptr.div.i, %invoke.cont ]
-  %lowest_start_time.0406 = phi i64 [ %lowest_start_time.1, %for.inc ], [ %3, %invoke.cont ]
-  %lowest_transaction_id.0405 = phi i64 [ %lowest_transaction_id.1, %for.inc ], [ %4, %invoke.cont ]
-  %lowest_active_query.0404 = phi i64 [ %lowest_active_query.1, %for.inc ], [ %5, %invoke.cont ]
-  %i.0403 = phi i64 [ %inc, %for.inc ], [ 0, %invoke.cont ]
+for.body:                                         ; preds = %for.body.preheader, %for.inc
+  %t_index.0407 = phi i64 [ %t_index.1, %for.inc ], [ %sub.ptr.div.i, %for.body.preheader ]
+  %lowest_start_time.0406 = phi i64 [ %lowest_start_time.1, %for.inc ], [ %3, %for.body.preheader ]
+  %lowest_transaction_id.0405 = phi i64 [ %lowest_transaction_id.1, %for.inc ], [ %4, %for.body.preheader ]
+  %lowest_active_query.0404 = phi i64 [ %lowest_active_query.1, %for.inc ], [ %5, %for.body.preheader ]
+  %i.0403 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
   %call7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %active_transactions, i64 noundef %i.0403)
           to label %invoke.cont6 unwind label %terminate.lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 

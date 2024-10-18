@@ -1693,38 +1693,38 @@ while.cond.preheader:                             ; preds = %lor.lhs.false
   %desc19 = getelementptr inbounds i8, ptr %vq, i64 8
   %nregions.i = getelementptr inbounds i8, ptr %dev, i64 4
   %regions.i = getelementptr inbounds i8, ptr %dev, i64 8
-  %idx.i.i379 = getelementptr inbounds i8, ptr %1, i64 2
-  %3 = load i16, ptr %idx.i.i379, align 2
+  %idx.i.i382 = getelementptr inbounds i8, ptr %1, i64 2
+  %3 = load i16, ptr %idx.i.i382, align 2
   store i16 %3, ptr %shadow_avail_idx.i.i, align 2
-  %conv1.i380 = sub i16 %3, %2
-  %conv2.i381 = zext i16 %conv1.i380 to i32
+  %conv1.i383 = sub i16 %3, %2
+  %conv2.i384 = zext i16 %conv1.i383 to i32
   %4 = load i32, ptr %vq, align 8
-  %cmp.i382 = icmp ult i32 %4, %conv2.i381
-  br i1 %cmp.i382, label %while.end.thread, label %if.end.i
+  %cmp.i385 = icmp ult i32 %4, %conv2.i384
+  br i1 %cmp.i385, label %while.end.thread99, label %if.end.i
 
-while.end.thread:                                 ; preds = %if.end103, %while.cond.preheader
+while.end.thread99:                               ; preds = %if.end103, %while.cond.preheader
   %idx.0.lcssa = phi i32 [ %conv, %while.cond.preheader ], [ %inc, %if.end103 ]
-  %.lcssa325 = phi i16 [ %3, %while.cond.preheader ], [ %36, %if.end103 ]
-  %conv4.i = zext i16 %.lcssa325 to i32
+  %.lcssa328 = phi i16 [ %3, %while.cond.preheader ], [ %36, %if.end103 ]
+  %conv4.i = zext i16 %.lcssa328 to i32
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %dev, ptr noundef nonnull @.str.98, i32 noundef %idx.0.lcssa, i32 noundef %conv4.i)
   br label %done
 
 if.end.i:                                         ; preds = %while.cond.preheader, %if.end103
   %5 = phi i16 [ %37, %if.end103 ], [ %2, %while.cond.preheader ]
   %6 = phi i16 [ %36, %if.end103 ], [ %3, %while.cond.preheader ]
-  %idx.0386 = phi i32 [ %inc, %if.end103 ], [ %conv, %while.cond.preheader ]
-  %total_bufs.0385 = phi i32 [ %total_bufs.1, %if.end103 ], [ 0, %while.cond.preheader ]
-  %out_total.1384 = phi i32 [ %out_total.3, %if.end103 ], [ 0, %while.cond.preheader ]
-  %in_total.1383 = phi i32 [ %in_total.3, %if.end103 ], [ 0, %while.cond.preheader ]
+  %idx.0389 = phi i32 [ %inc, %if.end103 ], [ %conv, %while.cond.preheader ]
+  %total_bufs.0388 = phi i32 [ %total_bufs.1, %if.end103 ], [ 0, %while.cond.preheader ]
+  %out_total.1387 = phi i32 [ %out_total.3, %if.end103 ], [ 0, %while.cond.preheader ]
+  %in_total.1386 = phi i32 [ %in_total.3, %if.end103 ], [ 0, %while.cond.preheader ]
   %tobool.not.i = icmp eq i16 %6, %5
-  br i1 %tobool.not.i, label %done, label %while.body
+  br i1 %tobool.not.i, label %done, label %virtqueue_num_heads.exit
 
-while.body:                                       ; preds = %if.end.i
+virtqueue_num_heads.exit:                         ; preds = %if.end.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !5
   fence acquire
   %7 = load i32, ptr %vq, align 8
-  %inc = add i32 %idx.0386, 1
-  %rem.i = urem i32 %idx.0386, %7
+  %inc = add i32 %idx.0389, 1
+  %rem.i = urem i32 %idx.0389, %7
   %vq.val.i = load ptr, ptr %avail, align 8
   %ring.i.i = getelementptr inbounds i8, ptr %vq.val.i, i64 4
   %idxprom.i.i = sext i32 %rem.i to i64
@@ -1734,11 +1734,11 @@ while.body:                                       ; preds = %if.end.i
   %cmp.not.i = icmp ugt i32 %7, %conv.i
   br i1 %cmp.not.i, label %if.end17, label %virtqueue_get_head.exit
 
-virtqueue_get_head.exit:                          ; preds = %while.body
+virtqueue_get_head.exit:                          ; preds = %virtqueue_num_heads.exit
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %dev, ptr noundef nonnull @.str.99, i32 noundef %conv.i)
   br label %done
 
-if.end17:                                         ; preds = %while.body
+if.end17:                                         ; preds = %virtqueue_num_heads.exit
   %9 = load ptr, ptr %desc19, align 8
   %idxprom = zext i16 %8 to i64
   %flags = getelementptr %struct.vring_desc, ptr %9, i64 %idxprom, i32 2
@@ -1759,7 +1759,7 @@ if.then29:                                        ; preds = %if.then23
   br label %done
 
 if.end30:                                         ; preds = %if.then23
-  %cmp31.not = icmp ult i32 %total_bufs.0385, %7
+  %cmp31.not = icmp ult i32 %total_bufs.0388, %7
   br i1 %cmp31.not, label %if.end34, label %if.then33
 
 if.then33:                                        ; preds = %if.end30
@@ -1902,14 +1902,14 @@ if.then65:                                        ; preds = %if.then56, %for.con
 if.end67:                                         ; preds = %if.end6.i, %if.end63, %if.end17
   %i.0 = phi i32 [ %conv.i, %if.end17 ], [ 0, %if.end63 ], [ 0, %if.end6.i ]
   %max.0 = phi i32 [ %7, %if.end17 ], [ %div42, %if.end63 ], [ %div42, %if.end6.i ]
-  %num_bufs.0 = phi i32 [ %total_bufs.0385, %if.end17 ], [ 0, %if.end63 ], [ 0, %if.end6.i ]
+  %num_bufs.0 = phi i32 [ %total_bufs.0388, %if.end17 ], [ 0, %if.end63 ], [ 0, %if.end6.i ]
   %desc.0 = phi ptr [ %9, %if.end17 ], [ %desc.1, %if.end63 ], [ %desc_buf, %if.end6.i ]
   br label %do.body
 
 do.body:                                          ; preds = %if.end.i55, %if.end67
   %i.1 = phi i32 [ %i.0, %if.end67 ], [ %conv5.i, %if.end.i55 ]
-  %in_total.2 = phi i32 [ %in_total.1383, %if.end67 ], [ %in_total.3, %if.end.i55 ]
-  %out_total.2 = phi i32 [ %out_total.1384, %if.end67 ], [ %out_total.3, %if.end.i55 ]
+  %in_total.2 = phi i32 [ %in_total.1386, %if.end67 ], [ %in_total.3, %if.end.i55 ]
+  %out_total.2 = phi i32 [ %out_total.1387, %if.end67 ], [ %out_total.3, %if.end.i55 ]
   %num_bufs.1 = phi i32 [ %num_bufs.0, %if.end67 ], [ %inc68, %if.end.i55 ]
   %inc68 = add i32 %num_bufs.1, 1
   %cmp69 = icmp ugt i32 %inc68, %max.0
@@ -1955,7 +1955,7 @@ virtqueue_read_next_desc.exit.thread94:           ; preds = %if.end.i55
   br label %done
 
 if.end103:                                        ; preds = %if.end96
-  %inc107 = add i32 %total_bufs.0385, 1
+  %inc107 = add i32 %total_bufs.0388, 1
   %total_bufs.1 = select i1 %tobool22.not, i32 %inc68, i32 %inc107
   %.pre = load ptr, ptr %avail, align 8
   %idx.i.i = getelementptr inbounds i8, ptr %.pre, i64 2
@@ -1966,11 +1966,11 @@ if.end103:                                        ; preds = %if.end96
   %conv2.i = zext i16 %conv1.i to i32
   %38 = load i32, ptr %vq, align 8
   %cmp.i = icmp ult i32 %38, %conv2.i
-  br i1 %cmp.i, label %while.end.thread, label %if.end.i
+  br i1 %cmp.i, label %while.end.thread99, label %if.end.i
 
-done:                                             ; preds = %if.end.i, %if.end72, %if.then29, %if.then33, %if.then65, %if.then71, %virtqueue_get_head.exit, %virtqueue_read_next_desc.exit.thread94, %while.end.thread, %entry, %lor.lhs.false
-  %in_total.0 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false ], [ 0, %while.end.thread ], [ 0, %virtqueue_read_next_desc.exit.thread94 ], [ 0, %virtqueue_get_head.exit ], [ 0, %if.then71 ], [ 0, %if.then65 ], [ 0, %if.then33 ], [ 0, %if.then29 ], [ %in_total.3, %if.end72 ], [ %in_total.1383, %if.end.i ]
-  %out_total.0 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false ], [ 0, %while.end.thread ], [ 0, %virtqueue_read_next_desc.exit.thread94 ], [ 0, %virtqueue_get_head.exit ], [ 0, %if.then71 ], [ 0, %if.then65 ], [ 0, %if.then33 ], [ 0, %if.then29 ], [ %out_total.3, %if.end72 ], [ %out_total.1384, %if.end.i ]
+done:                                             ; preds = %if.end.i, %if.end72, %if.then29, %if.then33, %if.then65, %if.then71, %virtqueue_get_head.exit, %virtqueue_read_next_desc.exit.thread94, %while.end.thread99, %entry, %lor.lhs.false
+  %in_total.0 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false ], [ 0, %while.end.thread99 ], [ 0, %virtqueue_read_next_desc.exit.thread94 ], [ 0, %virtqueue_get_head.exit ], [ 0, %if.then71 ], [ 0, %if.then65 ], [ 0, %if.then33 ], [ 0, %if.then29 ], [ %in_total.3, %if.end72 ], [ %in_total.1386, %if.end.i ]
+  %out_total.0 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false ], [ 0, %while.end.thread99 ], [ 0, %virtqueue_read_next_desc.exit.thread94 ], [ 0, %virtqueue_get_head.exit ], [ 0, %if.then71 ], [ 0, %if.then65 ], [ 0, %if.then33 ], [ 0, %if.then29 ], [ %out_total.3, %if.end72 ], [ %out_total.1387, %if.end.i ]
   %tobool113.not = icmp eq ptr %in_bytes, null
   br i1 %tobool113.not, label %if.end115, label %if.then114
 

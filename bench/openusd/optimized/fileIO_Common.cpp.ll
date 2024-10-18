@@ -6389,7 +6389,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility4PutsERNS_14Sdf_TextOutp
 
 37:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility4PutsERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, %3
   %.not42.i = icmp eq ptr %15, %16
-  br i1 %.not42.i, label %._crit_edge.i, label %.lr.ph.preheader.i
+  br i1 %.not42.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_WriteNameVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRNS_14Sdf_TextOutputEmRKSt6vectorIT_SaISA_EE.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %37
   %umax.i = call i64 @llvm.umax.i64(i64 %20, i64 1)
@@ -6490,7 +6490,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility17WriteQuotedStringERNS_
   %exitcond.not.i = icmp eq i64 %57, %umax.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
 
-._crit_edge.i:                                    ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility17WriteQuotedStringERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, %37
+._crit_edge.i:                                    ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility17WriteQuotedStringERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
   br i1 %21, label %58, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_WriteNameVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRNS_14Sdf_TextOutputEmRKSt6vectorIT_SaISA_EE.exit
 
 58:                                               ; preds = %._crit_edge.i
@@ -6558,7 +6558,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility4PutsERNS_14Sdf_TextOutp
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #18
   br label %common.resume.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__L16_WriteNameVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRNS_14Sdf_TextOutputEmRKSt6vectorIT_SaISA_EE.exit: ; preds = %._crit_edge.i, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility4PutsERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit40.i
+_ZN32pxrInternal_v0_24__pxrReserved__L16_WriteNameVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRNS_14Sdf_TextOutputEmRKSt6vectorIT_SaISA_EE.exit: ; preds = %37, %._crit_edge.i, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility4PutsERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit40.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
@@ -6663,7 +6663,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility4PutsERNS_14Sdf_TextOutp
 
 37:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility4PutsERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, %3
   %.not42.i = icmp eq ptr %15, %16
-  br i1 %.not42.i, label %._crit_edge.i, label %.lr.ph.preheader.i
+  br i1 %.not42.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_WriteNameVectorINS_7TfTokenEEEbRNS_14Sdf_TextOutputEmRKSt6vectorIT_SaIS5_EE.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %37
   %umax.i = call i64 @llvm.umax.i64(i64 %20, i64 1)
@@ -6781,7 +6781,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility17WriteQuotedStringERNS_
   %exitcond.not.i = icmp eq i64 %66, %umax.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
 
-._crit_edge.i:                                    ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility17WriteQuotedStringERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, %37
+._crit_edge.i:                                    ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility17WriteQuotedStringERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
   br i1 %21, label %67, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_WriteNameVectorINS_7TfTokenEEEbRNS_14Sdf_TextOutputEmRKSt6vectorIT_SaIS5_EE.exit
 
 67:                                               ; preds = %._crit_edge.i
@@ -6849,7 +6849,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility4PutsERNS_14Sdf_TextOutp
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #18
   br label %common.resume.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__L16_WriteNameVectorINS_7TfTokenEEEbRNS_14Sdf_TextOutputEmRKSt6vectorIT_SaIS5_EE.exit: ; preds = %._crit_edge.i, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility4PutsERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit40.i
+_ZN32pxrInternal_v0_24__pxrReserved__L16_WriteNameVectorINS_7TfTokenEEEbRNS_14Sdf_TextOutputEmRKSt6vectorIT_SaIS5_EE.exit: ; preds = %37, %._crit_edge.i, %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility4PutsERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit40.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)

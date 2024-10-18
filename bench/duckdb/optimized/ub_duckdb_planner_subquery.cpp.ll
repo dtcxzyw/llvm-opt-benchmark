@@ -8948,10 +8948,6 @@ for.cond1744.preheader:                           ; preds = %invoke.cont1739
   %_M_finish.i41004955 = getelementptr inbounds i8, ptr %1033, i64 8
   %1034 = load ptr, ptr %_M_finish.i41004955, align 8, !tbaa !30
   %1035 = load ptr, ptr %1033, align 8, !tbaa !32
-  %sub.ptr.lhs.cast.i41014956 = ptrtoint ptr %1034 to i64
-  %sub.ptr.rhs.cast.i41024957 = ptrtoint ptr %1035 to i64
-  %sub.ptr.sub.i41034958 = sub i64 %sub.ptr.lhs.cast.i41014956, %sub.ptr.rhs.cast.i41024957
-  %sub.ptr.div.i41044959 = sdiv exact i64 %sub.ptr.sub.i41034958, 80
   %cmp17474960.not = icmp eq ptr %1034, %1035
   br i1 %cmp17474960.not, label %for.cond.cleanup1748, label %for.body1749.lr.ph
 
@@ -8964,7 +8960,7 @@ for.body1749.lr.ph:                               ; preds = %for.cond1744.prehea
   br label %for.body1749
 
 for.cond.cleanup1748:                             ; preds = %for.inc1802, %for.cond1744.preheader
-  %sub.ptr.div.i4104.lcssa = phi i64 [ %sub.ptr.div.i41044959, %for.cond1744.preheader ], [ %sub.ptr.div.i4104, %for.inc1802 ]
+  %sub.ptr.div.i4104.lcssa = phi i64 [ 0, %for.cond1744.preheader ], [ %sub.ptr.div.i4104, %for.inc1802 ]
   %table_index1807 = getelementptr inbounds i8, ptr %call1742, i64 104
   %1036 = load i64, ptr %table_index1807, align 8, !tbaa !354
   store i64 %1036, ptr %base_binding1732, align 8, !tbaa !89

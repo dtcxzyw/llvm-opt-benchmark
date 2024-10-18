@@ -790,241 +790,243 @@ _ZN5dracoL17ComputeBitLengthsEPKjiiPSt6vectorIjSaIjEEPj.exit: ; preds = %_ZNSt6v
   %64 = ptrtoint ptr %62 to i64
   %65 = sub i64 %63, %64
   %.not.i.i.i.i = icmp eq ptr %60, %62
-  br i1 %.not.i.i.i.i, label %.noexc53.thread.thread, label %67
+  br i1 %.not.i.i.i.i, label %.noexc53.thread.thread, label %66
 
 .noexc53.thread.thread:                           ; preds = %_ZN5dracoL17ComputeBitLengthsEPKjiiPSt6vectorIjSaIjEEPj.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %66 = ashr exact i64 %65, 2
   br label %._crit_edge.i58
 
-67:                                               ; preds = %_ZN5dracoL17ComputeBitLengthsEPKjiiPSt6vectorIjSaIjEEPj.exit
-  %68 = icmp ugt i64 %65, 9223372036854775804
-  br i1 %68, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i
+66:                                               ; preds = %_ZN5dracoL17ComputeBitLengthsEPKjiiPSt6vectorIjSaIjEEPj.exit
+  %67 = icmp ugt i64 %65, 9223372036854775804
+  br i1 %67, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i
 
-.noexc.i.i:                                       ; preds = %67
+.noexc.i.i:                                       ; preds = %66
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #21
           to label %.noexc52 unwind label %.loopexit.split-lp
 
 .noexc52:                                         ; preds = %.noexc.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i: ; preds = %67
-  %69 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %65) #20
+_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i: ; preds = %66
+  %68 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %65) #20
           to label %.lr.ph.preheader.i55 unwind label %.loopexit.split-lp
 
 .lr.ph.preheader.i55:                             ; preds = %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %69, ptr align 4 %62, i64 %65, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %68, ptr align 4 %62, i64 %65, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %70 = lshr exact i64 %65, 2
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %70, i64 1)
+  %69 = lshr exact i64 %65, 2
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %69, i64 1)
   br label %.lr.ph.i56
 
 .lr.ph.i56:                                       ; preds = %.lr.ph.i56, %.lr.ph.preheader.i55
-  %.02.i = phi i64 [ %74, %.lr.ph.i56 ], [ 0, %.lr.ph.preheader.i55 ]
-  %.081.i = phi i64 [ %75, %.lr.ph.i56 ], [ 0, %.lr.ph.preheader.i55 ]
-  %71 = getelementptr inbounds i32, ptr %69, i64 %.081.i
-  %72 = load i32, ptr %71, align 4
-  %73 = zext i32 %72 to i64
-  %74 = add i64 %.02.i, %73
-  %75 = add nuw i64 %.081.i, 1
-  %exitcond.not.i57 = icmp eq i64 %75, %umax.i
-  br i1 %exitcond.not.i57, label %._crit_edge.i58, label %.lr.ph.i56, !llvm.loop !7
+  %.02.i = phi i64 [ %73, %.lr.ph.i56 ], [ 0, %.lr.ph.preheader.i55 ]
+  %.081.i = phi i64 [ %74, %.lr.ph.i56 ], [ 0, %.lr.ph.preheader.i55 ]
+  %70 = getelementptr inbounds i32, ptr %68, i64 %.081.i
+  %71 = load i32, ptr %70, align 4
+  %72 = zext i32 %71 to i64
+  %73 = add i64 %.02.i, %72
+  %74 = add nuw i64 %.081.i, 1
+  %exitcond.not.i57 = icmp eq i64 %74, %umax.i
+  br i1 %exitcond.not.i57, label %._crit_edge.i58.loopexit, label %.lr.ph.i56, !llvm.loop !7
 
-._crit_edge.i58:                                  ; preds = %.lr.ph.i56, %.noexc53.thread.thread
-  %76 = phi i64 [ %66, %.noexc53.thread.thread ], [ %70, %.lr.ph.i56 ]
-  %77 = phi ptr [ null, %.noexc53.thread.thread ], [ %69, %.lr.ph.i56 ]
-  %.0.lcssa.i = phi i64 [ 0, %.noexc53.thread.thread ], [ %74, %.lr.ph.i56 ]
-  %78 = trunc i64 %76 to i32
-  %79 = invoke noundef i64 @_ZN5draco21ComputeShannonEntropyEPKjiiPi(ptr noundef %77, i32 noundef %78, i32 noundef 32, ptr noundef nonnull %7)
-          to label %80 unwind label %130
+._crit_edge.i58.loopexit:                         ; preds = %.lr.ph.i56
+  %75 = trunc i64 %69 to i32
+  br label %._crit_edge.i58
 
-80:                                               ; preds = %._crit_edge.i58
-  %81 = load i32, ptr %7, align 4
-  %82 = shl nsw i32 %81, 3
-  %83 = sext i32 %82 to i64
-  %84 = shl nsw i64 %83, 1
-  %85 = mul i64 %.0.lcssa.i, %25
-  %86 = add i64 %79, %85
-  %87 = add i64 %86, %84
+._crit_edge.i58:                                  ; preds = %._crit_edge.i58.loopexit, %.noexc53.thread.thread
+  %76 = phi i32 [ 0, %.noexc53.thread.thread ], [ %75, %._crit_edge.i58.loopexit ]
+  %77 = phi ptr [ null, %.noexc53.thread.thread ], [ %68, %._crit_edge.i58.loopexit ]
+  %.0.lcssa.i = phi i64 [ 0, %.noexc53.thread.thread ], [ %73, %._crit_edge.i58.loopexit ]
+  %78 = invoke noundef i64 @_ZN5draco21ComputeShannonEntropyEPKjiiPi(ptr noundef %77, i32 noundef %76, i32 noundef 32, ptr noundef nonnull %7)
+          to label %79 unwind label %129
+
+79:                                               ; preds = %._crit_edge.i58
+  %80 = load i32, ptr %7, align 4
+  %81 = shl nsw i32 %80, 3
+  %82 = sext i32 %81 to i64
+  %83 = shl nsw i64 %82, 1
+  %84 = mul i64 %.0.lcssa.i, %25
+  %85 = add i64 %78, %84
+  %86 = add i64 %85, %83
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %.not.i.i.i60 = icmp eq ptr %77, null
-  br i1 %.not.i.i.i60, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %88
+  br i1 %.not.i.i.i60, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %87
 
-88:                                               ; preds = %80
+87:                                               ; preds = %79
   call void @_ZdlPv(ptr noundef nonnull %77) #22
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
-_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %80, %88
+_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %79, %87
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %89 = invoke noundef i64 @_ZN5draco21ComputeShannonEntropyEPKjiiPi(ptr noundef %0, i32 noundef range(i32 1, -2147483648) %1, i32 noundef %spec.select, ptr noundef nonnull %6)
-          to label %90 unwind label %.loopexit.split-lp
+  %88 = invoke noundef i64 @_ZN5draco21ComputeShannonEntropyEPKjiiPi(ptr noundef %0, i32 noundef range(i32 1, -2147483648) %1, i32 noundef %spec.select, ptr noundef nonnull %6)
+          to label %89 unwind label %.loopexit.split-lp
 
-90:                                               ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit
-  %91 = load i32, ptr %6, align 4
-  %92 = sub nsw i32 %spec.select, %91
-  %93 = sdiv i32 %92, 64
-  %94 = add nsw i32 %93, %91
-  %95 = shl nsw i32 %94, 3
-  %96 = sext i32 %95 to i64
-  %97 = shl nsw i32 %91, 3
-  %98 = sext i32 %97 to i64
-  %99 = add i64 %89, %98
-  %100 = add i64 %99, %96
+89:                                               ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit
+  %90 = load i32, ptr %6, align 4
+  %91 = sub nsw i32 %spec.select, %90
+  %92 = sdiv i32 %91, 64
+  %93 = add nsw i32 %92, %90
+  %94 = shl nsw i32 %93, 3
+  %95 = sext i32 %94 to i64
+  %96 = shl nsw i32 %90, 3
+  %97 = sext i32 %96 to i64
+  %98 = add i64 %88, %97
+  %99 = add i64 %98, %95
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %.sroa.speculated = call i32 @llvm.umax.i32(i32 %spec.select, i32 1)
-  %101 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.sroa.speculated, i1 true)
-  %102 = xor i32 %101, 30
+  %100 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.sroa.speculated, i1 true)
+  %101 = xor i32 %100, 30
   %.not.not = icmp eq ptr %3, null
-  br i1 %.not.not, label %.critedge.thread, label %103
+  br i1 %.not.not, label %.critedge.thread, label %102
 
-103:                                              ; preds = %90
+102:                                              ; preds = %89
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #19
-  %104 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %.noexc62 unwind label %133
+  %103 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %.noexc62 unwind label %132
 
-.noexc62:                                         ; preds = %103
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %104, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %.noexc63 unwind label %133
+.noexc62:                                         ; preds = %102
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %103, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %.noexc63 unwind label %132
 
 .noexc63:                                         ; preds = %.noexc62
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 22))
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %105
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %104
 
-105:                                              ; preds = %.noexc63
-  %106 = landingpad { ptr, i32 }
+104:                                              ; preds = %.noexc63
+  %105 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc63
-  %107 = getelementptr inbounds i8, ptr %3, i64 16
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %3, i64 8
-  %.not11.i.i.i.i = icmp eq ptr %108, null
+  %106 = getelementptr inbounds i8, ptr %3, i64 16
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds i8, ptr %3, i64 8
+  %.not11.i.i.i.i = icmp eq ptr %107, null
   br i1 %.not11.i.i.i.i, label %.critedge.thread.critedge, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i
-  %.013.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i ], [ %108, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
-  %.0812.i.i.i.i = phi ptr [ %.19.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i ], [ %109, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
-  %110 = getelementptr inbounds i8, ptr %.013.i.i.i.i, i64 32
-  %111 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i unwind label %112
+  %.013.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i ], [ %107, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
+  %.0812.i.i.i.i = phi ptr [ %.19.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i ], [ %108, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
+  %109 = getelementptr inbounds i8, ptr %.013.i.i.i.i, i64 32
+  %110 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i unwind label %111
 
-112:                                              ; preds = %.lr.ph.i.i.i.i
-  %113 = landingpad { ptr, i32 }
+111:                                              ; preds = %.lr.ph.i.i.i.i
+  %112 = landingpad { ptr, i32 }
           catch ptr null
-  %114 = extractvalue { ptr, i32 } %113, 0
-  call void @__clang_call_terminate(ptr %114) #23
+  %113 = extractvalue { ptr, i32 } %112, 0
+  call void @__clang_call_terminate(ptr %113) #23
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %115 = icmp slt i32 %111, 0
-  %.19.i.i.i.i = select i1 %115, ptr %.0812.i.i.i.i, ptr %.013.i.i.i.i
-  %.1.in.v.i.i.i.i = select i1 %115, i64 24, i64 16
+  %114 = icmp slt i32 %110, 0
+  %.19.i.i.i.i = select i1 %114, ptr %.0812.i.i.i.i, ptr %.013.i.i.i.i
+  %.1.in.v.i.i.i.i = select i1 %114, i64 24, i64 16
   %.1.in.i.i.i.i = getelementptr inbounds i8, ptr %.013.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i64 = icmp eq ptr %.1.i.i.i.i, null
   br i1 %.not.i.i.i.i64, label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !8
 
 _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i
-  %116 = icmp eq ptr %.19.i.i.i.i, %109
-  br i1 %116, label %.thread86, label %117
+  %115 = icmp eq ptr %.19.i.i.i.i, %108
+  br i1 %115, label %.thread86, label %116
 
-117:                                              ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i
-  %118 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
-  %119 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %118)
-          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i unwind label %120
+116:                                              ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i
+  %117 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
+  %118 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %117)
+          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i unwind label %119
 
-120:                                              ; preds = %117
-  %121 = landingpad { ptr, i32 }
+119:                                              ; preds = %116
+  %120 = landingpad { ptr, i32 }
           catch ptr null
-  %122 = extractvalue { ptr, i32 } %121, 0
-  call void @__clang_call_terminate(ptr %122) #23
+  %121 = extractvalue { ptr, i32 } %120, 0
+  call void @__clang_call_terminate(ptr %121) #23
   unreachable
 
-_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i: ; preds = %117
-  %123 = icmp slt i32 %119, 0
-  %spec.select.i.i.i = select i1 %123, ptr %109, ptr %.19.i.i.i.i
+_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i: ; preds = %116
+  %122 = icmp slt i32 %118, 0
+  %spec.select.i.i.i = select i1 %122, ptr %108, ptr %.19.i.i.i.i
   br label %.thread86
 
 .thread86:                                        ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
-  %.sroa.0.0.i.i.i = phi ptr [ %109, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ %spec.select.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ]
-  %.not = icmp eq ptr %.sroa.0.0.i.i.i, %109
+  %.sroa.0.0.i.i.i = phi ptr [ %108, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ %spec.select.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ]
+  %.not = icmp eq ptr %.sroa.0.0.i.i.i, %108
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #19
-  br i1 %.not, label %.critedge.thread, label %124
+  br i1 %.not, label %.critedge.thread, label %123
 
-124:                                              ; preds = %.thread86
+123:                                              ; preds = %.thread86
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #19
-  %125 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %.noexc65 unwind label %135
+  %124 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+          to label %.noexc65 unwind label %134
 
-.noexc65:                                         ; preds = %124
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %125, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %.noexc66 unwind label %135
+.noexc65:                                         ; preds = %123
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %124, ptr noundef nonnull align 1 dereferenceable(1) %12)
+          to label %.noexc66 unwind label %134
 
 .noexc66:                                         ; preds = %.noexc65
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 22))
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit69 unwind label %126
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit69 unwind label %125
 
-126:                                              ; preds = %.noexc66
-  %127 = landingpad { ptr, i32 }
+125:                                              ; preds = %.noexc66
+  %126 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #19
   br label %.body67
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit69: ; preds = %.noexc66
-  %128 = invoke noundef i32 @_ZNK5draco7Options6GetIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %129 unwind label %137
+  %127 = invoke noundef i32 @_ZNK5draco7Options6GetIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(32) %11)
+          to label %128 unwind label %136
 
-129:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit69
+128:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit69
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #19
-  br label %141
+  br label %140
 
 .loopexit:                                        ; preds = %49
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit71
 
-.loopexit.split-lp:                               ; preds = %155, %157, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i, %43, %.noexc.i.i, %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i, %_ZNSt6vectorIjSaIjEED2Ev.exit, %146
+.loopexit.split-lp:                               ; preds = %154, %156, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i, %43, %.noexc.i.i, %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i, %_ZNSt6vectorIjSaIjEED2Ev.exit, %145
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit71
 
-130:                                              ; preds = %._crit_edge.i58
-  %131 = landingpad { ptr, i32 }
+129:                                              ; preds = %._crit_edge.i58
+  %130 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i70 = icmp eq ptr %77, null
-  br i1 %.not.i.i.i70, label %_ZNSt6vectorIjSaIjEED2Ev.exit71, label %132
+  br i1 %.not.i.i.i70, label %_ZNSt6vectorIjSaIjEED2Ev.exit71, label %131
 
-132:                                              ; preds = %130
+131:                                              ; preds = %129
   call void @_ZdlPv(ptr noundef nonnull %77) #22
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit71
 
-133:                                              ; preds = %.noexc62, %103
-  %134 = landingpad { ptr, i32 }
+132:                                              ; preds = %.noexc62, %102
+  %133 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %133, %105
-  %.pn = phi { ptr, i32 } [ %134, %133 ], [ %106, %105 ]
+.body:                                            ; preds = %132, %104
+  %.pn = phi { ptr, i32 } [ %133, %132 ], [ %105, %104 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #19
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit71
 
-135:                                              ; preds = %.noexc65, %124
-  %136 = landingpad { ptr, i32 }
+134:                                              ; preds = %.noexc65, %123
+  %135 = landingpad { ptr, i32 }
           cleanup
   br label %.body67
 
-137:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit69
-  %138 = landingpad { ptr, i32 }
+136:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit69
+  %137 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #19
   br label %.body67
 
-.body67:                                          ; preds = %135, %126, %137
-  %.pn45 = phi { ptr, i32 } [ %138, %137 ], [ %136, %135 ], [ %127, %126 ]
+.body67:                                          ; preds = %134, %125, %136
+  %.pn45 = phi { ptr, i32 } [ %137, %136 ], [ %135, %134 ], [ %126, %125 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #19
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit71
 
@@ -1033,73 +1035,73 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit69: ; 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #19
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.critedge.thread.critedge, %90, %.thread86
-  %139 = icmp sge i64 %87, %100
-  %140 = icmp samesign ult i32 %102, 18
-  %or.cond.not = and i1 %140, %139
+.critedge.thread:                                 ; preds = %.critedge.thread.critedge, %89, %.thread86
+  %138 = icmp sge i64 %86, %99
+  %139 = icmp samesign ult i32 %101, 18
+  %or.cond.not = and i1 %139, %138
   %. = zext i1 %or.cond.not to i32
-  br label %141
+  br label %140
 
-141:                                              ; preds = %.critedge.thread, %129
-  %.035 = phi i32 [ %128, %129 ], [ %., %.critedge.thread ]
-  %142 = trunc i32 %.035 to i8
-  store i8 %142, ptr %13, align 1
-  %143 = getelementptr inbounds i8, ptr %4, i64 32
-  %144 = load i64, ptr %143, align 8
-  %145 = icmp slt i64 %144, 1
-  br i1 %145, label %146, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+140:                                              ; preds = %.critedge.thread, %128
+  %.035 = phi i32 [ %127, %128 ], [ %., %.critedge.thread ]
+  %141 = trunc i32 %.035 to i8
+  store i8 %141, ptr %13, align 1
+  %142 = getelementptr inbounds i8, ptr %4, i64 32
+  %143 = load i64, ptr %142, align 8
+  %144 = icmp slt i64 %143, 1
+  br i1 %144, label %145, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
 
-146:                                              ; preds = %141
-  %147 = getelementptr inbounds i8, ptr %4, i64 8
-  %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds i8, ptr %13, i64 1
-  %150 = load ptr, ptr %4, align 8
-  %151 = ptrtoint ptr %148 to i64
-  %152 = ptrtoint ptr %150 to i64
-  %153 = sub i64 %151, %152
-  %154 = getelementptr inbounds i8, ptr %150, i64 %153
-  invoke void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(41) %4, ptr %154, ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull %149)
+145:                                              ; preds = %140
+  %146 = getelementptr inbounds i8, ptr %4, i64 8
+  %147 = load ptr, ptr %146, align 8
+  %148 = getelementptr inbounds i8, ptr %13, i64 1
+  %149 = load ptr, ptr %4, align 8
+  %150 = ptrtoint ptr %147 to i64
+  %151 = ptrtoint ptr %149 to i64
+  %152 = sub i64 %150, %151
+  %153 = getelementptr inbounds i8, ptr %149, i64 %152
+  invoke void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(41) %4, ptr %153, ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull %148)
           to label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit unwind label %.loopexit.split-lp
 
-_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %141, %146
-  switch i32 %.035, label %159 [
-    i32 0, label %155
-    i32 1, label %157
+_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %140, %145
+  switch i32 %.035, label %158 [
+    i32 0, label %154
+    i32 1, label %156
   ]
 
-155:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %156 = invoke noundef zeroext i1 @_ZN5draco19EncodeTaggedSymbolsINS_17RAnsSymbolEncoderEEEbPKjiiRKSt6vectorIjSaIjEEPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %spec.store.select, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %4)
-          to label %159 unwind label %.loopexit.split-lp
+154:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  %155 = invoke noundef zeroext i1 @_ZN5draco19EncodeTaggedSymbolsINS_17RAnsSymbolEncoderEEEbPKjiiRKSt6vectorIjSaIjEEPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %spec.store.select, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %4)
+          to label %158 unwind label %.loopexit.split-lp
 
-157:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %158 = invoke noundef zeroext i1 @_ZN5draco16EncodeRawSymbolsINS_17RAnsSymbolEncoderEEEbPKjijiPKNS_7OptionsEPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %spec.select, i32 noundef %91, ptr noundef %3, ptr noundef nonnull %4)
-          to label %159 unwind label %.loopexit.split-lp
+156:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  %157 = invoke noundef zeroext i1 @_ZN5draco16EncodeRawSymbolsINS_17RAnsSymbolEncoderEEEbPKjijiPKNS_7OptionsEPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %spec.select, i32 noundef %90, ptr noundef %3, ptr noundef nonnull %4)
+          to label %158 unwind label %.loopexit.split-lp
 
-159:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit, %157, %155
-  %.1 = phi i1 [ %156, %155 ], [ %158, %157 ], [ false, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ]
-  %160 = load ptr, ptr %8, align 8
-  %.not.i.i.i73 = icmp eq ptr %160, null
-  br i1 %.not.i.i.i73, label %_ZNSt6vectorIjSaIjEED2Ev.exit74, label %161
+158:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit, %156, %154
+  %.1 = phi i1 [ %155, %154 ], [ %157, %156 ], [ false, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ]
+  %159 = load ptr, ptr %8, align 8
+  %.not.i.i.i73 = icmp eq ptr %159, null
+  br i1 %.not.i.i.i73, label %_ZNSt6vectorIjSaIjEED2Ev.exit74, label %160
 
-161:                                              ; preds = %159
-  call void @_ZdlPv(ptr noundef nonnull %160) #22
+160:                                              ; preds = %158
+  call void @_ZdlPv(ptr noundef nonnull %159) #22
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit74
 
-_ZNSt6vectorIjSaIjEED2Ev.exit71:                  ; preds = %.loopexit, %.loopexit.split-lp, %132, %130, %.body, %.body67
-  %.pn47 = phi { ptr, i32 } [ %.pn45, %.body67 ], [ %.pn, %.body ], [ %131, %130 ], [ %131, %132 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %162 = load ptr, ptr %8, align 8
-  %.not.i.i.i75 = icmp eq ptr %162, null
-  br i1 %.not.i.i.i75, label %_ZNSt6vectorIjSaIjEED2Ev.exit76, label %163
+_ZNSt6vectorIjSaIjEED2Ev.exit71:                  ; preds = %.loopexit, %.loopexit.split-lp, %131, %129, %.body, %.body67
+  %.pn47 = phi { ptr, i32 } [ %.pn45, %.body67 ], [ %.pn, %.body ], [ %130, %129 ], [ %130, %131 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %161 = load ptr, ptr %8, align 8
+  %.not.i.i.i75 = icmp eq ptr %161, null
+  br i1 %.not.i.i.i75, label %_ZNSt6vectorIjSaIjEED2Ev.exit76, label %162
 
-163:                                              ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit71
-  call void @_ZdlPv(ptr noundef nonnull %162) #22
+162:                                              ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit71
+  call void @_ZdlPv(ptr noundef nonnull %161) #22
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit76
 
-_ZNSt6vectorIjSaIjEED2Ev.exit76:                  ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit71, %163
+_ZNSt6vectorIjSaIjEED2Ev.exit76:                  ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit71, %162
   resume { ptr, i32 } %.pn47
 
-_ZNSt6vectorIjSaIjEED2Ev.exit74:                  ; preds = %161, %159, %15, %5
-  %.036 = phi i1 [ false, %5 ], [ true, %15 ], [ %.1, %159 ], [ %.1, %161 ]
+_ZNSt6vectorIjSaIjEED2Ev.exit74:                  ; preds = %160, %158, %15, %5
+  %.036 = phi i1 [ false, %5 ], [ true, %15 ], [ %.1, %158 ], [ %.1, %160 ]
   ret i1 %.036
 }
 
@@ -1850,7 +1852,7 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cx
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %.not54 = icmp ult i64 %15, %8
-  br i1 %.not54, label %57, label %16
+  br i1 %.not54, label %58, label %16
 
 16:                                               ; preds = %5
   %17 = ptrtoint ptr %1 to i64
@@ -1879,155 +1881,155 @@ _ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit: ; preds = %20, %24
 
 27:                                               ; preds = %_ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit
   %28 = sub i64 %23, %17
-  %.pre.i.i.i.i.i = sub i64 0, %28
-  %29 = getelementptr inbounds i8, ptr %12, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %29, ptr align 1 %1, i64 %28, i1 false)
+  %29 = sub i64 0, %28
+  %30 = getelementptr inbounds i8, ptr %12, i64 %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %30, ptr align 1 %1, i64 %28, i1 false)
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit
 
 _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit, %27
-  %30 = icmp sgt i64 %8, 0
-  br i1 %30, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit
+  %31 = icmp sgt i64 %8, 0
+  br i1 %31, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %.lr.ph.i.i.i.i.i
-  %.012.i.i.i.i.i = phi i64 [ %34, %.lr.ph.i.i.i.i.i ], [ %8, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ]
-  %.0811.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i ], [ %1, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ]
-  %.0910.i.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i.i ], [ %2, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ]
-  %31 = load i8, ptr %.0910.i.i.i.i.i, align 1
-  store i8 %31, ptr %.0811.i.i.i.i.i, align 1
-  %32 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 1
-  %33 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 1
-  %34 = add nsw i64 %.012.i.i.i.i.i, -1
-  %35 = icmp ugt i64 %.012.i.i.i.i.i, 1
-  br i1 %35, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !15
+  %.012.i.i.i.i.i = phi i64 [ %35, %.lr.ph.i.i.i.i.i ], [ %8, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ]
+  %.0811.i.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i.i ], [ %1, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ]
+  %.0910.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i ], [ %2, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ]
+  %32 = load i8, ptr %.0910.i.i.i.i.i, align 1
+  store i8 %32, ptr %.0811.i.i.i.i.i, align 1
+  %33 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 1
+  %34 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 1
+  %35 = add nsw i64 %.012.i.i.i.i.i, -1
+  %36 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  br i1 %36, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !15
 
 _ZSt7advanceIPKhmEvRT_T0_.exit:                   ; preds = %16
-  %36 = getelementptr inbounds i8, ptr %2, i64 %18
-  %37 = ptrtoint ptr %36 to i64
-  %38 = sub i64 %6, %37
-  %39 = icmp sgt i64 %38, 0
-  br i1 %39, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit
+  %37 = getelementptr inbounds i8, ptr %2, i64 %18
+  %38 = ptrtoint ptr %37 to i64
+  %39 = sub i64 %6, %38
+  %40 = icmp sgt i64 %39, 0
+  br i1 %40, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %_ZSt7advanceIPKhmEvRT_T0_.exit, %.lr.ph.i.i.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i.i.i = phi i64 [ %43, %.lr.ph.i.i.i.i.i.i.i.i ], [ %38, %_ZSt7advanceIPKhmEvRT_T0_.exit ]
-  %.0811.i.i.i.i.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i.i.i.i.i ], [ %12, %_ZSt7advanceIPKhmEvRT_T0_.exit ]
-  %.0910.i.i.i.i.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i.i.i.i.i ], [ %36, %_ZSt7advanceIPKhmEvRT_T0_.exit ]
-  %40 = load i8, ptr %.0910.i.i.i.i.i.i.i.i, align 1
-  store i8 %40, ptr %.0811.i.i.i.i.i.i.i.i, align 1
-  %41 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 1
-  %42 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
-  %43 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %44 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
-  br i1 %44, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit, !llvm.loop !15
+  %.012.i.i.i.i.i.i.i.i = phi i64 [ %44, %.lr.ph.i.i.i.i.i.i.i.i ], [ %39, %_ZSt7advanceIPKhmEvRT_T0_.exit ]
+  %.0811.i.i.i.i.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i.i.i.i.i ], [ %12, %_ZSt7advanceIPKhmEvRT_T0_.exit ]
+  %.0910.i.i.i.i.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i.i.i.i.i ], [ %37, %_ZSt7advanceIPKhmEvRT_T0_.exit ]
+  %41 = load i8, ptr %.0910.i.i.i.i.i.i.i.i, align 1
+  store i8 %41, ptr %.0811.i.i.i.i.i.i.i.i, align 1
+  %42 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 1
+  %43 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
+  %44 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
+  %45 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  br i1 %45, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit, !llvm.loop !15
 
 _ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   %.pre = load ptr, ptr %11, align 8
   br label %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit
 
 _ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPKhmEvRT_T0_.exit
-  %45 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit ], [ %12, %_ZSt7advanceIPKhmEvRT_T0_.exit ]
-  %46 = sub nuw i64 %8, %18
-  %47 = getelementptr inbounds i8, ptr %45, i64 %46
-  store ptr %47, ptr %11, align 8
+  %46 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit ], [ %12, %_ZSt7advanceIPKhmEvRT_T0_.exit ]
+  %47 = sub nuw i64 %8, %18
+  %48 = getelementptr inbounds i8, ptr %46, i64 %47
+  store ptr %48, ptr %11, align 8
   %.not.i.i.i.i.i.i.i.i.i55 = icmp eq ptr %12, %1
-  br i1 %.not.i.i.i.i.i.i.i.i.i55, label %_ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56, label %48
+  br i1 %.not.i.i.i.i.i.i.i.i.i55, label %_ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56, label %49
 
-48:                                               ; preds = %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %47, ptr align 1 %1, i64 %18, i1 false)
+49:                                               ; preds = %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %48, ptr align 1 %1, i64 %18, i1 false)
   %.pre85 = load ptr, ptr %11, align 8
   br label %_ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56
 
-_ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56: ; preds = %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit, %48
-  %49 = phi ptr [ %47, %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit ], [ %.pre85, %48 ]
-  %50 = getelementptr inbounds i8, ptr %49, i64 %18
-  store ptr %50, ptr %11, align 8
-  %51 = icmp sgt i64 %18, 0
-  br i1 %51, label %.lr.ph.i.i.i.i.i58, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit
+_ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56: ; preds = %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit, %49
+  %50 = phi ptr [ %48, %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit ], [ %.pre85, %49 ]
+  %51 = getelementptr inbounds i8, ptr %50, i64 %18
+  store ptr %51, ptr %11, align 8
+  %52 = icmp sgt i64 %18, 0
+  br i1 %52, label %.lr.ph.i.i.i.i.i58, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit
 
 .lr.ph.i.i.i.i.i58:                               ; preds = %_ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56, %.lr.ph.i.i.i.i.i58
-  %.012.i.i.i.i.i59 = phi i64 [ %55, %.lr.ph.i.i.i.i.i58 ], [ %18, %_ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56 ]
-  %.0811.i.i.i.i.i60 = phi ptr [ %54, %.lr.ph.i.i.i.i.i58 ], [ %1, %_ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56 ]
-  %.0910.i.i.i.i.i61 = phi ptr [ %53, %.lr.ph.i.i.i.i.i58 ], [ %2, %_ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56 ]
-  %52 = load i8, ptr %.0910.i.i.i.i.i61, align 1
-  store i8 %52, ptr %.0811.i.i.i.i.i60, align 1
-  %53 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i61, i64 1
-  %54 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i60, i64 1
-  %55 = add nsw i64 %.012.i.i.i.i.i59, -1
-  %56 = icmp ugt i64 %.012.i.i.i.i.i59, 1
-  br i1 %56, label %.lr.ph.i.i.i.i.i58, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !15
+  %.012.i.i.i.i.i59 = phi i64 [ %56, %.lr.ph.i.i.i.i.i58 ], [ %18, %_ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56 ]
+  %.0811.i.i.i.i.i60 = phi ptr [ %55, %.lr.ph.i.i.i.i.i58 ], [ %1, %_ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56 ]
+  %.0910.i.i.i.i.i61 = phi ptr [ %54, %.lr.ph.i.i.i.i.i58 ], [ %2, %_ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56 ]
+  %53 = load i8, ptr %.0910.i.i.i.i.i61, align 1
+  store i8 %53, ptr %.0811.i.i.i.i.i60, align 1
+  %54 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i61, i64 1
+  %55 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i60, i64 1
+  %56 = add nsw i64 %.012.i.i.i.i.i59, -1
+  %57 = icmp ugt i64 %.012.i.i.i.i.i59, 1
+  br i1 %57, label %.lr.ph.i.i.i.i.i58, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !15
 
-57:                                               ; preds = %5
-  %58 = load ptr, ptr %0, align 8
-  %59 = ptrtoint ptr %58 to i64
-  %60 = sub i64 %14, %59
-  %61 = sub i64 9223372036854775807, %60
-  %62 = icmp ult i64 %61, %8
-  br i1 %62, label %63, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit
+58:                                               ; preds = %5
+  %59 = load ptr, ptr %0, align 8
+  %60 = ptrtoint ptr %59 to i64
+  %61 = sub i64 %14, %60
+  %62 = sub i64 9223372036854775807, %61
+  %63 = icmp ult i64 %62, %8
+  br i1 %63, label %64, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit
 
-63:                                               ; preds = %57
+64:                                               ; preds = %58
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
   unreachable
 
-_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit:    ; preds = %57
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %60, i64 %8)
-  %64 = add i64 %.sroa.speculated.i, %60
-  %65 = icmp ult i64 %64, %60
-  %66 = tail call i64 @llvm.umin.i64(i64 %64, i64 9223372036854775807)
-  %67 = select i1 %65, i64 9223372036854775807, i64 %66
-  %.not.i = icmp eq i64 %67, 0
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit, label %68
+_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit:    ; preds = %58
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %61, i64 %8)
+  %65 = add i64 %.sroa.speculated.i, %61
+  %66 = icmp ult i64 %65, %61
+  %67 = tail call i64 @llvm.umin.i64(i64 %65, i64 9223372036854775807)
+  %68 = select i1 %66, i64 9223372036854775807, i64 %67
+  %.not.i = icmp eq i64 %68, 0
+  br i1 %.not.i, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit, label %69
 
-68:                                               ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit
-  %69 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %67) #20
+69:                                               ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit
+  %70 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %68) #20
   br label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit, %68
-  %70 = phi ptr [ %69, %68 ], [ null, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit ]
-  %71 = ptrtoint ptr %1 to i64
-  %72 = sub i64 %71, %59
-  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %1, %58
-  br i1 %.not.i.i.i.i.i.i.i.i.i63, label %74, label %73
+_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit, %69
+  %71 = phi ptr [ %70, %69 ], [ null, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit ]
+  %72 = ptrtoint ptr %1 to i64
+  %73 = sub i64 %72, %60
+  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %1, %59
+  br i1 %.not.i.i.i.i.i.i.i.i.i63, label %75, label %74
 
-73:                                               ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %70, ptr align 1 %58, i64 %72, i1 false)
-  br label %74
+74:                                               ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %71, ptr align 1 %59, i64 %73, i1 false)
+  br label %75
 
-74:                                               ; preds = %73, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit
-  %75 = getelementptr i8, ptr %70, i64 %72
-  %76 = icmp sgt i64 %8, 0
-  br i1 %76, label %.lr.ph.i.i.i.i.i.i.i.i65.preheader, label %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit69
+75:                                               ; preds = %74, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit
+  %76 = getelementptr i8, ptr %71, i64 %73
+  %77 = icmp sgt i64 %8, 0
+  br i1 %77, label %.lr.ph.i.i.i.i.i.i.i.i65.preheader, label %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit69
 
-.lr.ph.i.i.i.i.i.i.i.i65.preheader:               ; preds = %74
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %75, ptr align 1 %2, i64 %8, i1 false)
-  %77 = add i64 %6, %71
-  %78 = add i64 %7, %59
-  %79 = sub i64 %77, %78
-  %scevgep = getelementptr i8, ptr %70, i64 %79
+.lr.ph.i.i.i.i.i.i.i.i65.preheader:               ; preds = %75
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr align 1 %2, i64 %8, i1 false)
+  %78 = add i64 %6, %72
+  %79 = add i64 %7, %60
+  %80 = sub i64 %78, %79
+  %scevgep = getelementptr i8, ptr %71, i64 %80
   br label %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit69
 
-_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit69: ; preds = %.lr.ph.i.i.i.i.i.i.i.i65.preheader, %74
-  %.08.lcssa.i.i.i.i.i.i.i.i64 = phi ptr [ %75, %74 ], [ %scevgep, %.lr.ph.i.i.i.i.i.i.i.i65.preheader ]
-  %80 = sub i64 %14, %71
+_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit69: ; preds = %.lr.ph.i.i.i.i.i.i.i.i65.preheader, %75
+  %.08.lcssa.i.i.i.i.i.i.i.i64 = phi ptr [ %76, %75 ], [ %scevgep, %.lr.ph.i.i.i.i.i.i.i.i65.preheader ]
+  %81 = sub i64 %14, %72
   %.not.i.i.i.i.i.i.i.i.i70 = icmp eq ptr %12, %1
-  br i1 %.not.i.i.i.i.i.i.i.i.i70, label %82, label %81
+  br i1 %.not.i.i.i.i.i.i.i.i.i70, label %83, label %82
 
-81:                                               ; preds = %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit69
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.08.lcssa.i.i.i.i.i.i.i.i64, ptr align 1 %1, i64 %80, i1 false)
-  br label %82
+82:                                               ; preds = %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit69
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.08.lcssa.i.i.i.i.i.i.i.i64, ptr align 1 %1, i64 %81, i1 false)
+  br label %83
 
-82:                                               ; preds = %81, %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit69
-  %83 = getelementptr inbounds i8, ptr %.08.lcssa.i.i.i.i.i.i.i.i64, i64 %80
-  %.not.i72 = icmp eq ptr %58, null
-  br i1 %.not.i72, label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit, label %84
+83:                                               ; preds = %82, %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit69
+  %84 = getelementptr inbounds i8, ptr %.08.lcssa.i.i.i.i.i.i.i.i64, i64 %81
+  %.not.i72 = icmp eq ptr %59, null
+  br i1 %.not.i72, label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit, label %85
 
-84:                                               ; preds = %82
-  tail call void @_ZdlPv(ptr noundef nonnull %58) #22
+85:                                               ; preds = %83
+  tail call void @_ZdlPv(ptr noundef nonnull %59) #22
   br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit
 
-_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit: ; preds = %82, %84
-  store ptr %70, ptr %0, align 8
-  store ptr %83, ptr %11, align 8
-  %85 = getelementptr inbounds i8, ptr %70, i64 %67
-  store ptr %85, ptr %9, align 8
+_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit: ; preds = %83, %85
+  store ptr %71, ptr %0, align 8
+  store ptr %84, ptr %11, align 8
+  %86 = getelementptr inbounds i8, ptr %71, i64 %68
+  store ptr %86, ptr %9, align 8
   br label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit
 
 _ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit: ; preds = %.lr.ph.i.i.i.i.i58, %.lr.ph.i.i.i.i.i, %_ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit, %4
@@ -3015,46 +3017,46 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %26 = ptrtoint ptr %.sroa.0.041 to i64
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %28
-  %29 = getelementptr inbounds i32, ptr %25, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %29, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
+  %29 = sub nsw i64 0, %28
+  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEEvT_T0_.exit
 
-._crit_edge.i:                                    ; preds = %40
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %46) #21
+._crit_edge.i:                                    ; preds = %41
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %47) #21
   unreachable
 
-_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %40
-  %30 = phi i64 [ %46, %40 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %31 = phi ptr [ %42, %40 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %40 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %41
+  %31 = phi i64 [ %47, %41 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %32 = phi ptr [ %43, %41 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %41 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
   %.sroa.0.020.i = getelementptr inbounds i8, ptr %.sroa.05.019.i, i64 -4
-  %32 = load i32, ptr %.sroa.0.020.i, align 4
-  %33 = sext i32 %32 to i64
-  %.not.i.i2.i.i.i = icmp ugt i64 %30, %33
-  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %34
+  %33 = load i32, ptr %.sroa.0.020.i, align 4
+  %34 = sext i32 %33 to i64
+  %.not.i.i2.i.i.i = icmp ugt i64 %31, %34
+  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %35
 
-34:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %33, i64 noundef %30) #21
+35:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %34, i64 noundef %31) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %35 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %9
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %33
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp ult i32 %36, %38
-  br i1 %39, label %40, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEEvT_T0_.exit
+  %36 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %9
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %34
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp ult i32 %37, %39
+  br i1 %40, label %41, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEEvT_T0_.exit
 
-40:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  store i32 %32, ptr %.sroa.05.019.i, align 4
-  %41 = load ptr, ptr %5, align 8
-  %42 = load ptr, ptr %2, align 8
-  %43 = ptrtoint ptr %41 to i64
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
+  store i32 %33, ptr %.sroa.05.019.i, align 4
+  %42 = load ptr, ptr %5, align 8
+  %43 = load ptr, ptr %2, align 8
   %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  %46 = ashr exact i64 %45, 3
-  %.not.i.i.i.i.i9 = icmp ugt i64 %46, %9
+  %45 = ptrtoint ptr %43 to i64
+  %46 = sub i64 %44, %45
+  %47 = ashr exact i64 %46, 3
+  %.not.i.i.i.i.i9 = icmp ugt i64 %47, %9
   br i1 %.not.i.i.i.i.i9, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %._crit_edge.i, !llvm.loop !28
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -3387,7 +3389,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
 47:                                               ; preds = %24
   %48 = icmp eq i64 %25, 1
   %49 = getelementptr inbounds i32, ptr %.sroa.036.0, i64 %.078
-  br i1 %48, label %50, label %59
+  br i1 %48, label %50, label %60
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds i8, ptr %49, i64 -4
@@ -3400,44 +3402,44 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   %55 = ptrtoint ptr %.sroa.036.0 to i64
   %56 = sub i64 %54, %55
   %57 = ashr exact i64 %56, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %57
-  %58 = getelementptr inbounds i32, ptr %49, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %58, ptr nonnull align 4 %.sroa.036.0, i64 %56, i1 false)
+  %58 = sub nsw i64 0, %57
+  %59 = getelementptr inbounds i32, ptr %49, i64 %58
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %59, ptr nonnull align 4 %.sroa.036.0, i64 %56, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit: ; preds = %50, %53
   store i32 %52, ptr %.sroa.036.0, align 4
   br label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
 
-59:                                               ; preds = %47
-  %60 = sub i64 0, %25
-  %61 = getelementptr inbounds i32, ptr %49, i64 %60
-  %62 = icmp sgt i64 %.079, 0
-  br i1 %62, label %.lr.ph, label %._crit_edge
+60:                                               ; preds = %47
+  %61 = sub i64 0, %25
+  %62 = getelementptr inbounds i32, ptr %49, i64 %61
+  %63 = icmp sgt i64 %.079, 0
+  br i1 %63, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %59, %.lr.ph
-  %.02588 = phi i64 [ %67, %.lr.ph ], [ 0, %59 ]
-  %.sroa.0.087 = phi ptr [ %64, %.lr.ph ], [ %49, %59 ]
-  %.sroa.036.386 = phi ptr [ %63, %.lr.ph ], [ %61, %59 ]
-  %63 = getelementptr inbounds i8, ptr %.sroa.036.386, i64 -4
-  %64 = getelementptr inbounds i8, ptr %.sroa.0.087, i64 -4
-  %65 = load i32, ptr %63, align 4
+.lr.ph:                                           ; preds = %60, %.lr.ph
+  %.02588 = phi i64 [ %68, %.lr.ph ], [ 0, %60 ]
+  %.sroa.0.087 = phi ptr [ %65, %.lr.ph ], [ %49, %60 ]
+  %.sroa.036.386 = phi ptr [ %64, %.lr.ph ], [ %62, %60 ]
+  %64 = getelementptr inbounds i8, ptr %.sroa.036.386, i64 -4
+  %65 = getelementptr inbounds i8, ptr %.sroa.0.087, i64 -4
   %66 = load i32, ptr %64, align 4
-  store i32 %66, ptr %63, align 4
-  store i32 %65, ptr %64, align 4
-  %67 = add nuw nsw i64 %.02588, 1
-  %exitcond.not = icmp eq i64 %67, %.079
+  %67 = load i32, ptr %65, align 4
+  store i32 %67, ptr %64, align 4
+  store i32 %66, ptr %65, align 4
+  %68 = add nuw nsw i64 %.02588, 1
+  %exitcond.not = icmp eq i64 %68, %.079
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
-._crit_edge:                                      ; preds = %.lr.ph, %59
-  %.sroa.036.3.lcssa = phi ptr [ %61, %59 ], [ %.sroa.036.0, %.lr.ph ]
-  %68 = srem i64 %.078, %25
-  %69 = icmp eq i64 %68, 0
-  br i1 %69, label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %.backedge
+._crit_edge:                                      ; preds = %.lr.ph, %60
+  %.sroa.036.3.lcssa = phi ptr [ %62, %60 ], [ %.sroa.036.0, %.lr.ph ]
+  %69 = srem i64 %.078, %25
+  %70 = icmp eq i64 %69, 0
+  br i1 %70, label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %45
   %.sroa.036.0.be = phi ptr [ %.sroa.036.1.lcssa, %45 ], [ %.sroa.036.3.lcssa, %._crit_edge ]
-  %.079.be = phi i64 [ %46, %45 ], [ %68, %._crit_edge ]
+  %.079.be = phi i64 [ %46, %45 ], [ %69, %._crit_edge ]
   %.078.be = phi i64 [ %.079, %45 ], [ %25, %._crit_edge ]
   br label %24, !llvm.loop !35
 
@@ -3573,12 +3575,12 @@ _ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.ex
 
 40:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
   %.not192 = phi i1 [ %.not183, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %189, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %158, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %192, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %159, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr117188 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr186 = phi ptr [ %0, %.lr.ph ], [ %.sroa.032.0.i, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.not78 = icmp sgt i64 %.tr120191, %6
-  br i1 %.not78, label %94, label %41
+  br i1 %.not78, label %95, label %41
 
 41:                                               ; preds = %40
   %.not.i.i.i.i.i80 = icmp eq ptr %2, %.tr117188
@@ -3679,254 +3681,255 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15Probabili
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !39
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %72
-  %.sink82.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink83.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa65.sink.i = phi ptr [ %69, %72 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %89 = ptrtoint ptr %.sink82.i to i64
+  %89 = ptrtoint ptr %.sink83.i to i64
   %90 = ptrtoint ptr %5 to i64
   %91 = sub i64 %89, %90
   %92 = ashr exact i64 %91, 2
-  %.pre.i.i.i.i.i19.i = sub nsw i64 0, %92
-  %93 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %.pre.i.i.i.i.i19.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %93, ptr align 4 %5, i64 %91, i1 false)
+  %93 = sub nsw i64 0, %92
+  %94 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %93
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %94, ptr align 4 %5, i64 %91, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
-94:                                               ; preds = %40
-  %95 = ptrtoint ptr %.tr117188 to i64
+95:                                               ; preds = %40
+  %96 = ptrtoint ptr %.tr117188 to i64
   br i1 %.not192, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %94
-  %96 = sdiv i64 %.tr119190, 2
-  %97 = getelementptr inbounds i32, ptr %.tr186, i64 %96
-  %98 = sub i64 %11, %95
-  %99 = ashr exact i64 %98, 2
-  %100 = icmp sgt i64 %99, 0
-  br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %95
+  %97 = sdiv i64 %.tr119190, 2
+  %98 = getelementptr inbounds i32, ptr %.tr186, i64 %97
+  %99 = sub i64 %11, %96
+  %100 = ashr exact i64 %99, 2
+  %101 = icmp sgt i64 %100, 0
+  br i1 %101, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %101 = load ptr, ptr %10, align 8
-  %102 = load ptr, ptr %9, align 8
-  %103 = ptrtoint ptr %101 to i64
+  %102 = load ptr, ptr %10, align 8
+  %103 = load ptr, ptr %9, align 8
   %104 = ptrtoint ptr %102 to i64
-  %105 = sub i64 %103, %104
-  %106 = ashr exact i64 %105, 3
-  %107 = load i32, ptr %97, align 4
-  %108 = sext i32 %107 to i64
-  %.not.i.i2.i.i.i87 = icmp ugt i64 %106, %108
-  %109 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %108
+  %105 = ptrtoint ptr %103 to i64
+  %106 = sub i64 %104, %105
+  %107 = ashr exact i64 %106, 3
+  %108 = load i32, ptr %98, align 4
+  %109 = sext i32 %108 to i64
+  %.not.i.i2.i.i.i87 = icmp ugt i64 %107, %109
+  %110 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %109
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
-  %.020.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
+  %.020.i = phi i64 [ %100, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
-  %110 = lshr i64 %.020.i, 1
-  %111 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %110
-  %112 = load i32, ptr %111, align 4
-  %113 = sext i32 %112 to i64
-  %.not.i.i.i.i.i88 = icmp ugt i64 %106, %113
-  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %114
+  %111 = lshr i64 %.020.i, 1
+  %112 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %111
+  %113 = load i32, ptr %112, align 4
+  %114 = sext i32 %113 to i64
+  %.not.i.i.i.i.i88 = icmp ugt i64 %107, %114
+  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %115
 
-114:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %113, i64 noundef %106) #21
+115:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %114, i64 noundef %107) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %115
+  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %116
 
-115:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %108, i64 noundef %106) #21
+116:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %109, i64 noundef %107) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %116 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %113
-  %117 = load i32, ptr %116, align 4
-  %118 = load i32, ptr %109, align 4
-  %119 = icmp ult i32 %117, %118
-  %120 = getelementptr inbounds i8, ptr %111, i64 4
-  %121 = xor i64 %110, -1
-  %122 = add nsw i64 %.020.i, %121
-  %.sroa.012.1.i = select i1 %119, ptr %120, ptr %.sroa.012.019.i
-  %.1.i90 = select i1 %119, i64 %122, i64 %110
-  %123 = icmp sgt i64 %.1.i90, 0
-  br i1 %123, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !30
+  %117 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %114
+  %118 = load i32, ptr %117, align 4
+  %119 = load i32, ptr %110, align 4
+  %120 = icmp ult i32 %118, %119
+  %121 = getelementptr inbounds i8, ptr %112, i64 4
+  %122 = xor i64 %111, -1
+  %123 = add nsw i64 %.020.i, %122
+  %.sroa.012.1.i = select i1 %120, ptr %121, ptr %.sroa.012.019.i
+  %.1.i90 = select i1 %120, i64 %123, i64 %111
+  %124 = icmp sgt i64 %.1.i90, 0
+  br i1 %124, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !30
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i
   %.pre = ptrtoint ptr %.sroa.012.1.i to i64
   br label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %95, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %96, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
   %.sroa.012.0.lcssa.i = phi ptr [ %.sroa.012.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
-  %124 = sub i64 %.pre-phi, %95
-  %125 = ashr exact i64 %124, 2
-  br label %157
+  %125 = sub i64 %.pre-phi, %96
+  %126 = ashr exact i64 %125, 2
+  br label %158
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %94
-  %126 = sdiv i64 %.tr120191, 2
-  %127 = getelementptr inbounds i32, ptr %.tr117188, i64 %126
-  %128 = ptrtoint ptr %.tr186 to i64
-  %129 = sub i64 %95, %128
-  %130 = ashr exact i64 %129, 2
-  %131 = icmp sgt i64 %130, 0
-  br i1 %131, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %95
+  %127 = sdiv i64 %.tr120191, 2
+  %128 = getelementptr inbounds i32, ptr %.tr117188, i64 %127
+  %129 = ptrtoint ptr %.tr186 to i64
+  %130 = sub i64 %96, %129
+  %131 = ashr exact i64 %130, 2
+  %132 = icmp sgt i64 %131, 0
+  br i1 %132, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %132 = load i32, ptr %127, align 4
-  %133 = sext i32 %132 to i64
-  %134 = load ptr, ptr %10, align 8
-  %135 = load ptr, ptr %9, align 8
-  %136 = ptrtoint ptr %134 to i64
+  %133 = load i32, ptr %128, align 4
+  %134 = sext i32 %133 to i64
+  %135 = load ptr, ptr %10, align 8
+  %136 = load ptr, ptr %9, align 8
   %137 = ptrtoint ptr %135 to i64
-  %138 = sub i64 %136, %137
-  %139 = ashr exact i64 %138, 3
-  %.not.i.i.i.i.i98 = icmp ugt i64 %139, %133
-  %140 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %133
-  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %145
+  %138 = ptrtoint ptr %136 to i64
+  %139 = sub i64 %137, %138
+  %140 = ashr exact i64 %139, 3
+  %.not.i.i.i.i.i98 = icmp ugt i64 %140, %134
+  %141 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %134
+  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %146
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %130, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
+  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %131, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
-  %141 = lshr i64 %.020.i100, 1
-  %142 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %141
-  %143 = load i32, ptr %142, align 4
-  %144 = sext i32 %143 to i64
-  %.not.i.i2.i.i.i104 = icmp ugt i64 %139, %144
-  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %146
+  %142 = lshr i64 %.020.i100, 1
+  %143 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %142
+  %144 = load i32, ptr %143, align 4
+  %145 = sext i32 %144 to i64
+  %.not.i.i2.i.i.i104 = icmp ugt i64 %140, %145
+  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %147
 
-145:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %133, i64 noundef %139) #21
+146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %134, i64 noundef %140) #21
   unreachable
 
-146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %144, i64 noundef %139) #21
+147:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %145, i64 noundef %140) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  %147 = load i32, ptr %140, align 4
-  %148 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %144
-  %149 = load i32, ptr %148, align 4
-  %150 = icmp ult i32 %147, %149
-  %151 = getelementptr inbounds i8, ptr %142, i64 4
-  %152 = xor i64 %141, -1
-  %153 = add nsw i64 %.020.i100, %152
-  %.sroa.012.1.i105 = select i1 %150, ptr %.sroa.012.019.i101, ptr %151
-  %.1.i106 = select i1 %150, i64 %141, i64 %153
-  %154 = icmp sgt i64 %.1.i106, 0
-  br i1 %154, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !31
+  %148 = load i32, ptr %141, align 4
+  %149 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %145
+  %150 = load i32, ptr %149, align 4
+  %151 = icmp ult i32 %148, %150
+  %152 = getelementptr inbounds i8, ptr %143, i64 4
+  %153 = xor i64 %142, -1
+  %154 = add nsw i64 %.020.i100, %153
+  %.sroa.012.1.i105 = select i1 %151, ptr %.sroa.012.019.i101, ptr %152
+  %.1.i106 = select i1 %151, i64 %142, i64 %154
+  %155 = icmp sgt i64 %.1.i106, 0
+  br i1 %155, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !31
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.pre248 = ptrtoint ptr %.sroa.012.1.i105 to i64
   br label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %128, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
+  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %129, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
   %.sroa.012.0.lcssa.i96 = phi ptr [ %.sroa.012.1.i105, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
-  %155 = sub i64 %.pre-phi249, %128
-  %156 = ashr exact i64 %155, 2
-  br label %157
+  %156 = sub i64 %.pre-phi249, %129
+  %157 = ashr exact i64 %156, 2
+  br label %158
 
-157:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
-  %.sroa.0112.0 = phi ptr [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.073 = phi i64 [ %125, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %126, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %96, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %156, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %158 = sub nsw i64 %.tr119190, %.0
-  %159 = icmp sle i64 %158, %.073
+158:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+  %.sroa.0112.0 = phi ptr [ %98, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %128, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.073 = phi i64 [ %126, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %157, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %159 = sub nsw i64 %.tr119190, %.0
+  %160 = icmp sle i64 %159, %.073
   %.not.i107 = icmp sgt i64 %.073, %6
-  %or.cond.i = or i1 %.not.i107, %159
-  br i1 %or.cond.i, label %173, label %160
+  %or.cond.i = or i1 %.not.i107, %160
+  br i1 %or.cond.i, label %175, label %161
 
-160:                                              ; preds = %157
+161:                                              ; preds = %158
   %.not36.i = icmp eq i64 %.073, 0
-  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %161
+  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %162
 
-161:                                              ; preds = %160
-  %162 = ptrtoint ptr %.sroa.0.0 to i64
-  %163 = ptrtoint ptr %.tr117188 to i64
-  %164 = sub i64 %162, %163
+162:                                              ; preds = %161
+  %163 = ptrtoint ptr %.sroa.0.0 to i64
+  %164 = ptrtoint ptr %.tr117188 to i64
+  %165 = sub i64 %163, %164
   %.not.i.i.i.i.i.i108 = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %165
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %166
 
-165:                                              ; preds = %161
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %164, i1 false)
+166:                                              ; preds = %162
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %165, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %165, %161
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %166, %162
   %.not.i.i.i.i.i37.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %166
+  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %167
 
-166:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  %167 = ptrtoint ptr %.sroa.0112.0 to i64
-  %168 = sub i64 %163, %167
-  %169 = ashr exact i64 %168, 2
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %169
-  %170 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %170, ptr align 4 %.sroa.0112.0, i64 %168, i1 false)
+167:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  %168 = ptrtoint ptr %.sroa.0112.0 to i64
+  %169 = sub i64 %164, %168
+  %170 = ashr exact i64 %169, 2
+  %171 = sub nsw i64 0, %170
+  %172 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %171
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %172, ptr align 4 %.sroa.0112.0, i64 %169, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %166, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %171
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %167, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %173
 
-171:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %164, i1 false)
+173:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %165, i1 false)
   br label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109
 
-_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %171, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %172 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %164
+_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %173, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %174 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %165
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-173:                                              ; preds = %157
-  %.not34.i = icmp sgt i64 %158, %6
-  br i1 %.not34.i, label %187, label %174
+175:                                              ; preds = %158
+  %.not34.i = icmp sgt i64 %159, %6
+  br i1 %.not34.i, label %190, label %176
 
-174:                                              ; preds = %173
+176:                                              ; preds = %175
   %.not35.i = icmp eq i64 %.tr119190, %.0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %175
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %177
 
-175:                                              ; preds = %174
-  %176 = ptrtoint ptr %.tr117188 to i64
-  %177 = ptrtoint ptr %.sroa.0112.0 to i64
-  %178 = sub i64 %176, %177
+177:                                              ; preds = %176
+  %178 = ptrtoint ptr %.tr117188 to i64
+  %179 = ptrtoint ptr %.sroa.0112.0 to i64
+  %180 = sub i64 %178, %179
   %.not.i.i.i.i.i39.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %179
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %181
 
-179:                                              ; preds = %175
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %178, i1 false)
+181:                                              ; preds = %177
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %180, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %179, %175
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %181, %177
   %.not.i.i.i.i.i41.i = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %180
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %182
 
-180:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %181 = ptrtoint ptr %.sroa.0.0 to i64
-  %182 = sub i64 %181, %176
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %182, i1 false)
+182:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  %183 = ptrtoint ptr %.sroa.0.0 to i64
+  %184 = sub i64 %183, %178
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %184, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %180, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %183 = ashr exact i64 %178, 2
-  %.pre.i.i.i.i.i43.i = sub nsw i64 0, %183
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %184
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %182, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %185
 
-184:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %185 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %185, ptr align 4 %5, i64 %178, i1 false)
+185:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %186 = ashr exact i64 %180, 2
+  %187 = sub nsw i64 0, %186
+  %188 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %187
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %188, ptr align 4 %5, i64 %180, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %184, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %186 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
+_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %185, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %.pre-phi.i.i.i.i.i43.i = phi i64 [ %187, %185 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
+  %189 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-187:                                              ; preds = %173
-  %188 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
+190:                                              ; preds = %175
+  %191 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %160, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %174, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %187
-  %.sroa.032.0.i = phi ptr [ %172, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %186, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %188, %187 ], [ %.sroa.0112.0, %160 ], [ %.sroa.0.0, %174 ]
+_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %161, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %176, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %190
+  %.sroa.032.0.i = phi ptr [ %174, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %189, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %191, %190 ], [ %.sroa.0112.0, %161 ], [ %.sroa.0.0, %176 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi5EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr186, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
-  %189 = sub nsw i64 %.tr120191, %.073
-  %.not = icmp sgt i64 %158, %189
-  %.not77 = icmp sgt i64 %158, %6
+  %192 = sub nsw i64 %.tr120191, %.073
+  %.not = icmp sgt i64 %159, %192
+  %.not77 = icmp sgt i64 %159, %6
   %or.cond = or i1 %.not77, %.not
   br i1 %or.cond, label %40, label %tailrecurse._crit_edge
 
@@ -8378,46 +8381,46 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %26 = ptrtoint ptr %.sroa.0.041 to i64
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %28
-  %29 = getelementptr inbounds i32, ptr %25, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %29, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
+  %29 = sub nsw i64 0, %28
+  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEEvT_T0_.exit
 
-._crit_edge.i:                                    ; preds = %40
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %46) #21
+._crit_edge.i:                                    ; preds = %41
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %47) #21
   unreachable
 
-_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %40
-  %30 = phi i64 [ %46, %40 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %31 = phi ptr [ %42, %40 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %40 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %41
+  %31 = phi i64 [ %47, %41 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %32 = phi ptr [ %43, %41 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %41 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
   %.sroa.0.020.i = getelementptr inbounds i8, ptr %.sroa.05.019.i, i64 -4
-  %32 = load i32, ptr %.sroa.0.020.i, align 4
-  %33 = sext i32 %32 to i64
-  %.not.i.i2.i.i.i = icmp ugt i64 %30, %33
-  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %34
+  %33 = load i32, ptr %.sroa.0.020.i, align 4
+  %34 = sext i32 %33 to i64
+  %.not.i.i2.i.i.i = icmp ugt i64 %31, %34
+  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %35
 
-34:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %33, i64 noundef %30) #21
+35:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %34, i64 noundef %31) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %35 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %9
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %33
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp ult i32 %36, %38
-  br i1 %39, label %40, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEEvT_T0_.exit
+  %36 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %9
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %34
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp ult i32 %37, %39
+  br i1 %40, label %41, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEEvT_T0_.exit
 
-40:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  store i32 %32, ptr %.sroa.05.019.i, align 4
-  %41 = load ptr, ptr %5, align 8
-  %42 = load ptr, ptr %2, align 8
-  %43 = ptrtoint ptr %41 to i64
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
+  store i32 %33, ptr %.sroa.05.019.i, align 4
+  %42 = load ptr, ptr %5, align 8
+  %43 = load ptr, ptr %2, align 8
   %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  %46 = ashr exact i64 %45, 3
-  %.not.i.i.i.i.i9 = icmp ugt i64 %46, %9
+  %45 = ptrtoint ptr %43 to i64
+  %46 = sub i64 %44, %45
+  %47 = ashr exact i64 %46, 3
+  %.not.i.i.i.i.i9 = icmp ugt i64 %47, %9
   br i1 %.not.i.i.i.i.i9, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %._crit_edge.i, !llvm.loop !89
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -8771,12 +8774,12 @@ _ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.ex
 
 40:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
   %.not192 = phi i1 [ %.not183, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %189, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %158, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %192, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %159, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr117188 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr186 = phi ptr [ %0, %.lr.ph ], [ %.sroa.032.0.i, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.not78 = icmp sgt i64 %.tr120191, %6
-  br i1 %.not78, label %94, label %41
+  br i1 %.not78, label %95, label %41
 
 41:                                               ; preds = %40
   %.not.i.i.i.i.i80 = icmp eq ptr %2, %.tr117188
@@ -8877,254 +8880,255 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15Probabili
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !96
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %72
-  %.sink82.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink83.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa65.sink.i = phi ptr [ %69, %72 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %89 = ptrtoint ptr %.sink82.i to i64
+  %89 = ptrtoint ptr %.sink83.i to i64
   %90 = ptrtoint ptr %5 to i64
   %91 = sub i64 %89, %90
   %92 = ashr exact i64 %91, 2
-  %.pre.i.i.i.i.i19.i = sub nsw i64 0, %92
-  %93 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %.pre.i.i.i.i.i19.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %93, ptr align 4 %5, i64 %91, i1 false)
+  %93 = sub nsw i64 0, %92
+  %94 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %93
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %94, ptr align 4 %5, i64 %91, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
-94:                                               ; preds = %40
-  %95 = ptrtoint ptr %.tr117188 to i64
+95:                                               ; preds = %40
+  %96 = ptrtoint ptr %.tr117188 to i64
   br i1 %.not192, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %94
-  %96 = sdiv i64 %.tr119190, 2
-  %97 = getelementptr inbounds i32, ptr %.tr186, i64 %96
-  %98 = sub i64 %11, %95
-  %99 = ashr exact i64 %98, 2
-  %100 = icmp sgt i64 %99, 0
-  br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %95
+  %97 = sdiv i64 %.tr119190, 2
+  %98 = getelementptr inbounds i32, ptr %.tr186, i64 %97
+  %99 = sub i64 %11, %96
+  %100 = ashr exact i64 %99, 2
+  %101 = icmp sgt i64 %100, 0
+  br i1 %101, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %101 = load ptr, ptr %10, align 8
-  %102 = load ptr, ptr %9, align 8
-  %103 = ptrtoint ptr %101 to i64
+  %102 = load ptr, ptr %10, align 8
+  %103 = load ptr, ptr %9, align 8
   %104 = ptrtoint ptr %102 to i64
-  %105 = sub i64 %103, %104
-  %106 = ashr exact i64 %105, 3
-  %107 = load i32, ptr %97, align 4
-  %108 = sext i32 %107 to i64
-  %.not.i.i2.i.i.i87 = icmp ugt i64 %106, %108
-  %109 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %108
+  %105 = ptrtoint ptr %103 to i64
+  %106 = sub i64 %104, %105
+  %107 = ashr exact i64 %106, 3
+  %108 = load i32, ptr %98, align 4
+  %109 = sext i32 %108 to i64
+  %.not.i.i2.i.i.i87 = icmp ugt i64 %107, %109
+  %110 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %109
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
-  %.020.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
+  %.020.i = phi i64 [ %100, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
-  %110 = lshr i64 %.020.i, 1
-  %111 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %110
-  %112 = load i32, ptr %111, align 4
-  %113 = sext i32 %112 to i64
-  %.not.i.i.i.i.i88 = icmp ugt i64 %106, %113
-  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %114
+  %111 = lshr i64 %.020.i, 1
+  %112 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %111
+  %113 = load i32, ptr %112, align 4
+  %114 = sext i32 %113 to i64
+  %.not.i.i.i.i.i88 = icmp ugt i64 %107, %114
+  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %115
 
-114:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %113, i64 noundef %106) #21
+115:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %114, i64 noundef %107) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %115
+  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %116
 
-115:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %108, i64 noundef %106) #21
+116:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %109, i64 noundef %107) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %116 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %113
-  %117 = load i32, ptr %116, align 4
-  %118 = load i32, ptr %109, align 4
-  %119 = icmp ult i32 %117, %118
-  %120 = getelementptr inbounds i8, ptr %111, i64 4
-  %121 = xor i64 %110, -1
-  %122 = add nsw i64 %.020.i, %121
-  %.sroa.012.1.i = select i1 %119, ptr %120, ptr %.sroa.012.019.i
-  %.1.i90 = select i1 %119, i64 %122, i64 %110
-  %123 = icmp sgt i64 %.1.i90, 0
-  br i1 %123, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !91
+  %117 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %114
+  %118 = load i32, ptr %117, align 4
+  %119 = load i32, ptr %110, align 4
+  %120 = icmp ult i32 %118, %119
+  %121 = getelementptr inbounds i8, ptr %112, i64 4
+  %122 = xor i64 %111, -1
+  %123 = add nsw i64 %.020.i, %122
+  %.sroa.012.1.i = select i1 %120, ptr %121, ptr %.sroa.012.019.i
+  %.1.i90 = select i1 %120, i64 %123, i64 %111
+  %124 = icmp sgt i64 %.1.i90, 0
+  br i1 %124, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !91
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i
   %.pre = ptrtoint ptr %.sroa.012.1.i to i64
   br label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %95, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %96, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
   %.sroa.012.0.lcssa.i = phi ptr [ %.sroa.012.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
-  %124 = sub i64 %.pre-phi, %95
-  %125 = ashr exact i64 %124, 2
-  br label %157
+  %125 = sub i64 %.pre-phi, %96
+  %126 = ashr exact i64 %125, 2
+  br label %158
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %94
-  %126 = sdiv i64 %.tr120191, 2
-  %127 = getelementptr inbounds i32, ptr %.tr117188, i64 %126
-  %128 = ptrtoint ptr %.tr186 to i64
-  %129 = sub i64 %95, %128
-  %130 = ashr exact i64 %129, 2
-  %131 = icmp sgt i64 %130, 0
-  br i1 %131, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %95
+  %127 = sdiv i64 %.tr120191, 2
+  %128 = getelementptr inbounds i32, ptr %.tr117188, i64 %127
+  %129 = ptrtoint ptr %.tr186 to i64
+  %130 = sub i64 %96, %129
+  %131 = ashr exact i64 %130, 2
+  %132 = icmp sgt i64 %131, 0
+  br i1 %132, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %132 = load i32, ptr %127, align 4
-  %133 = sext i32 %132 to i64
-  %134 = load ptr, ptr %10, align 8
-  %135 = load ptr, ptr %9, align 8
-  %136 = ptrtoint ptr %134 to i64
+  %133 = load i32, ptr %128, align 4
+  %134 = sext i32 %133 to i64
+  %135 = load ptr, ptr %10, align 8
+  %136 = load ptr, ptr %9, align 8
   %137 = ptrtoint ptr %135 to i64
-  %138 = sub i64 %136, %137
-  %139 = ashr exact i64 %138, 3
-  %.not.i.i.i.i.i98 = icmp ugt i64 %139, %133
-  %140 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %133
-  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %145
+  %138 = ptrtoint ptr %136 to i64
+  %139 = sub i64 %137, %138
+  %140 = ashr exact i64 %139, 3
+  %.not.i.i.i.i.i98 = icmp ugt i64 %140, %134
+  %141 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %134
+  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %146
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %130, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
+  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %131, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
-  %141 = lshr i64 %.020.i100, 1
-  %142 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %141
-  %143 = load i32, ptr %142, align 4
-  %144 = sext i32 %143 to i64
-  %.not.i.i2.i.i.i104 = icmp ugt i64 %139, %144
-  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %146
+  %142 = lshr i64 %.020.i100, 1
+  %143 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %142
+  %144 = load i32, ptr %143, align 4
+  %145 = sext i32 %144 to i64
+  %.not.i.i2.i.i.i104 = icmp ugt i64 %140, %145
+  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %147
 
-145:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %133, i64 noundef %139) #21
+146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %134, i64 noundef %140) #21
   unreachable
 
-146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %144, i64 noundef %139) #21
+147:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %145, i64 noundef %140) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  %147 = load i32, ptr %140, align 4
-  %148 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %144
-  %149 = load i32, ptr %148, align 4
-  %150 = icmp ult i32 %147, %149
-  %151 = getelementptr inbounds i8, ptr %142, i64 4
-  %152 = xor i64 %141, -1
-  %153 = add nsw i64 %.020.i100, %152
-  %.sroa.012.1.i105 = select i1 %150, ptr %.sroa.012.019.i101, ptr %151
-  %.1.i106 = select i1 %150, i64 %141, i64 %153
-  %154 = icmp sgt i64 %.1.i106, 0
-  br i1 %154, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !92
+  %148 = load i32, ptr %141, align 4
+  %149 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %145
+  %150 = load i32, ptr %149, align 4
+  %151 = icmp ult i32 %148, %150
+  %152 = getelementptr inbounds i8, ptr %143, i64 4
+  %153 = xor i64 %142, -1
+  %154 = add nsw i64 %.020.i100, %153
+  %.sroa.012.1.i105 = select i1 %151, ptr %.sroa.012.019.i101, ptr %152
+  %.1.i106 = select i1 %151, i64 %142, i64 %154
+  %155 = icmp sgt i64 %.1.i106, 0
+  br i1 %155, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !92
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.pre248 = ptrtoint ptr %.sroa.012.1.i105 to i64
   br label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %128, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
+  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %129, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
   %.sroa.012.0.lcssa.i96 = phi ptr [ %.sroa.012.1.i105, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
-  %155 = sub i64 %.pre-phi249, %128
-  %156 = ashr exact i64 %155, 2
-  br label %157
+  %156 = sub i64 %.pre-phi249, %129
+  %157 = ashr exact i64 %156, 2
+  br label %158
 
-157:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
-  %.sroa.0112.0 = phi ptr [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.073 = phi i64 [ %125, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %126, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %96, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %156, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %158 = sub nsw i64 %.tr119190, %.0
-  %159 = icmp sle i64 %158, %.073
+158:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+  %.sroa.0112.0 = phi ptr [ %98, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %128, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.073 = phi i64 [ %126, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %157, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %159 = sub nsw i64 %.tr119190, %.0
+  %160 = icmp sle i64 %159, %.073
   %.not.i107 = icmp sgt i64 %.073, %6
-  %or.cond.i = or i1 %.not.i107, %159
-  br i1 %or.cond.i, label %173, label %160
+  %or.cond.i = or i1 %.not.i107, %160
+  br i1 %or.cond.i, label %175, label %161
 
-160:                                              ; preds = %157
+161:                                              ; preds = %158
   %.not36.i = icmp eq i64 %.073, 0
-  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %161
+  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %162
 
-161:                                              ; preds = %160
-  %162 = ptrtoint ptr %.sroa.0.0 to i64
-  %163 = ptrtoint ptr %.tr117188 to i64
-  %164 = sub i64 %162, %163
+162:                                              ; preds = %161
+  %163 = ptrtoint ptr %.sroa.0.0 to i64
+  %164 = ptrtoint ptr %.tr117188 to i64
+  %165 = sub i64 %163, %164
   %.not.i.i.i.i.i.i108 = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %165
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %166
 
-165:                                              ; preds = %161
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %164, i1 false)
+166:                                              ; preds = %162
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %165, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %165, %161
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %166, %162
   %.not.i.i.i.i.i37.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %166
+  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %167
 
-166:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  %167 = ptrtoint ptr %.sroa.0112.0 to i64
-  %168 = sub i64 %163, %167
-  %169 = ashr exact i64 %168, 2
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %169
-  %170 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %170, ptr align 4 %.sroa.0112.0, i64 %168, i1 false)
+167:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  %168 = ptrtoint ptr %.sroa.0112.0 to i64
+  %169 = sub i64 %164, %168
+  %170 = ashr exact i64 %169, 2
+  %171 = sub nsw i64 0, %170
+  %172 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %171
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %172, ptr align 4 %.sroa.0112.0, i64 %169, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %166, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %171
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %167, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %173
 
-171:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %164, i1 false)
+173:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %165, i1 false)
   br label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109
 
-_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %171, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %172 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %164
+_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %173, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %174 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %165
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-173:                                              ; preds = %157
-  %.not34.i = icmp sgt i64 %158, %6
-  br i1 %.not34.i, label %187, label %174
+175:                                              ; preds = %158
+  %.not34.i = icmp sgt i64 %159, %6
+  br i1 %.not34.i, label %190, label %176
 
-174:                                              ; preds = %173
+176:                                              ; preds = %175
   %.not35.i = icmp eq i64 %.tr119190, %.0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %175
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %177
 
-175:                                              ; preds = %174
-  %176 = ptrtoint ptr %.tr117188 to i64
-  %177 = ptrtoint ptr %.sroa.0112.0 to i64
-  %178 = sub i64 %176, %177
+177:                                              ; preds = %176
+  %178 = ptrtoint ptr %.tr117188 to i64
+  %179 = ptrtoint ptr %.sroa.0112.0 to i64
+  %180 = sub i64 %178, %179
   %.not.i.i.i.i.i39.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %179
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %181
 
-179:                                              ; preds = %175
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %178, i1 false)
+181:                                              ; preds = %177
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %180, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %179, %175
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %181, %177
   %.not.i.i.i.i.i41.i = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %180
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %182
 
-180:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %181 = ptrtoint ptr %.sroa.0.0 to i64
-  %182 = sub i64 %181, %176
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %182, i1 false)
+182:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  %183 = ptrtoint ptr %.sroa.0.0 to i64
+  %184 = sub i64 %183, %178
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %184, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %180, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %183 = ashr exact i64 %178, 2
-  %.pre.i.i.i.i.i43.i = sub nsw i64 0, %183
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %184
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %182, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %185
 
-184:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %185 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %185, ptr align 4 %5, i64 %178, i1 false)
+185:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %186 = ashr exact i64 %180, 2
+  %187 = sub nsw i64 0, %186
+  %188 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %187
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %188, ptr align 4 %5, i64 %180, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %184, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %186 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
+_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %185, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %.pre-phi.i.i.i.i.i43.i = phi i64 [ %187, %185 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
+  %189 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-187:                                              ; preds = %173
-  %188 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
+190:                                              ; preds = %175
+  %191 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %160, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %174, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %187
-  %.sroa.032.0.i = phi ptr [ %172, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %186, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %188, %187 ], [ %.sroa.0112.0, %160 ], [ %.sroa.0.0, %174 ]
+_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %161, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %176, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %190
+  %.sroa.032.0.i = phi ptr [ %174, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %189, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %191, %190 ], [ %.sroa.0112.0, %161 ], [ %.sroa.0.0, %176 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi1EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr186, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
-  %189 = sub nsw i64 %.tr120191, %.073
-  %.not = icmp sgt i64 %158, %189
-  %.not77 = icmp sgt i64 %158, %6
+  %192 = sub nsw i64 %.tr120191, %.073
+  %.not = icmp sgt i64 %159, %192
+  %.not77 = icmp sgt i64 %159, %6
   %or.cond = or i1 %.not77, %.not
   br i1 %or.cond, label %40, label %tailrecurse._crit_edge
 
@@ -10334,46 +10338,46 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %26 = ptrtoint ptr %.sroa.0.041 to i64
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %28
-  %29 = getelementptr inbounds i32, ptr %25, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %29, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
+  %29 = sub nsw i64 0, %28
+  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEEvT_T0_.exit
 
-._crit_edge.i:                                    ; preds = %40
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %46) #21
+._crit_edge.i:                                    ; preds = %41
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %47) #21
   unreachable
 
-_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %40
-  %30 = phi i64 [ %46, %40 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %31 = phi ptr [ %42, %40 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %40 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %41
+  %31 = phi i64 [ %47, %41 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %32 = phi ptr [ %43, %41 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %41 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
   %.sroa.0.020.i = getelementptr inbounds i8, ptr %.sroa.05.019.i, i64 -4
-  %32 = load i32, ptr %.sroa.0.020.i, align 4
-  %33 = sext i32 %32 to i64
-  %.not.i.i2.i.i.i = icmp ugt i64 %30, %33
-  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %34
+  %33 = load i32, ptr %.sroa.0.020.i, align 4
+  %34 = sext i32 %33 to i64
+  %.not.i.i2.i.i.i = icmp ugt i64 %31, %34
+  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %35
 
-34:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %33, i64 noundef %30) #21
+35:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %34, i64 noundef %31) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %35 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %9
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %33
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp ult i32 %36, %38
-  br i1 %39, label %40, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEEvT_T0_.exit
+  %36 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %9
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %34
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp ult i32 %37, %39
+  br i1 %40, label %41, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEEvT_T0_.exit
 
-40:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  store i32 %32, ptr %.sroa.05.019.i, align 4
-  %41 = load ptr, ptr %5, align 8
-  %42 = load ptr, ptr %2, align 8
-  %43 = ptrtoint ptr %41 to i64
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
+  store i32 %33, ptr %.sroa.05.019.i, align 4
+  %42 = load ptr, ptr %5, align 8
+  %43 = load ptr, ptr %2, align 8
   %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  %46 = ashr exact i64 %45, 3
-  %.not.i.i.i.i.i9 = icmp ugt i64 %46, %9
+  %45 = ptrtoint ptr %43 to i64
+  %46 = sub i64 %44, %45
+  %47 = ashr exact i64 %46, 3
+  %.not.i.i.i.i.i9 = icmp ugt i64 %47, %9
   br i1 %.not.i.i.i.i.i9, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %._crit_edge.i, !llvm.loop !111
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -10727,12 +10731,12 @@ _ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.ex
 
 40:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
   %.not192 = phi i1 [ %.not183, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %189, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %158, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %192, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %159, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr117188 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr186 = phi ptr [ %0, %.lr.ph ], [ %.sroa.032.0.i, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.not78 = icmp sgt i64 %.tr120191, %6
-  br i1 %.not78, label %94, label %41
+  br i1 %.not78, label %95, label %41
 
 41:                                               ; preds = %40
   %.not.i.i.i.i.i80 = icmp eq ptr %2, %.tr117188
@@ -10833,254 +10837,255 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15Probabili
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !118
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %72
-  %.sink82.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink83.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa65.sink.i = phi ptr [ %69, %72 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %89 = ptrtoint ptr %.sink82.i to i64
+  %89 = ptrtoint ptr %.sink83.i to i64
   %90 = ptrtoint ptr %5 to i64
   %91 = sub i64 %89, %90
   %92 = ashr exact i64 %91, 2
-  %.pre.i.i.i.i.i19.i = sub nsw i64 0, %92
-  %93 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %.pre.i.i.i.i.i19.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %93, ptr align 4 %5, i64 %91, i1 false)
+  %93 = sub nsw i64 0, %92
+  %94 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %93
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %94, ptr align 4 %5, i64 %91, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
-94:                                               ; preds = %40
-  %95 = ptrtoint ptr %.tr117188 to i64
+95:                                               ; preds = %40
+  %96 = ptrtoint ptr %.tr117188 to i64
   br i1 %.not192, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %94
-  %96 = sdiv i64 %.tr119190, 2
-  %97 = getelementptr inbounds i32, ptr %.tr186, i64 %96
-  %98 = sub i64 %11, %95
-  %99 = ashr exact i64 %98, 2
-  %100 = icmp sgt i64 %99, 0
-  br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %95
+  %97 = sdiv i64 %.tr119190, 2
+  %98 = getelementptr inbounds i32, ptr %.tr186, i64 %97
+  %99 = sub i64 %11, %96
+  %100 = ashr exact i64 %99, 2
+  %101 = icmp sgt i64 %100, 0
+  br i1 %101, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %101 = load ptr, ptr %10, align 8
-  %102 = load ptr, ptr %9, align 8
-  %103 = ptrtoint ptr %101 to i64
+  %102 = load ptr, ptr %10, align 8
+  %103 = load ptr, ptr %9, align 8
   %104 = ptrtoint ptr %102 to i64
-  %105 = sub i64 %103, %104
-  %106 = ashr exact i64 %105, 3
-  %107 = load i32, ptr %97, align 4
-  %108 = sext i32 %107 to i64
-  %.not.i.i2.i.i.i87 = icmp ugt i64 %106, %108
-  %109 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %108
+  %105 = ptrtoint ptr %103 to i64
+  %106 = sub i64 %104, %105
+  %107 = ashr exact i64 %106, 3
+  %108 = load i32, ptr %98, align 4
+  %109 = sext i32 %108 to i64
+  %.not.i.i2.i.i.i87 = icmp ugt i64 %107, %109
+  %110 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %109
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
-  %.020.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
+  %.020.i = phi i64 [ %100, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
-  %110 = lshr i64 %.020.i, 1
-  %111 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %110
-  %112 = load i32, ptr %111, align 4
-  %113 = sext i32 %112 to i64
-  %.not.i.i.i.i.i88 = icmp ugt i64 %106, %113
-  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %114
+  %111 = lshr i64 %.020.i, 1
+  %112 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %111
+  %113 = load i32, ptr %112, align 4
+  %114 = sext i32 %113 to i64
+  %.not.i.i.i.i.i88 = icmp ugt i64 %107, %114
+  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %115
 
-114:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %113, i64 noundef %106) #21
+115:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %114, i64 noundef %107) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %115
+  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %116
 
-115:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %108, i64 noundef %106) #21
+116:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %109, i64 noundef %107) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %116 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %113
-  %117 = load i32, ptr %116, align 4
-  %118 = load i32, ptr %109, align 4
-  %119 = icmp ult i32 %117, %118
-  %120 = getelementptr inbounds i8, ptr %111, i64 4
-  %121 = xor i64 %110, -1
-  %122 = add nsw i64 %.020.i, %121
-  %.sroa.012.1.i = select i1 %119, ptr %120, ptr %.sroa.012.019.i
-  %.1.i90 = select i1 %119, i64 %122, i64 %110
-  %123 = icmp sgt i64 %.1.i90, 0
-  br i1 %123, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !113
+  %117 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %114
+  %118 = load i32, ptr %117, align 4
+  %119 = load i32, ptr %110, align 4
+  %120 = icmp ult i32 %118, %119
+  %121 = getelementptr inbounds i8, ptr %112, i64 4
+  %122 = xor i64 %111, -1
+  %123 = add nsw i64 %.020.i, %122
+  %.sroa.012.1.i = select i1 %120, ptr %121, ptr %.sroa.012.019.i
+  %.1.i90 = select i1 %120, i64 %123, i64 %111
+  %124 = icmp sgt i64 %.1.i90, 0
+  br i1 %124, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !113
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i
   %.pre = ptrtoint ptr %.sroa.012.1.i to i64
   br label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %95, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %96, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
   %.sroa.012.0.lcssa.i = phi ptr [ %.sroa.012.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
-  %124 = sub i64 %.pre-phi, %95
-  %125 = ashr exact i64 %124, 2
-  br label %157
+  %125 = sub i64 %.pre-phi, %96
+  %126 = ashr exact i64 %125, 2
+  br label %158
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %94
-  %126 = sdiv i64 %.tr120191, 2
-  %127 = getelementptr inbounds i32, ptr %.tr117188, i64 %126
-  %128 = ptrtoint ptr %.tr186 to i64
-  %129 = sub i64 %95, %128
-  %130 = ashr exact i64 %129, 2
-  %131 = icmp sgt i64 %130, 0
-  br i1 %131, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %95
+  %127 = sdiv i64 %.tr120191, 2
+  %128 = getelementptr inbounds i32, ptr %.tr117188, i64 %127
+  %129 = ptrtoint ptr %.tr186 to i64
+  %130 = sub i64 %96, %129
+  %131 = ashr exact i64 %130, 2
+  %132 = icmp sgt i64 %131, 0
+  br i1 %132, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %132 = load i32, ptr %127, align 4
-  %133 = sext i32 %132 to i64
-  %134 = load ptr, ptr %10, align 8
-  %135 = load ptr, ptr %9, align 8
-  %136 = ptrtoint ptr %134 to i64
+  %133 = load i32, ptr %128, align 4
+  %134 = sext i32 %133 to i64
+  %135 = load ptr, ptr %10, align 8
+  %136 = load ptr, ptr %9, align 8
   %137 = ptrtoint ptr %135 to i64
-  %138 = sub i64 %136, %137
-  %139 = ashr exact i64 %138, 3
-  %.not.i.i.i.i.i98 = icmp ugt i64 %139, %133
-  %140 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %133
-  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %145
+  %138 = ptrtoint ptr %136 to i64
+  %139 = sub i64 %137, %138
+  %140 = ashr exact i64 %139, 3
+  %.not.i.i.i.i.i98 = icmp ugt i64 %140, %134
+  %141 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %134
+  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %146
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %130, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
+  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %131, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
-  %141 = lshr i64 %.020.i100, 1
-  %142 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %141
-  %143 = load i32, ptr %142, align 4
-  %144 = sext i32 %143 to i64
-  %.not.i.i2.i.i.i104 = icmp ugt i64 %139, %144
-  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %146
+  %142 = lshr i64 %.020.i100, 1
+  %143 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %142
+  %144 = load i32, ptr %143, align 4
+  %145 = sext i32 %144 to i64
+  %.not.i.i2.i.i.i104 = icmp ugt i64 %140, %145
+  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %147
 
-145:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %133, i64 noundef %139) #21
+146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %134, i64 noundef %140) #21
   unreachable
 
-146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %144, i64 noundef %139) #21
+147:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %145, i64 noundef %140) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  %147 = load i32, ptr %140, align 4
-  %148 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %144
-  %149 = load i32, ptr %148, align 4
-  %150 = icmp ult i32 %147, %149
-  %151 = getelementptr inbounds i8, ptr %142, i64 4
-  %152 = xor i64 %141, -1
-  %153 = add nsw i64 %.020.i100, %152
-  %.sroa.012.1.i105 = select i1 %150, ptr %.sroa.012.019.i101, ptr %151
-  %.1.i106 = select i1 %150, i64 %141, i64 %153
-  %154 = icmp sgt i64 %.1.i106, 0
-  br i1 %154, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !114
+  %148 = load i32, ptr %141, align 4
+  %149 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %145
+  %150 = load i32, ptr %149, align 4
+  %151 = icmp ult i32 %148, %150
+  %152 = getelementptr inbounds i8, ptr %143, i64 4
+  %153 = xor i64 %142, -1
+  %154 = add nsw i64 %.020.i100, %153
+  %.sroa.012.1.i105 = select i1 %151, ptr %.sroa.012.019.i101, ptr %152
+  %.1.i106 = select i1 %151, i64 %142, i64 %154
+  %155 = icmp sgt i64 %.1.i106, 0
+  br i1 %155, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !114
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.pre248 = ptrtoint ptr %.sroa.012.1.i105 to i64
   br label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %128, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
+  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %129, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
   %.sroa.012.0.lcssa.i96 = phi ptr [ %.sroa.012.1.i105, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
-  %155 = sub i64 %.pre-phi249, %128
-  %156 = ashr exact i64 %155, 2
-  br label %157
+  %156 = sub i64 %.pre-phi249, %129
+  %157 = ashr exact i64 %156, 2
+  br label %158
 
-157:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
-  %.sroa.0112.0 = phi ptr [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.073 = phi i64 [ %125, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %126, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %96, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %156, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %158 = sub nsw i64 %.tr119190, %.0
-  %159 = icmp sle i64 %158, %.073
+158:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+  %.sroa.0112.0 = phi ptr [ %98, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %128, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.073 = phi i64 [ %126, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %157, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %159 = sub nsw i64 %.tr119190, %.0
+  %160 = icmp sle i64 %159, %.073
   %.not.i107 = icmp sgt i64 %.073, %6
-  %or.cond.i = or i1 %.not.i107, %159
-  br i1 %or.cond.i, label %173, label %160
+  %or.cond.i = or i1 %.not.i107, %160
+  br i1 %or.cond.i, label %175, label %161
 
-160:                                              ; preds = %157
+161:                                              ; preds = %158
   %.not36.i = icmp eq i64 %.073, 0
-  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %161
+  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %162
 
-161:                                              ; preds = %160
-  %162 = ptrtoint ptr %.sroa.0.0 to i64
-  %163 = ptrtoint ptr %.tr117188 to i64
-  %164 = sub i64 %162, %163
+162:                                              ; preds = %161
+  %163 = ptrtoint ptr %.sroa.0.0 to i64
+  %164 = ptrtoint ptr %.tr117188 to i64
+  %165 = sub i64 %163, %164
   %.not.i.i.i.i.i.i108 = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %165
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %166
 
-165:                                              ; preds = %161
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %164, i1 false)
+166:                                              ; preds = %162
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %165, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %165, %161
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %166, %162
   %.not.i.i.i.i.i37.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %166
+  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %167
 
-166:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  %167 = ptrtoint ptr %.sroa.0112.0 to i64
-  %168 = sub i64 %163, %167
-  %169 = ashr exact i64 %168, 2
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %169
-  %170 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %170, ptr align 4 %.sroa.0112.0, i64 %168, i1 false)
+167:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  %168 = ptrtoint ptr %.sroa.0112.0 to i64
+  %169 = sub i64 %164, %168
+  %170 = ashr exact i64 %169, 2
+  %171 = sub nsw i64 0, %170
+  %172 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %171
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %172, ptr align 4 %.sroa.0112.0, i64 %169, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %166, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %171
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %167, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %173
 
-171:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %164, i1 false)
+173:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %165, i1 false)
   br label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109
 
-_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %171, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %172 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %164
+_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %173, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %174 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %165
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-173:                                              ; preds = %157
-  %.not34.i = icmp sgt i64 %158, %6
-  br i1 %.not34.i, label %187, label %174
+175:                                              ; preds = %158
+  %.not34.i = icmp sgt i64 %159, %6
+  br i1 %.not34.i, label %190, label %176
 
-174:                                              ; preds = %173
+176:                                              ; preds = %175
   %.not35.i = icmp eq i64 %.tr119190, %.0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %175
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %177
 
-175:                                              ; preds = %174
-  %176 = ptrtoint ptr %.tr117188 to i64
-  %177 = ptrtoint ptr %.sroa.0112.0 to i64
-  %178 = sub i64 %176, %177
+177:                                              ; preds = %176
+  %178 = ptrtoint ptr %.tr117188 to i64
+  %179 = ptrtoint ptr %.sroa.0112.0 to i64
+  %180 = sub i64 %178, %179
   %.not.i.i.i.i.i39.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %179
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %181
 
-179:                                              ; preds = %175
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %178, i1 false)
+181:                                              ; preds = %177
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %180, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %179, %175
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %181, %177
   %.not.i.i.i.i.i41.i = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %180
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %182
 
-180:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %181 = ptrtoint ptr %.sroa.0.0 to i64
-  %182 = sub i64 %181, %176
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %182, i1 false)
+182:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  %183 = ptrtoint ptr %.sroa.0.0 to i64
+  %184 = sub i64 %183, %178
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %184, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %180, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %183 = ashr exact i64 %178, 2
-  %.pre.i.i.i.i.i43.i = sub nsw i64 0, %183
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %184
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %182, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %185
 
-184:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %185 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %185, ptr align 4 %5, i64 %178, i1 false)
+185:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %186 = ashr exact i64 %180, 2
+  %187 = sub nsw i64 0, %186
+  %188 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %187
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %188, ptr align 4 %5, i64 %180, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %184, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %186 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
+_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %185, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %.pre-phi.i.i.i.i.i43.i = phi i64 [ %187, %185 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
+  %189 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-187:                                              ; preds = %173
-  %188 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
+190:                                              ; preds = %175
+  %191 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %160, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %174, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %187
-  %.sroa.032.0.i = phi ptr [ %172, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %186, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %188, %187 ], [ %.sroa.0112.0, %160 ], [ %.sroa.0.0, %174 ]
+_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %161, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %176, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %190
+  %.sroa.032.0.i = phi ptr [ %174, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %189, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %191, %190 ], [ %.sroa.0112.0, %161 ], [ %.sroa.0.0, %176 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi2EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr186, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
-  %189 = sub nsw i64 %.tr120191, %.073
-  %.not = icmp sgt i64 %158, %189
-  %.not77 = icmp sgt i64 %158, %6
+  %192 = sub nsw i64 %.tr120191, %.073
+  %.not = icmp sgt i64 %159, %192
+  %.not77 = icmp sgt i64 %159, %6
   %or.cond = or i1 %.not77, %.not
   br i1 %or.cond, label %40, label %tailrecurse._crit_edge
 
@@ -12290,46 +12295,46 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %26 = ptrtoint ptr %.sroa.0.041 to i64
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %28
-  %29 = getelementptr inbounds i32, ptr %25, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %29, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
+  %29 = sub nsw i64 0, %28
+  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEEvT_T0_.exit
 
-._crit_edge.i:                                    ; preds = %40
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %46) #21
+._crit_edge.i:                                    ; preds = %41
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %47) #21
   unreachable
 
-_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %40
-  %30 = phi i64 [ %46, %40 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %31 = phi ptr [ %42, %40 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %40 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %41
+  %31 = phi i64 [ %47, %41 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %32 = phi ptr [ %43, %41 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %41 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
   %.sroa.0.020.i = getelementptr inbounds i8, ptr %.sroa.05.019.i, i64 -4
-  %32 = load i32, ptr %.sroa.0.020.i, align 4
-  %33 = sext i32 %32 to i64
-  %.not.i.i2.i.i.i = icmp ugt i64 %30, %33
-  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %34
+  %33 = load i32, ptr %.sroa.0.020.i, align 4
+  %34 = sext i32 %33 to i64
+  %.not.i.i2.i.i.i = icmp ugt i64 %31, %34
+  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %35
 
-34:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %33, i64 noundef %30) #21
+35:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %34, i64 noundef %31) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %35 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %9
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %33
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp ult i32 %36, %38
-  br i1 %39, label %40, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEEvT_T0_.exit
+  %36 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %9
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %34
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp ult i32 %37, %39
+  br i1 %40, label %41, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEEvT_T0_.exit
 
-40:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  store i32 %32, ptr %.sroa.05.019.i, align 4
-  %41 = load ptr, ptr %5, align 8
-  %42 = load ptr, ptr %2, align 8
-  %43 = ptrtoint ptr %41 to i64
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
+  store i32 %33, ptr %.sroa.05.019.i, align 4
+  %42 = load ptr, ptr %5, align 8
+  %43 = load ptr, ptr %2, align 8
   %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  %46 = ashr exact i64 %45, 3
-  %.not.i.i.i.i.i9 = icmp ugt i64 %46, %9
+  %45 = ptrtoint ptr %43 to i64
+  %46 = sub i64 %44, %45
+  %47 = ashr exact i64 %46, 3
+  %.not.i.i.i.i.i9 = icmp ugt i64 %47, %9
   br i1 %.not.i.i.i.i.i9, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %._crit_edge.i, !llvm.loop !133
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -12683,12 +12688,12 @@ _ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.ex
 
 40:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
   %.not192 = phi i1 [ %.not183, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %189, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %158, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %192, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %159, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr117188 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr186 = phi ptr [ %0, %.lr.ph ], [ %.sroa.032.0.i, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.not78 = icmp sgt i64 %.tr120191, %6
-  br i1 %.not78, label %94, label %41
+  br i1 %.not78, label %95, label %41
 
 41:                                               ; preds = %40
   %.not.i.i.i.i.i80 = icmp eq ptr %2, %.tr117188
@@ -12789,254 +12794,255 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15Probabili
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !140
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %72
-  %.sink82.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink83.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa65.sink.i = phi ptr [ %69, %72 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %89 = ptrtoint ptr %.sink82.i to i64
+  %89 = ptrtoint ptr %.sink83.i to i64
   %90 = ptrtoint ptr %5 to i64
   %91 = sub i64 %89, %90
   %92 = ashr exact i64 %91, 2
-  %.pre.i.i.i.i.i19.i = sub nsw i64 0, %92
-  %93 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %.pre.i.i.i.i.i19.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %93, ptr align 4 %5, i64 %91, i1 false)
+  %93 = sub nsw i64 0, %92
+  %94 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %93
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %94, ptr align 4 %5, i64 %91, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
-94:                                               ; preds = %40
-  %95 = ptrtoint ptr %.tr117188 to i64
+95:                                               ; preds = %40
+  %96 = ptrtoint ptr %.tr117188 to i64
   br i1 %.not192, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %94
-  %96 = sdiv i64 %.tr119190, 2
-  %97 = getelementptr inbounds i32, ptr %.tr186, i64 %96
-  %98 = sub i64 %11, %95
-  %99 = ashr exact i64 %98, 2
-  %100 = icmp sgt i64 %99, 0
-  br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %95
+  %97 = sdiv i64 %.tr119190, 2
+  %98 = getelementptr inbounds i32, ptr %.tr186, i64 %97
+  %99 = sub i64 %11, %96
+  %100 = ashr exact i64 %99, 2
+  %101 = icmp sgt i64 %100, 0
+  br i1 %101, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %101 = load ptr, ptr %10, align 8
-  %102 = load ptr, ptr %9, align 8
-  %103 = ptrtoint ptr %101 to i64
+  %102 = load ptr, ptr %10, align 8
+  %103 = load ptr, ptr %9, align 8
   %104 = ptrtoint ptr %102 to i64
-  %105 = sub i64 %103, %104
-  %106 = ashr exact i64 %105, 3
-  %107 = load i32, ptr %97, align 4
-  %108 = sext i32 %107 to i64
-  %.not.i.i2.i.i.i87 = icmp ugt i64 %106, %108
-  %109 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %108
+  %105 = ptrtoint ptr %103 to i64
+  %106 = sub i64 %104, %105
+  %107 = ashr exact i64 %106, 3
+  %108 = load i32, ptr %98, align 4
+  %109 = sext i32 %108 to i64
+  %.not.i.i2.i.i.i87 = icmp ugt i64 %107, %109
+  %110 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %109
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
-  %.020.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
+  %.020.i = phi i64 [ %100, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
-  %110 = lshr i64 %.020.i, 1
-  %111 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %110
-  %112 = load i32, ptr %111, align 4
-  %113 = sext i32 %112 to i64
-  %.not.i.i.i.i.i88 = icmp ugt i64 %106, %113
-  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %114
+  %111 = lshr i64 %.020.i, 1
+  %112 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %111
+  %113 = load i32, ptr %112, align 4
+  %114 = sext i32 %113 to i64
+  %.not.i.i.i.i.i88 = icmp ugt i64 %107, %114
+  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %115
 
-114:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %113, i64 noundef %106) #21
+115:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %114, i64 noundef %107) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %115
+  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %116
 
-115:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %108, i64 noundef %106) #21
+116:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %109, i64 noundef %107) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %116 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %113
-  %117 = load i32, ptr %116, align 4
-  %118 = load i32, ptr %109, align 4
-  %119 = icmp ult i32 %117, %118
-  %120 = getelementptr inbounds i8, ptr %111, i64 4
-  %121 = xor i64 %110, -1
-  %122 = add nsw i64 %.020.i, %121
-  %.sroa.012.1.i = select i1 %119, ptr %120, ptr %.sroa.012.019.i
-  %.1.i90 = select i1 %119, i64 %122, i64 %110
-  %123 = icmp sgt i64 %.1.i90, 0
-  br i1 %123, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !135
+  %117 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %114
+  %118 = load i32, ptr %117, align 4
+  %119 = load i32, ptr %110, align 4
+  %120 = icmp ult i32 %118, %119
+  %121 = getelementptr inbounds i8, ptr %112, i64 4
+  %122 = xor i64 %111, -1
+  %123 = add nsw i64 %.020.i, %122
+  %.sroa.012.1.i = select i1 %120, ptr %121, ptr %.sroa.012.019.i
+  %.1.i90 = select i1 %120, i64 %123, i64 %111
+  %124 = icmp sgt i64 %.1.i90, 0
+  br i1 %124, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !135
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i
   %.pre = ptrtoint ptr %.sroa.012.1.i to i64
   br label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %95, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %96, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
   %.sroa.012.0.lcssa.i = phi ptr [ %.sroa.012.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
-  %124 = sub i64 %.pre-phi, %95
-  %125 = ashr exact i64 %124, 2
-  br label %157
+  %125 = sub i64 %.pre-phi, %96
+  %126 = ashr exact i64 %125, 2
+  br label %158
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %94
-  %126 = sdiv i64 %.tr120191, 2
-  %127 = getelementptr inbounds i32, ptr %.tr117188, i64 %126
-  %128 = ptrtoint ptr %.tr186 to i64
-  %129 = sub i64 %95, %128
-  %130 = ashr exact i64 %129, 2
-  %131 = icmp sgt i64 %130, 0
-  br i1 %131, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %95
+  %127 = sdiv i64 %.tr120191, 2
+  %128 = getelementptr inbounds i32, ptr %.tr117188, i64 %127
+  %129 = ptrtoint ptr %.tr186 to i64
+  %130 = sub i64 %96, %129
+  %131 = ashr exact i64 %130, 2
+  %132 = icmp sgt i64 %131, 0
+  br i1 %132, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %132 = load i32, ptr %127, align 4
-  %133 = sext i32 %132 to i64
-  %134 = load ptr, ptr %10, align 8
-  %135 = load ptr, ptr %9, align 8
-  %136 = ptrtoint ptr %134 to i64
+  %133 = load i32, ptr %128, align 4
+  %134 = sext i32 %133 to i64
+  %135 = load ptr, ptr %10, align 8
+  %136 = load ptr, ptr %9, align 8
   %137 = ptrtoint ptr %135 to i64
-  %138 = sub i64 %136, %137
-  %139 = ashr exact i64 %138, 3
-  %.not.i.i.i.i.i98 = icmp ugt i64 %139, %133
-  %140 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %133
-  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %145
+  %138 = ptrtoint ptr %136 to i64
+  %139 = sub i64 %137, %138
+  %140 = ashr exact i64 %139, 3
+  %.not.i.i.i.i.i98 = icmp ugt i64 %140, %134
+  %141 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %134
+  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %146
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %130, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
+  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %131, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
-  %141 = lshr i64 %.020.i100, 1
-  %142 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %141
-  %143 = load i32, ptr %142, align 4
-  %144 = sext i32 %143 to i64
-  %.not.i.i2.i.i.i104 = icmp ugt i64 %139, %144
-  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %146
+  %142 = lshr i64 %.020.i100, 1
+  %143 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %142
+  %144 = load i32, ptr %143, align 4
+  %145 = sext i32 %144 to i64
+  %.not.i.i2.i.i.i104 = icmp ugt i64 %140, %145
+  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %147
 
-145:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %133, i64 noundef %139) #21
+146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %134, i64 noundef %140) #21
   unreachable
 
-146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %144, i64 noundef %139) #21
+147:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %145, i64 noundef %140) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  %147 = load i32, ptr %140, align 4
-  %148 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %144
-  %149 = load i32, ptr %148, align 4
-  %150 = icmp ult i32 %147, %149
-  %151 = getelementptr inbounds i8, ptr %142, i64 4
-  %152 = xor i64 %141, -1
-  %153 = add nsw i64 %.020.i100, %152
-  %.sroa.012.1.i105 = select i1 %150, ptr %.sroa.012.019.i101, ptr %151
-  %.1.i106 = select i1 %150, i64 %141, i64 %153
-  %154 = icmp sgt i64 %.1.i106, 0
-  br i1 %154, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !136
+  %148 = load i32, ptr %141, align 4
+  %149 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %145
+  %150 = load i32, ptr %149, align 4
+  %151 = icmp ult i32 %148, %150
+  %152 = getelementptr inbounds i8, ptr %143, i64 4
+  %153 = xor i64 %142, -1
+  %154 = add nsw i64 %.020.i100, %153
+  %.sroa.012.1.i105 = select i1 %151, ptr %.sroa.012.019.i101, ptr %152
+  %.1.i106 = select i1 %151, i64 %142, i64 %154
+  %155 = icmp sgt i64 %.1.i106, 0
+  br i1 %155, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !136
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.pre248 = ptrtoint ptr %.sroa.012.1.i105 to i64
   br label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %128, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
+  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %129, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
   %.sroa.012.0.lcssa.i96 = phi ptr [ %.sroa.012.1.i105, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
-  %155 = sub i64 %.pre-phi249, %128
-  %156 = ashr exact i64 %155, 2
-  br label %157
+  %156 = sub i64 %.pre-phi249, %129
+  %157 = ashr exact i64 %156, 2
+  br label %158
 
-157:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
-  %.sroa.0112.0 = phi ptr [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.073 = phi i64 [ %125, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %126, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %96, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %156, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %158 = sub nsw i64 %.tr119190, %.0
-  %159 = icmp sle i64 %158, %.073
+158:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+  %.sroa.0112.0 = phi ptr [ %98, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %128, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.073 = phi i64 [ %126, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %157, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %159 = sub nsw i64 %.tr119190, %.0
+  %160 = icmp sle i64 %159, %.073
   %.not.i107 = icmp sgt i64 %.073, %6
-  %or.cond.i = or i1 %.not.i107, %159
-  br i1 %or.cond.i, label %173, label %160
+  %or.cond.i = or i1 %.not.i107, %160
+  br i1 %or.cond.i, label %175, label %161
 
-160:                                              ; preds = %157
+161:                                              ; preds = %158
   %.not36.i = icmp eq i64 %.073, 0
-  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %161
+  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %162
 
-161:                                              ; preds = %160
-  %162 = ptrtoint ptr %.sroa.0.0 to i64
-  %163 = ptrtoint ptr %.tr117188 to i64
-  %164 = sub i64 %162, %163
+162:                                              ; preds = %161
+  %163 = ptrtoint ptr %.sroa.0.0 to i64
+  %164 = ptrtoint ptr %.tr117188 to i64
+  %165 = sub i64 %163, %164
   %.not.i.i.i.i.i.i108 = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %165
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %166
 
-165:                                              ; preds = %161
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %164, i1 false)
+166:                                              ; preds = %162
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %165, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %165, %161
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %166, %162
   %.not.i.i.i.i.i37.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %166
+  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %167
 
-166:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  %167 = ptrtoint ptr %.sroa.0112.0 to i64
-  %168 = sub i64 %163, %167
-  %169 = ashr exact i64 %168, 2
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %169
-  %170 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %170, ptr align 4 %.sroa.0112.0, i64 %168, i1 false)
+167:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  %168 = ptrtoint ptr %.sroa.0112.0 to i64
+  %169 = sub i64 %164, %168
+  %170 = ashr exact i64 %169, 2
+  %171 = sub nsw i64 0, %170
+  %172 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %171
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %172, ptr align 4 %.sroa.0112.0, i64 %169, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %166, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %171
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %167, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %173
 
-171:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %164, i1 false)
+173:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %165, i1 false)
   br label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109
 
-_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %171, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %172 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %164
+_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %173, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %174 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %165
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-173:                                              ; preds = %157
-  %.not34.i = icmp sgt i64 %158, %6
-  br i1 %.not34.i, label %187, label %174
+175:                                              ; preds = %158
+  %.not34.i = icmp sgt i64 %159, %6
+  br i1 %.not34.i, label %190, label %176
 
-174:                                              ; preds = %173
+176:                                              ; preds = %175
   %.not35.i = icmp eq i64 %.tr119190, %.0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %175
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %177
 
-175:                                              ; preds = %174
-  %176 = ptrtoint ptr %.tr117188 to i64
-  %177 = ptrtoint ptr %.sroa.0112.0 to i64
-  %178 = sub i64 %176, %177
+177:                                              ; preds = %176
+  %178 = ptrtoint ptr %.tr117188 to i64
+  %179 = ptrtoint ptr %.sroa.0112.0 to i64
+  %180 = sub i64 %178, %179
   %.not.i.i.i.i.i39.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %179
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %181
 
-179:                                              ; preds = %175
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %178, i1 false)
+181:                                              ; preds = %177
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %180, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %179, %175
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %181, %177
   %.not.i.i.i.i.i41.i = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %180
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %182
 
-180:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %181 = ptrtoint ptr %.sroa.0.0 to i64
-  %182 = sub i64 %181, %176
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %182, i1 false)
+182:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  %183 = ptrtoint ptr %.sroa.0.0 to i64
+  %184 = sub i64 %183, %178
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %184, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %180, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %183 = ashr exact i64 %178, 2
-  %.pre.i.i.i.i.i43.i = sub nsw i64 0, %183
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %184
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %182, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %185
 
-184:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %185 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %185, ptr align 4 %5, i64 %178, i1 false)
+185:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %186 = ashr exact i64 %180, 2
+  %187 = sub nsw i64 0, %186
+  %188 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %187
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %188, ptr align 4 %5, i64 %180, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %184, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %186 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
+_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %185, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %.pre-phi.i.i.i.i.i43.i = phi i64 [ %187, %185 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
+  %189 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-187:                                              ; preds = %173
-  %188 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
+190:                                              ; preds = %175
+  %191 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %160, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %174, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %187
-  %.sroa.032.0.i = phi ptr [ %172, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %186, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %188, %187 ], [ %.sroa.0112.0, %160 ], [ %.sroa.0.0, %174 ]
+_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %161, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %176, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %190
+  %.sroa.032.0.i = phi ptr [ %174, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %189, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %191, %190 ], [ %.sroa.0112.0, %161 ], [ %.sroa.0.0, %176 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi3EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr186, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
-  %189 = sub nsw i64 %.tr120191, %.073
-  %.not = icmp sgt i64 %158, %189
-  %.not77 = icmp sgt i64 %158, %6
+  %192 = sub nsw i64 %.tr120191, %.073
+  %.not = icmp sgt i64 %159, %192
+  %.not77 = icmp sgt i64 %159, %6
   %or.cond = or i1 %.not77, %.not
   br i1 %or.cond, label %40, label %tailrecurse._crit_edge
 
@@ -14246,46 +14252,46 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %26 = ptrtoint ptr %.sroa.0.041 to i64
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %28
-  %29 = getelementptr inbounds i32, ptr %25, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %29, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
+  %29 = sub nsw i64 0, %28
+  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEEvT_T0_.exit
 
-._crit_edge.i:                                    ; preds = %40
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %46) #21
+._crit_edge.i:                                    ; preds = %41
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %47) #21
   unreachable
 
-_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %40
-  %30 = phi i64 [ %46, %40 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %31 = phi ptr [ %42, %40 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %40 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %41
+  %31 = phi i64 [ %47, %41 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %32 = phi ptr [ %43, %41 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %41 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
   %.sroa.0.020.i = getelementptr inbounds i8, ptr %.sroa.05.019.i, i64 -4
-  %32 = load i32, ptr %.sroa.0.020.i, align 4
-  %33 = sext i32 %32 to i64
-  %.not.i.i2.i.i.i = icmp ugt i64 %30, %33
-  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %34
+  %33 = load i32, ptr %.sroa.0.020.i, align 4
+  %34 = sext i32 %33 to i64
+  %.not.i.i2.i.i.i = icmp ugt i64 %31, %34
+  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %35
 
-34:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %33, i64 noundef %30) #21
+35:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %34, i64 noundef %31) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %35 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %9
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %33
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp ult i32 %36, %38
-  br i1 %39, label %40, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEEvT_T0_.exit
+  %36 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %9
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %34
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp ult i32 %37, %39
+  br i1 %40, label %41, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEEvT_T0_.exit
 
-40:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  store i32 %32, ptr %.sroa.05.019.i, align 4
-  %41 = load ptr, ptr %5, align 8
-  %42 = load ptr, ptr %2, align 8
-  %43 = ptrtoint ptr %41 to i64
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
+  store i32 %33, ptr %.sroa.05.019.i, align 4
+  %42 = load ptr, ptr %5, align 8
+  %43 = load ptr, ptr %2, align 8
   %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  %46 = ashr exact i64 %45, 3
-  %.not.i.i.i.i.i9 = icmp ugt i64 %46, %9
+  %45 = ptrtoint ptr %43 to i64
+  %46 = sub i64 %44, %45
+  %47 = ashr exact i64 %46, 3
+  %.not.i.i.i.i.i9 = icmp ugt i64 %47, %9
   br i1 %.not.i.i.i.i.i9, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %._crit_edge.i, !llvm.loop !155
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -14639,12 +14645,12 @@ _ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.ex
 
 40:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
   %.not192 = phi i1 [ %.not183, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %189, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %158, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %192, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %159, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr117188 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr186 = phi ptr [ %0, %.lr.ph ], [ %.sroa.032.0.i, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.not78 = icmp sgt i64 %.tr120191, %6
-  br i1 %.not78, label %94, label %41
+  br i1 %.not78, label %95, label %41
 
 41:                                               ; preds = %40
   %.not.i.i.i.i.i80 = icmp eq ptr %2, %.tr117188
@@ -14745,254 +14751,255 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15Probabili
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !162
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %72
-  %.sink82.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink83.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa65.sink.i = phi ptr [ %69, %72 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %89 = ptrtoint ptr %.sink82.i to i64
+  %89 = ptrtoint ptr %.sink83.i to i64
   %90 = ptrtoint ptr %5 to i64
   %91 = sub i64 %89, %90
   %92 = ashr exact i64 %91, 2
-  %.pre.i.i.i.i.i19.i = sub nsw i64 0, %92
-  %93 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %.pre.i.i.i.i.i19.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %93, ptr align 4 %5, i64 %91, i1 false)
+  %93 = sub nsw i64 0, %92
+  %94 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %93
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %94, ptr align 4 %5, i64 %91, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
-94:                                               ; preds = %40
-  %95 = ptrtoint ptr %.tr117188 to i64
+95:                                               ; preds = %40
+  %96 = ptrtoint ptr %.tr117188 to i64
   br i1 %.not192, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %94
-  %96 = sdiv i64 %.tr119190, 2
-  %97 = getelementptr inbounds i32, ptr %.tr186, i64 %96
-  %98 = sub i64 %11, %95
-  %99 = ashr exact i64 %98, 2
-  %100 = icmp sgt i64 %99, 0
-  br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %95
+  %97 = sdiv i64 %.tr119190, 2
+  %98 = getelementptr inbounds i32, ptr %.tr186, i64 %97
+  %99 = sub i64 %11, %96
+  %100 = ashr exact i64 %99, 2
+  %101 = icmp sgt i64 %100, 0
+  br i1 %101, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %101 = load ptr, ptr %10, align 8
-  %102 = load ptr, ptr %9, align 8
-  %103 = ptrtoint ptr %101 to i64
+  %102 = load ptr, ptr %10, align 8
+  %103 = load ptr, ptr %9, align 8
   %104 = ptrtoint ptr %102 to i64
-  %105 = sub i64 %103, %104
-  %106 = ashr exact i64 %105, 3
-  %107 = load i32, ptr %97, align 4
-  %108 = sext i32 %107 to i64
-  %.not.i.i2.i.i.i87 = icmp ugt i64 %106, %108
-  %109 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %108
+  %105 = ptrtoint ptr %103 to i64
+  %106 = sub i64 %104, %105
+  %107 = ashr exact i64 %106, 3
+  %108 = load i32, ptr %98, align 4
+  %109 = sext i32 %108 to i64
+  %.not.i.i2.i.i.i87 = icmp ugt i64 %107, %109
+  %110 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %109
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
-  %.020.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
+  %.020.i = phi i64 [ %100, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
-  %110 = lshr i64 %.020.i, 1
-  %111 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %110
-  %112 = load i32, ptr %111, align 4
-  %113 = sext i32 %112 to i64
-  %.not.i.i.i.i.i88 = icmp ugt i64 %106, %113
-  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %114
+  %111 = lshr i64 %.020.i, 1
+  %112 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %111
+  %113 = load i32, ptr %112, align 4
+  %114 = sext i32 %113 to i64
+  %.not.i.i.i.i.i88 = icmp ugt i64 %107, %114
+  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %115
 
-114:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %113, i64 noundef %106) #21
+115:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %114, i64 noundef %107) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %115
+  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %116
 
-115:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %108, i64 noundef %106) #21
+116:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %109, i64 noundef %107) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %116 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %113
-  %117 = load i32, ptr %116, align 4
-  %118 = load i32, ptr %109, align 4
-  %119 = icmp ult i32 %117, %118
-  %120 = getelementptr inbounds i8, ptr %111, i64 4
-  %121 = xor i64 %110, -1
-  %122 = add nsw i64 %.020.i, %121
-  %.sroa.012.1.i = select i1 %119, ptr %120, ptr %.sroa.012.019.i
-  %.1.i90 = select i1 %119, i64 %122, i64 %110
-  %123 = icmp sgt i64 %.1.i90, 0
-  br i1 %123, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !157
+  %117 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %114
+  %118 = load i32, ptr %117, align 4
+  %119 = load i32, ptr %110, align 4
+  %120 = icmp ult i32 %118, %119
+  %121 = getelementptr inbounds i8, ptr %112, i64 4
+  %122 = xor i64 %111, -1
+  %123 = add nsw i64 %.020.i, %122
+  %.sroa.012.1.i = select i1 %120, ptr %121, ptr %.sroa.012.019.i
+  %.1.i90 = select i1 %120, i64 %123, i64 %111
+  %124 = icmp sgt i64 %.1.i90, 0
+  br i1 %124, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !157
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i
   %.pre = ptrtoint ptr %.sroa.012.1.i to i64
   br label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %95, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %96, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
   %.sroa.012.0.lcssa.i = phi ptr [ %.sroa.012.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
-  %124 = sub i64 %.pre-phi, %95
-  %125 = ashr exact i64 %124, 2
-  br label %157
+  %125 = sub i64 %.pre-phi, %96
+  %126 = ashr exact i64 %125, 2
+  br label %158
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %94
-  %126 = sdiv i64 %.tr120191, 2
-  %127 = getelementptr inbounds i32, ptr %.tr117188, i64 %126
-  %128 = ptrtoint ptr %.tr186 to i64
-  %129 = sub i64 %95, %128
-  %130 = ashr exact i64 %129, 2
-  %131 = icmp sgt i64 %130, 0
-  br i1 %131, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %95
+  %127 = sdiv i64 %.tr120191, 2
+  %128 = getelementptr inbounds i32, ptr %.tr117188, i64 %127
+  %129 = ptrtoint ptr %.tr186 to i64
+  %130 = sub i64 %96, %129
+  %131 = ashr exact i64 %130, 2
+  %132 = icmp sgt i64 %131, 0
+  br i1 %132, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %132 = load i32, ptr %127, align 4
-  %133 = sext i32 %132 to i64
-  %134 = load ptr, ptr %10, align 8
-  %135 = load ptr, ptr %9, align 8
-  %136 = ptrtoint ptr %134 to i64
+  %133 = load i32, ptr %128, align 4
+  %134 = sext i32 %133 to i64
+  %135 = load ptr, ptr %10, align 8
+  %136 = load ptr, ptr %9, align 8
   %137 = ptrtoint ptr %135 to i64
-  %138 = sub i64 %136, %137
-  %139 = ashr exact i64 %138, 3
-  %.not.i.i.i.i.i98 = icmp ugt i64 %139, %133
-  %140 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %133
-  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %145
+  %138 = ptrtoint ptr %136 to i64
+  %139 = sub i64 %137, %138
+  %140 = ashr exact i64 %139, 3
+  %.not.i.i.i.i.i98 = icmp ugt i64 %140, %134
+  %141 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %134
+  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %146
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %130, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
+  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %131, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
-  %141 = lshr i64 %.020.i100, 1
-  %142 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %141
-  %143 = load i32, ptr %142, align 4
-  %144 = sext i32 %143 to i64
-  %.not.i.i2.i.i.i104 = icmp ugt i64 %139, %144
-  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %146
+  %142 = lshr i64 %.020.i100, 1
+  %143 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %142
+  %144 = load i32, ptr %143, align 4
+  %145 = sext i32 %144 to i64
+  %.not.i.i2.i.i.i104 = icmp ugt i64 %140, %145
+  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %147
 
-145:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %133, i64 noundef %139) #21
+146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %134, i64 noundef %140) #21
   unreachable
 
-146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %144, i64 noundef %139) #21
+147:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %145, i64 noundef %140) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  %147 = load i32, ptr %140, align 4
-  %148 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %144
-  %149 = load i32, ptr %148, align 4
-  %150 = icmp ult i32 %147, %149
-  %151 = getelementptr inbounds i8, ptr %142, i64 4
-  %152 = xor i64 %141, -1
-  %153 = add nsw i64 %.020.i100, %152
-  %.sroa.012.1.i105 = select i1 %150, ptr %.sroa.012.019.i101, ptr %151
-  %.1.i106 = select i1 %150, i64 %141, i64 %153
-  %154 = icmp sgt i64 %.1.i106, 0
-  br i1 %154, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !158
+  %148 = load i32, ptr %141, align 4
+  %149 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %145
+  %150 = load i32, ptr %149, align 4
+  %151 = icmp ult i32 %148, %150
+  %152 = getelementptr inbounds i8, ptr %143, i64 4
+  %153 = xor i64 %142, -1
+  %154 = add nsw i64 %.020.i100, %153
+  %.sroa.012.1.i105 = select i1 %151, ptr %.sroa.012.019.i101, ptr %152
+  %.1.i106 = select i1 %151, i64 %142, i64 %154
+  %155 = icmp sgt i64 %.1.i106, 0
+  br i1 %155, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !158
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.pre248 = ptrtoint ptr %.sroa.012.1.i105 to i64
   br label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %128, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
+  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %129, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
   %.sroa.012.0.lcssa.i96 = phi ptr [ %.sroa.012.1.i105, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
-  %155 = sub i64 %.pre-phi249, %128
-  %156 = ashr exact i64 %155, 2
-  br label %157
+  %156 = sub i64 %.pre-phi249, %129
+  %157 = ashr exact i64 %156, 2
+  br label %158
 
-157:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
-  %.sroa.0112.0 = phi ptr [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.073 = phi i64 [ %125, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %126, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %96, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %156, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %158 = sub nsw i64 %.tr119190, %.0
-  %159 = icmp sle i64 %158, %.073
+158:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+  %.sroa.0112.0 = phi ptr [ %98, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %128, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.073 = phi i64 [ %126, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %157, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %159 = sub nsw i64 %.tr119190, %.0
+  %160 = icmp sle i64 %159, %.073
   %.not.i107 = icmp sgt i64 %.073, %6
-  %or.cond.i = or i1 %.not.i107, %159
-  br i1 %or.cond.i, label %173, label %160
+  %or.cond.i = or i1 %.not.i107, %160
+  br i1 %or.cond.i, label %175, label %161
 
-160:                                              ; preds = %157
+161:                                              ; preds = %158
   %.not36.i = icmp eq i64 %.073, 0
-  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %161
+  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %162
 
-161:                                              ; preds = %160
-  %162 = ptrtoint ptr %.sroa.0.0 to i64
-  %163 = ptrtoint ptr %.tr117188 to i64
-  %164 = sub i64 %162, %163
+162:                                              ; preds = %161
+  %163 = ptrtoint ptr %.sroa.0.0 to i64
+  %164 = ptrtoint ptr %.tr117188 to i64
+  %165 = sub i64 %163, %164
   %.not.i.i.i.i.i.i108 = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %165
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %166
 
-165:                                              ; preds = %161
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %164, i1 false)
+166:                                              ; preds = %162
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %165, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %165, %161
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %166, %162
   %.not.i.i.i.i.i37.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %166
+  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %167
 
-166:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  %167 = ptrtoint ptr %.sroa.0112.0 to i64
-  %168 = sub i64 %163, %167
-  %169 = ashr exact i64 %168, 2
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %169
-  %170 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %170, ptr align 4 %.sroa.0112.0, i64 %168, i1 false)
+167:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  %168 = ptrtoint ptr %.sroa.0112.0 to i64
+  %169 = sub i64 %164, %168
+  %170 = ashr exact i64 %169, 2
+  %171 = sub nsw i64 0, %170
+  %172 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %171
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %172, ptr align 4 %.sroa.0112.0, i64 %169, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %166, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %171
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %167, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %173
 
-171:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %164, i1 false)
+173:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %165, i1 false)
   br label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109
 
-_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %171, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %172 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %164
+_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %173, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %174 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %165
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-173:                                              ; preds = %157
-  %.not34.i = icmp sgt i64 %158, %6
-  br i1 %.not34.i, label %187, label %174
+175:                                              ; preds = %158
+  %.not34.i = icmp sgt i64 %159, %6
+  br i1 %.not34.i, label %190, label %176
 
-174:                                              ; preds = %173
+176:                                              ; preds = %175
   %.not35.i = icmp eq i64 %.tr119190, %.0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %175
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %177
 
-175:                                              ; preds = %174
-  %176 = ptrtoint ptr %.tr117188 to i64
-  %177 = ptrtoint ptr %.sroa.0112.0 to i64
-  %178 = sub i64 %176, %177
+177:                                              ; preds = %176
+  %178 = ptrtoint ptr %.tr117188 to i64
+  %179 = ptrtoint ptr %.sroa.0112.0 to i64
+  %180 = sub i64 %178, %179
   %.not.i.i.i.i.i39.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %179
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %181
 
-179:                                              ; preds = %175
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %178, i1 false)
+181:                                              ; preds = %177
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %180, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %179, %175
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %181, %177
   %.not.i.i.i.i.i41.i = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %180
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %182
 
-180:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %181 = ptrtoint ptr %.sroa.0.0 to i64
-  %182 = sub i64 %181, %176
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %182, i1 false)
+182:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  %183 = ptrtoint ptr %.sroa.0.0 to i64
+  %184 = sub i64 %183, %178
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %184, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %180, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %183 = ashr exact i64 %178, 2
-  %.pre.i.i.i.i.i43.i = sub nsw i64 0, %183
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %184
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %182, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %185
 
-184:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %185 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %185, ptr align 4 %5, i64 %178, i1 false)
+185:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %186 = ashr exact i64 %180, 2
+  %187 = sub nsw i64 0, %186
+  %188 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %187
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %188, ptr align 4 %5, i64 %180, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %184, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %186 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
+_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %185, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %.pre-phi.i.i.i.i.i43.i = phi i64 [ %187, %185 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
+  %189 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-187:                                              ; preds = %173
-  %188 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
+190:                                              ; preds = %175
+  %191 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %160, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %174, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %187
-  %.sroa.032.0.i = phi ptr [ %172, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %186, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %188, %187 ], [ %.sroa.0112.0, %160 ], [ %.sroa.0.0, %174 ]
+_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %161, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %176, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %190
+  %.sroa.032.0.i = phi ptr [ %174, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %189, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %191, %190 ], [ %.sroa.0112.0, %161 ], [ %.sroa.0.0, %176 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi4EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr186, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
-  %189 = sub nsw i64 %.tr120191, %.073
-  %.not = icmp sgt i64 %158, %189
-  %.not77 = icmp sgt i64 %158, %6
+  %192 = sub nsw i64 %.tr120191, %.073
+  %.not = icmp sgt i64 %159, %192
+  %.not77 = icmp sgt i64 %159, %6
   %or.cond = or i1 %.not77, %.not
   br i1 %or.cond, label %40, label %tailrecurse._crit_edge
 
@@ -16202,46 +16209,46 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %26 = ptrtoint ptr %.sroa.0.041 to i64
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %28
-  %29 = getelementptr inbounds i32, ptr %25, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %29, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
+  %29 = sub nsw i64 0, %28
+  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEEvT_T0_.exit
 
-._crit_edge.i:                                    ; preds = %40
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %46) #21
+._crit_edge.i:                                    ; preds = %41
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %47) #21
   unreachable
 
-_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %40
-  %30 = phi i64 [ %46, %40 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %31 = phi ptr [ %42, %40 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %40 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %41
+  %31 = phi i64 [ %47, %41 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %32 = phi ptr [ %43, %41 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %41 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
   %.sroa.0.020.i = getelementptr inbounds i8, ptr %.sroa.05.019.i, i64 -4
-  %32 = load i32, ptr %.sroa.0.020.i, align 4
-  %33 = sext i32 %32 to i64
-  %.not.i.i2.i.i.i = icmp ugt i64 %30, %33
-  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %34
+  %33 = load i32, ptr %.sroa.0.020.i, align 4
+  %34 = sext i32 %33 to i64
+  %.not.i.i2.i.i.i = icmp ugt i64 %31, %34
+  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %35
 
-34:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %33, i64 noundef %30) #21
+35:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %34, i64 noundef %31) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %35 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %9
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %33
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp ult i32 %36, %38
-  br i1 %39, label %40, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEEvT_T0_.exit
+  %36 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %9
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %34
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp ult i32 %37, %39
+  br i1 %40, label %41, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEEvT_T0_.exit
 
-40:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  store i32 %32, ptr %.sroa.05.019.i, align 4
-  %41 = load ptr, ptr %5, align 8
-  %42 = load ptr, ptr %2, align 8
-  %43 = ptrtoint ptr %41 to i64
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
+  store i32 %33, ptr %.sroa.05.019.i, align 4
+  %42 = load ptr, ptr %5, align 8
+  %43 = load ptr, ptr %2, align 8
   %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  %46 = ashr exact i64 %45, 3
-  %.not.i.i.i.i.i9 = icmp ugt i64 %46, %9
+  %45 = ptrtoint ptr %43 to i64
+  %46 = sub i64 %44, %45
+  %47 = ashr exact i64 %46, 3
+  %.not.i.i.i.i.i9 = icmp ugt i64 %47, %9
   br i1 %.not.i.i.i.i.i9, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %._crit_edge.i, !llvm.loop !177
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -16595,12 +16602,12 @@ _ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.ex
 
 40:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
   %.not192 = phi i1 [ %.not183, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %189, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %158, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %192, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %159, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr117188 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr186 = phi ptr [ %0, %.lr.ph ], [ %.sroa.032.0.i, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.not78 = icmp sgt i64 %.tr120191, %6
-  br i1 %.not78, label %94, label %41
+  br i1 %.not78, label %95, label %41
 
 41:                                               ; preds = %40
   %.not.i.i.i.i.i80 = icmp eq ptr %2, %.tr117188
@@ -16701,254 +16708,255 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15Probabili
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !184
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %72
-  %.sink82.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink83.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa65.sink.i = phi ptr [ %69, %72 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %89 = ptrtoint ptr %.sink82.i to i64
+  %89 = ptrtoint ptr %.sink83.i to i64
   %90 = ptrtoint ptr %5 to i64
   %91 = sub i64 %89, %90
   %92 = ashr exact i64 %91, 2
-  %.pre.i.i.i.i.i19.i = sub nsw i64 0, %92
-  %93 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %.pre.i.i.i.i.i19.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %93, ptr align 4 %5, i64 %91, i1 false)
+  %93 = sub nsw i64 0, %92
+  %94 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %93
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %94, ptr align 4 %5, i64 %91, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
-94:                                               ; preds = %40
-  %95 = ptrtoint ptr %.tr117188 to i64
+95:                                               ; preds = %40
+  %96 = ptrtoint ptr %.tr117188 to i64
   br i1 %.not192, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %94
-  %96 = sdiv i64 %.tr119190, 2
-  %97 = getelementptr inbounds i32, ptr %.tr186, i64 %96
-  %98 = sub i64 %11, %95
-  %99 = ashr exact i64 %98, 2
-  %100 = icmp sgt i64 %99, 0
-  br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %95
+  %97 = sdiv i64 %.tr119190, 2
+  %98 = getelementptr inbounds i32, ptr %.tr186, i64 %97
+  %99 = sub i64 %11, %96
+  %100 = ashr exact i64 %99, 2
+  %101 = icmp sgt i64 %100, 0
+  br i1 %101, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %101 = load ptr, ptr %10, align 8
-  %102 = load ptr, ptr %9, align 8
-  %103 = ptrtoint ptr %101 to i64
+  %102 = load ptr, ptr %10, align 8
+  %103 = load ptr, ptr %9, align 8
   %104 = ptrtoint ptr %102 to i64
-  %105 = sub i64 %103, %104
-  %106 = ashr exact i64 %105, 3
-  %107 = load i32, ptr %97, align 4
-  %108 = sext i32 %107 to i64
-  %.not.i.i2.i.i.i87 = icmp ugt i64 %106, %108
-  %109 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %108
+  %105 = ptrtoint ptr %103 to i64
+  %106 = sub i64 %104, %105
+  %107 = ashr exact i64 %106, 3
+  %108 = load i32, ptr %98, align 4
+  %109 = sext i32 %108 to i64
+  %.not.i.i2.i.i.i87 = icmp ugt i64 %107, %109
+  %110 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %109
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
-  %.020.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
+  %.020.i = phi i64 [ %100, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
-  %110 = lshr i64 %.020.i, 1
-  %111 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %110
-  %112 = load i32, ptr %111, align 4
-  %113 = sext i32 %112 to i64
-  %.not.i.i.i.i.i88 = icmp ugt i64 %106, %113
-  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %114
+  %111 = lshr i64 %.020.i, 1
+  %112 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %111
+  %113 = load i32, ptr %112, align 4
+  %114 = sext i32 %113 to i64
+  %.not.i.i.i.i.i88 = icmp ugt i64 %107, %114
+  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %115
 
-114:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %113, i64 noundef %106) #21
+115:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %114, i64 noundef %107) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %115
+  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %116
 
-115:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %108, i64 noundef %106) #21
+116:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %109, i64 noundef %107) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %116 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %113
-  %117 = load i32, ptr %116, align 4
-  %118 = load i32, ptr %109, align 4
-  %119 = icmp ult i32 %117, %118
-  %120 = getelementptr inbounds i8, ptr %111, i64 4
-  %121 = xor i64 %110, -1
-  %122 = add nsw i64 %.020.i, %121
-  %.sroa.012.1.i = select i1 %119, ptr %120, ptr %.sroa.012.019.i
-  %.1.i90 = select i1 %119, i64 %122, i64 %110
-  %123 = icmp sgt i64 %.1.i90, 0
-  br i1 %123, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !179
+  %117 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %114
+  %118 = load i32, ptr %117, align 4
+  %119 = load i32, ptr %110, align 4
+  %120 = icmp ult i32 %118, %119
+  %121 = getelementptr inbounds i8, ptr %112, i64 4
+  %122 = xor i64 %111, -1
+  %123 = add nsw i64 %.020.i, %122
+  %.sroa.012.1.i = select i1 %120, ptr %121, ptr %.sroa.012.019.i
+  %.1.i90 = select i1 %120, i64 %123, i64 %111
+  %124 = icmp sgt i64 %.1.i90, 0
+  br i1 %124, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !179
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i
   %.pre = ptrtoint ptr %.sroa.012.1.i to i64
   br label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %95, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %96, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
   %.sroa.012.0.lcssa.i = phi ptr [ %.sroa.012.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
-  %124 = sub i64 %.pre-phi, %95
-  %125 = ashr exact i64 %124, 2
-  br label %157
+  %125 = sub i64 %.pre-phi, %96
+  %126 = ashr exact i64 %125, 2
+  br label %158
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %94
-  %126 = sdiv i64 %.tr120191, 2
-  %127 = getelementptr inbounds i32, ptr %.tr117188, i64 %126
-  %128 = ptrtoint ptr %.tr186 to i64
-  %129 = sub i64 %95, %128
-  %130 = ashr exact i64 %129, 2
-  %131 = icmp sgt i64 %130, 0
-  br i1 %131, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %95
+  %127 = sdiv i64 %.tr120191, 2
+  %128 = getelementptr inbounds i32, ptr %.tr117188, i64 %127
+  %129 = ptrtoint ptr %.tr186 to i64
+  %130 = sub i64 %96, %129
+  %131 = ashr exact i64 %130, 2
+  %132 = icmp sgt i64 %131, 0
+  br i1 %132, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %132 = load i32, ptr %127, align 4
-  %133 = sext i32 %132 to i64
-  %134 = load ptr, ptr %10, align 8
-  %135 = load ptr, ptr %9, align 8
-  %136 = ptrtoint ptr %134 to i64
+  %133 = load i32, ptr %128, align 4
+  %134 = sext i32 %133 to i64
+  %135 = load ptr, ptr %10, align 8
+  %136 = load ptr, ptr %9, align 8
   %137 = ptrtoint ptr %135 to i64
-  %138 = sub i64 %136, %137
-  %139 = ashr exact i64 %138, 3
-  %.not.i.i.i.i.i98 = icmp ugt i64 %139, %133
-  %140 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %133
-  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %145
+  %138 = ptrtoint ptr %136 to i64
+  %139 = sub i64 %137, %138
+  %140 = ashr exact i64 %139, 3
+  %.not.i.i.i.i.i98 = icmp ugt i64 %140, %134
+  %141 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %134
+  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %146
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %130, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
+  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %131, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
-  %141 = lshr i64 %.020.i100, 1
-  %142 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %141
-  %143 = load i32, ptr %142, align 4
-  %144 = sext i32 %143 to i64
-  %.not.i.i2.i.i.i104 = icmp ugt i64 %139, %144
-  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %146
+  %142 = lshr i64 %.020.i100, 1
+  %143 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %142
+  %144 = load i32, ptr %143, align 4
+  %145 = sext i32 %144 to i64
+  %.not.i.i2.i.i.i104 = icmp ugt i64 %140, %145
+  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %147
 
-145:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %133, i64 noundef %139) #21
+146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %134, i64 noundef %140) #21
   unreachable
 
-146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %144, i64 noundef %139) #21
+147:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %145, i64 noundef %140) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  %147 = load i32, ptr %140, align 4
-  %148 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %144
-  %149 = load i32, ptr %148, align 4
-  %150 = icmp ult i32 %147, %149
-  %151 = getelementptr inbounds i8, ptr %142, i64 4
-  %152 = xor i64 %141, -1
-  %153 = add nsw i64 %.020.i100, %152
-  %.sroa.012.1.i105 = select i1 %150, ptr %.sroa.012.019.i101, ptr %151
-  %.1.i106 = select i1 %150, i64 %141, i64 %153
-  %154 = icmp sgt i64 %.1.i106, 0
-  br i1 %154, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !180
+  %148 = load i32, ptr %141, align 4
+  %149 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %145
+  %150 = load i32, ptr %149, align 4
+  %151 = icmp ult i32 %148, %150
+  %152 = getelementptr inbounds i8, ptr %143, i64 4
+  %153 = xor i64 %142, -1
+  %154 = add nsw i64 %.020.i100, %153
+  %.sroa.012.1.i105 = select i1 %151, ptr %.sroa.012.019.i101, ptr %152
+  %.1.i106 = select i1 %151, i64 %142, i64 %154
+  %155 = icmp sgt i64 %.1.i106, 0
+  br i1 %155, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !180
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.pre248 = ptrtoint ptr %.sroa.012.1.i105 to i64
   br label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %128, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
+  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %129, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
   %.sroa.012.0.lcssa.i96 = phi ptr [ %.sroa.012.1.i105, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
-  %155 = sub i64 %.pre-phi249, %128
-  %156 = ashr exact i64 %155, 2
-  br label %157
+  %156 = sub i64 %.pre-phi249, %129
+  %157 = ashr exact i64 %156, 2
+  br label %158
 
-157:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
-  %.sroa.0112.0 = phi ptr [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.073 = phi i64 [ %125, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %126, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %96, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %156, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %158 = sub nsw i64 %.tr119190, %.0
-  %159 = icmp sle i64 %158, %.073
+158:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+  %.sroa.0112.0 = phi ptr [ %98, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %128, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.073 = phi i64 [ %126, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %157, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %159 = sub nsw i64 %.tr119190, %.0
+  %160 = icmp sle i64 %159, %.073
   %.not.i107 = icmp sgt i64 %.073, %6
-  %or.cond.i = or i1 %.not.i107, %159
-  br i1 %or.cond.i, label %173, label %160
+  %or.cond.i = or i1 %.not.i107, %160
+  br i1 %or.cond.i, label %175, label %161
 
-160:                                              ; preds = %157
+161:                                              ; preds = %158
   %.not36.i = icmp eq i64 %.073, 0
-  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %161
+  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %162
 
-161:                                              ; preds = %160
-  %162 = ptrtoint ptr %.sroa.0.0 to i64
-  %163 = ptrtoint ptr %.tr117188 to i64
-  %164 = sub i64 %162, %163
+162:                                              ; preds = %161
+  %163 = ptrtoint ptr %.sroa.0.0 to i64
+  %164 = ptrtoint ptr %.tr117188 to i64
+  %165 = sub i64 %163, %164
   %.not.i.i.i.i.i.i108 = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %165
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %166
 
-165:                                              ; preds = %161
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %164, i1 false)
+166:                                              ; preds = %162
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %165, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %165, %161
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %166, %162
   %.not.i.i.i.i.i37.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %166
+  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %167
 
-166:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  %167 = ptrtoint ptr %.sroa.0112.0 to i64
-  %168 = sub i64 %163, %167
-  %169 = ashr exact i64 %168, 2
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %169
-  %170 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %170, ptr align 4 %.sroa.0112.0, i64 %168, i1 false)
+167:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  %168 = ptrtoint ptr %.sroa.0112.0 to i64
+  %169 = sub i64 %164, %168
+  %170 = ashr exact i64 %169, 2
+  %171 = sub nsw i64 0, %170
+  %172 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %171
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %172, ptr align 4 %.sroa.0112.0, i64 %169, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %166, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %171
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %167, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %173
 
-171:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %164, i1 false)
+173:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %165, i1 false)
   br label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109
 
-_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %171, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %172 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %164
+_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %173, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %174 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %165
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-173:                                              ; preds = %157
-  %.not34.i = icmp sgt i64 %158, %6
-  br i1 %.not34.i, label %187, label %174
+175:                                              ; preds = %158
+  %.not34.i = icmp sgt i64 %159, %6
+  br i1 %.not34.i, label %190, label %176
 
-174:                                              ; preds = %173
+176:                                              ; preds = %175
   %.not35.i = icmp eq i64 %.tr119190, %.0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %175
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %177
 
-175:                                              ; preds = %174
-  %176 = ptrtoint ptr %.tr117188 to i64
-  %177 = ptrtoint ptr %.sroa.0112.0 to i64
-  %178 = sub i64 %176, %177
+177:                                              ; preds = %176
+  %178 = ptrtoint ptr %.tr117188 to i64
+  %179 = ptrtoint ptr %.sroa.0112.0 to i64
+  %180 = sub i64 %178, %179
   %.not.i.i.i.i.i39.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %179
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %181
 
-179:                                              ; preds = %175
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %178, i1 false)
+181:                                              ; preds = %177
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %180, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %179, %175
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %181, %177
   %.not.i.i.i.i.i41.i = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %180
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %182
 
-180:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %181 = ptrtoint ptr %.sroa.0.0 to i64
-  %182 = sub i64 %181, %176
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %182, i1 false)
+182:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  %183 = ptrtoint ptr %.sroa.0.0 to i64
+  %184 = sub i64 %183, %178
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %184, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %180, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %183 = ashr exact i64 %178, 2
-  %.pre.i.i.i.i.i43.i = sub nsw i64 0, %183
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %184
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %182, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %185
 
-184:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %185 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %185, ptr align 4 %5, i64 %178, i1 false)
+185:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %186 = ashr exact i64 %180, 2
+  %187 = sub nsw i64 0, %186
+  %188 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %187
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %188, ptr align 4 %5, i64 %180, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %184, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %186 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
+_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %185, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %.pre-phi.i.i.i.i.i43.i = phi i64 [ %187, %185 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
+  %189 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-187:                                              ; preds = %173
-  %188 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
+190:                                              ; preds = %175
+  %191 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %160, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %174, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %187
-  %.sroa.032.0.i = phi ptr [ %172, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %186, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %188, %187 ], [ %.sroa.0112.0, %160 ], [ %.sroa.0.0, %174 ]
+_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %161, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %176, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %190
+  %.sroa.032.0.i = phi ptr [ %174, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %189, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %191, %190 ], [ %.sroa.0112.0, %161 ], [ %.sroa.0.0, %176 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi6EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr186, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
-  %189 = sub nsw i64 %.tr120191, %.073
-  %.not = icmp sgt i64 %158, %189
-  %.not77 = icmp sgt i64 %158, %6
+  %192 = sub nsw i64 %.tr120191, %.073
+  %.not = icmp sgt i64 %159, %192
+  %.not77 = icmp sgt i64 %159, %6
   %or.cond = or i1 %.not77, %.not
   br i1 %or.cond, label %40, label %tailrecurse._crit_edge
 
@@ -18158,46 +18166,46 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %26 = ptrtoint ptr %.sroa.0.041 to i64
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %28
-  %29 = getelementptr inbounds i32, ptr %25, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %29, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
+  %29 = sub nsw i64 0, %28
+  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEEvT_T0_.exit
 
-._crit_edge.i:                                    ; preds = %40
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %46) #21
+._crit_edge.i:                                    ; preds = %41
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %47) #21
   unreachable
 
-_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %40
-  %30 = phi i64 [ %46, %40 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %31 = phi ptr [ %42, %40 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %40 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %41
+  %31 = phi i64 [ %47, %41 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %32 = phi ptr [ %43, %41 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %41 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
   %.sroa.0.020.i = getelementptr inbounds i8, ptr %.sroa.05.019.i, i64 -4
-  %32 = load i32, ptr %.sroa.0.020.i, align 4
-  %33 = sext i32 %32 to i64
-  %.not.i.i2.i.i.i = icmp ugt i64 %30, %33
-  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %34
+  %33 = load i32, ptr %.sroa.0.020.i, align 4
+  %34 = sext i32 %33 to i64
+  %.not.i.i2.i.i.i = icmp ugt i64 %31, %34
+  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %35
 
-34:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %33, i64 noundef %30) #21
+35:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %34, i64 noundef %31) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %35 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %9
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %33
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp ult i32 %36, %38
-  br i1 %39, label %40, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEEvT_T0_.exit
+  %36 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %9
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %34
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp ult i32 %37, %39
+  br i1 %40, label %41, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEEvT_T0_.exit
 
-40:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  store i32 %32, ptr %.sroa.05.019.i, align 4
-  %41 = load ptr, ptr %5, align 8
-  %42 = load ptr, ptr %2, align 8
-  %43 = ptrtoint ptr %41 to i64
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
+  store i32 %33, ptr %.sroa.05.019.i, align 4
+  %42 = load ptr, ptr %5, align 8
+  %43 = load ptr, ptr %2, align 8
   %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  %46 = ashr exact i64 %45, 3
-  %.not.i.i.i.i.i9 = icmp ugt i64 %46, %9
+  %45 = ptrtoint ptr %43 to i64
+  %46 = sub i64 %44, %45
+  %47 = ashr exact i64 %46, 3
+  %.not.i.i.i.i.i9 = icmp ugt i64 %47, %9
   br i1 %.not.i.i.i.i.i9, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %._crit_edge.i, !llvm.loop !199
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -18551,12 +18559,12 @@ _ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.ex
 
 40:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
   %.not192 = phi i1 [ %.not183, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %189, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %158, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %192, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %159, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr117188 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr186 = phi ptr [ %0, %.lr.ph ], [ %.sroa.032.0.i, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.not78 = icmp sgt i64 %.tr120191, %6
-  br i1 %.not78, label %94, label %41
+  br i1 %.not78, label %95, label %41
 
 41:                                               ; preds = %40
   %.not.i.i.i.i.i80 = icmp eq ptr %2, %.tr117188
@@ -18657,254 +18665,255 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15Probabili
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !206
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %72
-  %.sink82.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink83.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa65.sink.i = phi ptr [ %69, %72 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %89 = ptrtoint ptr %.sink82.i to i64
+  %89 = ptrtoint ptr %.sink83.i to i64
   %90 = ptrtoint ptr %5 to i64
   %91 = sub i64 %89, %90
   %92 = ashr exact i64 %91, 2
-  %.pre.i.i.i.i.i19.i = sub nsw i64 0, %92
-  %93 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %.pre.i.i.i.i.i19.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %93, ptr align 4 %5, i64 %91, i1 false)
+  %93 = sub nsw i64 0, %92
+  %94 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %93
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %94, ptr align 4 %5, i64 %91, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
-94:                                               ; preds = %40
-  %95 = ptrtoint ptr %.tr117188 to i64
+95:                                               ; preds = %40
+  %96 = ptrtoint ptr %.tr117188 to i64
   br i1 %.not192, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %94
-  %96 = sdiv i64 %.tr119190, 2
-  %97 = getelementptr inbounds i32, ptr %.tr186, i64 %96
-  %98 = sub i64 %11, %95
-  %99 = ashr exact i64 %98, 2
-  %100 = icmp sgt i64 %99, 0
-  br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %95
+  %97 = sdiv i64 %.tr119190, 2
+  %98 = getelementptr inbounds i32, ptr %.tr186, i64 %97
+  %99 = sub i64 %11, %96
+  %100 = ashr exact i64 %99, 2
+  %101 = icmp sgt i64 %100, 0
+  br i1 %101, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %101 = load ptr, ptr %10, align 8
-  %102 = load ptr, ptr %9, align 8
-  %103 = ptrtoint ptr %101 to i64
+  %102 = load ptr, ptr %10, align 8
+  %103 = load ptr, ptr %9, align 8
   %104 = ptrtoint ptr %102 to i64
-  %105 = sub i64 %103, %104
-  %106 = ashr exact i64 %105, 3
-  %107 = load i32, ptr %97, align 4
-  %108 = sext i32 %107 to i64
-  %.not.i.i2.i.i.i87 = icmp ugt i64 %106, %108
-  %109 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %108
+  %105 = ptrtoint ptr %103 to i64
+  %106 = sub i64 %104, %105
+  %107 = ashr exact i64 %106, 3
+  %108 = load i32, ptr %98, align 4
+  %109 = sext i32 %108 to i64
+  %.not.i.i2.i.i.i87 = icmp ugt i64 %107, %109
+  %110 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %109
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
-  %.020.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
+  %.020.i = phi i64 [ %100, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
-  %110 = lshr i64 %.020.i, 1
-  %111 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %110
-  %112 = load i32, ptr %111, align 4
-  %113 = sext i32 %112 to i64
-  %.not.i.i.i.i.i88 = icmp ugt i64 %106, %113
-  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %114
+  %111 = lshr i64 %.020.i, 1
+  %112 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %111
+  %113 = load i32, ptr %112, align 4
+  %114 = sext i32 %113 to i64
+  %.not.i.i.i.i.i88 = icmp ugt i64 %107, %114
+  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %115
 
-114:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %113, i64 noundef %106) #21
+115:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %114, i64 noundef %107) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %115
+  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %116
 
-115:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %108, i64 noundef %106) #21
+116:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %109, i64 noundef %107) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %116 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %113
-  %117 = load i32, ptr %116, align 4
-  %118 = load i32, ptr %109, align 4
-  %119 = icmp ult i32 %117, %118
-  %120 = getelementptr inbounds i8, ptr %111, i64 4
-  %121 = xor i64 %110, -1
-  %122 = add nsw i64 %.020.i, %121
-  %.sroa.012.1.i = select i1 %119, ptr %120, ptr %.sroa.012.019.i
-  %.1.i90 = select i1 %119, i64 %122, i64 %110
-  %123 = icmp sgt i64 %.1.i90, 0
-  br i1 %123, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !201
+  %117 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %114
+  %118 = load i32, ptr %117, align 4
+  %119 = load i32, ptr %110, align 4
+  %120 = icmp ult i32 %118, %119
+  %121 = getelementptr inbounds i8, ptr %112, i64 4
+  %122 = xor i64 %111, -1
+  %123 = add nsw i64 %.020.i, %122
+  %.sroa.012.1.i = select i1 %120, ptr %121, ptr %.sroa.012.019.i
+  %.1.i90 = select i1 %120, i64 %123, i64 %111
+  %124 = icmp sgt i64 %.1.i90, 0
+  br i1 %124, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !201
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i
   %.pre = ptrtoint ptr %.sroa.012.1.i to i64
   br label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %95, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %96, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
   %.sroa.012.0.lcssa.i = phi ptr [ %.sroa.012.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
-  %124 = sub i64 %.pre-phi, %95
-  %125 = ashr exact i64 %124, 2
-  br label %157
+  %125 = sub i64 %.pre-phi, %96
+  %126 = ashr exact i64 %125, 2
+  br label %158
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %94
-  %126 = sdiv i64 %.tr120191, 2
-  %127 = getelementptr inbounds i32, ptr %.tr117188, i64 %126
-  %128 = ptrtoint ptr %.tr186 to i64
-  %129 = sub i64 %95, %128
-  %130 = ashr exact i64 %129, 2
-  %131 = icmp sgt i64 %130, 0
-  br i1 %131, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %95
+  %127 = sdiv i64 %.tr120191, 2
+  %128 = getelementptr inbounds i32, ptr %.tr117188, i64 %127
+  %129 = ptrtoint ptr %.tr186 to i64
+  %130 = sub i64 %96, %129
+  %131 = ashr exact i64 %130, 2
+  %132 = icmp sgt i64 %131, 0
+  br i1 %132, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %132 = load i32, ptr %127, align 4
-  %133 = sext i32 %132 to i64
-  %134 = load ptr, ptr %10, align 8
-  %135 = load ptr, ptr %9, align 8
-  %136 = ptrtoint ptr %134 to i64
+  %133 = load i32, ptr %128, align 4
+  %134 = sext i32 %133 to i64
+  %135 = load ptr, ptr %10, align 8
+  %136 = load ptr, ptr %9, align 8
   %137 = ptrtoint ptr %135 to i64
-  %138 = sub i64 %136, %137
-  %139 = ashr exact i64 %138, 3
-  %.not.i.i.i.i.i98 = icmp ugt i64 %139, %133
-  %140 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %133
-  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %145
+  %138 = ptrtoint ptr %136 to i64
+  %139 = sub i64 %137, %138
+  %140 = ashr exact i64 %139, 3
+  %.not.i.i.i.i.i98 = icmp ugt i64 %140, %134
+  %141 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %134
+  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %146
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %130, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
+  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %131, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
-  %141 = lshr i64 %.020.i100, 1
-  %142 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %141
-  %143 = load i32, ptr %142, align 4
-  %144 = sext i32 %143 to i64
-  %.not.i.i2.i.i.i104 = icmp ugt i64 %139, %144
-  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %146
+  %142 = lshr i64 %.020.i100, 1
+  %143 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %142
+  %144 = load i32, ptr %143, align 4
+  %145 = sext i32 %144 to i64
+  %.not.i.i2.i.i.i104 = icmp ugt i64 %140, %145
+  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %147
 
-145:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %133, i64 noundef %139) #21
+146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %134, i64 noundef %140) #21
   unreachable
 
-146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %144, i64 noundef %139) #21
+147:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %145, i64 noundef %140) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  %147 = load i32, ptr %140, align 4
-  %148 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %144
-  %149 = load i32, ptr %148, align 4
-  %150 = icmp ult i32 %147, %149
-  %151 = getelementptr inbounds i8, ptr %142, i64 4
-  %152 = xor i64 %141, -1
-  %153 = add nsw i64 %.020.i100, %152
-  %.sroa.012.1.i105 = select i1 %150, ptr %.sroa.012.019.i101, ptr %151
-  %.1.i106 = select i1 %150, i64 %141, i64 %153
-  %154 = icmp sgt i64 %.1.i106, 0
-  br i1 %154, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !202
+  %148 = load i32, ptr %141, align 4
+  %149 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %145
+  %150 = load i32, ptr %149, align 4
+  %151 = icmp ult i32 %148, %150
+  %152 = getelementptr inbounds i8, ptr %143, i64 4
+  %153 = xor i64 %142, -1
+  %154 = add nsw i64 %.020.i100, %153
+  %.sroa.012.1.i105 = select i1 %151, ptr %.sroa.012.019.i101, ptr %152
+  %.1.i106 = select i1 %151, i64 %142, i64 %154
+  %155 = icmp sgt i64 %.1.i106, 0
+  br i1 %155, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !202
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.pre248 = ptrtoint ptr %.sroa.012.1.i105 to i64
   br label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %128, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
+  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %129, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
   %.sroa.012.0.lcssa.i96 = phi ptr [ %.sroa.012.1.i105, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
-  %155 = sub i64 %.pre-phi249, %128
-  %156 = ashr exact i64 %155, 2
-  br label %157
+  %156 = sub i64 %.pre-phi249, %129
+  %157 = ashr exact i64 %156, 2
+  br label %158
 
-157:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
-  %.sroa.0112.0 = phi ptr [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.073 = phi i64 [ %125, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %126, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %96, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %156, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %158 = sub nsw i64 %.tr119190, %.0
-  %159 = icmp sle i64 %158, %.073
+158:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+  %.sroa.0112.0 = phi ptr [ %98, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %128, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.073 = phi i64 [ %126, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %157, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %159 = sub nsw i64 %.tr119190, %.0
+  %160 = icmp sle i64 %159, %.073
   %.not.i107 = icmp sgt i64 %.073, %6
-  %or.cond.i = or i1 %.not.i107, %159
-  br i1 %or.cond.i, label %173, label %160
+  %or.cond.i = or i1 %.not.i107, %160
+  br i1 %or.cond.i, label %175, label %161
 
-160:                                              ; preds = %157
+161:                                              ; preds = %158
   %.not36.i = icmp eq i64 %.073, 0
-  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %161
+  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %162
 
-161:                                              ; preds = %160
-  %162 = ptrtoint ptr %.sroa.0.0 to i64
-  %163 = ptrtoint ptr %.tr117188 to i64
-  %164 = sub i64 %162, %163
+162:                                              ; preds = %161
+  %163 = ptrtoint ptr %.sroa.0.0 to i64
+  %164 = ptrtoint ptr %.tr117188 to i64
+  %165 = sub i64 %163, %164
   %.not.i.i.i.i.i.i108 = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %165
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %166
 
-165:                                              ; preds = %161
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %164, i1 false)
+166:                                              ; preds = %162
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %165, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %165, %161
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %166, %162
   %.not.i.i.i.i.i37.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %166
+  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %167
 
-166:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  %167 = ptrtoint ptr %.sroa.0112.0 to i64
-  %168 = sub i64 %163, %167
-  %169 = ashr exact i64 %168, 2
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %169
-  %170 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %170, ptr align 4 %.sroa.0112.0, i64 %168, i1 false)
+167:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  %168 = ptrtoint ptr %.sroa.0112.0 to i64
+  %169 = sub i64 %164, %168
+  %170 = ashr exact i64 %169, 2
+  %171 = sub nsw i64 0, %170
+  %172 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %171
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %172, ptr align 4 %.sroa.0112.0, i64 %169, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %166, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %171
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %167, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %173
 
-171:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %164, i1 false)
+173:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %165, i1 false)
   br label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109
 
-_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %171, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %172 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %164
+_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %173, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %174 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %165
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-173:                                              ; preds = %157
-  %.not34.i = icmp sgt i64 %158, %6
-  br i1 %.not34.i, label %187, label %174
+175:                                              ; preds = %158
+  %.not34.i = icmp sgt i64 %159, %6
+  br i1 %.not34.i, label %190, label %176
 
-174:                                              ; preds = %173
+176:                                              ; preds = %175
   %.not35.i = icmp eq i64 %.tr119190, %.0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %175
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %177
 
-175:                                              ; preds = %174
-  %176 = ptrtoint ptr %.tr117188 to i64
-  %177 = ptrtoint ptr %.sroa.0112.0 to i64
-  %178 = sub i64 %176, %177
+177:                                              ; preds = %176
+  %178 = ptrtoint ptr %.tr117188 to i64
+  %179 = ptrtoint ptr %.sroa.0112.0 to i64
+  %180 = sub i64 %178, %179
   %.not.i.i.i.i.i39.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %179
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %181
 
-179:                                              ; preds = %175
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %178, i1 false)
+181:                                              ; preds = %177
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %180, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %179, %175
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %181, %177
   %.not.i.i.i.i.i41.i = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %180
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %182
 
-180:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %181 = ptrtoint ptr %.sroa.0.0 to i64
-  %182 = sub i64 %181, %176
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %182, i1 false)
+182:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  %183 = ptrtoint ptr %.sroa.0.0 to i64
+  %184 = sub i64 %183, %178
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %184, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %180, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %183 = ashr exact i64 %178, 2
-  %.pre.i.i.i.i.i43.i = sub nsw i64 0, %183
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %184
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %182, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %185
 
-184:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %185 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %185, ptr align 4 %5, i64 %178, i1 false)
+185:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %186 = ashr exact i64 %180, 2
+  %187 = sub nsw i64 0, %186
+  %188 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %187
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %188, ptr align 4 %5, i64 %180, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %184, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %186 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
+_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %185, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %.pre-phi.i.i.i.i.i43.i = phi i64 [ %187, %185 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
+  %189 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-187:                                              ; preds = %173
-  %188 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
+190:                                              ; preds = %175
+  %191 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %160, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %174, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %187
-  %.sroa.032.0.i = phi ptr [ %172, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %186, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %188, %187 ], [ %.sroa.0112.0, %160 ], [ %.sroa.0.0, %174 ]
+_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %161, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %176, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %190
+  %.sroa.032.0.i = phi ptr [ %174, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %189, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %191, %190 ], [ %.sroa.0112.0, %161 ], [ %.sroa.0.0, %176 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi7EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr186, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
-  %189 = sub nsw i64 %.tr120191, %.073
-  %.not = icmp sgt i64 %158, %189
-  %.not77 = icmp sgt i64 %158, %6
+  %192 = sub nsw i64 %.tr120191, %.073
+  %.not = icmp sgt i64 %159, %192
+  %.not77 = icmp sgt i64 %159, %6
   %or.cond = or i1 %.not77, %.not
   br i1 %or.cond, label %40, label %tailrecurse._crit_edge
 
@@ -20114,46 +20123,46 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %26 = ptrtoint ptr %.sroa.0.041 to i64
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %28
-  %29 = getelementptr inbounds i32, ptr %25, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %29, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
+  %29 = sub nsw i64 0, %28
+  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEEvT_T0_.exit
 
-._crit_edge.i:                                    ; preds = %40
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %46) #21
+._crit_edge.i:                                    ; preds = %41
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %47) #21
   unreachable
 
-_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %40
-  %30 = phi i64 [ %46, %40 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %31 = phi ptr [ %42, %40 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %40 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %41
+  %31 = phi i64 [ %47, %41 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %32 = phi ptr [ %43, %41 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %41 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
   %.sroa.0.020.i = getelementptr inbounds i8, ptr %.sroa.05.019.i, i64 -4
-  %32 = load i32, ptr %.sroa.0.020.i, align 4
-  %33 = sext i32 %32 to i64
-  %.not.i.i2.i.i.i = icmp ugt i64 %30, %33
-  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %34
+  %33 = load i32, ptr %.sroa.0.020.i, align 4
+  %34 = sext i32 %33 to i64
+  %.not.i.i2.i.i.i = icmp ugt i64 %31, %34
+  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %35
 
-34:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %33, i64 noundef %30) #21
+35:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %34, i64 noundef %31) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %35 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %9
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %33
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp ult i32 %36, %38
-  br i1 %39, label %40, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEEvT_T0_.exit
+  %36 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %9
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %34
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp ult i32 %37, %39
+  br i1 %40, label %41, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEEvT_T0_.exit
 
-40:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  store i32 %32, ptr %.sroa.05.019.i, align 4
-  %41 = load ptr, ptr %5, align 8
-  %42 = load ptr, ptr %2, align 8
-  %43 = ptrtoint ptr %41 to i64
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
+  store i32 %33, ptr %.sroa.05.019.i, align 4
+  %42 = load ptr, ptr %5, align 8
+  %43 = load ptr, ptr %2, align 8
   %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  %46 = ashr exact i64 %45, 3
-  %.not.i.i.i.i.i9 = icmp ugt i64 %46, %9
+  %45 = ptrtoint ptr %43 to i64
+  %46 = sub i64 %44, %45
+  %47 = ashr exact i64 %46, 3
+  %.not.i.i.i.i.i9 = icmp ugt i64 %47, %9
   br i1 %.not.i.i.i.i.i9, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %._crit_edge.i, !llvm.loop !221
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -20507,12 +20516,12 @@ _ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.ex
 
 40:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
   %.not192 = phi i1 [ %.not183, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %189, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %158, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %192, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %159, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr117188 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr186 = phi ptr [ %0, %.lr.ph ], [ %.sroa.032.0.i, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.not78 = icmp sgt i64 %.tr120191, %6
-  br i1 %.not78, label %94, label %41
+  br i1 %.not78, label %95, label %41
 
 41:                                               ; preds = %40
   %.not.i.i.i.i.i80 = icmp eq ptr %2, %.tr117188
@@ -20613,254 +20622,255 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15Probabili
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !228
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %72
-  %.sink82.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink83.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa65.sink.i = phi ptr [ %69, %72 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %89 = ptrtoint ptr %.sink82.i to i64
+  %89 = ptrtoint ptr %.sink83.i to i64
   %90 = ptrtoint ptr %5 to i64
   %91 = sub i64 %89, %90
   %92 = ashr exact i64 %91, 2
-  %.pre.i.i.i.i.i19.i = sub nsw i64 0, %92
-  %93 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %.pre.i.i.i.i.i19.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %93, ptr align 4 %5, i64 %91, i1 false)
+  %93 = sub nsw i64 0, %92
+  %94 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %93
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %94, ptr align 4 %5, i64 %91, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
-94:                                               ; preds = %40
-  %95 = ptrtoint ptr %.tr117188 to i64
+95:                                               ; preds = %40
+  %96 = ptrtoint ptr %.tr117188 to i64
   br i1 %.not192, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %94
-  %96 = sdiv i64 %.tr119190, 2
-  %97 = getelementptr inbounds i32, ptr %.tr186, i64 %96
-  %98 = sub i64 %11, %95
-  %99 = ashr exact i64 %98, 2
-  %100 = icmp sgt i64 %99, 0
-  br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %95
+  %97 = sdiv i64 %.tr119190, 2
+  %98 = getelementptr inbounds i32, ptr %.tr186, i64 %97
+  %99 = sub i64 %11, %96
+  %100 = ashr exact i64 %99, 2
+  %101 = icmp sgt i64 %100, 0
+  br i1 %101, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %101 = load ptr, ptr %10, align 8
-  %102 = load ptr, ptr %9, align 8
-  %103 = ptrtoint ptr %101 to i64
+  %102 = load ptr, ptr %10, align 8
+  %103 = load ptr, ptr %9, align 8
   %104 = ptrtoint ptr %102 to i64
-  %105 = sub i64 %103, %104
-  %106 = ashr exact i64 %105, 3
-  %107 = load i32, ptr %97, align 4
-  %108 = sext i32 %107 to i64
-  %.not.i.i2.i.i.i87 = icmp ugt i64 %106, %108
-  %109 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %108
+  %105 = ptrtoint ptr %103 to i64
+  %106 = sub i64 %104, %105
+  %107 = ashr exact i64 %106, 3
+  %108 = load i32, ptr %98, align 4
+  %109 = sext i32 %108 to i64
+  %.not.i.i2.i.i.i87 = icmp ugt i64 %107, %109
+  %110 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %109
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
-  %.020.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
+  %.020.i = phi i64 [ %100, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
-  %110 = lshr i64 %.020.i, 1
-  %111 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %110
-  %112 = load i32, ptr %111, align 4
-  %113 = sext i32 %112 to i64
-  %.not.i.i.i.i.i88 = icmp ugt i64 %106, %113
-  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %114
+  %111 = lshr i64 %.020.i, 1
+  %112 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %111
+  %113 = load i32, ptr %112, align 4
+  %114 = sext i32 %113 to i64
+  %.not.i.i.i.i.i88 = icmp ugt i64 %107, %114
+  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %115
 
-114:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %113, i64 noundef %106) #21
+115:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %114, i64 noundef %107) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %115
+  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %116
 
-115:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %108, i64 noundef %106) #21
+116:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %109, i64 noundef %107) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %116 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %113
-  %117 = load i32, ptr %116, align 4
-  %118 = load i32, ptr %109, align 4
-  %119 = icmp ult i32 %117, %118
-  %120 = getelementptr inbounds i8, ptr %111, i64 4
-  %121 = xor i64 %110, -1
-  %122 = add nsw i64 %.020.i, %121
-  %.sroa.012.1.i = select i1 %119, ptr %120, ptr %.sroa.012.019.i
-  %.1.i90 = select i1 %119, i64 %122, i64 %110
-  %123 = icmp sgt i64 %.1.i90, 0
-  br i1 %123, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !223
+  %117 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %114
+  %118 = load i32, ptr %117, align 4
+  %119 = load i32, ptr %110, align 4
+  %120 = icmp ult i32 %118, %119
+  %121 = getelementptr inbounds i8, ptr %112, i64 4
+  %122 = xor i64 %111, -1
+  %123 = add nsw i64 %.020.i, %122
+  %.sroa.012.1.i = select i1 %120, ptr %121, ptr %.sroa.012.019.i
+  %.1.i90 = select i1 %120, i64 %123, i64 %111
+  %124 = icmp sgt i64 %.1.i90, 0
+  br i1 %124, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !223
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i
   %.pre = ptrtoint ptr %.sroa.012.1.i to i64
   br label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %95, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %96, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
   %.sroa.012.0.lcssa.i = phi ptr [ %.sroa.012.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
-  %124 = sub i64 %.pre-phi, %95
-  %125 = ashr exact i64 %124, 2
-  br label %157
+  %125 = sub i64 %.pre-phi, %96
+  %126 = ashr exact i64 %125, 2
+  br label %158
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %94
-  %126 = sdiv i64 %.tr120191, 2
-  %127 = getelementptr inbounds i32, ptr %.tr117188, i64 %126
-  %128 = ptrtoint ptr %.tr186 to i64
-  %129 = sub i64 %95, %128
-  %130 = ashr exact i64 %129, 2
-  %131 = icmp sgt i64 %130, 0
-  br i1 %131, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %95
+  %127 = sdiv i64 %.tr120191, 2
+  %128 = getelementptr inbounds i32, ptr %.tr117188, i64 %127
+  %129 = ptrtoint ptr %.tr186 to i64
+  %130 = sub i64 %96, %129
+  %131 = ashr exact i64 %130, 2
+  %132 = icmp sgt i64 %131, 0
+  br i1 %132, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %132 = load i32, ptr %127, align 4
-  %133 = sext i32 %132 to i64
-  %134 = load ptr, ptr %10, align 8
-  %135 = load ptr, ptr %9, align 8
-  %136 = ptrtoint ptr %134 to i64
+  %133 = load i32, ptr %128, align 4
+  %134 = sext i32 %133 to i64
+  %135 = load ptr, ptr %10, align 8
+  %136 = load ptr, ptr %9, align 8
   %137 = ptrtoint ptr %135 to i64
-  %138 = sub i64 %136, %137
-  %139 = ashr exact i64 %138, 3
-  %.not.i.i.i.i.i98 = icmp ugt i64 %139, %133
-  %140 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %133
-  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %145
+  %138 = ptrtoint ptr %136 to i64
+  %139 = sub i64 %137, %138
+  %140 = ashr exact i64 %139, 3
+  %.not.i.i.i.i.i98 = icmp ugt i64 %140, %134
+  %141 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %134
+  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %146
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %130, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
+  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %131, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
-  %141 = lshr i64 %.020.i100, 1
-  %142 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %141
-  %143 = load i32, ptr %142, align 4
-  %144 = sext i32 %143 to i64
-  %.not.i.i2.i.i.i104 = icmp ugt i64 %139, %144
-  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %146
+  %142 = lshr i64 %.020.i100, 1
+  %143 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %142
+  %144 = load i32, ptr %143, align 4
+  %145 = sext i32 %144 to i64
+  %.not.i.i2.i.i.i104 = icmp ugt i64 %140, %145
+  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %147
 
-145:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %133, i64 noundef %139) #21
+146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %134, i64 noundef %140) #21
   unreachable
 
-146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %144, i64 noundef %139) #21
+147:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %145, i64 noundef %140) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  %147 = load i32, ptr %140, align 4
-  %148 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %144
-  %149 = load i32, ptr %148, align 4
-  %150 = icmp ult i32 %147, %149
-  %151 = getelementptr inbounds i8, ptr %142, i64 4
-  %152 = xor i64 %141, -1
-  %153 = add nsw i64 %.020.i100, %152
-  %.sroa.012.1.i105 = select i1 %150, ptr %.sroa.012.019.i101, ptr %151
-  %.1.i106 = select i1 %150, i64 %141, i64 %153
-  %154 = icmp sgt i64 %.1.i106, 0
-  br i1 %154, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !224
+  %148 = load i32, ptr %141, align 4
+  %149 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %145
+  %150 = load i32, ptr %149, align 4
+  %151 = icmp ult i32 %148, %150
+  %152 = getelementptr inbounds i8, ptr %143, i64 4
+  %153 = xor i64 %142, -1
+  %154 = add nsw i64 %.020.i100, %153
+  %.sroa.012.1.i105 = select i1 %151, ptr %.sroa.012.019.i101, ptr %152
+  %.1.i106 = select i1 %151, i64 %142, i64 %154
+  %155 = icmp sgt i64 %.1.i106, 0
+  br i1 %155, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !224
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.pre248 = ptrtoint ptr %.sroa.012.1.i105 to i64
   br label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %128, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
+  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %129, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
   %.sroa.012.0.lcssa.i96 = phi ptr [ %.sroa.012.1.i105, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
-  %155 = sub i64 %.pre-phi249, %128
-  %156 = ashr exact i64 %155, 2
-  br label %157
+  %156 = sub i64 %.pre-phi249, %129
+  %157 = ashr exact i64 %156, 2
+  br label %158
 
-157:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
-  %.sroa.0112.0 = phi ptr [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.073 = phi i64 [ %125, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %126, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %96, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %156, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %158 = sub nsw i64 %.tr119190, %.0
-  %159 = icmp sle i64 %158, %.073
+158:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+  %.sroa.0112.0 = phi ptr [ %98, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %128, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.073 = phi i64 [ %126, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %157, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %159 = sub nsw i64 %.tr119190, %.0
+  %160 = icmp sle i64 %159, %.073
   %.not.i107 = icmp sgt i64 %.073, %6
-  %or.cond.i = or i1 %.not.i107, %159
-  br i1 %or.cond.i, label %173, label %160
+  %or.cond.i = or i1 %.not.i107, %160
+  br i1 %or.cond.i, label %175, label %161
 
-160:                                              ; preds = %157
+161:                                              ; preds = %158
   %.not36.i = icmp eq i64 %.073, 0
-  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %161
+  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %162
 
-161:                                              ; preds = %160
-  %162 = ptrtoint ptr %.sroa.0.0 to i64
-  %163 = ptrtoint ptr %.tr117188 to i64
-  %164 = sub i64 %162, %163
+162:                                              ; preds = %161
+  %163 = ptrtoint ptr %.sroa.0.0 to i64
+  %164 = ptrtoint ptr %.tr117188 to i64
+  %165 = sub i64 %163, %164
   %.not.i.i.i.i.i.i108 = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %165
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %166
 
-165:                                              ; preds = %161
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %164, i1 false)
+166:                                              ; preds = %162
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %165, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %165, %161
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %166, %162
   %.not.i.i.i.i.i37.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %166
+  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %167
 
-166:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  %167 = ptrtoint ptr %.sroa.0112.0 to i64
-  %168 = sub i64 %163, %167
-  %169 = ashr exact i64 %168, 2
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %169
-  %170 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %170, ptr align 4 %.sroa.0112.0, i64 %168, i1 false)
+167:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  %168 = ptrtoint ptr %.sroa.0112.0 to i64
+  %169 = sub i64 %164, %168
+  %170 = ashr exact i64 %169, 2
+  %171 = sub nsw i64 0, %170
+  %172 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %171
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %172, ptr align 4 %.sroa.0112.0, i64 %169, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %166, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %171
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %167, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %173
 
-171:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %164, i1 false)
+173:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %165, i1 false)
   br label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109
 
-_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %171, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %172 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %164
+_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %173, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %174 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %165
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-173:                                              ; preds = %157
-  %.not34.i = icmp sgt i64 %158, %6
-  br i1 %.not34.i, label %187, label %174
+175:                                              ; preds = %158
+  %.not34.i = icmp sgt i64 %159, %6
+  br i1 %.not34.i, label %190, label %176
 
-174:                                              ; preds = %173
+176:                                              ; preds = %175
   %.not35.i = icmp eq i64 %.tr119190, %.0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %175
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %177
 
-175:                                              ; preds = %174
-  %176 = ptrtoint ptr %.tr117188 to i64
-  %177 = ptrtoint ptr %.sroa.0112.0 to i64
-  %178 = sub i64 %176, %177
+177:                                              ; preds = %176
+  %178 = ptrtoint ptr %.tr117188 to i64
+  %179 = ptrtoint ptr %.sroa.0112.0 to i64
+  %180 = sub i64 %178, %179
   %.not.i.i.i.i.i39.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %179
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %181
 
-179:                                              ; preds = %175
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %178, i1 false)
+181:                                              ; preds = %177
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %180, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %179, %175
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %181, %177
   %.not.i.i.i.i.i41.i = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %180
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %182
 
-180:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %181 = ptrtoint ptr %.sroa.0.0 to i64
-  %182 = sub i64 %181, %176
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %182, i1 false)
+182:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  %183 = ptrtoint ptr %.sroa.0.0 to i64
+  %184 = sub i64 %183, %178
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %184, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %180, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %183 = ashr exact i64 %178, 2
-  %.pre.i.i.i.i.i43.i = sub nsw i64 0, %183
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %184
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %182, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %185
 
-184:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %185 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %185, ptr align 4 %5, i64 %178, i1 false)
+185:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %186 = ashr exact i64 %180, 2
+  %187 = sub nsw i64 0, %186
+  %188 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %187
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %188, ptr align 4 %5, i64 %180, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %184, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %186 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
+_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %185, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %.pre-phi.i.i.i.i.i43.i = phi i64 [ %187, %185 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
+  %189 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-187:                                              ; preds = %173
-  %188 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
+190:                                              ; preds = %175
+  %191 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %160, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %174, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %187
-  %.sroa.032.0.i = phi ptr [ %172, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %186, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %188, %187 ], [ %.sroa.0112.0, %160 ], [ %.sroa.0.0, %174 ]
+_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %161, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %176, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %190
+  %.sroa.032.0.i = phi ptr [ %174, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %189, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %191, %190 ], [ %.sroa.0112.0, %161 ], [ %.sroa.0.0, %176 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi8EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr186, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
-  %189 = sub nsw i64 %.tr120191, %.073
-  %.not = icmp sgt i64 %158, %189
-  %.not77 = icmp sgt i64 %158, %6
+  %192 = sub nsw i64 %.tr120191, %.073
+  %.not = icmp sgt i64 %159, %192
+  %.not77 = icmp sgt i64 %159, %6
   %or.cond = or i1 %.not77, %.not
   br i1 %or.cond, label %40, label %tailrecurse._crit_edge
 
@@ -22071,46 +22081,46 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %26 = ptrtoint ptr %.sroa.0.041 to i64
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %28
-  %29 = getelementptr inbounds i32, ptr %25, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %29, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
+  %29 = sub nsw i64 0, %28
+  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEEvT_T0_.exit
 
-._crit_edge.i:                                    ; preds = %40
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %46) #21
+._crit_edge.i:                                    ; preds = %41
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %47) #21
   unreachable
 
-_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %40
-  %30 = phi i64 [ %46, %40 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %31 = phi ptr [ %42, %40 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %40 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %41
+  %31 = phi i64 [ %47, %41 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %32 = phi ptr [ %43, %41 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %41 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
   %.sroa.0.020.i = getelementptr inbounds i8, ptr %.sroa.05.019.i, i64 -4
-  %32 = load i32, ptr %.sroa.0.020.i, align 4
-  %33 = sext i32 %32 to i64
-  %.not.i.i2.i.i.i = icmp ugt i64 %30, %33
-  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %34
+  %33 = load i32, ptr %.sroa.0.020.i, align 4
+  %34 = sext i32 %33 to i64
+  %.not.i.i2.i.i.i = icmp ugt i64 %31, %34
+  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %35
 
-34:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %33, i64 noundef %30) #21
+35:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %34, i64 noundef %31) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %35 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %9
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %33
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp ult i32 %36, %38
-  br i1 %39, label %40, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEEvT_T0_.exit
+  %36 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %9
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %34
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp ult i32 %37, %39
+  br i1 %40, label %41, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEEvT_T0_.exit
 
-40:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  store i32 %32, ptr %.sroa.05.019.i, align 4
-  %41 = load ptr, ptr %5, align 8
-  %42 = load ptr, ptr %2, align 8
-  %43 = ptrtoint ptr %41 to i64
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
+  store i32 %33, ptr %.sroa.05.019.i, align 4
+  %42 = load ptr, ptr %5, align 8
+  %43 = load ptr, ptr %2, align 8
   %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  %46 = ashr exact i64 %45, 3
-  %.not.i.i.i.i.i9 = icmp ugt i64 %46, %9
+  %45 = ptrtoint ptr %43 to i64
+  %46 = sub i64 %44, %45
+  %47 = ashr exact i64 %46, 3
+  %.not.i.i.i.i.i9 = icmp ugt i64 %47, %9
   br i1 %.not.i.i.i.i.i9, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %._crit_edge.i, !llvm.loop !243
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -22464,12 +22474,12 @@ _ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.ex
 
 40:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
   %.not192 = phi i1 [ %.not183, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %189, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %158, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %192, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %159, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr117188 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr186 = phi ptr [ %0, %.lr.ph ], [ %.sroa.032.0.i, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.not78 = icmp sgt i64 %.tr120191, %6
-  br i1 %.not78, label %94, label %41
+  br i1 %.not78, label %95, label %41
 
 41:                                               ; preds = %40
   %.not.i.i.i.i.i80 = icmp eq ptr %2, %.tr117188
@@ -22570,254 +22580,255 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15Probabili
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !250
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %72
-  %.sink82.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink83.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa65.sink.i = phi ptr [ %69, %72 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %89 = ptrtoint ptr %.sink82.i to i64
+  %89 = ptrtoint ptr %.sink83.i to i64
   %90 = ptrtoint ptr %5 to i64
   %91 = sub i64 %89, %90
   %92 = ashr exact i64 %91, 2
-  %.pre.i.i.i.i.i19.i = sub nsw i64 0, %92
-  %93 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %.pre.i.i.i.i.i19.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %93, ptr align 4 %5, i64 %91, i1 false)
+  %93 = sub nsw i64 0, %92
+  %94 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %93
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %94, ptr align 4 %5, i64 %91, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
-94:                                               ; preds = %40
-  %95 = ptrtoint ptr %.tr117188 to i64
+95:                                               ; preds = %40
+  %96 = ptrtoint ptr %.tr117188 to i64
   br i1 %.not192, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %94
-  %96 = sdiv i64 %.tr119190, 2
-  %97 = getelementptr inbounds i32, ptr %.tr186, i64 %96
-  %98 = sub i64 %11, %95
-  %99 = ashr exact i64 %98, 2
-  %100 = icmp sgt i64 %99, 0
-  br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %95
+  %97 = sdiv i64 %.tr119190, 2
+  %98 = getelementptr inbounds i32, ptr %.tr186, i64 %97
+  %99 = sub i64 %11, %96
+  %100 = ashr exact i64 %99, 2
+  %101 = icmp sgt i64 %100, 0
+  br i1 %101, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %101 = load ptr, ptr %10, align 8
-  %102 = load ptr, ptr %9, align 8
-  %103 = ptrtoint ptr %101 to i64
+  %102 = load ptr, ptr %10, align 8
+  %103 = load ptr, ptr %9, align 8
   %104 = ptrtoint ptr %102 to i64
-  %105 = sub i64 %103, %104
-  %106 = ashr exact i64 %105, 3
-  %107 = load i32, ptr %97, align 4
-  %108 = sext i32 %107 to i64
-  %.not.i.i2.i.i.i87 = icmp ugt i64 %106, %108
-  %109 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %108
+  %105 = ptrtoint ptr %103 to i64
+  %106 = sub i64 %104, %105
+  %107 = ashr exact i64 %106, 3
+  %108 = load i32, ptr %98, align 4
+  %109 = sext i32 %108 to i64
+  %.not.i.i2.i.i.i87 = icmp ugt i64 %107, %109
+  %110 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %109
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
-  %.020.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
+  %.020.i = phi i64 [ %100, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
-  %110 = lshr i64 %.020.i, 1
-  %111 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %110
-  %112 = load i32, ptr %111, align 4
-  %113 = sext i32 %112 to i64
-  %.not.i.i.i.i.i88 = icmp ugt i64 %106, %113
-  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %114
+  %111 = lshr i64 %.020.i, 1
+  %112 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %111
+  %113 = load i32, ptr %112, align 4
+  %114 = sext i32 %113 to i64
+  %.not.i.i.i.i.i88 = icmp ugt i64 %107, %114
+  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %115
 
-114:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %113, i64 noundef %106) #21
+115:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %114, i64 noundef %107) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %115
+  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %116
 
-115:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %108, i64 noundef %106) #21
+116:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %109, i64 noundef %107) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %116 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %113
-  %117 = load i32, ptr %116, align 4
-  %118 = load i32, ptr %109, align 4
-  %119 = icmp ult i32 %117, %118
-  %120 = getelementptr inbounds i8, ptr %111, i64 4
-  %121 = xor i64 %110, -1
-  %122 = add nsw i64 %.020.i, %121
-  %.sroa.012.1.i = select i1 %119, ptr %120, ptr %.sroa.012.019.i
-  %.1.i90 = select i1 %119, i64 %122, i64 %110
-  %123 = icmp sgt i64 %.1.i90, 0
-  br i1 %123, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !245
+  %117 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %114
+  %118 = load i32, ptr %117, align 4
+  %119 = load i32, ptr %110, align 4
+  %120 = icmp ult i32 %118, %119
+  %121 = getelementptr inbounds i8, ptr %112, i64 4
+  %122 = xor i64 %111, -1
+  %123 = add nsw i64 %.020.i, %122
+  %.sroa.012.1.i = select i1 %120, ptr %121, ptr %.sroa.012.019.i
+  %.1.i90 = select i1 %120, i64 %123, i64 %111
+  %124 = icmp sgt i64 %.1.i90, 0
+  br i1 %124, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !245
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i
   %.pre = ptrtoint ptr %.sroa.012.1.i to i64
   br label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %95, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %96, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
   %.sroa.012.0.lcssa.i = phi ptr [ %.sroa.012.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
-  %124 = sub i64 %.pre-phi, %95
-  %125 = ashr exact i64 %124, 2
-  br label %157
+  %125 = sub i64 %.pre-phi, %96
+  %126 = ashr exact i64 %125, 2
+  br label %158
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %94
-  %126 = sdiv i64 %.tr120191, 2
-  %127 = getelementptr inbounds i32, ptr %.tr117188, i64 %126
-  %128 = ptrtoint ptr %.tr186 to i64
-  %129 = sub i64 %95, %128
-  %130 = ashr exact i64 %129, 2
-  %131 = icmp sgt i64 %130, 0
-  br i1 %131, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %95
+  %127 = sdiv i64 %.tr120191, 2
+  %128 = getelementptr inbounds i32, ptr %.tr117188, i64 %127
+  %129 = ptrtoint ptr %.tr186 to i64
+  %130 = sub i64 %96, %129
+  %131 = ashr exact i64 %130, 2
+  %132 = icmp sgt i64 %131, 0
+  br i1 %132, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %132 = load i32, ptr %127, align 4
-  %133 = sext i32 %132 to i64
-  %134 = load ptr, ptr %10, align 8
-  %135 = load ptr, ptr %9, align 8
-  %136 = ptrtoint ptr %134 to i64
+  %133 = load i32, ptr %128, align 4
+  %134 = sext i32 %133 to i64
+  %135 = load ptr, ptr %10, align 8
+  %136 = load ptr, ptr %9, align 8
   %137 = ptrtoint ptr %135 to i64
-  %138 = sub i64 %136, %137
-  %139 = ashr exact i64 %138, 3
-  %.not.i.i.i.i.i98 = icmp ugt i64 %139, %133
-  %140 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %133
-  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %145
+  %138 = ptrtoint ptr %136 to i64
+  %139 = sub i64 %137, %138
+  %140 = ashr exact i64 %139, 3
+  %.not.i.i.i.i.i98 = icmp ugt i64 %140, %134
+  %141 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %134
+  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %146
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %130, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
+  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %131, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
-  %141 = lshr i64 %.020.i100, 1
-  %142 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %141
-  %143 = load i32, ptr %142, align 4
-  %144 = sext i32 %143 to i64
-  %.not.i.i2.i.i.i104 = icmp ugt i64 %139, %144
-  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %146
+  %142 = lshr i64 %.020.i100, 1
+  %143 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %142
+  %144 = load i32, ptr %143, align 4
+  %145 = sext i32 %144 to i64
+  %.not.i.i2.i.i.i104 = icmp ugt i64 %140, %145
+  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %147
 
-145:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %133, i64 noundef %139) #21
+146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %134, i64 noundef %140) #21
   unreachable
 
-146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %144, i64 noundef %139) #21
+147:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %145, i64 noundef %140) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  %147 = load i32, ptr %140, align 4
-  %148 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %144
-  %149 = load i32, ptr %148, align 4
-  %150 = icmp ult i32 %147, %149
-  %151 = getelementptr inbounds i8, ptr %142, i64 4
-  %152 = xor i64 %141, -1
-  %153 = add nsw i64 %.020.i100, %152
-  %.sroa.012.1.i105 = select i1 %150, ptr %.sroa.012.019.i101, ptr %151
-  %.1.i106 = select i1 %150, i64 %141, i64 %153
-  %154 = icmp sgt i64 %.1.i106, 0
-  br i1 %154, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !246
+  %148 = load i32, ptr %141, align 4
+  %149 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %145
+  %150 = load i32, ptr %149, align 4
+  %151 = icmp ult i32 %148, %150
+  %152 = getelementptr inbounds i8, ptr %143, i64 4
+  %153 = xor i64 %142, -1
+  %154 = add nsw i64 %.020.i100, %153
+  %.sroa.012.1.i105 = select i1 %151, ptr %.sroa.012.019.i101, ptr %152
+  %.1.i106 = select i1 %151, i64 %142, i64 %154
+  %155 = icmp sgt i64 %.1.i106, 0
+  br i1 %155, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !246
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.pre248 = ptrtoint ptr %.sroa.012.1.i105 to i64
   br label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %128, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
+  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %129, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
   %.sroa.012.0.lcssa.i96 = phi ptr [ %.sroa.012.1.i105, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
-  %155 = sub i64 %.pre-phi249, %128
-  %156 = ashr exact i64 %155, 2
-  br label %157
+  %156 = sub i64 %.pre-phi249, %129
+  %157 = ashr exact i64 %156, 2
+  br label %158
 
-157:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
-  %.sroa.0112.0 = phi ptr [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.073 = phi i64 [ %125, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %126, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %96, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %156, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %158 = sub nsw i64 %.tr119190, %.0
-  %159 = icmp sle i64 %158, %.073
+158:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+  %.sroa.0112.0 = phi ptr [ %98, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %128, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.073 = phi i64 [ %126, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %157, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %159 = sub nsw i64 %.tr119190, %.0
+  %160 = icmp sle i64 %159, %.073
   %.not.i107 = icmp sgt i64 %.073, %6
-  %or.cond.i = or i1 %.not.i107, %159
-  br i1 %or.cond.i, label %173, label %160
+  %or.cond.i = or i1 %.not.i107, %160
+  br i1 %or.cond.i, label %175, label %161
 
-160:                                              ; preds = %157
+161:                                              ; preds = %158
   %.not36.i = icmp eq i64 %.073, 0
-  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %161
+  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %162
 
-161:                                              ; preds = %160
-  %162 = ptrtoint ptr %.sroa.0.0 to i64
-  %163 = ptrtoint ptr %.tr117188 to i64
-  %164 = sub i64 %162, %163
+162:                                              ; preds = %161
+  %163 = ptrtoint ptr %.sroa.0.0 to i64
+  %164 = ptrtoint ptr %.tr117188 to i64
+  %165 = sub i64 %163, %164
   %.not.i.i.i.i.i.i108 = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %165
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %166
 
-165:                                              ; preds = %161
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %164, i1 false)
+166:                                              ; preds = %162
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %165, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %165, %161
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %166, %162
   %.not.i.i.i.i.i37.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %166
+  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %167
 
-166:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  %167 = ptrtoint ptr %.sroa.0112.0 to i64
-  %168 = sub i64 %163, %167
-  %169 = ashr exact i64 %168, 2
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %169
-  %170 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %170, ptr align 4 %.sroa.0112.0, i64 %168, i1 false)
+167:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  %168 = ptrtoint ptr %.sroa.0112.0 to i64
+  %169 = sub i64 %164, %168
+  %170 = ashr exact i64 %169, 2
+  %171 = sub nsw i64 0, %170
+  %172 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %171
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %172, ptr align 4 %.sroa.0112.0, i64 %169, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %166, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %171
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %167, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %173
 
-171:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %164, i1 false)
+173:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %165, i1 false)
   br label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109
 
-_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %171, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %172 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %164
+_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %173, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %174 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %165
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-173:                                              ; preds = %157
-  %.not34.i = icmp sgt i64 %158, %6
-  br i1 %.not34.i, label %187, label %174
+175:                                              ; preds = %158
+  %.not34.i = icmp sgt i64 %159, %6
+  br i1 %.not34.i, label %190, label %176
 
-174:                                              ; preds = %173
+176:                                              ; preds = %175
   %.not35.i = icmp eq i64 %.tr119190, %.0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %175
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %177
 
-175:                                              ; preds = %174
-  %176 = ptrtoint ptr %.tr117188 to i64
-  %177 = ptrtoint ptr %.sroa.0112.0 to i64
-  %178 = sub i64 %176, %177
+177:                                              ; preds = %176
+  %178 = ptrtoint ptr %.tr117188 to i64
+  %179 = ptrtoint ptr %.sroa.0112.0 to i64
+  %180 = sub i64 %178, %179
   %.not.i.i.i.i.i39.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %179
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %181
 
-179:                                              ; preds = %175
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %178, i1 false)
+181:                                              ; preds = %177
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %180, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %179, %175
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %181, %177
   %.not.i.i.i.i.i41.i = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %180
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %182
 
-180:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %181 = ptrtoint ptr %.sroa.0.0 to i64
-  %182 = sub i64 %181, %176
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %182, i1 false)
+182:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  %183 = ptrtoint ptr %.sroa.0.0 to i64
+  %184 = sub i64 %183, %178
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %184, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %180, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %183 = ashr exact i64 %178, 2
-  %.pre.i.i.i.i.i43.i = sub nsw i64 0, %183
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %184
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %182, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %185
 
-184:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %185 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %185, ptr align 4 %5, i64 %178, i1 false)
+185:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %186 = ashr exact i64 %180, 2
+  %187 = sub nsw i64 0, %186
+  %188 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %187
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %188, ptr align 4 %5, i64 %180, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %184, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %186 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
+_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %185, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %.pre-phi.i.i.i.i.i43.i = phi i64 [ %187, %185 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
+  %189 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-187:                                              ; preds = %173
-  %188 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
+190:                                              ; preds = %175
+  %191 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %160, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %174, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %187
-  %.sroa.032.0.i = phi ptr [ %172, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %186, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %188, %187 ], [ %.sroa.0112.0, %160 ], [ %.sroa.0.0, %174 ]
+_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %161, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %176, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %190
+  %.sroa.032.0.i = phi ptr [ %174, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %189, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %191, %190 ], [ %.sroa.0112.0, %161 ], [ %.sroa.0.0, %176 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi9EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr186, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
-  %189 = sub nsw i64 %.tr120191, %.073
-  %.not = icmp sgt i64 %158, %189
-  %.not77 = icmp sgt i64 %158, %6
+  %192 = sub nsw i64 %.tr120191, %.073
+  %.not = icmp sgt i64 %159, %192
+  %.not77 = icmp sgt i64 %159, %6
   %or.cond = or i1 %.not77, %.not
   br i1 %or.cond, label %40, label %tailrecurse._crit_edge
 
@@ -24028,46 +24039,46 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %26 = ptrtoint ptr %.sroa.0.041 to i64
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %28
-  %29 = getelementptr inbounds i32, ptr %25, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %29, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
+  %29 = sub nsw i64 0, %28
+  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEEvT_T0_.exit
 
-._crit_edge.i:                                    ; preds = %40
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %46) #21
+._crit_edge.i:                                    ; preds = %41
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %47) #21
   unreachable
 
-_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %40
-  %30 = phi i64 [ %46, %40 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %31 = phi ptr [ %42, %40 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %40 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %41
+  %31 = phi i64 [ %47, %41 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %32 = phi ptr [ %43, %41 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %41 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
   %.sroa.0.020.i = getelementptr inbounds i8, ptr %.sroa.05.019.i, i64 -4
-  %32 = load i32, ptr %.sroa.0.020.i, align 4
-  %33 = sext i32 %32 to i64
-  %.not.i.i2.i.i.i = icmp ugt i64 %30, %33
-  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %34
+  %33 = load i32, ptr %.sroa.0.020.i, align 4
+  %34 = sext i32 %33 to i64
+  %.not.i.i2.i.i.i = icmp ugt i64 %31, %34
+  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %35
 
-34:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %33, i64 noundef %30) #21
+35:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %34, i64 noundef %31) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %35 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %9
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %33
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp ult i32 %36, %38
-  br i1 %39, label %40, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEEvT_T0_.exit
+  %36 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %9
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %34
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp ult i32 %37, %39
+  br i1 %40, label %41, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEEvT_T0_.exit
 
-40:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  store i32 %32, ptr %.sroa.05.019.i, align 4
-  %41 = load ptr, ptr %5, align 8
-  %42 = load ptr, ptr %2, align 8
-  %43 = ptrtoint ptr %41 to i64
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
+  store i32 %33, ptr %.sroa.05.019.i, align 4
+  %42 = load ptr, ptr %5, align 8
+  %43 = load ptr, ptr %2, align 8
   %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  %46 = ashr exact i64 %45, 3
-  %.not.i.i.i.i.i9 = icmp ugt i64 %46, %9
+  %45 = ptrtoint ptr %43 to i64
+  %46 = sub i64 %44, %45
+  %47 = ashr exact i64 %46, 3
+  %.not.i.i.i.i.i9 = icmp ugt i64 %47, %9
   br i1 %.not.i.i.i.i.i9, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %._crit_edge.i, !llvm.loop !265
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -24421,12 +24432,12 @@ _ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.ex
 
 40:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
   %.not192 = phi i1 [ %.not183, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %189, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %158, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %192, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %159, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr117188 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr186 = phi ptr [ %0, %.lr.ph ], [ %.sroa.032.0.i, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.not78 = icmp sgt i64 %.tr120191, %6
-  br i1 %.not78, label %94, label %41
+  br i1 %.not78, label %95, label %41
 
 41:                                               ; preds = %40
   %.not.i.i.i.i.i80 = icmp eq ptr %2, %.tr117188
@@ -24527,254 +24538,255 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15Probabil
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !272
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %72
-  %.sink82.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink83.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa65.sink.i = phi ptr [ %69, %72 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %89 = ptrtoint ptr %.sink82.i to i64
+  %89 = ptrtoint ptr %.sink83.i to i64
   %90 = ptrtoint ptr %5 to i64
   %91 = sub i64 %89, %90
   %92 = ashr exact i64 %91, 2
-  %.pre.i.i.i.i.i19.i = sub nsw i64 0, %92
-  %93 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %.pre.i.i.i.i.i19.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %93, ptr align 4 %5, i64 %91, i1 false)
+  %93 = sub nsw i64 0, %92
+  %94 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %93
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %94, ptr align 4 %5, i64 %91, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
-94:                                               ; preds = %40
-  %95 = ptrtoint ptr %.tr117188 to i64
+95:                                               ; preds = %40
+  %96 = ptrtoint ptr %.tr117188 to i64
   br i1 %.not192, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %94
-  %96 = sdiv i64 %.tr119190, 2
-  %97 = getelementptr inbounds i32, ptr %.tr186, i64 %96
-  %98 = sub i64 %11, %95
-  %99 = ashr exact i64 %98, 2
-  %100 = icmp sgt i64 %99, 0
-  br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %95
+  %97 = sdiv i64 %.tr119190, 2
+  %98 = getelementptr inbounds i32, ptr %.tr186, i64 %97
+  %99 = sub i64 %11, %96
+  %100 = ashr exact i64 %99, 2
+  %101 = icmp sgt i64 %100, 0
+  br i1 %101, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %101 = load ptr, ptr %10, align 8
-  %102 = load ptr, ptr %9, align 8
-  %103 = ptrtoint ptr %101 to i64
+  %102 = load ptr, ptr %10, align 8
+  %103 = load ptr, ptr %9, align 8
   %104 = ptrtoint ptr %102 to i64
-  %105 = sub i64 %103, %104
-  %106 = ashr exact i64 %105, 3
-  %107 = load i32, ptr %97, align 4
-  %108 = sext i32 %107 to i64
-  %.not.i.i2.i.i.i87 = icmp ugt i64 %106, %108
-  %109 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %108
+  %105 = ptrtoint ptr %103 to i64
+  %106 = sub i64 %104, %105
+  %107 = ashr exact i64 %106, 3
+  %108 = load i32, ptr %98, align 4
+  %109 = sext i32 %108 to i64
+  %.not.i.i2.i.i.i87 = icmp ugt i64 %107, %109
+  %110 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %109
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
-  %.020.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
+  %.020.i = phi i64 [ %100, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
-  %110 = lshr i64 %.020.i, 1
-  %111 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %110
-  %112 = load i32, ptr %111, align 4
-  %113 = sext i32 %112 to i64
-  %.not.i.i.i.i.i88 = icmp ugt i64 %106, %113
-  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %114
+  %111 = lshr i64 %.020.i, 1
+  %112 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %111
+  %113 = load i32, ptr %112, align 4
+  %114 = sext i32 %113 to i64
+  %.not.i.i.i.i.i88 = icmp ugt i64 %107, %114
+  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %115
 
-114:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %113, i64 noundef %106) #21
+115:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %114, i64 noundef %107) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %115
+  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %116
 
-115:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %108, i64 noundef %106) #21
+116:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %109, i64 noundef %107) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %116 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %113
-  %117 = load i32, ptr %116, align 4
-  %118 = load i32, ptr %109, align 4
-  %119 = icmp ult i32 %117, %118
-  %120 = getelementptr inbounds i8, ptr %111, i64 4
-  %121 = xor i64 %110, -1
-  %122 = add nsw i64 %.020.i, %121
-  %.sroa.012.1.i = select i1 %119, ptr %120, ptr %.sroa.012.019.i
-  %.1.i90 = select i1 %119, i64 %122, i64 %110
-  %123 = icmp sgt i64 %.1.i90, 0
-  br i1 %123, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !267
+  %117 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %114
+  %118 = load i32, ptr %117, align 4
+  %119 = load i32, ptr %110, align 4
+  %120 = icmp ult i32 %118, %119
+  %121 = getelementptr inbounds i8, ptr %112, i64 4
+  %122 = xor i64 %111, -1
+  %123 = add nsw i64 %.020.i, %122
+  %.sroa.012.1.i = select i1 %120, ptr %121, ptr %.sroa.012.019.i
+  %.1.i90 = select i1 %120, i64 %123, i64 %111
+  %124 = icmp sgt i64 %.1.i90, 0
+  br i1 %124, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !267
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i
   %.pre = ptrtoint ptr %.sroa.012.1.i to i64
   br label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %95, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %96, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
   %.sroa.012.0.lcssa.i = phi ptr [ %.sroa.012.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
-  %124 = sub i64 %.pre-phi, %95
-  %125 = ashr exact i64 %124, 2
-  br label %157
+  %125 = sub i64 %.pre-phi, %96
+  %126 = ashr exact i64 %125, 2
+  br label %158
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %94
-  %126 = sdiv i64 %.tr120191, 2
-  %127 = getelementptr inbounds i32, ptr %.tr117188, i64 %126
-  %128 = ptrtoint ptr %.tr186 to i64
-  %129 = sub i64 %95, %128
-  %130 = ashr exact i64 %129, 2
-  %131 = icmp sgt i64 %130, 0
-  br i1 %131, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %95
+  %127 = sdiv i64 %.tr120191, 2
+  %128 = getelementptr inbounds i32, ptr %.tr117188, i64 %127
+  %129 = ptrtoint ptr %.tr186 to i64
+  %130 = sub i64 %96, %129
+  %131 = ashr exact i64 %130, 2
+  %132 = icmp sgt i64 %131, 0
+  br i1 %132, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %132 = load i32, ptr %127, align 4
-  %133 = sext i32 %132 to i64
-  %134 = load ptr, ptr %10, align 8
-  %135 = load ptr, ptr %9, align 8
-  %136 = ptrtoint ptr %134 to i64
+  %133 = load i32, ptr %128, align 4
+  %134 = sext i32 %133 to i64
+  %135 = load ptr, ptr %10, align 8
+  %136 = load ptr, ptr %9, align 8
   %137 = ptrtoint ptr %135 to i64
-  %138 = sub i64 %136, %137
-  %139 = ashr exact i64 %138, 3
-  %.not.i.i.i.i.i98 = icmp ugt i64 %139, %133
-  %140 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %133
-  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %145
+  %138 = ptrtoint ptr %136 to i64
+  %139 = sub i64 %137, %138
+  %140 = ashr exact i64 %139, 3
+  %.not.i.i.i.i.i98 = icmp ugt i64 %140, %134
+  %141 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %134
+  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %146
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %130, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
+  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %131, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
-  %141 = lshr i64 %.020.i100, 1
-  %142 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %141
-  %143 = load i32, ptr %142, align 4
-  %144 = sext i32 %143 to i64
-  %.not.i.i2.i.i.i104 = icmp ugt i64 %139, %144
-  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %146
+  %142 = lshr i64 %.020.i100, 1
+  %143 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %142
+  %144 = load i32, ptr %143, align 4
+  %145 = sext i32 %144 to i64
+  %.not.i.i2.i.i.i104 = icmp ugt i64 %140, %145
+  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %147
 
-145:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %133, i64 noundef %139) #21
+146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %134, i64 noundef %140) #21
   unreachable
 
-146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %144, i64 noundef %139) #21
+147:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %145, i64 noundef %140) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  %147 = load i32, ptr %140, align 4
-  %148 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %144
-  %149 = load i32, ptr %148, align 4
-  %150 = icmp ult i32 %147, %149
-  %151 = getelementptr inbounds i8, ptr %142, i64 4
-  %152 = xor i64 %141, -1
-  %153 = add nsw i64 %.020.i100, %152
-  %.sroa.012.1.i105 = select i1 %150, ptr %.sroa.012.019.i101, ptr %151
-  %.1.i106 = select i1 %150, i64 %141, i64 %153
-  %154 = icmp sgt i64 %.1.i106, 0
-  br i1 %154, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !268
+  %148 = load i32, ptr %141, align 4
+  %149 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %145
+  %150 = load i32, ptr %149, align 4
+  %151 = icmp ult i32 %148, %150
+  %152 = getelementptr inbounds i8, ptr %143, i64 4
+  %153 = xor i64 %142, -1
+  %154 = add nsw i64 %.020.i100, %153
+  %.sroa.012.1.i105 = select i1 %151, ptr %.sroa.012.019.i101, ptr %152
+  %.1.i106 = select i1 %151, i64 %142, i64 %154
+  %155 = icmp sgt i64 %.1.i106, 0
+  br i1 %155, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !268
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.pre248 = ptrtoint ptr %.sroa.012.1.i105 to i64
   br label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %128, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
+  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %129, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
   %.sroa.012.0.lcssa.i96 = phi ptr [ %.sroa.012.1.i105, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
-  %155 = sub i64 %.pre-phi249, %128
-  %156 = ashr exact i64 %155, 2
-  br label %157
+  %156 = sub i64 %.pre-phi249, %129
+  %157 = ashr exact i64 %156, 2
+  br label %158
 
-157:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
-  %.sroa.0112.0 = phi ptr [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.073 = phi i64 [ %125, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %126, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %96, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %156, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %158 = sub nsw i64 %.tr119190, %.0
-  %159 = icmp sle i64 %158, %.073
+158:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+  %.sroa.0112.0 = phi ptr [ %98, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %128, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.073 = phi i64 [ %126, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %157, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %159 = sub nsw i64 %.tr119190, %.0
+  %160 = icmp sle i64 %159, %.073
   %.not.i107 = icmp sgt i64 %.073, %6
-  %or.cond.i = or i1 %.not.i107, %159
-  br i1 %or.cond.i, label %173, label %160
+  %or.cond.i = or i1 %.not.i107, %160
+  br i1 %or.cond.i, label %175, label %161
 
-160:                                              ; preds = %157
+161:                                              ; preds = %158
   %.not36.i = icmp eq i64 %.073, 0
-  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %161
+  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %162
 
-161:                                              ; preds = %160
-  %162 = ptrtoint ptr %.sroa.0.0 to i64
-  %163 = ptrtoint ptr %.tr117188 to i64
-  %164 = sub i64 %162, %163
+162:                                              ; preds = %161
+  %163 = ptrtoint ptr %.sroa.0.0 to i64
+  %164 = ptrtoint ptr %.tr117188 to i64
+  %165 = sub i64 %163, %164
   %.not.i.i.i.i.i.i108 = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %165
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %166
 
-165:                                              ; preds = %161
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %164, i1 false)
+166:                                              ; preds = %162
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %165, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %165, %161
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %166, %162
   %.not.i.i.i.i.i37.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %166
+  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %167
 
-166:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  %167 = ptrtoint ptr %.sroa.0112.0 to i64
-  %168 = sub i64 %163, %167
-  %169 = ashr exact i64 %168, 2
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %169
-  %170 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %170, ptr align 4 %.sroa.0112.0, i64 %168, i1 false)
+167:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  %168 = ptrtoint ptr %.sroa.0112.0 to i64
+  %169 = sub i64 %164, %168
+  %170 = ashr exact i64 %169, 2
+  %171 = sub nsw i64 0, %170
+  %172 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %171
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %172, ptr align 4 %.sroa.0112.0, i64 %169, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %166, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %171
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %167, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %173
 
-171:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %164, i1 false)
+173:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %165, i1 false)
   br label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109
 
-_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %171, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %172 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %164
+_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %173, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %174 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %165
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-173:                                              ; preds = %157
-  %.not34.i = icmp sgt i64 %158, %6
-  br i1 %.not34.i, label %187, label %174
+175:                                              ; preds = %158
+  %.not34.i = icmp sgt i64 %159, %6
+  br i1 %.not34.i, label %190, label %176
 
-174:                                              ; preds = %173
+176:                                              ; preds = %175
   %.not35.i = icmp eq i64 %.tr119190, %.0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %175
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %177
 
-175:                                              ; preds = %174
-  %176 = ptrtoint ptr %.tr117188 to i64
-  %177 = ptrtoint ptr %.sroa.0112.0 to i64
-  %178 = sub i64 %176, %177
+177:                                              ; preds = %176
+  %178 = ptrtoint ptr %.tr117188 to i64
+  %179 = ptrtoint ptr %.sroa.0112.0 to i64
+  %180 = sub i64 %178, %179
   %.not.i.i.i.i.i39.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %179
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %181
 
-179:                                              ; preds = %175
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %178, i1 false)
+181:                                              ; preds = %177
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %180, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %179, %175
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %181, %177
   %.not.i.i.i.i.i41.i = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %180
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %182
 
-180:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %181 = ptrtoint ptr %.sroa.0.0 to i64
-  %182 = sub i64 %181, %176
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %182, i1 false)
+182:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  %183 = ptrtoint ptr %.sroa.0.0 to i64
+  %184 = sub i64 %183, %178
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %184, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %180, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %183 = ashr exact i64 %178, 2
-  %.pre.i.i.i.i.i43.i = sub nsw i64 0, %183
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %184
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %182, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %185
 
-184:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %185 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %185, ptr align 4 %5, i64 %178, i1 false)
+185:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %186 = ashr exact i64 %180, 2
+  %187 = sub nsw i64 0, %186
+  %188 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %187
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %188, ptr align 4 %5, i64 %180, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %184, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %186 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
+_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %185, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %.pre-phi.i.i.i.i.i43.i = phi i64 [ %187, %185 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
+  %189 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-187:                                              ; preds = %173
-  %188 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
+190:                                              ; preds = %175
+  %191 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %160, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %174, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %187
-  %.sroa.032.0.i = phi ptr [ %172, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %186, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %188, %187 ], [ %.sroa.0112.0, %160 ], [ %.sroa.0.0, %174 ]
+_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %161, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %176, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %190
+  %.sroa.032.0.i = phi ptr [ %174, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %189, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %191, %190 ], [ %.sroa.0112.0, %161 ], [ %.sroa.0.0, %176 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi10EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr186, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
-  %189 = sub nsw i64 %.tr120191, %.073
-  %.not = icmp sgt i64 %158, %189
-  %.not77 = icmp sgt i64 %158, %6
+  %192 = sub nsw i64 %.tr120191, %.073
+  %.not = icmp sgt i64 %159, %192
+  %.not77 = icmp sgt i64 %159, %6
   %or.cond = or i1 %.not77, %.not
   br i1 %or.cond, label %40, label %tailrecurse._crit_edge
 
@@ -25985,46 +25997,46 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %26 = ptrtoint ptr %.sroa.0.041 to i64
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %28
-  %29 = getelementptr inbounds i32, ptr %25, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %29, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
+  %29 = sub nsw i64 0, %28
+  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEEvT_T0_.exit
 
-._crit_edge.i:                                    ; preds = %40
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %46) #21
+._crit_edge.i:                                    ; preds = %41
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %47) #21
   unreachable
 
-_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %40
-  %30 = phi i64 [ %46, %40 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %31 = phi ptr [ %42, %40 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %40 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %41
+  %31 = phi i64 [ %47, %41 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %32 = phi ptr [ %43, %41 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %41 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
   %.sroa.0.020.i = getelementptr inbounds i8, ptr %.sroa.05.019.i, i64 -4
-  %32 = load i32, ptr %.sroa.0.020.i, align 4
-  %33 = sext i32 %32 to i64
-  %.not.i.i2.i.i.i = icmp ugt i64 %30, %33
-  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %34
+  %33 = load i32, ptr %.sroa.0.020.i, align 4
+  %34 = sext i32 %33 to i64
+  %.not.i.i2.i.i.i = icmp ugt i64 %31, %34
+  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %35
 
-34:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %33, i64 noundef %30) #21
+35:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %34, i64 noundef %31) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %35 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %9
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %33
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp ult i32 %36, %38
-  br i1 %39, label %40, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEEvT_T0_.exit
+  %36 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %9
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %34
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp ult i32 %37, %39
+  br i1 %40, label %41, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEEvT_T0_.exit
 
-40:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  store i32 %32, ptr %.sroa.05.019.i, align 4
-  %41 = load ptr, ptr %5, align 8
-  %42 = load ptr, ptr %2, align 8
-  %43 = ptrtoint ptr %41 to i64
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
+  store i32 %33, ptr %.sroa.05.019.i, align 4
+  %42 = load ptr, ptr %5, align 8
+  %43 = load ptr, ptr %2, align 8
   %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  %46 = ashr exact i64 %45, 3
-  %.not.i.i.i.i.i9 = icmp ugt i64 %46, %9
+  %45 = ptrtoint ptr %43 to i64
+  %46 = sub i64 %44, %45
+  %47 = ashr exact i64 %46, 3
+  %.not.i.i.i.i.i9 = icmp ugt i64 %47, %9
   br i1 %.not.i.i.i.i.i9, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %._crit_edge.i, !llvm.loop !287
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -26378,12 +26390,12 @@ _ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.ex
 
 40:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
   %.not192 = phi i1 [ %.not183, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %189, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %158, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %192, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %159, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr117188 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr186 = phi ptr [ %0, %.lr.ph ], [ %.sroa.032.0.i, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.not78 = icmp sgt i64 %.tr120191, %6
-  br i1 %.not78, label %94, label %41
+  br i1 %.not78, label %95, label %41
 
 41:                                               ; preds = %40
   %.not.i.i.i.i.i80 = icmp eq ptr %2, %.tr117188
@@ -26484,254 +26496,255 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15Probabil
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !294
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %72
-  %.sink82.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink83.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa65.sink.i = phi ptr [ %69, %72 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %89 = ptrtoint ptr %.sink82.i to i64
+  %89 = ptrtoint ptr %.sink83.i to i64
   %90 = ptrtoint ptr %5 to i64
   %91 = sub i64 %89, %90
   %92 = ashr exact i64 %91, 2
-  %.pre.i.i.i.i.i19.i = sub nsw i64 0, %92
-  %93 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %.pre.i.i.i.i.i19.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %93, ptr align 4 %5, i64 %91, i1 false)
+  %93 = sub nsw i64 0, %92
+  %94 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %93
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %94, ptr align 4 %5, i64 %91, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
-94:                                               ; preds = %40
-  %95 = ptrtoint ptr %.tr117188 to i64
+95:                                               ; preds = %40
+  %96 = ptrtoint ptr %.tr117188 to i64
   br i1 %.not192, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %94
-  %96 = sdiv i64 %.tr119190, 2
-  %97 = getelementptr inbounds i32, ptr %.tr186, i64 %96
-  %98 = sub i64 %11, %95
-  %99 = ashr exact i64 %98, 2
-  %100 = icmp sgt i64 %99, 0
-  br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %95
+  %97 = sdiv i64 %.tr119190, 2
+  %98 = getelementptr inbounds i32, ptr %.tr186, i64 %97
+  %99 = sub i64 %11, %96
+  %100 = ashr exact i64 %99, 2
+  %101 = icmp sgt i64 %100, 0
+  br i1 %101, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %101 = load ptr, ptr %10, align 8
-  %102 = load ptr, ptr %9, align 8
-  %103 = ptrtoint ptr %101 to i64
+  %102 = load ptr, ptr %10, align 8
+  %103 = load ptr, ptr %9, align 8
   %104 = ptrtoint ptr %102 to i64
-  %105 = sub i64 %103, %104
-  %106 = ashr exact i64 %105, 3
-  %107 = load i32, ptr %97, align 4
-  %108 = sext i32 %107 to i64
-  %.not.i.i2.i.i.i87 = icmp ugt i64 %106, %108
-  %109 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %108
+  %105 = ptrtoint ptr %103 to i64
+  %106 = sub i64 %104, %105
+  %107 = ashr exact i64 %106, 3
+  %108 = load i32, ptr %98, align 4
+  %109 = sext i32 %108 to i64
+  %.not.i.i2.i.i.i87 = icmp ugt i64 %107, %109
+  %110 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %109
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
-  %.020.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
+  %.020.i = phi i64 [ %100, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
-  %110 = lshr i64 %.020.i, 1
-  %111 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %110
-  %112 = load i32, ptr %111, align 4
-  %113 = sext i32 %112 to i64
-  %.not.i.i.i.i.i88 = icmp ugt i64 %106, %113
-  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %114
+  %111 = lshr i64 %.020.i, 1
+  %112 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %111
+  %113 = load i32, ptr %112, align 4
+  %114 = sext i32 %113 to i64
+  %.not.i.i.i.i.i88 = icmp ugt i64 %107, %114
+  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %115
 
-114:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %113, i64 noundef %106) #21
+115:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %114, i64 noundef %107) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %115
+  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %116
 
-115:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %108, i64 noundef %106) #21
+116:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %109, i64 noundef %107) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %116 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %113
-  %117 = load i32, ptr %116, align 4
-  %118 = load i32, ptr %109, align 4
-  %119 = icmp ult i32 %117, %118
-  %120 = getelementptr inbounds i8, ptr %111, i64 4
-  %121 = xor i64 %110, -1
-  %122 = add nsw i64 %.020.i, %121
-  %.sroa.012.1.i = select i1 %119, ptr %120, ptr %.sroa.012.019.i
-  %.1.i90 = select i1 %119, i64 %122, i64 %110
-  %123 = icmp sgt i64 %.1.i90, 0
-  br i1 %123, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !289
+  %117 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %114
+  %118 = load i32, ptr %117, align 4
+  %119 = load i32, ptr %110, align 4
+  %120 = icmp ult i32 %118, %119
+  %121 = getelementptr inbounds i8, ptr %112, i64 4
+  %122 = xor i64 %111, -1
+  %123 = add nsw i64 %.020.i, %122
+  %.sroa.012.1.i = select i1 %120, ptr %121, ptr %.sroa.012.019.i
+  %.1.i90 = select i1 %120, i64 %123, i64 %111
+  %124 = icmp sgt i64 %.1.i90, 0
+  br i1 %124, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !289
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i
   %.pre = ptrtoint ptr %.sroa.012.1.i to i64
   br label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %95, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %96, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
   %.sroa.012.0.lcssa.i = phi ptr [ %.sroa.012.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
-  %124 = sub i64 %.pre-phi, %95
-  %125 = ashr exact i64 %124, 2
-  br label %157
+  %125 = sub i64 %.pre-phi, %96
+  %126 = ashr exact i64 %125, 2
+  br label %158
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %94
-  %126 = sdiv i64 %.tr120191, 2
-  %127 = getelementptr inbounds i32, ptr %.tr117188, i64 %126
-  %128 = ptrtoint ptr %.tr186 to i64
-  %129 = sub i64 %95, %128
-  %130 = ashr exact i64 %129, 2
-  %131 = icmp sgt i64 %130, 0
-  br i1 %131, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %95
+  %127 = sdiv i64 %.tr120191, 2
+  %128 = getelementptr inbounds i32, ptr %.tr117188, i64 %127
+  %129 = ptrtoint ptr %.tr186 to i64
+  %130 = sub i64 %96, %129
+  %131 = ashr exact i64 %130, 2
+  %132 = icmp sgt i64 %131, 0
+  br i1 %132, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %132 = load i32, ptr %127, align 4
-  %133 = sext i32 %132 to i64
-  %134 = load ptr, ptr %10, align 8
-  %135 = load ptr, ptr %9, align 8
-  %136 = ptrtoint ptr %134 to i64
+  %133 = load i32, ptr %128, align 4
+  %134 = sext i32 %133 to i64
+  %135 = load ptr, ptr %10, align 8
+  %136 = load ptr, ptr %9, align 8
   %137 = ptrtoint ptr %135 to i64
-  %138 = sub i64 %136, %137
-  %139 = ashr exact i64 %138, 3
-  %.not.i.i.i.i.i98 = icmp ugt i64 %139, %133
-  %140 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %133
-  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %145
+  %138 = ptrtoint ptr %136 to i64
+  %139 = sub i64 %137, %138
+  %140 = ashr exact i64 %139, 3
+  %.not.i.i.i.i.i98 = icmp ugt i64 %140, %134
+  %141 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %134
+  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %146
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %130, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
+  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %131, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
-  %141 = lshr i64 %.020.i100, 1
-  %142 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %141
-  %143 = load i32, ptr %142, align 4
-  %144 = sext i32 %143 to i64
-  %.not.i.i2.i.i.i104 = icmp ugt i64 %139, %144
-  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %146
+  %142 = lshr i64 %.020.i100, 1
+  %143 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %142
+  %144 = load i32, ptr %143, align 4
+  %145 = sext i32 %144 to i64
+  %.not.i.i2.i.i.i104 = icmp ugt i64 %140, %145
+  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %147
 
-145:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %133, i64 noundef %139) #21
+146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %134, i64 noundef %140) #21
   unreachable
 
-146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %144, i64 noundef %139) #21
+147:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %145, i64 noundef %140) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  %147 = load i32, ptr %140, align 4
-  %148 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %144
-  %149 = load i32, ptr %148, align 4
-  %150 = icmp ult i32 %147, %149
-  %151 = getelementptr inbounds i8, ptr %142, i64 4
-  %152 = xor i64 %141, -1
-  %153 = add nsw i64 %.020.i100, %152
-  %.sroa.012.1.i105 = select i1 %150, ptr %.sroa.012.019.i101, ptr %151
-  %.1.i106 = select i1 %150, i64 %141, i64 %153
-  %154 = icmp sgt i64 %.1.i106, 0
-  br i1 %154, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !290
+  %148 = load i32, ptr %141, align 4
+  %149 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %145
+  %150 = load i32, ptr %149, align 4
+  %151 = icmp ult i32 %148, %150
+  %152 = getelementptr inbounds i8, ptr %143, i64 4
+  %153 = xor i64 %142, -1
+  %154 = add nsw i64 %.020.i100, %153
+  %.sroa.012.1.i105 = select i1 %151, ptr %.sroa.012.019.i101, ptr %152
+  %.1.i106 = select i1 %151, i64 %142, i64 %154
+  %155 = icmp sgt i64 %.1.i106, 0
+  br i1 %155, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !290
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.pre248 = ptrtoint ptr %.sroa.012.1.i105 to i64
   br label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %128, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
+  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %129, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
   %.sroa.012.0.lcssa.i96 = phi ptr [ %.sroa.012.1.i105, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
-  %155 = sub i64 %.pre-phi249, %128
-  %156 = ashr exact i64 %155, 2
-  br label %157
+  %156 = sub i64 %.pre-phi249, %129
+  %157 = ashr exact i64 %156, 2
+  br label %158
 
-157:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
-  %.sroa.0112.0 = phi ptr [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.073 = phi i64 [ %125, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %126, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %96, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %156, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %158 = sub nsw i64 %.tr119190, %.0
-  %159 = icmp sle i64 %158, %.073
+158:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+  %.sroa.0112.0 = phi ptr [ %98, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %128, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.073 = phi i64 [ %126, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %157, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %159 = sub nsw i64 %.tr119190, %.0
+  %160 = icmp sle i64 %159, %.073
   %.not.i107 = icmp sgt i64 %.073, %6
-  %or.cond.i = or i1 %.not.i107, %159
-  br i1 %or.cond.i, label %173, label %160
+  %or.cond.i = or i1 %.not.i107, %160
+  br i1 %or.cond.i, label %175, label %161
 
-160:                                              ; preds = %157
+161:                                              ; preds = %158
   %.not36.i = icmp eq i64 %.073, 0
-  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %161
+  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %162
 
-161:                                              ; preds = %160
-  %162 = ptrtoint ptr %.sroa.0.0 to i64
-  %163 = ptrtoint ptr %.tr117188 to i64
-  %164 = sub i64 %162, %163
+162:                                              ; preds = %161
+  %163 = ptrtoint ptr %.sroa.0.0 to i64
+  %164 = ptrtoint ptr %.tr117188 to i64
+  %165 = sub i64 %163, %164
   %.not.i.i.i.i.i.i108 = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %165
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %166
 
-165:                                              ; preds = %161
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %164, i1 false)
+166:                                              ; preds = %162
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %165, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %165, %161
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %166, %162
   %.not.i.i.i.i.i37.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %166
+  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %167
 
-166:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  %167 = ptrtoint ptr %.sroa.0112.0 to i64
-  %168 = sub i64 %163, %167
-  %169 = ashr exact i64 %168, 2
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %169
-  %170 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %170, ptr align 4 %.sroa.0112.0, i64 %168, i1 false)
+167:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  %168 = ptrtoint ptr %.sroa.0112.0 to i64
+  %169 = sub i64 %164, %168
+  %170 = ashr exact i64 %169, 2
+  %171 = sub nsw i64 0, %170
+  %172 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %171
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %172, ptr align 4 %.sroa.0112.0, i64 %169, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %166, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %171
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %167, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %173
 
-171:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %164, i1 false)
+173:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %165, i1 false)
   br label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109
 
-_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %171, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %172 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %164
+_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %173, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %174 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %165
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-173:                                              ; preds = %157
-  %.not34.i = icmp sgt i64 %158, %6
-  br i1 %.not34.i, label %187, label %174
+175:                                              ; preds = %158
+  %.not34.i = icmp sgt i64 %159, %6
+  br i1 %.not34.i, label %190, label %176
 
-174:                                              ; preds = %173
+176:                                              ; preds = %175
   %.not35.i = icmp eq i64 %.tr119190, %.0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %175
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %177
 
-175:                                              ; preds = %174
-  %176 = ptrtoint ptr %.tr117188 to i64
-  %177 = ptrtoint ptr %.sroa.0112.0 to i64
-  %178 = sub i64 %176, %177
+177:                                              ; preds = %176
+  %178 = ptrtoint ptr %.tr117188 to i64
+  %179 = ptrtoint ptr %.sroa.0112.0 to i64
+  %180 = sub i64 %178, %179
   %.not.i.i.i.i.i39.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %179
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %181
 
-179:                                              ; preds = %175
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %178, i1 false)
+181:                                              ; preds = %177
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %180, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %179, %175
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %181, %177
   %.not.i.i.i.i.i41.i = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %180
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %182
 
-180:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %181 = ptrtoint ptr %.sroa.0.0 to i64
-  %182 = sub i64 %181, %176
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %182, i1 false)
+182:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  %183 = ptrtoint ptr %.sroa.0.0 to i64
+  %184 = sub i64 %183, %178
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %184, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %180, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %183 = ashr exact i64 %178, 2
-  %.pre.i.i.i.i.i43.i = sub nsw i64 0, %183
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %184
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %182, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %185
 
-184:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %185 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %185, ptr align 4 %5, i64 %178, i1 false)
+185:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %186 = ashr exact i64 %180, 2
+  %187 = sub nsw i64 0, %186
+  %188 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %187
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %188, ptr align 4 %5, i64 %180, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %184, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %186 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
+_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %185, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %.pre-phi.i.i.i.i.i43.i = phi i64 [ %187, %185 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
+  %189 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-187:                                              ; preds = %173
-  %188 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
+190:                                              ; preds = %175
+  %191 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %160, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %174, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %187
-  %.sroa.032.0.i = phi ptr [ %172, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %186, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %188, %187 ], [ %.sroa.0112.0, %160 ], [ %.sroa.0.0, %174 ]
+_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %161, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %176, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %190
+  %.sroa.032.0.i = phi ptr [ %174, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %189, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %191, %190 ], [ %.sroa.0112.0, %161 ], [ %.sroa.0.0, %176 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi11EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr186, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
-  %189 = sub nsw i64 %.tr120191, %.073
-  %.not = icmp sgt i64 %158, %189
-  %.not77 = icmp sgt i64 %158, %6
+  %192 = sub nsw i64 %.tr120191, %.073
+  %.not = icmp sgt i64 %159, %192
+  %.not77 = icmp sgt i64 %159, %6
   %or.cond = or i1 %.not77, %.not
   br i1 %or.cond, label %40, label %tailrecurse._crit_edge
 
@@ -27942,46 +27955,46 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %26 = ptrtoint ptr %.sroa.0.041 to i64
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %28
-  %29 = getelementptr inbounds i32, ptr %25, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %29, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
+  %29 = sub nsw i64 0, %28
+  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEEvT_T0_.exit
 
-._crit_edge.i:                                    ; preds = %40
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %46) #21
+._crit_edge.i:                                    ; preds = %41
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %47) #21
   unreachable
 
-_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %40
-  %30 = phi i64 [ %46, %40 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %31 = phi ptr [ %42, %40 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %40 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %41
+  %31 = phi i64 [ %47, %41 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %32 = phi ptr [ %43, %41 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %41 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
   %.sroa.0.020.i = getelementptr inbounds i8, ptr %.sroa.05.019.i, i64 -4
-  %32 = load i32, ptr %.sroa.0.020.i, align 4
-  %33 = sext i32 %32 to i64
-  %.not.i.i2.i.i.i = icmp ugt i64 %30, %33
-  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %34
+  %33 = load i32, ptr %.sroa.0.020.i, align 4
+  %34 = sext i32 %33 to i64
+  %.not.i.i2.i.i.i = icmp ugt i64 %31, %34
+  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %35
 
-34:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %33, i64 noundef %30) #21
+35:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %34, i64 noundef %31) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %35 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %9
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %33
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp ult i32 %36, %38
-  br i1 %39, label %40, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEEvT_T0_.exit
+  %36 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %9
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %34
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp ult i32 %37, %39
+  br i1 %40, label %41, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEEvT_T0_.exit
 
-40:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  store i32 %32, ptr %.sroa.05.019.i, align 4
-  %41 = load ptr, ptr %5, align 8
-  %42 = load ptr, ptr %2, align 8
-  %43 = ptrtoint ptr %41 to i64
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
+  store i32 %33, ptr %.sroa.05.019.i, align 4
+  %42 = load ptr, ptr %5, align 8
+  %43 = load ptr, ptr %2, align 8
   %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  %46 = ashr exact i64 %45, 3
-  %.not.i.i.i.i.i9 = icmp ugt i64 %46, %9
+  %45 = ptrtoint ptr %43 to i64
+  %46 = sub i64 %44, %45
+  %47 = ashr exact i64 %46, 3
+  %.not.i.i.i.i.i9 = icmp ugt i64 %47, %9
   br i1 %.not.i.i.i.i.i9, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %._crit_edge.i, !llvm.loop !309
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -28335,12 +28348,12 @@ _ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.ex
 
 40:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
   %.not192 = phi i1 [ %.not183, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %189, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %158, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %192, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %159, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr117188 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr186 = phi ptr [ %0, %.lr.ph ], [ %.sroa.032.0.i, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.not78 = icmp sgt i64 %.tr120191, %6
-  br i1 %.not78, label %94, label %41
+  br i1 %.not78, label %95, label %41
 
 41:                                               ; preds = %40
   %.not.i.i.i.i.i80 = icmp eq ptr %2, %.tr117188
@@ -28441,254 +28454,255 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15Probabil
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !316
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %72
-  %.sink82.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink83.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa65.sink.i = phi ptr [ %69, %72 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %89 = ptrtoint ptr %.sink82.i to i64
+  %89 = ptrtoint ptr %.sink83.i to i64
   %90 = ptrtoint ptr %5 to i64
   %91 = sub i64 %89, %90
   %92 = ashr exact i64 %91, 2
-  %.pre.i.i.i.i.i19.i = sub nsw i64 0, %92
-  %93 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %.pre.i.i.i.i.i19.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %93, ptr align 4 %5, i64 %91, i1 false)
+  %93 = sub nsw i64 0, %92
+  %94 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %93
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %94, ptr align 4 %5, i64 %91, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
-94:                                               ; preds = %40
-  %95 = ptrtoint ptr %.tr117188 to i64
+95:                                               ; preds = %40
+  %96 = ptrtoint ptr %.tr117188 to i64
   br i1 %.not192, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %94
-  %96 = sdiv i64 %.tr119190, 2
-  %97 = getelementptr inbounds i32, ptr %.tr186, i64 %96
-  %98 = sub i64 %11, %95
-  %99 = ashr exact i64 %98, 2
-  %100 = icmp sgt i64 %99, 0
-  br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %95
+  %97 = sdiv i64 %.tr119190, 2
+  %98 = getelementptr inbounds i32, ptr %.tr186, i64 %97
+  %99 = sub i64 %11, %96
+  %100 = ashr exact i64 %99, 2
+  %101 = icmp sgt i64 %100, 0
+  br i1 %101, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %101 = load ptr, ptr %10, align 8
-  %102 = load ptr, ptr %9, align 8
-  %103 = ptrtoint ptr %101 to i64
+  %102 = load ptr, ptr %10, align 8
+  %103 = load ptr, ptr %9, align 8
   %104 = ptrtoint ptr %102 to i64
-  %105 = sub i64 %103, %104
-  %106 = ashr exact i64 %105, 3
-  %107 = load i32, ptr %97, align 4
-  %108 = sext i32 %107 to i64
-  %.not.i.i2.i.i.i87 = icmp ugt i64 %106, %108
-  %109 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %108
+  %105 = ptrtoint ptr %103 to i64
+  %106 = sub i64 %104, %105
+  %107 = ashr exact i64 %106, 3
+  %108 = load i32, ptr %98, align 4
+  %109 = sext i32 %108 to i64
+  %.not.i.i2.i.i.i87 = icmp ugt i64 %107, %109
+  %110 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %109
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
-  %.020.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
+  %.020.i = phi i64 [ %100, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
-  %110 = lshr i64 %.020.i, 1
-  %111 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %110
-  %112 = load i32, ptr %111, align 4
-  %113 = sext i32 %112 to i64
-  %.not.i.i.i.i.i88 = icmp ugt i64 %106, %113
-  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %114
+  %111 = lshr i64 %.020.i, 1
+  %112 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %111
+  %113 = load i32, ptr %112, align 4
+  %114 = sext i32 %113 to i64
+  %.not.i.i.i.i.i88 = icmp ugt i64 %107, %114
+  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %115
 
-114:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %113, i64 noundef %106) #21
+115:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %114, i64 noundef %107) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %115
+  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %116
 
-115:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %108, i64 noundef %106) #21
+116:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %109, i64 noundef %107) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %116 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %113
-  %117 = load i32, ptr %116, align 4
-  %118 = load i32, ptr %109, align 4
-  %119 = icmp ult i32 %117, %118
-  %120 = getelementptr inbounds i8, ptr %111, i64 4
-  %121 = xor i64 %110, -1
-  %122 = add nsw i64 %.020.i, %121
-  %.sroa.012.1.i = select i1 %119, ptr %120, ptr %.sroa.012.019.i
-  %.1.i90 = select i1 %119, i64 %122, i64 %110
-  %123 = icmp sgt i64 %.1.i90, 0
-  br i1 %123, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !311
+  %117 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %114
+  %118 = load i32, ptr %117, align 4
+  %119 = load i32, ptr %110, align 4
+  %120 = icmp ult i32 %118, %119
+  %121 = getelementptr inbounds i8, ptr %112, i64 4
+  %122 = xor i64 %111, -1
+  %123 = add nsw i64 %.020.i, %122
+  %.sroa.012.1.i = select i1 %120, ptr %121, ptr %.sroa.012.019.i
+  %.1.i90 = select i1 %120, i64 %123, i64 %111
+  %124 = icmp sgt i64 %.1.i90, 0
+  br i1 %124, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !311
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i
   %.pre = ptrtoint ptr %.sroa.012.1.i to i64
   br label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %95, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %96, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
   %.sroa.012.0.lcssa.i = phi ptr [ %.sroa.012.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
-  %124 = sub i64 %.pre-phi, %95
-  %125 = ashr exact i64 %124, 2
-  br label %157
+  %125 = sub i64 %.pre-phi, %96
+  %126 = ashr exact i64 %125, 2
+  br label %158
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %94
-  %126 = sdiv i64 %.tr120191, 2
-  %127 = getelementptr inbounds i32, ptr %.tr117188, i64 %126
-  %128 = ptrtoint ptr %.tr186 to i64
-  %129 = sub i64 %95, %128
-  %130 = ashr exact i64 %129, 2
-  %131 = icmp sgt i64 %130, 0
-  br i1 %131, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %95
+  %127 = sdiv i64 %.tr120191, 2
+  %128 = getelementptr inbounds i32, ptr %.tr117188, i64 %127
+  %129 = ptrtoint ptr %.tr186 to i64
+  %130 = sub i64 %96, %129
+  %131 = ashr exact i64 %130, 2
+  %132 = icmp sgt i64 %131, 0
+  br i1 %132, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %132 = load i32, ptr %127, align 4
-  %133 = sext i32 %132 to i64
-  %134 = load ptr, ptr %10, align 8
-  %135 = load ptr, ptr %9, align 8
-  %136 = ptrtoint ptr %134 to i64
+  %133 = load i32, ptr %128, align 4
+  %134 = sext i32 %133 to i64
+  %135 = load ptr, ptr %10, align 8
+  %136 = load ptr, ptr %9, align 8
   %137 = ptrtoint ptr %135 to i64
-  %138 = sub i64 %136, %137
-  %139 = ashr exact i64 %138, 3
-  %.not.i.i.i.i.i98 = icmp ugt i64 %139, %133
-  %140 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %133
-  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %145
+  %138 = ptrtoint ptr %136 to i64
+  %139 = sub i64 %137, %138
+  %140 = ashr exact i64 %139, 3
+  %.not.i.i.i.i.i98 = icmp ugt i64 %140, %134
+  %141 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %134
+  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %146
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %130, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
+  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %131, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
-  %141 = lshr i64 %.020.i100, 1
-  %142 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %141
-  %143 = load i32, ptr %142, align 4
-  %144 = sext i32 %143 to i64
-  %.not.i.i2.i.i.i104 = icmp ugt i64 %139, %144
-  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %146
+  %142 = lshr i64 %.020.i100, 1
+  %143 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %142
+  %144 = load i32, ptr %143, align 4
+  %145 = sext i32 %144 to i64
+  %.not.i.i2.i.i.i104 = icmp ugt i64 %140, %145
+  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %147
 
-145:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %133, i64 noundef %139) #21
+146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %134, i64 noundef %140) #21
   unreachable
 
-146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %144, i64 noundef %139) #21
+147:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %145, i64 noundef %140) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  %147 = load i32, ptr %140, align 4
-  %148 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %144
-  %149 = load i32, ptr %148, align 4
-  %150 = icmp ult i32 %147, %149
-  %151 = getelementptr inbounds i8, ptr %142, i64 4
-  %152 = xor i64 %141, -1
-  %153 = add nsw i64 %.020.i100, %152
-  %.sroa.012.1.i105 = select i1 %150, ptr %.sroa.012.019.i101, ptr %151
-  %.1.i106 = select i1 %150, i64 %141, i64 %153
-  %154 = icmp sgt i64 %.1.i106, 0
-  br i1 %154, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !312
+  %148 = load i32, ptr %141, align 4
+  %149 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %145
+  %150 = load i32, ptr %149, align 4
+  %151 = icmp ult i32 %148, %150
+  %152 = getelementptr inbounds i8, ptr %143, i64 4
+  %153 = xor i64 %142, -1
+  %154 = add nsw i64 %.020.i100, %153
+  %.sroa.012.1.i105 = select i1 %151, ptr %.sroa.012.019.i101, ptr %152
+  %.1.i106 = select i1 %151, i64 %142, i64 %154
+  %155 = icmp sgt i64 %.1.i106, 0
+  br i1 %155, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !312
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.pre248 = ptrtoint ptr %.sroa.012.1.i105 to i64
   br label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %128, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
+  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %129, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
   %.sroa.012.0.lcssa.i96 = phi ptr [ %.sroa.012.1.i105, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
-  %155 = sub i64 %.pre-phi249, %128
-  %156 = ashr exact i64 %155, 2
-  br label %157
+  %156 = sub i64 %.pre-phi249, %129
+  %157 = ashr exact i64 %156, 2
+  br label %158
 
-157:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
-  %.sroa.0112.0 = phi ptr [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.073 = phi i64 [ %125, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %126, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %96, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %156, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %158 = sub nsw i64 %.tr119190, %.0
-  %159 = icmp sle i64 %158, %.073
+158:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+  %.sroa.0112.0 = phi ptr [ %98, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %128, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.073 = phi i64 [ %126, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %157, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %159 = sub nsw i64 %.tr119190, %.0
+  %160 = icmp sle i64 %159, %.073
   %.not.i107 = icmp sgt i64 %.073, %6
-  %or.cond.i = or i1 %.not.i107, %159
-  br i1 %or.cond.i, label %173, label %160
+  %or.cond.i = or i1 %.not.i107, %160
+  br i1 %or.cond.i, label %175, label %161
 
-160:                                              ; preds = %157
+161:                                              ; preds = %158
   %.not36.i = icmp eq i64 %.073, 0
-  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %161
+  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %162
 
-161:                                              ; preds = %160
-  %162 = ptrtoint ptr %.sroa.0.0 to i64
-  %163 = ptrtoint ptr %.tr117188 to i64
-  %164 = sub i64 %162, %163
+162:                                              ; preds = %161
+  %163 = ptrtoint ptr %.sroa.0.0 to i64
+  %164 = ptrtoint ptr %.tr117188 to i64
+  %165 = sub i64 %163, %164
   %.not.i.i.i.i.i.i108 = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %165
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %166
 
-165:                                              ; preds = %161
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %164, i1 false)
+166:                                              ; preds = %162
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %165, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %165, %161
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %166, %162
   %.not.i.i.i.i.i37.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %166
+  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %167
 
-166:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  %167 = ptrtoint ptr %.sroa.0112.0 to i64
-  %168 = sub i64 %163, %167
-  %169 = ashr exact i64 %168, 2
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %169
-  %170 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %170, ptr align 4 %.sroa.0112.0, i64 %168, i1 false)
+167:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  %168 = ptrtoint ptr %.sroa.0112.0 to i64
+  %169 = sub i64 %164, %168
+  %170 = ashr exact i64 %169, 2
+  %171 = sub nsw i64 0, %170
+  %172 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %171
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %172, ptr align 4 %.sroa.0112.0, i64 %169, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %166, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %171
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %167, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %173
 
-171:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %164, i1 false)
+173:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %165, i1 false)
   br label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109
 
-_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %171, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %172 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %164
+_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %173, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %174 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %165
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-173:                                              ; preds = %157
-  %.not34.i = icmp sgt i64 %158, %6
-  br i1 %.not34.i, label %187, label %174
+175:                                              ; preds = %158
+  %.not34.i = icmp sgt i64 %159, %6
+  br i1 %.not34.i, label %190, label %176
 
-174:                                              ; preds = %173
+176:                                              ; preds = %175
   %.not35.i = icmp eq i64 %.tr119190, %.0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %175
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %177
 
-175:                                              ; preds = %174
-  %176 = ptrtoint ptr %.tr117188 to i64
-  %177 = ptrtoint ptr %.sroa.0112.0 to i64
-  %178 = sub i64 %176, %177
+177:                                              ; preds = %176
+  %178 = ptrtoint ptr %.tr117188 to i64
+  %179 = ptrtoint ptr %.sroa.0112.0 to i64
+  %180 = sub i64 %178, %179
   %.not.i.i.i.i.i39.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %179
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %181
 
-179:                                              ; preds = %175
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %178, i1 false)
+181:                                              ; preds = %177
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %180, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %179, %175
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %181, %177
   %.not.i.i.i.i.i41.i = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %180
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %182
 
-180:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %181 = ptrtoint ptr %.sroa.0.0 to i64
-  %182 = sub i64 %181, %176
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %182, i1 false)
+182:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  %183 = ptrtoint ptr %.sroa.0.0 to i64
+  %184 = sub i64 %183, %178
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %184, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %180, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %183 = ashr exact i64 %178, 2
-  %.pre.i.i.i.i.i43.i = sub nsw i64 0, %183
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %184
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %182, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %185
 
-184:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %185 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %185, ptr align 4 %5, i64 %178, i1 false)
+185:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %186 = ashr exact i64 %180, 2
+  %187 = sub nsw i64 0, %186
+  %188 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %187
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %188, ptr align 4 %5, i64 %180, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %184, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %186 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
+_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %185, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %.pre-phi.i.i.i.i.i43.i = phi i64 [ %187, %185 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
+  %189 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-187:                                              ; preds = %173
-  %188 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
+190:                                              ; preds = %175
+  %191 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %160, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %174, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %187
-  %.sroa.032.0.i = phi ptr [ %172, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %186, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %188, %187 ], [ %.sroa.0112.0, %160 ], [ %.sroa.0.0, %174 ]
+_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %161, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %176, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %190
+  %.sroa.032.0.i = phi ptr [ %174, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %189, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %191, %190 ], [ %.sroa.0112.0, %161 ], [ %.sroa.0.0, %176 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi12EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr186, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
-  %189 = sub nsw i64 %.tr120191, %.073
-  %.not = icmp sgt i64 %158, %189
-  %.not77 = icmp sgt i64 %158, %6
+  %192 = sub nsw i64 %.tr120191, %.073
+  %.not = icmp sgt i64 %159, %192
+  %.not77 = icmp sgt i64 %159, %6
   %or.cond = or i1 %.not77, %.not
   br i1 %or.cond, label %40, label %tailrecurse._crit_edge
 
@@ -29899,46 +29913,46 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %26 = ptrtoint ptr %.sroa.0.041 to i64
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %28
-  %29 = getelementptr inbounds i32, ptr %25, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %29, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
+  %29 = sub nsw i64 0, %28
+  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEEvT_T0_.exit
 
-._crit_edge.i:                                    ; preds = %40
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %46) #21
+._crit_edge.i:                                    ; preds = %41
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %47) #21
   unreachable
 
-_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %40
-  %30 = phi i64 [ %46, %40 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %31 = phi ptr [ %42, %40 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %40 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %41
+  %31 = phi i64 [ %47, %41 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %32 = phi ptr [ %43, %41 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %41 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
   %.sroa.0.020.i = getelementptr inbounds i8, ptr %.sroa.05.019.i, i64 -4
-  %32 = load i32, ptr %.sroa.0.020.i, align 4
-  %33 = sext i32 %32 to i64
-  %.not.i.i2.i.i.i = icmp ugt i64 %30, %33
-  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %34
+  %33 = load i32, ptr %.sroa.0.020.i, align 4
+  %34 = sext i32 %33 to i64
+  %.not.i.i2.i.i.i = icmp ugt i64 %31, %34
+  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %35
 
-34:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %33, i64 noundef %30) #21
+35:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %34, i64 noundef %31) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %35 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %9
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %33
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp ult i32 %36, %38
-  br i1 %39, label %40, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEEvT_T0_.exit
+  %36 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %9
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %34
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp ult i32 %37, %39
+  br i1 %40, label %41, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEEvT_T0_.exit
 
-40:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  store i32 %32, ptr %.sroa.05.019.i, align 4
-  %41 = load ptr, ptr %5, align 8
-  %42 = load ptr, ptr %2, align 8
-  %43 = ptrtoint ptr %41 to i64
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
+  store i32 %33, ptr %.sroa.05.019.i, align 4
+  %42 = load ptr, ptr %5, align 8
+  %43 = load ptr, ptr %2, align 8
   %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  %46 = ashr exact i64 %45, 3
-  %.not.i.i.i.i.i9 = icmp ugt i64 %46, %9
+  %45 = ptrtoint ptr %43 to i64
+  %46 = sub i64 %44, %45
+  %47 = ashr exact i64 %46, 3
+  %.not.i.i.i.i.i9 = icmp ugt i64 %47, %9
   br i1 %.not.i.i.i.i.i9, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %._crit_edge.i, !llvm.loop !331
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -30292,12 +30306,12 @@ _ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.ex
 
 40:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
   %.not192 = phi i1 [ %.not183, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %189, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %158, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %192, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %159, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr117188 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr186 = phi ptr [ %0, %.lr.ph ], [ %.sroa.032.0.i, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.not78 = icmp sgt i64 %.tr120191, %6
-  br i1 %.not78, label %94, label %41
+  br i1 %.not78, label %95, label %41
 
 41:                                               ; preds = %40
   %.not.i.i.i.i.i80 = icmp eq ptr %2, %.tr117188
@@ -30398,254 +30412,255 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15Probabil
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !338
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %72
-  %.sink82.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink83.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa65.sink.i = phi ptr [ %69, %72 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %89 = ptrtoint ptr %.sink82.i to i64
+  %89 = ptrtoint ptr %.sink83.i to i64
   %90 = ptrtoint ptr %5 to i64
   %91 = sub i64 %89, %90
   %92 = ashr exact i64 %91, 2
-  %.pre.i.i.i.i.i19.i = sub nsw i64 0, %92
-  %93 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %.pre.i.i.i.i.i19.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %93, ptr align 4 %5, i64 %91, i1 false)
+  %93 = sub nsw i64 0, %92
+  %94 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %93
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %94, ptr align 4 %5, i64 %91, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
-94:                                               ; preds = %40
-  %95 = ptrtoint ptr %.tr117188 to i64
+95:                                               ; preds = %40
+  %96 = ptrtoint ptr %.tr117188 to i64
   br i1 %.not192, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %94
-  %96 = sdiv i64 %.tr119190, 2
-  %97 = getelementptr inbounds i32, ptr %.tr186, i64 %96
-  %98 = sub i64 %11, %95
-  %99 = ashr exact i64 %98, 2
-  %100 = icmp sgt i64 %99, 0
-  br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %95
+  %97 = sdiv i64 %.tr119190, 2
+  %98 = getelementptr inbounds i32, ptr %.tr186, i64 %97
+  %99 = sub i64 %11, %96
+  %100 = ashr exact i64 %99, 2
+  %101 = icmp sgt i64 %100, 0
+  br i1 %101, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %101 = load ptr, ptr %10, align 8
-  %102 = load ptr, ptr %9, align 8
-  %103 = ptrtoint ptr %101 to i64
+  %102 = load ptr, ptr %10, align 8
+  %103 = load ptr, ptr %9, align 8
   %104 = ptrtoint ptr %102 to i64
-  %105 = sub i64 %103, %104
-  %106 = ashr exact i64 %105, 3
-  %107 = load i32, ptr %97, align 4
-  %108 = sext i32 %107 to i64
-  %.not.i.i2.i.i.i87 = icmp ugt i64 %106, %108
-  %109 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %108
+  %105 = ptrtoint ptr %103 to i64
+  %106 = sub i64 %104, %105
+  %107 = ashr exact i64 %106, 3
+  %108 = load i32, ptr %98, align 4
+  %109 = sext i32 %108 to i64
+  %.not.i.i2.i.i.i87 = icmp ugt i64 %107, %109
+  %110 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %109
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
-  %.020.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
+  %.020.i = phi i64 [ %100, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
-  %110 = lshr i64 %.020.i, 1
-  %111 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %110
-  %112 = load i32, ptr %111, align 4
-  %113 = sext i32 %112 to i64
-  %.not.i.i.i.i.i88 = icmp ugt i64 %106, %113
-  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %114
+  %111 = lshr i64 %.020.i, 1
+  %112 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %111
+  %113 = load i32, ptr %112, align 4
+  %114 = sext i32 %113 to i64
+  %.not.i.i.i.i.i88 = icmp ugt i64 %107, %114
+  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %115
 
-114:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %113, i64 noundef %106) #21
+115:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %114, i64 noundef %107) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %115
+  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %116
 
-115:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %108, i64 noundef %106) #21
+116:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %109, i64 noundef %107) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %116 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %113
-  %117 = load i32, ptr %116, align 4
-  %118 = load i32, ptr %109, align 4
-  %119 = icmp ult i32 %117, %118
-  %120 = getelementptr inbounds i8, ptr %111, i64 4
-  %121 = xor i64 %110, -1
-  %122 = add nsw i64 %.020.i, %121
-  %.sroa.012.1.i = select i1 %119, ptr %120, ptr %.sroa.012.019.i
-  %.1.i90 = select i1 %119, i64 %122, i64 %110
-  %123 = icmp sgt i64 %.1.i90, 0
-  br i1 %123, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !333
+  %117 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %114
+  %118 = load i32, ptr %117, align 4
+  %119 = load i32, ptr %110, align 4
+  %120 = icmp ult i32 %118, %119
+  %121 = getelementptr inbounds i8, ptr %112, i64 4
+  %122 = xor i64 %111, -1
+  %123 = add nsw i64 %.020.i, %122
+  %.sroa.012.1.i = select i1 %120, ptr %121, ptr %.sroa.012.019.i
+  %.1.i90 = select i1 %120, i64 %123, i64 %111
+  %124 = icmp sgt i64 %.1.i90, 0
+  br i1 %124, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !333
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i
   %.pre = ptrtoint ptr %.sroa.012.1.i to i64
   br label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %95, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %96, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
   %.sroa.012.0.lcssa.i = phi ptr [ %.sroa.012.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
-  %124 = sub i64 %.pre-phi, %95
-  %125 = ashr exact i64 %124, 2
-  br label %157
+  %125 = sub i64 %.pre-phi, %96
+  %126 = ashr exact i64 %125, 2
+  br label %158
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %94
-  %126 = sdiv i64 %.tr120191, 2
-  %127 = getelementptr inbounds i32, ptr %.tr117188, i64 %126
-  %128 = ptrtoint ptr %.tr186 to i64
-  %129 = sub i64 %95, %128
-  %130 = ashr exact i64 %129, 2
-  %131 = icmp sgt i64 %130, 0
-  br i1 %131, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %95
+  %127 = sdiv i64 %.tr120191, 2
+  %128 = getelementptr inbounds i32, ptr %.tr117188, i64 %127
+  %129 = ptrtoint ptr %.tr186 to i64
+  %130 = sub i64 %96, %129
+  %131 = ashr exact i64 %130, 2
+  %132 = icmp sgt i64 %131, 0
+  br i1 %132, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %132 = load i32, ptr %127, align 4
-  %133 = sext i32 %132 to i64
-  %134 = load ptr, ptr %10, align 8
-  %135 = load ptr, ptr %9, align 8
-  %136 = ptrtoint ptr %134 to i64
+  %133 = load i32, ptr %128, align 4
+  %134 = sext i32 %133 to i64
+  %135 = load ptr, ptr %10, align 8
+  %136 = load ptr, ptr %9, align 8
   %137 = ptrtoint ptr %135 to i64
-  %138 = sub i64 %136, %137
-  %139 = ashr exact i64 %138, 3
-  %.not.i.i.i.i.i98 = icmp ugt i64 %139, %133
-  %140 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %133
-  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %145
+  %138 = ptrtoint ptr %136 to i64
+  %139 = sub i64 %137, %138
+  %140 = ashr exact i64 %139, 3
+  %.not.i.i.i.i.i98 = icmp ugt i64 %140, %134
+  %141 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %134
+  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %146
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %130, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
+  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %131, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
-  %141 = lshr i64 %.020.i100, 1
-  %142 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %141
-  %143 = load i32, ptr %142, align 4
-  %144 = sext i32 %143 to i64
-  %.not.i.i2.i.i.i104 = icmp ugt i64 %139, %144
-  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %146
+  %142 = lshr i64 %.020.i100, 1
+  %143 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %142
+  %144 = load i32, ptr %143, align 4
+  %145 = sext i32 %144 to i64
+  %.not.i.i2.i.i.i104 = icmp ugt i64 %140, %145
+  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %147
 
-145:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %133, i64 noundef %139) #21
+146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %134, i64 noundef %140) #21
   unreachable
 
-146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %144, i64 noundef %139) #21
+147:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %145, i64 noundef %140) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  %147 = load i32, ptr %140, align 4
-  %148 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %144
-  %149 = load i32, ptr %148, align 4
-  %150 = icmp ult i32 %147, %149
-  %151 = getelementptr inbounds i8, ptr %142, i64 4
-  %152 = xor i64 %141, -1
-  %153 = add nsw i64 %.020.i100, %152
-  %.sroa.012.1.i105 = select i1 %150, ptr %.sroa.012.019.i101, ptr %151
-  %.1.i106 = select i1 %150, i64 %141, i64 %153
-  %154 = icmp sgt i64 %.1.i106, 0
-  br i1 %154, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !334
+  %148 = load i32, ptr %141, align 4
+  %149 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %145
+  %150 = load i32, ptr %149, align 4
+  %151 = icmp ult i32 %148, %150
+  %152 = getelementptr inbounds i8, ptr %143, i64 4
+  %153 = xor i64 %142, -1
+  %154 = add nsw i64 %.020.i100, %153
+  %.sroa.012.1.i105 = select i1 %151, ptr %.sroa.012.019.i101, ptr %152
+  %.1.i106 = select i1 %151, i64 %142, i64 %154
+  %155 = icmp sgt i64 %.1.i106, 0
+  br i1 %155, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !334
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.pre248 = ptrtoint ptr %.sroa.012.1.i105 to i64
   br label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %128, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
+  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %129, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
   %.sroa.012.0.lcssa.i96 = phi ptr [ %.sroa.012.1.i105, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
-  %155 = sub i64 %.pre-phi249, %128
-  %156 = ashr exact i64 %155, 2
-  br label %157
+  %156 = sub i64 %.pre-phi249, %129
+  %157 = ashr exact i64 %156, 2
+  br label %158
 
-157:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
-  %.sroa.0112.0 = phi ptr [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.073 = phi i64 [ %125, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %126, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %96, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %156, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %158 = sub nsw i64 %.tr119190, %.0
-  %159 = icmp sle i64 %158, %.073
+158:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+  %.sroa.0112.0 = phi ptr [ %98, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %128, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.073 = phi i64 [ %126, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %157, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %159 = sub nsw i64 %.tr119190, %.0
+  %160 = icmp sle i64 %159, %.073
   %.not.i107 = icmp sgt i64 %.073, %6
-  %or.cond.i = or i1 %.not.i107, %159
-  br i1 %or.cond.i, label %173, label %160
+  %or.cond.i = or i1 %.not.i107, %160
+  br i1 %or.cond.i, label %175, label %161
 
-160:                                              ; preds = %157
+161:                                              ; preds = %158
   %.not36.i = icmp eq i64 %.073, 0
-  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %161
+  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %162
 
-161:                                              ; preds = %160
-  %162 = ptrtoint ptr %.sroa.0.0 to i64
-  %163 = ptrtoint ptr %.tr117188 to i64
-  %164 = sub i64 %162, %163
+162:                                              ; preds = %161
+  %163 = ptrtoint ptr %.sroa.0.0 to i64
+  %164 = ptrtoint ptr %.tr117188 to i64
+  %165 = sub i64 %163, %164
   %.not.i.i.i.i.i.i108 = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %165
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %166
 
-165:                                              ; preds = %161
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %164, i1 false)
+166:                                              ; preds = %162
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %165, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %165, %161
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %166, %162
   %.not.i.i.i.i.i37.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %166
+  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %167
 
-166:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  %167 = ptrtoint ptr %.sroa.0112.0 to i64
-  %168 = sub i64 %163, %167
-  %169 = ashr exact i64 %168, 2
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %169
-  %170 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %170, ptr align 4 %.sroa.0112.0, i64 %168, i1 false)
+167:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  %168 = ptrtoint ptr %.sroa.0112.0 to i64
+  %169 = sub i64 %164, %168
+  %170 = ashr exact i64 %169, 2
+  %171 = sub nsw i64 0, %170
+  %172 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %171
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %172, ptr align 4 %.sroa.0112.0, i64 %169, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %166, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %171
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %167, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %173
 
-171:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %164, i1 false)
+173:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %165, i1 false)
   br label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109
 
-_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %171, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %172 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %164
+_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %173, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %174 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %165
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-173:                                              ; preds = %157
-  %.not34.i = icmp sgt i64 %158, %6
-  br i1 %.not34.i, label %187, label %174
+175:                                              ; preds = %158
+  %.not34.i = icmp sgt i64 %159, %6
+  br i1 %.not34.i, label %190, label %176
 
-174:                                              ; preds = %173
+176:                                              ; preds = %175
   %.not35.i = icmp eq i64 %.tr119190, %.0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %175
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %177
 
-175:                                              ; preds = %174
-  %176 = ptrtoint ptr %.tr117188 to i64
-  %177 = ptrtoint ptr %.sroa.0112.0 to i64
-  %178 = sub i64 %176, %177
+177:                                              ; preds = %176
+  %178 = ptrtoint ptr %.tr117188 to i64
+  %179 = ptrtoint ptr %.sroa.0112.0 to i64
+  %180 = sub i64 %178, %179
   %.not.i.i.i.i.i39.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %179
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %181
 
-179:                                              ; preds = %175
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %178, i1 false)
+181:                                              ; preds = %177
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %180, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %179, %175
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %181, %177
   %.not.i.i.i.i.i41.i = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %180
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %182
 
-180:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %181 = ptrtoint ptr %.sroa.0.0 to i64
-  %182 = sub i64 %181, %176
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %182, i1 false)
+182:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  %183 = ptrtoint ptr %.sroa.0.0 to i64
+  %184 = sub i64 %183, %178
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %184, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %180, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %183 = ashr exact i64 %178, 2
-  %.pre.i.i.i.i.i43.i = sub nsw i64 0, %183
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %184
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %182, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %185
 
-184:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %185 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %185, ptr align 4 %5, i64 %178, i1 false)
+185:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %186 = ashr exact i64 %180, 2
+  %187 = sub nsw i64 0, %186
+  %188 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %187
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %188, ptr align 4 %5, i64 %180, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %184, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %186 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
+_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %185, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %.pre-phi.i.i.i.i.i43.i = phi i64 [ %187, %185 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
+  %189 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-187:                                              ; preds = %173
-  %188 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
+190:                                              ; preds = %175
+  %191 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %160, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %174, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %187
-  %.sroa.032.0.i = phi ptr [ %172, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %186, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %188, %187 ], [ %.sroa.0112.0, %160 ], [ %.sroa.0.0, %174 ]
+_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %161, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %176, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %190
+  %.sroa.032.0.i = phi ptr [ %174, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %189, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %191, %190 ], [ %.sroa.0112.0, %161 ], [ %.sroa.0.0, %176 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi13EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr186, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
-  %189 = sub nsw i64 %.tr120191, %.073
-  %.not = icmp sgt i64 %158, %189
-  %.not77 = icmp sgt i64 %158, %6
+  %192 = sub nsw i64 %.tr120191, %.073
+  %.not = icmp sgt i64 %159, %192
+  %.not77 = icmp sgt i64 %159, %6
   %or.cond = or i1 %.not77, %.not
   br i1 %or.cond, label %40, label %tailrecurse._crit_edge
 
@@ -31856,46 +31871,46 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %26 = ptrtoint ptr %.sroa.0.041 to i64
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %28
-  %29 = getelementptr inbounds i32, ptr %25, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %29, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
+  %29 = sub nsw i64 0, %28
+  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEEvT_T0_.exit
 
-._crit_edge.i:                                    ; preds = %40
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %46) #21
+._crit_edge.i:                                    ; preds = %41
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %47) #21
   unreachable
 
-_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %40
-  %30 = phi i64 [ %46, %40 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %31 = phi ptr [ %42, %40 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %40 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %41
+  %31 = phi i64 [ %47, %41 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %32 = phi ptr [ %43, %41 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %41 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
   %.sroa.0.020.i = getelementptr inbounds i8, ptr %.sroa.05.019.i, i64 -4
-  %32 = load i32, ptr %.sroa.0.020.i, align 4
-  %33 = sext i32 %32 to i64
-  %.not.i.i2.i.i.i = icmp ugt i64 %30, %33
-  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %34
+  %33 = load i32, ptr %.sroa.0.020.i, align 4
+  %34 = sext i32 %33 to i64
+  %.not.i.i2.i.i.i = icmp ugt i64 %31, %34
+  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %35
 
-34:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %33, i64 noundef %30) #21
+35:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %34, i64 noundef %31) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %35 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %9
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %33
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp ult i32 %36, %38
-  br i1 %39, label %40, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEEvT_T0_.exit
+  %36 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %9
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %34
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp ult i32 %37, %39
+  br i1 %40, label %41, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEEvT_T0_.exit
 
-40:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  store i32 %32, ptr %.sroa.05.019.i, align 4
-  %41 = load ptr, ptr %5, align 8
-  %42 = load ptr, ptr %2, align 8
-  %43 = ptrtoint ptr %41 to i64
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
+  store i32 %33, ptr %.sroa.05.019.i, align 4
+  %42 = load ptr, ptr %5, align 8
+  %43 = load ptr, ptr %2, align 8
   %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  %46 = ashr exact i64 %45, 3
-  %.not.i.i.i.i.i9 = icmp ugt i64 %46, %9
+  %45 = ptrtoint ptr %43 to i64
+  %46 = sub i64 %44, %45
+  %47 = ashr exact i64 %46, 3
+  %.not.i.i.i.i.i9 = icmp ugt i64 %47, %9
   br i1 %.not.i.i.i.i.i9, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %._crit_edge.i, !llvm.loop !353
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -32249,12 +32264,12 @@ _ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.ex
 
 40:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
   %.not192 = phi i1 [ %.not183, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %189, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %158, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %192, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %159, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr117188 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr186 = phi ptr [ %0, %.lr.ph ], [ %.sroa.032.0.i, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.not78 = icmp sgt i64 %.tr120191, %6
-  br i1 %.not78, label %94, label %41
+  br i1 %.not78, label %95, label %41
 
 41:                                               ; preds = %40
   %.not.i.i.i.i.i80 = icmp eq ptr %2, %.tr117188
@@ -32355,254 +32370,255 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15Probabil
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !360
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %72
-  %.sink82.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink83.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa65.sink.i = phi ptr [ %69, %72 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %89 = ptrtoint ptr %.sink82.i to i64
+  %89 = ptrtoint ptr %.sink83.i to i64
   %90 = ptrtoint ptr %5 to i64
   %91 = sub i64 %89, %90
   %92 = ashr exact i64 %91, 2
-  %.pre.i.i.i.i.i19.i = sub nsw i64 0, %92
-  %93 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %.pre.i.i.i.i.i19.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %93, ptr align 4 %5, i64 %91, i1 false)
+  %93 = sub nsw i64 0, %92
+  %94 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %93
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %94, ptr align 4 %5, i64 %91, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
-94:                                               ; preds = %40
-  %95 = ptrtoint ptr %.tr117188 to i64
+95:                                               ; preds = %40
+  %96 = ptrtoint ptr %.tr117188 to i64
   br i1 %.not192, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %94
-  %96 = sdiv i64 %.tr119190, 2
-  %97 = getelementptr inbounds i32, ptr %.tr186, i64 %96
-  %98 = sub i64 %11, %95
-  %99 = ashr exact i64 %98, 2
-  %100 = icmp sgt i64 %99, 0
-  br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %95
+  %97 = sdiv i64 %.tr119190, 2
+  %98 = getelementptr inbounds i32, ptr %.tr186, i64 %97
+  %99 = sub i64 %11, %96
+  %100 = ashr exact i64 %99, 2
+  %101 = icmp sgt i64 %100, 0
+  br i1 %101, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %101 = load ptr, ptr %10, align 8
-  %102 = load ptr, ptr %9, align 8
-  %103 = ptrtoint ptr %101 to i64
+  %102 = load ptr, ptr %10, align 8
+  %103 = load ptr, ptr %9, align 8
   %104 = ptrtoint ptr %102 to i64
-  %105 = sub i64 %103, %104
-  %106 = ashr exact i64 %105, 3
-  %107 = load i32, ptr %97, align 4
-  %108 = sext i32 %107 to i64
-  %.not.i.i2.i.i.i87 = icmp ugt i64 %106, %108
-  %109 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %108
+  %105 = ptrtoint ptr %103 to i64
+  %106 = sub i64 %104, %105
+  %107 = ashr exact i64 %106, 3
+  %108 = load i32, ptr %98, align 4
+  %109 = sext i32 %108 to i64
+  %.not.i.i2.i.i.i87 = icmp ugt i64 %107, %109
+  %110 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %109
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
-  %.020.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
+  %.020.i = phi i64 [ %100, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
-  %110 = lshr i64 %.020.i, 1
-  %111 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %110
-  %112 = load i32, ptr %111, align 4
-  %113 = sext i32 %112 to i64
-  %.not.i.i.i.i.i88 = icmp ugt i64 %106, %113
-  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %114
+  %111 = lshr i64 %.020.i, 1
+  %112 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %111
+  %113 = load i32, ptr %112, align 4
+  %114 = sext i32 %113 to i64
+  %.not.i.i.i.i.i88 = icmp ugt i64 %107, %114
+  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %115
 
-114:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %113, i64 noundef %106) #21
+115:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %114, i64 noundef %107) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %115
+  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %116
 
-115:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %108, i64 noundef %106) #21
+116:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %109, i64 noundef %107) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %116 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %113
-  %117 = load i32, ptr %116, align 4
-  %118 = load i32, ptr %109, align 4
-  %119 = icmp ult i32 %117, %118
-  %120 = getelementptr inbounds i8, ptr %111, i64 4
-  %121 = xor i64 %110, -1
-  %122 = add nsw i64 %.020.i, %121
-  %.sroa.012.1.i = select i1 %119, ptr %120, ptr %.sroa.012.019.i
-  %.1.i90 = select i1 %119, i64 %122, i64 %110
-  %123 = icmp sgt i64 %.1.i90, 0
-  br i1 %123, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !355
+  %117 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %114
+  %118 = load i32, ptr %117, align 4
+  %119 = load i32, ptr %110, align 4
+  %120 = icmp ult i32 %118, %119
+  %121 = getelementptr inbounds i8, ptr %112, i64 4
+  %122 = xor i64 %111, -1
+  %123 = add nsw i64 %.020.i, %122
+  %.sroa.012.1.i = select i1 %120, ptr %121, ptr %.sroa.012.019.i
+  %.1.i90 = select i1 %120, i64 %123, i64 %111
+  %124 = icmp sgt i64 %.1.i90, 0
+  br i1 %124, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !355
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i
   %.pre = ptrtoint ptr %.sroa.012.1.i to i64
   br label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %95, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %96, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
   %.sroa.012.0.lcssa.i = phi ptr [ %.sroa.012.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
-  %124 = sub i64 %.pre-phi, %95
-  %125 = ashr exact i64 %124, 2
-  br label %157
+  %125 = sub i64 %.pre-phi, %96
+  %126 = ashr exact i64 %125, 2
+  br label %158
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %94
-  %126 = sdiv i64 %.tr120191, 2
-  %127 = getelementptr inbounds i32, ptr %.tr117188, i64 %126
-  %128 = ptrtoint ptr %.tr186 to i64
-  %129 = sub i64 %95, %128
-  %130 = ashr exact i64 %129, 2
-  %131 = icmp sgt i64 %130, 0
-  br i1 %131, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %95
+  %127 = sdiv i64 %.tr120191, 2
+  %128 = getelementptr inbounds i32, ptr %.tr117188, i64 %127
+  %129 = ptrtoint ptr %.tr186 to i64
+  %130 = sub i64 %96, %129
+  %131 = ashr exact i64 %130, 2
+  %132 = icmp sgt i64 %131, 0
+  br i1 %132, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %132 = load i32, ptr %127, align 4
-  %133 = sext i32 %132 to i64
-  %134 = load ptr, ptr %10, align 8
-  %135 = load ptr, ptr %9, align 8
-  %136 = ptrtoint ptr %134 to i64
+  %133 = load i32, ptr %128, align 4
+  %134 = sext i32 %133 to i64
+  %135 = load ptr, ptr %10, align 8
+  %136 = load ptr, ptr %9, align 8
   %137 = ptrtoint ptr %135 to i64
-  %138 = sub i64 %136, %137
-  %139 = ashr exact i64 %138, 3
-  %.not.i.i.i.i.i98 = icmp ugt i64 %139, %133
-  %140 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %133
-  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %145
+  %138 = ptrtoint ptr %136 to i64
+  %139 = sub i64 %137, %138
+  %140 = ashr exact i64 %139, 3
+  %.not.i.i.i.i.i98 = icmp ugt i64 %140, %134
+  %141 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %134
+  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %146
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %130, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
+  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %131, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
-  %141 = lshr i64 %.020.i100, 1
-  %142 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %141
-  %143 = load i32, ptr %142, align 4
-  %144 = sext i32 %143 to i64
-  %.not.i.i2.i.i.i104 = icmp ugt i64 %139, %144
-  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %146
+  %142 = lshr i64 %.020.i100, 1
+  %143 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %142
+  %144 = load i32, ptr %143, align 4
+  %145 = sext i32 %144 to i64
+  %.not.i.i2.i.i.i104 = icmp ugt i64 %140, %145
+  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %147
 
-145:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %133, i64 noundef %139) #21
+146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %134, i64 noundef %140) #21
   unreachable
 
-146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %144, i64 noundef %139) #21
+147:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %145, i64 noundef %140) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  %147 = load i32, ptr %140, align 4
-  %148 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %144
-  %149 = load i32, ptr %148, align 4
-  %150 = icmp ult i32 %147, %149
-  %151 = getelementptr inbounds i8, ptr %142, i64 4
-  %152 = xor i64 %141, -1
-  %153 = add nsw i64 %.020.i100, %152
-  %.sroa.012.1.i105 = select i1 %150, ptr %.sroa.012.019.i101, ptr %151
-  %.1.i106 = select i1 %150, i64 %141, i64 %153
-  %154 = icmp sgt i64 %.1.i106, 0
-  br i1 %154, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !356
+  %148 = load i32, ptr %141, align 4
+  %149 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %145
+  %150 = load i32, ptr %149, align 4
+  %151 = icmp ult i32 %148, %150
+  %152 = getelementptr inbounds i8, ptr %143, i64 4
+  %153 = xor i64 %142, -1
+  %154 = add nsw i64 %.020.i100, %153
+  %.sroa.012.1.i105 = select i1 %151, ptr %.sroa.012.019.i101, ptr %152
+  %.1.i106 = select i1 %151, i64 %142, i64 %154
+  %155 = icmp sgt i64 %.1.i106, 0
+  br i1 %155, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !356
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.pre248 = ptrtoint ptr %.sroa.012.1.i105 to i64
   br label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %128, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
+  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %129, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
   %.sroa.012.0.lcssa.i96 = phi ptr [ %.sroa.012.1.i105, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
-  %155 = sub i64 %.pre-phi249, %128
-  %156 = ashr exact i64 %155, 2
-  br label %157
+  %156 = sub i64 %.pre-phi249, %129
+  %157 = ashr exact i64 %156, 2
+  br label %158
 
-157:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
-  %.sroa.0112.0 = phi ptr [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.073 = phi i64 [ %125, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %126, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %96, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %156, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %158 = sub nsw i64 %.tr119190, %.0
-  %159 = icmp sle i64 %158, %.073
+158:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+  %.sroa.0112.0 = phi ptr [ %98, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %128, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.073 = phi i64 [ %126, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %157, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %159 = sub nsw i64 %.tr119190, %.0
+  %160 = icmp sle i64 %159, %.073
   %.not.i107 = icmp sgt i64 %.073, %6
-  %or.cond.i = or i1 %.not.i107, %159
-  br i1 %or.cond.i, label %173, label %160
+  %or.cond.i = or i1 %.not.i107, %160
+  br i1 %or.cond.i, label %175, label %161
 
-160:                                              ; preds = %157
+161:                                              ; preds = %158
   %.not36.i = icmp eq i64 %.073, 0
-  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %161
+  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %162
 
-161:                                              ; preds = %160
-  %162 = ptrtoint ptr %.sroa.0.0 to i64
-  %163 = ptrtoint ptr %.tr117188 to i64
-  %164 = sub i64 %162, %163
+162:                                              ; preds = %161
+  %163 = ptrtoint ptr %.sroa.0.0 to i64
+  %164 = ptrtoint ptr %.tr117188 to i64
+  %165 = sub i64 %163, %164
   %.not.i.i.i.i.i.i108 = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %165
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %166
 
-165:                                              ; preds = %161
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %164, i1 false)
+166:                                              ; preds = %162
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %165, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %165, %161
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %166, %162
   %.not.i.i.i.i.i37.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %166
+  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %167
 
-166:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  %167 = ptrtoint ptr %.sroa.0112.0 to i64
-  %168 = sub i64 %163, %167
-  %169 = ashr exact i64 %168, 2
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %169
-  %170 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %170, ptr align 4 %.sroa.0112.0, i64 %168, i1 false)
+167:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  %168 = ptrtoint ptr %.sroa.0112.0 to i64
+  %169 = sub i64 %164, %168
+  %170 = ashr exact i64 %169, 2
+  %171 = sub nsw i64 0, %170
+  %172 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %171
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %172, ptr align 4 %.sroa.0112.0, i64 %169, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %166, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %171
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %167, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %173
 
-171:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %164, i1 false)
+173:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %165, i1 false)
   br label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109
 
-_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %171, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %172 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %164
+_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %173, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %174 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %165
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-173:                                              ; preds = %157
-  %.not34.i = icmp sgt i64 %158, %6
-  br i1 %.not34.i, label %187, label %174
+175:                                              ; preds = %158
+  %.not34.i = icmp sgt i64 %159, %6
+  br i1 %.not34.i, label %190, label %176
 
-174:                                              ; preds = %173
+176:                                              ; preds = %175
   %.not35.i = icmp eq i64 %.tr119190, %.0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %175
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %177
 
-175:                                              ; preds = %174
-  %176 = ptrtoint ptr %.tr117188 to i64
-  %177 = ptrtoint ptr %.sroa.0112.0 to i64
-  %178 = sub i64 %176, %177
+177:                                              ; preds = %176
+  %178 = ptrtoint ptr %.tr117188 to i64
+  %179 = ptrtoint ptr %.sroa.0112.0 to i64
+  %180 = sub i64 %178, %179
   %.not.i.i.i.i.i39.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %179
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %181
 
-179:                                              ; preds = %175
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %178, i1 false)
+181:                                              ; preds = %177
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %180, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %179, %175
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %181, %177
   %.not.i.i.i.i.i41.i = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %180
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %182
 
-180:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %181 = ptrtoint ptr %.sroa.0.0 to i64
-  %182 = sub i64 %181, %176
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %182, i1 false)
+182:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  %183 = ptrtoint ptr %.sroa.0.0 to i64
+  %184 = sub i64 %183, %178
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %184, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %180, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %183 = ashr exact i64 %178, 2
-  %.pre.i.i.i.i.i43.i = sub nsw i64 0, %183
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %184
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %182, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %185
 
-184:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %185 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %185, ptr align 4 %5, i64 %178, i1 false)
+185:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %186 = ashr exact i64 %180, 2
+  %187 = sub nsw i64 0, %186
+  %188 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %187
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %188, ptr align 4 %5, i64 %180, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %184, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %186 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
+_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %185, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %.pre-phi.i.i.i.i.i43.i = phi i64 [ %187, %185 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
+  %189 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-187:                                              ; preds = %173
-  %188 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
+190:                                              ; preds = %175
+  %191 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %160, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %174, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %187
-  %.sroa.032.0.i = phi ptr [ %172, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %186, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %188, %187 ], [ %.sroa.0112.0, %160 ], [ %.sroa.0.0, %174 ]
+_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %161, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %176, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %190
+  %.sroa.032.0.i = phi ptr [ %174, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %189, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %191, %190 ], [ %.sroa.0112.0, %161 ], [ %.sroa.0.0, %176 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi14EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr186, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
-  %189 = sub nsw i64 %.tr120191, %.073
-  %.not = icmp sgt i64 %158, %189
-  %.not77 = icmp sgt i64 %158, %6
+  %192 = sub nsw i64 %.tr120191, %.073
+  %.not = icmp sgt i64 %159, %192
+  %.not77 = icmp sgt i64 %159, %6
   %or.cond = or i1 %.not77, %.not
   br i1 %or.cond, label %40, label %tailrecurse._crit_edge
 
@@ -33813,46 +33829,46 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %26 = ptrtoint ptr %.sroa.0.041 to i64
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %28
-  %29 = getelementptr inbounds i32, ptr %25, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %29, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
+  %29 = sub nsw i64 0, %28
+  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEEvT_T0_.exit
 
-._crit_edge.i:                                    ; preds = %40
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %46) #21
+._crit_edge.i:                                    ; preds = %41
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %47) #21
   unreachable
 
-_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %40
-  %30 = phi i64 [ %46, %40 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %31 = phi ptr [ %42, %40 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %40 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %41
+  %31 = phi i64 [ %47, %41 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %32 = phi ptr [ %43, %41 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %41 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
   %.sroa.0.020.i = getelementptr inbounds i8, ptr %.sroa.05.019.i, i64 -4
-  %32 = load i32, ptr %.sroa.0.020.i, align 4
-  %33 = sext i32 %32 to i64
-  %.not.i.i2.i.i.i = icmp ugt i64 %30, %33
-  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %34
+  %33 = load i32, ptr %.sroa.0.020.i, align 4
+  %34 = sext i32 %33 to i64
+  %.not.i.i2.i.i.i = icmp ugt i64 %31, %34
+  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %35
 
-34:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %33, i64 noundef %30) #21
+35:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %34, i64 noundef %31) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %35 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %9
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %33
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp ult i32 %36, %38
-  br i1 %39, label %40, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEEvT_T0_.exit
+  %36 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %9
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %34
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp ult i32 %37, %39
+  br i1 %40, label %41, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEEvT_T0_.exit
 
-40:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  store i32 %32, ptr %.sroa.05.019.i, align 4
-  %41 = load ptr, ptr %5, align 8
-  %42 = load ptr, ptr %2, align 8
-  %43 = ptrtoint ptr %41 to i64
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
+  store i32 %33, ptr %.sroa.05.019.i, align 4
+  %42 = load ptr, ptr %5, align 8
+  %43 = load ptr, ptr %2, align 8
   %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  %46 = ashr exact i64 %45, 3
-  %.not.i.i.i.i.i9 = icmp ugt i64 %46, %9
+  %45 = ptrtoint ptr %43 to i64
+  %46 = sub i64 %44, %45
+  %47 = ashr exact i64 %46, 3
+  %.not.i.i.i.i.i9 = icmp ugt i64 %47, %9
   br i1 %.not.i.i.i.i.i9, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %._crit_edge.i, !llvm.loop !375
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -34206,12 +34222,12 @@ _ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.ex
 
 40:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
   %.not192 = phi i1 [ %.not183, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %189, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %158, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %192, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %159, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr117188 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr186 = phi ptr [ %0, %.lr.ph ], [ %.sroa.032.0.i, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.not78 = icmp sgt i64 %.tr120191, %6
-  br i1 %.not78, label %94, label %41
+  br i1 %.not78, label %95, label %41
 
 41:                                               ; preds = %40
   %.not.i.i.i.i.i80 = icmp eq ptr %2, %.tr117188
@@ -34312,254 +34328,255 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15Probabil
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !382
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %72
-  %.sink82.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink83.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa65.sink.i = phi ptr [ %69, %72 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %89 = ptrtoint ptr %.sink82.i to i64
+  %89 = ptrtoint ptr %.sink83.i to i64
   %90 = ptrtoint ptr %5 to i64
   %91 = sub i64 %89, %90
   %92 = ashr exact i64 %91, 2
-  %.pre.i.i.i.i.i19.i = sub nsw i64 0, %92
-  %93 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %.pre.i.i.i.i.i19.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %93, ptr align 4 %5, i64 %91, i1 false)
+  %93 = sub nsw i64 0, %92
+  %94 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %93
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %94, ptr align 4 %5, i64 %91, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
-94:                                               ; preds = %40
-  %95 = ptrtoint ptr %.tr117188 to i64
+95:                                               ; preds = %40
+  %96 = ptrtoint ptr %.tr117188 to i64
   br i1 %.not192, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %94
-  %96 = sdiv i64 %.tr119190, 2
-  %97 = getelementptr inbounds i32, ptr %.tr186, i64 %96
-  %98 = sub i64 %11, %95
-  %99 = ashr exact i64 %98, 2
-  %100 = icmp sgt i64 %99, 0
-  br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %95
+  %97 = sdiv i64 %.tr119190, 2
+  %98 = getelementptr inbounds i32, ptr %.tr186, i64 %97
+  %99 = sub i64 %11, %96
+  %100 = ashr exact i64 %99, 2
+  %101 = icmp sgt i64 %100, 0
+  br i1 %101, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %101 = load ptr, ptr %10, align 8
-  %102 = load ptr, ptr %9, align 8
-  %103 = ptrtoint ptr %101 to i64
+  %102 = load ptr, ptr %10, align 8
+  %103 = load ptr, ptr %9, align 8
   %104 = ptrtoint ptr %102 to i64
-  %105 = sub i64 %103, %104
-  %106 = ashr exact i64 %105, 3
-  %107 = load i32, ptr %97, align 4
-  %108 = sext i32 %107 to i64
-  %.not.i.i2.i.i.i87 = icmp ugt i64 %106, %108
-  %109 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %108
+  %105 = ptrtoint ptr %103 to i64
+  %106 = sub i64 %104, %105
+  %107 = ashr exact i64 %106, 3
+  %108 = load i32, ptr %98, align 4
+  %109 = sext i32 %108 to i64
+  %.not.i.i2.i.i.i87 = icmp ugt i64 %107, %109
+  %110 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %109
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
-  %.020.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
+  %.020.i = phi i64 [ %100, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
-  %110 = lshr i64 %.020.i, 1
-  %111 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %110
-  %112 = load i32, ptr %111, align 4
-  %113 = sext i32 %112 to i64
-  %.not.i.i.i.i.i88 = icmp ugt i64 %106, %113
-  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %114
+  %111 = lshr i64 %.020.i, 1
+  %112 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %111
+  %113 = load i32, ptr %112, align 4
+  %114 = sext i32 %113 to i64
+  %.not.i.i.i.i.i88 = icmp ugt i64 %107, %114
+  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %115
 
-114:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %113, i64 noundef %106) #21
+115:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %114, i64 noundef %107) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %115
+  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %116
 
-115:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %108, i64 noundef %106) #21
+116:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %109, i64 noundef %107) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %116 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %113
-  %117 = load i32, ptr %116, align 4
-  %118 = load i32, ptr %109, align 4
-  %119 = icmp ult i32 %117, %118
-  %120 = getelementptr inbounds i8, ptr %111, i64 4
-  %121 = xor i64 %110, -1
-  %122 = add nsw i64 %.020.i, %121
-  %.sroa.012.1.i = select i1 %119, ptr %120, ptr %.sroa.012.019.i
-  %.1.i90 = select i1 %119, i64 %122, i64 %110
-  %123 = icmp sgt i64 %.1.i90, 0
-  br i1 %123, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !377
+  %117 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %114
+  %118 = load i32, ptr %117, align 4
+  %119 = load i32, ptr %110, align 4
+  %120 = icmp ult i32 %118, %119
+  %121 = getelementptr inbounds i8, ptr %112, i64 4
+  %122 = xor i64 %111, -1
+  %123 = add nsw i64 %.020.i, %122
+  %.sroa.012.1.i = select i1 %120, ptr %121, ptr %.sroa.012.019.i
+  %.1.i90 = select i1 %120, i64 %123, i64 %111
+  %124 = icmp sgt i64 %.1.i90, 0
+  br i1 %124, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !377
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i
   %.pre = ptrtoint ptr %.sroa.012.1.i to i64
   br label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %95, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %96, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
   %.sroa.012.0.lcssa.i = phi ptr [ %.sroa.012.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
-  %124 = sub i64 %.pre-phi, %95
-  %125 = ashr exact i64 %124, 2
-  br label %157
+  %125 = sub i64 %.pre-phi, %96
+  %126 = ashr exact i64 %125, 2
+  br label %158
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %94
-  %126 = sdiv i64 %.tr120191, 2
-  %127 = getelementptr inbounds i32, ptr %.tr117188, i64 %126
-  %128 = ptrtoint ptr %.tr186 to i64
-  %129 = sub i64 %95, %128
-  %130 = ashr exact i64 %129, 2
-  %131 = icmp sgt i64 %130, 0
-  br i1 %131, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %95
+  %127 = sdiv i64 %.tr120191, 2
+  %128 = getelementptr inbounds i32, ptr %.tr117188, i64 %127
+  %129 = ptrtoint ptr %.tr186 to i64
+  %130 = sub i64 %96, %129
+  %131 = ashr exact i64 %130, 2
+  %132 = icmp sgt i64 %131, 0
+  br i1 %132, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %132 = load i32, ptr %127, align 4
-  %133 = sext i32 %132 to i64
-  %134 = load ptr, ptr %10, align 8
-  %135 = load ptr, ptr %9, align 8
-  %136 = ptrtoint ptr %134 to i64
+  %133 = load i32, ptr %128, align 4
+  %134 = sext i32 %133 to i64
+  %135 = load ptr, ptr %10, align 8
+  %136 = load ptr, ptr %9, align 8
   %137 = ptrtoint ptr %135 to i64
-  %138 = sub i64 %136, %137
-  %139 = ashr exact i64 %138, 3
-  %.not.i.i.i.i.i98 = icmp ugt i64 %139, %133
-  %140 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %133
-  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %145
+  %138 = ptrtoint ptr %136 to i64
+  %139 = sub i64 %137, %138
+  %140 = ashr exact i64 %139, 3
+  %.not.i.i.i.i.i98 = icmp ugt i64 %140, %134
+  %141 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %134
+  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %146
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %130, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
+  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %131, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
-  %141 = lshr i64 %.020.i100, 1
-  %142 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %141
-  %143 = load i32, ptr %142, align 4
-  %144 = sext i32 %143 to i64
-  %.not.i.i2.i.i.i104 = icmp ugt i64 %139, %144
-  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %146
+  %142 = lshr i64 %.020.i100, 1
+  %143 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %142
+  %144 = load i32, ptr %143, align 4
+  %145 = sext i32 %144 to i64
+  %.not.i.i2.i.i.i104 = icmp ugt i64 %140, %145
+  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %147
 
-145:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %133, i64 noundef %139) #21
+146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %134, i64 noundef %140) #21
   unreachable
 
-146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %144, i64 noundef %139) #21
+147:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %145, i64 noundef %140) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  %147 = load i32, ptr %140, align 4
-  %148 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %144
-  %149 = load i32, ptr %148, align 4
-  %150 = icmp ult i32 %147, %149
-  %151 = getelementptr inbounds i8, ptr %142, i64 4
-  %152 = xor i64 %141, -1
-  %153 = add nsw i64 %.020.i100, %152
-  %.sroa.012.1.i105 = select i1 %150, ptr %.sroa.012.019.i101, ptr %151
-  %.1.i106 = select i1 %150, i64 %141, i64 %153
-  %154 = icmp sgt i64 %.1.i106, 0
-  br i1 %154, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !378
+  %148 = load i32, ptr %141, align 4
+  %149 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %145
+  %150 = load i32, ptr %149, align 4
+  %151 = icmp ult i32 %148, %150
+  %152 = getelementptr inbounds i8, ptr %143, i64 4
+  %153 = xor i64 %142, -1
+  %154 = add nsw i64 %.020.i100, %153
+  %.sroa.012.1.i105 = select i1 %151, ptr %.sroa.012.019.i101, ptr %152
+  %.1.i106 = select i1 %151, i64 %142, i64 %154
+  %155 = icmp sgt i64 %.1.i106, 0
+  br i1 %155, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !378
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.pre248 = ptrtoint ptr %.sroa.012.1.i105 to i64
   br label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %128, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
+  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %129, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
   %.sroa.012.0.lcssa.i96 = phi ptr [ %.sroa.012.1.i105, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
-  %155 = sub i64 %.pre-phi249, %128
-  %156 = ashr exact i64 %155, 2
-  br label %157
+  %156 = sub i64 %.pre-phi249, %129
+  %157 = ashr exact i64 %156, 2
+  br label %158
 
-157:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
-  %.sroa.0112.0 = phi ptr [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.073 = phi i64 [ %125, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %126, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %96, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %156, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %158 = sub nsw i64 %.tr119190, %.0
-  %159 = icmp sle i64 %158, %.073
+158:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+  %.sroa.0112.0 = phi ptr [ %98, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %128, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.073 = phi i64 [ %126, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %157, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %159 = sub nsw i64 %.tr119190, %.0
+  %160 = icmp sle i64 %159, %.073
   %.not.i107 = icmp sgt i64 %.073, %6
-  %or.cond.i = or i1 %.not.i107, %159
-  br i1 %or.cond.i, label %173, label %160
+  %or.cond.i = or i1 %.not.i107, %160
+  br i1 %or.cond.i, label %175, label %161
 
-160:                                              ; preds = %157
+161:                                              ; preds = %158
   %.not36.i = icmp eq i64 %.073, 0
-  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %161
+  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %162
 
-161:                                              ; preds = %160
-  %162 = ptrtoint ptr %.sroa.0.0 to i64
-  %163 = ptrtoint ptr %.tr117188 to i64
-  %164 = sub i64 %162, %163
+162:                                              ; preds = %161
+  %163 = ptrtoint ptr %.sroa.0.0 to i64
+  %164 = ptrtoint ptr %.tr117188 to i64
+  %165 = sub i64 %163, %164
   %.not.i.i.i.i.i.i108 = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %165
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %166
 
-165:                                              ; preds = %161
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %164, i1 false)
+166:                                              ; preds = %162
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %165, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %165, %161
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %166, %162
   %.not.i.i.i.i.i37.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %166
+  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %167
 
-166:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  %167 = ptrtoint ptr %.sroa.0112.0 to i64
-  %168 = sub i64 %163, %167
-  %169 = ashr exact i64 %168, 2
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %169
-  %170 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %170, ptr align 4 %.sroa.0112.0, i64 %168, i1 false)
+167:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  %168 = ptrtoint ptr %.sroa.0112.0 to i64
+  %169 = sub i64 %164, %168
+  %170 = ashr exact i64 %169, 2
+  %171 = sub nsw i64 0, %170
+  %172 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %171
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %172, ptr align 4 %.sroa.0112.0, i64 %169, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %166, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %171
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %167, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %173
 
-171:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %164, i1 false)
+173:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %165, i1 false)
   br label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109
 
-_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %171, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %172 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %164
+_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %173, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %174 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %165
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-173:                                              ; preds = %157
-  %.not34.i = icmp sgt i64 %158, %6
-  br i1 %.not34.i, label %187, label %174
+175:                                              ; preds = %158
+  %.not34.i = icmp sgt i64 %159, %6
+  br i1 %.not34.i, label %190, label %176
 
-174:                                              ; preds = %173
+176:                                              ; preds = %175
   %.not35.i = icmp eq i64 %.tr119190, %.0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %175
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %177
 
-175:                                              ; preds = %174
-  %176 = ptrtoint ptr %.tr117188 to i64
-  %177 = ptrtoint ptr %.sroa.0112.0 to i64
-  %178 = sub i64 %176, %177
+177:                                              ; preds = %176
+  %178 = ptrtoint ptr %.tr117188 to i64
+  %179 = ptrtoint ptr %.sroa.0112.0 to i64
+  %180 = sub i64 %178, %179
   %.not.i.i.i.i.i39.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %179
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %181
 
-179:                                              ; preds = %175
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %178, i1 false)
+181:                                              ; preds = %177
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %180, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %179, %175
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %181, %177
   %.not.i.i.i.i.i41.i = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %180
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %182
 
-180:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %181 = ptrtoint ptr %.sroa.0.0 to i64
-  %182 = sub i64 %181, %176
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %182, i1 false)
+182:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  %183 = ptrtoint ptr %.sroa.0.0 to i64
+  %184 = sub i64 %183, %178
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %184, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %180, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %183 = ashr exact i64 %178, 2
-  %.pre.i.i.i.i.i43.i = sub nsw i64 0, %183
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %184
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %182, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %185
 
-184:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %185 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %185, ptr align 4 %5, i64 %178, i1 false)
+185:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %186 = ashr exact i64 %180, 2
+  %187 = sub nsw i64 0, %186
+  %188 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %187
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %188, ptr align 4 %5, i64 %180, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %184, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %186 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
+_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %185, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %.pre-phi.i.i.i.i.i43.i = phi i64 [ %187, %185 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
+  %189 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-187:                                              ; preds = %173
-  %188 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
+190:                                              ; preds = %175
+  %191 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %160, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %174, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %187
-  %.sroa.032.0.i = phi ptr [ %172, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %186, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %188, %187 ], [ %.sroa.0112.0, %160 ], [ %.sroa.0.0, %174 ]
+_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %161, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %176, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %190
+  %.sroa.032.0.i = phi ptr [ %174, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %189, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %191, %190 ], [ %.sroa.0112.0, %161 ], [ %.sroa.0.0, %176 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi15EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr186, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
-  %189 = sub nsw i64 %.tr120191, %.073
-  %.not = icmp sgt i64 %158, %189
-  %.not77 = icmp sgt i64 %158, %6
+  %192 = sub nsw i64 %.tr120191, %.073
+  %.not = icmp sgt i64 %159, %192
+  %.not77 = icmp sgt i64 %159, %6
   %or.cond = or i1 %.not77, %.not
   br i1 %or.cond, label %40, label %tailrecurse._crit_edge
 
@@ -35770,46 +35787,46 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %26 = ptrtoint ptr %.sroa.0.041 to i64
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %28
-  %29 = getelementptr inbounds i32, ptr %25, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %29, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
+  %29 = sub nsw i64 0, %28
+  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEEvT_T0_.exit
 
-._crit_edge.i:                                    ; preds = %40
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %46) #21
+._crit_edge.i:                                    ; preds = %41
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %47) #21
   unreachable
 
-_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %40
-  %30 = phi i64 [ %46, %40 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %31 = phi ptr [ %42, %40 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %40 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %41
+  %31 = phi i64 [ %47, %41 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %32 = phi ptr [ %43, %41 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %41 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
   %.sroa.0.020.i = getelementptr inbounds i8, ptr %.sroa.05.019.i, i64 -4
-  %32 = load i32, ptr %.sroa.0.020.i, align 4
-  %33 = sext i32 %32 to i64
-  %.not.i.i2.i.i.i = icmp ugt i64 %30, %33
-  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %34
+  %33 = load i32, ptr %.sroa.0.020.i, align 4
+  %34 = sext i32 %33 to i64
+  %.not.i.i2.i.i.i = icmp ugt i64 %31, %34
+  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %35
 
-34:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %33, i64 noundef %30) #21
+35:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %34, i64 noundef %31) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %35 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %9
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %33
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp ult i32 %36, %38
-  br i1 %39, label %40, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEEvT_T0_.exit
+  %36 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %9
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %34
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp ult i32 %37, %39
+  br i1 %40, label %41, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEEvT_T0_.exit
 
-40:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  store i32 %32, ptr %.sroa.05.019.i, align 4
-  %41 = load ptr, ptr %5, align 8
-  %42 = load ptr, ptr %2, align 8
-  %43 = ptrtoint ptr %41 to i64
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
+  store i32 %33, ptr %.sroa.05.019.i, align 4
+  %42 = load ptr, ptr %5, align 8
+  %43 = load ptr, ptr %2, align 8
   %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  %46 = ashr exact i64 %45, 3
-  %.not.i.i.i.i.i9 = icmp ugt i64 %46, %9
+  %45 = ptrtoint ptr %43 to i64
+  %46 = sub i64 %44, %45
+  %47 = ashr exact i64 %46, 3
+  %.not.i.i.i.i.i9 = icmp ugt i64 %47, %9
   br i1 %.not.i.i.i.i.i9, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %._crit_edge.i, !llvm.loop !397
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -36163,12 +36180,12 @@ _ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.ex
 
 40:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
   %.not192 = phi i1 [ %.not183, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %189, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %158, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %192, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %159, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr117188 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr186 = phi ptr [ %0, %.lr.ph ], [ %.sroa.032.0.i, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.not78 = icmp sgt i64 %.tr120191, %6
-  br i1 %.not78, label %94, label %41
+  br i1 %.not78, label %95, label %41
 
 41:                                               ; preds = %40
   %.not.i.i.i.i.i80 = icmp eq ptr %2, %.tr117188
@@ -36269,254 +36286,255 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15Probabil
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !404
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %72
-  %.sink82.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink83.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa65.sink.i = phi ptr [ %69, %72 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %89 = ptrtoint ptr %.sink82.i to i64
+  %89 = ptrtoint ptr %.sink83.i to i64
   %90 = ptrtoint ptr %5 to i64
   %91 = sub i64 %89, %90
   %92 = ashr exact i64 %91, 2
-  %.pre.i.i.i.i.i19.i = sub nsw i64 0, %92
-  %93 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %.pre.i.i.i.i.i19.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %93, ptr align 4 %5, i64 %91, i1 false)
+  %93 = sub nsw i64 0, %92
+  %94 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %93
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %94, ptr align 4 %5, i64 %91, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
-94:                                               ; preds = %40
-  %95 = ptrtoint ptr %.tr117188 to i64
+95:                                               ; preds = %40
+  %96 = ptrtoint ptr %.tr117188 to i64
   br i1 %.not192, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %94
-  %96 = sdiv i64 %.tr119190, 2
-  %97 = getelementptr inbounds i32, ptr %.tr186, i64 %96
-  %98 = sub i64 %11, %95
-  %99 = ashr exact i64 %98, 2
-  %100 = icmp sgt i64 %99, 0
-  br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %95
+  %97 = sdiv i64 %.tr119190, 2
+  %98 = getelementptr inbounds i32, ptr %.tr186, i64 %97
+  %99 = sub i64 %11, %96
+  %100 = ashr exact i64 %99, 2
+  %101 = icmp sgt i64 %100, 0
+  br i1 %101, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %101 = load ptr, ptr %10, align 8
-  %102 = load ptr, ptr %9, align 8
-  %103 = ptrtoint ptr %101 to i64
+  %102 = load ptr, ptr %10, align 8
+  %103 = load ptr, ptr %9, align 8
   %104 = ptrtoint ptr %102 to i64
-  %105 = sub i64 %103, %104
-  %106 = ashr exact i64 %105, 3
-  %107 = load i32, ptr %97, align 4
-  %108 = sext i32 %107 to i64
-  %.not.i.i2.i.i.i87 = icmp ugt i64 %106, %108
-  %109 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %108
+  %105 = ptrtoint ptr %103 to i64
+  %106 = sub i64 %104, %105
+  %107 = ashr exact i64 %106, 3
+  %108 = load i32, ptr %98, align 4
+  %109 = sext i32 %108 to i64
+  %.not.i.i2.i.i.i87 = icmp ugt i64 %107, %109
+  %110 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %109
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
-  %.020.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
+  %.020.i = phi i64 [ %100, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
-  %110 = lshr i64 %.020.i, 1
-  %111 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %110
-  %112 = load i32, ptr %111, align 4
-  %113 = sext i32 %112 to i64
-  %.not.i.i.i.i.i88 = icmp ugt i64 %106, %113
-  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %114
+  %111 = lshr i64 %.020.i, 1
+  %112 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %111
+  %113 = load i32, ptr %112, align 4
+  %114 = sext i32 %113 to i64
+  %.not.i.i.i.i.i88 = icmp ugt i64 %107, %114
+  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %115
 
-114:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %113, i64 noundef %106) #21
+115:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %114, i64 noundef %107) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %115
+  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %116
 
-115:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %108, i64 noundef %106) #21
+116:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %109, i64 noundef %107) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %116 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %113
-  %117 = load i32, ptr %116, align 4
-  %118 = load i32, ptr %109, align 4
-  %119 = icmp ult i32 %117, %118
-  %120 = getelementptr inbounds i8, ptr %111, i64 4
-  %121 = xor i64 %110, -1
-  %122 = add nsw i64 %.020.i, %121
-  %.sroa.012.1.i = select i1 %119, ptr %120, ptr %.sroa.012.019.i
-  %.1.i90 = select i1 %119, i64 %122, i64 %110
-  %123 = icmp sgt i64 %.1.i90, 0
-  br i1 %123, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !399
+  %117 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %114
+  %118 = load i32, ptr %117, align 4
+  %119 = load i32, ptr %110, align 4
+  %120 = icmp ult i32 %118, %119
+  %121 = getelementptr inbounds i8, ptr %112, i64 4
+  %122 = xor i64 %111, -1
+  %123 = add nsw i64 %.020.i, %122
+  %.sroa.012.1.i = select i1 %120, ptr %121, ptr %.sroa.012.019.i
+  %.1.i90 = select i1 %120, i64 %123, i64 %111
+  %124 = icmp sgt i64 %.1.i90, 0
+  br i1 %124, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !399
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i
   %.pre = ptrtoint ptr %.sroa.012.1.i to i64
   br label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %95, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %96, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
   %.sroa.012.0.lcssa.i = phi ptr [ %.sroa.012.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
-  %124 = sub i64 %.pre-phi, %95
-  %125 = ashr exact i64 %124, 2
-  br label %157
+  %125 = sub i64 %.pre-phi, %96
+  %126 = ashr exact i64 %125, 2
+  br label %158
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %94
-  %126 = sdiv i64 %.tr120191, 2
-  %127 = getelementptr inbounds i32, ptr %.tr117188, i64 %126
-  %128 = ptrtoint ptr %.tr186 to i64
-  %129 = sub i64 %95, %128
-  %130 = ashr exact i64 %129, 2
-  %131 = icmp sgt i64 %130, 0
-  br i1 %131, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %95
+  %127 = sdiv i64 %.tr120191, 2
+  %128 = getelementptr inbounds i32, ptr %.tr117188, i64 %127
+  %129 = ptrtoint ptr %.tr186 to i64
+  %130 = sub i64 %96, %129
+  %131 = ashr exact i64 %130, 2
+  %132 = icmp sgt i64 %131, 0
+  br i1 %132, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %132 = load i32, ptr %127, align 4
-  %133 = sext i32 %132 to i64
-  %134 = load ptr, ptr %10, align 8
-  %135 = load ptr, ptr %9, align 8
-  %136 = ptrtoint ptr %134 to i64
+  %133 = load i32, ptr %128, align 4
+  %134 = sext i32 %133 to i64
+  %135 = load ptr, ptr %10, align 8
+  %136 = load ptr, ptr %9, align 8
   %137 = ptrtoint ptr %135 to i64
-  %138 = sub i64 %136, %137
-  %139 = ashr exact i64 %138, 3
-  %.not.i.i.i.i.i98 = icmp ugt i64 %139, %133
-  %140 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %133
-  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %145
+  %138 = ptrtoint ptr %136 to i64
+  %139 = sub i64 %137, %138
+  %140 = ashr exact i64 %139, 3
+  %.not.i.i.i.i.i98 = icmp ugt i64 %140, %134
+  %141 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %134
+  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %146
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %130, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
+  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %131, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
-  %141 = lshr i64 %.020.i100, 1
-  %142 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %141
-  %143 = load i32, ptr %142, align 4
-  %144 = sext i32 %143 to i64
-  %.not.i.i2.i.i.i104 = icmp ugt i64 %139, %144
-  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %146
+  %142 = lshr i64 %.020.i100, 1
+  %143 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %142
+  %144 = load i32, ptr %143, align 4
+  %145 = sext i32 %144 to i64
+  %.not.i.i2.i.i.i104 = icmp ugt i64 %140, %145
+  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %147
 
-145:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %133, i64 noundef %139) #21
+146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %134, i64 noundef %140) #21
   unreachable
 
-146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %144, i64 noundef %139) #21
+147:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %145, i64 noundef %140) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  %147 = load i32, ptr %140, align 4
-  %148 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %144
-  %149 = load i32, ptr %148, align 4
-  %150 = icmp ult i32 %147, %149
-  %151 = getelementptr inbounds i8, ptr %142, i64 4
-  %152 = xor i64 %141, -1
-  %153 = add nsw i64 %.020.i100, %152
-  %.sroa.012.1.i105 = select i1 %150, ptr %.sroa.012.019.i101, ptr %151
-  %.1.i106 = select i1 %150, i64 %141, i64 %153
-  %154 = icmp sgt i64 %.1.i106, 0
-  br i1 %154, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !400
+  %148 = load i32, ptr %141, align 4
+  %149 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %145
+  %150 = load i32, ptr %149, align 4
+  %151 = icmp ult i32 %148, %150
+  %152 = getelementptr inbounds i8, ptr %143, i64 4
+  %153 = xor i64 %142, -1
+  %154 = add nsw i64 %.020.i100, %153
+  %.sroa.012.1.i105 = select i1 %151, ptr %.sroa.012.019.i101, ptr %152
+  %.1.i106 = select i1 %151, i64 %142, i64 %154
+  %155 = icmp sgt i64 %.1.i106, 0
+  br i1 %155, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !400
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.pre248 = ptrtoint ptr %.sroa.012.1.i105 to i64
   br label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %128, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
+  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %129, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
   %.sroa.012.0.lcssa.i96 = phi ptr [ %.sroa.012.1.i105, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
-  %155 = sub i64 %.pre-phi249, %128
-  %156 = ashr exact i64 %155, 2
-  br label %157
+  %156 = sub i64 %.pre-phi249, %129
+  %157 = ashr exact i64 %156, 2
+  br label %158
 
-157:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
-  %.sroa.0112.0 = phi ptr [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.073 = phi i64 [ %125, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %126, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %96, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %156, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %158 = sub nsw i64 %.tr119190, %.0
-  %159 = icmp sle i64 %158, %.073
+158:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+  %.sroa.0112.0 = phi ptr [ %98, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %128, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.073 = phi i64 [ %126, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %157, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %159 = sub nsw i64 %.tr119190, %.0
+  %160 = icmp sle i64 %159, %.073
   %.not.i107 = icmp sgt i64 %.073, %6
-  %or.cond.i = or i1 %.not.i107, %159
-  br i1 %or.cond.i, label %173, label %160
+  %or.cond.i = or i1 %.not.i107, %160
+  br i1 %or.cond.i, label %175, label %161
 
-160:                                              ; preds = %157
+161:                                              ; preds = %158
   %.not36.i = icmp eq i64 %.073, 0
-  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %161
+  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %162
 
-161:                                              ; preds = %160
-  %162 = ptrtoint ptr %.sroa.0.0 to i64
-  %163 = ptrtoint ptr %.tr117188 to i64
-  %164 = sub i64 %162, %163
+162:                                              ; preds = %161
+  %163 = ptrtoint ptr %.sroa.0.0 to i64
+  %164 = ptrtoint ptr %.tr117188 to i64
+  %165 = sub i64 %163, %164
   %.not.i.i.i.i.i.i108 = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %165
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %166
 
-165:                                              ; preds = %161
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %164, i1 false)
+166:                                              ; preds = %162
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %165, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %165, %161
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %166, %162
   %.not.i.i.i.i.i37.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %166
+  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %167
 
-166:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  %167 = ptrtoint ptr %.sroa.0112.0 to i64
-  %168 = sub i64 %163, %167
-  %169 = ashr exact i64 %168, 2
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %169
-  %170 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %170, ptr align 4 %.sroa.0112.0, i64 %168, i1 false)
+167:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  %168 = ptrtoint ptr %.sroa.0112.0 to i64
+  %169 = sub i64 %164, %168
+  %170 = ashr exact i64 %169, 2
+  %171 = sub nsw i64 0, %170
+  %172 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %171
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %172, ptr align 4 %.sroa.0112.0, i64 %169, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %166, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %171
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %167, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %173
 
-171:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %164, i1 false)
+173:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %165, i1 false)
   br label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109
 
-_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %171, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %172 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %164
+_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %173, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %174 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %165
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-173:                                              ; preds = %157
-  %.not34.i = icmp sgt i64 %158, %6
-  br i1 %.not34.i, label %187, label %174
+175:                                              ; preds = %158
+  %.not34.i = icmp sgt i64 %159, %6
+  br i1 %.not34.i, label %190, label %176
 
-174:                                              ; preds = %173
+176:                                              ; preds = %175
   %.not35.i = icmp eq i64 %.tr119190, %.0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %175
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %177
 
-175:                                              ; preds = %174
-  %176 = ptrtoint ptr %.tr117188 to i64
-  %177 = ptrtoint ptr %.sroa.0112.0 to i64
-  %178 = sub i64 %176, %177
+177:                                              ; preds = %176
+  %178 = ptrtoint ptr %.tr117188 to i64
+  %179 = ptrtoint ptr %.sroa.0112.0 to i64
+  %180 = sub i64 %178, %179
   %.not.i.i.i.i.i39.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %179
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %181
 
-179:                                              ; preds = %175
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %178, i1 false)
+181:                                              ; preds = %177
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %180, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %179, %175
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %181, %177
   %.not.i.i.i.i.i41.i = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %180
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %182
 
-180:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %181 = ptrtoint ptr %.sroa.0.0 to i64
-  %182 = sub i64 %181, %176
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %182, i1 false)
+182:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  %183 = ptrtoint ptr %.sroa.0.0 to i64
+  %184 = sub i64 %183, %178
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %184, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %180, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %183 = ashr exact i64 %178, 2
-  %.pre.i.i.i.i.i43.i = sub nsw i64 0, %183
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %184
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %182, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %185
 
-184:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %185 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %185, ptr align 4 %5, i64 %178, i1 false)
+185:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %186 = ashr exact i64 %180, 2
+  %187 = sub nsw i64 0, %186
+  %188 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %187
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %188, ptr align 4 %5, i64 %180, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %184, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %186 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
+_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %185, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %.pre-phi.i.i.i.i.i43.i = phi i64 [ %187, %185 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
+  %189 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-187:                                              ; preds = %173
-  %188 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
+190:                                              ; preds = %175
+  %191 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %160, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %174, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %187
-  %.sroa.032.0.i = phi ptr [ %172, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %186, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %188, %187 ], [ %.sroa.0112.0, %160 ], [ %.sroa.0.0, %174 ]
+_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %161, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %176, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %190
+  %.sroa.032.0.i = phi ptr [ %174, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %189, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %191, %190 ], [ %.sroa.0112.0, %161 ], [ %.sroa.0.0, %176 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi16EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr186, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
-  %189 = sub nsw i64 %.tr120191, %.073
-  %.not = icmp sgt i64 %158, %189
-  %.not77 = icmp sgt i64 %158, %6
+  %192 = sub nsw i64 %.tr120191, %.073
+  %.not = icmp sgt i64 %159, %192
+  %.not77 = icmp sgt i64 %159, %6
   %or.cond = or i1 %.not77, %.not
   br i1 %or.cond, label %40, label %tailrecurse._crit_edge
 
@@ -37727,46 +37745,46 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %26 = ptrtoint ptr %.sroa.0.041 to i64
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %28
-  %29 = getelementptr inbounds i32, ptr %25, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %29, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
+  %29 = sub nsw i64 0, %28
+  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEEvT_T0_.exit
 
-._crit_edge.i:                                    ; preds = %40
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %46) #21
+._crit_edge.i:                                    ; preds = %41
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %47) #21
   unreachable
 
-_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %40
-  %30 = phi i64 [ %46, %40 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %31 = phi ptr [ %42, %40 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %40 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %41
+  %31 = phi i64 [ %47, %41 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %32 = phi ptr [ %43, %41 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %41 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
   %.sroa.0.020.i = getelementptr inbounds i8, ptr %.sroa.05.019.i, i64 -4
-  %32 = load i32, ptr %.sroa.0.020.i, align 4
-  %33 = sext i32 %32 to i64
-  %.not.i.i2.i.i.i = icmp ugt i64 %30, %33
-  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %34
+  %33 = load i32, ptr %.sroa.0.020.i, align 4
+  %34 = sext i32 %33 to i64
+  %.not.i.i2.i.i.i = icmp ugt i64 %31, %34
+  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %35
 
-34:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %33, i64 noundef %30) #21
+35:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %34, i64 noundef %31) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %35 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %9
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %33
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp ult i32 %36, %38
-  br i1 %39, label %40, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEEvT_T0_.exit
+  %36 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %9
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %34
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp ult i32 %37, %39
+  br i1 %40, label %41, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEEvT_T0_.exit
 
-40:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  store i32 %32, ptr %.sroa.05.019.i, align 4
-  %41 = load ptr, ptr %5, align 8
-  %42 = load ptr, ptr %2, align 8
-  %43 = ptrtoint ptr %41 to i64
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
+  store i32 %33, ptr %.sroa.05.019.i, align 4
+  %42 = load ptr, ptr %5, align 8
+  %43 = load ptr, ptr %2, align 8
   %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  %46 = ashr exact i64 %45, 3
-  %.not.i.i.i.i.i9 = icmp ugt i64 %46, %9
+  %45 = ptrtoint ptr %43 to i64
+  %46 = sub i64 %44, %45
+  %47 = ashr exact i64 %46, 3
+  %.not.i.i.i.i.i9 = icmp ugt i64 %47, %9
   br i1 %.not.i.i.i.i.i9, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %._crit_edge.i, !llvm.loop !419
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -38120,12 +38138,12 @@ _ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.ex
 
 40:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
   %.not192 = phi i1 [ %.not183, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %189, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %158, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %192, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %159, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr117188 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr186 = phi ptr [ %0, %.lr.ph ], [ %.sroa.032.0.i, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.not78 = icmp sgt i64 %.tr120191, %6
-  br i1 %.not78, label %94, label %41
+  br i1 %.not78, label %95, label %41
 
 41:                                               ; preds = %40
   %.not.i.i.i.i.i80 = icmp eq ptr %2, %.tr117188
@@ -38226,254 +38244,255 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15Probabil
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !426
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %72
-  %.sink82.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink83.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa65.sink.i = phi ptr [ %69, %72 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %89 = ptrtoint ptr %.sink82.i to i64
+  %89 = ptrtoint ptr %.sink83.i to i64
   %90 = ptrtoint ptr %5 to i64
   %91 = sub i64 %89, %90
   %92 = ashr exact i64 %91, 2
-  %.pre.i.i.i.i.i19.i = sub nsw i64 0, %92
-  %93 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %.pre.i.i.i.i.i19.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %93, ptr align 4 %5, i64 %91, i1 false)
+  %93 = sub nsw i64 0, %92
+  %94 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %93
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %94, ptr align 4 %5, i64 %91, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
-94:                                               ; preds = %40
-  %95 = ptrtoint ptr %.tr117188 to i64
+95:                                               ; preds = %40
+  %96 = ptrtoint ptr %.tr117188 to i64
   br i1 %.not192, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %94
-  %96 = sdiv i64 %.tr119190, 2
-  %97 = getelementptr inbounds i32, ptr %.tr186, i64 %96
-  %98 = sub i64 %11, %95
-  %99 = ashr exact i64 %98, 2
-  %100 = icmp sgt i64 %99, 0
-  br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %95
+  %97 = sdiv i64 %.tr119190, 2
+  %98 = getelementptr inbounds i32, ptr %.tr186, i64 %97
+  %99 = sub i64 %11, %96
+  %100 = ashr exact i64 %99, 2
+  %101 = icmp sgt i64 %100, 0
+  br i1 %101, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %101 = load ptr, ptr %10, align 8
-  %102 = load ptr, ptr %9, align 8
-  %103 = ptrtoint ptr %101 to i64
+  %102 = load ptr, ptr %10, align 8
+  %103 = load ptr, ptr %9, align 8
   %104 = ptrtoint ptr %102 to i64
-  %105 = sub i64 %103, %104
-  %106 = ashr exact i64 %105, 3
-  %107 = load i32, ptr %97, align 4
-  %108 = sext i32 %107 to i64
-  %.not.i.i2.i.i.i87 = icmp ugt i64 %106, %108
-  %109 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %108
+  %105 = ptrtoint ptr %103 to i64
+  %106 = sub i64 %104, %105
+  %107 = ashr exact i64 %106, 3
+  %108 = load i32, ptr %98, align 4
+  %109 = sext i32 %108 to i64
+  %.not.i.i2.i.i.i87 = icmp ugt i64 %107, %109
+  %110 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %109
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
-  %.020.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
+  %.020.i = phi i64 [ %100, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
-  %110 = lshr i64 %.020.i, 1
-  %111 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %110
-  %112 = load i32, ptr %111, align 4
-  %113 = sext i32 %112 to i64
-  %.not.i.i.i.i.i88 = icmp ugt i64 %106, %113
-  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %114
+  %111 = lshr i64 %.020.i, 1
+  %112 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %111
+  %113 = load i32, ptr %112, align 4
+  %114 = sext i32 %113 to i64
+  %.not.i.i.i.i.i88 = icmp ugt i64 %107, %114
+  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %115
 
-114:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %113, i64 noundef %106) #21
+115:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %114, i64 noundef %107) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %115
+  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %116
 
-115:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %108, i64 noundef %106) #21
+116:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %109, i64 noundef %107) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %116 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %113
-  %117 = load i32, ptr %116, align 4
-  %118 = load i32, ptr %109, align 4
-  %119 = icmp ult i32 %117, %118
-  %120 = getelementptr inbounds i8, ptr %111, i64 4
-  %121 = xor i64 %110, -1
-  %122 = add nsw i64 %.020.i, %121
-  %.sroa.012.1.i = select i1 %119, ptr %120, ptr %.sroa.012.019.i
-  %.1.i90 = select i1 %119, i64 %122, i64 %110
-  %123 = icmp sgt i64 %.1.i90, 0
-  br i1 %123, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !421
+  %117 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %114
+  %118 = load i32, ptr %117, align 4
+  %119 = load i32, ptr %110, align 4
+  %120 = icmp ult i32 %118, %119
+  %121 = getelementptr inbounds i8, ptr %112, i64 4
+  %122 = xor i64 %111, -1
+  %123 = add nsw i64 %.020.i, %122
+  %.sroa.012.1.i = select i1 %120, ptr %121, ptr %.sroa.012.019.i
+  %.1.i90 = select i1 %120, i64 %123, i64 %111
+  %124 = icmp sgt i64 %.1.i90, 0
+  br i1 %124, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !421
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i
   %.pre = ptrtoint ptr %.sroa.012.1.i to i64
   br label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %95, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %96, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
   %.sroa.012.0.lcssa.i = phi ptr [ %.sroa.012.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
-  %124 = sub i64 %.pre-phi, %95
-  %125 = ashr exact i64 %124, 2
-  br label %157
+  %125 = sub i64 %.pre-phi, %96
+  %126 = ashr exact i64 %125, 2
+  br label %158
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %94
-  %126 = sdiv i64 %.tr120191, 2
-  %127 = getelementptr inbounds i32, ptr %.tr117188, i64 %126
-  %128 = ptrtoint ptr %.tr186 to i64
-  %129 = sub i64 %95, %128
-  %130 = ashr exact i64 %129, 2
-  %131 = icmp sgt i64 %130, 0
-  br i1 %131, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %95
+  %127 = sdiv i64 %.tr120191, 2
+  %128 = getelementptr inbounds i32, ptr %.tr117188, i64 %127
+  %129 = ptrtoint ptr %.tr186 to i64
+  %130 = sub i64 %96, %129
+  %131 = ashr exact i64 %130, 2
+  %132 = icmp sgt i64 %131, 0
+  br i1 %132, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %132 = load i32, ptr %127, align 4
-  %133 = sext i32 %132 to i64
-  %134 = load ptr, ptr %10, align 8
-  %135 = load ptr, ptr %9, align 8
-  %136 = ptrtoint ptr %134 to i64
+  %133 = load i32, ptr %128, align 4
+  %134 = sext i32 %133 to i64
+  %135 = load ptr, ptr %10, align 8
+  %136 = load ptr, ptr %9, align 8
   %137 = ptrtoint ptr %135 to i64
-  %138 = sub i64 %136, %137
-  %139 = ashr exact i64 %138, 3
-  %.not.i.i.i.i.i98 = icmp ugt i64 %139, %133
-  %140 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %133
-  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %145
+  %138 = ptrtoint ptr %136 to i64
+  %139 = sub i64 %137, %138
+  %140 = ashr exact i64 %139, 3
+  %.not.i.i.i.i.i98 = icmp ugt i64 %140, %134
+  %141 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %134
+  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %146
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %130, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
+  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %131, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
-  %141 = lshr i64 %.020.i100, 1
-  %142 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %141
-  %143 = load i32, ptr %142, align 4
-  %144 = sext i32 %143 to i64
-  %.not.i.i2.i.i.i104 = icmp ugt i64 %139, %144
-  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %146
+  %142 = lshr i64 %.020.i100, 1
+  %143 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %142
+  %144 = load i32, ptr %143, align 4
+  %145 = sext i32 %144 to i64
+  %.not.i.i2.i.i.i104 = icmp ugt i64 %140, %145
+  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %147
 
-145:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %133, i64 noundef %139) #21
+146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %134, i64 noundef %140) #21
   unreachable
 
-146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %144, i64 noundef %139) #21
+147:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %145, i64 noundef %140) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  %147 = load i32, ptr %140, align 4
-  %148 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %144
-  %149 = load i32, ptr %148, align 4
-  %150 = icmp ult i32 %147, %149
-  %151 = getelementptr inbounds i8, ptr %142, i64 4
-  %152 = xor i64 %141, -1
-  %153 = add nsw i64 %.020.i100, %152
-  %.sroa.012.1.i105 = select i1 %150, ptr %.sroa.012.019.i101, ptr %151
-  %.1.i106 = select i1 %150, i64 %141, i64 %153
-  %154 = icmp sgt i64 %.1.i106, 0
-  br i1 %154, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !422
+  %148 = load i32, ptr %141, align 4
+  %149 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %145
+  %150 = load i32, ptr %149, align 4
+  %151 = icmp ult i32 %148, %150
+  %152 = getelementptr inbounds i8, ptr %143, i64 4
+  %153 = xor i64 %142, -1
+  %154 = add nsw i64 %.020.i100, %153
+  %.sroa.012.1.i105 = select i1 %151, ptr %.sroa.012.019.i101, ptr %152
+  %.1.i106 = select i1 %151, i64 %142, i64 %154
+  %155 = icmp sgt i64 %.1.i106, 0
+  br i1 %155, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !422
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.pre248 = ptrtoint ptr %.sroa.012.1.i105 to i64
   br label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %128, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
+  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %129, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
   %.sroa.012.0.lcssa.i96 = phi ptr [ %.sroa.012.1.i105, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
-  %155 = sub i64 %.pre-phi249, %128
-  %156 = ashr exact i64 %155, 2
-  br label %157
+  %156 = sub i64 %.pre-phi249, %129
+  %157 = ashr exact i64 %156, 2
+  br label %158
 
-157:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
-  %.sroa.0112.0 = phi ptr [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.073 = phi i64 [ %125, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %126, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %96, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %156, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %158 = sub nsw i64 %.tr119190, %.0
-  %159 = icmp sle i64 %158, %.073
+158:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+  %.sroa.0112.0 = phi ptr [ %98, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %128, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.073 = phi i64 [ %126, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %157, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %159 = sub nsw i64 %.tr119190, %.0
+  %160 = icmp sle i64 %159, %.073
   %.not.i107 = icmp sgt i64 %.073, %6
-  %or.cond.i = or i1 %.not.i107, %159
-  br i1 %or.cond.i, label %173, label %160
+  %or.cond.i = or i1 %.not.i107, %160
+  br i1 %or.cond.i, label %175, label %161
 
-160:                                              ; preds = %157
+161:                                              ; preds = %158
   %.not36.i = icmp eq i64 %.073, 0
-  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %161
+  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %162
 
-161:                                              ; preds = %160
-  %162 = ptrtoint ptr %.sroa.0.0 to i64
-  %163 = ptrtoint ptr %.tr117188 to i64
-  %164 = sub i64 %162, %163
+162:                                              ; preds = %161
+  %163 = ptrtoint ptr %.sroa.0.0 to i64
+  %164 = ptrtoint ptr %.tr117188 to i64
+  %165 = sub i64 %163, %164
   %.not.i.i.i.i.i.i108 = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %165
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %166
 
-165:                                              ; preds = %161
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %164, i1 false)
+166:                                              ; preds = %162
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %165, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %165, %161
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %166, %162
   %.not.i.i.i.i.i37.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %166
+  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %167
 
-166:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  %167 = ptrtoint ptr %.sroa.0112.0 to i64
-  %168 = sub i64 %163, %167
-  %169 = ashr exact i64 %168, 2
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %169
-  %170 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %170, ptr align 4 %.sroa.0112.0, i64 %168, i1 false)
+167:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  %168 = ptrtoint ptr %.sroa.0112.0 to i64
+  %169 = sub i64 %164, %168
+  %170 = ashr exact i64 %169, 2
+  %171 = sub nsw i64 0, %170
+  %172 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %171
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %172, ptr align 4 %.sroa.0112.0, i64 %169, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %166, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %171
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %167, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %173
 
-171:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %164, i1 false)
+173:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %165, i1 false)
   br label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109
 
-_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %171, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %172 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %164
+_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %173, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %174 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %165
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-173:                                              ; preds = %157
-  %.not34.i = icmp sgt i64 %158, %6
-  br i1 %.not34.i, label %187, label %174
+175:                                              ; preds = %158
+  %.not34.i = icmp sgt i64 %159, %6
+  br i1 %.not34.i, label %190, label %176
 
-174:                                              ; preds = %173
+176:                                              ; preds = %175
   %.not35.i = icmp eq i64 %.tr119190, %.0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %175
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %177
 
-175:                                              ; preds = %174
-  %176 = ptrtoint ptr %.tr117188 to i64
-  %177 = ptrtoint ptr %.sroa.0112.0 to i64
-  %178 = sub i64 %176, %177
+177:                                              ; preds = %176
+  %178 = ptrtoint ptr %.tr117188 to i64
+  %179 = ptrtoint ptr %.sroa.0112.0 to i64
+  %180 = sub i64 %178, %179
   %.not.i.i.i.i.i39.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %179
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %181
 
-179:                                              ; preds = %175
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %178, i1 false)
+181:                                              ; preds = %177
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %180, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %179, %175
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %181, %177
   %.not.i.i.i.i.i41.i = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %180
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %182
 
-180:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %181 = ptrtoint ptr %.sroa.0.0 to i64
-  %182 = sub i64 %181, %176
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %182, i1 false)
+182:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  %183 = ptrtoint ptr %.sroa.0.0 to i64
+  %184 = sub i64 %183, %178
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %184, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %180, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %183 = ashr exact i64 %178, 2
-  %.pre.i.i.i.i.i43.i = sub nsw i64 0, %183
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %184
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %182, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %185
 
-184:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %185 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %185, ptr align 4 %5, i64 %178, i1 false)
+185:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %186 = ashr exact i64 %180, 2
+  %187 = sub nsw i64 0, %186
+  %188 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %187
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %188, ptr align 4 %5, i64 %180, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %184, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %186 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
+_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %185, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %.pre-phi.i.i.i.i.i43.i = phi i64 [ %187, %185 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
+  %189 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-187:                                              ; preds = %173
-  %188 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
+190:                                              ; preds = %175
+  %191 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %160, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %174, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %187
-  %.sroa.032.0.i = phi ptr [ %172, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %186, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %188, %187 ], [ %.sroa.0112.0, %160 ], [ %.sroa.0.0, %174 ]
+_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %161, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %176, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %190
+  %.sroa.032.0.i = phi ptr [ %174, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %189, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %191, %190 ], [ %.sroa.0112.0, %161 ], [ %.sroa.0.0, %176 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi17EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr186, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
-  %189 = sub nsw i64 %.tr120191, %.073
-  %.not = icmp sgt i64 %158, %189
-  %.not77 = icmp sgt i64 %158, %6
+  %192 = sub nsw i64 %.tr120191, %.073
+  %.not = icmp sgt i64 %159, %192
+  %.not77 = icmp sgt i64 %159, %6
   %or.cond = or i1 %.not77, %.not
   br i1 %or.cond, label %40, label %tailrecurse._crit_edge
 
@@ -39684,46 +39703,46 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %26 = ptrtoint ptr %.sroa.0.041 to i64
   %27 = sub i64 %26, %6
   %28 = ashr exact i64 %27, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %28
-  %29 = getelementptr inbounds i32, ptr %25, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %29, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
+  %29 = sub nsw i64 0, %28
+  %30 = getelementptr inbounds i32, ptr %25, i64 %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEEvT_T0_.exit
 
-._crit_edge.i:                                    ; preds = %40
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %46) #21
+._crit_edge.i:                                    ; preds = %41
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %47) #21
   unreachable
 
-_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %40
-  %30 = phi i64 [ %46, %40 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %31 = phi ptr [ %42, %40 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
-  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %40 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit, %41
+  %31 = phi i64 [ %47, %41 ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %32 = phi ptr [ %43, %41 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
+  %.sroa.05.019.i = phi ptr [ %.sroa.0.020.i, %41 ], [ %.sroa.0.041, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESD_EEbT_T0_.exit ]
   %.sroa.0.020.i = getelementptr inbounds i8, ptr %.sroa.05.019.i, i64 -4
-  %32 = load i32, ptr %.sroa.0.020.i, align 4
-  %33 = sext i32 %32 to i64
-  %.not.i.i2.i.i.i = icmp ugt i64 %30, %33
-  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %34
+  %33 = load i32, ptr %.sroa.0.020.i, align 4
+  %34 = sext i32 %33 to i64
+  %.not.i.i2.i.i.i = icmp ugt i64 %31, %34
+  br i1 %.not.i.i2.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %35
 
-34:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %33, i64 noundef %30) #21
+35:                                               ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %34, i64 noundef %31) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i
-  %35 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %9
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds %"struct.draco::rans_sym", ptr %31, i64 %33
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp ult i32 %36, %38
-  br i1 %39, label %40, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEEvT_T0_.exit
+  %36 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %9
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds %"struct.draco::rans_sym", ptr %32, i64 %34
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp ult i32 %37, %39
+  br i1 %40, label %41, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEEvT_T0_.exit
 
-40:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  store i32 %32, ptr %.sroa.05.019.i, align 4
-  %41 = load ptr, ptr %5, align 8
-  %42 = load ptr, ptr %2, align 8
-  %43 = ptrtoint ptr %41 to i64
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
+  store i32 %33, ptr %.sroa.05.019.i, align 4
+  %42 = load ptr, ptr %5, align 8
+  %43 = load ptr, ptr %2, align 8
   %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  %46 = ashr exact i64 %45, 3
-  %.not.i.i.i.i.i9 = icmp ugt i64 %46, %9
+  %45 = ptrtoint ptr %43 to i64
+  %46 = sub i64 %44, %45
+  %47 = ashr exact i64 %46, 3
+  %.not.i.i.i.i.i9 = icmp ugt i64 %47, %9
   br i1 %.not.i.i.i.i.i9, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i, label %._crit_edge.i, !llvm.loop !441
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
@@ -40077,12 +40096,12 @@ _ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.ex
 
 40:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
   %.not192 = phi i1 [ %.not183, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %189, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
-  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %158, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr120191 = phi i64 [ %4, %.lr.ph ], [ %192, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
+  %.tr119190 = phi i64 [ %3, %.lr.ph ], [ %159, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr117188 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.tr186 = phi ptr [ %0, %.lr.ph ], [ %.sroa.032.0.i, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit ]
   %.not78 = icmp sgt i64 %.tr120191, %6
-  br i1 %.not78, label %94, label %41
+  br i1 %.not78, label %95, label %41
 
 41:                                               ; preds = %40
   %.not.i.i.i.i.i80 = icmp eq ptr %2, %.tr117188
@@ -40183,254 +40202,255 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15Probabil
   br i1 %.not.i.i.i.i.i85, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i82, label %._crit_edge.i, !llvm.loop !448
 
 _ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread, %72
-  %.sink82.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink83.i = phi ptr [ %73, %72 ], [ %44, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa65.sink.i = phi ptr [ %69, %72 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %89 = ptrtoint ptr %.sink82.i to i64
+  %89 = ptrtoint ptr %.sink83.i to i64
   %90 = ptrtoint ptr %5 to i64
   %91 = sub i64 %89, %90
   %92 = ashr exact i64 %91, 2
-  %.pre.i.i.i.i.i19.i = sub nsw i64 0, %92
-  %93 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %.pre.i.i.i.i.i19.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %93, ptr align 4 %5, i64 %91, i1 false)
+  %93 = sub nsw i64 0, %92
+  %94 = getelementptr inbounds i32, ptr %.lcssa65.sink.i, i64 %93
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %94, ptr align 4 %5, i64 %91, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEES6_NS1_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEEvT_SE_T0_SF_T1_T2_.exit
 
-94:                                               ; preds = %40
-  %95 = ptrtoint ptr %.tr117188 to i64
+95:                                               ; preds = %40
+  %96 = ptrtoint ptr %.tr117188 to i64
   br i1 %.not192, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %94
-  %96 = sdiv i64 %.tr119190, 2
-  %97 = getelementptr inbounds i32, ptr %.tr186, i64 %96
-  %98 = sub i64 %11, %95
-  %99 = ashr exact i64 %98, 2
-  %100 = icmp sgt i64 %99, 0
-  br i1 %100, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %95
+  %97 = sdiv i64 %.tr119190, 2
+  %98 = getelementptr inbounds i32, ptr %.tr186, i64 %97
+  %99 = sub i64 %11, %96
+  %100 = ashr exact i64 %99, 2
+  %101 = icmp sgt i64 %100, 0
+  br i1 %101, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %101 = load ptr, ptr %10, align 8
-  %102 = load ptr, ptr %9, align 8
-  %103 = ptrtoint ptr %101 to i64
+  %102 = load ptr, ptr %10, align 8
+  %103 = load ptr, ptr %9, align 8
   %104 = ptrtoint ptr %102 to i64
-  %105 = sub i64 %103, %104
-  %106 = ashr exact i64 %105, 3
-  %107 = load i32, ptr %97, align 4
-  %108 = sext i32 %107 to i64
-  %.not.i.i2.i.i.i87 = icmp ugt i64 %106, %108
-  %109 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %108
+  %105 = ptrtoint ptr %103 to i64
+  %106 = sub i64 %104, %105
+  %107 = ashr exact i64 %106, 3
+  %108 = load i32, ptr %98, align 4
+  %109 = sext i32 %108 to i64
+  %.not.i.i2.i.i.i87 = icmp ugt i64 %107, %109
+  %110 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %109
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i
-  %.020.i = phi i64 [ %99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
+  %.020.i = phi i64 [ %100, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i90, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
   %.sroa.012.019.i = phi ptr [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.012.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i ]
-  %110 = lshr i64 %.020.i, 1
-  %111 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %110
-  %112 = load i32, ptr %111, align 4
-  %113 = sext i32 %112 to i64
-  %.not.i.i.i.i.i88 = icmp ugt i64 %106, %113
-  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %114
+  %111 = lshr i64 %.020.i, 1
+  %112 = getelementptr inbounds i32, ptr %.sroa.012.019.i, i64 %111
+  %113 = load i32, ptr %112, align 4
+  %114 = sext i32 %113 to i64
+  %.not.i.i.i.i.i88 = icmp ugt i64 %107, %114
+  br i1 %.not.i.i.i.i.i88, label %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89, label %115
 
-114:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %113, i64 noundef %106) #21
+115:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %114, i64 noundef %107) #21
   unreachable
 
 _ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
-  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %115
+  br i1 %.not.i.i2.i.i.i87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i, label %116
 
-115:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %108, i64 noundef %106) #21
+116:                                              ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %109, i64 noundef %107) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i: ; preds = %_ZNKSt6vectorIN5draco8rans_symESaIS1_EE2atEm.exit.i.i.i89
-  %116 = getelementptr inbounds %"struct.draco::rans_sym", ptr %102, i64 %113
-  %117 = load i32, ptr %116, align 4
-  %118 = load i32, ptr %109, align 4
-  %119 = icmp ult i32 %117, %118
-  %120 = getelementptr inbounds i8, ptr %111, i64 4
-  %121 = xor i64 %110, -1
-  %122 = add nsw i64 %.020.i, %121
-  %.sroa.012.1.i = select i1 %119, ptr %120, ptr %.sroa.012.019.i
-  %.1.i90 = select i1 %119, i64 %122, i64 %110
-  %123 = icmp sgt i64 %.1.i90, 0
-  br i1 %123, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !443
+  %117 = getelementptr inbounds %"struct.draco::rans_sym", ptr %103, i64 %114
+  %118 = load i32, ptr %117, align 4
+  %119 = load i32, ptr %110, align 4
+  %120 = icmp ult i32 %118, %119
+  %121 = getelementptr inbounds i8, ptr %112, i64 4
+  %122 = xor i64 %111, -1
+  %123 = add nsw i64 %.020.i, %122
+  %.sroa.012.1.i = select i1 %120, ptr %121, ptr %.sroa.012.019.i
+  %.1.i90 = select i1 %120, i64 %123, i64 %111
+  %124 = icmp sgt i64 %.1.i90, 0
+  br i1 %124, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !443
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEKiEEbT_RT0_.exit.i
   %.pre = ptrtoint ptr %.sroa.012.1.i to i64
   br label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %95, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %96, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
   %.sroa.012.0.lcssa.i = phi ptr [ %.sroa.012.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr117188, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit ]
-  %124 = sub i64 %.pre-phi, %95
-  %125 = ashr exact i64 %124, 2
-  br label %157
+  %125 = sub i64 %.pre-phi, %96
+  %126 = ashr exact i64 %125, 2
+  br label %158
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %94
-  %126 = sdiv i64 %.tr120191, 2
-  %127 = getelementptr inbounds i32, ptr %.tr117188, i64 %126
-  %128 = ptrtoint ptr %.tr186 to i64
-  %129 = sub i64 %95, %128
-  %130 = ashr exact i64 %129, 2
-  %131 = icmp sgt i64 %130, 0
-  br i1 %131, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94: ; preds = %95
+  %127 = sdiv i64 %.tr120191, 2
+  %128 = getelementptr inbounds i32, ptr %.tr117188, i64 %127
+  %129 = ptrtoint ptr %.tr186 to i64
+  %130 = sub i64 %96, %129
+  %131 = ashr exact i64 %130, 2
+  %132 = icmp sgt i64 %131, 0
+  br i1 %132, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %132 = load i32, ptr %127, align 4
-  %133 = sext i32 %132 to i64
-  %134 = load ptr, ptr %10, align 8
-  %135 = load ptr, ptr %9, align 8
-  %136 = ptrtoint ptr %134 to i64
+  %133 = load i32, ptr %128, align 4
+  %134 = sext i32 %133 to i64
+  %135 = load ptr, ptr %10, align 8
+  %136 = load ptr, ptr %9, align 8
   %137 = ptrtoint ptr %135 to i64
-  %138 = sub i64 %136, %137
-  %139 = ashr exact i64 %138, 3
-  %.not.i.i.i.i.i98 = icmp ugt i64 %139, %133
-  %140 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %133
-  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %145
+  %138 = ptrtoint ptr %136 to i64
+  %139 = sub i64 %137, %138
+  %140 = ashr exact i64 %139, 3
+  %.not.i.i.i.i.i98 = icmp ugt i64 %140, %134
+  %141 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %134
+  br i1 %.not.i.i.i.i.i98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %146
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
-  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %130, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
+  %.020.i100 = phi i64 [ %.1.i106, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %131, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
   %.sroa.012.019.i101 = phi ptr [ %.sroa.012.1.i105, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97 ]
-  %141 = lshr i64 %.020.i100, 1
-  %142 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %141
-  %143 = load i32, ptr %142, align 4
-  %144 = sext i32 %143 to i64
-  %.not.i.i2.i.i.i104 = icmp ugt i64 %139, %144
-  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %146
+  %142 = lshr i64 %.020.i100, 1
+  %143 = getelementptr inbounds i32, ptr %.sroa.012.019.i101, i64 %142
+  %144 = load i32, ptr %143, align 4
+  %145 = sext i32 %144 to i64
+  %.not.i.i2.i.i.i104 = icmp ugt i64 %140, %145
+  br i1 %.not.i.i2.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %147
 
-145:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %133, i64 noundef %139) #21
+146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i97
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %134, i64 noundef %140) #21
   unreachable
 
-146:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %144, i64 noundef %139) #21
+147:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %145, i64 noundef %140) #21
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99
-  %147 = load i32, ptr %140, align 4
-  %148 = getelementptr inbounds %"struct.draco::rans_sym", ptr %135, i64 %144
-  %149 = load i32, ptr %148, align 4
-  %150 = icmp ult i32 %147, %149
-  %151 = getelementptr inbounds i8, ptr %142, i64 4
-  %152 = xor i64 %141, -1
-  %153 = add nsw i64 %.020.i100, %152
-  %.sroa.012.1.i105 = select i1 %150, ptr %.sroa.012.019.i101, ptr %151
-  %.1.i106 = select i1 %150, i64 %141, i64 %153
-  %154 = icmp sgt i64 %.1.i106, 0
-  br i1 %154, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !444
+  %148 = load i32, ptr %141, align 4
+  %149 = getelementptr inbounds %"struct.draco::rans_sym", ptr %136, i64 %145
+  %150 = load i32, ptr %149, align 4
+  %151 = icmp ult i32 %148, %150
+  %152 = getelementptr inbounds i8, ptr %143, i64 4
+  %153 = xor i64 %142, -1
+  %154 = add nsw i64 %.020.i100, %153
+  %.sroa.012.1.i105 = select i1 %151, ptr %.sroa.012.019.i101, ptr %152
+  %.1.i106 = select i1 %151, i64 %142, i64 %154
+  %155 = icmp sgt i64 %.1.i106, 0
+  br i1 %155, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i99, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !444
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEclIKiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i
   %.pre248 = ptrtoint ptr %.sroa.012.1.i105 to i64
   br label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94
-  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %128, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
+  %.pre-phi249 = phi i64 [ %.pre248, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %129, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
   %.sroa.012.0.lcssa.i96 = phi ptr [ %.sroa.012.1.i105, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr186, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit94 ]
-  %155 = sub i64 %.pre-phi249, %128
-  %156 = ashr exact i64 %155, 2
-  br label %157
+  %156 = sub i64 %.pre-phi249, %129
+  %157 = ashr exact i64 %156, 2
+  br label %158
 
-157:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
-  %.sroa.0112.0 = phi ptr [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.073 = phi i64 [ %125, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %126, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %96, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %156, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
-  %158 = sub nsw i64 %.tr119190, %.0
-  %159 = icmp sle i64 %158, %.073
+158:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit
+  %.sroa.0112.0 = phi ptr [ %98, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.012.0.lcssa.i96, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.sroa.0.0 = phi ptr [ %.sroa.012.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %128, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.073 = phi i64 [ %126, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %127, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Iter_comp_valIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ], [ %157, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__ops14_Val_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEET_SE_SE_RKT0_T1_.exit ]
+  %159 = sub nsw i64 %.tr119190, %.0
+  %160 = icmp sle i64 %159, %.073
   %.not.i107 = icmp sgt i64 %.073, %6
-  %or.cond.i = or i1 %.not.i107, %159
-  br i1 %or.cond.i, label %173, label %160
+  %or.cond.i = or i1 %.not.i107, %160
+  br i1 %or.cond.i, label %175, label %161
 
-160:                                              ; preds = %157
+161:                                              ; preds = %158
   %.not36.i = icmp eq i64 %.073, 0
-  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %161
+  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %162
 
-161:                                              ; preds = %160
-  %162 = ptrtoint ptr %.sroa.0.0 to i64
-  %163 = ptrtoint ptr %.tr117188 to i64
-  %164 = sub i64 %162, %163
+162:                                              ; preds = %161
+  %163 = ptrtoint ptr %.sroa.0.0 to i64
+  %164 = ptrtoint ptr %.tr117188 to i64
+  %165 = sub i64 %163, %164
   %.not.i.i.i.i.i.i108 = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %165
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i, label %166
 
-165:                                              ; preds = %161
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %164, i1 false)
+166:                                              ; preds = %162
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr117188, i64 %165, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %165, %161
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i: ; preds = %166, %162
   %.not.i.i.i.i.i37.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %166
+  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %167
 
-166:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  %167 = ptrtoint ptr %.sroa.0112.0 to i64
-  %168 = sub i64 %163, %167
-  %169 = ashr exact i64 %168, 2
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %169
-  %170 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %170, ptr align 4 %.sroa.0112.0, i64 %168, i1 false)
+167:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  %168 = ptrtoint ptr %.sroa.0112.0 to i64
+  %169 = sub i64 %164, %168
+  %170 = ashr exact i64 %169, 2
+  %171 = sub nsw i64 0, %170
+  %172 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %171
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %172, ptr align 4 %.sroa.0112.0, i64 %169, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %166, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
-  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %171
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %167, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit.i
+  br i1 %.not.i.i.i.i.i.i108, label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, label %173
 
-171:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %164, i1 false)
+173:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %5, i64 %165, i1 false)
   br label %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109
 
-_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %171, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %172 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %164
+_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109: ; preds = %173, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %174 = getelementptr inbounds i8, ptr %.sroa.0112.0, i64 %165
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-173:                                              ; preds = %157
-  %.not34.i = icmp sgt i64 %158, %6
-  br i1 %.not34.i, label %187, label %174
+175:                                              ; preds = %158
+  %.not34.i = icmp sgt i64 %159, %6
+  br i1 %.not34.i, label %190, label %176
 
-174:                                              ; preds = %173
+176:                                              ; preds = %175
   %.not35.i = icmp eq i64 %.tr119190, %.0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %175
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit, label %177
 
-175:                                              ; preds = %174
-  %176 = ptrtoint ptr %.tr117188 to i64
-  %177 = ptrtoint ptr %.sroa.0112.0 to i64
-  %178 = sub i64 %176, %177
+177:                                              ; preds = %176
+  %178 = ptrtoint ptr %.tr117188 to i64
+  %179 = ptrtoint ptr %.sroa.0112.0 to i64
+  %180 = sub i64 %178, %179
   %.not.i.i.i.i.i39.i = icmp eq ptr %.tr117188, %.sroa.0112.0
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %179
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i, label %181
 
-179:                                              ; preds = %175
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %178, i1 false)
+181:                                              ; preds = %177
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0112.0, i64 %180, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %179, %175
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i: ; preds = %181, %177
   %.not.i.i.i.i.i41.i = icmp eq ptr %.sroa.0.0, %.tr117188
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %180
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %182
 
-180:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %181 = ptrtoint ptr %.sroa.0.0 to i64
-  %182 = sub i64 %181, %176
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %182, i1 false)
+182:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  %183 = ptrtoint ptr %.sroa.0.0 to i64
+  %184 = sub i64 %183, %178
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0112.0, ptr align 4 %.tr117188, i64 %184, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %180, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
-  %183 = ashr exact i64 %178, 2
-  %.pre.i.i.i.i.i43.i = sub nsw i64 0, %183
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %184
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %182, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_ET0_T_S8_S7_.exit40.i
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, label %185
 
-184:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %185 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %185, ptr align 4 %5, i64 %178, i1 false)
+185:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %186 = ashr exact i64 %180, 2
+  %187 = sub nsw i64 0, %186
+  %188 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %187
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %188, ptr align 4 %5, i64 %180, i1 false)
   br label %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i
 
-_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %184, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
-  %186 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
+_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i: ; preds = %185, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i
+  %.pre-phi.i.i.i.i.i43.i = phi i64 [ %187, %185 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i ]
+  %189 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-187:                                              ; preds = %173
-  %188 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
+190:                                              ; preds = %175
+  %191 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr %.sroa.0112.0, ptr %.tr117188, ptr %.sroa.0.0)
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit
 
-_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %160, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %174, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %187
-  %.sroa.032.0.i = phi ptr [ %172, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %186, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %188, %187 ], [ %.sroa.0112.0, %160 ], [ %.sroa.0.0, %174 ]
+_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_lET_S7_S7_S7_T1_S8_T0_S8_.exit: ; preds = %161, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109, %176, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i, %190
+  %.sroa.032.0.i = phi ptr [ %174, %_ZSt4moveIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i109 ], [ %189, %_ZSt13move_backwardIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEEET0_T_S8_S7_.exit.i ], [ %191, %190 ], [ %.sroa.0112.0, %161 ], [ %.sroa.0.0, %176 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElS2_NS0_5__ops15_Iter_comp_iterIN5draco17RAnsSymbolEncoderILi18EE15ProbabilityLessEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr186, ptr %.sroa.0112.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.073, ptr noundef %5, i64 noundef %6, i64 %7)
-  %189 = sub nsw i64 %.tr120191, %.073
-  %.not = icmp sgt i64 %158, %189
-  %.not77 = icmp sgt i64 %158, %6
+  %192 = sub nsw i64 %.tr120191, %.073
+  %.not = icmp sgt i64 %159, %192
+  %.not77 = icmp sgt i64 %159, %6
   %or.cond = or i1 %.not77, %.not
   br i1 %or.cond, label %40, label %tailrecurse._crit_edge
 

@@ -1441,10 +1441,6 @@ _ZN3ue210verify_u32IlEEjT_.exit.i:                ; preds = %_ZN3ue210verify_u32
   store i32 %conv.i.i84.i, ptr %puffette_offset.i, align 8
   %88 = load ptr, ptr %_M_finish.i.i135, align 8
   %89 = load ptr, ptr %second.i, align 8
-  %sub.ptr.lhs.cast.i867.i = ptrtoint ptr %88 to i64
-  %sub.ptr.rhs.cast.i878.i = ptrtoint ptr %89 to i64
-  %sub.ptr.sub.i889.i = sub i64 %sub.ptr.lhs.cast.i867.i, %sub.ptr.rhs.cast.i878.i
-  %sub.ptr.div.i8910.i = sdiv exact i64 %sub.ptr.sub.i889.i, 48
   %cmp4211.not.i = icmp eq ptr %88, %89
   br i1 %cmp4211.not.i, label %for.end.i149, label %for.body.i144
 
@@ -1484,7 +1480,7 @@ call.i.i147.noexc:                                ; preds = %for.body.i144
   br i1 %cmp42.i, label %for.body.i144, label %for.end.i149, !llvm.loop !41
 
 for.end.i149:                                     ; preds = %call.i.i147.noexc, %_ZN3ue210verify_u32IlEEjT_.exit.i
-  %sub.ptr.div.i89.lcssa.i = phi i64 [ %sub.ptr.div.i8910.i, %_ZN3ue210verify_u32IlEEjT_.exit.i ], [ %sub.ptr.div.i89.i, %call.i.i147.noexc ]
+  %sub.ptr.div.i89.lcssa.i = phi i64 [ 0, %_ZN3ue210verify_u32IlEEjT_.exit.i ], [ %sub.ptr.div.i89.i, %call.i.i147.noexc ]
   %add.ptr45.i = getelementptr inbounds %struct.mpv_puffette, ptr %pa.0253, i64 %sub.ptr.div.i89.lcssa.i
   store i64 0, ptr %add.ptr45.i, align 4
   %report.i95.i = getelementptr inbounds i8, ptr %add.ptr45.i, i64 8

@@ -26616,7 +26616,7 @@ _ZN4llvm15SmallVectorImplIPNS_8MCSymbolEE7reserveEm.exit: ; preds = %_ZN4llvm25S
   %34 = load ptr, ptr %0, align 8
   %35 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #33
   %36 = getelementptr inbounds ptr, ptr %34, i64 %35
-  br i1 %.not, label %69, label %37
+  br i1 %.not, label %70, label %37
 
 37:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_8MCSymbolEE7reserveEm.exit
   %38 = load ptr, ptr %0, align 8
@@ -26665,62 +26665,62 @@ _ZN4llvm15SmallVectorImplIPNS_8MCSymbolEE6appendISt13move_iteratorIPS2_EvEEvT_S8
   %64 = ptrtoint ptr %62 to i64
   %65 = sub i64 %64, %33
   %66 = ashr exact i64 %65, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %66
-  %67 = getelementptr inbounds ptr, ptr %36, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %67, ptr align 8 %31, i64 %65, i1 false)
+  %67 = sub nsw i64 0, %66
+  %68 = getelementptr inbounds ptr, ptr %36, i64 %67
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %68, ptr align 8 %31, i64 %65, i1 false)
   br label %_ZSt13move_backwardIPPN4llvm8MCSymbolES3_ET0_T_S5_S4_.exit
 
 _ZSt13move_backwardIPPN4llvm8MCSymbolES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm15SmallVectorImplIPNS_8MCSymbolEE6appendISt13move_iteratorIPS2_EvEEvT_S8_.exit, %63
-  br i1 %16, label %_ZSt4copyIPPN4llvm8MCSymbolES3_ET0_T_S5_S4_.exit, label %68
+  br i1 %16, label %_ZSt4copyIPPN4llvm8MCSymbolES3_ET0_T_S5_S4_.exit, label %69
 
-68:                                               ; preds = %_ZSt13move_backwardIPPN4llvm8MCSymbolES3_ET0_T_S5_S4_.exit
+69:                                               ; preds = %_ZSt13move_backwardIPPN4llvm8MCSymbolES3_ET0_T_S5_S4_.exit
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %31, ptr align 8 %2, i64 %22, i1 false)
   br label %_ZSt4copyIPPN4llvm8MCSymbolES3_ET0_T_S5_S4_.exit
 
-69:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_8MCSymbolEE7reserveEm.exit
-  %70 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #33
-  %71 = add i64 %70, %23
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %71) #33
-  %72 = load ptr, ptr %0, align 8
-  %73 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #33
+70:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_8MCSymbolEE7reserveEm.exit
+  %71 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #33
+  %72 = add i64 %71, %23
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %72) #33
+  %73 = load ptr, ptr %0, align 8
+  %74 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #33
   %.not.i.i = icmp eq ptr %31, %36
   br i1 %.not.i.i, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %69
-  %74 = ptrtoint ptr %36 to i64
-  %75 = sub i64 %74, %33
-  %76 = ashr exact i64 %75, 3
-  %77 = getelementptr inbounds ptr, ptr %72, i64 %73
-  %78 = sub nsw i64 0, %76
-  %79 = getelementptr inbounds ptr, ptr %77, i64 %78
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %79, ptr align 8 %31, i64 %75, i1 false)
+.lr.ph.preheader:                                 ; preds = %70
+  %75 = ptrtoint ptr %36 to i64
+  %76 = sub i64 %75, %33
+  %77 = ashr exact i64 %76, 3
+  %78 = getelementptr inbounds ptr, ptr %73, i64 %74
+  %79 = sub nsw i64 0, %77
+  %80 = getelementptr inbounds ptr, ptr %78, i64 %79
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr align 8 %31, i64 %76, i1 false)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.050 = phi ptr [ %81, %.lr.ph ], [ %31, %.lr.ph.preheader ]
-  %.04049 = phi i64 [ %83, %.lr.ph ], [ %76, %.lr.ph.preheader ]
-  %.04248 = phi ptr [ %82, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %80 = load ptr, ptr %.04248, align 8
-  store ptr %80, ptr %.050, align 8
-  %81 = getelementptr inbounds i8, ptr %.050, i64 8
-  %82 = getelementptr inbounds i8, ptr %.04248, i64 8
-  %83 = add i64 %.04049, -1
-  %.not44 = icmp eq i64 %83, 0
+  %.050 = phi ptr [ %82, %.lr.ph ], [ %31, %.lr.ph.preheader ]
+  %.04049 = phi i64 [ %84, %.lr.ph ], [ %77, %.lr.ph.preheader ]
+  %.04248 = phi ptr [ %83, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %81 = load ptr, ptr %.04248, align 8
+  store ptr %81, ptr %.050, align 8
+  %82 = getelementptr inbounds i8, ptr %.050, i64 8
+  %83 = getelementptr inbounds i8, ptr %.04248, i64 8
+  %84 = add i64 %.04049, -1
+  %.not44 = icmp eq i64 %84, 0
   br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !367
 
-._crit_edge:                                      ; preds = %.lr.ph, %69
-  %.042.lcssa = phi ptr [ %2, %69 ], [ %82, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %70
+  %.042.lcssa = phi ptr [ %2, %70 ], [ %83, %.lr.ph ]
   %.not.i = icmp eq ptr %.042.lcssa, %3
-  br i1 %.not.i, label %_ZSt4copyIPPN4llvm8MCSymbolES3_ET0_T_S5_S4_.exit, label %84
+  br i1 %.not.i, label %_ZSt4copyIPPN4llvm8MCSymbolES3_ET0_T_S5_S4_.exit, label %85
 
-84:                                               ; preds = %._crit_edge
-  %85 = ptrtoint ptr %.042.lcssa to i64
-  %86 = sub i64 %20, %85
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr align 8 %.042.lcssa, i64 %86, i1 false)
+85:                                               ; preds = %._crit_edge
+  %86 = ptrtoint ptr %.042.lcssa to i64
+  %87 = sub i64 %20, %86
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr align 8 %.042.lcssa, i64 %87, i1 false)
   br label %_ZSt4copyIPPN4llvm8MCSymbolES3_ET0_T_S5_S4_.exit
 
-_ZSt4copyIPPN4llvm8MCSymbolES3_ET0_T_S5_S4_.exit: ; preds = %84, %._crit_edge, %68, %_ZSt13move_backwardIPPN4llvm8MCSymbolES3_ET0_T_S5_S4_.exit, %12
-  %.041 = phi ptr [ %14, %12 ], [ %31, %_ZSt13move_backwardIPPN4llvm8MCSymbolES3_ET0_T_S5_S4_.exit ], [ %31, %68 ], [ %31, %._crit_edge ], [ %31, %84 ]
+_ZSt4copyIPPN4llvm8MCSymbolES3_ET0_T_S5_S4_.exit: ; preds = %85, %._crit_edge, %69, %_ZSt13move_backwardIPPN4llvm8MCSymbolES3_ET0_T_S5_S4_.exit, %12
+  %.041 = phi ptr [ %14, %12 ], [ %31, %_ZSt13move_backwardIPPN4llvm8MCSymbolES3_ET0_T_S5_S4_.exit ], [ %31, %69 ], [ %31, %._crit_edge ], [ %31, %85 ]
   ret ptr %.041
 }
 
@@ -31483,8 +31483,8 @@ _ZSt4moveIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit74.thread: ; preds = 
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds i8, ptr %.024.i75, i64 24
-  %.not.i.i.i.i.i33.i = icmp eq ptr %44, %5
-  br i1 %.not.i.i.i.i.i33.i, label %"_ZSt21__move_merge_adaptiveIPN4llvm10AsmPrinter8StructorES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEEvT_SI_T0_SJ_T1_T2_.exit", label %_ZSt13move_backwardIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit.sink.split.i
+  %.not.i.i.i.i.i32.i = icmp eq ptr %44, %5
+  br i1 %.not.i.i.i.i.i32.i, label %"_ZSt21__move_merge_adaptiveIPN4llvm10AsmPrinter8StructorES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEEvT_SI_T0_SJ_T1_T2_.exit", label %_ZSt13move_backwardIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit.sink.split.i
 
 45:                                               ; preds = %38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %.024.i75, i64 24, i1 false)
@@ -31501,8 +31501,8 @@ _ZSt13move_backwardIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit.sink.split
   %49 = ptrtoint ptr %.sink.i to i64
   %50 = ptrtoint ptr %5 to i64
   %51 = sub i64 %49, %50
-  %.neg.i.i.i.i.i32.i = sdiv exact i64 %51, -24
-  %52 = getelementptr inbounds %"struct.llvm::AsmPrinter::Structor", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i32.i
+  %.neg.i.i.i.i.i33.i = sdiv exact i64 %51, -24
+  %52 = getelementptr inbounds %"struct.llvm::AsmPrinter::Structor", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i33.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %52, ptr align 8 %5, i64 %51, i1 false)
   br label %"_ZSt21__move_merge_adaptiveIPN4llvm10AsmPrinter8StructorES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEEvT_SI_T0_SJ_T1_T2_.exit"
 
@@ -31683,16 +31683,17 @@ _ZSt4moveIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit40: ; preds = %26, %3
   br label %_ZSt4moveIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit42
 
 _ZSt4moveIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit42: ; preds = %_ZSt4moveIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit40, %31
-  %.neg.i.i.i.i.i43 = sdiv exact i64 %29, -24
-  br i1 %.not.i.i.i.i.i39, label %_ZSt13move_backwardIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit45, label %34
+  br i1 %.not.i.i.i.i.i39, label %_ZSt13move_backwardIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit46, label %34
 
 34:                                               ; preds = %_ZSt4moveIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit42
-  %35 = getelementptr inbounds %"struct.llvm::AsmPrinter::Structor", ptr %2, i64 %.neg.i.i.i.i.i43
+  %.neg.i.i.i.i.i44 = sdiv exact i64 %29, -24
+  %35 = getelementptr inbounds %"struct.llvm::AsmPrinter::Structor", ptr %2, i64 %.neg.i.i.i.i.i44
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %35, ptr align 8 %5, i64 %29, i1 false)
-  br label %_ZSt13move_backwardIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit45
+  br label %_ZSt13move_backwardIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit46
 
-_ZSt13move_backwardIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit45: ; preds = %_ZSt4moveIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit42, %34
-  %36 = getelementptr inbounds %"struct.llvm::AsmPrinter::Structor", ptr %2, i64 %.neg.i.i.i.i.i43
+_ZSt13move_backwardIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit46: ; preds = %_ZSt4moveIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit42, %34
+  %.pre-phi.i.i.i.i.i45 = phi i64 [ %.neg.i.i.i.i.i44, %34 ], [ 0, %_ZSt4moveIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit42 ]
+  %36 = getelementptr inbounds %"struct.llvm::AsmPrinter::Structor", ptr %2, i64 %.pre-phi.i.i.i.i.i45
   br label %_ZNSt3_V26rotateIPN4llvm10AsmPrinter8StructorEEET_S5_S5_S5_.exit
 
 37:                                               ; preds = %24
@@ -31808,8 +31809,8 @@ _ZSt13move_backwardIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit45: ; preds
   %.039.i.i.be = phi ptr [ %.1.lcssa.i.i, %67 ], [ %.3.lcssa.i.i, %._crit_edge.i.i ]
   br label %56, !llvm.loop !399
 
-_ZNSt3_V26rotateIPN4llvm10AsmPrinter8StructorEEET_S5_S5_S5_.exit: ; preds = %._crit_edge.i.i, %._crit_edge70.i.i, %.lr.ph.i.i.i, %39, %37, %25, %12, %_ZSt13move_backwardIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit45, %_ZSt4moveIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit38
-  %.0 = phi ptr [ %23, %_ZSt4moveIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit38 ], [ %36, %_ZSt13move_backwardIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit45 ], [ %0, %12 ], [ %2, %25 ], [ %2, %37 ], [ %0, %39 ], [ %1, %.lr.ph.i.i.i ], [ %55, %._crit_edge70.i.i ], [ %55, %._crit_edge.i.i ]
+_ZNSt3_V26rotateIPN4llvm10AsmPrinter8StructorEEET_S5_S5_S5_.exit: ; preds = %._crit_edge.i.i, %._crit_edge70.i.i, %.lr.ph.i.i.i, %39, %37, %25, %12, %_ZSt13move_backwardIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit46, %_ZSt4moveIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit38
+  %.0 = phi ptr [ %23, %_ZSt4moveIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit38 ], [ %36, %_ZSt13move_backwardIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit46 ], [ %0, %12 ], [ %2, %25 ], [ %2, %37 ], [ %0, %39 ], [ %1, %.lr.ph.i.i.i ], [ %55, %._crit_edge70.i.i ], [ %55, %._crit_edge.i.i ]
   ret ptr %.0
 }
 

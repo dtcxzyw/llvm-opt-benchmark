@@ -2763,7 +2763,12 @@ for.body.i.i.i.i:                                 ; preds = %_ZSt7advanceISt13mo
 
 _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5sound19SoundDataOpenStream16SoundBufferUntilESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit: ; preds = %for.body.i.i.i.i, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5sound19SoundDataOpenStream16SoundBufferUntilESt6vectorIS5_SaIS5_EEEEEmEvRT_T0_.exit
   %cmp.i.i.not18.i.i.i.i.i169 = icmp eq ptr %1, %__position.coerce
-  br i1 %cmp.i.i.not18.i.i.i.i.i169, label %_ZSt22__uninitialized_move_aIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_SaIS2_EET0_T_S6_S5_RT1_.exit179, label %for.body.i.i.i.i.i170.preheader
+  br i1 %cmp.i.i.not18.i.i.i.i.i169, label %_ZSt22__uninitialized_move_aIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_SaIS2_EET0_T_S6_S5_RT1_.exit179.thread, label %for.body.i.i.i.i.i170.preheader
+
+_ZSt22__uninitialized_move_aIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_SaIS2_EET0_T_S6_S5_RT1_.exit179.thread: ; preds = %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5sound19SoundDataOpenStream16SoundBufferUntilESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit
+  %add.ptr663 = getelementptr inbounds i8, ptr %1, i64 %sub.ptr.sub.i.i.i.i
+  store ptr %add.ptr663, ptr %_M_finish, align 8, !tbaa !116
+  br label %if.end121
 
 for.body.i.i.i.i.i170.preheader:                  ; preds = %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5sound19SoundDataOpenStream16SoundBufferUntilESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit
   %sub = sub nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i
@@ -2785,7 +2790,7 @@ for.body.i.i.i.i.i170:                            ; preds = %for.body.i.i.i.i.i1
   %cmp.i.i.not.i.i.i.i.i177 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i175, %1
   br i1 %cmp.i.i.not.i.i.i.i.i177, label %_ZSt22__uninitialized_move_aIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_SaIS2_EET0_T_S6_S5_RT1_.exit179, label %for.body.i.i.i.i.i170, !llvm.loop !149
 
-_ZSt22__uninitialized_move_aIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_SaIS2_EET0_T_S6_S5_RT1_.exit179: ; preds = %for.body.i.i.i.i.i170, %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5sound19SoundDataOpenStream16SoundBufferUntilESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit
+_ZSt22__uninitialized_move_aIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_SaIS2_EET0_T_S6_S5_RT1_.exit179: ; preds = %for.body.i.i.i.i.i170
   %add.ptr66 = getelementptr inbounds i8, ptr %1, i64 %sub.ptr.sub.i.i.i.i
   store ptr %add.ptr66, ptr %_M_finish, align 8, !tbaa !116
   %cmp7.i.i.i.i.i184 = icmp sgt i64 %sub.ptr.div.i, 0
@@ -2919,7 +2924,7 @@ _ZNSt12_Vector_baseIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE13_M_
   store ptr %add.ptr117, ptr %_M_end_of_storage, align 8, !tbaa !118
   br label %if.end121
 
-if.end121:                                        ; preds = %for.body.i.i.i.i.i190, %for.body.i.i.i.i.i156, %_ZNSt12_Vector_baseIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE13_M_deallocateEPS2_m.exit, %_ZSt22__uninitialized_move_aIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_SaIS2_EET0_T_S6_S5_RT1_.exit179, %_ZSt13move_backwardIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_ET0_T_S5_S4_.exit, %entry
+if.end121:                                        ; preds = %for.body.i.i.i.i.i190, %for.body.i.i.i.i.i156, %_ZSt22__uninitialized_move_aIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_SaIS2_EET0_T_S6_S5_RT1_.exit179.thread, %_ZNSt12_Vector_baseIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE13_M_deallocateEPS2_m.exit, %_ZSt22__uninitialized_move_aIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_SaIS2_EET0_T_S6_S5_RT1_.exit179, %_ZSt13move_backwardIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_ET0_T_S5_S4_.exit, %entry
   ret void
 }
 

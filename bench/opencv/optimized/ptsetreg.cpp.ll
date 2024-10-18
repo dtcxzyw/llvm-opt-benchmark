@@ -9513,35 +9513,35 @@ _ZSt27__unguarded_partition_pivotIPiN9__gnu_cxx5__ops15_Iter_less_iterEET_S4_S4_
   %58 = load i32, ptr %.019.i, align 4
   %59 = load i32, ptr %.0.lcssa, align 4
   %60 = icmp slt i32 %58, %59
-  br i1 %60, label %61, label %67
+  br i1 %60, label %61, label %68
 
 61:                                               ; preds = %.lr.ph.i
   %62 = getelementptr inbounds i8, ptr %.pn18.i, i64 8
   %63 = ptrtoint ptr %.019.i to i64
   %64 = sub i64 %63, %.lcssa25
   %65 = ashr exact i64 %64, 2
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %65
-  %66 = getelementptr inbounds i32, ptr %62, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %66, ptr noundef nonnull align 4 dereferenceable(1) %.0.lcssa, i64 %64, i1 false)
+  %66 = sub nsw i64 0, %65
+  %67 = getelementptr inbounds i32, ptr %62, i64 %66
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %67, ptr noundef nonnull align 4 dereferenceable(1) %.0.lcssa, i64 %64, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i
 
-67:                                               ; preds = %.lr.ph.i
-  %68 = load i32, ptr %.pn18.i, align 4
-  %69 = icmp slt i32 %58, %68
-  br i1 %69, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i
+68:                                               ; preds = %.lr.ph.i
+  %69 = load i32, ptr %.pn18.i, align 4
+  %70 = icmp slt i32 %58, %69
+  br i1 %70, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i
 
-.lr.ph.i.i:                                       ; preds = %67, %.lr.ph.i.i
-  %70 = phi i32 [ %71, %.lr.ph.i.i ], [ %68, %67 ]
-  %.013.i.i21 = phi ptr [ %.0.i.i22, %.lr.ph.i.i ], [ %.pn18.i, %67 ]
-  %.0912.i.i = phi ptr [ %.013.i.i21, %.lr.ph.i.i ], [ %.019.i, %67 ]
-  store i32 %70, ptr %.0912.i.i, align 4
+.lr.ph.i.i:                                       ; preds = %68, %.lr.ph.i.i
+  %71 = phi i32 [ %72, %.lr.ph.i.i ], [ %69, %68 ]
+  %.013.i.i21 = phi ptr [ %.0.i.i22, %.lr.ph.i.i ], [ %.pn18.i, %68 ]
+  %.0912.i.i = phi ptr [ %.013.i.i21, %.lr.ph.i.i ], [ %.019.i, %68 ]
+  store i32 %71, ptr %.0912.i.i, align 4
   %.0.i.i22 = getelementptr inbounds i8, ptr %.013.i.i21, i64 -4
-  %71 = load i32, ptr %.0.i.i22, align 4
-  %72 = icmp slt i32 %58, %71
-  br i1 %72, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i, !llvm.loop !172
+  %72 = load i32, ptr %.0.i.i22, align 4
+  %73 = icmp slt i32 %58, %72
+  br i1 %73, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i, !llvm.loop !172
 
-_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i, %67, %61
-  %.sink.i = phi ptr [ %.0.lcssa, %61 ], [ %.019.i, %67 ], [ %.013.i.i21, %.lr.ph.i.i ]
+_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i, %68, %61
+  %.sink.i = phi ptr [ %.0.lcssa, %61 ], [ %.019.i, %68 ], [ %.013.i.i21, %.lr.ph.i.i ]
   store i32 %58, ptr %.sink.i, align 4
   %.0.i = getelementptr inbounds i8, ptr %.019.i, i64 4
   %.not.i = icmp eq ptr %.0.i, %.017.lcssa

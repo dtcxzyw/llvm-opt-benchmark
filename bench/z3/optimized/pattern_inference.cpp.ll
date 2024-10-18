@@ -10726,8 +10726,8 @@ if.then3:                                         ; preds = %for.body
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %__i.019 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr4, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr4, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   store ptr %0, ptr %__first, align 8
   br label %for.inc
@@ -11214,20 +11214,20 @@ if.else35:                                        ; preds = %for.cond
 if.then38:                                        ; preds = %if.else35
   %add.ptr41 = getelementptr inbounds i8, ptr %add.ptr40, i64 -8
   %5 = load ptr, ptr %add.ptr41, align 8
-  %tobool.not.i.i.i.i.i42 = icmp eq ptr %add.ptr41, %__p.0
-  br i1 %tobool.not.i.i.i.i.i42, label %_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit, label %if.then.i.i.i.i.i43
+  %tobool.not.i.i.i.i.i39 = icmp eq ptr %add.ptr41, %__p.0
+  br i1 %tobool.not.i.i.i.i.i39, label %_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit, label %if.then.i.i.i.i.i40
 
-if.then.i.i.i.i.i43:                              ; preds = %if.then38
-  %sub.ptr.lhs.cast.i.i.i.i.i39 = ptrtoint ptr %add.ptr41 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i40 = ptrtoint ptr %__p.0 to i64
-  %sub.ptr.sub.i.i.i.i.i41 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i39, %sub.ptr.rhs.cast.i.i.i.i.i40
-  %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i41, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i44 = getelementptr inbounds ptr, ptr %add.ptr40, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i44, ptr nonnull align 8 %__p.0, i64 %sub.ptr.sub.i.i.i.i.i41, i1 false)
+if.then.i.i.i.i.i40:                              ; preds = %if.then38
+  %sub.ptr.lhs.cast.i.i.i.i.i41 = ptrtoint ptr %add.ptr41 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i42 = ptrtoint ptr %__p.0 to i64
+  %sub.ptr.sub.i.i.i.i.i43 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i41, %sub.ptr.rhs.cast.i.i.i.i.i42
+  %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i43, 3
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i44 = getelementptr inbounds ptr, ptr %add.ptr40, i64 %idx.neg.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i44, ptr nonnull align 8 %__p.0, i64 %sub.ptr.sub.i.i.i.i.i43, i1 false)
   br label %_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit
 
-_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit:   ; preds = %if.then38, %if.then.i.i.i.i.i43
+_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit:   ; preds = %if.then38, %if.then.i.i.i.i.i40
   store ptr %5, ptr %__p.0, align 8
   br label %return
 
@@ -11439,8 +11439,8 @@ if.then7.i:                                       ; preds = %while.body.i54
 
 if.then10.i:                                      ; preds = %if.then7.i
   %incdec.ptr11.i = getelementptr inbounds i8, ptr %__last2.addr.0.i, i64 8
-  %tobool.not.i.i.i.i.i24.i = icmp eq ptr %incdec.ptr11.i, %__buffer
-  br i1 %tobool.not.i.i.i.i.i24.i, label %_ZSt30__move_merge_adaptive_backwardIPP3appS2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEEvT_S9_T0_SA_T1_T2_.exit, label %return.sink.split.i
+  %tobool.not.i.i.i.i.i20.i = icmp eq ptr %incdec.ptr11.i, %__buffer
+  br i1 %tobool.not.i.i.i.i.i20.i, label %_ZSt30__move_merge_adaptive_backwardIPP3appS2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEEvT_S9_T0_SA_T1_T2_.exit, label %return.sink.split.i
 
 if.else15.i:                                      ; preds = %while.body.i54
   store ptr %4, ptr %incdec.ptr8.i, align 8
@@ -11454,13 +11454,13 @@ if.end19.i:                                       ; preds = %if.else15.i
 return.sink.split.i:                              ; preds = %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit51.thread, %if.then10.i
   %incdec.ptr11.sink.i = phi ptr [ %incdec.ptr11.i, %if.then10.i ], [ %add.ptr.i.i.i.i.i50141, %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit51.thread ]
   %incdec.ptr8.lcssa.sink.i = phi ptr [ %incdec.ptr8.i, %if.then10.i ], [ %__last, %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit51.thread ]
-  %sub.ptr.lhs.cast.i.i.i.i.i20.i = ptrtoint ptr %incdec.ptr11.sink.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i21.i = ptrtoint ptr %__buffer to i64
-  %sub.ptr.sub.i.i.i.i.i22.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i20.i, %sub.ptr.rhs.cast.i.i.i.i.i21.i
-  %sub.ptr.div.i.i.i.i.i23.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i22.i, 3
-  %.pre.i.i.i.i.i25.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i23.i
-  %add.ptr.i.i.i.i.i27.i = getelementptr inbounds ptr, ptr %incdec.ptr8.lcssa.sink.i, i64 %.pre.i.i.i.i.i25.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i27.i, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i22.i, i1 false)
+  %sub.ptr.lhs.cast.i.i.i.i.i22.i = ptrtoint ptr %incdec.ptr11.sink.i to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i23.i = ptrtoint ptr %__buffer to i64
+  %sub.ptr.sub.i.i.i.i.i24.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i22.i, %sub.ptr.rhs.cast.i.i.i.i.i23.i
+  %sub.ptr.div.i.i.i.i.i25.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i24.i, 3
+  %idx.neg.i.i.i.i.i26.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i25.i
+  %add.ptr.i.i.i.i.i27.i = getelementptr inbounds ptr, ptr %incdec.ptr8.lcssa.sink.i, i64 %idx.neg.i.i.i.i.i26.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i27.i, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i24.i, i1 false)
   br label %_ZSt30__move_merge_adaptive_backwardIPP3appS2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEEvT_S9_T0_SA_T1_T2_.exit
 
 _ZSt30__move_merge_adaptive_backwardIPP3appS2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEEvT_S9_T0_SA_T1_T2_.exit: ; preds = %if.else15.i, %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit51, %if.then10.i, %return.sink.split.i
@@ -11581,19 +11581,19 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then2.i
   br label %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit.i109
 
 _ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit.i109:        ; preds = %if.then.i.i.i.i.i.i, %if.then2.i
-  %tobool.not.i.i.i.i.i27.i = icmp eq ptr %__middle.tr129, %__first_cut.0
-  br i1 %tobool.not.i.i.i.i.i27.i, label %_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit.i, label %if.then.i.i.i.i.i28.i
+  %tobool.not.i.i.i.i.i24.i = icmp eq ptr %__middle.tr129, %__first_cut.0
+  br i1 %tobool.not.i.i.i.i.i24.i, label %_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit.i, label %if.then.i.i.i.i.i25.i
 
-if.then.i.i.i.i.i28.i:                            ; preds = %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit.i109
-  %sub.ptr.rhs.cast.i.i.i.i.i25.i = ptrtoint ptr %__first_cut.0 to i64
-  %sub.ptr.sub.i.i.i.i.i26.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i106, %sub.ptr.rhs.cast.i.i.i.i.i25.i
-  %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i26.i, 3
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i29.i = getelementptr inbounds ptr, ptr %__second_cut.0, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i29.i, ptr align 8 %__first_cut.0, i64 %sub.ptr.sub.i.i.i.i.i26.i, i1 false)
+if.then.i.i.i.i.i25.i:                            ; preds = %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit.i109
+  %sub.ptr.rhs.cast.i.i.i.i.i27.i = ptrtoint ptr %__first_cut.0 to i64
+  %sub.ptr.sub.i.i.i.i.i28.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i106, %sub.ptr.rhs.cast.i.i.i.i.i27.i
+  %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i28.i, 3
+  %idx.neg.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i29.i = getelementptr inbounds ptr, ptr %__second_cut.0, i64 %idx.neg.i.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i29.i, ptr align 8 %__first_cut.0, i64 %sub.ptr.sub.i.i.i.i.i28.i, i1 false)
   br label %_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit.i
 
-_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit.i: ; preds = %if.then.i.i.i.i.i28.i, %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit.i109
+_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit.i: ; preds = %if.then.i.i.i.i.i25.i, %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit.i109
   br i1 %tobool.not.i.i.i.i.i.i108, label %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit36.i, label %if.then.i.i.i.i.i34.i
 
 if.then.i.i.i.i.i34.i:                            ; preds = %_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit.i
@@ -11634,25 +11634,26 @@ if.then.i.i.i.i.i48.i:                            ; preds = %_ZSt4moveIPP3appS2_
   br label %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit50.i
 
 _ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit50.i:         ; preds = %if.then.i.i.i.i.i48.i, %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit43.i
-  %sub.ptr.div.i.i.i.i.i54.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i39.i, 3
-  %.pre.i.i.i.i.i56.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i54.i
-  br i1 %tobool.not.i.i.i.i.i40.i, label %_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit60.i, label %if.then.i.i.i.i.i57.i
+  br i1 %tobool.not.i.i.i.i.i40.i, label %_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit61.i, label %if.then.i.i.i.i.i52.i
 
-if.then.i.i.i.i.i57.i:                            ; preds = %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit50.i
-  %add.ptr.i.i.i.i.i58.i = getelementptr inbounds ptr, ptr %__second_cut.0, i64 %.pre.i.i.i.i.i56.i
+if.then.i.i.i.i.i52.i:                            ; preds = %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit50.i
+  %sub.ptr.div.i.i.i.i.i56.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i39.i, 3
+  %idx.neg.i.i.i.i.i57.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i56.i
+  %add.ptr.i.i.i.i.i58.i = getelementptr inbounds ptr, ptr %__second_cut.0, i64 %idx.neg.i.i.i.i.i57.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i58.i, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i39.i, i1 false)
-  br label %_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit60.i
+  br label %_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit61.i
 
-_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit60.i: ; preds = %if.then.i.i.i.i.i57.i, %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit50.i
-  %add.ptr2.i.i.i.i.i59.i = getelementptr inbounds ptr, ptr %__second_cut.0, i64 %.pre.i.i.i.i.i56.i
+_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit61.i: ; preds = %if.then.i.i.i.i.i52.i, %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit50.i
+  %idx.neg1.pre-phi.i.i.i.i.i59.i = phi i64 [ %idx.neg.i.i.i.i.i57.i, %if.then.i.i.i.i.i52.i ], [ 0, %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit50.i ]
+  %add.ptr2.i.i.i.i.i60.i = getelementptr inbounds ptr, ptr %__second_cut.0, i64 %idx.neg1.pre-phi.i.i.i.i.i59.i
   br label %_ZSt17__rotate_adaptiveIPP3appS2_lET_S3_S3_S3_T1_S4_T0_S4_.exit
 
 if.else14.i:                                      ; preds = %if.else5.i
   %call.i.i111 = tail call noundef ptr @_ZNSt3_V28__rotateIPP3appEET_S4_S4_S4_St26random_access_iterator_tag(ptr noundef %__first_cut.0, ptr noundef %__middle.tr129, ptr noundef %__second_cut.0)
   br label %_ZSt17__rotate_adaptiveIPP3appS2_lET_S3_S3_S3_T1_S4_T0_S4_.exit
 
-_ZSt17__rotate_adaptiveIPP3appS2_lET_S3_S3_S3_T1_S4_T0_S4_.exit: ; preds = %if.then.i104, %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit36.i, %if.then7.i110, %_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit60.i, %if.else14.i
-  %retval.0.i = phi ptr [ %add.ptr.i.i.i.i.i35.i, %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit36.i ], [ %add.ptr2.i.i.i.i.i59.i, %_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit60.i ], [ %call.i.i111, %if.else14.i ], [ %__first_cut.0, %if.then.i104 ], [ %__second_cut.0, %if.then7.i110 ]
+_ZSt17__rotate_adaptiveIPP3appS2_lET_S3_S3_S3_T1_S4_T0_S4_.exit: ; preds = %if.then.i104, %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit36.i, %if.then7.i110, %_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit61.i, %if.else14.i
+  %retval.0.i = phi ptr [ %add.ptr.i.i.i.i.i35.i, %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit36.i ], [ %add.ptr2.i.i.i.i.i60.i, %_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit61.i ], [ %call.i.i111, %if.else14.i ], [ %__first_cut.0, %if.then.i104 ], [ %__second_cut.0, %if.then7.i110 ]
   tail call void @_ZSt16__merge_adaptiveIPP3applS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN21pattern_inference_cfg17pattern_weight_ltEEEEvT_S9_S9_T0_SA_T1_SA_T2_(ptr noundef %__first.tr128, ptr noundef %__first_cut.0, ptr noundef %retval.0.i, i64 noundef %__len11.0, i64 noundef %__len22.0, ptr noundef %__buffer, i64 noundef %__buffer_size, i64 %__comp.coerce)
   %sub44 = sub nsw i64 %__len2.tr132, %__len22.0
   %cmp.not = icmp sgt i64 %sub, %sub44

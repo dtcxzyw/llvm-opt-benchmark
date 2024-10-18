@@ -1627,7 +1627,6 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
 .lr.ph.i:                                         ; preds = %2
   %14 = getelementptr inbounds i8, ptr %1, i64 32
   %.val8.i = load ptr, ptr %14, align 8, !alias.scope !409, !nonnull !26, !align !223, !noundef !26
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %15
 
 15:                                               ; preds = %15, %.lr.ph.i
@@ -1640,7 +1639,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   %21 = load i8, ptr %20, align 1, !noalias !409, !noundef !26
   %22 = getelementptr inbounds i8, ptr %6, i64 %.sroa.01.03.i
   store i8 %21, ptr %22, align 1, !noalias !409
-  %exitcond.not.i = icmp eq i64 %16, %umax.i
+  %exitcond.not.i = icmp eq i64 %16, %13
   br i1 %exitcond.not.i, label %.loopexit, label %15
 
 .loopexit:                                        ; preds = %15, %2

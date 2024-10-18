@@ -9602,7 +9602,7 @@ _ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph3SCCEE7reserveEm.exit: ; preds = %_
   %34 = load ptr, ptr %0, align 8
   %35 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   %36 = getelementptr inbounds ptr, ptr %34, i64 %35
-  br i1 %.not, label %69, label %37
+  br i1 %.not, label %70, label %37
 
 37:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph3SCCEE7reserveEm.exit
   %38 = load ptr, ptr %0, align 8
@@ -9651,62 +9651,62 @@ _ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph3SCCEE6appendISt13move_iteratorIPS3
   %64 = ptrtoint ptr %62 to i64
   %65 = sub i64 %64, %33
   %66 = ashr exact i64 %65, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %66
-  %67 = getelementptr inbounds ptr, ptr %36, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %67, ptr align 8 %31, i64 %65, i1 false)
+  %67 = sub nsw i64 0, %66
+  %68 = getelementptr inbounds ptr, ptr %36, i64 %67
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %68, ptr align 8 %31, i64 %65, i1 false)
   br label %_ZSt13move_backwardIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit
 
 _ZSt13move_backwardIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit: ; preds = %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph3SCCEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit, %63
-  br i1 %16, label %_ZSt4copyIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit, label %68
+  br i1 %16, label %_ZSt4copyIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit, label %69
 
-68:                                               ; preds = %_ZSt13move_backwardIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit
+69:                                               ; preds = %_ZSt13move_backwardIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %31, ptr align 8 %2, i64 %22, i1 false)
   br label %_ZSt4copyIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit
 
-69:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph3SCCEE7reserveEm.exit
-  %70 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
-  %71 = add i64 %70, %23
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %71) #15
-  %72 = load ptr, ptr %0, align 8
-  %73 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
+70:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph3SCCEE7reserveEm.exit
+  %71 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
+  %72 = add i64 %71, %23
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %72) #15
+  %73 = load ptr, ptr %0, align 8
+  %74 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   %.not.i.i = icmp eq ptr %31, %36
   br i1 %.not.i.i, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %69
-  %74 = ptrtoint ptr %36 to i64
-  %75 = sub i64 %74, %33
-  %76 = ashr exact i64 %75, 3
-  %77 = getelementptr inbounds ptr, ptr %72, i64 %73
-  %78 = sub nsw i64 0, %76
-  %79 = getelementptr inbounds ptr, ptr %77, i64 %78
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %79, ptr align 8 %31, i64 %75, i1 false)
+.lr.ph.preheader:                                 ; preds = %70
+  %75 = ptrtoint ptr %36 to i64
+  %76 = sub i64 %75, %33
+  %77 = ashr exact i64 %76, 3
+  %78 = getelementptr inbounds ptr, ptr %73, i64 %74
+  %79 = sub nsw i64 0, %77
+  %80 = getelementptr inbounds ptr, ptr %78, i64 %79
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr align 8 %31, i64 %76, i1 false)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.050 = phi ptr [ %81, %.lr.ph ], [ %31, %.lr.ph.preheader ]
-  %.04049 = phi i64 [ %83, %.lr.ph ], [ %76, %.lr.ph.preheader ]
-  %.04248 = phi ptr [ %82, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %80 = load ptr, ptr %.04248, align 8
-  store ptr %80, ptr %.050, align 8
-  %81 = getelementptr inbounds i8, ptr %.050, i64 8
-  %82 = getelementptr inbounds i8, ptr %.04248, i64 8
-  %83 = add i64 %.04049, -1
-  %.not44 = icmp eq i64 %83, 0
+  %.050 = phi ptr [ %82, %.lr.ph ], [ %31, %.lr.ph.preheader ]
+  %.04049 = phi i64 [ %84, %.lr.ph ], [ %77, %.lr.ph.preheader ]
+  %.04248 = phi ptr [ %83, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %81 = load ptr, ptr %.04248, align 8
+  store ptr %81, ptr %.050, align 8
+  %82 = getelementptr inbounds i8, ptr %.050, i64 8
+  %83 = getelementptr inbounds i8, ptr %.04248, i64 8
+  %84 = add i64 %.04049, -1
+  %.not44 = icmp eq i64 %84, 0
   br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !148
 
-._crit_edge:                                      ; preds = %.lr.ph, %69
-  %.042.lcssa = phi ptr [ %2, %69 ], [ %82, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %70
+  %.042.lcssa = phi ptr [ %2, %70 ], [ %83, %.lr.ph ]
   %.not.i = icmp eq ptr %.042.lcssa, %3
-  br i1 %.not.i, label %_ZSt4copyIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit, label %84
+  br i1 %.not.i, label %_ZSt4copyIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit, label %85
 
-84:                                               ; preds = %._crit_edge
-  %85 = ptrtoint ptr %.042.lcssa to i64
-  %86 = sub i64 %20, %85
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr align 8 %.042.lcssa, i64 %86, i1 false)
+85:                                               ; preds = %._crit_edge
+  %86 = ptrtoint ptr %.042.lcssa to i64
+  %87 = sub i64 %20, %86
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr align 8 %.042.lcssa, i64 %87, i1 false)
   br label %_ZSt4copyIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit
 
-_ZSt4copyIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit: ; preds = %84, %._crit_edge, %68, %_ZSt13move_backwardIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit, %12
-  %.041 = phi ptr [ %14, %12 ], [ %31, %_ZSt13move_backwardIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit ], [ %31, %68 ], [ %31, %._crit_edge ], [ %31, %84 ]
+_ZSt4copyIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit: ; preds = %85, %._crit_edge, %69, %_ZSt13move_backwardIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit, %12
+  %.041 = phi ptr [ %14, %12 ], [ %31, %_ZSt13move_backwardIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit ], [ %31, %69 ], [ %31, %._crit_edge ], [ %31, %85 ]
   ret ptr %.041
 }
 
@@ -16126,7 +16126,7 @@ _ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph6RefSCCEE7reserveEm.exit: ; preds =
   %34 = load ptr, ptr %0, align 8
   %35 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   %36 = getelementptr inbounds ptr, ptr %34, i64 %35
-  br i1 %.not, label %69, label %37
+  br i1 %.not, label %70, label %37
 
 37:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph6RefSCCEE7reserveEm.exit
   %38 = load ptr, ptr %0, align 8
@@ -16175,62 +16175,62 @@ _ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph6RefSCCEE6appendISt13move_iteratorI
   %64 = ptrtoint ptr %62 to i64
   %65 = sub i64 %64, %33
   %66 = ashr exact i64 %65, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %66
-  %67 = getelementptr inbounds ptr, ptr %36, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %67, ptr align 8 %31, i64 %65, i1 false)
+  %67 = sub nsw i64 0, %66
+  %68 = getelementptr inbounds ptr, ptr %36, i64 %67
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %68, ptr align 8 %31, i64 %65, i1 false)
   br label %_ZSt13move_backwardIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit
 
 _ZSt13move_backwardIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit: ; preds = %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph6RefSCCEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit, %63
-  br i1 %16, label %_ZSt4copyIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit, label %68
+  br i1 %16, label %_ZSt4copyIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit, label %69
 
-68:                                               ; preds = %_ZSt13move_backwardIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit
+69:                                               ; preds = %_ZSt13move_backwardIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %31, ptr align 8 %2, i64 %22, i1 false)
   br label %_ZSt4copyIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit
 
-69:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph6RefSCCEE7reserveEm.exit
-  %70 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
-  %71 = add i64 %70, %23
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %71) #15
-  %72 = load ptr, ptr %0, align 8
-  %73 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
+70:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph6RefSCCEE7reserveEm.exit
+  %71 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
+  %72 = add i64 %71, %23
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %72) #15
+  %73 = load ptr, ptr %0, align 8
+  %74 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   %.not.i.i = icmp eq ptr %31, %36
   br i1 %.not.i.i, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %69
-  %74 = ptrtoint ptr %36 to i64
-  %75 = sub i64 %74, %33
-  %76 = ashr exact i64 %75, 3
-  %77 = getelementptr inbounds ptr, ptr %72, i64 %73
-  %78 = sub nsw i64 0, %76
-  %79 = getelementptr inbounds ptr, ptr %77, i64 %78
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %79, ptr align 8 %31, i64 %75, i1 false)
+.lr.ph.preheader:                                 ; preds = %70
+  %75 = ptrtoint ptr %36 to i64
+  %76 = sub i64 %75, %33
+  %77 = ashr exact i64 %76, 3
+  %78 = getelementptr inbounds ptr, ptr %73, i64 %74
+  %79 = sub nsw i64 0, %77
+  %80 = getelementptr inbounds ptr, ptr %78, i64 %79
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr align 8 %31, i64 %76, i1 false)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.050 = phi ptr [ %81, %.lr.ph ], [ %31, %.lr.ph.preheader ]
-  %.04049 = phi i64 [ %83, %.lr.ph ], [ %76, %.lr.ph.preheader ]
-  %.04248 = phi ptr [ %82, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %80 = load ptr, ptr %.04248, align 8
-  store ptr %80, ptr %.050, align 8
-  %81 = getelementptr inbounds i8, ptr %.050, i64 8
-  %82 = getelementptr inbounds i8, ptr %.04248, i64 8
-  %83 = add i64 %.04049, -1
-  %.not44 = icmp eq i64 %83, 0
+  %.050 = phi ptr [ %82, %.lr.ph ], [ %31, %.lr.ph.preheader ]
+  %.04049 = phi i64 [ %84, %.lr.ph ], [ %77, %.lr.ph.preheader ]
+  %.04248 = phi ptr [ %83, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %81 = load ptr, ptr %.04248, align 8
+  store ptr %81, ptr %.050, align 8
+  %82 = getelementptr inbounds i8, ptr %.050, i64 8
+  %83 = getelementptr inbounds i8, ptr %.04248, i64 8
+  %84 = add i64 %.04049, -1
+  %.not44 = icmp eq i64 %84, 0
   br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !210
 
-._crit_edge:                                      ; preds = %.lr.ph, %69
-  %.042.lcssa = phi ptr [ %2, %69 ], [ %82, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %70
+  %.042.lcssa = phi ptr [ %2, %70 ], [ %83, %.lr.ph ]
   %.not.i = icmp eq ptr %.042.lcssa, %3
-  br i1 %.not.i, label %_ZSt4copyIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit, label %84
+  br i1 %.not.i, label %_ZSt4copyIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit, label %85
 
-84:                                               ; preds = %._crit_edge
-  %85 = ptrtoint ptr %.042.lcssa to i64
-  %86 = sub i64 %20, %85
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr align 8 %.042.lcssa, i64 %86, i1 false)
+85:                                               ; preds = %._crit_edge
+  %86 = ptrtoint ptr %.042.lcssa to i64
+  %87 = sub i64 %20, %86
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr align 8 %.042.lcssa, i64 %87, i1 false)
   br label %_ZSt4copyIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit
 
-_ZSt4copyIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit: ; preds = %84, %._crit_edge, %68, %_ZSt13move_backwardIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit, %12
-  %.041 = phi ptr [ %14, %12 ], [ %31, %_ZSt13move_backwardIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit ], [ %31, %68 ], [ %31, %._crit_edge ], [ %31, %84 ]
+_ZSt4copyIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit: ; preds = %85, %._crit_edge, %69, %_ZSt13move_backwardIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit, %12
+  %.041 = phi ptr [ %14, %12 ], [ %31, %_ZSt13move_backwardIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit ], [ %31, %69 ], [ %31, %._crit_edge ], [ %31, %85 ]
   ret ptr %.041
 }
 
@@ -26929,7 +26929,7 @@ _ZSt4moveIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit: ; preds = %29, %32
 47:                                               ; preds = %24
   %48 = icmp eq i64 %25, 1
   %49 = getelementptr inbounds ptr, ptr %.053, i64 %.076
-  br i1 %48, label %50, label %59
+  br i1 %48, label %50, label %60
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds i8, ptr %49, i64 -8
@@ -26942,44 +26942,44 @@ _ZSt4moveIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit: ; preds = %29, %32
   %55 = ptrtoint ptr %.053 to i64
   %56 = sub i64 %54, %55
   %57 = ashr exact i64 %56, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %57
-  %58 = getelementptr inbounds ptr, ptr %49, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %58, ptr nonnull align 8 %.053, i64 %56, i1 false)
+  %58 = sub nsw i64 0, %57
+  %59 = getelementptr inbounds ptr, ptr %49, i64 %58
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %59, ptr nonnull align 8 %.053, i64 %56, i1 false)
   br label %_ZSt13move_backwardIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit
 
 _ZSt13move_backwardIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit: ; preds = %50, %53
   store ptr %52, ptr %.053, align 8
   br label %_ZSt11swap_rangesIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit
 
-59:                                               ; preds = %47
-  %60 = sub i64 0, %25
-  %61 = getelementptr inbounds ptr, ptr %49, i64 %60
-  %62 = icmp sgt i64 %.074, 0
-  br i1 %62, label %.lr.ph, label %._crit_edge
+60:                                               ; preds = %47
+  %61 = sub i64 0, %25
+  %62 = getelementptr inbounds ptr, ptr %49, i64 %61
+  %63 = icmp sgt i64 %.074, 0
+  br i1 %63, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %59, %.lr.ph
-  %.085 = phi i64 [ %67, %.lr.ph ], [ 0, %59 ]
-  %.04984 = phi ptr [ %64, %.lr.ph ], [ %49, %59 ]
-  %.383 = phi ptr [ %63, %.lr.ph ], [ %61, %59 ]
-  %63 = getelementptr inbounds i8, ptr %.383, i64 -8
-  %64 = getelementptr inbounds i8, ptr %.04984, i64 -8
-  %65 = load ptr, ptr %63, align 8
+.lr.ph:                                           ; preds = %60, %.lr.ph
+  %.085 = phi i64 [ %68, %.lr.ph ], [ 0, %60 ]
+  %.04984 = phi ptr [ %65, %.lr.ph ], [ %49, %60 ]
+  %.383 = phi ptr [ %64, %.lr.ph ], [ %62, %60 ]
+  %64 = getelementptr inbounds i8, ptr %.383, i64 -8
+  %65 = getelementptr inbounds i8, ptr %.04984, i64 -8
   %66 = load ptr, ptr %64, align 8
-  store ptr %66, ptr %63, align 8
-  store ptr %65, ptr %64, align 8
-  %67 = add nuw nsw i64 %.085, 1
-  %exitcond.not = icmp eq i64 %67, %.074
+  %67 = load ptr, ptr %65, align 8
+  store ptr %67, ptr %64, align 8
+  store ptr %66, ptr %65, align 8
+  %68 = add nuw nsw i64 %.085, 1
+  %exitcond.not = icmp eq i64 %68, %.074
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !380
 
-._crit_edge:                                      ; preds = %.lr.ph, %59
-  %.3.lcssa = phi ptr [ %61, %59 ], [ %.053, %.lr.ph ]
-  %68 = srem i64 %.076, %25
-  %69 = icmp eq i64 %68, 0
-  br i1 %69, label %_ZSt11swap_rangesIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit, label %.backedge
+._crit_edge:                                      ; preds = %.lr.ph, %60
+  %.3.lcssa = phi ptr [ %62, %60 ], [ %.053, %.lr.ph ]
+  %69 = srem i64 %.076, %25
+  %70 = icmp eq i64 %69, 0
+  br i1 %70, label %_ZSt11swap_rangesIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %45
   %.076.be = phi i64 [ %.074, %45 ], [ %25, %._crit_edge ]
-  %.074.be = phi i64 [ %46, %45 ], [ %68, %._crit_edge ]
+  %.074.be = phi i64 [ %46, %45 ], [ %69, %._crit_edge ]
   %.053.be = phi ptr [ %.1.lcssa, %45 ], [ %.3.lcssa, %._crit_edge ]
   br label %24, !llvm.loop !381
 
@@ -28287,7 +28287,7 @@ _ZSt4moveIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit: ; preds = %29, %3
 47:                                               ; preds = %24
   %48 = icmp eq i64 %25, 1
   %49 = getelementptr inbounds ptr, ptr %.053, i64 %.076
-  br i1 %48, label %50, label %59
+  br i1 %48, label %50, label %60
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds i8, ptr %49, i64 -8
@@ -28300,44 +28300,44 @@ _ZSt4moveIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit: ; preds = %29, %3
   %55 = ptrtoint ptr %.053 to i64
   %56 = sub i64 %54, %55
   %57 = ashr exact i64 %56, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %57
-  %58 = getelementptr inbounds ptr, ptr %49, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %58, ptr nonnull align 8 %.053, i64 %56, i1 false)
+  %58 = sub nsw i64 0, %57
+  %59 = getelementptr inbounds ptr, ptr %49, i64 %58
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %59, ptr nonnull align 8 %.053, i64 %56, i1 false)
   br label %_ZSt13move_backwardIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit
 
 _ZSt13move_backwardIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit: ; preds = %50, %53
   store ptr %52, ptr %.053, align 8
   br label %_ZSt11swap_rangesIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit
 
-59:                                               ; preds = %47
-  %60 = sub i64 0, %25
-  %61 = getelementptr inbounds ptr, ptr %49, i64 %60
-  %62 = icmp sgt i64 %.074, 0
-  br i1 %62, label %.lr.ph, label %._crit_edge
+60:                                               ; preds = %47
+  %61 = sub i64 0, %25
+  %62 = getelementptr inbounds ptr, ptr %49, i64 %61
+  %63 = icmp sgt i64 %.074, 0
+  br i1 %63, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %59, %.lr.ph
-  %.085 = phi i64 [ %67, %.lr.ph ], [ 0, %59 ]
-  %.04984 = phi ptr [ %64, %.lr.ph ], [ %49, %59 ]
-  %.383 = phi ptr [ %63, %.lr.ph ], [ %61, %59 ]
-  %63 = getelementptr inbounds i8, ptr %.383, i64 -8
-  %64 = getelementptr inbounds i8, ptr %.04984, i64 -8
-  %65 = load ptr, ptr %63, align 8
+.lr.ph:                                           ; preds = %60, %.lr.ph
+  %.085 = phi i64 [ %68, %.lr.ph ], [ 0, %60 ]
+  %.04984 = phi ptr [ %65, %.lr.ph ], [ %49, %60 ]
+  %.383 = phi ptr [ %64, %.lr.ph ], [ %62, %60 ]
+  %64 = getelementptr inbounds i8, ptr %.383, i64 -8
+  %65 = getelementptr inbounds i8, ptr %.04984, i64 -8
   %66 = load ptr, ptr %64, align 8
-  store ptr %66, ptr %63, align 8
-  store ptr %65, ptr %64, align 8
-  %67 = add nuw nsw i64 %.085, 1
-  %exitcond.not = icmp eq i64 %67, %.074
+  %67 = load ptr, ptr %65, align 8
+  store ptr %67, ptr %64, align 8
+  store ptr %66, ptr %65, align 8
+  %68 = add nuw nsw i64 %.085, 1
+  %exitcond.not = icmp eq i64 %68, %.074
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !392
 
-._crit_edge:                                      ; preds = %.lr.ph, %59
-  %.3.lcssa = phi ptr [ %61, %59 ], [ %.053, %.lr.ph ]
-  %68 = srem i64 %.076, %25
-  %69 = icmp eq i64 %68, 0
-  br i1 %69, label %_ZSt11swap_rangesIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit, label %.backedge
+._crit_edge:                                      ; preds = %.lr.ph, %60
+  %.3.lcssa = phi ptr [ %62, %60 ], [ %.053, %.lr.ph ]
+  %69 = srem i64 %.076, %25
+  %70 = icmp eq i64 %69, 0
+  br i1 %70, label %_ZSt11swap_rangesIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %45
   %.076.be = phi i64 [ %.074, %45 ], [ %25, %._crit_edge ]
-  %.074.be = phi i64 [ %46, %45 ], [ %68, %._crit_edge ]
+  %.074.be = phi i64 [ %46, %45 ], [ %69, %._crit_edge ]
   %.053.be = phi ptr [ %.1.lcssa, %45 ], [ %.3.lcssa, %._crit_edge ]
   br label %24, !llvm.loop !393
 
@@ -29402,7 +29402,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph3SCCELb1EE9push_backES3_.ex
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   %23 = getelementptr inbounds ptr, ptr %21, i64 %22
   %24 = getelementptr inbounds i8, ptr %23, i64 -8
-  br label %60
+  br label %61
 
 25:                                               ; preds = %3
   %26 = load ptr, ptr %0, align 8
@@ -29441,25 +29441,25 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph3SCCELb1EE28reserveForParam
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit, label %50
 
 50:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph3SCCELb1EE28reserveForParamAndGetAddressERS3_m.exit
-  %51 = ptrtoint ptr %47 to i64
-  %52 = ptrtoint ptr %36 to i64
-  %53 = sub i64 %51, %52
-  %54 = ashr exact i64 %53, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %54
-  %55 = getelementptr inbounds ptr, ptr %48, i64 %49
-  %56 = getelementptr inbounds ptr, ptr %55, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %56, ptr nonnull align 8 %36, i64 %53, i1 false)
+  %51 = getelementptr inbounds ptr, ptr %48, i64 %49
+  %52 = ptrtoint ptr %47 to i64
+  %53 = ptrtoint ptr %36 to i64
+  %54 = sub i64 %52, %53
+  %55 = ashr exact i64 %54, 3
+  %56 = sub nsw i64 0, %55
+  %57 = getelementptr inbounds ptr, ptr %51, i64 %56
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr nonnull align 8 %36, i64 %54, i1 false)
   br label %_ZSt13move_backwardIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit
 
 _ZSt13move_backwardIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph3SCCELb1EE28reserveForParamAndGetAddressERS3_m.exit, %50
-  %57 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
-  %58 = add i64 %57, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %58) #15
-  %59 = load ptr, ptr %2, align 8
-  store ptr %59, ptr %36, align 8
-  br label %60
+  %58 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
+  %59 = add i64 %58, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %59) #15
+  %60 = load ptr, ptr %2, align 8
+  store ptr %60, ptr %36, align 8
+  br label %61
 
-60:                                               ; preds = %_ZSt13move_backwardIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit, %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph3SCCELb1EE9push_backES3_.exit
+61:                                               ; preds = %_ZSt13move_backwardIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit, %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph3SCCELb1EE9push_backES3_.exit
   %.0 = phi ptr [ %24, %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph3SCCELb1EE9push_backES3_.exit ], [ %36, %_ZSt13move_backwardIPPN4llvm13LazyCallGraph3SCCES4_ET0_T_S6_S5_.exit ]
   ret ptr %.0
 }
@@ -29498,7 +29498,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph6RefSCCELb1EE9push_backES3_
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   %23 = getelementptr inbounds ptr, ptr %21, i64 %22
   %24 = getelementptr inbounds i8, ptr %23, i64 -8
-  br label %60
+  br label %61
 
 25:                                               ; preds = %3
   %26 = load ptr, ptr %0, align 8
@@ -29537,25 +29537,25 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph6RefSCCELb1EE28reserveForPa
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit, label %50
 
 50:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph6RefSCCELb1EE28reserveForParamAndGetAddressERS3_m.exit
-  %51 = ptrtoint ptr %47 to i64
-  %52 = ptrtoint ptr %36 to i64
-  %53 = sub i64 %51, %52
-  %54 = ashr exact i64 %53, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %54
-  %55 = getelementptr inbounds ptr, ptr %48, i64 %49
-  %56 = getelementptr inbounds ptr, ptr %55, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %56, ptr nonnull align 8 %36, i64 %53, i1 false)
+  %51 = getelementptr inbounds ptr, ptr %48, i64 %49
+  %52 = ptrtoint ptr %47 to i64
+  %53 = ptrtoint ptr %36 to i64
+  %54 = sub i64 %52, %53
+  %55 = ashr exact i64 %54, 3
+  %56 = sub nsw i64 0, %55
+  %57 = getelementptr inbounds ptr, ptr %51, i64 %56
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr nonnull align 8 %36, i64 %54, i1 false)
   br label %_ZSt13move_backwardIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit
 
 _ZSt13move_backwardIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph6RefSCCELb1EE28reserveForParamAndGetAddressERS3_m.exit, %50
-  %57 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
-  %58 = add i64 %57, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %58) #15
-  %59 = load ptr, ptr %2, align 8
-  store ptr %59, ptr %36, align 8
-  br label %60
+  %58 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
+  %59 = add i64 %58, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %59) #15
+  %60 = load ptr, ptr %2, align 8
+  store ptr %60, ptr %36, align 8
+  br label %61
 
-60:                                               ; preds = %_ZSt13move_backwardIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit, %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph6RefSCCELb1EE9push_backES3_.exit
+61:                                               ; preds = %_ZSt13move_backwardIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit, %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph6RefSCCELb1EE9push_backES3_.exit
   %.0 = phi ptr [ %24, %_ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph6RefSCCELb1EE9push_backES3_.exit ], [ %36, %_ZSt13move_backwardIPPN4llvm13LazyCallGraph6RefSCCES4_ET0_T_S6_S5_.exit ]
   ret ptr %.0
 }

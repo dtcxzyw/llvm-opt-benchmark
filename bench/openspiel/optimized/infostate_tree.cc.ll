@@ -7366,7 +7366,7 @@ define void @_ZNK10open_spiel10algorithms13InfostateTree24DecisionIdsWithParentS
   %43 = load ptr, ptr %41, align 8
   %44 = load ptr, ptr %42, align 8
   %45 = icmp eq ptr %43, %44
-  br i1 %45, label %237, label %.lr.ph84
+  br i1 %45, label %238, label %.lr.ph84
 
 .lr.ph84:                                         ; preds = %.preheader
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 56
@@ -7431,8 +7431,8 @@ _ZNSt5stackIPKN10open_spiel10algorithms13InfostateNodeESt5dequeIS4_SaIS4_EEE4pus
   br label %.body
 
 66:                                               ; preds = %.lr.ph84, %_ZNSt6vectorIN10open_spiel10algorithms10DecisionIdESaIS2_EE9push_backERKS2_.exit
-  %67 = phi ptr [ null, %.lr.ph84 ], [ %233, %_ZNSt6vectorIN10open_spiel10algorithms10DecisionIdESaIS2_EE9push_backERKS2_.exit ]
-  %68 = phi ptr [ %43, %.lr.ph84 ], [ %234, %_ZNSt6vectorIN10open_spiel10algorithms10DecisionIdESaIS2_EE9push_backERKS2_.exit ]
+  %67 = phi ptr [ null, %.lr.ph84 ], [ %234, %_ZNSt6vectorIN10open_spiel10algorithms10DecisionIdESaIS2_EE9push_backERKS2_.exit ]
+  %68 = phi ptr [ %43, %.lr.ph84 ], [ %235, %_ZNSt6vectorIN10open_spiel10algorithms10DecisionIdESaIS2_EE9push_backERKS2_.exit ]
   %69 = load ptr, ptr %46, align 8
   %70 = icmp eq ptr %68, %69
   br i1 %70, label %74, label %71
@@ -7663,7 +7663,7 @@ _ZNSt6vectorIN10open_spiel10algorithms10DecisionIdESaIS2_EE11_S_relocateEPS2_S5_
   %183 = add nsw i64 %155, 2
   %184 = shl nsw i64 %183, 1
   %185 = icmp ugt i64 %174, %184
-  br i1 %185, label %186, label %203
+  br i1 %185, label %186, label %204
 
 186:                                              ; preds = %181
   %187 = sub i64 %174, %183
@@ -7687,155 +7687,155 @@ _ZNSt6vectorIN10open_spiel10algorithms10DecisionIdESaIS2_EE11_S_relocateEPS2_S5_
   br i1 %.not.i.i.i.i.i.i, label %.noexc55, label %197
 
 197:                                              ; preds = %196
-  %198 = ptrtoint ptr %191 to i64
-  %199 = sub i64 %198, %153
-  %200 = ashr exact i64 %199, 3
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %200
-  %201 = getelementptr inbounds ptr, ptr %189, i64 %182
-  %202 = getelementptr inbounds ptr, ptr %201, i64 %.pre.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %202, ptr align 8 %151, i64 %199, i1 false)
+  %198 = getelementptr inbounds ptr, ptr %189, i64 %182
+  %199 = ptrtoint ptr %191 to i64
+  %200 = sub i64 %199, %153
+  %201 = ashr exact i64 %200, 3
+  %202 = sub nsw i64 0, %201
+  %203 = getelementptr inbounds ptr, ptr %198, i64 %202
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %203, ptr align 8 %151, i64 %200, i1 false)
   br label %.noexc55
 
-203:                                              ; preds = %181
+204:                                              ; preds = %181
   %.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %174, i64 1)
-  %204 = add i64 %174, 2
-  %205 = add i64 %204, %.sroa.speculated.i
-  %206 = icmp ugt i64 %205, 1152921504606846975
-  br i1 %206, label %207, label %_ZNSt11_Deque_baseIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE15_M_allocate_mapEm.exit.i
+  %205 = add i64 %174, 2
+  %206 = add i64 %205, %.sroa.speculated.i
+  %207 = icmp ugt i64 %206, 1152921504606846975
+  br i1 %207, label %208, label %_ZNSt11_Deque_baseIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE15_M_allocate_mapEm.exit.i
 
-207:                                              ; preds = %203
+208:                                              ; preds = %204
   store ptr %67, ptr %53, align 8
-  %208 = icmp ugt i64 %205, 2305843009213693951
-  br i1 %208, label %.noexc.i.i, label %.noexc3.i.i
+  %209 = icmp ugt i64 %206, 2305843009213693951
+  br i1 %209, label %.noexc.i.i, label %.noexc3.i.i
 
-.noexc.i.i:                                       ; preds = %207
+.noexc.i.i:                                       ; preds = %208
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #21
           to label %.noexc57 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc57:                                         ; preds = %.noexc.i.i
   unreachable
 
-.noexc3.i.i:                                      ; preds = %207
+.noexc3.i.i:                                      ; preds = %208
   invoke void @_ZSt17__throw_bad_allocv() #21
           to label %.noexc58 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc58:                                         ; preds = %.noexc3.i.i
   unreachable
 
-_ZNSt11_Deque_baseIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE15_M_allocate_mapEm.exit.i: ; preds = %203
-  %209 = shl nuw nsw i64 %205, 3
-  %210 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %209) #24
+_ZNSt11_Deque_baseIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE15_M_allocate_mapEm.exit.i: ; preds = %204
+  %210 = shl nuw nsw i64 %206, 3
+  %211 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %210) #24
           to label %.noexc59 unwind label %.loopexit
 
 .noexc59:                                         ; preds = %_ZNSt11_Deque_baseIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE15_M_allocate_mapEm.exit.i
-  %211 = sub nsw i64 %205, %183
-  %212 = lshr i64 %211, 1
-  %213 = getelementptr inbounds ptr, ptr %210, i64 %212
-  %214 = getelementptr inbounds i8, ptr %150, i64 8
-  %.not.i.i.i.i.i25.i = icmp eq ptr %214, %151
-  br i1 %.not.i.i.i.i.i25.i, label %_ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit26.i, label %215
+  %212 = sub nsw i64 %206, %183
+  %213 = lshr i64 %212, 1
+  %214 = getelementptr inbounds ptr, ptr %211, i64 %213
+  %215 = getelementptr inbounds i8, ptr %150, i64 8
+  %.not.i.i.i.i.i25.i = icmp eq ptr %215, %151
+  br i1 %.not.i.i.i.i.i25.i, label %_ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit26.i, label %216
 
-215:                                              ; preds = %.noexc59
-  %216 = ptrtoint ptr %214 to i64
-  %217 = sub i64 %216, %153
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %213, ptr align 8 %151, i64 %217, i1 false)
+216:                                              ; preds = %.noexc59
+  %217 = ptrtoint ptr %215 to i64
+  %218 = sub i64 %217, %153
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %214, ptr align 8 %151, i64 %218, i1 false)
   br label %_ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit26.i
 
-_ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit26.i: ; preds = %215, %.noexc59
-  %218 = shl i64 %174, 3
-  call void @_ZdlPvm(ptr noundef %175, i64 noundef %218) #23
-  store ptr %210, ptr %10, align 8
-  store i64 %205, ptr %51, align 8
+_ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit26.i: ; preds = %216, %.noexc59
+  %219 = shl i64 %174, 3
+  call void @_ZdlPvm(ptr noundef %175, i64 noundef %219) #23
+  store ptr %211, ptr %10, align 8
+  store i64 %206, ptr %51, align 8
   br label %.noexc55
 
 .noexc55:                                         ; preds = %_ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit26.i, %197, %196, %193, %192
-  %.0.i = phi ptr [ %213, %_ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit26.i ], [ %189, %192 ], [ %189, %193 ], [ %189, %196 ], [ %189, %197 ]
+  %.0.i = phi ptr [ %214, %_ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit26.i ], [ %189, %192 ], [ %189, %193 ], [ %189, %196 ], [ %189, %197 ]
   store ptr %.0.i, ptr %49, align 8
-  %219 = load ptr, ptr %.0.i, align 8
-  store ptr %219, ptr %52, align 8
-  %220 = getelementptr inbounds i8, ptr %219, i64 512
-  store ptr %220, ptr %50, align 8
-  %221 = getelementptr inbounds ptr, ptr %.0.i, i64 %182
-  %222 = getelementptr inbounds i8, ptr %221, i64 -8
-  store ptr %222, ptr %47, align 8
-  %223 = load ptr, ptr %222, align 8
-  store ptr %223, ptr %46, align 8
-  %224 = getelementptr inbounds i8, ptr %223, i64 512
-  store ptr %224, ptr %48, align 8
+  %220 = load ptr, ptr %.0.i, align 8
+  store ptr %220, ptr %52, align 8
+  %221 = getelementptr inbounds i8, ptr %220, i64 512
+  store ptr %221, ptr %50, align 8
+  %222 = getelementptr inbounds ptr, ptr %.0.i, i64 %182
+  %223 = getelementptr inbounds i8, ptr %222, i64 -8
+  store ptr %223, ptr %47, align 8
+  %224 = load ptr, ptr %223, align 8
+  store ptr %224, ptr %46, align 8
+  %225 = getelementptr inbounds i8, ptr %224, i64 512
+  store ptr %225, ptr %48, align 8
   br label %_ZNSt5dequeIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE22_M_reserve_map_at_backEm.exit.i
 
 _ZNSt5dequeIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE22_M_reserve_map_at_backEm.exit.i: ; preds = %.noexc55, %173
-  %225 = phi ptr [ %150, %173 ], [ %222, %.noexc55 ]
-  %226 = invoke noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #24
+  %226 = phi ptr [ %150, %173 ], [ %223, %.noexc55 ]
+  %227 = invoke noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #24
           to label %.noexc47 unwind label %.loopexit
 
 .noexc47:                                         ; preds = %_ZNSt5dequeIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE22_M_reserve_map_at_backEm.exit.i
-  %227 = getelementptr inbounds i8, ptr %225, i64 8
-  store ptr %226, ptr %227, align 8
-  %228 = load ptr, ptr %41, align 8
-  store ptr %143, ptr %228, align 8
-  %229 = load ptr, ptr %47, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 8
-  store ptr %230, ptr %47, align 8
-  %231 = load ptr, ptr %230, align 8
-  store ptr %231, ptr %46, align 8
-  %232 = getelementptr inbounds i8, ptr %231, i64 512
-  store ptr %232, ptr %48, align 8
+  %228 = getelementptr inbounds i8, ptr %226, i64 8
+  store ptr %227, ptr %228, align 8
+  %229 = load ptr, ptr %41, align 8
+  store ptr %143, ptr %229, align 8
+  %230 = load ptr, ptr %47, align 8
+  %231 = getelementptr inbounds i8, ptr %230, i64 8
+  store ptr %231, ptr %47, align 8
+  %232 = load ptr, ptr %231, align 8
+  store ptr %232, ptr %46, align 8
+  %233 = getelementptr inbounds i8, ptr %232, i64 512
+  store ptr %233, ptr %48, align 8
   br label %_ZNSt5stackIPKN10open_spiel10algorithms13InfostateNodeESt5dequeIS4_SaIS4_EEE4pushERKS4_.exit48
 
 _ZNSt5stackIPKN10open_spiel10algorithms13InfostateNodeESt5dequeIS4_SaIS4_EEE4pushERKS4_.exit48: ; preds = %.noexc47, %146
-  %storemerge = phi ptr [ %148, %146 ], [ %231, %.noexc47 ]
+  %storemerge = phi ptr [ %148, %146 ], [ %232, %.noexc47 ]
   store ptr %storemerge, ptr %41, align 8
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %.not72 = icmp eq i64 %indvars.iv.next103, %139
   br i1 %.not72, label %_ZNSt6vectorIN10open_spiel10algorithms10DecisionIdESaIS2_EE9push_backERKS2_.exit, label %.lr.ph83
 
 _ZNSt6vectorIN10open_spiel10algorithms10DecisionIdESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt5stackIPKN10open_spiel10algorithms13InfostateNodeESt5dequeIS4_SaIS4_EEE4pushERKS4_.exit48, %129, %.noexc37, %104
-  %233 = phi ptr [ %126, %.noexc37 ], [ %105, %104 ], [ %67, %129 ], [ %67, %_ZNSt5stackIPKN10open_spiel10algorithms13InfostateNodeESt5dequeIS4_SaIS4_EEE4pushERKS4_.exit48 ]
-  %234 = load ptr, ptr %41, align 8
-  %235 = load ptr, ptr %42, align 8
-  %236 = icmp eq ptr %234, %235
-  br i1 %236, label %._crit_edge, label %66, !llvm.loop !48
+  %234 = phi ptr [ %126, %.noexc37 ], [ %105, %104 ], [ %67, %129 ], [ %67, %_ZNSt5stackIPKN10open_spiel10algorithms13InfostateNodeESt5dequeIS4_SaIS4_EEE4pushERKS4_.exit48 ]
+  %235 = load ptr, ptr %41, align 8
+  %236 = load ptr, ptr %42, align 8
+  %237 = icmp eq ptr %235, %236
+  br i1 %237, label %._crit_edge, label %66, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN10open_spiel10algorithms10DecisionIdESaIS2_EE9push_backERKS2_.exit
-  store ptr %233, ptr %53, align 8
-  br label %237
+  store ptr %234, ptr %53, align 8
+  br label %238
 
-237:                                              ; preds = %._crit_edge, %.preheader
-  %238 = load ptr, ptr %10, align 8
-  %.not.i.i.i = icmp eq ptr %238, null
-  br i1 %.not.i.i.i, label %_ZNSt5stackIPKN10open_spiel10algorithms13InfostateNodeESt5dequeIS4_SaIS4_EEED2Ev.exit, label %239
+238:                                              ; preds = %._crit_edge, %.preheader
+  %239 = load ptr, ptr %10, align 8
+  %.not.i.i.i = icmp eq ptr %239, null
+  br i1 %.not.i.i.i, label %_ZNSt5stackIPKN10open_spiel10algorithms13InfostateNodeESt5dequeIS4_SaIS4_EEED2Ev.exit, label %240
 
-239:                                              ; preds = %237
-  %240 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %241 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %242 = load ptr, ptr %241, align 8
-  %243 = load ptr, ptr %240, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 8
-  %245 = icmp ult ptr %242, %244
-  br i1 %245, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i.i
+240:                                              ; preds = %238
+  %241 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  %242 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %243 = load ptr, ptr %242, align 8
+  %244 = load ptr, ptr %241, align 8
+  %245 = getelementptr inbounds i8, ptr %244, i64 8
+  %246 = icmp ult ptr %243, %245
+  br i1 %246, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %239, %.lr.ph.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %247, %.lr.ph.i.i.i.i ], [ %242, %239 ]
-  %246 = load ptr, ptr %.06.i.i.i.i, align 8
-  call void @_ZdlPvm(ptr noundef %246, i64 noundef 512) #23
-  %247 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 8
-  %248 = icmp ult ptr %.06.i.i.i.i, %243
-  br i1 %248, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.loopexit.i.i.i, !llvm.loop !49
+.lr.ph.i.i.i.i:                                   ; preds = %240, %.lr.ph.i.i.i.i
+  %.06.i.i.i.i = phi ptr [ %248, %.lr.ph.i.i.i.i ], [ %243, %240 ]
+  %247 = load ptr, ptr %.06.i.i.i.i, align 8
+  call void @_ZdlPvm(ptr noundef %247, i64 noundef 512) #23
+  %248 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 8
+  %249 = icmp ult ptr %.06.i.i.i.i, %244
+  br i1 %249, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.loopexit.i.i.i, !llvm.loop !49
 
 _ZNSt11_Deque_baseIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %.pre.i.i.i = load ptr, ptr %10, align 8
   br label %_ZNSt11_Deque_baseIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i.i
 
-_ZNSt11_Deque_baseIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.loopexit.i.i.i, %239
-  %249 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.loopexit.i.i.i ], [ %238, %239 ]
-  %250 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %251 = load i64, ptr %250, align 8
-  %252 = shl i64 %251, 3
-  call void @_ZdlPvm(ptr noundef %249, i64 noundef %252) #23
+_ZNSt11_Deque_baseIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.loopexit.i.i.i, %240
+  %250 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.loopexit.i.i.i ], [ %239, %240 ]
+  %251 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %252 = load i64, ptr %251, align 8
+  %253 = shl i64 %252, 3
+  call void @_ZdlPvm(ptr noundef %250, i64 noundef %253) #23
   br label %_ZNSt5stackIPKN10open_spiel10algorithms13InfostateNodeESt5dequeIS4_SaIS4_EEED2Ev.exit
 
-_ZNSt5stackIPKN10open_spiel10algorithms13InfostateNodeESt5dequeIS4_SaIS4_EEED2Ev.exit: ; preds = %237, %_ZNSt11_Deque_baseIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i.i
+_ZNSt5stackIPKN10open_spiel10algorithms13InfostateNodeESt5dequeIS4_SaIS4_EEED2Ev.exit: ; preds = %238, %_ZNSt11_Deque_baseIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i.i
   ret void
 
 .body:                                            ; preds = %95, %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit
@@ -7843,19 +7843,19 @@ _ZNSt5stackIPKN10open_spiel10algorithms13InfostateNodeESt5dequeIS4_SaIS4_EEED2Ev
   call void @_ZNSt5stackIPKN10open_spiel10algorithms13InfostateNodeESt5dequeIS4_SaIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %10) #22
   %.pre105 = load ptr, ptr %0, align 8
   %.not.i.i.i49 = icmp eq ptr %.pre105, null
-  br i1 %.not.i.i.i49, label %_ZNSt6vectorIN10open_spiel10algorithms10DecisionIdESaIS2_EED2Ev.exit, label %253
+  br i1 %.not.i.i.i49, label %_ZNSt6vectorIN10open_spiel10algorithms10DecisionIdESaIS2_EED2Ev.exit, label %254
 
-253:                                              ; preds = %.body
-  %254 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %255 = load ptr, ptr %254, align 8
-  %256 = ptrtoint ptr %255 to i64
-  %257 = ptrtoint ptr %.pre105 to i64
-  %258 = sub i64 %256, %257
-  call void @_ZdlPvm(ptr noundef nonnull %.pre105, i64 noundef %258) #23
+254:                                              ; preds = %.body
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %256 = load ptr, ptr %255, align 8
+  %257 = ptrtoint ptr %256 to i64
+  %258 = ptrtoint ptr %.pre105 to i64
+  %259 = sub i64 %257, %258
+  call void @_ZdlPvm(ptr noundef nonnull %.pre105, i64 noundef %259) #23
   br label %_ZNSt6vectorIN10open_spiel10algorithms10DecisionIdESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN10open_spiel10algorithms10DecisionIdESaIS2_EED2Ev.exit: ; preds = %15, %.body, %253
-  %.pn108 = phi { ptr, i32 } [ %eh.lpad-body35, %.body ], [ %eh.lpad-body35, %253 ], [ %16, %15 ]
+_ZNSt6vectorIN10open_spiel10algorithms10DecisionIdESaIS2_EED2Ev.exit: ; preds = %15, %.body, %254
+  %.pn108 = phi { ptr, i32 } [ %eh.lpad-body35, %.body ], [ %eh.lpad-body35, %254 ], [ %16, %15 ]
   resume { ptr, i32 } %.pn108
 }
 
@@ -11864,7 +11864,7 @@ define linkonce_odr void @_ZNSt5dequeIPKN10open_spiel10algorithms13InfostateNode
   %15 = load i64, ptr %14, align 8
   %16 = shl i64 %13, 1
   %17 = icmp ugt i64 %15, %16
-  br i1 %17, label %18, label %38
+  br i1 %17, label %18, label %39
 
 18:                                               ; preds = %3
   %19 = load ptr, ptr %0, align 8
@@ -11891,78 +11891,78 @@ define linkonce_odr void @_ZNSt5dequeIPKN10open_spiel10algorithms13InfostateNode
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = ptrtoint ptr %26 to i64
-  %34 = sub i64 %33, %9
-  %35 = ashr exact i64 %34, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %35
-  %36 = getelementptr inbounds ptr, ptr %24, i64 %12
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %37, ptr align 8 %7, i64 %34, i1 false)
+  %33 = getelementptr inbounds ptr, ptr %24, i64 %12
+  %34 = ptrtoint ptr %26 to i64
+  %35 = sub i64 %34, %9
+  %36 = ashr exact i64 %35, 3
+  %37 = sub nsw i64 0, %36
+  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit
 
-38:                                               ; preds = %3
+39:                                               ; preds = %3
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %15, i64 %1)
-  %39 = add i64 %15, 2
-  %40 = add i64 %39, %.sroa.speculated
-  %41 = icmp ugt i64 %40, 1152921504606846975
-  br i1 %41, label %42, label %_ZNSt11_Deque_baseIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE15_M_allocate_mapEm.exit
+  %40 = add i64 %15, 2
+  %41 = add i64 %40, %.sroa.speculated
+  %42 = icmp ugt i64 %41, 1152921504606846975
+  br i1 %42, label %43, label %_ZNSt11_Deque_baseIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE15_M_allocate_mapEm.exit
 
-42:                                               ; preds = %38
-  %43 = icmp ugt i64 %40, 2305843009213693951
-  br i1 %43, label %.noexc.i, label %.noexc3.i
+43:                                               ; preds = %39
+  %44 = icmp ugt i64 %41, 2305843009213693951
+  br i1 %44, label %.noexc.i, label %.noexc3.i
 
-.noexc.i:                                         ; preds = %42
+.noexc.i:                                         ; preds = %43
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #21
   unreachable
 
-.noexc3.i:                                        ; preds = %42
+.noexc3.i:                                        ; preds = %43
   tail call void @_ZSt17__throw_bad_allocv() #21
   unreachable
 
-_ZNSt11_Deque_baseIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE15_M_allocate_mapEm.exit: ; preds = %38
-  %44 = shl nuw nsw i64 %40, 3
-  %45 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %44) #24
-  %46 = sub i64 %40, %13
-  %47 = lshr i64 %46, 1
-  %48 = getelementptr inbounds ptr, ptr %45, i64 %47
-  %49 = select i1 %2, i64 %1, i64 0
-  %50 = getelementptr inbounds ptr, ptr %48, i64 %49
-  %51 = getelementptr inbounds i8, ptr %5, i64 8
-  %.not.i.i.i.i.i25 = icmp eq ptr %51, %7
-  br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit26, label %52
+_ZNSt11_Deque_baseIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE15_M_allocate_mapEm.exit: ; preds = %39
+  %45 = shl nuw nsw i64 %41, 3
+  %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #24
+  %47 = sub i64 %41, %13
+  %48 = lshr i64 %47, 1
+  %49 = getelementptr inbounds ptr, ptr %46, i64 %48
+  %50 = select i1 %2, i64 %1, i64 0
+  %51 = getelementptr inbounds ptr, ptr %49, i64 %50
+  %52 = getelementptr inbounds i8, ptr %5, i64 8
+  %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
+  br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit26, label %53
 
-52:                                               ; preds = %_ZNSt11_Deque_baseIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE15_M_allocate_mapEm.exit
-  %53 = ptrtoint ptr %51 to i64
-  %54 = sub i64 %53, %9
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %50, ptr align 8 %7, i64 %54, i1 false)
+53:                                               ; preds = %_ZNSt11_Deque_baseIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE15_M_allocate_mapEm.exit
+  %54 = ptrtoint ptr %52 to i64
+  %55 = sub i64 %54, %9
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %51, ptr align 8 %7, i64 %55, i1 false)
   br label %_ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit26
 
-_ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit26: ; preds = %_ZNSt11_Deque_baseIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE15_M_allocate_mapEm.exit, %52
-  %55 = load ptr, ptr %0, align 8
-  %56 = shl i64 %15, 3
-  tail call void @_ZdlPvm(ptr noundef %55, i64 noundef %56) #23
-  store ptr %45, ptr %0, align 8
-  store i64 %40, ptr %14, align 8
+_ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit26: ; preds = %_ZNSt11_Deque_baseIPKN10open_spiel10algorithms13InfostateNodeESaIS4_EE15_M_allocate_mapEm.exit, %53
+  %56 = load ptr, ptr %0, align 8
+  %57 = shl i64 %15, 3
+  tail call void @_ZdlPvm(ptr noundef %56, i64 noundef %57) #23
+  store ptr %46, ptr %0, align 8
+  store i64 %41, ptr %14, align 8
   br label %_ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit
 
 _ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit26
-  %.0 = phi ptr [ %50, %_ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8
-  %57 = load ptr, ptr %.0, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %57, i64 512
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %59, ptr %60, align 8
-  %61 = getelementptr inbounds ptr, ptr %.0, i64 %12
-  %62 = getelementptr inbounds i8, ptr %61, i64 -8
-  store ptr %62, ptr %4, align 8
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %63, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %63, i64 512
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %65, ptr %66, align 8
+  %58 = load ptr, ptr %.0, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %58, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %58, i64 512
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %60, ptr %61, align 8
+  %62 = getelementptr inbounds ptr, ptr %.0, i64 %12
+  %63 = getelementptr inbounds i8, ptr %62, i64 -8
+  store ptr %63, ptr %4, align 8
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %64, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %64, i64 512
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %66, ptr %67, align 8
   ret void
 }
 

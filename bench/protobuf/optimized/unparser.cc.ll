@@ -8091,8 +8091,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDe
   %sub.ptr.lhs.cast.i.i.i.i.i.i50.i.i.i.i = ptrtoint ptr %__i.sroa.0.012.i24.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i51.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i50.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i37
   %sub.ptr.div.i.i.i.i.i.i52.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i51.i.i.i.i, 3
-  %.pre.i.i.i.i.i.i53.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i52.i.i.i.i
-  %add.ptr.i.i.i.i.i.i54.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i2.i49.i.i.i.i, i64 %.pre.i.i.i.i.i.i53.i.i.i.i
+  %idx.neg.i.i.i.i.i.i53.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i52.i.i.i.i
+  %add.ptr.i.i.i.i.i.i54.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i2.i49.i.i.i.i, i64 %idx.neg.i.i.i.i.i.i53.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i54.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %fields.val, i64 %sub.ptr.sub.i.i.i.i.i.i51.i.i.i.i, i1 false)
   br label %for.inc.i35.i.i.i.i
 
@@ -14461,8 +14461,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf13json_in
   %sub.ptr.lhs.cast.i.i.i.i.i.i58.i.i.i.i = ptrtoint ptr %__i.sroa.0.012.i27.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i59.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i58.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i26
   %sub.ptr.div.i.i.i.i.i.i60.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i59.i.i.i.i, 3
-  %.pre.i.i.i.i.i.i61.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i60.i.i.i.i
-  %add.ptr.i.i.i.i.i.i62.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i2.i57.i.i.i.i, i64 %.pre.i.i.i.i.i.i61.i.i.i.i
+  %idx.neg.i.i.i.i.i.i61.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i60.i.i.i.i
+  %add.ptr.i.i.i.i.i.i62.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i2.i57.i.i.i.i, i64 %idx.neg.i.i.i.i.i.i61.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i62.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %fields.sroa.0.2, i64 %sub.ptr.sub.i.i.i.i.i.i59.i.i.i.i, i1 false)
   br label %for.inc.i41.i.i.i.i
 

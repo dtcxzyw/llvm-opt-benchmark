@@ -1617,7 +1617,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i: ; preds = %79, %_ZNSt6vec
   br label %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit.i
 
 _ZSt4copyIPhS0_ET0_T_S2_S1_.exit.i:               ; preds = %89, %88
-  %.pre-phi33.i = phi i64 [ %85, %88 ], [ %.pre32.i, %89 ]
+  %.pre-phi33.i = phi i64 [ 0, %88 ], [ %.pre32.i, %89 ]
   %90 = phi ptr [ %62, %88 ], [ %.pre28.i, %89 ]
   %91 = phi ptr [ %83, %88 ], [ %.pre26.i, %89 ]
   %92 = phi ptr [ %63, %88 ], [ %.pre.i, %89 ]
@@ -5158,7 +5158,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i: ; preds = %449, %_ZNSt6ve
   br label %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit.i
 
 _ZSt4copyIPhS0_ET0_T_S2_S1_.exit.i:               ; preds = %458, %457
-  %.pre-phi33.i = phi i64 [ %454, %457 ], [ %.pre32.i, %458 ]
+  %.pre-phi33.i = phi i64 [ 0, %457 ], [ %.pre32.i, %458 ]
   %459 = phi ptr [ %433, %457 ], [ %.pre28.i, %458 ]
   %460 = phi ptr [ %452, %457 ], [ %.pre26.i, %458 ]
   %461 = phi ptr [ %434, %457 ], [ %.pre.i, %458 ]

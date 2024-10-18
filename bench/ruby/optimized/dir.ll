@@ -524,19 +524,19 @@ ruby_nonempty_memcpy.exit.split.us:               ; preds = %ruby_nonempty_memcp
 
 .critedge.us:                                     ; preds = %.lr.ph.us, %65, %68
   %.4.us = phi ptr [ %.3145.us152, %.lr.ph.us ], [ %66, %65 ], [ %71, %68 ]
-  %73 = ptrtoint ptr %.4.us to i64
-  %74 = ptrtoint ptr %54 to i64
-  %75 = sub i64 %73, %74
   %.not.i118.us = icmp eq ptr %.4.us, %54
-  br i1 %.not.i118.us, label %ruby_nonempty_memcpy.exit119.us, label %76
+  br i1 %.not.i118.us, label %ruby_nonempty_memcpy.exit119.us, label %73
 
-76:                                               ; preds = %.critedge.us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr readonly align 1 %54, i64 %75, i1 false)
+73:                                               ; preds = %.critedge.us
+  %74 = ptrtoint ptr %.4.us to i64
+  %75 = ptrtoint ptr %54 to i64
+  %76 = sub i64 %74, %75
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr readonly align 1 %54, i64 %76, i1 false)
   br label %ruby_nonempty_memcpy.exit119.us
 
-ruby_nonempty_memcpy.exit119.us:                  ; preds = %53, %76, %.critedge.us
-  %77 = phi i64 [ %75, %76 ], [ %75, %.critedge.us ], [ 0, %53 ]
-  %.4.us175 = phi ptr [ %.4.us, %76 ], [ %.4.us, %.critedge.us ], [ %54, %53 ]
+ruby_nonempty_memcpy.exit119.us:                  ; preds = %53, %73, %.critedge.us
+  %77 = phi i64 [ %76, %73 ], [ 0, %.critedge.us ], [ 0, %53 ]
+  %.4.us175 = phi ptr [ %.4.us, %73 ], [ %.4.us, %.critedge.us ], [ %54, %53 ]
   %78 = getelementptr i8, ptr %50, i64 %77
   %79 = sub i64 %.neg137, %77
   %80 = tail call i64 @strlcpy(ptr noundef %78, ptr noundef nonnull dereferenceable(1) %51, i64 noundef %79) #22
@@ -578,19 +578,19 @@ ruby_nonempty_memcpy.exit.split:                  ; preds = %ruby_nonempty_memcp
 
 .critedge:                                        ; preds = %89, %.lr.ph
   %.4 = phi ptr [ %96, %89 ], [ %.3145.us, %.lr.ph ]
-  %98 = ptrtoint ptr %.4 to i64
-  %99 = ptrtoint ptr %84 to i64
-  %100 = sub i64 %98, %99
   %.not.i118 = icmp eq ptr %.4, %84
-  br i1 %.not.i118, label %ruby_nonempty_memcpy.exit119, label %101
+  br i1 %.not.i118, label %ruby_nonempty_memcpy.exit119, label %98
 
-101:                                              ; preds = %.critedge
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr readonly align 1 %84, i64 %100, i1 false)
+98:                                               ; preds = %.critedge
+  %99 = ptrtoint ptr %.4 to i64
+  %100 = ptrtoint ptr %84 to i64
+  %101 = sub i64 %99, %100
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr readonly align 1 %84, i64 %101, i1 false)
   br label %ruby_nonempty_memcpy.exit119
 
-ruby_nonempty_memcpy.exit119:                     ; preds = %83, %.critedge, %101
-  %102 = phi i64 [ %100, %.critedge ], [ %100, %101 ], [ 0, %83 ]
-  %.4178 = phi ptr [ %.4, %.critedge ], [ %.4, %101 ], [ %84, %83 ]
+ruby_nonempty_memcpy.exit119:                     ; preds = %83, %.critedge, %98
+  %102 = phi i64 [ 0, %.critedge ], [ %101, %98 ], [ 0, %83 ]
+  %.4178 = phi ptr [ %.4, %.critedge ], [ %.4, %98 ], [ %84, %83 ]
   %103 = getelementptr i8, ptr %50, i64 %102
   %104 = sub i64 %.neg137, %102
   %105 = tail call i64 @strlcpy(ptr noundef %103, ptr noundef nonnull dereferenceable(1) %51, i64 noundef %104) #22

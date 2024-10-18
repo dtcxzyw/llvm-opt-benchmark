@@ -36583,7 +36583,7 @@ define linkonce_odr void @_ZNSt6vectorINSt7__cxx119sub_matchIN9__gnu_cxx17__norm
 
 50:                                               ; preds = %43
   %51 = icmp eq ptr %6, %45
-  br i1 %51, label %70, label %52
+  br i1 %51, label %71, label %52
 
 52:                                               ; preds = %50
   %53 = getelementptr inbounds i8, ptr %2, i64 8
@@ -36610,23 +36610,23 @@ define linkonce_odr void @_ZNSt6vectorINSt7__cxx119sub_matchIN9__gnu_cxx17__norm
   %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %66 to i64
   %69 = sub i64 %67, %68
-  br label %70
+  %70 = sdiv exact i64 %69, -24
+  br label %71
 
-70:                                               ; preds = %64, %50
-  %71 = phi i64 [ %69, %64 ], [ %47, %50 ]
-  %72 = phi ptr [ %65, %64 ], [ %45, %50 ]
-  %73 = sdiv exact i64 %71, -24
-  %74 = add i64 %73, %1
+71:                                               ; preds = %64, %50
+  %72 = phi i64 [ %70, %64 ], [ 0, %50 ]
+  %73 = phi ptr [ %65, %64 ], [ %45, %50 ]
+  %74 = add i64 %72, %1
   %75 = icmp eq i64 %74, 0
   br i1 %75, label %.loopexit10, label %76
 
-76:                                               ; preds = %70
+76:                                               ; preds = %71
   %77 = and i64 %74, 3
   %78 = icmp eq i64 %77, 0
   br i1 %78, label %.loopexit12, label %.preheader11
 
 .preheader11:                                     ; preds = %76, %.preheader11
-  %79 = phi ptr [ %81, %.preheader11 ], [ %72, %76 ]
+  %79 = phi ptr [ %81, %.preheader11 ], [ %73, %76 ]
   %80 = phi i64 [ %82, %.preheader11 ], [ 0, %76 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %81 = getelementptr inbounds i8, ptr %79, i64 24
@@ -36640,7 +36640,7 @@ define linkonce_odr void @_ZNSt6vectorINSt7__cxx119sub_matchIN9__gnu_cxx17__norm
 
 .loopexit12:                                      ; preds = %.loopexit12.loopexit, %76
   %85 = phi ptr [ poison, %76 ], [ %81, %.loopexit12.loopexit ]
-  %86 = phi ptr [ %72, %76 ], [ %81, %.loopexit12.loopexit ]
+  %86 = phi ptr [ %73, %76 ], [ %81, %.loopexit12.loopexit ]
   %87 = phi i64 [ %74, %76 ], [ %84, %.loopexit12.loopexit ]
   %88 = icmp ult i64 %74, 4
   br i1 %88, label %.loopexit10, label %.preheader9
@@ -36660,8 +36660,8 @@ define linkonce_odr void @_ZNSt6vectorINSt7__cxx119sub_matchIN9__gnu_cxx17__norm
   %96 = icmp eq i64 %94, 0
   br i1 %96, label %.loopexit10, label %.preheader9, !llvm.loop !730
 
-.loopexit10:                                      ; preds = %.preheader9, %.loopexit12, %70
-  %97 = phi ptr [ %72, %70 ], [ %85, %.loopexit12 ], [ %95, %.preheader9 ]
+.loopexit10:                                      ; preds = %.preheader9, %.loopexit12, %71
+  %97 = phi ptr [ %73, %71 ], [ %85, %.loopexit12 ], [ %95, %.preheader9 ]
   store ptr %97, ptr %44, align 8, !tbaa !724
   br label %120
 

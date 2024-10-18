@@ -966,7 +966,7 @@ _ZNSt12_Vector_baseIN2cv5Rect_IiEESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds 
   br label %_ZSt4copyIPN2cv5Rect_IiEES3_ET0_T_S5_S4_.exit.i
 
 _ZSt4copyIPN2cv5Rect_IiEES3_ET0_T_S5_S4_.exit.i:  ; preds = %352, %351
-  %.pre-phi33.i = phi i64 [ %.lcssa123, %351 ], [ %.pre32.i, %352 ]
+  %.pre-phi33.i = phi i64 [ 0, %351 ], [ %.pre32.i, %352 ]
   %353 = phi ptr [ %.lcssa132, %351 ], [ %.pre26.i, %352 ]
   %354 = getelementptr inbounds i8, ptr %.sroa.0105.4.lcssa, i64 %.pre-phi33.i
   %.not9.i.i.i.i.i = icmp eq ptr %354, %.sroa.8.1.lcssa

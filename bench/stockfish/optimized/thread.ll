@@ -2189,7 +2189,7 @@ _ZNSt12_Vector_baseIN9Stockfish4MoveESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds
   br label %_ZSt4copyIPN9Stockfish4MoveES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPN9Stockfish4MoveES2_ET0_T_S4_S3_.exit: ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]
@@ -2592,7 +2592,7 @@ _ZNSt16allocator_traitsISaIN9Stockfish4MoveEEE8allocateERS2_m.exit.i.i.i.i.i.i.i
   br label %_ZNSt12_Vector_baseIN9Stockfish4MoveESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.i.i
 
 _ZNSt12_Vector_baseIN9Stockfish4MoveESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIN9Stockfish4MoveEEE8allocateERS2_m.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i
-  %.pre-phi11 = phi i64 [ %.pre10, %_ZNSt16allocator_traitsISaIN9Stockfish4MoveEEE8allocateERS2_m.exit.i.i.i.i.i.i.i.i.i.i ], [ %21, %.lr.ph.i.i.i.i ]
+  %.pre-phi11 = phi i64 [ %.pre10, %_ZNSt16allocator_traitsISaIN9Stockfish4MoveEEE8allocateERS2_m.exit.i.i.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
   %27 = phi ptr [ %.pre6, %_ZNSt16allocator_traitsISaIN9Stockfish4MoveEEE8allocateERS2_m.exit.i.i.i.i.i.i.i.i.i.i ], [ %17, %.lr.ph.i.i.i.i ]
   %28 = phi ptr [ %.pre, %_ZNSt16allocator_traitsISaIN9Stockfish4MoveEEE8allocateERS2_m.exit.i.i.i.i.i.i.i.i.i.i ], [ %18, %.lr.ph.i.i.i.i ]
   %29 = phi ptr [ %26, %_ZNSt16allocator_traitsISaIN9Stockfish4MoveEEE8allocateERS2_m.exit.i.i.i.i.i.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i ]

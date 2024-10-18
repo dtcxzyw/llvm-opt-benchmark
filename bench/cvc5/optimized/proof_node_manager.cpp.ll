@@ -4974,7 +4974,7 @@ invoke.cont.i.i1628:                              ; preds = %_ZSt8_DestroyIN4cvc
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE5clearEv.exit1631
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE5clearEv.exit1631: ; preds = %if.then607, %invoke.cont.i.i1628
-  %sub.ptr.sub.i.i1636.pre-phi = phi i64 [ %sub.ptr.sub.i1611, %if.then607 ], [ %.pre2221, %invoke.cont.i.i1628 ]
+  %sub.ptr.sub.i.i1636.pre-phi = phi i64 [ 0, %if.then607 ], [ %.pre2221, %invoke.cont.i.i1628 ]
   %346 = phi ptr [ %341, %if.then607 ], [ %.pre2217, %invoke.cont.i.i1628 ]
   %347 = load ptr, ptr %_M_before_begin.i.i.i1443, align 8
   %add.ptr.i.i1637 = getelementptr inbounds i8, ptr %346, i64 %sub.ptr.sub.i.i1636.pre-phi

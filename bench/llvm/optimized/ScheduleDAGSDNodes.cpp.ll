@@ -9254,7 +9254,7 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIPPN4llvm10SDDbgValueEN
   %5 = sub i64 %3, %4
   %6 = ashr exact i64 %5, 3
   %7 = icmp slt i64 %6, 15
-  br i1 %7, label %8, label %24
+  br i1 %7, label %8, label %25
 
 8:                                                ; preds = %2
   %9 = icmp eq ptr %0, %1
@@ -9273,57 +9273,57 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIPPN4llvm10SDDbgValueEN
   %11 = getelementptr i8, ptr %.val.i, i64 56
   %.val.val.i = load i32, ptr %11, align 8
   %12 = icmp ult i32 %.0.val.val.i, %.val.val.i
-  br i1 %12, label %13, label %19
+  br i1 %12, label %13, label %20
 
 13:                                               ; preds = %.lr.ph.i
   %14 = getelementptr inbounds i8, ptr %.pn19.i, i64 16
   %15 = ptrtoint ptr %.020.i to i64
   %16 = sub i64 %15, %4
   %17 = ashr exact i64 %16, 3
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %17
-  %18 = getelementptr inbounds ptr, ptr %14, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %16, i1 false)
+  %18 = sub nsw i64 0, %17
+  %19 = getelementptr inbounds ptr, ptr %14, i64 %18
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %16, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i"
 
-19:                                               ; preds = %.lr.ph.i
+20:                                               ; preds = %.lr.ph.i
   %.0.val11.i.i = load ptr, ptr %.pn19.i, align 8
-  %20 = getelementptr i8, ptr %.0.val11.i.i, i64 56
-  %.0.val.val13.i.i = load i32, ptr %20, align 8
-  %21 = icmp ult i32 %.0.val.val.i, %.0.val.val13.i.i
-  br i1 %21, label %.lr.ph.i.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i"
+  %21 = getelementptr i8, ptr %.0.val11.i.i, i64 56
+  %.0.val.val13.i.i = load i32, ptr %21, align 8
+  %22 = icmp ult i32 %.0.val.val.i, %.0.val.val13.i.i
+  br i1 %22, label %.lr.ph.i.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i"
 
-.lr.ph.i.i:                                       ; preds = %19, %.lr.ph.i.i
-  %.0.val16.i.i = phi ptr [ %.0.val.i.i, %.lr.ph.i.i ], [ %.0.val11.i.i, %19 ]
-  %.015.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.pn19.i, %19 ]
-  %.0914.i.i = phi ptr [ %.015.i.i, %.lr.ph.i.i ], [ %.020.i, %19 ]
+.lr.ph.i.i:                                       ; preds = %20, %.lr.ph.i.i
+  %.0.val16.i.i = phi ptr [ %.0.val.i.i, %.lr.ph.i.i ], [ %.0.val11.i.i, %20 ]
+  %.015.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.pn19.i, %20 ]
+  %.0914.i.i = phi ptr [ %.015.i.i, %.lr.ph.i.i ], [ %.020.i, %20 ]
   store ptr %.0.val16.i.i, ptr %.0914.i.i, align 8
   %.0.i.i = getelementptr inbounds i8, ptr %.015.i.i, i64 -8
   %.0.val.i.i = load ptr, ptr %.0.i.i, align 8
   %.val.val.i.i = load i32, ptr %10, align 8
-  %22 = getelementptr i8, ptr %.0.val.i.i, i64 56
-  %.0.val.val.i.i = load i32, ptr %22, align 8
-  %23 = icmp ult i32 %.val.val.i.i, %.0.val.val.i.i
-  br i1 %23, label %.lr.ph.i.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i", !llvm.loop !111
+  %23 = getelementptr i8, ptr %.0.val.i.i, i64 56
+  %.0.val.val.i.i = load i32, ptr %23, align 8
+  %24 = icmp ult i32 %.val.val.i.i, %.0.val.val.i.i
+  br i1 %24, label %.lr.ph.i.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i", !llvm.loop !111
 
-"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i": ; preds = %.lr.ph.i.i, %19, %13
-  %.sink.i = phi ptr [ %0, %13 ], [ %.020.i, %19 ], [ %.015.i.i, %.lr.ph.i.i ]
+"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i": ; preds = %.lr.ph.i.i, %20, %13
+  %.sink.i = phi ptr [ %0, %13 ], [ %.020.i, %20 ], [ %.015.i.i, %.lr.ph.i.i ]
   store ptr %.0.val.i, ptr %.sink.i, align 8
   %.0.i = getelementptr inbounds i8, ptr %.020.i, i64 8
   %.not.i = icmp eq ptr %.0.i, %1
   br i1 %.not.i, label %common.ret25, label %.lr.ph.i, !llvm.loop !112
 
-common.ret25:                                     ; preds = %8, %"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i", %24
+common.ret25:                                     ; preds = %8, %"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i", %25
   ret void
 
-24:                                               ; preds = %2
-  %25 = lshr i64 %6, 1
-  %26 = getelementptr inbounds ptr, ptr %0, i64 %25
-  tail call fastcc void @"_ZSt21__inplace_stable_sortIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_"(ptr noundef %0, ptr noundef %26)
-  tail call fastcc void @"_ZSt21__inplace_stable_sortIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_"(ptr noundef %26, ptr noundef %1)
-  %27 = ptrtoint ptr %26 to i64
-  %28 = sub i64 %3, %27
-  %29 = ashr exact i64 %28, 3
-  tail call fastcc void @"_ZSt22__merge_without_bufferIPPN4llvm10SDDbgValueElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_SE_T0_SF_T1_"(ptr noundef %0, ptr noundef %26, ptr noundef %1, i64 noundef %25, i64 noundef %29)
+25:                                               ; preds = %2
+  %26 = lshr i64 %6, 1
+  %27 = getelementptr inbounds ptr, ptr %0, i64 %26
+  tail call fastcc void @"_ZSt21__inplace_stable_sortIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_"(ptr noundef %0, ptr noundef %27)
+  tail call fastcc void @"_ZSt21__inplace_stable_sortIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_"(ptr noundef %27, ptr noundef %1)
+  %28 = ptrtoint ptr %27 to i64
+  %29 = sub i64 %3, %28
+  %30 = ashr exact i64 %29, 3
+  tail call fastcc void @"_ZSt22__merge_without_bufferIPPN4llvm10SDDbgValueElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_SE_T0_SF_T1_"(ptr noundef %0, ptr noundef %27, ptr noundef %1, i64 noundef %26, i64 noundef %30)
   br label %common.ret25
 }
 
@@ -9603,7 +9603,7 @@ _ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit: ; preds = %29, %32
 47:                                               ; preds = %24
   %48 = icmp eq i64 %25, 1
   %49 = getelementptr inbounds ptr, ptr %.053, i64 %.076
-  br i1 %48, label %50, label %59
+  br i1 %48, label %50, label %60
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds i8, ptr %49, i64 -8
@@ -9616,44 +9616,44 @@ _ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit: ; preds = %29, %32
   %55 = ptrtoint ptr %.053 to i64
   %56 = sub i64 %54, %55
   %57 = ashr exact i64 %56, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %57
-  %58 = getelementptr inbounds ptr, ptr %49, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %58, ptr nonnull align 8 %.053, i64 %56, i1 false)
+  %58 = sub nsw i64 0, %57
+  %59 = getelementptr inbounds ptr, ptr %49, i64 %58
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %59, ptr nonnull align 8 %.053, i64 %56, i1 false)
   br label %_ZSt13move_backwardIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit
 
 _ZSt13move_backwardIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit: ; preds = %50, %53
   store ptr %52, ptr %.053, align 8
   br label %_ZSt11swap_rangesIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit
 
-59:                                               ; preds = %47
-  %60 = sub i64 0, %25
-  %61 = getelementptr inbounds ptr, ptr %49, i64 %60
-  %62 = icmp sgt i64 %.074, 0
-  br i1 %62, label %.lr.ph, label %._crit_edge
+60:                                               ; preds = %47
+  %61 = sub i64 0, %25
+  %62 = getelementptr inbounds ptr, ptr %49, i64 %61
+  %63 = icmp sgt i64 %.074, 0
+  br i1 %63, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %59, %.lr.ph
-  %.085 = phi i64 [ %67, %.lr.ph ], [ 0, %59 ]
-  %.04984 = phi ptr [ %64, %.lr.ph ], [ %49, %59 ]
-  %.383 = phi ptr [ %63, %.lr.ph ], [ %61, %59 ]
-  %63 = getelementptr inbounds i8, ptr %.383, i64 -8
-  %64 = getelementptr inbounds i8, ptr %.04984, i64 -8
-  %65 = load ptr, ptr %63, align 8
+.lr.ph:                                           ; preds = %60, %.lr.ph
+  %.085 = phi i64 [ %68, %.lr.ph ], [ 0, %60 ]
+  %.04984 = phi ptr [ %65, %.lr.ph ], [ %49, %60 ]
+  %.383 = phi ptr [ %64, %.lr.ph ], [ %62, %60 ]
+  %64 = getelementptr inbounds i8, ptr %.383, i64 -8
+  %65 = getelementptr inbounds i8, ptr %.04984, i64 -8
   %66 = load ptr, ptr %64, align 8
-  store ptr %66, ptr %63, align 8
-  store ptr %65, ptr %64, align 8
-  %67 = add nuw nsw i64 %.085, 1
-  %exitcond.not = icmp eq i64 %67, %.074
+  %67 = load ptr, ptr %65, align 8
+  store ptr %67, ptr %64, align 8
+  store ptr %66, ptr %65, align 8
+  %68 = add nuw nsw i64 %.085, 1
+  %exitcond.not = icmp eq i64 %68, %.074
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !117
 
-._crit_edge:                                      ; preds = %.lr.ph, %59
-  %.3.lcssa = phi ptr [ %61, %59 ], [ %.053, %.lr.ph ]
-  %68 = srem i64 %.076, %25
-  %69 = icmp eq i64 %68, 0
-  br i1 %69, label %_ZSt11swap_rangesIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit, label %.backedge
+._crit_edge:                                      ; preds = %.lr.ph, %60
+  %.3.lcssa = phi ptr [ %62, %60 ], [ %.053, %.lr.ph ]
+  %69 = srem i64 %.076, %25
+  %70 = icmp eq i64 %69, 0
+  br i1 %70, label %_ZSt11swap_rangesIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %45
   %.076.be = phi i64 [ %.074, %45 ], [ %25, %._crit_edge ]
-  %.074.be = phi i64 [ %46, %45 ], [ %68, %._crit_edge ]
+  %.074.be = phi i64 [ %46, %45 ], [ %69, %._crit_edge ]
   %.053.be = phi ptr [ %.1.lcssa, %45 ], [ %.3.lcssa, %._crit_edge ]
   br label %24, !llvm.loop !118
 
@@ -9673,74 +9673,74 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPPN4llvm10SDDbgValu
   br i1 %9, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %3, %"_ZSt16__insertion_sortIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_.exit.i"
-  %10 = phi i64 [ %27, %"_ZSt16__insertion_sortIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_.exit.i" ], [ %5, %3 ]
-  %.036.i = phi ptr [ %26, %"_ZSt16__insertion_sortIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_.exit.i" ], [ %0, %3 ]
+  %10 = phi i64 [ %28, %"_ZSt16__insertion_sortIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_.exit.i" ], [ %5, %3 ]
+  %.035.i = phi ptr [ %27, %"_ZSt16__insertion_sortIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_.exit.i" ], [ %0, %3 ]
   br label %11
 
 11:                                               ; preds = %"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i.i", %.lr.ph.i
   %.020.i.idx.i = phi i64 [ 8, %.lr.ph.i ], [ %.020.i.add.i, %"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i.i" ]
-  %.pn19.i.i = phi ptr [ %.036.i, %.lr.ph.i ], [ %.020.i.ptr.i, %"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i.i" ]
-  %.020.i.ptr.i = getelementptr inbounds i8, ptr %.036.i, i64 %.020.i.idx.i
+  %.pn19.i.i = phi ptr [ %.035.i, %.lr.ph.i ], [ %.020.i.ptr.i, %"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i.i" ]
+  %.020.i.ptr.i = getelementptr inbounds i8, ptr %.035.i, i64 %.020.i.idx.i
   %.0.val.i.i = load ptr, ptr %.020.i.ptr.i, align 8
-  %.val.i.i = load ptr, ptr %.036.i, align 8
+  %.val.i.i = load ptr, ptr %.035.i, align 8
   %12 = getelementptr i8, ptr %.0.val.i.i, i64 56
   %.0.val.val.i.i = load i32, ptr %12, align 8
   %13 = getelementptr i8, ptr %.val.i.i, i64 56
   %.val.val.i.i = load i32, ptr %13, align 8
   %14 = icmp ult i32 %.0.val.val.i.i, %.val.val.i.i
-  br i1 %14, label %15, label %21
+  br i1 %14, label %15, label %22
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %.pn19.i.i, i64 16
   %17 = ptrtoint ptr %.020.i.ptr.i to i64
   %18 = sub i64 %17, %10
   %19 = ashr exact i64 %18, 3
-  %.pre.i.i.i.i.i.i.i = sub nsw i64 0, %19
-  %20 = getelementptr inbounds ptr, ptr %16, i64 %.pre.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %20, ptr noundef nonnull align 8 dereferenceable(1) %.036.i, i64 %18, i1 false)
+  %20 = sub nsw i64 0, %19
+  %21 = getelementptr inbounds ptr, ptr %16, i64 %20
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %21, ptr noundef nonnull align 8 dereferenceable(1) %.035.i, i64 %18, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i.i"
 
-21:                                               ; preds = %11
+22:                                               ; preds = %11
   %.0.val11.i.i.i = load ptr, ptr %.pn19.i.i, align 8
-  %22 = getelementptr i8, ptr %.0.val11.i.i.i, i64 56
-  %.0.val.val13.i.i.i = load i32, ptr %22, align 8
-  %23 = icmp ult i32 %.0.val.val.i.i, %.0.val.val13.i.i.i
-  br i1 %23, label %.lr.ph.i.i.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i.i"
+  %23 = getelementptr i8, ptr %.0.val11.i.i.i, i64 56
+  %.0.val.val13.i.i.i = load i32, ptr %23, align 8
+  %24 = icmp ult i32 %.0.val.val.i.i, %.0.val.val13.i.i.i
+  br i1 %24, label %.lr.ph.i.i.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i.i"
 
-.lr.ph.i.i.i:                                     ; preds = %21, %.lr.ph.i.i.i
-  %.0.val16.i.i.i = phi ptr [ %.0.val.i.i.i, %.lr.ph.i.i.i ], [ %.0.val11.i.i.i, %21 ]
-  %.015.i.i.i = phi ptr [ %.0.i.i.i, %.lr.ph.i.i.i ], [ %.pn19.i.i, %21 ]
-  %.0914.i.i.i = phi ptr [ %.015.i.i.i, %.lr.ph.i.i.i ], [ %.020.i.ptr.i, %21 ]
+.lr.ph.i.i.i:                                     ; preds = %22, %.lr.ph.i.i.i
+  %.0.val16.i.i.i = phi ptr [ %.0.val.i.i.i, %.lr.ph.i.i.i ], [ %.0.val11.i.i.i, %22 ]
+  %.015.i.i.i = phi ptr [ %.0.i.i.i, %.lr.ph.i.i.i ], [ %.pn19.i.i, %22 ]
+  %.0914.i.i.i = phi ptr [ %.015.i.i.i, %.lr.ph.i.i.i ], [ %.020.i.ptr.i, %22 ]
   store ptr %.0.val16.i.i.i, ptr %.0914.i.i.i, align 8
   %.0.i.i.i = getelementptr inbounds i8, ptr %.015.i.i.i, i64 -8
   %.0.val.i.i.i = load ptr, ptr %.0.i.i.i, align 8
   %.val.val.i.i.i = load i32, ptr %12, align 8
-  %24 = getelementptr i8, ptr %.0.val.i.i.i, i64 56
-  %.0.val.val.i.i.i = load i32, ptr %24, align 8
-  %25 = icmp ult i32 %.val.val.i.i.i, %.0.val.val.i.i.i
-  br i1 %25, label %.lr.ph.i.i.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i.i", !llvm.loop !111
+  %25 = getelementptr i8, ptr %.0.val.i.i.i, i64 56
+  %.0.val.val.i.i.i = load i32, ptr %25, align 8
+  %26 = icmp ult i32 %.val.val.i.i.i, %.0.val.val.i.i.i
+  br i1 %26, label %.lr.ph.i.i.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i.i", !llvm.loop !111
 
-"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i.i": ; preds = %.lr.ph.i.i.i, %21, %15
-  %.sink.i.i = phi ptr [ %.036.i, %15 ], [ %.020.i.ptr.i, %21 ], [ %.015.i.i.i, %.lr.ph.i.i.i ]
+"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i.i": ; preds = %.lr.ph.i.i.i, %22, %15
+  %.sink.i.i = phi ptr [ %.035.i, %15 ], [ %.020.i.ptr.i, %22 ], [ %.015.i.i.i, %.lr.ph.i.i.i ]
   store ptr %.0.val.i.i, ptr %.sink.i.i, align 8
   %.020.i.add.i = add nuw nsw i64 %.020.i.idx.i, 8
   %.not.i.i = icmp eq i64 %.020.i.add.i, 56
   br i1 %.not.i.i, label %"_ZSt16__insertion_sortIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_.exit.i", label %11, !llvm.loop !112
 
 "_ZSt16__insertion_sortIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_.exit.i": ; preds = %"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i.i"
-  %26 = getelementptr inbounds i8, ptr %.036.i, i64 56
-  %27 = ptrtoint ptr %26 to i64
-  %28 = sub i64 %4, %27
-  %29 = icmp sgt i64 %28, 48
-  br i1 %29, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !119
+  %27 = getelementptr inbounds i8, ptr %.035.i, i64 56
+  %28 = ptrtoint ptr %27 to i64
+  %29 = sub i64 %4, %28
+  %30 = icmp sgt i64 %29, 48
+  br i1 %30, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !119
 
 ._crit_edge.i:                                    ; preds = %"_ZSt16__insertion_sortIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_.exit.i", %3
-  %.0.lcssa.i = phi ptr [ %0, %3 ], [ %26, %"_ZSt16__insertion_sortIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_.exit.i" ]
-  %.lcssa.i = phi i64 [ %5, %3 ], [ %27, %"_ZSt16__insertion_sortIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_.exit.i" ]
-  %30 = icmp eq ptr %.0.lcssa.i, %1
+  %.0.lcssa.i = phi ptr [ %0, %3 ], [ %27, %"_ZSt16__insertion_sortIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_.exit.i" ]
+  %.lcssa.i = phi i64 [ %5, %3 ], [ %28, %"_ZSt16__insertion_sortIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_.exit.i" ]
+  %31 = icmp eq ptr %.0.lcssa.i, %1
   %.017.i13.i = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 8
   %.not18.i.i = icmp eq ptr %.017.i13.i, %1
-  %or.cond.i = select i1 %30, i1 true, i1 %.not18.i.i
+  %or.cond.i = select i1 %31, i1 true, i1 %.not18.i.i
   br i1 %or.cond.i, label %"_ZSt22__chunk_insertion_sortIPPN4llvm10SDDbgValueElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge.i, %"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i22.i"
@@ -9748,310 +9748,310 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPPN4llvm10SDDbgValu
   %.pn19.i15.i = phi ptr [ %.020.i14.i, %"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i22.i" ], [ %.0.lcssa.i, %._crit_edge.i ]
   %.0.val.i16.i = load ptr, ptr %.020.i14.i, align 8
   %.val.i17.i = load ptr, ptr %.0.lcssa.i, align 8
-  %31 = getelementptr i8, ptr %.0.val.i16.i, i64 56
-  %.0.val.val.i18.i = load i32, ptr %31, align 8
-  %32 = getelementptr i8, ptr %.val.i17.i, i64 56
-  %.val.val.i19.i = load i32, ptr %32, align 8
-  %33 = icmp ult i32 %.0.val.val.i18.i, %.val.val.i19.i
-  br i1 %33, label %34, label %40
+  %32 = getelementptr i8, ptr %.0.val.i16.i, i64 56
+  %.0.val.val.i18.i = load i32, ptr %32, align 8
+  %33 = getelementptr i8, ptr %.val.i17.i, i64 56
+  %.val.val.i19.i = load i32, ptr %33, align 8
+  %34 = icmp ult i32 %.0.val.val.i18.i, %.val.val.i19.i
+  br i1 %34, label %35, label %42
 
-34:                                               ; preds = %.lr.ph.i.i
-  %35 = getelementptr inbounds i8, ptr %.pn19.i15.i, i64 16
-  %36 = ptrtoint ptr %.020.i14.i to i64
-  %37 = sub i64 %36, %.lcssa.i
-  %38 = ashr exact i64 %37, 3
-  %.pre.i.i.i.i.i.i34.i = sub nsw i64 0, %38
-  %39 = getelementptr inbounds ptr, ptr %35, i64 %.pre.i.i.i.i.i.i34.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %39, ptr noundef nonnull align 8 dereferenceable(1) %.0.lcssa.i, i64 %37, i1 false)
+35:                                               ; preds = %.lr.ph.i.i
+  %36 = getelementptr inbounds i8, ptr %.pn19.i15.i, i64 16
+  %37 = ptrtoint ptr %.020.i14.i to i64
+  %38 = sub i64 %37, %.lcssa.i
+  %39 = ashr exact i64 %38, 3
+  %40 = sub nsw i64 0, %39
+  %41 = getelementptr inbounds ptr, ptr %36, i64 %40
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %41, ptr noundef nonnull align 8 dereferenceable(1) %.0.lcssa.i, i64 %38, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i22.i"
 
-40:                                               ; preds = %.lr.ph.i.i
+42:                                               ; preds = %.lr.ph.i.i
   %.0.val11.i.i20.i = load ptr, ptr %.pn19.i15.i, align 8
-  %41 = getelementptr i8, ptr %.0.val11.i.i20.i, i64 56
-  %.0.val.val13.i.i21.i = load i32, ptr %41, align 8
-  %42 = icmp ult i32 %.0.val.val.i18.i, %.0.val.val13.i.i21.i
-  br i1 %42, label %.lr.ph.i.i26.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i22.i"
+  %43 = getelementptr i8, ptr %.0.val11.i.i20.i, i64 56
+  %.0.val.val13.i.i21.i = load i32, ptr %43, align 8
+  %44 = icmp ult i32 %.0.val.val.i18.i, %.0.val.val13.i.i21.i
+  br i1 %44, label %.lr.ph.i.i26.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i22.i"
 
-.lr.ph.i.i26.i:                                   ; preds = %40, %.lr.ph.i.i26.i
-  %.0.val16.i.i27.i = phi ptr [ %.0.val.i.i31.i, %.lr.ph.i.i26.i ], [ %.0.val11.i.i20.i, %40 ]
-  %.015.i.i28.i = phi ptr [ %.0.i.i30.i, %.lr.ph.i.i26.i ], [ %.pn19.i15.i, %40 ]
-  %.0914.i.i29.i = phi ptr [ %.015.i.i28.i, %.lr.ph.i.i26.i ], [ %.020.i14.i, %40 ]
+.lr.ph.i.i26.i:                                   ; preds = %42, %.lr.ph.i.i26.i
+  %.0.val16.i.i27.i = phi ptr [ %.0.val.i.i31.i, %.lr.ph.i.i26.i ], [ %.0.val11.i.i20.i, %42 ]
+  %.015.i.i28.i = phi ptr [ %.0.i.i30.i, %.lr.ph.i.i26.i ], [ %.pn19.i15.i, %42 ]
+  %.0914.i.i29.i = phi ptr [ %.015.i.i28.i, %.lr.ph.i.i26.i ], [ %.020.i14.i, %42 ]
   store ptr %.0.val16.i.i27.i, ptr %.0914.i.i29.i, align 8
   %.0.i.i30.i = getelementptr inbounds i8, ptr %.015.i.i28.i, i64 -8
   %.0.val.i.i31.i = load ptr, ptr %.0.i.i30.i, align 8
-  %.val.val.i.i32.i = load i32, ptr %31, align 8
-  %43 = getelementptr i8, ptr %.0.val.i.i31.i, i64 56
-  %.0.val.val.i.i33.i = load i32, ptr %43, align 8
-  %44 = icmp ult i32 %.val.val.i.i32.i, %.0.val.val.i.i33.i
-  br i1 %44, label %.lr.ph.i.i26.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i22.i", !llvm.loop !111
+  %.val.val.i.i32.i = load i32, ptr %32, align 8
+  %45 = getelementptr i8, ptr %.0.val.i.i31.i, i64 56
+  %.0.val.val.i.i33.i = load i32, ptr %45, align 8
+  %46 = icmp ult i32 %.val.val.i.i32.i, %.0.val.val.i.i33.i
+  br i1 %46, label %.lr.ph.i.i26.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i22.i", !llvm.loop !111
 
-"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i22.i": ; preds = %.lr.ph.i.i26.i, %40, %34
-  %.sink.i23.i = phi ptr [ %.0.lcssa.i, %34 ], [ %.020.i14.i, %40 ], [ %.015.i.i28.i, %.lr.ph.i.i26.i ]
+"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i22.i": ; preds = %.lr.ph.i.i26.i, %42, %35
+  %.sink.i23.i = phi ptr [ %.0.lcssa.i, %35 ], [ %.020.i14.i, %42 ], [ %.015.i.i28.i, %.lr.ph.i.i26.i ]
   store ptr %.0.val.i16.i, ptr %.sink.i23.i, align 8
   %.0.i24.i = getelementptr inbounds i8, ptr %.020.i14.i, i64 8
   %.not.i25.i = icmp eq ptr %.0.i24.i, %1
   br i1 %.not.i25.i, label %"_ZSt22__chunk_insertion_sortIPPN4llvm10SDDbgValueElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_.exit", label %.lr.ph.i.i, !llvm.loop !112
 
 "_ZSt22__chunk_insertion_sortIPPN4llvm10SDDbgValueElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_.exit": ; preds = %"_ZSt25__unguarded_linear_insertIPPN4llvm10SDDbgValueEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_T0_.exit.i22.i", %._crit_edge.i
-  %45 = icmp sgt i64 %7, 7
-  br i1 %45, label %.lr.ph, label %._crit_edge
+  %47 = icmp sgt i64 %7, 7
+  br i1 %47, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %"_ZSt22__chunk_insertion_sortIPPN4llvm10SDDbgValueElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_.exit"
-  %46 = ptrtoint ptr %8 to i64
-  br label %47
+  %48 = ptrtoint ptr %8 to i64
+  br label %49
 
-47:                                               ; preds = %.lr.ph, %"_ZSt17__merge_sort_loopIPPN4llvm10SDDbgValueES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_T2_.exit76"
-  %.088 = phi i64 [ 7, %.lr.ph ], [ %89, %"_ZSt17__merge_sort_loopIPPN4llvm10SDDbgValueES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_T2_.exit76" ]
-  %48 = shl nsw i64 %.088, 1
-  %.not52.i = icmp slt i64 %7, %48
+49:                                               ; preds = %.lr.ph, %"_ZSt17__merge_sort_loopIPPN4llvm10SDDbgValueES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_T2_.exit76"
+  %.088 = phi i64 [ 7, %.lr.ph ], [ %91, %"_ZSt17__merge_sort_loopIPPN4llvm10SDDbgValueES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_T2_.exit76" ]
+  %50 = shl nsw i64 %.088, 1
+  %.not52.i = icmp slt i64 %7, %50
   br i1 %.not52.i, label %._crit_edge.i25, label %.lr.ph.i.preheader.i
 
-.lr.ph.i.preheader.i:                             ; preds = %47, %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i"
-  %.054.i = phi ptr [ %50, %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i" ], [ %0, %47 ]
-  %.02053.i = phi ptr [ %67, %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i" ], [ %2, %47 ]
-  %49 = getelementptr inbounds ptr, ptr %.054.i, i64 %.088
-  %50 = getelementptr inbounds ptr, ptr %.054.i, i64 %48
+.lr.ph.i.preheader.i:                             ; preds = %49, %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i"
+  %.054.i = phi ptr [ %52, %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i" ], [ %0, %49 ]
+  %.02053.i = phi ptr [ %69, %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i" ], [ %2, %49 ]
+  %51 = getelementptr inbounds ptr, ptr %.054.i, i64 %.088
+  %52 = getelementptr inbounds ptr, ptr %.054.i, i64 %50
   br label %.lr.ph.i.i24
 
 .lr.ph.i.i24:                                     ; preds = %.lr.ph.i.i24, %.lr.ph.i.preheader.i
-  %.025.i.i = phi ptr [ %54, %.lr.ph.i.i24 ], [ %.02053.i, %.lr.ph.i.preheader.i ]
+  %.025.i.i = phi ptr [ %56, %.lr.ph.i.i24 ], [ %.02053.i, %.lr.ph.i.preheader.i ]
   %.01824.i.i = phi ptr [ %.1.i.i, %.lr.ph.i.i24 ], [ %.054.i, %.lr.ph.i.preheader.i ]
-  %.01923.i.i = phi ptr [ %.120.i.i, %.lr.ph.i.i24 ], [ %49, %.lr.ph.i.preheader.i ]
+  %.01923.i.i = phi ptr [ %.120.i.i, %.lr.ph.i.i24 ], [ %51, %.lr.ph.i.preheader.i ]
   %.019.val.i.i = load ptr, ptr %.01923.i.i, align 8
   %.018.val.i.i = load ptr, ptr %.01824.i.i, align 8
-  %51 = getelementptr i8, ptr %.019.val.i.i, i64 56
-  %.019.val.val.i.i = load i32, ptr %51, align 8
-  %52 = getelementptr i8, ptr %.018.val.i.i, i64 56
-  %.018.val.val.i.i = load i32, ptr %52, align 8
-  %53 = icmp ult i32 %.019.val.val.i.i, %.018.val.val.i.i
-  %.018.val.sink.i.i = select i1 %53, ptr %.019.val.i.i, ptr %.018.val.i.i
-  %.120.idx.i.i = select i1 %53, i64 8, i64 0
+  %53 = getelementptr i8, ptr %.019.val.i.i, i64 56
+  %.019.val.val.i.i = load i32, ptr %53, align 8
+  %54 = getelementptr i8, ptr %.018.val.i.i, i64 56
+  %.018.val.val.i.i = load i32, ptr %54, align 8
+  %55 = icmp ult i32 %.019.val.val.i.i, %.018.val.val.i.i
+  %.018.val.sink.i.i = select i1 %55, ptr %.019.val.i.i, ptr %.018.val.i.i
+  %.120.idx.i.i = select i1 %55, i64 8, i64 0
   %.120.i.i = getelementptr inbounds i8, ptr %.01923.i.i, i64 %.120.idx.i.i
-  %.1.idx.i.i = select i1 %53, i64 0, i64 8
+  %.1.idx.i.i = select i1 %55, i64 0, i64 8
   %.1.i.i = getelementptr inbounds i8, ptr %.01824.i.i, i64 %.1.idx.i.i
   store ptr %.018.val.sink.i.i, ptr %.025.i.i, align 8
-  %54 = getelementptr inbounds i8, ptr %.025.i.i, i64 8
-  %55 = icmp ne ptr %.1.i.i, %49
-  %56 = icmp ne ptr %.120.i.i, %50
-  %57 = select i1 %55, i1 %56, i1 false
-  br i1 %57, label %.lr.ph.i.i24, label %._crit_edge.i.loopexit.i, !llvm.loop !120
+  %56 = getelementptr inbounds i8, ptr %.025.i.i, i64 8
+  %57 = icmp ne ptr %.1.i.i, %51
+  %58 = icmp ne ptr %.120.i.i, %52
+  %59 = select i1 %57, i1 %58, i1 false
+  br i1 %59, label %.lr.ph.i.i24, label %._crit_edge.i.loopexit.i, !llvm.loop !120
 
 ._crit_edge.i.loopexit.i:                         ; preds = %.lr.ph.i.i24
-  %58 = ptrtoint ptr %49 to i64
-  %59 = ptrtoint ptr %.1.i.i to i64
-  %60 = sub i64 %58, %59
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %49, %.1.i.i
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i.i, label %61
+  %60 = ptrtoint ptr %51 to i64
+  %61 = ptrtoint ptr %.1.i.i to i64
+  %62 = sub i64 %60, %61
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %51, %.1.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i.i, label %63
 
-61:                                               ; preds = %._crit_edge.i.loopexit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %54, ptr nonnull align 8 %.1.i.i, i64 %60, i1 false)
+63:                                               ; preds = %._crit_edge.i.loopexit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %56, ptr nonnull align 8 %.1.i.i, i64 %62, i1 false)
   br label %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i.i
 
-_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i.i: ; preds = %61, %._crit_edge.i.loopexit.i
-  %62 = getelementptr inbounds i8, ptr %54, i64 %60
-  %63 = ptrtoint ptr %50 to i64
-  %64 = ptrtoint ptr %.120.i.i to i64
-  %65 = sub i64 %63, %64
-  %.not.i.i.i.i.i21.i.i = icmp eq ptr %50, %.120.i.i
-  br i1 %.not.i.i.i.i.i21.i.i, label %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i", label %66
+_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i.i: ; preds = %63, %._crit_edge.i.loopexit.i
+  %64 = getelementptr inbounds i8, ptr %56, i64 %62
+  %65 = ptrtoint ptr %52 to i64
+  %66 = ptrtoint ptr %.120.i.i to i64
+  %67 = sub i64 %65, %66
+  %.not.i.i.i.i.i21.i.i = icmp eq ptr %52, %.120.i.i
+  br i1 %.not.i.i.i.i.i21.i.i, label %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i", label %68
 
-66:                                               ; preds = %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %62, ptr nonnull align 8 %.120.i.i, i64 %65, i1 false)
+68:                                               ; preds = %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %64, ptr nonnull align 8 %.120.i.i, i64 %67, i1 false)
   br label %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i"
 
-"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i": ; preds = %66, %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i.i
-  %67 = getelementptr inbounds i8, ptr %62, i64 %65
-  %68 = sub i64 %4, %63
-  %69 = ashr exact i64 %68, 3
-  %.not.i = icmp slt i64 %69, %48
+"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i": ; preds = %68, %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i.i
+  %69 = getelementptr inbounds i8, ptr %64, i64 %67
+  %70 = sub i64 %4, %65
+  %71 = ashr exact i64 %70, 3
+  %.not.i = icmp slt i64 %71, %50
   br i1 %.not.i, label %._crit_edge.i25, label %.lr.ph.i.preheader.i, !llvm.loop !121
 
-._crit_edge.i25:                                  ; preds = %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i", %47
-  %.020.lcssa.i = phi ptr [ %2, %47 ], [ %67, %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i" ]
-  %.0.lcssa.i26 = phi ptr [ %0, %47 ], [ %50, %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i" ]
-  %.lcssa50.i = phi i64 [ %7, %47 ], [ %69, %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i" ]
+._crit_edge.i25:                                  ; preds = %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i", %49
+  %.020.lcssa.i = phi ptr [ %2, %49 ], [ %69, %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i" ]
+  %.0.lcssa.i26 = phi ptr [ %0, %49 ], [ %52, %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i" ]
+  %.lcssa50.i = phi i64 [ %7, %49 ], [ %71, %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i" ]
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 range(i64 -9223372036854775808, 2305843009213693949) %.088, i64 %.lcssa50.i)
-  %70 = getelementptr inbounds ptr, ptr %.0.lcssa.i26, i64 %.sroa.speculated.i
-  %71 = icmp ne i64 %.sroa.speculated.i, 0
-  %72 = icmp ne ptr %70, %1
-  %73 = and i1 %71, %72
-  br i1 %73, label %.lr.ph.i30.i, label %._crit_edge.i23.i
+  %72 = getelementptr inbounds ptr, ptr %.0.lcssa.i26, i64 %.sroa.speculated.i
+  %73 = icmp ne i64 %.sroa.speculated.i, 0
+  %74 = icmp ne ptr %72, %1
+  %75 = and i1 %73, %74
+  br i1 %75, label %.lr.ph.i30.i, label %._crit_edge.i23.i
 
 .lr.ph.i30.i:                                     ; preds = %._crit_edge.i25, %.lr.ph.i30.i
-  %.025.i31.i = phi ptr [ %77, %.lr.ph.i30.i ], [ %.020.lcssa.i, %._crit_edge.i25 ]
+  %.025.i31.i = phi ptr [ %79, %.lr.ph.i30.i ], [ %.020.lcssa.i, %._crit_edge.i25 ]
   %.01824.i32.i = phi ptr [ %.1.i42.i, %.lr.ph.i30.i ], [ %.0.lcssa.i26, %._crit_edge.i25 ]
-  %.01923.i33.i = phi ptr [ %.120.i40.i, %.lr.ph.i30.i ], [ %70, %._crit_edge.i25 ]
+  %.01923.i33.i = phi ptr [ %.120.i40.i, %.lr.ph.i30.i ], [ %72, %._crit_edge.i25 ]
   %.019.val.i34.i = load ptr, ptr %.01923.i33.i, align 8
   %.018.val.i35.i = load ptr, ptr %.01824.i32.i, align 8
-  %74 = getelementptr i8, ptr %.019.val.i34.i, i64 56
-  %.019.val.val.i36.i = load i32, ptr %74, align 8
-  %75 = getelementptr i8, ptr %.018.val.i35.i, i64 56
-  %.018.val.val.i37.i = load i32, ptr %75, align 8
-  %76 = icmp ult i32 %.019.val.val.i36.i, %.018.val.val.i37.i
-  %.018.val.sink.i38.i = select i1 %76, ptr %.019.val.i34.i, ptr %.018.val.i35.i
-  %.120.idx.i39.i = select i1 %76, i64 8, i64 0
+  %76 = getelementptr i8, ptr %.019.val.i34.i, i64 56
+  %.019.val.val.i36.i = load i32, ptr %76, align 8
+  %77 = getelementptr i8, ptr %.018.val.i35.i, i64 56
+  %.018.val.val.i37.i = load i32, ptr %77, align 8
+  %78 = icmp ult i32 %.019.val.val.i36.i, %.018.val.val.i37.i
+  %.018.val.sink.i38.i = select i1 %78, ptr %.019.val.i34.i, ptr %.018.val.i35.i
+  %.120.idx.i39.i = select i1 %78, i64 8, i64 0
   %.120.i40.i = getelementptr inbounds i8, ptr %.01923.i33.i, i64 %.120.idx.i39.i
-  %.1.idx.i41.i = select i1 %76, i64 0, i64 8
+  %.1.idx.i41.i = select i1 %78, i64 0, i64 8
   %.1.i42.i = getelementptr inbounds i8, ptr %.01824.i32.i, i64 %.1.idx.i41.i
   store ptr %.018.val.sink.i38.i, ptr %.025.i31.i, align 8
-  %77 = getelementptr inbounds i8, ptr %.025.i31.i, i64 8
-  %78 = icmp ne ptr %.1.i42.i, %70
-  %79 = icmp ne ptr %.120.i40.i, %1
-  %80 = select i1 %78, i1 %79, i1 false
-  br i1 %80, label %.lr.ph.i30.i, label %._crit_edge.i23.i, !llvm.loop !120
+  %79 = getelementptr inbounds i8, ptr %.025.i31.i, i64 8
+  %80 = icmp ne ptr %.1.i42.i, %72
+  %81 = icmp ne ptr %.120.i40.i, %1
+  %82 = select i1 %80, i1 %81, i1 false
+  br i1 %82, label %.lr.ph.i30.i, label %._crit_edge.i23.i, !llvm.loop !120
 
 ._crit_edge.i23.i:                                ; preds = %.lr.ph.i30.i, %._crit_edge.i25
-  %.019.lcssa.i24.i = phi ptr [ %70, %._crit_edge.i25 ], [ %.120.i40.i, %.lr.ph.i30.i ]
+  %.019.lcssa.i24.i = phi ptr [ %72, %._crit_edge.i25 ], [ %.120.i40.i, %.lr.ph.i30.i ]
   %.018.lcssa.i25.i = phi ptr [ %.0.lcssa.i26, %._crit_edge.i25 ], [ %.1.i42.i, %.lr.ph.i30.i ]
-  %.0.lcssa.i26.i = phi ptr [ %.020.lcssa.i, %._crit_edge.i25 ], [ %77, %.lr.ph.i30.i ]
-  %81 = ptrtoint ptr %70 to i64
-  %82 = ptrtoint ptr %.018.lcssa.i25.i to i64
-  %83 = sub i64 %81, %82
-  %.not.i.i.i.i.i.i27.i = icmp eq ptr %70, %.018.lcssa.i25.i
-  br i1 %.not.i.i.i.i.i.i27.i, label %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i28.i, label %84
+  %.0.lcssa.i26.i = phi ptr [ %.020.lcssa.i, %._crit_edge.i25 ], [ %79, %.lr.ph.i30.i ]
+  %83 = ptrtoint ptr %72 to i64
+  %84 = ptrtoint ptr %.018.lcssa.i25.i to i64
+  %85 = sub i64 %83, %84
+  %.not.i.i.i.i.i.i27.i = icmp eq ptr %72, %.018.lcssa.i25.i
+  br i1 %.not.i.i.i.i.i.i27.i, label %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i28.i, label %86
 
-84:                                               ; preds = %._crit_edge.i23.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.lcssa.i26.i, ptr align 8 %.018.lcssa.i25.i, i64 %83, i1 false)
+86:                                               ; preds = %._crit_edge.i23.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.lcssa.i26.i, ptr align 8 %.018.lcssa.i25.i, i64 %85, i1 false)
   br label %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i28.i
 
-_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i28.i: ; preds = %84, %._crit_edge.i23.i
+_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i28.i: ; preds = %86, %._crit_edge.i23.i
   %.not.i.i.i.i.i21.i29.i = icmp eq ptr %1, %.019.lcssa.i24.i
-  br i1 %.not.i.i.i.i.i21.i29.i, label %"_ZSt17__merge_sort_loopIPPN4llvm10SDDbgValueES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_T2_.exit", label %85
+  br i1 %.not.i.i.i.i.i21.i29.i, label %"_ZSt17__merge_sort_loopIPPN4llvm10SDDbgValueES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_T2_.exit", label %87
 
-85:                                               ; preds = %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i28.i
-  %86 = ptrtoint ptr %.019.lcssa.i24.i to i64
-  %87 = sub i64 %4, %86
-  %88 = getelementptr inbounds i8, ptr %.0.lcssa.i26.i, i64 %83
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %88, ptr align 8 %.019.lcssa.i24.i, i64 %87, i1 false)
+87:                                               ; preds = %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i28.i
+  %88 = ptrtoint ptr %.019.lcssa.i24.i to i64
+  %89 = sub i64 %4, %88
+  %90 = getelementptr inbounds i8, ptr %.0.lcssa.i26.i, i64 %85
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %90, ptr align 8 %.019.lcssa.i24.i, i64 %89, i1 false)
   br label %"_ZSt17__merge_sort_loopIPPN4llvm10SDDbgValueES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_T2_.exit"
 
-"_ZSt17__merge_sort_loopIPPN4llvm10SDDbgValueES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_T2_.exit": ; preds = %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i28.i, %85
-  %89 = shl nsw i64 %.088, 2
-  %.not52.i27 = icmp slt i64 %7, %89
+"_ZSt17__merge_sort_loopIPPN4llvm10SDDbgValueES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_T2_.exit": ; preds = %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i28.i, %87
+  %91 = shl nsw i64 %.088, 2
+  %.not52.i27 = icmp slt i64 %7, %91
   br i1 %.not52.i27, label %._crit_edge.i51, label %.lr.ph.i.preheader.i29
 
 .lr.ph.i.preheader.i29:                           ; preds = %"_ZSt17__merge_sort_loopIPPN4llvm10SDDbgValueES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_T2_.exit", %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i49"
-  %.054.i30 = phi ptr [ %91, %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i49" ], [ %2, %"_ZSt17__merge_sort_loopIPPN4llvm10SDDbgValueES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_T2_.exit" ]
-  %.02053.i31 = phi ptr [ %108, %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i49" ], [ %0, %"_ZSt17__merge_sort_loopIPPN4llvm10SDDbgValueES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_T2_.exit" ]
-  %90 = getelementptr inbounds ptr, ptr %.054.i30, i64 %48
-  %91 = getelementptr inbounds ptr, ptr %.054.i30, i64 %89
+  %.054.i30 = phi ptr [ %93, %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i49" ], [ %2, %"_ZSt17__merge_sort_loopIPPN4llvm10SDDbgValueES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_T2_.exit" ]
+  %.02053.i31 = phi ptr [ %110, %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i49" ], [ %0, %"_ZSt17__merge_sort_loopIPPN4llvm10SDDbgValueES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_T2_.exit" ]
+  %92 = getelementptr inbounds ptr, ptr %.054.i30, i64 %50
+  %93 = getelementptr inbounds ptr, ptr %.054.i30, i64 %91
   br label %.lr.ph.i.i32
 
 .lr.ph.i.i32:                                     ; preds = %.lr.ph.i.i32, %.lr.ph.i.preheader.i29
-  %.025.i.i33 = phi ptr [ %95, %.lr.ph.i.i32 ], [ %.02053.i31, %.lr.ph.i.preheader.i29 ]
+  %.025.i.i33 = phi ptr [ %97, %.lr.ph.i.i32 ], [ %.02053.i31, %.lr.ph.i.preheader.i29 ]
   %.01824.i.i34 = phi ptr [ %.1.i.i44, %.lr.ph.i.i32 ], [ %.054.i30, %.lr.ph.i.preheader.i29 ]
-  %.01923.i.i35 = phi ptr [ %.120.i.i42, %.lr.ph.i.i32 ], [ %90, %.lr.ph.i.preheader.i29 ]
+  %.01923.i.i35 = phi ptr [ %.120.i.i42, %.lr.ph.i.i32 ], [ %92, %.lr.ph.i.preheader.i29 ]
   %.019.val.i.i36 = load ptr, ptr %.01923.i.i35, align 8
   %.018.val.i.i37 = load ptr, ptr %.01824.i.i34, align 8
-  %92 = getelementptr i8, ptr %.019.val.i.i36, i64 56
-  %.019.val.val.i.i38 = load i32, ptr %92, align 8
-  %93 = getelementptr i8, ptr %.018.val.i.i37, i64 56
-  %.018.val.val.i.i39 = load i32, ptr %93, align 8
-  %94 = icmp ult i32 %.019.val.val.i.i38, %.018.val.val.i.i39
-  %.018.val.sink.i.i40 = select i1 %94, ptr %.019.val.i.i36, ptr %.018.val.i.i37
-  %.120.idx.i.i41 = select i1 %94, i64 8, i64 0
+  %94 = getelementptr i8, ptr %.019.val.i.i36, i64 56
+  %.019.val.val.i.i38 = load i32, ptr %94, align 8
+  %95 = getelementptr i8, ptr %.018.val.i.i37, i64 56
+  %.018.val.val.i.i39 = load i32, ptr %95, align 8
+  %96 = icmp ult i32 %.019.val.val.i.i38, %.018.val.val.i.i39
+  %.018.val.sink.i.i40 = select i1 %96, ptr %.019.val.i.i36, ptr %.018.val.i.i37
+  %.120.idx.i.i41 = select i1 %96, i64 8, i64 0
   %.120.i.i42 = getelementptr inbounds i8, ptr %.01923.i.i35, i64 %.120.idx.i.i41
-  %.1.idx.i.i43 = select i1 %94, i64 0, i64 8
+  %.1.idx.i.i43 = select i1 %96, i64 0, i64 8
   %.1.i.i44 = getelementptr inbounds i8, ptr %.01824.i.i34, i64 %.1.idx.i.i43
   store ptr %.018.val.sink.i.i40, ptr %.025.i.i33, align 8
-  %95 = getelementptr inbounds i8, ptr %.025.i.i33, i64 8
-  %96 = icmp ne ptr %.1.i.i44, %90
-  %97 = icmp ne ptr %.120.i.i42, %91
-  %98 = select i1 %96, i1 %97, i1 false
-  br i1 %98, label %.lr.ph.i.i32, label %._crit_edge.i.loopexit.i45, !llvm.loop !120
+  %97 = getelementptr inbounds i8, ptr %.025.i.i33, i64 8
+  %98 = icmp ne ptr %.1.i.i44, %92
+  %99 = icmp ne ptr %.120.i.i42, %93
+  %100 = select i1 %98, i1 %99, i1 false
+  br i1 %100, label %.lr.ph.i.i32, label %._crit_edge.i.loopexit.i45, !llvm.loop !120
 
 ._crit_edge.i.loopexit.i45:                       ; preds = %.lr.ph.i.i32
-  %99 = ptrtoint ptr %90 to i64
-  %100 = ptrtoint ptr %.1.i.i44 to i64
-  %101 = sub i64 %99, %100
-  %.not.i.i.i.i.i.i.i46 = icmp eq ptr %90, %.1.i.i44
-  br i1 %.not.i.i.i.i.i.i.i46, label %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i.i47, label %102
+  %101 = ptrtoint ptr %92 to i64
+  %102 = ptrtoint ptr %.1.i.i44 to i64
+  %103 = sub i64 %101, %102
+  %.not.i.i.i.i.i.i.i46 = icmp eq ptr %92, %.1.i.i44
+  br i1 %.not.i.i.i.i.i.i.i46, label %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i.i47, label %104
 
-102:                                              ; preds = %._crit_edge.i.loopexit.i45
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %95, ptr nonnull align 8 %.1.i.i44, i64 %101, i1 false)
+104:                                              ; preds = %._crit_edge.i.loopexit.i45
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %97, ptr nonnull align 8 %.1.i.i44, i64 %103, i1 false)
   br label %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i.i47
 
-_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i.i47: ; preds = %102, %._crit_edge.i.loopexit.i45
-  %103 = getelementptr inbounds i8, ptr %95, i64 %101
-  %104 = ptrtoint ptr %91 to i64
-  %105 = ptrtoint ptr %.120.i.i42 to i64
-  %106 = sub i64 %104, %105
-  %.not.i.i.i.i.i21.i.i48 = icmp eq ptr %91, %.120.i.i42
-  br i1 %.not.i.i.i.i.i21.i.i48, label %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i49", label %107
+_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i.i47: ; preds = %104, %._crit_edge.i.loopexit.i45
+  %105 = getelementptr inbounds i8, ptr %97, i64 %103
+  %106 = ptrtoint ptr %93 to i64
+  %107 = ptrtoint ptr %.120.i.i42 to i64
+  %108 = sub i64 %106, %107
+  %.not.i.i.i.i.i21.i.i48 = icmp eq ptr %93, %.120.i.i42
+  br i1 %.not.i.i.i.i.i21.i.i48, label %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i49", label %109
 
-107:                                              ; preds = %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i.i47
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %103, ptr nonnull align 8 %.120.i.i42, i64 %106, i1 false)
+109:                                              ; preds = %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i.i47
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %105, ptr nonnull align 8 %.120.i.i42, i64 %108, i1 false)
   br label %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i49"
 
-"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i49": ; preds = %107, %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i.i47
-  %108 = getelementptr inbounds i8, ptr %103, i64 %106
-  %109 = sub i64 %46, %104
-  %110 = ashr exact i64 %109, 3
-  %.not.i50 = icmp slt i64 %110, %89
+"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i49": ; preds = %109, %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i.i47
+  %110 = getelementptr inbounds i8, ptr %105, i64 %108
+  %111 = sub i64 %48, %106
+  %112 = ashr exact i64 %111, 3
+  %.not.i50 = icmp slt i64 %112, %91
   br i1 %.not.i50, label %._crit_edge.i51, label %.lr.ph.i.preheader.i29, !llvm.loop !121
 
 ._crit_edge.i51:                                  ; preds = %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i49", %"_ZSt17__merge_sort_loopIPPN4llvm10SDDbgValueES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_T2_.exit"
-  %.020.lcssa.i52 = phi ptr [ %0, %"_ZSt17__merge_sort_loopIPPN4llvm10SDDbgValueES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_T2_.exit" ], [ %108, %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i49" ]
-  %.0.lcssa.i53 = phi ptr [ %2, %"_ZSt17__merge_sort_loopIPPN4llvm10SDDbgValueES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_T2_.exit" ], [ %91, %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i49" ]
-  %.lcssa50.i54 = phi i64 [ %7, %"_ZSt17__merge_sort_loopIPPN4llvm10SDDbgValueES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_T2_.exit" ], [ %110, %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i49" ]
-  %.sroa.speculated.i55 = tail call i64 @llvm.smin.i64(i64 range(i64 -9223372036854775808, 2305843009213693949) %48, i64 %.lcssa50.i54)
-  %111 = getelementptr inbounds ptr, ptr %.0.lcssa.i53, i64 %.sroa.speculated.i55
-  %112 = icmp ne i64 %.sroa.speculated.i55, 0
-  %113 = icmp ne ptr %111, %8
-  %114 = and i1 %112, %113
-  br i1 %114, label %.lr.ph.i30.i63, label %._crit_edge.i23.i56
+  %.020.lcssa.i52 = phi ptr [ %0, %"_ZSt17__merge_sort_loopIPPN4llvm10SDDbgValueES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_T2_.exit" ], [ %110, %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i49" ]
+  %.0.lcssa.i53 = phi ptr [ %2, %"_ZSt17__merge_sort_loopIPPN4llvm10SDDbgValueES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_T2_.exit" ], [ %93, %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i49" ]
+  %.lcssa50.i54 = phi i64 [ %7, %"_ZSt17__merge_sort_loopIPPN4llvm10SDDbgValueES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_T2_.exit" ], [ %112, %"_ZSt12__move_mergeIPPN4llvm10SDDbgValueES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET0_T_SF_SF_SF_SE_T1_.exit.i49" ]
+  %.sroa.speculated.i55 = tail call i64 @llvm.smin.i64(i64 range(i64 -9223372036854775808, 2305843009213693949) %50, i64 %.lcssa50.i54)
+  %113 = getelementptr inbounds ptr, ptr %.0.lcssa.i53, i64 %.sroa.speculated.i55
+  %114 = icmp ne i64 %.sroa.speculated.i55, 0
+  %115 = icmp ne ptr %113, %8
+  %116 = and i1 %114, %115
+  br i1 %116, label %.lr.ph.i30.i63, label %._crit_edge.i23.i56
 
 .lr.ph.i30.i63:                                   ; preds = %._crit_edge.i51, %.lr.ph.i30.i63
-  %.025.i31.i64 = phi ptr [ %118, %.lr.ph.i30.i63 ], [ %.020.lcssa.i52, %._crit_edge.i51 ]
+  %.025.i31.i64 = phi ptr [ %120, %.lr.ph.i30.i63 ], [ %.020.lcssa.i52, %._crit_edge.i51 ]
   %.01824.i32.i65 = phi ptr [ %.1.i42.i75, %.lr.ph.i30.i63 ], [ %.0.lcssa.i53, %._crit_edge.i51 ]
-  %.01923.i33.i66 = phi ptr [ %.120.i40.i73, %.lr.ph.i30.i63 ], [ %111, %._crit_edge.i51 ]
+  %.01923.i33.i66 = phi ptr [ %.120.i40.i73, %.lr.ph.i30.i63 ], [ %113, %._crit_edge.i51 ]
   %.019.val.i34.i67 = load ptr, ptr %.01923.i33.i66, align 8
   %.018.val.i35.i68 = load ptr, ptr %.01824.i32.i65, align 8
-  %115 = getelementptr i8, ptr %.019.val.i34.i67, i64 56
-  %.019.val.val.i36.i69 = load i32, ptr %115, align 8
-  %116 = getelementptr i8, ptr %.018.val.i35.i68, i64 56
-  %.018.val.val.i37.i70 = load i32, ptr %116, align 8
-  %117 = icmp ult i32 %.019.val.val.i36.i69, %.018.val.val.i37.i70
-  %.018.val.sink.i38.i71 = select i1 %117, ptr %.019.val.i34.i67, ptr %.018.val.i35.i68
-  %.120.idx.i39.i72 = select i1 %117, i64 8, i64 0
+  %117 = getelementptr i8, ptr %.019.val.i34.i67, i64 56
+  %.019.val.val.i36.i69 = load i32, ptr %117, align 8
+  %118 = getelementptr i8, ptr %.018.val.i35.i68, i64 56
+  %.018.val.val.i37.i70 = load i32, ptr %118, align 8
+  %119 = icmp ult i32 %.019.val.val.i36.i69, %.018.val.val.i37.i70
+  %.018.val.sink.i38.i71 = select i1 %119, ptr %.019.val.i34.i67, ptr %.018.val.i35.i68
+  %.120.idx.i39.i72 = select i1 %119, i64 8, i64 0
   %.120.i40.i73 = getelementptr inbounds i8, ptr %.01923.i33.i66, i64 %.120.idx.i39.i72
-  %.1.idx.i41.i74 = select i1 %117, i64 0, i64 8
+  %.1.idx.i41.i74 = select i1 %119, i64 0, i64 8
   %.1.i42.i75 = getelementptr inbounds i8, ptr %.01824.i32.i65, i64 %.1.idx.i41.i74
   store ptr %.018.val.sink.i38.i71, ptr %.025.i31.i64, align 8
-  %118 = getelementptr inbounds i8, ptr %.025.i31.i64, i64 8
-  %119 = icmp ne ptr %.1.i42.i75, %111
-  %120 = icmp ne ptr %.120.i40.i73, %8
-  %121 = select i1 %119, i1 %120, i1 false
-  br i1 %121, label %.lr.ph.i30.i63, label %._crit_edge.i23.i56, !llvm.loop !120
+  %120 = getelementptr inbounds i8, ptr %.025.i31.i64, i64 8
+  %121 = icmp ne ptr %.1.i42.i75, %113
+  %122 = icmp ne ptr %.120.i40.i73, %8
+  %123 = select i1 %121, i1 %122, i1 false
+  br i1 %123, label %.lr.ph.i30.i63, label %._crit_edge.i23.i56, !llvm.loop !120
 
 ._crit_edge.i23.i56:                              ; preds = %.lr.ph.i30.i63, %._crit_edge.i51
-  %.019.lcssa.i24.i57 = phi ptr [ %111, %._crit_edge.i51 ], [ %.120.i40.i73, %.lr.ph.i30.i63 ]
+  %.019.lcssa.i24.i57 = phi ptr [ %113, %._crit_edge.i51 ], [ %.120.i40.i73, %.lr.ph.i30.i63 ]
   %.018.lcssa.i25.i58 = phi ptr [ %.0.lcssa.i53, %._crit_edge.i51 ], [ %.1.i42.i75, %.lr.ph.i30.i63 ]
-  %.0.lcssa.i26.i59 = phi ptr [ %.020.lcssa.i52, %._crit_edge.i51 ], [ %118, %.lr.ph.i30.i63 ]
-  %122 = ptrtoint ptr %111 to i64
-  %123 = ptrtoint ptr %.018.lcssa.i25.i58 to i64
-  %124 = sub i64 %122, %123
-  %.not.i.i.i.i.i.i27.i60 = icmp eq ptr %111, %.018.lcssa.i25.i58
-  br i1 %.not.i.i.i.i.i.i27.i60, label %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i28.i61, label %125
+  %.0.lcssa.i26.i59 = phi ptr [ %.020.lcssa.i52, %._crit_edge.i51 ], [ %120, %.lr.ph.i30.i63 ]
+  %124 = ptrtoint ptr %113 to i64
+  %125 = ptrtoint ptr %.018.lcssa.i25.i58 to i64
+  %126 = sub i64 %124, %125
+  %.not.i.i.i.i.i.i27.i60 = icmp eq ptr %113, %.018.lcssa.i25.i58
+  br i1 %.not.i.i.i.i.i.i27.i60, label %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i28.i61, label %127
 
-125:                                              ; preds = %._crit_edge.i23.i56
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.lcssa.i26.i59, ptr align 8 %.018.lcssa.i25.i58, i64 %124, i1 false)
+127:                                              ; preds = %._crit_edge.i23.i56
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.lcssa.i26.i59, ptr align 8 %.018.lcssa.i25.i58, i64 %126, i1 false)
   br label %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i28.i61
 
-_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i28.i61: ; preds = %125, %._crit_edge.i23.i56
+_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i28.i61: ; preds = %127, %._crit_edge.i23.i56
   %.not.i.i.i.i.i21.i29.i62 = icmp eq ptr %8, %.019.lcssa.i24.i57
-  br i1 %.not.i.i.i.i.i21.i29.i62, label %"_ZSt17__merge_sort_loopIPPN4llvm10SDDbgValueES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_T2_.exit76", label %126
+  br i1 %.not.i.i.i.i.i21.i29.i62, label %"_ZSt17__merge_sort_loopIPPN4llvm10SDDbgValueES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_T2_.exit76", label %128
 
-126:                                              ; preds = %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i28.i61
-  %127 = ptrtoint ptr %.019.lcssa.i24.i57 to i64
-  %128 = sub i64 %46, %127
-  %129 = getelementptr inbounds i8, ptr %.0.lcssa.i26.i59, i64 %124
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %129, ptr align 8 %.019.lcssa.i24.i57, i64 %128, i1 false)
+128:                                              ; preds = %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i28.i61
+  %129 = ptrtoint ptr %.019.lcssa.i24.i57 to i64
+  %130 = sub i64 %48, %129
+  %131 = getelementptr inbounds i8, ptr %.0.lcssa.i26.i59, i64 %126
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %131, ptr align 8 %.019.lcssa.i24.i57, i64 %130, i1 false)
   br label %"_ZSt17__merge_sort_loopIPPN4llvm10SDDbgValueES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_T2_.exit76"
 
-"_ZSt17__merge_sort_loopIPPN4llvm10SDDbgValueES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_T2_.exit76": ; preds = %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i28.i61, %126
-  %130 = icmp slt i64 %89, %7
-  br i1 %130, label %47, label %._crit_edge, !llvm.loop !122
+"_ZSt17__merge_sort_loopIPPN4llvm10SDDbgValueES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_T2_.exit76": ; preds = %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i28.i61, %128
+  %132 = icmp slt i64 %91, %7
+  br i1 %132, label %49, label %._crit_edge, !llvm.loop !122
 
 ._crit_edge:                                      ; preds = %"_ZSt17__merge_sort_loopIPPN4llvm10SDDbgValueES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_T2_.exit76", %"_ZSt22__chunk_insertion_sortIPPN4llvm10SDDbgValueElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_T1_.exit"
   ret void
@@ -10126,12 +10126,12 @@ _ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i: ; preds = %._crit_edge.i
 
 27:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIPPN4llvm10SDDbgValueES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
   %.not130 = phi i1 [ %.not122, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPPN4llvm10SDDbgValueES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr114129 = phi i64 [ %4, %.lr.ph ], [ %120, %_ZSt17__rotate_adaptiveIPPN4llvm10SDDbgValueES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr113128 = phi i64 [ %3, %.lr.ph ], [ %89, %_ZSt17__rotate_adaptiveIPPN4llvm10SDDbgValueES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr114129 = phi i64 [ %4, %.lr.ph ], [ %123, %_ZSt17__rotate_adaptiveIPPN4llvm10SDDbgValueES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr113128 = phi i64 [ %3, %.lr.ph ], [ %90, %_ZSt17__rotate_adaptiveIPPN4llvm10SDDbgValueES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
   %.tr111126 = phi ptr [ %1, %.lr.ph ], [ %.0107, %_ZSt17__rotate_adaptiveIPPN4llvm10SDDbgValueES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
   %.tr125 = phi ptr [ %0, %.lr.ph ], [ %.0.i97, %_ZSt17__rotate_adaptiveIPPN4llvm10SDDbgValueES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
   %.not71 = icmp sgt i64 %.tr114129, %6
-  br i1 %.not71, label %53, label %28
+  br i1 %.not71, label %54, label %28
 
 28:                                               ; preds = %27
   %.not.i.i.i.i.i73 = icmp eq ptr %2, %.tr111126
@@ -10189,209 +10189,210 @@ _ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit74.thread: ; preds = %28
   br label %35, !llvm.loop !124
 
 _ZSt13move_backwardIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.sink.split.i: ; preds = %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit74.thread, %42
-  %.sink41.i = phi ptr [ %43, %42 ], [ %31, %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit74.thread ]
+  %.sink42.i = phi ptr [ %43, %42 ], [ %31, %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit74.thread ]
   %.lcssa.sink.i = phi ptr [ %39, %42 ], [ %2, %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit74.thread ]
-  %48 = ptrtoint ptr %.sink41.i to i64
+  %48 = ptrtoint ptr %.sink42.i to i64
   %49 = ptrtoint ptr %5 to i64
   %50 = sub i64 %48, %49
   %51 = ashr exact i64 %50, 3
-  %.pre.i.i.i.i.i33.i = sub nsw i64 0, %51
-  %52 = getelementptr inbounds ptr, ptr %.lcssa.sink.i, i64 %.pre.i.i.i.i.i33.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %52, ptr align 8 %5, i64 %50, i1 false)
+  %52 = sub nsw i64 0, %51
+  %53 = getelementptr inbounds ptr, ptr %.lcssa.sink.i, i64 %52
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %53, ptr align 8 %5, i64 %50, i1 false)
   br label %"_ZSt21__move_merge_adaptiveIPPN4llvm10SDDbgValueES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_T0_SF_T1_T2_.exit"
 
-53:                                               ; preds = %27
-  %54 = ptrtoint ptr %.tr111126 to i64
+54:                                               ; preds = %27
+  %55 = ptrtoint ptr %.tr111126 to i64
   br i1 %.not130, label %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit, label %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit82
 
-_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit: ; preds = %53
-  %55 = sdiv i64 %.tr113128, 2
-  %56 = getelementptr inbounds ptr, ptr %.tr125, i64 %55
-  %57 = sub i64 %8, %54
-  %58 = ashr exact i64 %57, 3
-  %59 = icmp sgt i64 %58, 0
-  br i1 %59, label %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.lr.ph.i, label %"_ZSt13__lower_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit"
+_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit: ; preds = %54
+  %56 = sdiv i64 %.tr113128, 2
+  %57 = getelementptr inbounds ptr, ptr %.tr125, i64 %56
+  %58 = sub i64 %8, %55
+  %59 = ashr exact i64 %58, 3
+  %60 = icmp sgt i64 %59, 0
+  br i1 %60, label %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.lr.ph.i, label %"_ZSt13__lower_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit"
 
 _ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit
-  %.val = load ptr, ptr %56, align 8
-  %60 = getelementptr i8, ptr %.val, i64 56
-  %.val13.val.i = load i32, ptr %60, align 8
+  %.val = load ptr, ptr %57, align 8
+  %61 = getelementptr i8, ptr %.val, i64 56
+  %.val13.val.i = load i32, ptr %61, align 8
   br label %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.i
 
 _ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.i, %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.lr.ph.i
   %.05.i = phi ptr [ %.tr111126, %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.lr.ph.i ], [ %.1.i78, %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.i ]
-  %.0114.i = phi i64 [ %58, %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.i ]
-  %61 = lshr i64 %.0114.i, 1
-  %62 = getelementptr inbounds ptr, ptr %.05.i, i64 %61
-  %.val.i = load ptr, ptr %62, align 8
-  %63 = getelementptr i8, ptr %.val.i, i64 56
-  %.val.val.i = load i32, ptr %63, align 8
-  %64 = icmp ult i32 %.val.val.i, %.val13.val.i
-  %65 = getelementptr inbounds i8, ptr %62, i64 8
-  %66 = xor i64 %61, -1
-  %67 = add nsw i64 %.0114.i, %66
-  %.112.i = select i1 %64, i64 %67, i64 %61
-  %.1.i78 = select i1 %64, ptr %65, ptr %.05.i
-  %68 = icmp sgt i64 %.112.i, 0
-  br i1 %68, label %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit.loopexit", !llvm.loop !113
+  %.0114.i = phi i64 [ %59, %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.i ]
+  %62 = lshr i64 %.0114.i, 1
+  %63 = getelementptr inbounds ptr, ptr %.05.i, i64 %62
+  %.val.i = load ptr, ptr %63, align 8
+  %64 = getelementptr i8, ptr %.val.i, i64 56
+  %.val.val.i = load i32, ptr %64, align 8
+  %65 = icmp ult i32 %.val.val.i, %.val13.val.i
+  %66 = getelementptr inbounds i8, ptr %63, i64 8
+  %67 = xor i64 %62, -1
+  %68 = add nsw i64 %.0114.i, %67
+  %.112.i = select i1 %65, i64 %68, i64 %62
+  %.1.i78 = select i1 %65, ptr %66, ptr %.05.i
+  %69 = icmp sgt i64 %.112.i, 0
+  br i1 %69, label %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit.loopexit", !llvm.loop !113
 
 "_ZSt13__lower_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.i
   %.pre = ptrtoint ptr %.1.i78 to i64
   br label %"_ZSt13__lower_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit"
 
 "_ZSt13__lower_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit.loopexit" ], [ %54, %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit.loopexit" ], [ %55, %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit ]
   %.0.lcssa.i77 = phi ptr [ %.1.i78, %"_ZSt13__lower_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit.loopexit" ], [ %.tr111126, %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit ]
-  %69 = sub i64 %.pre-phi, %54
-  %70 = ashr exact i64 %69, 3
-  br label %88
+  %70 = sub i64 %.pre-phi, %55
+  %71 = ashr exact i64 %70, 3
+  br label %89
 
-_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit82: ; preds = %53
-  %71 = sdiv i64 %.tr114129, 2
-  %72 = getelementptr inbounds ptr, ptr %.tr111126, i64 %71
-  %73 = ptrtoint ptr %.tr125 to i64
-  %74 = sub i64 %54, %73
-  %75 = ashr exact i64 %74, 3
-  %76 = icmp sgt i64 %75, 0
-  br i1 %76, label %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.lr.ph.i85, label %"_ZSt13__upper_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit"
+_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit82: ; preds = %54
+  %72 = sdiv i64 %.tr114129, 2
+  %73 = getelementptr inbounds ptr, ptr %.tr111126, i64 %72
+  %74 = ptrtoint ptr %.tr125 to i64
+  %75 = sub i64 %55, %74
+  %76 = ashr exact i64 %75, 3
+  %77 = icmp sgt i64 %76, 0
+  br i1 %77, label %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.lr.ph.i85, label %"_ZSt13__upper_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit"
 
 _ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.lr.ph.i85: ; preds = %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit82
-  %.val72 = load ptr, ptr %72, align 8
-  %77 = getelementptr i8, ptr %.val72, i64 56
-  %.val.val.i86 = load i32, ptr %77, align 8
+  %.val72 = load ptr, ptr %73, align 8
+  %78 = getelementptr i8, ptr %.val72, i64 56
+  %.val.val.i86 = load i32, ptr %78, align 8
   br label %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.i87
 
 _ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.i87: ; preds = %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.i87, %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.lr.ph.i85
   %.05.i88 = phi ptr [ %.tr125, %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.lr.ph.i85 ], [ %.1.i94, %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.i87 ]
-  %.0114.i89 = phi i64 [ %75, %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.lr.ph.i85 ], [ %.112.i93, %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.i87 ]
-  %78 = lshr i64 %.0114.i89, 1
-  %79 = getelementptr inbounds ptr, ptr %.05.i88, i64 %78
-  %.val13.i = load ptr, ptr %79, align 8
-  %80 = getelementptr i8, ptr %.val13.i, i64 56
-  %.val13.val.i92 = load i32, ptr %80, align 8
-  %81 = icmp ult i32 %.val.val.i86, %.val13.val.i92
-  %82 = getelementptr inbounds i8, ptr %79, i64 8
-  %83 = xor i64 %78, -1
-  %84 = add nsw i64 %.0114.i89, %83
-  %.112.i93 = select i1 %81, i64 %78, i64 %84
-  %.1.i94 = select i1 %81, ptr %.05.i88, ptr %82
-  %85 = icmp sgt i64 %.112.i93, 0
-  br i1 %85, label %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.i87, label %"_ZSt13__upper_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit.loopexit", !llvm.loop !114
+  %.0114.i89 = phi i64 [ %76, %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.lr.ph.i85 ], [ %.112.i93, %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.i87 ]
+  %79 = lshr i64 %.0114.i89, 1
+  %80 = getelementptr inbounds ptr, ptr %.05.i88, i64 %79
+  %.val13.i = load ptr, ptr %80, align 8
+  %81 = getelementptr i8, ptr %.val13.i, i64 56
+  %.val13.val.i92 = load i32, ptr %81, align 8
+  %82 = icmp ult i32 %.val.val.i86, %.val13.val.i92
+  %83 = getelementptr inbounds i8, ptr %80, i64 8
+  %84 = xor i64 %79, -1
+  %85 = add nsw i64 %.0114.i89, %84
+  %.112.i93 = select i1 %82, i64 %79, i64 %85
+  %.1.i94 = select i1 %82, ptr %.05.i88, ptr %83
+  %86 = icmp sgt i64 %.112.i93, 0
+  br i1 %86, label %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.i87, label %"_ZSt13__upper_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit.loopexit", !llvm.loop !114
 
 "_ZSt13__upper_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit.i87
   %.pre138 = ptrtoint ptr %.1.i94 to i64
   br label %"_ZSt13__upper_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit"
 
 "_ZSt13__upper_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit82
-  %.pre-phi139 = phi i64 [ %.pre138, %"_ZSt13__upper_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit.loopexit" ], [ %73, %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit82 ]
+  %.pre-phi139 = phi i64 [ %.pre138, %"_ZSt13__upper_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit.loopexit" ], [ %74, %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit82 ]
   %.0.lcssa.i84 = phi ptr [ %.1.i94, %"_ZSt13__upper_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit.loopexit" ], [ %.tr125, %_ZSt7advanceIPPN4llvm10SDDbgValueElEvRT_T0_.exit82 ]
-  %86 = sub i64 %.pre-phi139, %73
-  %87 = ashr exact i64 %86, 3
-  br label %88
+  %87 = sub i64 %.pre-phi139, %74
+  %88 = ashr exact i64 %87, 3
+  br label %89
 
-88:                                               ; preds = %"_ZSt13__upper_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit", %"_ZSt13__lower_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit"
-  %.0108 = phi ptr [ %56, %"_ZSt13__lower_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit" ], [ %.0.lcssa.i84, %"_ZSt13__upper_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit" ]
-  %.0107 = phi ptr [ %.0.lcssa.i77, %"_ZSt13__lower_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit" ], [ %72, %"_ZSt13__upper_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit" ]
-  %.066 = phi i64 [ %70, %"_ZSt13__lower_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit" ], [ %71, %"_ZSt13__upper_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit" ]
-  %.0 = phi i64 [ %55, %"_ZSt13__lower_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit" ], [ %87, %"_ZSt13__upper_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit" ]
-  %89 = sub nsw i64 %.tr113128, %.0
-  %90 = icmp sle i64 %89, %.066
+89:                                               ; preds = %"_ZSt13__upper_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit", %"_ZSt13__lower_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit"
+  %.0108 = phi ptr [ %57, %"_ZSt13__lower_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit" ], [ %.0.lcssa.i84, %"_ZSt13__upper_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit" ]
+  %.0107 = phi ptr [ %.0.lcssa.i77, %"_ZSt13__lower_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit" ], [ %73, %"_ZSt13__upper_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit" ]
+  %.066 = phi i64 [ %71, %"_ZSt13__lower_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit" ], [ %72, %"_ZSt13__upper_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit" ]
+  %.0 = phi i64 [ %56, %"_ZSt13__lower_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit" ], [ %88, %"_ZSt13__upper_boundIPPN4llvm10SDDbgValueES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEET_SE_SE_RKT0_T1_.exit" ]
+  %90 = sub nsw i64 %.tr113128, %.0
+  %91 = icmp sle i64 %90, %.066
   %.not.i = icmp sgt i64 %.066, %6
-  %or.cond.i = or i1 %.not.i, %90
-  br i1 %or.cond.i, label %104, label %91
+  %or.cond.i = or i1 %.not.i, %91
+  br i1 %or.cond.i, label %106, label %92
 
-91:                                               ; preds = %88
+92:                                               ; preds = %89
   %.not35.i = icmp eq i64 %.066, 0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPPN4llvm10SDDbgValueES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %92
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPPN4llvm10SDDbgValueES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %93
 
-92:                                               ; preds = %91
-  %93 = ptrtoint ptr %.0107 to i64
-  %94 = ptrtoint ptr %.tr111126 to i64
-  %95 = sub i64 %93, %94
+93:                                               ; preds = %92
+  %94 = ptrtoint ptr %.0107 to i64
+  %95 = ptrtoint ptr %.tr111126 to i64
+  %96 = sub i64 %94, %95
   %.not.i.i.i.i.i.i95 = icmp eq ptr %.0107, %.tr111126
-  br i1 %.not.i.i.i.i.i.i95, label %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i96, label %96
+  br i1 %.not.i.i.i.i.i.i95, label %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i96, label %97
 
-96:                                               ; preds = %92
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr111126, i64 %95, i1 false)
+97:                                               ; preds = %93
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr111126, i64 %96, i1 false)
   br label %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i96
 
-_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i96: ; preds = %96, %92
+_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i96: ; preds = %97, %93
   %.not.i.i.i.i.i36.i = icmp eq ptr %.tr111126, %.0108
-  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i, label %97
+  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i, label %98
 
-97:                                               ; preds = %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i96
-  %98 = ptrtoint ptr %.0108 to i64
-  %99 = sub i64 %94, %98
-  %100 = ashr exact i64 %99, 3
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %100
-  %101 = getelementptr inbounds ptr, ptr %.0107, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %101, ptr align 8 %.0108, i64 %99, i1 false)
+98:                                               ; preds = %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i96
+  %99 = ptrtoint ptr %.0108 to i64
+  %100 = sub i64 %95, %99
+  %101 = ashr exact i64 %100, 3
+  %102 = sub nsw i64 0, %101
+  %103 = getelementptr inbounds ptr, ptr %.0107, i64 %102
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %103, ptr align 8 %.0108, i64 %100, i1 false)
   br label %_ZSt13move_backwardIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i
 
-_ZSt13move_backwardIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i: ; preds = %97, %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i96
-  br i1 %.not.i.i.i.i.i.i95, label %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit38.i, label %102
+_ZSt13move_backwardIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i: ; preds = %98, %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i96
+  br i1 %.not.i.i.i.i.i.i95, label %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit38.i, label %104
 
-102:                                              ; preds = %_ZSt13move_backwardIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0108, ptr align 8 %5, i64 %95, i1 false)
+104:                                              ; preds = %_ZSt13move_backwardIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0108, ptr align 8 %5, i64 %96, i1 false)
   br label %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit38.i
 
-_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit38.i: ; preds = %102, %_ZSt13move_backwardIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i
-  %103 = getelementptr inbounds i8, ptr %.0108, i64 %95
+_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit38.i: ; preds = %104, %_ZSt13move_backwardIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit.i
+  %105 = getelementptr inbounds i8, ptr %.0108, i64 %96
   br label %_ZSt17__rotate_adaptiveIPPN4llvm10SDDbgValueES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
-104:                                              ; preds = %88
-  %.not33.i = icmp sgt i64 %89, %6
-  br i1 %.not33.i, label %118, label %105
+106:                                              ; preds = %89
+  %.not33.i = icmp sgt i64 %90, %6
+  br i1 %.not33.i, label %121, label %107
 
-105:                                              ; preds = %104
+107:                                              ; preds = %106
   %.not34.i = icmp eq i64 %.tr113128, %.0
-  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPPN4llvm10SDDbgValueES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %106
+  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPPN4llvm10SDDbgValueES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %108
 
-106:                                              ; preds = %105
-  %107 = ptrtoint ptr %.tr111126 to i64
-  %108 = ptrtoint ptr %.0108 to i64
-  %109 = sub i64 %107, %108
+108:                                              ; preds = %107
+  %109 = ptrtoint ptr %.tr111126 to i64
+  %110 = ptrtoint ptr %.0108 to i64
+  %111 = sub i64 %109, %110
   %.not.i.i.i.i.i39.i = icmp eq ptr %.tr111126, %.0108
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit40.i, label %110
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit40.i, label %112
 
-110:                                              ; preds = %106
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.0108, i64 %109, i1 false)
+112:                                              ; preds = %108
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.0108, i64 %111, i1 false)
   br label %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit40.i
 
-_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit40.i: ; preds = %110, %106
+_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit40.i: ; preds = %112, %108
   %.not.i.i.i.i.i41.i = icmp eq ptr %.0107, %.tr111126
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit42.i, label %111
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit42.i, label %113
 
-111:                                              ; preds = %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit40.i
-  %112 = ptrtoint ptr %.0107 to i64
-  %113 = sub i64 %112, %107
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0108, ptr align 8 %.tr111126, i64 %113, i1 false)
+113:                                              ; preds = %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit40.i
+  %114 = ptrtoint ptr %.0107 to i64
+  %115 = sub i64 %114, %109
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0108, ptr align 8 %.tr111126, i64 %115, i1 false)
   br label %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit42.i
 
-_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit42.i: ; preds = %111, %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit40.i
-  %114 = ashr exact i64 %109, 3
-  %.pre.i.i.i.i.i44.i = sub nsw i64 0, %114
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit45.i, label %115
+_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit42.i: ; preds = %113, %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit40.i
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit45.i, label %116
 
-115:                                              ; preds = %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit42.i
-  %116 = getelementptr inbounds ptr, ptr %.0107, i64 %.pre.i.i.i.i.i44.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %116, ptr align 8 %5, i64 %109, i1 false)
+116:                                              ; preds = %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit42.i
+  %117 = ashr exact i64 %111, 3
+  %118 = sub nsw i64 0, %117
+  %119 = getelementptr inbounds ptr, ptr %.0107, i64 %118
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %119, ptr align 8 %5, i64 %111, i1 false)
   br label %_ZSt13move_backwardIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit45.i
 
-_ZSt13move_backwardIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit45.i: ; preds = %115, %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit42.i
-  %117 = getelementptr inbounds ptr, ptr %.0107, i64 %.pre.i.i.i.i.i44.i
+_ZSt13move_backwardIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit45.i: ; preds = %116, %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit42.i
+  %.pre-phi.i.i.i.i.i44.i = phi i64 [ %118, %116 ], [ 0, %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit42.i ]
+  %120 = getelementptr inbounds ptr, ptr %.0107, i64 %.pre-phi.i.i.i.i.i44.i
   br label %_ZSt17__rotate_adaptiveIPPN4llvm10SDDbgValueES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
-118:                                              ; preds = %104
-  %119 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN4llvm10SDDbgValueEEET_S5_S5_S5_St26random_access_iterator_tag(ptr noundef %.0108, ptr noundef %.tr111126, ptr noundef %.0107)
+121:                                              ; preds = %106
+  %122 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN4llvm10SDDbgValueEEET_S5_S5_S5_St26random_access_iterator_tag(ptr noundef %.0108, ptr noundef %.tr111126, ptr noundef %.0107)
   br label %_ZSt17__rotate_adaptiveIPPN4llvm10SDDbgValueES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
-_ZSt17__rotate_adaptiveIPPN4llvm10SDDbgValueES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit: ; preds = %91, %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit38.i, %105, %_ZSt13move_backwardIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit45.i, %118
-  %.0.i97 = phi ptr [ %103, %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit38.i ], [ %117, %_ZSt13move_backwardIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit45.i ], [ %119, %118 ], [ %.0108, %91 ], [ %.0107, %105 ]
+_ZSt17__rotate_adaptiveIPPN4llvm10SDDbgValueES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit: ; preds = %92, %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit38.i, %107, %_ZSt13move_backwardIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit45.i, %121
+  %.0.i97 = phi ptr [ %105, %_ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit38.i ], [ %120, %_ZSt13move_backwardIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit45.i ], [ %122, %121 ], [ %.0108, %92 ], [ %.0107, %107 ]
   tail call fastcc void @"_ZSt16__merge_adaptiveIPPN4llvm10SDDbgValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18ScheduleDAGSDNodes12EmitScheduleERNS0_26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEE3$_1EEEvT_SE_SE_T0_SF_T1_SF_T2_"(ptr noundef %.tr125, ptr noundef %.0108, ptr noundef %.0.i97, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
-  %120 = sub nsw i64 %.tr114129, %.066
-  %.not = icmp sgt i64 %89, %120
-  %.not70 = icmp sgt i64 %89, %6
+  %123 = sub nsw i64 %.tr114129, %.066
+  %.not = icmp sgt i64 %90, %123
+  %.not70 = icmp sgt i64 %90, %6
   %or.cond = or i1 %.not70, %.not
   br i1 %or.cond, label %27, label %tailrecurse._crit_edge
 

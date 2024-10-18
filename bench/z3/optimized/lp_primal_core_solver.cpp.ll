@@ -7157,8 +7157,8 @@ if.then3.i96:                                     ; preds = %_ZN9__gnu_cxx5__ops
   %sub.ptr.lhs.cast.i.i.i.i.i.i98 = ptrtoint ptr %__i.016.i37 to i64
   %sub.ptr.sub.i.i.i.i.i.i99 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i98, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i.i100 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i99, 2
-  %.pre.i.i.i.i.i.i101 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i100
-  %add.ptr.i.i.i.i.i.i102 = getelementptr inbounds i32, ptr %add.ptr4.i97, i64 %.pre.i.i.i.i.i.i101
+  %idx.neg.i.i.i.i.i.i101 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i100
+  %add.ptr.i.i.i.i.i.i102 = getelementptr inbounds i32, ptr %add.ptr4.i97, i64 %idx.neg.i.i.i.i.i.i101
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i102, ptr noundef nonnull align 4 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i99, i1 false)
   br label %for.inc.i86
 
@@ -15389,8 +15389,8 @@ if.then3.i96:                                     ; preds = %_ZN9__gnu_cxx5__ops
   %sub.ptr.lhs.cast.i.i.i.i.i.i98 = ptrtoint ptr %__i.016.i37 to i64
   %sub.ptr.sub.i.i.i.i.i.i99 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i98, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i.i100 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i99, 2
-  %.pre.i.i.i.i.i.i101 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i100
-  %add.ptr.i.i.i.i.i.i102 = getelementptr inbounds i32, ptr %add.ptr4.i97, i64 %.pre.i.i.i.i.i.i101
+  %idx.neg.i.i.i.i.i.i101 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i100
+  %add.ptr.i.i.i.i.i.i102 = getelementptr inbounds i32, ptr %add.ptr4.i97, i64 %idx.neg.i.i.i.i.i.i101
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i102, ptr noundef nonnull align 4 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i99, i1 false)
   br label %for.inc.i86
 

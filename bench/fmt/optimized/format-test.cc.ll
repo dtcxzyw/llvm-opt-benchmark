@@ -135449,7 +135449,7 @@ _ZN3fmt3v109format_toISt20back_insert_iteratorISt6vectorIcSaIcEEEJRA4_KcETnNSt9e
   %size_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %sub.ptr.sub.i, ptr %size_.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %6, %5
-  br i1 %cmp.i.i.i.i.i, label %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %if.end.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZN3fmt3v109format_toISt20back_insert_iteratorISt6vectorIcSaIcEEEJRA4_KcETnNSt9enable_ifIXsr6detail18is_output_iteratorIT_cEE5valueEiE4typeELi0EEESB_SB_NS0_19basic_format_stringIcJDpNS0_13type_identityIT0_E4typeEEEEDpOSG_.exit
   %.other.coerce1.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i, i64 3)
@@ -135459,15 +135459,11 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZN3fmt3v109forma
   %or.cond.i.i = and i1 %7, %cmp6.i.i.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end.i.i
 
-_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i.i: ; preds = %_ZN3fmt3v109format_toISt20back_insert_iteratorISt6vectorIcSaIcEEEJRA4_KcETnNSt9enable_ifIXsr6detail18is_output_iteratorIT_cEE5valueEiE4typeELi0EEESB_SB_NS0_19basic_format_stringIcJDpNS0_13type_identityIT0_E4typeEEEEDpOSG_.exit
-  %.old.i.i = icmp eq i64 %sub.ptr.sub.i, 3
-  br i1 %.old.i.i, label %if.then.i.i, label %if.end.i.i
-
-if.then.i.i:                                      ; preds = %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+if.then.i.i:                                      ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
           to label %invoke.cont10 unwind label %lpad
 
-if.end.i.i:                                       ; preds = %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+if.end.i.i:                                       ; preds = %_ZN3fmt3v109format_toISt20back_insert_iteratorISt6vectorIcSaIcEEEJRA4_KcETnNSt9enable_ifIXsr6detail18is_output_iteratorIT_cEE5valueEiE4typeELi0EEESB_SB_NS0_19basic_format_stringIcJDpNS0_13type_identityIT0_E4typeEEEEDpOSG_.exit, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIN3fmt3v1017basic_string_viewIcEEA4_cEENS_15AssertionResultEPKcS9_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.2035, ptr noundef nonnull @.str.1757, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(4) @.str.543)
           to label %invoke.cont10 unwind label %lpad
 

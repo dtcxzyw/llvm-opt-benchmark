@@ -1811,19 +1811,15 @@ sw.bb25:                                          ; preds = %for.inc, %for.body,
   %sub.ptr.rhs.cast.i119 = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i120 = sub i64 %sub.ptr.lhs.cast.i118, %sub.ptr.rhs.cast.i119
   %cmp31184.not = icmp eq ptr %10, %11
-  br i1 %cmp31184.not, label %for.end41, label %for.body32.preheader
-
-for.body32.preheader:                             ; preds = %sw.bb25
-  %umax210 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i120, i64 1)
-  br label %for.body32
+  br i1 %cmp31184.not, label %for.end41, label %for.body32
 
 for.cond28:                                       ; preds = %for.body32
   %inc40 = add nuw i64 %i27.0185, 1
-  %exitcond211.not = icmp eq i64 %inc40, %umax210
+  %exitcond211.not = icmp eq i64 %inc40, %sub.ptr.sub.i120
   br i1 %exitcond211.not, label %for.end41, label %for.body32, !llvm.loop !18
 
-for.body32:                                       ; preds = %for.body32.preheader, %for.cond28
-  %i27.0185 = phi i64 [ %inc40, %for.cond28 ], [ 0, %for.body32.preheader ]
+for.body32:                                       ; preds = %sw.bb25, %for.cond28
+  %i27.0185 = phi i64 [ %inc40, %for.cond28 ], [ 0, %sw.bb25 ]
   %add.ptr.i121 = getelementptr inbounds i8, ptr %11, i64 %i27.0185
   %12 = load i8, ptr %add.ptr.i121, align 1
   %cmp36 = icmp eq i8 %12, 34

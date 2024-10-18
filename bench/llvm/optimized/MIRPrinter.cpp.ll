@@ -20471,7 +20471,7 @@ _ZNSt12_Vector_baseIN4llvm4yaml22DebugValueSubstitutionESaIS2_EE13_M_deallocateE
   br label %_ZSt4copyIPN4llvm4yaml22DebugValueSubstitutionES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPN4llvm4yaml22DebugValueSubstitutionES3_ET0_T_S5_S4_.exit: ; preds = %32, %33
-  %.pre-phi33 = phi i64 [ %29, %32 ], [ %.pre32, %33 ]
+  %.pre-phi33 = phi i64 [ 0, %32 ], [ %.pre32, %33 ]
   %34 = phi ptr [ %5, %32 ], [ %.pre28, %33 ]
   %35 = phi ptr [ %27, %32 ], [ %.pre26, %33 ]
   %36 = phi ptr [ %6, %32 ], [ %.pre, %33 ]

@@ -885,7 +885,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %290, %_ZNSt6ve
   br label %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i
 
 _ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i:               ; preds = %299, %298
-  %.pre-phi33.i = phi i64 [ %295, %298 ], [ %.pre32.i, %299 ]
+  %.pre-phi33.i = phi i64 [ 0, %298 ], [ %.pre32.i, %299 ]
   %300 = phi ptr [ %273, %298 ], [ %.pre28.i, %299 ]
   %301 = phi ptr [ %293, %298 ], [ %.pre26.i, %299 ]
   %302 = phi ptr [ %274, %298 ], [ %.pre.i, %299 ]

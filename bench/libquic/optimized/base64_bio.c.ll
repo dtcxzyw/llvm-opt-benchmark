@@ -673,8 +673,6 @@ sw.bb6:                                           ; preds = %entry
   %4 = load i32, ptr %0, align 4
   %buf_off = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %buf_off, align 4
-  %sub = sub nsw i32 %4, %5
-  %conv = zext nneg i32 %sub to i64
   %cmp7 = icmp eq i32 %4, %5
   br i1 %cmp7, label %land.lhs.true, label %if.else17
 
@@ -682,19 +680,21 @@ land.lhs.true:                                    ; preds = %sw.bb6
   %encode9 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i32, ptr %encode9, align 4
   %cmp10.not = icmp eq i32 %6, 0
-  br i1 %cmp10.not, label %if.else17, label %land.lhs.true12
+  br i1 %cmp10.not, label %if.then20, label %land.lhs.true12
 
 land.lhs.true12:                                  ; preds = %land.lhs.true
   %base64 = getelementptr inbounds i8, ptr %0, i64 28
   %7 = load i32, ptr %base64, align 4
   %cmp14.not = icmp eq i32 %7, 0
-  br i1 %cmp14.not, label %if.else17, label %return
+  br i1 %cmp14.not, label %if.then20, label %return
 
-if.else17:                                        ; preds = %land.lhs.true12, %land.lhs.true, %sw.bb6
+if.else17:                                        ; preds = %sw.bb6
+  %sub = sub nsw i32 %4, %5
+  %conv = zext nneg i32 %sub to i64
   %cmp18 = icmp slt i32 %sub, 1
   br i1 %cmp18, label %if.then20, label %return
 
-if.then20:                                        ; preds = %if.else17
+if.then20:                                        ; preds = %land.lhs.true, %land.lhs.true12, %if.else17
   %next_bio21 = getelementptr inbounds i8, ptr %b, i64 56
   %8 = load ptr, ptr %next_bio21, align 8
   %call22 = tail call i64 @BIO_ctrl(ptr noundef %8, i32 noundef 13, i64 noundef %num, ptr noundef %ptr) #10

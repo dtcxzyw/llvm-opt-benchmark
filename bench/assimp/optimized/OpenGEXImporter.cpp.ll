@@ -1210,7 +1210,7 @@ _ZNSt16allocator_traitsISaIPN10ODDLParser7DDLNodeEEE8allocateERS3_m.exit.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %_ZNSt16allocator_traitsISaIPN10ODDLParser7DDLNodeEEE8allocateERS3_m.exit.i.i.i.i, %if.end
-  %sub.ptr.sub.i.i.i.i.i.i.i.i.i.pre-phi = phi i64 [ %.pre118, %_ZNSt16allocator_traitsISaIPN10ODDLParser7DDLNodeEEE8allocateERS3_m.exit.i.i.i.i ], [ %sub.ptr.sub.i.i, %if.end ]
+  %sub.ptr.sub.i.i.i.i.i.i.i.i.i.pre-phi = phi i64 [ %.pre118, %_ZNSt16allocator_traitsISaIPN10ODDLParser7DDLNodeEEE8allocateERS3_m.exit.i.i.i.i ], [ 0, %if.end ]
   %2 = phi ptr [ %.pre115, %_ZNSt16allocator_traitsISaIPN10ODDLParser7DDLNodeEEE8allocateERS3_m.exit.i.i.i.i ], [ %0, %if.end ]
   %3 = phi ptr [ %.pre, %_ZNSt16allocator_traitsISaIPN10ODDLParser7DDLNodeEEE8allocateERS3_m.exit.i.i.i.i ], [ %1, %if.end ]
   %cond.i.i.i.i = phi ptr [ %call5.i.i.i.i2.i6.i, %_ZNSt16allocator_traitsISaIPN10ODDLParser7DDLNodeEEE8allocateERS3_m.exit.i.i.i.i ], [ null, %if.end ]

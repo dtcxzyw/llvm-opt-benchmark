@@ -3933,8 +3933,8 @@ if.then2.i38:                                     ; preds = %for.body.i20
   %sub.ptr.lhs.cast.i.i.i.i.i.i40 = ptrtoint ptr %__i.015.i21 to i64
   %sub.ptr.sub.i.i.i.i.i.i41 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i40, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i.i42 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i41, 3
-  %.pre.i.i.i.i.i.i43 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i42
-  %add.ptr.i.i.i.i.i.i44 = getelementptr inbounds ptr, ptr %add.ptr3.i39, i64 %.pre.i.i.i.i.i.i43
+  %idx.neg.i.i.i.i.i.i43 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i42
+  %add.ptr.i.i.i.i.i.i44 = getelementptr inbounds ptr, ptr %add.ptr3.i39, i64 %idx.neg.i.i.i.i.i.i43
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i44, ptr noundef nonnull align 8 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i41, i1 false)
   br label %for.inc.i28
 

@@ -42470,7 +42470,7 @@ _ZN9QtPrivate12QPodArrayOpsIP14RtpAudioStreamE5eraseEPS2_x.exit.i.i: ; preds = %
   br label %_ZN5QListIP14RtpAudioStreamE5eraseENS2_14const_iteratorES3_.exit
 
 _ZN5QListIP14RtpAudioStreamE5eraseENS2_14const_iteratorES3_.exit: ; preds = %_ZN9QtPrivate12QPodArrayOpsIP14RtpAudioStreamE5eraseEPS2_x.exit.i.i, %._crit_edge, %_ZSt7find_ifIN5QListIP14RtpAudioStreamE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit
-  %.0 = phi i64 [ 0, %_ZSt7find_ifIN5QListIP14RtpAudioStreamE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit ], [ %85, %._crit_edge ], [ %85, %_ZN9QtPrivate12QPodArrayOpsIP14RtpAudioStreamE5eraseEPS2_x.exit.i.i ]
+  %.0 = phi i64 [ 0, %_ZSt7find_ifIN5QListIP14RtpAudioStreamE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit ], [ 0, %._crit_edge ], [ %85, %_ZN9QtPrivate12QPodArrayOpsIP14RtpAudioStreamE5eraseEPS2_x.exit.i.i ]
   ret i64 %.0
 }
 

@@ -11589,13 +11589,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_DumpPathStatsEv() local_
   %70 = sub i64 %68, %69
   %71 = ashr exact i64 %70, 2
   %.not48 = icmp eq ptr %66, %67
-  br i1 %.not48, label %.preheader, label %.lr.ph39.preheader
+  br i1 %.not48, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %.lr.ph39.preheader
 
 .lr.ph39.preheader:                               ; preds = %._crit_edge
   %umax50 = tail call i64 @llvm.umax.i64(i64 %71, i64 1)
   br label %.lr.ph39
 
-.preheader:                                       ; preds = %.lr.ph39, %._crit_edge
+.preheader:                                       ; preds = %.lr.ph39
   %72 = icmp ugt i64 %71, 1
   br i1 %72, label %.lr.ph44, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i
 
@@ -11624,8 +11624,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_DumpPathStatsEv() local_
   %83 = uitofp i64 %81 to float
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit.i
 
-_ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %._crit_edge45.loopexit, %.preheader
-  %.024.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %83, %._crit_edge45.loopexit ]
+_ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %._crit_edge, %._crit_edge45.loopexit, %.preheader
+  %.024.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %83, %._crit_edge45.loopexit ], [ 0.000000e+00, %._crit_edge ]
   %84 = load i32, ptr %67, align 4
   %85 = sub nsw i32 %14, %84
   %86 = sitofp i32 %85 to float

@@ -2117,7 +2117,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i: ; preds = %785, %_ZNSt6ve
   br label %_ZSt4copyIPfS0_ET0_T_S2_S1_.exit.i
 
 _ZSt4copyIPfS0_ET0_T_S2_S1_.exit.i:               ; preds = %794, %793
-  %.pre-phi33.i = phi i64 [ %790, %793 ], [ %.pre32.i, %794 ]
+  %.pre-phi33.i = phi i64 [ 0, %793 ], [ %.pre32.i, %794 ]
   %795 = phi ptr [ %770, %793 ], [ %.pre28.i, %794 ]
   %796 = phi ptr [ %788, %793 ], [ %.pre26.i, %794 ]
   %797 = phi ptr [ %771, %793 ], [ %.pre.i, %794 ]
@@ -2224,7 +2224,7 @@ _ZNSt12_Vector_baseIN5faiss24ClusteringIterationStatsESaIS1_EE13_M_deallocateEPS
   br label %_ZSt4copyIPN5faiss24ClusteringIterationStatsES2_ET0_T_S4_S3_.exit.i
 
 _ZSt4copyIPN5faiss24ClusteringIterationStatsES2_ET0_T_S4_S3_.exit.i: ; preds = %831, %830
-  %.pre-phi33.i288 = phi i64 [ %827, %830 ], [ %.pre32.i287, %831 ]
+  %.pre-phi33.i288 = phi i64 [ 0, %830 ], [ %.pre32.i287, %831 ]
   %832 = phi ptr [ %806, %830 ], [ %.pre28.i284, %831 ]
   %833 = phi ptr [ %825, %830 ], [ %.pre26.i282, %831 ]
   %834 = phi ptr [ %807, %830 ], [ %.pre.i281, %831 ]
@@ -2701,7 +2701,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit: ; preds = %_ZNSt6vectorIfSa
   br label %_ZSt4copyIPfS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPfS0_ET0_T_S2_S1_.exit:                 ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]
@@ -2812,7 +2812,7 @@ _ZNSt12_Vector_baseIN5faiss24ClusteringIterationStatsESaIS1_EE13_M_deallocateEPS
   br label %_ZSt4copyIPN5faiss24ClusteringIterationStatsES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPN5faiss24ClusteringIterationStatsES2_ET0_T_S4_S3_.exit: ; preds = %32, %33
-  %.pre-phi33 = phi i64 [ %29, %32 ], [ %.pre32, %33 ]
+  %.pre-phi33 = phi i64 [ 0, %32 ], [ %.pre32, %33 ]
   %34 = phi ptr [ %5, %32 ], [ %.pre28, %33 ]
   %35 = phi ptr [ %27, %32 ], [ %.pre26, %33 ]
   %36 = phi ptr [ %6, %32 ], [ %.pre, %33 ]

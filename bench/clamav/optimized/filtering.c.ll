@@ -1680,7 +1680,7 @@ get_score.exit.thread:                            ; preds = %466, %get_score.exi
   %.1518529 = phi i32 [ %.1518, %get_score.exit ], [ -7340032, %466 ]
   %.2521528 = phi i32 [ %.2521, %get_score.exit ], [ -7340032, %466 ]
   %590 = trunc i64 %456 to i32
-  %591 = sub i32 6, %590
+  %591 = sub nuw nsw i32 6, %590
   %592 = mul i32 %.2521528, %591
   %593 = mul i32 %.1518529, %591
   br label %594

@@ -2858,19 +2858,12 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc137
 
 .noexc144:                                        ; preds = %31
   store i32 0, ptr %32, align 4
-  br i1 %28, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit145, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i140
+  br i1 %28, label %._crit_edge, label %.lr.ph.preheader
 
-_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i140: ; preds = %.noexc144
+.lr.ph.preheader:                                 ; preds = %.noexc144
   %33 = getelementptr i8, ptr %32, i64 4
   %34 = add nsw i64 %26, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %33, i8 0, i64 %34, i1 false)
-  br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit145
-
-_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit145:            ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i140, %.noexc144
-  %.not125245 = icmp eq i32 %21, %19
-  br i1 %.not125245, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit145
   %35 = add i32 %21, 1
   %36 = sub i32 %35, %19
   %wide.trip.count = zext i32 %36 to i64
@@ -2891,9 +2884,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit165.thread:          ; preds = %31
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit165
 
-._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit145
-  %.sroa.0195.0320 = phi ptr [ %32, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit145 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %32, %.lr.ph ]
-  %.sroa.0206.0217318 = phi ptr [ %27, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit145 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %27, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %.noexc144
+  %.sroa.0195.0320 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %32, %.noexc144 ], [ %32, %.lr.ph ]
+  %.sroa.0206.0217318 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %27, %.noexc144 ], [ %27, %.lr.ph ]
   store i32 0, ptr %.sroa.0206.0217318, align 4
   %40 = trunc i64 %15 to i32
   %41 = sext i32 %22 to i64

@@ -65087,8 +65087,8 @@ if.then.i.i.i.i.i:                                ; preds = %if.then11
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %1, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i, ptr align 8 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %invoke.cont20
 
@@ -74582,7 +74582,7 @@ _ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream12appendLengthE
   br i1 %exitcond.not.i, label %if.end35.i, label %for.body.i220, !llvm.loop !617
 
 if.end35.i:                                       ; preds = %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream12appendLengthEi.exit.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream13appendNonNullEi.exit.i216, %if.then.i238, %for.end.i236
-  %numInnerRows.0.i = phi i64 [ %conv21.i, %for.end.i236 ], [ %conv21.i, %if.then.i238 ], [ %sub.ptr.div.i333, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream13appendNonNullEi.exit.i216 ], [ %sub.ptr.div.i333, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream12appendLengthEi.exit.i ]
+  %numInnerRows.0.i = phi i64 [ %conv21.i, %for.end.i236 ], [ %conv21.i, %if.then.i238 ], [ 0, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream13appendNonNullEi.exit.i216 ], [ %sub.ptr.div.i333, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream12appendLengthEi.exit.i ]
   %innerRows.0.i = phi ptr [ %call16.i, %for.end.i236 ], [ %call16.i, %if.then.i238 ], [ %392, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream13appendNonNullEi.exit.i216 ], [ %392, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream12appendLengthEi.exit.i ]
   %childrenSize_.i206 = getelementptr inbounds i8, ptr %vector.tr, i64 104
   %436 = load i64, ptr %childrenSize_.i206, align 8

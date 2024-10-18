@@ -2830,7 +2830,7 @@ _ZN4llvm10MIMetadataD2Ev.exit.i.i:                ; preds = %448, %_ZN4llvm10MIM
 
 490:                                              ; preds = %484
   %491 = select i1 %.0.i.i.i, i32 4096, i32 0
-  %492 = shl i32 %485, 9
+  %492 = shl nuw nsw i32 %485, 9
   %493 = or i32 %492, %491
   %494 = or i32 %493, %488
   %495 = load ptr, ptr %108, align 8

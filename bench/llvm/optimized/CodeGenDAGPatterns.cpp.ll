@@ -42510,7 +42510,7 @@ _ZNSt12_Vector_baseIN4llvm17TreePredicateCallESaIS1_EE13_M_deallocateEPS1_m.exit
   br label %_ZSt4copyIPN4llvm17TreePredicateCallES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPN4llvm17TreePredicateCallES2_ET0_T_S4_S3_.exit: ; preds = %34, %35
-  %.pre-phi33 = phi i64 [ %31, %34 ], [ %.pre32, %35 ]
+  %.pre-phi33 = phi i64 [ 0, %34 ], [ %.pre32, %35 ]
   %36 = phi ptr [ %5, %34 ], [ %.pre28, %35 ]
   %37 = phi ptr [ %29, %34 ], [ %.pre26, %35 ]
   %38 = phi ptr [ %6, %34 ], [ %.pre, %35 ]
@@ -47147,65 +47147,65 @@ define linkonce_odr void @_ZSt16__insertion_sortIPPN4llvm6RecordEN9__gnu_cxx5__o
   %17 = icmp slt i32 %16, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %18 = load ptr, ptr %.020, align 8
-  br i1 %17, label %19, label %25
+  br i1 %17, label %19, label %26
 
 19:                                               ; preds = %9
   %20 = getelementptr inbounds i8, ptr %.pn19, i64 16
   %21 = ptrtoint ptr %.020 to i64
   %22 = sub i64 %21, %8
   %23 = ashr exact i64 %22, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %23
-  %24 = getelementptr inbounds ptr, ptr %20, i64 %.pre.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %24, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %22, i1 false)
+  %24 = sub nsw i64 0, %23
+  %25 = getelementptr inbounds ptr, ptr %20, i64 %24
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %25, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %22, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPPN4llvm6RecordEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10LessRecordEEEEvT_T0_.exit
 
-25:                                               ; preds = %9
-  %26 = load ptr, ptr %.pn19, align 8
+26:                                               ; preds = %9
+  %27 = load ptr, ptr %.pn19, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %27 = load ptr, ptr %18, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %.sroa.0.0.copyload.i.i.i.i12.i = load ptr, ptr %28, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i13.i = getelementptr inbounds i8, ptr %27, i64 32
+  %28 = load ptr, ptr %18, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %.sroa.0.0.copyload.i.i.i.i12.i = load ptr, ptr %29, align 8
+  %.sroa.2.0..sroa_idx.i.i.i.i13.i = getelementptr inbounds i8, ptr %28, i64 32
   %.sroa.2.0.copyload.i.i.i.i14.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i13.i, align 8
   store ptr %.sroa.0.0.copyload.i.i.i.i12.i, ptr %3, align 8
   store i64 %.sroa.2.0.copyload.i.i.i.i14.i, ptr %7, align 8
-  %29 = load ptr, ptr %26, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %.sroa.0.0.copyload.i.i2.i.i15.i = load ptr, ptr %30, align 8
-  %.sroa.2.0..sroa_idx.i.i3.i.i16.i = getelementptr inbounds i8, ptr %29, i64 32
+  %30 = load ptr, ptr %27, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %.sroa.0.0.copyload.i.i2.i.i15.i = load ptr, ptr %31, align 8
+  %.sroa.2.0..sroa_idx.i.i3.i.i16.i = getelementptr inbounds i8, ptr %30, i64 32
   %.sroa.2.0.copyload.i.i4.i.i17.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i3.i.i16.i, align 8
-  %31 = call noundef i32 @_ZNK4llvm9StringRef15compare_numericES0_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr %.sroa.0.0.copyload.i.i2.i.i15.i, i64 %.sroa.2.0.copyload.i.i4.i.i17.i) #29
-  %32 = icmp slt i32 %31, 0
+  %32 = call noundef i32 @_ZNK4llvm9StringRef15compare_numericES0_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr %.sroa.0.0.copyload.i.i2.i.i15.i, i64 %.sroa.2.0.copyload.i.i4.i.i17.i) #29
+  %33 = icmp slt i32 %32, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br i1 %32, label %.lr.ph.i, label %_ZSt25__unguarded_linear_insertIPPN4llvm6RecordEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10LessRecordEEEEvT_T0_.exit
+  br i1 %33, label %.lr.ph.i, label %_ZSt25__unguarded_linear_insertIPPN4llvm6RecordEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10LessRecordEEEEvT_T0_.exit
 
-.lr.ph.i:                                         ; preds = %25, %.lr.ph.i
-  %.019.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.pn19, %25 ]
-  %.0918.i = phi ptr [ %.019.i, %.lr.ph.i ], [ %.020, %25 ]
-  %33 = load ptr, ptr %.019.i, align 8
-  store ptr %33, ptr %.0918.i, align 8
+.lr.ph.i:                                         ; preds = %26, %.lr.ph.i
+  %.019.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.pn19, %26 ]
+  %.0918.i = phi ptr [ %.019.i, %.lr.ph.i ], [ %.020, %26 ]
+  %34 = load ptr, ptr %.019.i, align 8
+  store ptr %34, ptr %.0918.i, align 8
   %.0.i = getelementptr inbounds i8, ptr %.019.i, i64 -8
-  %34 = load ptr, ptr %.0.i, align 8
+  %35 = load ptr, ptr %.0.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %35 = load ptr, ptr %18, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %36, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 32
+  %36 = load ptr, ptr %18, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %37, align 8
+  %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 32
   %.sroa.2.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
   store ptr %.sroa.0.0.copyload.i.i.i.i.i, ptr %3, align 8
   store i64 %.sroa.2.0.copyload.i.i.i.i.i, ptr %7, align 8
-  %37 = load ptr, ptr %34, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %.sroa.0.0.copyload.i.i2.i.i.i = load ptr, ptr %38, align 8
-  %.sroa.2.0..sroa_idx.i.i3.i.i.i = getelementptr inbounds i8, ptr %37, i64 32
+  %38 = load ptr, ptr %35, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %.sroa.0.0.copyload.i.i2.i.i.i = load ptr, ptr %39, align 8
+  %.sroa.2.0..sroa_idx.i.i3.i.i.i = getelementptr inbounds i8, ptr %38, i64 32
   %.sroa.2.0.copyload.i.i4.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i3.i.i.i, align 8
-  %39 = call noundef i32 @_ZNK4llvm9StringRef15compare_numericES0_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr %.sroa.0.0.copyload.i.i2.i.i.i, i64 %.sroa.2.0.copyload.i.i4.i.i.i) #29
-  %40 = icmp slt i32 %39, 0
+  %40 = call noundef i32 @_ZNK4llvm9StringRef15compare_numericES0_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr %.sroa.0.0.copyload.i.i2.i.i.i, i64 %.sroa.2.0.copyload.i.i4.i.i.i) #29
+  %41 = icmp slt i32 %40, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br i1 %40, label %.lr.ph.i, label %_ZSt25__unguarded_linear_insertIPPN4llvm6RecordEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10LessRecordEEEEvT_T0_.exit, !llvm.loop !823
+  br i1 %41, label %.lr.ph.i, label %_ZSt25__unguarded_linear_insertIPPN4llvm6RecordEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10LessRecordEEEEvT_T0_.exit, !llvm.loop !823
 
-_ZSt25__unguarded_linear_insertIPPN4llvm6RecordEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10LessRecordEEEEvT_T0_.exit: ; preds = %.lr.ph.i, %25, %19
-  %.sink = phi ptr [ %0, %19 ], [ %.020, %25 ], [ %.019.i, %.lr.ph.i ]
+_ZSt25__unguarded_linear_insertIPPN4llvm6RecordEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10LessRecordEEEEvT_T0_.exit: ; preds = %.lr.ph.i, %26, %19
+  %.sink = phi ptr [ %0, %19 ], [ %.020, %26 ], [ %.019.i, %.lr.ph.i ]
   store ptr %18, ptr %.sink, align 8
   %.0 = getelementptr inbounds i8, ptr %.020, i64 8
   %.not = icmp eq ptr %.0, %1

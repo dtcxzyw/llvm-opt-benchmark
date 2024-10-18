@@ -24361,7 +24361,7 @@ io_read_encoding.exit.split:                      ; preds = %io_read_encoding.ex
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %79, %.critedge2
-  %.pre98 = phi i32 [ %.pre98.pre, %79 ], [ %73, %.critedge2 ]
+  %.pre98 = phi i32 [ %.pre98.pre, %79 ], [ 0, %.critedge2 ]
   store i32 0, ptr %20, align 8
   br label %io_shift_cbuf.exit
 

@@ -856,19 +856,19 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEEPFbR
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %._crit_edge
   %117 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #19
   store i64 0, ptr %117, align 4
-  %.not10.i = icmp eq i64 %.03264, %.033.lcssa
-  br i1 %.not10.i, label %.loopexit, label %.lr.ph.i
+  %.not12.i = icmp eq i64 %.03264, %.033.lcssa
+  br i1 %.not12.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i, %.lr.ph.i
-  %.011.i = phi i64 [ %124, %.lr.ph.i ], [ %.03264, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i ]
-  %118 = getelementptr inbounds %"struct.std::pair", ptr %100, i64 %.011.i, i32 1
+  %.013.i = phi i64 [ %124, %.lr.ph.i ], [ %.03264, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i ]
+  %118 = getelementptr inbounds %"struct.std::pair", ptr %100, i64 %.013.i, i32 1
   %119 = load i32, ptr %118, align 4
   %120 = sext i32 %119 to i64
   %121 = getelementptr inbounds i32, ptr %117, i64 %120
   %122 = load i32, ptr %121, align 4
   %123 = add nsw i32 %122, 1
   store i32 %123, ptr %121, align 4
-  %124 = add i64 %.011.i, 1
+  %124 = add i64 %.013.i, 1
   %.not.i = icmp eq i64 %124, %.033.lcssa
   br i1 %.not.i, label %.loopexit.loopexit, label %.lr.ph.i, !llvm.loop !25
 

@@ -5069,9 +5069,9 @@ define internal fastcc void @"_ZSt16__insertion_sortIPPN4llvm13CallGraphNodeEN9_
   %4 = ptrtoint ptr %0 to i64
   br label %5
 
-5:                                                ; preds = %.lr.ph, %45
-  %.022 = phi ptr [ %.019, %.lr.ph ], [ %.0, %45 ]
-  %.pn21 = phi ptr [ %0, %.lr.ph ], [ %.022, %45 ]
+5:                                                ; preds = %.lr.ph, %46
+  %.022 = phi ptr [ %.019, %.lr.ph ], [ %.0, %46 ]
+  %.pn21 = phi ptr [ %0, %.lr.ph ], [ %.022, %46 ]
   %.0.val = load ptr, ptr %.022, align 8
   %.val = load ptr, ptr %0, align 8
   %6 = getelementptr i8, ptr %.0.val, i64 8
@@ -5118,73 +5118,73 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZN4ll
   %23 = ptrtoint ptr %.022 to i64
   %24 = sub i64 %23, %4
   %25 = ashr exact i64 %24, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %25
-  %26 = getelementptr inbounds ptr, ptr %22, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %26, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %24, i1 false)
+  %26 = sub nsw i64 0, %25
+  %27 = getelementptr inbounds ptr, ptr %22, i64 %26
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %27, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %24, i1 false)
   store ptr %21, ptr %0, align 8
-  br label %45
+  br label %46
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm9CallGraph5printERNS2_11raw_ostreamEE3$_0EclIPPNS2_13CallGraphNodeESB_EEbT_T0_.exit.thread": ; preds = %8, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i, %18, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm9CallGraph5printERNS2_11raw_ostreamEE3$_0EclIPPNS2_13CallGraphNodeESB_EEbT_T0_.exit"
-  %27 = load ptr, ptr %.022, align 8
-  %28 = getelementptr i8, ptr %27, i64 8
-  br label %29
+  %28 = load ptr, ptr %.022, align 8
+  %29 = getelementptr i8, ptr %28, i64 8
+  br label %30
 
-29:                                               ; preds = %43, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm9CallGraph5printERNS2_11raw_ostreamEE3$_0EclIPPNS2_13CallGraphNodeESB_EEbT_T0_.exit.thread"
-  %.09.i = phi ptr [ %.022, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm9CallGraph5printERNS2_11raw_ostreamEE3$_0EclIPPNS2_13CallGraphNodeESB_EEbT_T0_.exit.thread" ], [ %.0.i, %43 ]
+30:                                               ; preds = %44, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm9CallGraph5printERNS2_11raw_ostreamEE3$_0EclIPPNS2_13CallGraphNodeESB_EEbT_T0_.exit.thread"
+  %.09.i = phi ptr [ %.022, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm9CallGraph5printERNS2_11raw_ostreamEE3$_0EclIPPNS2_13CallGraphNodeESB_EEbT_T0_.exit.thread" ], [ %.0.i, %44 ]
   %.0.i = getelementptr inbounds i8, ptr %.09.i, i64 -8
   %.0.val.i = load ptr, ptr %.0.i, align 8
-  %.val.val.i = load ptr, ptr %28, align 8
-  %30 = getelementptr i8, ptr %.0.val.i, i64 8
-  %.0.val.val.i = load ptr, ptr %30, align 8
+  %.val.val.i = load ptr, ptr %29, align 8
+  %31 = getelementptr i8, ptr %.0.val.i, i64 8
+  %.0.val.val.i = load ptr, ptr %31, align 8
   %.not.i.i.i = icmp eq ptr %.val.val.i, null
   %.not.i = icmp eq ptr %.0.val.val.i, null
-  br i1 %.not.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm9CallGraph5printERNS2_11raw_ostreamEE3$_0EclIPNS2_13CallGraphNodeEPSA_EEbRT_T0_.exit.i", label %31
+  br i1 %.not.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm9CallGraph5printERNS2_11raw_ostreamEE3$_0EclIPNS2_13CallGraphNodeEPSA_EEbRT_T0_.exit.i", label %32
 
-31:                                               ; preds = %29
-  br i1 %.not.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm13CallGraphNodeEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS0_9CallGraph5printERNS0_11raw_ostreamEE3$_0EEEvT_T0_.exit", label %32
+32:                                               ; preds = %30
+  br i1 %.not.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm13CallGraphNodeEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS0_9CallGraph5printERNS0_11raw_ostreamEE3$_0EEEvT_T0_.exit", label %33
 
-32:                                               ; preds = %31
-  %33 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %.val.val.i) #19
-  %34 = extractvalue { ptr, i64 } %33, 1
-  %35 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.val.val.i) #19
-  %36 = extractvalue { ptr, i64 } %35, 1
-  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %36, i64 %34)
-  %37 = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
-  br i1 %37, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
+33:                                               ; preds = %32
+  %34 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %.val.val.i) #19
+  %35 = extractvalue { ptr, i64 } %34, 1
+  %36 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.val.val.i) #19
+  %37 = extractvalue { ptr, i64 } %36, 1
+  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %37, i64 %35)
+  %38 = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
+  br i1 %38, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %32
-  %38 = extractvalue { ptr, i64 } %35, 0
-  %39 = extractvalue { ptr, i64 } %33, 0
-  %40 = tail call i32 @memcmp(ptr noundef %39, ptr noundef %38, i64 noundef %.sroa.speculated.i.i.i.i.i) #20
-  %.not.i.i.i.i.i = icmp eq i32 %40, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %41
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %33
+  %39 = extractvalue { ptr, i64 } %36, 0
+  %40 = extractvalue { ptr, i64 } %34, 0
+  %41 = tail call i32 @memcmp(ptr noundef %40, ptr noundef %39, i64 noundef %.sroa.speculated.i.i.i.i.i) #20
+  %.not.i.i.i.i.i = icmp eq i32 %41, 0
+  br i1 %.not.i.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %42
 
-41:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
-  %.inv.i.i.i.i.i = icmp slt i32 %40, 0
-  br i1 %.inv.i.i.i.i.i, label %43, label %"_ZSt25__unguarded_linear_insertIPPN4llvm13CallGraphNodeEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS0_9CallGraph5printERNS0_11raw_ostreamEE3$_0EEEvT_T0_.exit"
+42:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
+  %.inv.i.i.i.i.i = icmp slt i32 %41, 0
+  br i1 %.inv.i.i.i.i.i, label %44, label %"_ZSt25__unguarded_linear_insertIPPN4llvm13CallGraphNodeEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS0_9CallGraph5printERNS0_11raw_ostreamEE3$_0EEEvT_T0_.exit"
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i, %32
-  %42 = icmp ult i64 %34, %36
-  br i1 %42, label %43, label %"_ZSt25__unguarded_linear_insertIPPN4llvm13CallGraphNodeEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS0_9CallGraph5printERNS0_11raw_ostreamEE3$_0EEEvT_T0_.exit"
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i, %33
+  %43 = icmp ult i64 %35, %37
+  br i1 %43, label %44, label %"_ZSt25__unguarded_linear_insertIPPN4llvm13CallGraphNodeEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS0_9CallGraph5printERNS0_11raw_ostreamEE3$_0EEEvT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm9CallGraph5printERNS2_11raw_ostreamEE3$_0EclIPNS2_13CallGraphNodeEPSA_EEbRT_T0_.exit.i": ; preds = %29
-  br i1 %.not.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm13CallGraphNodeEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS0_9CallGraph5printERNS0_11raw_ostreamEE3$_0EEEvT_T0_.exit", label %43
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm9CallGraph5printERNS2_11raw_ostreamEE3$_0EclIPNS2_13CallGraphNodeEPSA_EEbRT_T0_.exit.i": ; preds = %30
+  br i1 %.not.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm13CallGraphNodeEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS0_9CallGraph5printERNS0_11raw_ostreamEE3$_0EEEvT_T0_.exit", label %44
 
-43:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm9CallGraph5printERNS2_11raw_ostreamEE3$_0EclIPNS2_13CallGraphNodeEPSA_EEbRT_T0_.exit.i", %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, %41
-  %44 = load ptr, ptr %.0.i, align 8
-  store ptr %44, ptr %.09.i, align 8
-  br label %29, !llvm.loop !29
+44:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm9CallGraph5printERNS2_11raw_ostreamEE3$_0EclIPNS2_13CallGraphNodeEPSA_EEbRT_T0_.exit.i", %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, %42
+  %45 = load ptr, ptr %.0.i, align 8
+  store ptr %45, ptr %.09.i, align 8
+  br label %30, !llvm.loop !29
 
-"_ZSt25__unguarded_linear_insertIPPN4llvm13CallGraphNodeEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS0_9CallGraph5printERNS0_11raw_ostreamEE3$_0EEEvT_T0_.exit": ; preds = %31, %41, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm9CallGraph5printERNS2_11raw_ostreamEE3$_0EclIPNS2_13CallGraphNodeEPSA_EEbRT_T0_.exit.i"
-  store ptr %27, ptr %.09.i, align 8
-  br label %45
+"_ZSt25__unguarded_linear_insertIPPN4llvm13CallGraphNodeEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS0_9CallGraph5printERNS0_11raw_ostreamEE3$_0EEEvT_T0_.exit": ; preds = %32, %42, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm9CallGraph5printERNS2_11raw_ostreamEE3$_0EclIPNS2_13CallGraphNodeEPSA_EEbRT_T0_.exit.i"
+  store ptr %28, ptr %.09.i, align 8
+  br label %46
 
-45:                                               ; preds = %20, %"_ZSt25__unguarded_linear_insertIPPN4llvm13CallGraphNodeEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS0_9CallGraph5printERNS0_11raw_ostreamEE3$_0EEEvT_T0_.exit"
+46:                                               ; preds = %20, %"_ZSt25__unguarded_linear_insertIPPN4llvm13CallGraphNodeEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS0_9CallGraph5printERNS0_11raw_ostreamEE3$_0EEEvT_T0_.exit"
   %.0 = getelementptr inbounds i8, ptr %.022, i64 8
   %.not = icmp eq ptr %.0, %1
   br i1 %.not, label %.loopexit, label %5, !llvm.loop !79
 
-.loopexit:                                        ; preds = %45, %.preheader, %2
+.loopexit:                                        ; preds = %46, %.preheader, %2
   ret void
 }
 

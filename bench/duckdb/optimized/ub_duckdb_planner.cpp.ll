@@ -17925,7 +17925,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
           to label %invoke.cont.i.i137 unwind label %lpad18
 
 invoke.cont.i.i137:                               ; preds = %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i135, %for.cond.cleanup, %_ZN6duckdb6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11LogicalTypeEELb1EEC2ERKSA_.exit
-  %sub.ptr.div.i.i.i131235 = phi i64 [ %sub.ptr.div.i.i.i131, %for.cond.cleanup ], [ %sub.ptr.div.i.i.i131, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i135 ], [ 0, %_ZN6duckdb6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11LogicalTypeEELb1EEC2ERKSA_.exit ]
+  %sub.ptr.div.i.i.i131235 = phi i64 [ 0, %for.cond.cleanup ], [ %sub.ptr.div.i.i.i131, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i135 ], [ 0, %_ZN6duckdb6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11LogicalTypeEELb1EEC2ERKSA_.exit ]
   %7 = phi ptr [ %.pre228, %for.cond.cleanup ], [ %.pre228, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i135 ], [ %5, %_ZN6duckdb6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11LogicalTypeEELb1EEC2ERKSA_.exit ]
   %8 = phi ptr [ %.pre229, %for.cond.cleanup ], [ %.pre229, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i135 ], [ %5, %_ZN6duckdb6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11LogicalTypeEELb1EEC2ERKSA_.exit ]
   %cond.i.i.i.i.i138 = phi ptr [ null, %for.cond.cleanup ], [ %call5.i.i.i.i4.i20.i.i136148, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i135 ], [ null, %_ZN6duckdb6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11LogicalTypeEELb1EEC2ERKSA_.exit ]
@@ -33806,7 +33806,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
           to label %invoke.cont.i.i unwind label %lpad42
 
 invoke.cont.i.i:                                  ; preds = %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEEE8allocateERS8_m.exit.i.i.i.i.i, %for.cond.cleanup, %for.cond.cleanup.thread
-  %sub.ptr.div.i.i.i184 = phi i64 [ %sub.ptr.div.i.i.i, %for.cond.cleanup ], [ %sub.ptr.div.i.i.i, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEEE8allocateERS8_m.exit.i.i.i.i.i ], [ 0, %for.cond.cleanup.thread ]
+  %sub.ptr.div.i.i.i184 = phi i64 [ 0, %for.cond.cleanup ], [ %sub.ptr.div.i.i.i, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEEE8allocateERS8_m.exit.i.i.i.i.i ], [ 0, %for.cond.cleanup.thread ]
   %_M_finish.i.i.i183 = phi ptr [ %_M_finish.i70, %for.cond.cleanup ], [ %_M_finish.i70, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEEE8allocateERS8_m.exit.i.i.i.i.i ], [ %_M_finish.i.i.i177, %for.cond.cleanup.thread ]
   %3 = phi ptr [ %2, %for.cond.cleanup ], [ %2, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEEE8allocateERS8_m.exit.i.i.i.i.i ], [ null, %for.cond.cleanup.thread ]
   %4 = phi ptr [ %.pre176, %for.cond.cleanup ], [ %.pre176, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEEE8allocateERS8_m.exit.i.i.i.i.i ], [ null, %for.cond.cleanup.thread ]
@@ -43122,7 +43122,6 @@ if.end:                                           ; preds = %entry
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i, align 8, !tbaa !63
   %_M_next_resize.i.i.i = getelementptr inbounds i8, ptr %current_names, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i, i8 0, i64 16, i1 false)
-  %sub.ptr.div.i93168 = ashr exact i64 %sub.ptr.sub.i, 5
   %cmp14169.not = icmp eq ptr %0, %1
   br i1 %cmp14169.not, label %for.cond27.preheader, label %for.body.lr.ph
 
@@ -43143,7 +43142,7 @@ for.cond27.preheader.loopexit:                    ; preds = %_ZNSt7__cxx1112basi
 
 for.cond27.preheader:                             ; preds = %for.cond27.preheader.loopexit, %if.end
   %sub.ptr.sub.i115173.pre-phi = phi i64 [ %.pre185, %for.cond27.preheader.loopexit ], [ %sub.ptr.sub.i71, %if.end ]
-  %sub.ptr.div.i93.lcssa = phi i64 [ %sub.ptr.div.i93, %for.cond27.preheader.loopexit ], [ %sub.ptr.div.i93168, %if.end ]
+  %sub.ptr.div.i93.lcssa = phi i64 [ %sub.ptr.div.i93, %for.cond27.preheader.loopexit ], [ 0, %if.end ]
   %sub.ptr.div.i116174 = ashr exact i64 %sub.ptr.sub.i115173.pre-phi, 5
   %cmp29175 = icmp ult i64 %sub.ptr.div.i93.lcssa, %sub.ptr.div.i116174
   br i1 %cmp29175, label %for.body31.lr.ph, label %for.cond.cleanup30

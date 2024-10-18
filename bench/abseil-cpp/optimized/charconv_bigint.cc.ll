@@ -968,11 +968,11 @@ if.then7.i:                                       ; preds = %if.end.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then7.i
   %words_.ptr.i = getelementptr inbounds i8, ptr %this, i64 4
+  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %this, i64 %words_.add.i
   %gepdiff.i = add nsw i64 %add.ptr.add.i, -4
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %gepdiff.i, 2
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %this, i64 %words_.add.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i32, ptr %add.ptr.ptr.i, i64 %.pre.i.i.i.i.i.i
+  %idx.neg.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i32, ptr %add.ptr.ptr.i, i64 %idx.neg.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i, ptr nonnull align 4 %words_.ptr.i, i64 %gepdiff.i, i1 false)
   br label %if.end48.i
 
@@ -1222,11 +1222,11 @@ if.then7:                                         ; preds = %if.end
 
 if.then.i.i.i.i.i:                                ; preds = %if.then7
   %words_.ptr = getelementptr inbounds i8, ptr %this, i64 4
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %words_.add
   %gepdiff = add nsw i64 %add.ptr.add, -4
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %gepdiff, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %words_.add
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %add.ptr.ptr, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %add.ptr.ptr, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i, ptr nonnull align 4 %words_.ptr, i64 %gepdiff, i1 false)
   br label %if.end48
 
@@ -3257,11 +3257,11 @@ if.then7.i:                                       ; preds = %if.end.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then7.i
   %words_.ptr.i = getelementptr inbounds i8, ptr %this, i64 4
+  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %this, i64 %words_.add.i
   %gepdiff.i = add nsw i64 %add.ptr.add.i, -4
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %gepdiff.i, 2
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %this, i64 %words_.add.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i32, ptr %add.ptr.ptr.i, i64 %.pre.i.i.i.i.i.i
+  %idx.neg.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i32, ptr %add.ptr.ptr.i, i64 %idx.neg.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i, ptr nonnull align 4 %words_.ptr.i, i64 %gepdiff.i, i1 false)
   br label %if.end48.i
 
@@ -3511,11 +3511,11 @@ if.then7:                                         ; preds = %if.end
 
 if.then.i.i.i.i.i:                                ; preds = %if.then7
   %words_.ptr = getelementptr inbounds i8, ptr %this, i64 4
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %words_.add
   %gepdiff = add nsw i64 %add.ptr.add, -4
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %gepdiff, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %words_.add
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %add.ptr.ptr, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %add.ptr.ptr, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i, ptr nonnull align 4 %words_.ptr, i64 %gepdiff, i1 false)
   br label %if.end48
 

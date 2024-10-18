@@ -566,8 +566,8 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.end10.i.i
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %I.addr.0.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 3
-  %.pre.i.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %add.ptr.i38.i.i, i64 %.pre.i.i.i.i.i.i.i
+  %idx.neg.i.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %add.ptr.i38.i.i, i64 %idx.neg.i.i.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i.i.i, ptr align 4 %I.addr.0.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
   %.pre28.i.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %.pre29.i.i = load ptr, ptr %canonicalized, align 8
@@ -990,8 +990,8 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.end10.i
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %I.addr.0.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 3
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i202 = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %add.ptr.i38.i, i64 %.pre.i.i.i.i.i.i
+  %idx.neg.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i202 = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %add.ptr.i38.i, i64 %idx.neg.i.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i.i202, ptr align 4 %I.addr.0.i, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   %.pre28.i = load i32, ptr %Size.i.i.i.i.i.i15, align 8
   %.pre29.i = load ptr, ptr %agg.result, align 8

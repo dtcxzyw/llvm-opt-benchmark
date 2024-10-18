@@ -4606,7 +4606,6 @@ for.inc.i:                                        ; preds = %if.end.i34, %if.the
   br i1 %exitcond.not.i, label %_ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit, label %for.body.i, !llvm.loop !31
 
 _ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit: ; preds = %for.inc.i, %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit33
-  %orig_i.1 = phi i32 [ 0, %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit33 ], [ %sub, %for.inc.i ]
   %res_i.2 = phi i32 [ 0, %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit33 ], [ %res_i.1, %for.inc.i ]
   %next_removed.2 = phi ptr [ %removed_cols, %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit33 ], [ %next_removed.1, %for.inc.i ]
   %cmp12.i35.not = icmp eq i32 %retval.0.i22, %5
@@ -4614,11 +4613,11 @@ _ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPK
 
 for.body.preheader.i36:                           ; preds = %_ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit
   %wide.trip.count.i37 = zext i32 %sub3 to i64
-  %17 = add i32 %retval.0.i22, %orig_i.1
+  %17 = add i32 %retval.0.i22, %sub
   br label %for.body.i39
 
 for.body.i39:                                     ; preds = %for.inc.i64, %for.body.preheader.i36
-  %orig_i.2 = phi i32 [ %orig_i.1, %for.body.preheader.i36 ], [ %inc3.i66, %for.inc.i64 ]
+  %orig_i.2 = phi i32 [ %sub, %for.body.preheader.i36 ], [ %inc3.i66, %for.inc.i64 ]
   %res_i.3 = phi i32 [ %res_i.2, %for.body.preheader.i36 ], [ %res_i.4, %for.inc.i64 ]
   %next_removed.3 = phi ptr [ %next_removed.2, %for.body.preheader.i36 ], [ %next_removed.4, %for.inc.i64 ]
   %indvars.iv.i40 = phi i64 [ 0, %for.body.preheader.i36 ], [ %indvars.iv.next.i65, %for.inc.i64 ]
@@ -4676,7 +4675,7 @@ _ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPK
   br label %_ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit70
 
 _ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit70: ; preds = %_ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit70.loopexit, %_ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit
-  %orig_i.3 = phi i32 [ %orig_i.1, %_ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit ], [ %27, %_ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit70.loopexit ]
+  %orig_i.3 = phi i32 [ %sub, %_ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit ], [ %27, %_ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit70.loopexit ]
   %res_i.5 = phi i32 [ %res_i.2, %_ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit ], [ %res_i.4, %_ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit70.loopexit ]
   %next_removed.5 = phi ptr [ %next_removed.2, %_ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit ], [ %next_removed.4, %_ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit70.loopexit ]
   %cmp12.i71 = icmp ult i32 %sub, %retval.0.i27
@@ -14058,8 +14057,8 @@ if.then2.i31.i:                                   ; preds = %for.body.i16.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i33.i = ptrtoint ptr %__i.015.i17.i to i64
   %sub.ptr.sub.i.i.i.i.i.i34.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i33.i, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i.i35.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i34.i, 3
-  %.pre.i.i.i.i.i.i36.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i35.i
-  %add.ptr.i.i.i.i.i.i37.i = getelementptr inbounds i64, ptr %add.ptr3.i32.i, i64 %.pre.i.i.i.i.i.i36.i
+  %idx.neg.i.i.i.i.i.i36.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i35.i
+  %add.ptr.i.i.i.i.i.i37.i = getelementptr inbounds i64, ptr %add.ptr3.i32.i, i64 %idx.neg.i.i.i.i.i.i36.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i37.i, ptr noundef nonnull align 8 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i34.i, i1 false)
   br label %for.inc.i22.i
 

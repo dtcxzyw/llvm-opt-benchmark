@@ -6326,7 +6326,7 @@ define noundef i32 @cli_pdf(ptr noundef %0, ptr noundef %1, i64 noundef %2) loca
   br label %._crit_edge269
 
 ._crit_edge269:                                   ; preds = %61, %64, %69
-  %.pre-phi = phi i64 [ %68, %64 ], [ %68, %69 ], [ %31, %61 ]
+  %.pre-phi = phi i64 [ %68, %64 ], [ %68, %69 ], [ 0, %61 ]
   %71 = load i64, ptr %9, align 8
   %72 = tail call i64 @llvm.smax.i64(i64 %71, i64 2048)
   %spec.store.select = add nsw i64 %72, -2048

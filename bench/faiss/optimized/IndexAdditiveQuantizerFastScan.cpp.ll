@@ -485,7 +485,7 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %41
   br i1 %brmerge, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %48
-  %54 = ashr exact i64 %40, 2
+  %54 = lshr exact i64 %40, 2
   %55 = uitofp nneg i32 %50 to float
   %umax = tail call i64 @llvm.umax.i64(i64 %54, i64 1)
   br label %56

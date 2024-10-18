@@ -324,7 +324,7 @@ invoke.cont:                                      ; preds = %if.end, %if.then.i8
 while.cond:                                       ; preds = %_ZNSt6vectorI6aiFaceSaIS0_EED2Ev.exit305, %invoke.cont
   %base.0 = phi i32 [ 0, %invoke.cont ], [ %base.2, %_ZNSt6vectorI6aiFaceSaIS0_EED2Ev.exit305 ]
   %10 = load i32, ptr %this, align 4
-  %.fr486 = freeze i32 %10
+  %.fr489 = freeze i32 %10
   %call11 = invoke noalias noundef nonnull dereferenceable(1320) ptr @_Znwm(i64 noundef 1320) #14
           to label %invoke.cont10 unwind label %lpad.loopexit407
 
@@ -420,13 +420,13 @@ if.end32:                                         ; preds = %for.body.i.i.i.i.pr
   br i1 %27, label %if.then36, label %if.end40
 
 if.then36:                                        ; preds = %if.end32
-  %conv37 = zext i32 %.fr486 to i64
+  %conv37 = zext i32 %.fr489 to i64
   %28 = mul nuw nsw i64 %conv37, 12
   %call39 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %28) #14
           to label %invoke.cont38 unwind label %lpad33.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont38:                                    ; preds = %if.then36
-  %isempty = icmp eq i32 %.fr486, 0
+  %isempty = icmp eq i32 %.fr489, 0
   br i1 %isempty, label %arrayctor.cont, label %new.ctorloop
 
 new.ctorloop:                                     ; preds = %invoke.cont38
@@ -524,13 +524,13 @@ if.end40:                                         ; preds = %arrayctor.cont, %if
   br i1 %38, label %if.then43, label %if.end55
 
 if.then43:                                        ; preds = %if.end40
-  %conv44 = zext i32 %.fr486 to i64
+  %conv44 = zext i32 %.fr489 to i64
   %39 = mul nuw nsw i64 %conv44, 12
   %call46 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %39) #14
           to label %invoke.cont45 unwind label %lpad33.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont45:                                    ; preds = %if.then43
-  %isempty47 = icmp eq i32 %.fr486, 0
+  %isempty47 = icmp eq i32 %.fr489, 0
   br i1 %isempty47, label %arrayctor.cont54, label %new.ctorloop48
 
 new.ctorloop48:                                   ; preds = %invoke.cont45
@@ -553,7 +553,7 @@ if.end55:                                         ; preds = %arrayctor.cont54, %
   %cmp2.not.i = icmp ne ptr %45, null
   %or.cond.i.not393 = select i1 %cmp.not.i105, i1 %cmp2.not.i, i1 false
   %brmerge.not = and i1 %or.cond.i.not393, %cmp2.i91
-  %conv59 = zext i32 %.fr486 to i64
+  %conv59 = zext i32 %.fr489 to i64
   br i1 %brmerge.not, label %if.then58, label %if.end81
 
 if.then58:                                        ; preds = %if.end55
@@ -562,7 +562,7 @@ if.then58:                                        ; preds = %if.end55
           to label %invoke.cont60 unwind label %lpad33.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont60:                                    ; preds = %if.then58
-  %isempty62 = icmp eq i32 %.fr486, 0
+  %isempty62 = icmp eq i32 %.fr489, 0
   br i1 %isempty62, label %arrayctor.cont69, label %new.ctorloop63
 
 new.ctorloop63:                                   ; preds = %invoke.cont60
@@ -603,7 +603,7 @@ if.end81:                                         ; preds = %if.end55
 if.end.i112.preheader:                            ; preds = %if.end81.thread, %if.end81
   %mColors477 = phi ptr [ %mColors472, %if.end81.thread ], [ %mColors, %if.end81 ]
   %55 = shl nuw nsw i64 %conv59, 4
-  %isempty87475 = icmp eq i32 %.fr486, 0
+  %isempty87475 = icmp eq i32 %.fr489, 0
   %56 = getelementptr inbounds i8, ptr %call11, i64 48
   br label %if.end.i112
 
@@ -772,7 +772,7 @@ for.end145:                                       ; preds = %for.body131, %while
   %iNeed.0.lcssa = phi i32 [ 0, %while.body126 ], [ %spec.select, %for.body131 ]
   %79 = load i32, ptr %mNumVertices.i, align 4
   %add147 = add i32 %79, %iNeed.0.lcssa
-  %cmp148 = icmp ugt i32 %add147, %.fr486
+  %cmp148 = icmp ugt i32 %add147, %.fr489
   br i1 %cmp148, label %while.end, label %if.end150
 
 if.end150:                                        ; preds = %for.end145
@@ -1108,7 +1108,7 @@ for.inc314:                                       ; preds = %if.end308, %if.then
 for.end316:                                       ; preds = %for.inc314, %sw.epilog
   %indvars.iv.next454 = add nuw nsw i64 %indvars.iv453, 1
   %140 = load i32, ptr %mNumVertices.i, align 4
-  %cmp319 = icmp eq i32 %140, %.fr486
+  %cmp319 = icmp eq i32 %140, %.fr489
   br i1 %cmp319, label %while.end, label %while.cond123, !llvm.loop !26
 
 while.end:                                        ; preds = %for.end316, %for.end145, %while.cond123
@@ -1248,7 +1248,14 @@ invoke.cont374:                                   ; preds = %if.end372
   store i64 %sub.ptr.div.i233, ptr %call375, align 16
   %164 = getelementptr inbounds i8, ptr %call375, i64 8
   %isempty376 = icmp eq ptr %159, %160
-  br i1 %isempty376, label %arrayctor.cont383, label %new.ctorloop377
+  br i1 %isempty376, label %arrayctor.cont383.thread, label %new.ctorloop377
+
+arrayctor.cont383.thread:                         ; preds = %invoke.cont374
+  %mFaces384486 = getelementptr inbounds i8, ptr %call11, i64 208
+  store ptr %164, ptr %mFaces384486, align 8
+  %conv386487 = trunc i64 %sub.ptr.div.i233 to i32
+  store i32 %conv386487, ptr %mNumFaces.i, align 8
+  br label %for.end401
 
 new.ctorloop377:                                  ; preds = %invoke.cont374
   %arrayctor.end378 = getelementptr inbounds i8, ptr %164, i64 %sub.ptr.sub.i232
@@ -1263,7 +1270,7 @@ arrayctor.loop379:                                ; preds = %arrayctor.loop379, 
   %arrayctor.done382 = icmp eq ptr %arrayctor.next381, %arrayctor.end378
   br i1 %arrayctor.done382, label %arrayctor.cont383, label %arrayctor.loop379
 
-arrayctor.cont383:                                ; preds = %arrayctor.loop379, %invoke.cont374
+arrayctor.cont383:                                ; preds = %arrayctor.loop379
   %mFaces384 = getelementptr inbounds i8, ptr %call11, i64 208
   store ptr %164, ptr %mFaces384, align 8
   %conv386 = trunc i64 %sub.ptr.div.i233 to i32
@@ -1320,7 +1327,7 @@ for.inc399:                                       ; preds = %if.else.i244, %call
   %cmp390 = icmp samesign ult i64 %indvars.iv.next461, %172
   br i1 %cmp390, label %for.body391, label %for.end401, !llvm.loop !28
 
-for.end401:                                       ; preds = %for.inc399, %arrayctor.cont383
+for.end401:                                       ; preds = %for.inc399, %arrayctor.cont383.thread, %arrayctor.cont383
   %173 = load ptr, ptr %_M_finish.i246, align 8
   %174 = load ptr, ptr %_M_end_of_storage.i247, align 8
   %cmp.not.i248 = icmp eq ptr %173, %174
@@ -2710,8 +2717,8 @@ if.then.i.i.i.i.i:                                ; preds = %if.then11
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %1, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %1, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i, ptr align 4 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %invoke.cont20
 

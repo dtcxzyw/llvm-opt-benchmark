@@ -1280,7 +1280,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc188_crit_edge: 
   br label %.noexc188
 
 .noexc188:                                        ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc188_crit_edge, %454
-  %.pre-phi305 = phi i64 [ %.pre304, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc188_crit_edge ], [ %461, %454 ]
+  %.pre-phi305 = phi i64 [ %.pre304, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc188_crit_edge ], [ 0, %454 ]
   %465 = phi ptr [ %.pre300, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc188_crit_edge ], [ %457, %454 ]
   %466 = phi ptr [ %.pre, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc188_crit_edge ], [ %458, %454 ]
   %467 = phi ptr [ %464, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc188_crit_edge ], [ null, %454 ]
@@ -1584,7 +1584,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc29_crit_edge: ;
   br label %.noexc29
 
 .noexc29:                                         ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc29_crit_edge, %75
-  %.pre-phi80 = phi i64 [ %.pre79, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc29_crit_edge ], [ %82, %75 ]
+  %.pre-phi80 = phi i64 [ %.pre79, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc29_crit_edge ], [ 0, %75 ]
   %86 = phi ptr [ %.pre75, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc29_crit_edge ], [ %78, %75 ]
   %87 = phi ptr [ %.pre, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc29_crit_edge ], [ %79, %75 ]
   %88 = phi ptr [ %85, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc29_crit_edge ], [ null, %75 ]
@@ -2067,7 +2067,7 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i..noexc61_crit_edge: ;
   br label %.noexc61
 
 .noexc61:                                         ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i..noexc61_crit_edge, %91
-  %.pre-phi135 = phi i64 [ %.pre134, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i..noexc61_crit_edge ], [ %98, %91 ]
+  %.pre-phi135 = phi i64 [ %.pre134, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i..noexc61_crit_edge ], [ 0, %91 ]
   %102 = phi ptr [ %.pre129, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i..noexc61_crit_edge ], [ %94, %91 ]
   %103 = phi ptr [ %.pre128, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i..noexc61_crit_edge ], [ %95, %91 ]
   %104 = phi ptr [ %101, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i..noexc61_crit_edge ], [ null, %91 ]
@@ -4129,7 +4129,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc11_crit_edge: ;
   br label %.noexc11
 
 .noexc11:                                         ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc11_crit_edge, %35
-  %.pre-phi30 = phi i64 [ %.pre29, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc11_crit_edge ], [ %42, %35 ]
+  %.pre-phi30 = phi i64 [ %.pre29, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc11_crit_edge ], [ 0, %35 ]
   %46 = phi ptr [ %.pre25, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc11_crit_edge ], [ %38, %35 ]
   %47 = phi ptr [ %.pre, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc11_crit_edge ], [ %39, %35 ]
   %48 = phi ptr [ %45, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc11_crit_edge ], [ null, %35 ]
@@ -4756,7 +4756,7 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit: ; preds = %_ZNSt6vectorIdSa
   br label %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPdS0_ET0_T_S2_S1_.exit:                 ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]

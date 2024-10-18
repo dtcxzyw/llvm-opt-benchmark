@@ -5403,7 +5403,7 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit: ; preds = %_ZNSt6vectorIlSa
   br label %_ZSt4copyIPlS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPlS0_ET0_T_S2_S1_.exit:                 ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]
@@ -5888,17 +5888,17 @@ _ZSt13move_backwardIPN5clang5RISCV19PrototypeDescriptorES3_ET0_T_S5_S4_.exit: ; 
   %62 = load ptr, ptr %0, align 8
   %63 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #20
   %.not.i.i36 = icmp eq ptr %31, %37
-  br i1 %.not.i.i36, label %_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit41, label %.lr.ph.i.i.i.i37.preheader
+  br i1 %.not.i.i36, label %_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit41, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang5RISCV19PrototypeDescriptorELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit
 
-.lr.ph.i.i.i.i37.preheader:                       ; preds = %56
+_ZN4llvm23SmallVectorTemplateBaseIN5clang5RISCV19PrototypeDescriptorELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit: ; preds = %56
   %64 = getelementptr inbounds %"struct.clang::RISCV::PrototypeDescriptor", ptr %62, i64 %63
   %65 = sub nsw i64 0, %61
   %66 = getelementptr inbounds %"struct.clang::RISCV::PrototypeDescriptor", ptr %64, i64 %65
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %66, ptr align 1 %31, i64 %60, i1 false)
   br label %.lr.ph.i.i.i.i37
 
-.lr.ph.i.i.i.i37:                                 ; preds = %.lr.ph.i.i.i.i37.preheader, %.lr.ph.i.i.i.i37
-  %.06.i.i.i.i38 = phi ptr [ %67, %.lr.ph.i.i.i.i37 ], [ %31, %.lr.ph.i.i.i.i37.preheader ]
+.lr.ph.i.i.i.i37:                                 ; preds = %.lr.ph.i.i.i.i37, %_ZN4llvm23SmallVectorTemplateBaseIN5clang5RISCV19PrototypeDescriptorELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit
+  %.06.i.i.i.i38 = phi ptr [ %67, %.lr.ph.i.i.i.i37 ], [ %31, %_ZN4llvm23SmallVectorTemplateBaseIN5clang5RISCV19PrototypeDescriptorELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit ]
   store i24 %3, ptr %.06.i.i.i.i38, align 1
   %67 = getelementptr inbounds i8, ptr %.06.i.i.i.i38, i64 3
   %.not.i.i.i.i39 = icmp eq ptr %67, %37
@@ -7517,13 +7517,13 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5RISCV19PrototypeDescriptorELb1EE28rese
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPN5clang5RISCV19PrototypeDescriptorES3_ET0_T_S5_S4_.exit, label %47
 
 47:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang5RISCV19PrototypeDescriptorELb1EE28reserveForParamAndGetAddressERS3_m.exit
-  %48 = ptrtoint ptr %44 to i64
-  %49 = ptrtoint ptr %34 to i64
-  %50 = sub i64 %48, %49
-  %.neg.i.i.i.i.i = sdiv exact i64 %50, -3
-  %51 = getelementptr inbounds %"struct.clang::RISCV::PrototypeDescriptor", ptr %45, i64 %46
-  %52 = getelementptr inbounds %"struct.clang::RISCV::PrototypeDescriptor", ptr %51, i64 %.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %52, ptr nonnull align 1 %34, i64 %50, i1 false)
+  %48 = getelementptr inbounds %"struct.clang::RISCV::PrototypeDescriptor", ptr %45, i64 %46
+  %49 = ptrtoint ptr %44 to i64
+  %50 = ptrtoint ptr %34 to i64
+  %51 = sub i64 %49, %50
+  %.neg.i.i.i.i.i = sdiv exact i64 %51, -3
+  %52 = getelementptr inbounds %"struct.clang::RISCV::PrototypeDescriptor", ptr %48, i64 %.neg.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %52, ptr nonnull align 1 %34, i64 %51, i1 false)
   br label %_ZSt13move_backwardIPN5clang5RISCV19PrototypeDescriptorES3_ET0_T_S5_S4_.exit
 
 _ZSt13move_backwardIPN5clang5RISCV19PrototypeDescriptorES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang5RISCV19PrototypeDescriptorELb1EE28reserveForParamAndGetAddressERS3_m.exit, %47

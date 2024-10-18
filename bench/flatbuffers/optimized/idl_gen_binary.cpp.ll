@@ -149,15 +149,15 @@ invoke.cont6.i:                                   ; preds = %lor.rhs.i
 lpad.i:                                           ; preds = %lor.rhs.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  br label %if.then.i.i.i25.i
+  br label %_ZNSt6vectorIhSaIhEED2Ev.exit26.i
 
 lpad9.i:                                          ; preds = %invoke.cont6.i
   %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #17
-  br label %if.then.i.i.i25.i
+  br label %_ZNSt6vectorIhSaIhEED2Ev.exit26.i
 
-if.then.i.i.i25.i:                                ; preds = %lpad9.i, %lpad.i
+_ZNSt6vectorIhSaIhEED2Ev.exit26.i:                ; preds = %lpad9.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %6, %lpad9.i ], [ %5, %lpad.i ]
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i5.i.i) #18
   br label %eh.resume.i
@@ -190,11 +190,11 @@ lpad24.i:                                         ; preds = %invoke.cont28.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20.i) #17
   br label %eh.resume.i
 
-eh.resume.i:                                      ; preds = %lpad24.i, %if.then.i.i.i25.i
-  %.pn.pn.i = phi { ptr, i32 } [ %10, %lpad24.i ], [ %.pn.i, %if.then.i.i.i25.i ]
+eh.resume.i:                                      ; preds = %lpad24.i, %_ZNSt6vectorIhSaIhEED2Ev.exit26.i
+  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %_ZNSt6vectorIhSaIhEED2Ev.exit26.i ], [ %10, %lpad24.i ]
   resume { ptr, i32 } %.pn.pn.i
 
-_ZN11flatbuffers12_GLOBAL__N_114GenerateBinaryERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.exit.thread: ; preds = %if.end.i, %if.then.i
+_ZN11flatbuffers12_GLOBAL__N_114GenerateBinaryERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.exit.thread: ; preds = %if.then.i, %if.end.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp20.i)
   br label %11

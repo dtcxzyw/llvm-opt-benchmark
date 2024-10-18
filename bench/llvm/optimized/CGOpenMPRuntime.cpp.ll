@@ -96988,16 +96988,16 @@ define internal fastcc void @_ZSt16__insertion_sortIPN4llvm8ArrayRefIN5clang27OM
   %7 = ptrtoint ptr %0 to i64
   br label %8
 
-8:                                                ; preds = %.lr.ph, %22
-  %.023 = phi ptr [ %.020, %.lr.ph ], [ %.0, %22 ]
-  %.pn22 = phi ptr [ %0, %.lr.ph ], [ %.023, %22 ]
+8:                                                ; preds = %.lr.ph, %23
+  %.023 = phi ptr [ %.020, %.lr.ph ], [ %.0, %23 ]
+  %.pn22 = phi ptr [ %0, %.lr.ph ], [ %.023, %23 ]
   %.0.val = load ptr, ptr %.023, align 8
   %9 = getelementptr i8, ptr %.pn22, i64 24
   %.0.val17 = load i64, ptr %9, align 8
   %.val18 = load ptr, ptr %0, align 8
   %.val19 = load i64, ptr %6, align 8
   %10 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr %2, ptr %.0.val, i64 %.0.val17, ptr %.val18, i64 %.val19)
-  br i1 %10, label %11, label %17
+  br i1 %10, label %11, label %18
 
 11:                                               ; preds = %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %.023, i64 16, i1 false)
@@ -97005,45 +97005,45 @@ define internal fastcc void @_ZSt16__insertion_sortIPN4llvm8ArrayRefIN5clang27OM
   %13 = ptrtoint ptr %.023 to i64
   %14 = sub i64 %13, %7
   %15 = ashr exact i64 %14, 4
-  %.pre.i.i.i.i.i = sub nsw i64 0, %15
-  %16 = getelementptr inbounds %"class.llvm::ArrayRef.2248", ptr %12, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %14, i1 false)
+  %16 = sub nsw i64 0, %15
+  %17 = getelementptr inbounds %"class.llvm::ArrayRef.2248", ptr %12, i64 %16
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %14, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  br label %22
+  br label %23
 
-17:                                               ; preds = %8
+18:                                               ; preds = %8
   %.sroa.0.0.copyload.i = load ptr, ptr %.023, align 8
   %.sroa.3.0.copyload.i = load i64, ptr %9, align 8
   %.0.val17.i = load ptr, ptr %.pn22, align 8
-  %18 = getelementptr i8, ptr %.pn22, i64 8
-  %.0.val1218.i = load i64, ptr %18, align 8
-  %19 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr %2, ptr %.sroa.0.0.copyload.i, i64 %.sroa.3.0.copyload.i, ptr %.0.val17.i, i64 %.0.val1218.i)
-  br i1 %19, label %.lr.ph.i, label %_ZSt25__unguarded_linear_insertIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEEvT_T0_.exit
+  %19 = getelementptr i8, ptr %.pn22, i64 8
+  %.0.val1218.i = load i64, ptr %19, align 8
+  %20 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr %2, ptr %.sroa.0.0.copyload.i, i64 %.sroa.3.0.copyload.i, ptr %.0.val17.i, i64 %.0.val1218.i)
+  br i1 %20, label %.lr.ph.i, label %_ZSt25__unguarded_linear_insertIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEEvT_T0_.exit
 
-.lr.ph.i:                                         ; preds = %17, %.lr.ph.i
-  %.020.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.pn22, %17 ]
-  %.0919.i = phi ptr [ %.020.i, %.lr.ph.i ], [ %.023, %17 ]
+.lr.ph.i:                                         ; preds = %18, %.lr.ph.i
+  %.020.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.pn22, %18 ]
+  %.0919.i = phi ptr [ %.020.i, %.lr.ph.i ], [ %.023, %18 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0919.i, ptr noundef nonnull align 8 dereferenceable(16) %.020.i, i64 16, i1 false)
   %.0.i = getelementptr inbounds i8, ptr %.020.i, i64 -16
   %.0.val.i = load ptr, ptr %.0.i, align 8
-  %20 = getelementptr i8, ptr %.020.i, i64 -8
-  %.0.val12.i = load i64, ptr %20, align 8
-  %21 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr %2, ptr %.sroa.0.0.copyload.i, i64 %.sroa.3.0.copyload.i, ptr %.0.val.i, i64 %.0.val12.i)
-  br i1 %21, label %.lr.ph.i, label %_ZSt25__unguarded_linear_insertIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEEvT_T0_.exit, !llvm.loop !1847
+  %21 = getelementptr i8, ptr %.020.i, i64 -8
+  %.0.val12.i = load i64, ptr %21, align 8
+  %22 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr %2, ptr %.sroa.0.0.copyload.i, i64 %.sroa.3.0.copyload.i, ptr %.0.val.i, i64 %.0.val12.i)
+  br i1 %22, label %.lr.ph.i, label %_ZSt25__unguarded_linear_insertIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEEvT_T0_.exit, !llvm.loop !1847
 
-_ZSt25__unguarded_linear_insertIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEEvT_T0_.exit: ; preds = %.lr.ph.i, %17
-  %.09.lcssa.i = phi ptr [ %.023, %17 ], [ %.020.i, %.lr.ph.i ]
+_ZSt25__unguarded_linear_insertIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEEvT_T0_.exit: ; preds = %.lr.ph.i, %18
+  %.09.lcssa.i = phi ptr [ %.023, %18 ], [ %.020.i, %.lr.ph.i ]
   store ptr %.sroa.0.0.copyload.i, ptr %.09.lcssa.i, align 8
   %.sroa.3.0..09.sroa_idx.i = getelementptr inbounds i8, ptr %.09.lcssa.i, i64 8
   store i64 %.sroa.3.0.copyload.i, ptr %.sroa.3.0..09.sroa_idx.i, align 8
-  br label %22
+  br label %23
 
-22:                                               ; preds = %11, %_ZSt25__unguarded_linear_insertIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEEvT_T0_.exit
+23:                                               ; preds = %11, %_ZSt25__unguarded_linear_insertIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEEvT_T0_.exit
   %.0 = getelementptr inbounds i8, ptr %.023, i64 16
   %.not = icmp eq ptr %.0, %1
   br i1 %.not, label %.loopexit, label %8, !llvm.loop !1848
 
-.loopexit:                                        ; preds = %22, %.preheader, %3
+.loopexit:                                        ; preds = %23, %.preheader, %3
   ret void
 }
 
@@ -97536,7 +97536,7 @@ define internal fastcc void @_ZSt16__merge_adaptiveIPN4llvm8ArrayRefIN5clang27OM
   br label %34
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %8
-  %.tr.lcssa = phi ptr [ %0, %8 ], [ %96, %tailrecurse ]
+  %.tr.lcssa = phi ptr [ %0, %8 ], [ %97, %tailrecurse ]
   %.tr106.lcssa = phi ptr [ %1, %8 ], [ %.0102, %tailrecurse ]
   %11 = ptrtoint ptr %.tr106.lcssa to i64
   %12 = ptrtoint ptr %.tr.lcssa to i64
@@ -97602,12 +97602,12 @@ _ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableCompone
 
 34:                                               ; preds = %.lr.ph, %tailrecurse
   %.not127 = phi i1 [ %.not120, %.lr.ph ], [ %.not, %tailrecurse ]
-  %.tr109126 = phi i64 [ %4, %.lr.ph ], [ %97, %tailrecurse ]
-  %.tr108125 = phi i64 [ %3, %.lr.ph ], [ %95, %tailrecurse ]
+  %.tr109126 = phi i64 [ %4, %.lr.ph ], [ %98, %tailrecurse ]
+  %.tr108125 = phi i64 [ %3, %.lr.ph ], [ %96, %tailrecurse ]
   %.tr106124 = phi ptr [ %1, %.lr.ph ], [ %.0102, %tailrecurse ]
-  %.tr123 = phi ptr [ %0, %.lr.ph ], [ %96, %tailrecurse ]
+  %.tr123 = phi ptr [ %0, %.lr.ph ], [ %97, %tailrecurse ]
   %.not68 = icmp sgt i64 %.tr109126, %6
-  br i1 %.not68, label %60, label %35
+  br i1 %.not68, label %61, label %35
 
 35:                                               ; preds = %34
   %.not.i.i.i.i.i69 = icmp eq ptr %2, %.tr106124
@@ -97665,117 +97665,117 @@ _ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableCompone
   br label %43, !llvm.loop !1858
 
 _ZSt13move_backwardIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit70.thread, %49
-  %.sink43.i = phi ptr [ %50, %49 ], [ %38, %_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit70.thread ]
+  %.sink44.i = phi ptr [ %50, %49 ], [ %38, %_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit70.thread ]
   %.lcssa.sink.i = phi ptr [ %46, %49 ], [ %2, %_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit70.thread ]
-  %55 = ptrtoint ptr %.sink43.i to i64
+  %55 = ptrtoint ptr %.sink44.i to i64
   %56 = ptrtoint ptr %5 to i64
   %57 = sub i64 %55, %56
   %58 = ashr exact i64 %57, 4
-  %.pre.i.i.i.i.i35.i = sub nsw i64 0, %58
-  %59 = getelementptr inbounds %"class.llvm::ArrayRef.2248", ptr %.lcssa.sink.i, i64 %.pre.i.i.i.i.i35.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %59, ptr align 8 %5, i64 %57, i1 false)
+  %59 = sub nsw i64 0, %58
+  %60 = getelementptr inbounds %"class.llvm::ArrayRef.2248", ptr %.lcssa.sink.i, i64 %59
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %60, ptr align 8 %5, i64 %57, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_S6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEEvT_SO_T0_SP_T1_T2_.exit
 
-60:                                               ; preds = %34
-  %61 = ptrtoint ptr %.tr106124 to i64
+61:                                               ; preds = %34
+  %62 = ptrtoint ptr %.tr106124 to i64
   br i1 %.not127, label %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit, label %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit78
 
-_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit: ; preds = %60
-  %62 = sdiv i64 %.tr108125, 2
-  %63 = getelementptr inbounds %"class.llvm::ArrayRef.2248", ptr %.tr123, i64 %62
-  %64 = sub i64 %10, %61
-  %65 = ashr exact i64 %64, 4
-  %66 = icmp sgt i64 %65, 0
-  br i1 %66, label %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit
+_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit: ; preds = %61
+  %63 = sdiv i64 %.tr108125, 2
+  %64 = getelementptr inbounds %"class.llvm::ArrayRef.2248", ptr %.tr123, i64 %63
+  %65 = sub i64 %10, %62
+  %66 = ashr exact i64 %65, 4
+  %67 = icmp sgt i64 %66, 0
+  br i1 %67, label %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit
 
 _ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit
-  %67 = getelementptr inbounds i8, ptr %63, i64 8
+  %68 = getelementptr inbounds i8, ptr %64, i64 8
   br label %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.i, %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.lr.ph.i
   %.021.i = phi ptr [ %.tr106124, %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i74, %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.i ]
-  %.01120.i = phi i64 [ %65, %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.i ]
-  %68 = lshr i64 %.01120.i, 1
-  %69 = getelementptr inbounds %"class.llvm::ArrayRef.2248", ptr %.021.i, i64 %68
-  %.val13.i = load ptr, ptr %69, align 8
-  %70 = getelementptr i8, ptr %69, i64 8
-  %.val14.i = load i64, ptr %70, align 8
-  %.val15.i = load ptr, ptr %63, align 8
-  %.val16.i = load i64, ptr %67, align 8
-  %71 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr %9, ptr %.val13.i, i64 %.val14.i, ptr %.val15.i, i64 %.val16.i)
-  %72 = getelementptr inbounds i8, ptr %69, i64 16
-  %73 = xor i64 %68, -1
-  %74 = add nsw i64 %.01120.i, %73
-  %.112.i = select i1 %71, i64 %74, i64 %68
-  %.1.i74 = select i1 %71, ptr %72, ptr %.021.i
-  %75 = icmp sgt i64 %.112.i, 0
-  br i1 %75, label %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit.loopexit, !llvm.loop !1849
+  %.01120.i = phi i64 [ %66, %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.i ]
+  %69 = lshr i64 %.01120.i, 1
+  %70 = getelementptr inbounds %"class.llvm::ArrayRef.2248", ptr %.021.i, i64 %69
+  %.val13.i = load ptr, ptr %70, align 8
+  %71 = getelementptr i8, ptr %70, i64 8
+  %.val14.i = load i64, ptr %71, align 8
+  %.val15.i = load ptr, ptr %64, align 8
+  %.val16.i = load i64, ptr %68, align 8
+  %72 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr %9, ptr %.val13.i, i64 %.val14.i, ptr %.val15.i, i64 %.val16.i)
+  %73 = getelementptr inbounds i8, ptr %70, i64 16
+  %74 = xor i64 %69, -1
+  %75 = add nsw i64 %.01120.i, %74
+  %.112.i = select i1 %72, i64 %75, i64 %69
+  %.1.i74 = select i1 %72, ptr %73, ptr %.021.i
+  %76 = icmp sgt i64 %.112.i, 0
+  br i1 %76, label %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit.loopexit, !llvm.loop !1849
 
 _ZSt13__lower_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.i
   %.pre = ptrtoint ptr %.1.i74 to i64
   br label %_ZSt13__lower_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit
 
 _ZSt13__lower_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit.loopexit ], [ %61, %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit.loopexit ], [ %62, %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit ]
   %.0.lcssa.i73 = phi ptr [ %.1.i74, %_ZSt13__lower_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit.loopexit ], [ %.tr106124, %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit ]
-  %76 = sub i64 %.pre-phi, %61
-  %77 = ashr exact i64 %76, 4
+  %77 = sub i64 %.pre-phi, %62
+  %78 = ashr exact i64 %77, 4
   br label %tailrecurse
 
-_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit78: ; preds = %60
-  %78 = sdiv i64 %.tr109126, 2
-  %79 = getelementptr inbounds %"class.llvm::ArrayRef.2248", ptr %.tr106124, i64 %78
-  %80 = ptrtoint ptr %.tr123 to i64
-  %81 = sub i64 %61, %80
-  %82 = ashr exact i64 %81, 4
-  %83 = icmp sgt i64 %82, 0
-  br i1 %83, label %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.lr.ph.i81, label %_ZSt13__upper_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit
+_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit78: ; preds = %61
+  %79 = sdiv i64 %.tr109126, 2
+  %80 = getelementptr inbounds %"class.llvm::ArrayRef.2248", ptr %.tr106124, i64 %79
+  %81 = ptrtoint ptr %.tr123 to i64
+  %82 = sub i64 %62, %81
+  %83 = ashr exact i64 %82, 4
+  %84 = icmp sgt i64 %83, 0
+  br i1 %84, label %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.lr.ph.i81, label %_ZSt13__upper_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit
 
 _ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.lr.ph.i81: ; preds = %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit78
-  %84 = getelementptr inbounds i8, ptr %79, i64 8
+  %85 = getelementptr inbounds i8, ptr %80, i64 8
   br label %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.i82
 
 _ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.i82: ; preds = %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.i82, %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.lr.ph.i81
   %.021.i83 = phi ptr [ %.tr123, %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.lr.ph.i81 ], [ %.1.i92, %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.i82 ]
-  %.01120.i84 = phi i64 [ %82, %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.lr.ph.i81 ], [ %.112.i91, %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.i82 ]
-  %85 = lshr i64 %.01120.i84, 1
-  %86 = getelementptr inbounds %"class.llvm::ArrayRef.2248", ptr %.021.i83, i64 %85
-  %.val13.i87 = load ptr, ptr %79, align 8
-  %.val14.i88 = load i64, ptr %84, align 8
-  %.val15.i89 = load ptr, ptr %86, align 8
-  %87 = getelementptr i8, ptr %86, i64 8
-  %.val16.i90 = load i64, ptr %87, align 8
-  %88 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr %9, ptr %.val13.i87, i64 %.val14.i88, ptr %.val15.i89, i64 %.val16.i90)
-  %89 = getelementptr inbounds i8, ptr %86, i64 16
-  %90 = xor i64 %85, -1
-  %91 = add nsw i64 %.01120.i84, %90
-  %.112.i91 = select i1 %88, i64 %85, i64 %91
-  %.1.i92 = select i1 %88, ptr %.021.i83, ptr %89
-  %92 = icmp sgt i64 %.112.i91, 0
-  br i1 %92, label %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.i82, label %_ZSt13__upper_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit.loopexit, !llvm.loop !1850
+  %.01120.i84 = phi i64 [ %83, %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.lr.ph.i81 ], [ %.112.i91, %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.i82 ]
+  %86 = lshr i64 %.01120.i84, 1
+  %87 = getelementptr inbounds %"class.llvm::ArrayRef.2248", ptr %.021.i83, i64 %86
+  %.val13.i87 = load ptr, ptr %80, align 8
+  %.val14.i88 = load i64, ptr %85, align 8
+  %.val15.i89 = load ptr, ptr %87, align 8
+  %88 = getelementptr i8, ptr %87, i64 8
+  %.val16.i90 = load i64, ptr %88, align 8
+  %89 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr %9, ptr %.val13.i87, i64 %.val14.i88, ptr %.val15.i89, i64 %.val16.i90)
+  %90 = getelementptr inbounds i8, ptr %87, i64 16
+  %91 = xor i64 %86, -1
+  %92 = add nsw i64 %.01120.i84, %91
+  %.112.i91 = select i1 %89, i64 %86, i64 %92
+  %.1.i92 = select i1 %89, ptr %.021.i83, ptr %90
+  %93 = icmp sgt i64 %.112.i91, 0
+  br i1 %93, label %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.i82, label %_ZSt13__upper_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit.loopexit, !llvm.loop !1850
 
 _ZSt13__upper_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit.i82
   %.pre137 = ptrtoint ptr %.1.i92 to i64
   br label %_ZSt13__upper_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit78
-  %.pre-phi138 = phi i64 [ %.pre137, %_ZSt13__upper_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit.loopexit ], [ %80, %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit78 ]
+  %.pre-phi138 = phi i64 [ %.pre137, %_ZSt13__upper_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit.loopexit ], [ %81, %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit78 ]
   %.0.lcssa.i80 = phi ptr [ %.1.i92, %_ZSt13__upper_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit.loopexit ], [ %.tr123, %_ZSt7advanceIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElEvRT_T0_.exit78 ]
-  %93 = sub i64 %.pre-phi138, %80
-  %94 = ashr exact i64 %93, 4
+  %94 = sub i64 %.pre-phi138, %81
+  %95 = ashr exact i64 %94, 4
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %_ZSt13__upper_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit, %_ZSt13__lower_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit
-  %.0103 = phi ptr [ %63, %_ZSt13__lower_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit ], [ %.0.lcssa.i80, %_ZSt13__upper_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit ]
-  %.0102 = phi ptr [ %.0.lcssa.i73, %_ZSt13__lower_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit ], [ %79, %_ZSt13__upper_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit ]
-  %.063 = phi i64 [ %77, %_ZSt13__lower_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit ], [ %78, %_ZSt13__upper_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %62, %_ZSt13__lower_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit ], [ %94, %_ZSt13__upper_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit ]
-  %95 = sub nsw i64 %.tr108125, %.0
-  %96 = tail call noundef ptr @_ZSt17__rotate_adaptiveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_lET_S7_S7_S7_T1_S8_T0_S8_(ptr noundef %.0103, ptr noundef %.tr106124, ptr noundef %.0102, i64 noundef %95, i64 noundef %.063, ptr noundef %5, i64 noundef %6)
-  tail call fastcc void @_ZSt16__merge_adaptiveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEEvT_SO_SO_T0_SP_T1_SP_T2_(ptr noundef %.tr123, ptr noundef %.0103, ptr noundef %96, i64 noundef %.0, i64 noundef %.063, ptr noundef %5, i64 noundef %6, i64 %7)
-  %97 = sub nsw i64 %.tr109126, %.063
-  %.not = icmp sgt i64 %95, %97
-  %.not67 = icmp sgt i64 %95, %6
+  %.0103 = phi ptr [ %64, %_ZSt13__lower_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit ], [ %.0.lcssa.i80, %_ZSt13__upper_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit ]
+  %.0102 = phi ptr [ %.0.lcssa.i73, %_ZSt13__lower_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit ], [ %80, %_ZSt13__upper_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit ]
+  %.063 = phi i64 [ %78, %_ZSt13__lower_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit ], [ %79, %_ZSt13__upper_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %63, %_ZSt13__lower_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit ], [ %95, %_ZSt13__upper_boundIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEET_SO_SO_RKT0_T1_.exit ]
+  %96 = sub nsw i64 %.tr108125, %.0
+  %97 = tail call noundef ptr @_ZSt17__rotate_adaptiveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_lET_S7_S7_S7_T1_S8_T0_S8_(ptr noundef %.0103, ptr noundef %.tr106124, ptr noundef %.0102, i64 noundef %96, i64 noundef %.063, ptr noundef %5, i64 noundef %6)
+  tail call fastcc void @_ZSt16__merge_adaptiveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEEvT_SO_SO_T0_SP_T1_SP_T2_(ptr noundef %.tr123, ptr noundef %.0103, ptr noundef %97, i64 noundef %.0, i64 noundef %.063, ptr noundef %5, i64 noundef %6, i64 %7)
+  %98 = sub nsw i64 %.tr109126, %.063
+  %.not = icmp sgt i64 %96, %98
+  %.not67 = icmp sgt i64 %96, %6
   %or.cond = or i1 %.not67, %.not
   br i1 %or.cond, label %34, label %tailrecurse._crit_edge
 
@@ -97944,7 +97944,7 @@ define linkonce_odr noundef ptr @_ZSt17__rotate_adaptiveIPN4llvm8ArrayRefIN5clan
   %11 = icmp sle i64 %3, %4
   %.not = icmp sgt i64 %4, %6
   %or.cond = or i1 %11, %.not
-  br i1 %or.cond, label %25, label %12
+  br i1 %or.cond, label %26, label %12
 
 12:                                               ; preds = %7
   %.not35 = icmp eq i64 %4, 0
@@ -97969,180 +97969,181 @@ _ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableCompone
   %19 = ptrtoint ptr %0 to i64
   %20 = sub i64 %15, %19
   %21 = ashr exact i64 %20, 4
-  %.pre.i.i.i.i.i = sub nsw i64 0, %21
-  %22 = getelementptr inbounds %"class.llvm::ArrayRef.2248", ptr %2, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %22, ptr align 8 %0, i64 %20, i1 false)
+  %22 = sub nsw i64 0, %21
+  %23 = getelementptr inbounds %"class.llvm::ArrayRef.2248", ptr %2, i64 %22
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %23, ptr align 8 %0, i64 %20, i1 false)
   br label %_ZSt13move_backwardIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit
 
 _ZSt13move_backwardIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit: ; preds = %_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit, %18
-  br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit38, label %23
+  br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit38, label %24
 
-23:                                               ; preds = %_ZSt13move_backwardIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit
+24:                                               ; preds = %_ZSt13move_backwardIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %0, ptr align 8 %5, i64 %16, i1 false)
   br label %_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit38
 
-_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit38: ; preds = %_ZSt13move_backwardIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit, %23
-  %24 = getelementptr inbounds i8, ptr %0, i64 %16
+_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit38: ; preds = %_ZSt13move_backwardIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit, %24
+  %25 = getelementptr inbounds i8, ptr %0, i64 %16
   br label %_ZNSt3_V26rotateIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEEEET_S8_S8_S8_.exit
 
-25:                                               ; preds = %7
+26:                                               ; preds = %7
   %.not33 = icmp sgt i64 %3, %6
-  br i1 %.not33, label %39, label %26
-
-26:                                               ; preds = %25
-  %.not34 = icmp eq i64 %3, 0
-  br i1 %.not34, label %_ZNSt3_V26rotateIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEEEET_S8_S8_S8_.exit, label %27
+  br i1 %.not33, label %41, label %27
 
 27:                                               ; preds = %26
-  %28 = ptrtoint ptr %1 to i64
-  %29 = ptrtoint ptr %0 to i64
-  %30 = sub i64 %28, %29
-  %.not.i.i.i.i.i39 = icmp eq ptr %1, %0
-  br i1 %.not.i.i.i.i.i39, label %_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit40, label %31
+  %.not34 = icmp eq i64 %3, 0
+  br i1 %.not34, label %_ZNSt3_V26rotateIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEEEET_S8_S8_S8_.exit, label %28
 
-31:                                               ; preds = %27
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %0, i64 %30, i1 false)
+28:                                               ; preds = %27
+  %29 = ptrtoint ptr %1 to i64
+  %30 = ptrtoint ptr %0 to i64
+  %31 = sub i64 %29, %30
+  %.not.i.i.i.i.i39 = icmp eq ptr %1, %0
+  br i1 %.not.i.i.i.i.i39, label %_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit40, label %32
+
+32:                                               ; preds = %28
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %0, i64 %31, i1 false)
   br label %_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit40
 
-_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit40: ; preds = %27, %31
+_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit40: ; preds = %28, %32
   %.not.i.i.i.i.i41 = icmp eq ptr %2, %1
-  br i1 %.not.i.i.i.i.i41, label %_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit42, label %32
+  br i1 %.not.i.i.i.i.i41, label %_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit42, label %33
 
-32:                                               ; preds = %_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit40
-  %33 = ptrtoint ptr %2 to i64
-  %34 = sub i64 %33, %28
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %0, ptr align 8 %1, i64 %34, i1 false)
+33:                                               ; preds = %_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit40
+  %34 = ptrtoint ptr %2 to i64
+  %35 = sub i64 %34, %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %0, ptr align 8 %1, i64 %35, i1 false)
   br label %_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit42
 
-_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit42: ; preds = %_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit40, %32
-  %35 = ashr exact i64 %30, 4
-  %.pre.i.i.i.i.i44 = sub nsw i64 0, %35
+_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit42: ; preds = %_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit40, %33
   br i1 %.not.i.i.i.i.i39, label %_ZSt13move_backwardIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit45, label %36
 
 36:                                               ; preds = %_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit42
-  %37 = getelementptr inbounds %"class.llvm::ArrayRef.2248", ptr %2, i64 %.pre.i.i.i.i.i44
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %37, ptr align 8 %5, i64 %30, i1 false)
+  %37 = ashr exact i64 %31, 4
+  %38 = sub nsw i64 0, %37
+  %39 = getelementptr inbounds %"class.llvm::ArrayRef.2248", ptr %2, i64 %38
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %39, ptr align 8 %5, i64 %31, i1 false)
   br label %_ZSt13move_backwardIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit45
 
 _ZSt13move_backwardIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit45: ; preds = %_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit42, %36
-  %38 = getelementptr inbounds %"class.llvm::ArrayRef.2248", ptr %2, i64 %.pre.i.i.i.i.i44
+  %.pre-phi.i.i.i.i.i44 = phi i64 [ %38, %36 ], [ 0, %_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit42 ]
+  %40 = getelementptr inbounds %"class.llvm::ArrayRef.2248", ptr %2, i64 %.pre-phi.i.i.i.i.i44
   br label %_ZNSt3_V26rotateIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEEEET_S8_S8_S8_.exit
 
-39:                                               ; preds = %25
-  %40 = icmp eq ptr %0, %1
-  br i1 %40, label %_ZNSt3_V26rotateIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEEEET_S8_S8_S8_.exit, label %41
-
-41:                                               ; preds = %39
-  %42 = icmp eq ptr %2, %1
+41:                                               ; preds = %26
+  %42 = icmp eq ptr %0, %1
   br i1 %42, label %_ZNSt3_V26rotateIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEEEET_S8_S8_S8_.exit, label %43
 
 43:                                               ; preds = %41
-  %44 = ptrtoint ptr %2 to i64
-  %45 = ptrtoint ptr %0 to i64
-  %46 = sub i64 %44, %45
-  %47 = ashr exact i64 %46, 4
-  %48 = ptrtoint ptr %1 to i64
-  %49 = sub i64 %48, %45
-  %50 = ashr exact i64 %49, 4
-  %51 = sub nsw i64 %47, %50
-  %52 = icmp eq i64 %50, %51
-  br i1 %52, label %.lr.ph.i.i.i, label %55
+  %44 = icmp eq ptr %2, %1
+  br i1 %44, label %_ZNSt3_V26rotateIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEEEET_S8_S8_S8_.exit, label %45
 
-.lr.ph.i.i.i:                                     ; preds = %43, %.lr.ph.i.i.i
-  %.010.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i ], [ %1, %43 ]
-  %.079.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i ], [ %0, %43 ]
+45:                                               ; preds = %43
+  %46 = ptrtoint ptr %2 to i64
+  %47 = ptrtoint ptr %0 to i64
+  %48 = sub i64 %46, %47
+  %49 = ashr exact i64 %48, 4
+  %50 = ptrtoint ptr %1 to i64
+  %51 = sub i64 %50, %47
+  %52 = ashr exact i64 %51, 4
+  %53 = sub nsw i64 %49, %52
+  %54 = icmp eq i64 %52, %53
+  br i1 %54, label %.lr.ph.i.i.i, label %57
+
+.lr.ph.i.i.i:                                     ; preds = %45, %.lr.ph.i.i.i
+  %.010.i.i.i = phi ptr [ %56, %.lr.ph.i.i.i ], [ %1, %45 ]
+  %.079.i.i.i = phi ptr [ %55, %.lr.ph.i.i.i ], [ %0, %45 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %.079.i.i.i, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.079.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.010.i.i.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.010.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %53 = getelementptr inbounds i8, ptr %.079.i.i.i, i64 16
-  %54 = getelementptr inbounds i8, ptr %.010.i.i.i, i64 16
-  %.not.i.i.i = icmp eq ptr %53, %1
+  %55 = getelementptr inbounds i8, ptr %.079.i.i.i, i64 16
+  %56 = getelementptr inbounds i8, ptr %.010.i.i.i, i64 16
+  %.not.i.i.i = icmp eq ptr %55, %1
   br i1 %.not.i.i.i, label %_ZNSt3_V26rotateIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEEEET_S8_S8_S8_.exit, label %.lr.ph.i.i.i, !llvm.loop !1851
 
-55:                                               ; preds = %43
-  %56 = sub i64 %44, %48
-  %57 = getelementptr inbounds i8, ptr %0, i64 %56
-  br label %58
+57:                                               ; preds = %45
+  %58 = sub i64 %46, %50
+  %59 = getelementptr inbounds i8, ptr %0, i64 %58
+  br label %60
 
-58:                                               ; preds = %.backedge, %55
-  %.059.i.i = phi i64 [ %47, %55 ], [ %.059.i.i.be, %.backedge ]
-  %.057.i.i = phi i64 [ %50, %55 ], [ %.057.i.i.be, %.backedge ]
-  %.039.i.i = phi ptr [ %0, %55 ], [ %.039.i.i.be, %.backedge ]
-  %59 = sub nsw i64 %.059.i.i, %.057.i.i
-  %60 = icmp slt i64 %.057.i.i, %59
-  br i1 %60, label %61, label %71
+60:                                               ; preds = %.backedge, %57
+  %.059.i.i = phi i64 [ %49, %57 ], [ %.059.i.i.be, %.backedge ]
+  %.057.i.i = phi i64 [ %52, %57 ], [ %.057.i.i.be, %.backedge ]
+  %.039.i.i = phi ptr [ %0, %57 ], [ %.039.i.i.be, %.backedge ]
+  %61 = sub nsw i64 %.059.i.i, %.057.i.i
+  %62 = icmp slt i64 %.057.i.i, %61
+  br i1 %62, label %63, label %73
 
-61:                                               ; preds = %58
-  %62 = icmp sgt i64 %59, 0
-  br i1 %62, label %.lr.ph69.preheader.i.i, label %._crit_edge70.i.i
+63:                                               ; preds = %60
+  %64 = icmp sgt i64 %61, 0
+  br i1 %64, label %.lr.ph69.preheader.i.i, label %._crit_edge70.i.i
 
-.lr.ph69.preheader.i.i:                           ; preds = %61
-  %63 = getelementptr inbounds %"class.llvm::ArrayRef.2248", ptr %.039.i.i, i64 %.057.i.i
+.lr.ph69.preheader.i.i:                           ; preds = %63
+  %65 = getelementptr inbounds %"class.llvm::ArrayRef.2248", ptr %.039.i.i, i64 %.057.i.i
   br label %.lr.ph69.i.i
 
 .lr.ph69.i.i:                                     ; preds = %.lr.ph69.i.i, %.lr.ph69.preheader.i.i
-  %.03667.i.i = phi i64 [ %66, %.lr.ph69.i.i ], [ 0, %.lr.ph69.preheader.i.i ]
-  %.03766.i.i = phi ptr [ %65, %.lr.ph69.i.i ], [ %63, %.lr.ph69.preheader.i.i ]
-  %.165.i.i = phi ptr [ %64, %.lr.ph69.i.i ], [ %.039.i.i, %.lr.ph69.preheader.i.i ]
+  %.03667.i.i = phi i64 [ %68, %.lr.ph69.i.i ], [ 0, %.lr.ph69.preheader.i.i ]
+  %.03766.i.i = phi ptr [ %67, %.lr.ph69.i.i ], [ %65, %.lr.ph69.preheader.i.i ]
+  %.165.i.i = phi ptr [ %66, %.lr.ph69.i.i ], [ %.039.i.i, %.lr.ph69.preheader.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %.165.i.i, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.165.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.03766.i.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03766.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  %64 = getelementptr inbounds i8, ptr %.165.i.i, i64 16
-  %65 = getelementptr inbounds i8, ptr %.03766.i.i, i64 16
-  %66 = add nuw nsw i64 %.03667.i.i, 1
-  %exitcond74.not.i.i = icmp eq i64 %66, %59
+  %66 = getelementptr inbounds i8, ptr %.165.i.i, i64 16
+  %67 = getelementptr inbounds i8, ptr %.03766.i.i, i64 16
+  %68 = add nuw nsw i64 %.03667.i.i, 1
+  %exitcond74.not.i.i = icmp eq i64 %68, %61
   br i1 %exitcond74.not.i.i, label %._crit_edge70.i.i, label %.lr.ph69.i.i, !llvm.loop !1852
 
-._crit_edge70.i.i:                                ; preds = %.lr.ph69.i.i, %61
-  %.1.lcssa.i.i = phi ptr [ %.039.i.i, %61 ], [ %64, %.lr.ph69.i.i ]
-  %67 = srem i64 %.059.i.i, %.057.i.i
-  %68 = icmp eq i64 %67, 0
-  br i1 %68, label %_ZNSt3_V26rotateIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEEEET_S8_S8_S8_.exit, label %69
+._crit_edge70.i.i:                                ; preds = %.lr.ph69.i.i, %63
+  %.1.lcssa.i.i = phi ptr [ %.039.i.i, %63 ], [ %66, %.lr.ph69.i.i ]
+  %69 = srem i64 %.059.i.i, %.057.i.i
+  %70 = icmp eq i64 %69, 0
+  br i1 %70, label %_ZNSt3_V26rotateIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEEEET_S8_S8_S8_.exit, label %71
 
-69:                                               ; preds = %._crit_edge70.i.i
-  %70 = sub nsw i64 %.057.i.i, %67
+71:                                               ; preds = %._crit_edge70.i.i
+  %72 = sub nsw i64 %.057.i.i, %69
   br label %.backedge
 
-71:                                               ; preds = %58
-  %72 = getelementptr inbounds %"class.llvm::ArrayRef.2248", ptr %.039.i.i, i64 %.059.i.i
-  %73 = sub i64 0, %59
-  %74 = getelementptr inbounds %"class.llvm::ArrayRef.2248", ptr %72, i64 %73
-  %75 = icmp sgt i64 %.057.i.i, 0
-  br i1 %75, label %.lr.ph.i.i, label %._crit_edge.i.i
+73:                                               ; preds = %60
+  %74 = getelementptr inbounds %"class.llvm::ArrayRef.2248", ptr %.039.i.i, i64 %.059.i.i
+  %75 = sub i64 0, %61
+  %76 = getelementptr inbounds %"class.llvm::ArrayRef.2248", ptr %74, i64 %75
+  %77 = icmp sgt i64 %.057.i.i, 0
+  br i1 %77, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-.lr.ph.i.i:                                       ; preds = %71, %.lr.ph.i.i
-  %.064.i.i = phi i64 [ %78, %.lr.ph.i.i ], [ 0, %71 ]
-  %.03563.i.i = phi ptr [ %77, %.lr.ph.i.i ], [ %72, %71 ]
-  %.362.i.i = phi ptr [ %76, %.lr.ph.i.i ], [ %74, %71 ]
-  %76 = getelementptr inbounds i8, ptr %.362.i.i, i64 -16
-  %77 = getelementptr inbounds i8, ptr %.03563.i.i, i64 -16
+.lr.ph.i.i:                                       ; preds = %73, %.lr.ph.i.i
+  %.064.i.i = phi i64 [ %80, %.lr.ph.i.i ], [ 0, %73 ]
+  %.03563.i.i = phi ptr [ %79, %.lr.ph.i.i ], [ %74, %73 ]
+  %.362.i.i = phi ptr [ %78, %.lr.ph.i.i ], [ %76, %73 ]
+  %78 = getelementptr inbounds i8, ptr %.362.i.i, i64 -16
+  %79 = getelementptr inbounds i8, ptr %.03563.i.i, i64 -16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %76, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(16) %77, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %78, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull align 8 dereferenceable(16) %79, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %78 = add nuw nsw i64 %.064.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %78, %.057.i.i
+  %80 = add nuw nsw i64 %.064.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %80, %.057.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !1853
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %71
-  %.3.lcssa.i.i = phi ptr [ %74, %71 ], [ %.039.i.i, %.lr.ph.i.i ]
-  %79 = srem i64 %.059.i.i, %59
-  %80 = icmp eq i64 %79, 0
-  br i1 %80, label %_ZNSt3_V26rotateIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEEEET_S8_S8_S8_.exit, label %.backedge
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %73
+  %.3.lcssa.i.i = phi ptr [ %76, %73 ], [ %.039.i.i, %.lr.ph.i.i ]
+  %81 = srem i64 %.059.i.i, %61
+  %82 = icmp eq i64 %81, 0
+  br i1 %82, label %_ZNSt3_V26rotateIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEEEET_S8_S8_S8_.exit, label %.backedge
 
-.backedge:                                        ; preds = %._crit_edge.i.i, %69
-  %.059.i.i.be = phi i64 [ %.057.i.i, %69 ], [ %59, %._crit_edge.i.i ]
-  %.057.i.i.be = phi i64 [ %70, %69 ], [ %79, %._crit_edge.i.i ]
-  %.039.i.i.be = phi ptr [ %.1.lcssa.i.i, %69 ], [ %.3.lcssa.i.i, %._crit_edge.i.i ]
-  br label %58, !llvm.loop !1854
+.backedge:                                        ; preds = %._crit_edge.i.i, %71
+  %.059.i.i.be = phi i64 [ %.057.i.i, %71 ], [ %61, %._crit_edge.i.i ]
+  %.057.i.i.be = phi i64 [ %72, %71 ], [ %81, %._crit_edge.i.i ]
+  %.039.i.i.be = phi ptr [ %.1.lcssa.i.i, %71 ], [ %.3.lcssa.i.i, %._crit_edge.i.i ]
+  br label %60, !llvm.loop !1854
 
-_ZNSt3_V26rotateIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEEEET_S8_S8_S8_.exit: ; preds = %._crit_edge.i.i, %._crit_edge70.i.i, %.lr.ph.i.i.i, %41, %39, %26, %12, %_ZSt13move_backwardIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit45, %_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit38
-  %.0 = phi ptr [ %24, %_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit38 ], [ %38, %_ZSt13move_backwardIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit45 ], [ %0, %12 ], [ %2, %26 ], [ %2, %39 ], [ %0, %41 ], [ %1, %.lr.ph.i.i.i ], [ %57, %._crit_edge70.i.i ], [ %57, %._crit_edge.i.i ]
+_ZNSt3_V26rotateIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEEEET_S8_S8_S8_.exit: ; preds = %._crit_edge.i.i, %._crit_edge70.i.i, %.lr.ph.i.i.i, %43, %41, %27, %12, %_ZSt13move_backwardIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit45, %_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit38
+  %.0 = phi ptr [ %25, %_ZSt4moveIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit38 ], [ %40, %_ZSt13move_backwardIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES6_ET0_T_S8_S7_.exit45 ], [ %0, %12 ], [ %2, %27 ], [ %2, %41 ], [ %0, %43 ], [ %1, %.lr.ph.i.i.i ], [ %59, %._crit_edge70.i.i ], [ %59, %._crit_edge.i.i ]
   ret ptr %.0
 }
 

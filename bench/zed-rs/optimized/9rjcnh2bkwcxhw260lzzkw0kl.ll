@@ -5917,7 +5917,7 @@ _ZN4core4iter6traits8iterator8Iterator3any17h3276e61604e955dbE.exit.loopexit.i: 
   br label %_ZN4core4iter6traits8iterator8Iterator3any17h3276e61604e955dbE.exit.i
 
 _ZN4core4iter6traits8iterator8Iterator3any17h3276e61604e955dbE.exit.i: ; preds = %.loopexit200.i.thread, %_ZN4core4iter6traits8iterator8Iterator3any17h3276e61604e955dbE.exit.loopexit.i, %.loopexit200.i
-  %387 = phi i64 [ %342, %.loopexit200.i ], [ %342, %_ZN4core4iter6traits8iterator8Iterator3any17h3276e61604e955dbE.exit.loopexit.i ], [ %326, %.loopexit200.i.thread ]
+  %387 = phi i64 [ %342, %.loopexit200.i ], [ %342, %_ZN4core4iter6traits8iterator8Iterator3any17h3276e61604e955dbE.exit.loopexit.i ], [ 0, %.loopexit200.i.thread ]
   %388 = phi ptr [ %341, %.loopexit200.i ], [ %341, %_ZN4core4iter6traits8iterator8Iterator3any17h3276e61604e955dbE.exit.loopexit.i ], [ %327, %.loopexit200.i.thread ]
   %389 = phi i8 [ %.sroa.0.0.i.i.i.i, %.loopexit200.i ], [ %.pre.i, %_ZN4core4iter6traits8iterator8Iterator3any17h3276e61604e955dbE.exit.loopexit.i ], [ 0, %.loopexit200.i.thread ]
   %390 = phi i1 [ false, %.loopexit200.i ], [ %.ph.i, %_ZN4core4iter6traits8iterator8Iterator3any17h3276e61604e955dbE.exit.loopexit.i ], [ false, %.loopexit200.i.thread ]

@@ -7571,7 +7571,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %_ZNKSt17basic_strin
   br label %_ZN3nix9CanonPath8IteratorppEv.exit
 
 _ZN3nix9CanonPath8IteratorppEv.exit:              ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit5.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %65, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
-  %.sroa.0170.1 = phi i64 [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %62, %65 ], [ %62, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %62, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit5.i ]
+  %.sroa.0170.1 = phi i64 [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %62, %65 ], [ %62, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit5.i ]
   %.sroa.6173.1 = phi ptr [ %59, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %63, %65 ], [ %63, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %63, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit5.i ]
   %.sroa.13177.1 = phi i64 [ -1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ], [ %68, %65 ], [ -1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ -1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit5.i ]
   %.not = icmp eq ptr %.sroa.6173.1, %26
@@ -7964,7 +7964,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i93:   ; preds = %_ZNKSt17basic_strin
   br label %_ZN3nix9CanonPath8IteratorppEv.exit99
 
 _ZN3nix9CanonPath8IteratorppEv.exit99:            ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit5.i91, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i93, %190, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i97
-  %.sroa.0155.1 = phi i64 [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i97 ], [ %187, %190 ], [ %187, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i93 ], [ %187, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit5.i91 ]
+  %.sroa.0155.1 = phi i64 [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i97 ], [ %187, %190 ], [ %187, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i93 ], [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit5.i91 ]
   %.sroa.6.1 = phi ptr [ %184, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i97 ], [ %188, %190 ], [ %188, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i93 ], [ %188, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit5.i91 ]
   %.sroa.13.1 = phi i64 [ -1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i97 ], [ %193, %190 ], [ -1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i93 ], [ -1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit5.i91 ]
   %.not179 = icmp eq ptr %.sroa.6.1, %151

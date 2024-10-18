@@ -2952,8 +2952,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_ET0_T
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %__i.sroa.0.013.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.lcssa.i
   %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 2
-  %.pre.i.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds float, ptr %add.ptr.i3.i.i, i64 %.pre.i.i.i.i.i.i.i
+  %idx.neg.i.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds float, ptr %add.ptr.i3.i.i, i64 %idx.neg.i.i.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %__first.sroa.0.0.lcssa.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
   br label %for.inc.i.i
 
@@ -3483,8 +3483,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_ET0_T
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i237 = ptrtoint ptr %__i.sroa.0.013.i.i221 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i238 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i237, %sub.ptr.rhs.cast.i.lcssa.i215
   %sub.ptr.div.i.i.i.i.i.i.i239 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i238, 2
-  %.pre.i.i.i.i.i.i.i240 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i239
-  %add.ptr.i.i.i.i.i.i.i241 = getelementptr inbounds float, ptr %add.ptr.i3.i.i236, i64 %.pre.i.i.i.i.i.i.i240
+  %idx.neg.i.i.i.i.i.i.i240 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i239
+  %add.ptr.i.i.i.i.i.i.i241 = getelementptr inbounds float, ptr %add.ptr.i3.i.i236, i64 %idx.neg.i.i.i.i.i.i.i240
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i.i241, ptr noundef nonnull align 4 dereferenceable(1) %__first.sroa.0.0.lcssa.i214, i64 %sub.ptr.sub.i.i.i.i.i.i.i238, i1 false)
   br label %for.inc.i.i226
 
@@ -17341,8 +17341,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %__i.sroa.0.013.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.lcssa.i
   %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 3
-  %.pre.i.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %add.ptr.i3.i.i, i64 %.pre.i.i.i.i.i.i.i
+  %idx.neg.i.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %add.ptr.i3.i.i, i64 %idx.neg.i.i.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.sroa.0.0.lcssa.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
   br label %for.inc.i.i
 
@@ -17873,8 +17873,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i237 = ptrtoint ptr %__i.sroa.0.013.i.i221 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i238 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i237, %sub.ptr.rhs.cast.i.lcssa.i215
   %sub.ptr.div.i.i.i.i.i.i.i239 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i238, 3
-  %.pre.i.i.i.i.i.i.i240 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i239
-  %add.ptr.i.i.i.i.i.i.i241 = getelementptr inbounds double, ptr %add.ptr.i3.i.i236, i64 %.pre.i.i.i.i.i.i.i240
+  %idx.neg.i.i.i.i.i.i.i240 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i239
+  %add.ptr.i.i.i.i.i.i.i241 = getelementptr inbounds double, ptr %add.ptr.i3.i.i236, i64 %idx.neg.i.i.i.i.i.i.i240
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i.i241, ptr noundef nonnull align 8 dereferenceable(1) %__first.sroa.0.0.lcssa.i214, i64 %sub.ptr.sub.i.i.i.i.i.i.i238, i1 false)
   br label %for.inc.i.i226
 

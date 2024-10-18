@@ -6373,13 +6373,13 @@ _ZN10open_spiel4skat16PlayerToLocationEi.exit:    ; preds = %72, %81
 
 _ZNK10open_spiel4skat5Trick8GetCardsEv.exit:      ; preds = %115, %139
   %.sroa.083.0 = phi ptr [ %140, %139 ], [ null, %115 ]
-  %141 = ashr exact i64 %136, 2
+  %141 = lshr exact i64 %136, 2
   br label %142
 
 142:                                              ; preds = %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit, %149
   %indvars.iv117 = phi i64 [ 0, %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit ], [ %indvars.iv.next118, %149 ]
   %.1102 = phi ptr [ %126, %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit ], [ %150, %149 ]
-  %143 = icmp ugt i64 %141, %indvars.iv117
+  %143 = icmp samesign ugt i64 %141, %indvars.iv117
   br i1 %143, label %144, label %149
 
 144:                                              ; preds = %142
@@ -6458,13 +6458,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %152, %151, %153
 
 _ZNK10open_spiel4skat5Trick8GetCardsEv.exit76:    ; preds = %158, %180
   %.sroa.0.0 = phi ptr [ %181, %180 ], [ null, %158 ]
-  %182 = ashr exact i64 %177, 2
+  %182 = lshr exact i64 %177, 2
   br label %183
 
 183:                                              ; preds = %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit76, %190
   %indvars.iv121 = phi i64 [ 0, %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit76 ], [ %indvars.iv.next122, %190 ]
   %.3104 = phi ptr [ %166, %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit76 ], [ %191, %190 ]
-  %184 = icmp ugt i64 %182, %indvars.iv121
+  %184 = icmp samesign ugt i64 %182, %indvars.iv121
   br i1 %184, label %185, label %190
 
 185:                                              ; preds = %183

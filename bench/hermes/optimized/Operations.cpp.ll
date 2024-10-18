@@ -6356,8 +6356,8 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.end10.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr14.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %50 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
-  %.pre.i.i.i.i.i.i = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i89 = getelementptr inbounds i8, ptr %add.ptr.i38.i, i64 %.pre.i.i.i.i.i.i
+  %idx.neg.i.i.i.i.i.i = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i89 = getelementptr inbounds i8, ptr %add.ptr.i38.i, i64 %idx.neg.i.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i.i89, ptr nonnull align 1 %50, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   %.pre28.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit.i

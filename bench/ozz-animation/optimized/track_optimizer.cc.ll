@@ -4248,7 +4248,7 @@ _ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAlloca
   br label %_ZSt4copyIPN3ozz9animation7offline16RawTrackKeyframeIfEES5_ET0_T_S7_S6_.exit
 
 _ZSt4copyIPN3ozz9animation7offline16RawTrackKeyframeIfEES5_ET0_T_S7_S6_.exit: ; preds = %47, %48
-  %.pre-phi34 = phi i64 [ %44, %47 ], [ %.pre33, %48 ]
+  %.pre-phi34 = phi i64 [ 0, %47 ], [ %.pre33, %48 ]
   %49 = phi ptr [ %5, %47 ], [ %.pre29, %48 ]
   %50 = phi ptr [ %42, %47 ], [ %.pre27, %48 ]
   %51 = phi ptr [ %6, %47 ], [ %.pre, %48 ]
@@ -4499,7 +4499,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeISt4pairImmEN3ozz12StdAllocatorIS
   %15 = load i64, ptr %14, align 8
   %16 = shl i64 %13, 1
   %17 = icmp ugt i64 %15, %16
-  br i1 %17, label %18, label %38
+  br i1 %17, label %18, label %39
 
 18:                                               ; preds = %3
   %19 = load ptr, ptr %0, align 8
@@ -4526,98 +4526,98 @@ define linkonce_odr dso_local void @_ZNSt5dequeISt4pairImmEN3ozz12StdAllocatorIS
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPSt4pairImmES3_ET0_T_S5_S4_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = ptrtoint ptr %26 to i64
-  %34 = sub i64 %33, %9
-  %35 = ashr exact i64 %34, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %35
-  %36 = getelementptr inbounds ptr, ptr %24, i64 %12
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %37, ptr align 8 %7, i64 %34, i1 false)
+  %33 = getelementptr inbounds ptr, ptr %24, i64 %12
+  %34 = ptrtoint ptr %26 to i64
+  %35 = sub i64 %34, %9
+  %36 = ashr exact i64 %35, 3
+  %37 = sub nsw i64 0, %36
+  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPSt4pairImmES3_ET0_T_S5_S4_.exit
 
-38:                                               ; preds = %3
+39:                                               ; preds = %3
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %15, i64 %1)
-  %39 = add i64 %15, 2
-  %40 = add i64 %39, %.sroa.speculated
-  %41 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()
-          to label %42 unwind label %48
+  %40 = add i64 %15, 2
+  %41 = add i64 %40, %.sroa.speculated
+  %42 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()
+          to label %43 unwind label %49
 
-42:                                               ; preds = %38
-  %43 = shl i64 %40, 3
-  %44 = load ptr, ptr %41, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 16
-  %46 = load ptr, ptr %45, align 8
-  %47 = invoke noundef ptr %46(ptr noundef nonnull align 8 dereferenceable(8) %41, i64 noundef %43, i64 noundef 8)
-          to label %_ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE15_M_allocate_mapEm.exit unwind label %48
+43:                                               ; preds = %39
+  %44 = shl i64 %41, 3
+  %45 = load ptr, ptr %42, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %47 = load ptr, ptr %46, align 8
+  %48 = invoke noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(8) %42, i64 noundef %44, i64 noundef 8)
+          to label %_ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE15_M_allocate_mapEm.exit unwind label %49
 
-48:                                               ; preds = %42, %38
-  %49 = landingpad { ptr, i32 }
+49:                                               ; preds = %43, %39
+  %50 = landingpad { ptr, i32 }
           catch ptr null
-  %50 = extractvalue { ptr, i32 } %49, 0
-  tail call void @__clang_call_terminate(ptr %50) #16
+  %51 = extractvalue { ptr, i32 } %50, 0
+  tail call void @__clang_call_terminate(ptr %51) #16
   unreachable
 
-_ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE15_M_allocate_mapEm.exit: ; preds = %42
-  %51 = sub i64 %40, %13
-  %52 = lshr i64 %51, 1
-  %53 = getelementptr inbounds ptr, ptr %47, i64 %52
-  %54 = select i1 %2, i64 %1, i64 0
-  %55 = getelementptr inbounds ptr, ptr %53, i64 %54
-  %56 = load ptr, ptr %6, align 8
-  %57 = load ptr, ptr %4, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
-  %.not.i.i.i.i.i25 = icmp eq ptr %58, %56
-  br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPSt4pairImmES3_ET0_T_S5_S4_.exit26, label %59
+_ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE15_M_allocate_mapEm.exit: ; preds = %43
+  %52 = sub i64 %41, %13
+  %53 = lshr i64 %52, 1
+  %54 = getelementptr inbounds ptr, ptr %48, i64 %53
+  %55 = select i1 %2, i64 %1, i64 0
+  %56 = getelementptr inbounds ptr, ptr %54, i64 %55
+  %57 = load ptr, ptr %6, align 8
+  %58 = load ptr, ptr %4, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 8
+  %.not.i.i.i.i.i25 = icmp eq ptr %59, %57
+  br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPSt4pairImmES3_ET0_T_S5_S4_.exit26, label %60
 
-59:                                               ; preds = %_ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE15_M_allocate_mapEm.exit
-  %60 = ptrtoint ptr %58 to i64
-  %61 = ptrtoint ptr %56 to i64
-  %62 = sub i64 %60, %61
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %55, ptr align 8 %56, i64 %62, i1 false)
+60:                                               ; preds = %_ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE15_M_allocate_mapEm.exit
+  %61 = ptrtoint ptr %59 to i64
+  %62 = ptrtoint ptr %57 to i64
+  %63 = sub i64 %61, %62
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %56, ptr align 8 %57, i64 %63, i1 false)
   br label %_ZSt4copyIPPSt4pairImmES3_ET0_T_S5_S4_.exit26
 
-_ZSt4copyIPPSt4pairImmES3_ET0_T_S5_S4_.exit26:    ; preds = %_ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE15_M_allocate_mapEm.exit, %59
-  %63 = load ptr, ptr %0, align 8
-  %64 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()
-          to label %65 unwind label %69
+_ZSt4copyIPPSt4pairImmES3_ET0_T_S5_S4_.exit26:    ; preds = %_ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE15_M_allocate_mapEm.exit, %60
+  %64 = load ptr, ptr %0, align 8
+  %65 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()
+          to label %66 unwind label %70
 
-65:                                               ; preds = %_ZSt4copyIPPSt4pairImmES3_ET0_T_S5_S4_.exit26
-  %66 = load ptr, ptr %64, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 24
-  %68 = load ptr, ptr %67, align 8
-  invoke void %68(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef %63)
-          to label %_ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE17_M_deallocate_mapEPPS1_m.exit unwind label %69
+66:                                               ; preds = %_ZSt4copyIPPSt4pairImmES3_ET0_T_S5_S4_.exit26
+  %67 = load ptr, ptr %65, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 24
+  %69 = load ptr, ptr %68, align 8
+  invoke void %69(ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef %64)
+          to label %_ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE17_M_deallocate_mapEPPS1_m.exit unwind label %70
 
-69:                                               ; preds = %65, %_ZSt4copyIPPSt4pairImmES3_ET0_T_S5_S4_.exit26
-  %70 = landingpad { ptr, i32 }
+70:                                               ; preds = %66, %_ZSt4copyIPPSt4pairImmES3_ET0_T_S5_S4_.exit26
+  %71 = landingpad { ptr, i32 }
           catch ptr null
-  %71 = extractvalue { ptr, i32 } %70, 0
-  tail call void @__clang_call_terminate(ptr %71) #16
+  %72 = extractvalue { ptr, i32 } %71, 0
+  tail call void @__clang_call_terminate(ptr %72) #16
   unreachable
 
-_ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE17_M_deallocate_mapEPPS1_m.exit: ; preds = %65
-  store ptr %47, ptr %0, align 8
-  store i64 %40, ptr %14, align 8
+_ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE17_M_deallocate_mapEPPS1_m.exit: ; preds = %66
+  store ptr %48, ptr %0, align 8
+  store i64 %41, ptr %14, align 8
   br label %_ZSt4copyIPPSt4pairImmES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPPSt4pairImmES3_ET0_T_S5_S4_.exit:      ; preds = %32, %31, %28, %27, %_ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE17_M_deallocate_mapEPPS1_m.exit
-  %.0 = phi ptr [ %55, %_ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE17_M_deallocate_mapEPPS1_m.exit ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %56, %_ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE17_M_deallocate_mapEPPS1_m.exit ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8
-  %72 = load ptr, ptr %.0, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %72, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %72, i64 512
-  %75 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %74, ptr %75, align 8
-  %76 = getelementptr inbounds ptr, ptr %.0, i64 %12
-  %77 = getelementptr inbounds i8, ptr %76, i64 -8
-  store ptr %77, ptr %4, align 8
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %78, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %78, i64 512
-  %81 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr %80, ptr %81, align 8
+  %73 = load ptr, ptr %.0, align 8
+  %74 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %73, ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %73, i64 512
+  %76 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %75, ptr %76, align 8
+  %77 = getelementptr inbounds ptr, ptr %.0, i64 %12
+  %78 = getelementptr inbounds i8, ptr %77, i64 -8
+  store ptr %78, ptr %4, align 8
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %79, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %79, i64 512
+  %82 = getelementptr inbounds i8, ptr %0, i64 64
+  store ptr %81, ptr %82, align 8
   ret void
 }
 
@@ -4984,7 +4984,7 @@ _ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EE
   br label %_ZSt4copyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEES7_ET0_T_S9_S8_.exit
 
 _ZSt4copyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEES7_ET0_T_S9_S8_.exit: ; preds = %47, %48
-  %.pre-phi34 = phi i64 [ %44, %47 ], [ %.pre33, %48 ]
+  %.pre-phi34 = phi i64 [ 0, %47 ], [ %.pre33, %48 ]
   %49 = phi ptr [ %5, %47 ], [ %.pre29, %48 ]
   %50 = phi ptr [ %42, %47 ], [ %.pre27, %48 ]
   %51 = phi ptr [ %6, %47 ], [ %.pre, %48 ]
@@ -5369,7 +5369,7 @@ _ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EE
   br label %_ZSt4copyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEES7_ET0_T_S9_S8_.exit
 
 _ZSt4copyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEES7_ET0_T_S9_S8_.exit: ; preds = %47, %48
-  %.pre-phi34 = phi i64 [ %44, %47 ], [ %.pre33, %48 ]
+  %.pre-phi34 = phi i64 [ 0, %47 ], [ %.pre33, %48 ]
   %49 = phi ptr [ %5, %47 ], [ %.pre29, %48 ]
   %50 = phi ptr [ %42, %47 ], [ %.pre27, %48 ]
   %51 = phi ptr [ %6, %47 ], [ %.pre, %48 ]
@@ -5754,7 +5754,7 @@ _ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EE
   br label %_ZSt4copyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEES7_ET0_T_S9_S8_.exit
 
 _ZSt4copyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEES7_ET0_T_S9_S8_.exit: ; preds = %47, %48
-  %.pre-phi34 = phi i64 [ %44, %47 ], [ %.pre33, %48 ]
+  %.pre-phi34 = phi i64 [ 0, %47 ], [ %.pre33, %48 ]
   %49 = phi ptr [ %5, %47 ], [ %.pre29, %48 ]
   %50 = phi ptr [ %42, %47 ], [ %.pre27, %48 ]
   %51 = phi ptr [ %6, %47 ], [ %.pre, %48 ]
@@ -6139,7 +6139,7 @@ _ZNSt12_Vector_baseIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10Quatern
   br label %_ZSt4copyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEES7_ET0_T_S9_S8_.exit
 
 _ZSt4copyIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEES7_ET0_T_S9_S8_.exit: ; preds = %47, %48
-  %.pre-phi34 = phi i64 [ %44, %47 ], [ %.pre33, %48 ]
+  %.pre-phi34 = phi i64 [ 0, %47 ], [ %.pre33, %48 ]
   %49 = phi ptr [ %5, %47 ], [ %.pre29, %48 ]
   %50 = phi ptr [ %42, %47 ], [ %.pre27, %48 ]
   %51 = phi ptr [ %6, %47 ], [ %.pre, %48 ]

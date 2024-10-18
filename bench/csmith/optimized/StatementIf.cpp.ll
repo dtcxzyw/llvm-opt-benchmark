@@ -218,7 +218,7 @@ _ZNSt12_Vector_baseIPK4FactSaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds = %49, 
   br label %_ZSt4copyIPPK4FactS3_ET0_T_S5_S4_.exit.i
 
 _ZSt4copyIPPK4FactS3_ET0_T_S5_S4_.exit.i:         ; preds = %59, %58
-  %.pre-phi33.i = phi i64 [ %55, %58 ], [ %.pre32.i, %59 ]
+  %.pre-phi33.i = phi i64 [ 0, %58 ], [ %.pre32.i, %59 ]
   %60 = phi ptr [ %32, %58 ], [ %.pre28.i, %59 ]
   %61 = phi ptr [ %53, %58 ], [ %.pre26.i, %59 ]
   %62 = phi ptr [ %33, %58 ], [ %.pre.i, %59 ]
@@ -610,7 +610,7 @@ _ZNSt12_Vector_baseIPK4FactSaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6
   br label %_ZSt4copyIPPK4FactS3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPPK4FactS3_ET0_T_S5_S4_.exit:           ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]

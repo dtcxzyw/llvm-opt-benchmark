@@ -73,7 +73,7 @@ define hidden void @asn1_stack_frame_push(ptr nocapture noundef %0, ptr noundef 
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 408
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noalias ptr @wmem_alloc0(ptr noundef %6, i64 noundef 24) #11
+  %7 = tail call noalias ptr @wmem_alloc0(ptr noundef %6, i64 noundef 24) #10
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
@@ -93,17 +93,17 @@ define hidden void @asn1_stack_frame_pop(ptr nocapture noundef %0, ptr nocapture
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 61, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 61, ptr noundef nonnull @.str.2) #11
   unreachable
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %1) #13
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %1) #12
   %.not5 = icmp eq i32 %8, 0
   br i1 %.not5, label %10, label %9
 
 9:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 62, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 62, ptr noundef nonnull @.str.3) #11
   unreachable
 
 10:                                               ; preds = %6
@@ -127,17 +127,17 @@ define hidden void @asn1_stack_frame_check(ptr nocapture noundef readonly %0, pt
   br i1 %.not, label %6, label %7
 
 6:                                                ; preds = %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 70, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 70, ptr noundef nonnull @.str.2) #11
   unreachable
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %5, align 8
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %1) #13
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %1) #12
   %.not18 = icmp eq i32 %9, 0
   br i1 %.not18, label %11, label %10
 
 10:                                               ; preds = %7
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 71, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 71, ptr noundef nonnull @.str.3) #11
   unreachable
 
 11:                                               ; preds = %7
@@ -155,7 +155,7 @@ define hidden void @asn1_stack_frame_check(ptr nocapture noundef readonly %0, pt
   br i1 %.not21, label %15, label %16
 
 15:                                               ; preds = %.lr.ph
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 75, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 75, ptr noundef nonnull @.str.4) #11
   unreachable
 
 16:                                               ; preds = %.lr.ph
@@ -171,7 +171,7 @@ define hidden void @asn1_stack_frame_check(ptr nocapture noundef readonly %0, pt
   br i1 %23, label %25, label %24
 
 24:                                               ; preds = %20
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 76, ptr noundef nonnull @.str.5) #12
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 76, ptr noundef nonnull @.str.5) #11
   unreachable
 
 25:                                               ; preds = %16, %20
@@ -189,7 +189,7 @@ define hidden void @asn1_stack_frame_check(ptr nocapture noundef readonly %0, pt
   br i1 %.not20, label %30, label %29
 
 29:                                               ; preds = %._crit_edge
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 81, ptr noundef nonnull @.str.6) #12
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 81, ptr noundef nonnull @.str.6) #11
   unreachable
 
 30:                                               ; preds = %._crit_edge
@@ -204,7 +204,7 @@ define hidden void @asn1_param_push_boolean(ptr nocapture noundef readonly %0, i
   br i1 %.not.i, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 100, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 100, ptr noundef nonnull @.str.2) #11
   unreachable
 
 6:                                                ; preds = %2
@@ -212,7 +212,7 @@ define hidden void @asn1_param_push_boolean(ptr nocapture noundef readonly %0, i
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call noalias ptr @wmem_alloc0(ptr noundef %10, i64 noundef 32) #11
+  %11 = tail call noalias ptr @wmem_alloc0(ptr noundef %10, i64 noundef 32) #10
   %12 = load ptr, ptr %3, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   br label %14
@@ -242,7 +242,7 @@ define hidden void @asn1_param_push_integer(ptr nocapture noundef readonly %0, i
   br i1 %.not.i, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 100, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 100, ptr noundef nonnull @.str.2) #11
   unreachable
 
 6:                                                ; preds = %2
@@ -250,7 +250,7 @@ define hidden void @asn1_param_push_integer(ptr nocapture noundef readonly %0, i
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call noalias ptr @wmem_alloc0(ptr noundef %10, i64 noundef 32) #11
+  %11 = tail call noalias ptr @wmem_alloc0(ptr noundef %10, i64 noundef 32) #10
   %12 = load ptr, ptr %3, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   br label %14
@@ -279,7 +279,7 @@ define hidden zeroext i1 @asn1_param_get_boolean(ptr nocapture noundef readonly 
   br i1 %.not.i, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 87, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 87, ptr noundef nonnull @.str.2) #11
   unreachable
 
 5:                                                ; preds = %2
@@ -291,7 +291,7 @@ define hidden zeroext i1 @asn1_param_get_boolean(ptr nocapture noundef readonly 
 .lr.ph.i:                                         ; preds = %5, %9
   %.03.i = phi ptr [ %.0.i, %9 ], [ %.01.i, %5 ]
   %7 = load ptr, ptr %.03.i, align 8
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #13
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #12
   %.not12.i = icmp eq i32 %8, 0
   br i1 %.not12.i, label %get_par_by_name.exit, label %9
 
@@ -302,7 +302,7 @@ define hidden zeroext i1 @asn1_param_get_boolean(ptr nocapture noundef readonly 
   br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !7
 
 .loopexit:                                        ; preds = %9, %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 132, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 132, ptr noundef nonnull @.str.4) #11
   unreachable
 
 get_par_by_name.exit:                             ; preds = %.lr.ph.i
@@ -320,7 +320,7 @@ define hidden i32 @asn1_param_get_integer(ptr nocapture noundef readonly %0, ptr
   br i1 %.not.i, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 87, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 87, ptr noundef nonnull @.str.2) #11
   unreachable
 
 5:                                                ; preds = %2
@@ -332,7 +332,7 @@ define hidden i32 @asn1_param_get_integer(ptr nocapture noundef readonly %0, ptr
 .lr.ph.i:                                         ; preds = %5, %9
   %.03.i = phi ptr [ %.0.i, %9 ], [ %.01.i, %5 ]
   %7 = load ptr, ptr %.03.i, align 8
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #13
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #12
   %.not12.i = icmp eq i32 %8, 0
   br i1 %.not12.i, label %get_par_by_name.exit, label %9
 
@@ -343,7 +343,7 @@ define hidden i32 @asn1_param_get_integer(ptr nocapture noundef readonly %0, ptr
   br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !7
 
 .loopexit:                                        ; preds = %9, %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 140, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 140, ptr noundef nonnull @.str.4) #11
   unreachable
 
 get_par_by_name.exit:                             ; preds = %.lr.ph.i
@@ -437,7 +437,7 @@ rose_ctx_check_signature.exit.thread:             ; preds = %rose_ctx_check_sign
 ; Function Attrs: nounwind uwtable
 define hidden double @asn1_get_real(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp slt i32 %1, 1
-  br i1 %3, label %68, label %4
+  br i1 %3, label %67, label %4
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1
@@ -445,7 +445,7 @@ define hidden double @asn1_get_real(ptr noundef %0, i32 noundef %1) local_unname
   %7 = add nsw i32 %1, -1
   %8 = zext i8 %5 to i32
   %.not = icmp sgt i8 %5, -1
-  br i1 %.not, label %61, label %9
+  br i1 %.not, label %60, label %9
 
 9:                                                ; preds = %4
   %10 = and i32 %8, 64
@@ -456,7 +456,7 @@ define hidden double @asn1_get_real(ptr noundef %0, i32 noundef %1) local_unname
     i32 0, label %15
     i32 1, label %13
     i32 2, label %14
-    i32 3, label %68
+    i32 3, label %67
   ]
 
 13:                                               ; preds = %9
@@ -479,7 +479,7 @@ default.unreachable:                              ; preds = %9
   br i1 %.not60, label %21, label %22
 
 21:                                               ; preds = %15
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @.str.7) #12
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @.str.7) #11
   unreachable
 
 22:                                               ; preds = %15
@@ -488,7 +488,7 @@ default.unreachable:                              ; preds = %9
   br i1 %24, label %26, label %25
 
 25:                                               ; preds = %22
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 232, ptr noundef nonnull @.str.8) #12
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 232, ptr noundef nonnull @.str.8) #11
   unreachable
 
 26:                                               ; preds = %22
@@ -535,71 +535,70 @@ default.unreachable:                              ; preds = %9
   %42 = trunc i32 %7 to i8
   %43 = sub i8 %42, %19
   %44 = icmp ult i8 %43, 9
-  br i1 %44, label %.preheader, label %46
+  br i1 %44, label %.preheader, label %45
 
 .preheader:                                       ; preds = %.split68.us
   %.not73 = icmp eq i8 %19, %42
   br i1 %.not73, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %45 = tail call i8 @llvm.umax.i8(i8 %43, i8 1)
-  %umax = zext nneg i8 %45 to i32
+  %umax = zext nneg i8 %43 to i32
   br label %.lr.ph
 
-46:                                               ; preds = %.split68.us
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 252, ptr noundef nonnull @.str.9) #12
+45:                                               ; preds = %.split68.us
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 252, ptr noundef nonnull @.str.9) #11
   unreachable
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.04672 = phi i64 [ %50, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.14971 = phi ptr [ %51, %.lr.ph ], [ %.us-phi, %.lr.ph.preheader ]
-  %.15470 = phi i32 [ %52, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %47 = shl i64 %.04672, 8
-  %48 = load i8, ptr %.14971, align 1
-  %49 = zext i8 %48 to i64
-  %50 = or disjoint i64 %47, %49
-  %51 = getelementptr i8, ptr %.14971, i64 1
-  %52 = add nuw nsw i32 %.15470, 1
-  %exitcond81.not = icmp eq i32 %52, %umax
+  %.04672 = phi i64 [ %49, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.14971 = phi ptr [ %50, %.lr.ph ], [ %.us-phi, %.lr.ph.preheader ]
+  %.15470 = phi i32 [ %51, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %46 = shl i64 %.04672, 8
+  %47 = load i8, ptr %.14971, align 1
+  %48 = zext i8 %47 to i64
+  %49 = or disjoint i64 %46, %48
+  %50 = getelementptr i8, ptr %.14971, i64 1
+  %51 = add nuw nsw i32 %.15470, 1
+  %exitcond81.not = icmp eq i32 %51, %umax
   br i1 %exitcond81.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %53 = uitofp i64 %50 to double
+  %52 = uitofp i64 %49 to double
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.046.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %53, %._crit_edge.loopexit ]
-  %54 = fneg double %.046.lcssa
-  %55 = select i1 %.not59, double %.046.lcssa, double %54
-  %56 = zext nneg i8 %17 to i32
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %56) #11
-  %57 = fmul double %55, %ldexp
-  %58 = sitofp i32 %spec.select to double
-  %59 = tail call double @pow(double noundef %.050, double noundef %58) #11
-  %60 = fmul double %57, %59
-  br label %68
+  %.046.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %52, %._crit_edge.loopexit ]
+  %53 = fneg double %.046.lcssa
+  %54 = select i1 %.not59, double %.046.lcssa, double %53
+  %55 = zext nneg i8 %17 to i32
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %55) #10
+  %56 = fmul double %54, %ldexp
+  %57 = sitofp i32 %spec.select to double
+  %58 = tail call double @pow(double noundef %.050, double noundef %57) #10
+  %59 = fmul double %56, %58
+  br label %67
 
-61:                                               ; preds = %4
+60:                                               ; preds = %4
   %.not58 = icmp ult i8 %5, 64
-  br i1 %.not58, label %64, label %62
+  br i1 %.not58, label %63, label %61
 
-62:                                               ; preds = %61
-  %63 = and i32 %8, 63
-  %switch.selectcmp = icmp eq i32 %63, 1
+61:                                               ; preds = %60
+  %62 = and i32 %8, 63
+  %switch.selectcmp = icmp eq i32 %62, 1
   %switch.select = select i1 %switch.selectcmp, double 0xFFF0000000000000, double 0.000000e+00
-  %switch.selectcmp62 = icmp eq i32 %63, 0
+  %switch.selectcmp62 = icmp eq i32 %62, 0
   %switch.select63 = select i1 %switch.selectcmp62, double 0x7FF0000000000000, double %switch.select
-  br label %68
+  br label %67
 
-64:                                               ; preds = %61
-  %65 = zext nneg i32 %7 to i64
-  %66 = tail call noalias ptr @g_strndup(ptr noundef %6, i64 noundef %65) #11
-  %67 = tail call double @g_ascii_strtod(ptr noundef %66, ptr noundef null) #11
-  tail call void @g_free(ptr noundef %66) #11
-  br label %68
+63:                                               ; preds = %60
+  %64 = zext nneg i32 %7 to i64
+  %65 = tail call noalias ptr @g_strndup(ptr noundef %6, i64 noundef %64) #10
+  %66 = tail call double @g_ascii_strtod(ptr noundef %65, ptr noundef null) #10
+  tail call void @g_free(ptr noundef %65) #10
+  br label %67
 
-68:                                               ; preds = %._crit_edge, %64, %62, %9, %2
-  %.0 = phi double [ 0.000000e+00, %2 ], [ 0.000000e+00, %9 ], [ %60, %._crit_edge ], [ %67, %64 ], [ %switch.select63, %62 ]
+67:                                               ; preds = %._crit_edge, %63, %61, %9, %2
+  %.0 = phi double [ 0.000000e+00, %2 ], [ 0.000000e+00, %9 ], [ %59, %._crit_edge ], [ %66, %63 ], [ %switch.select63, %61 ]
   ret double %.0
 }
 
@@ -615,9 +614,6 @@ declare void @g_free(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nofree willreturn
 declare double @ldexp(double, i32) local_unnamed_addr #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #10
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -628,10 +624,9 @@ attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree willreturn }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { nounwind willreturn memory(read) }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

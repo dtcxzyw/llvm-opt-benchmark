@@ -3154,86 +3154,82 @@ define void @_ZN2cv17CommandLineParser4Impl11sort_paramsEv(ptr nocapture noundef
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = ptrtoint ptr %4 to i64
-  %7 = ptrtoint ptr %5 to i64
-  %8 = sub i64 %6, %7
-  %9 = sdiv exact i64 %8, 96
   %.not = icmp eq ptr %4, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit
-  %10 = phi ptr [ %24, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit ], [ %5, %1 ]
-  %11 = phi ptr [ %25, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit ], [ %4, %1 ]
-  %.011 = phi i64 [ %26, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit ], [ 0, %1 ]
-  %12 = getelementptr inbounds %"struct.cv::CommandLineParserParams", ptr %10, i64 %.011, i32 2
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
-  %15 = load ptr, ptr %14, align 8
-  %.not.i.i = icmp eq ptr %13, %15
-  br i1 %.not.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit, label %16
+  %6 = phi ptr [ %20, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit ], [ %5, %1 ]
+  %7 = phi ptr [ %21, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit ], [ %4, %1 ]
+  %.011 = phi i64 [ %22, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit ], [ 0, %1 ]
+  %8 = getelementptr inbounds %"struct.cv::CommandLineParserParams", ptr %6, i64 %.011, i32 2
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = load ptr, ptr %10, align 8
+  %.not.i.i = icmp eq ptr %9, %11
+  br i1 %.not.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit, label %12
 
-16:                                               ; preds = %.lr.ph
-  %17 = ptrtoint ptr %15 to i64
-  %18 = ptrtoint ptr %13 to i64
-  %19 = sub i64 %17, %18
-  %20 = ashr exact i64 %19, 5
-  %21 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %20, i1 true)
-  %22 = shl nuw nsw i64 %21, 1
-  %23 = xor i64 %22, 126
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElNS0_5__ops15_Iter_less_iterEEvT_SF_T0_T1_(ptr %13, ptr %15, i64 noundef %23)
-  tail call void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_less_iterEEvT_SF_T0_(ptr %13, ptr %15)
+12:                                               ; preds = %.lr.ph
+  %13 = ptrtoint ptr %11 to i64
+  %14 = ptrtoint ptr %9 to i64
+  %15 = sub i64 %13, %14
+  %16 = ashr exact i64 %15, 5
+  %17 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %16, i1 true)
+  %18 = shl nuw nsw i64 %17, 1
+  %19 = xor i64 %18, 126
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElNS0_5__ops15_Iter_less_iterEEvT_SF_T0_T1_(ptr %9, ptr %11, i64 noundef %19)
+  tail call void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_less_iterEEvT_SF_T0_(ptr %9, ptr %11)
   %.pre = load ptr, ptr %3, align 8
   %.pre19 = load ptr, ptr %2, align 8
   br label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit
 
-_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit: ; preds = %.lr.ph, %16
-  %24 = phi ptr [ %10, %.lr.ph ], [ %.pre19, %16 ]
-  %25 = phi ptr [ %11, %.lr.ph ], [ %.pre, %16 ]
-  %26 = add nuw i64 %.011, 1
-  %27 = ptrtoint ptr %25 to i64
-  %28 = ptrtoint ptr %24 to i64
-  %29 = sub i64 %27, %28
-  %30 = sdiv exact i64 %29, 96
-  %31 = icmp ult i64 %26, %30
-  br i1 %31, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !20
+_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit: ; preds = %.lr.ph, %12
+  %20 = phi ptr [ %6, %.lr.ph ], [ %.pre19, %12 ]
+  %21 = phi ptr [ %7, %.lr.ph ], [ %.pre, %12 ]
+  %22 = add nuw i64 %.011, 1
+  %23 = ptrtoint ptr %21 to i64
+  %24 = ptrtoint ptr %20 to i64
+  %25 = sub i64 %23, %24
+  %26 = sdiv exact i64 %25, 96
+  %27 = icmp ult i64 %22, %26
+  br i1 %27, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit
-  %32 = icmp sgt i64 %29, 1536
+  %28 = icmp sgt i64 %25, 1536
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %.lcssa10 = phi ptr [ %4, %1 ], [ %25, %._crit_edge.loopexit ]
-  %.lcssa9 = phi ptr [ %5, %1 ], [ %24, %._crit_edge.loopexit ]
-  %.lcssa8 = phi i1 [ false, %1 ], [ %32, %._crit_edge.loopexit ]
-  %.lcssa = phi i64 [ %9, %1 ], [ %30, %._crit_edge.loopexit ]
+  %.lcssa10 = phi ptr [ %4, %1 ], [ %21, %._crit_edge.loopexit ]
+  %.lcssa9 = phi ptr [ %5, %1 ], [ %20, %._crit_edge.loopexit ]
+  %.lcssa8 = phi i1 [ false, %1 ], [ %28, %._crit_edge.loopexit ]
+  %.lcssa = phi i64 [ 0, %1 ], [ %26, %._crit_edge.loopexit ]
   %.not.i.i7 = icmp eq ptr %.lcssa9, %.lcssa10
-  br i1 %.not.i.i7, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv23CommandLineParserParamsESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_.exit, label %33
+  br i1 %.not.i.i7, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv23CommandLineParserParamsESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_.exit, label %29
 
-33:                                               ; preds = %._crit_edge
-  %34 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.lcssa, i1 true)
-  %35 = shl nuw nsw i64 %34, 1
-  %36 = xor i64 %35, 126
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN2cv23CommandLineParserParamsESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %.lcssa9, ptr %.lcssa10, i64 noundef %36, ptr nonnull @_ZN2cvL10cmp_paramsERKNS_23CommandLineParserParamsES2_)
-  br i1 %.lcssa8, label %37, label %40
+29:                                               ; preds = %._crit_edge
+  %30 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.lcssa, i1 true)
+  %31 = shl nuw nsw i64 %30, 1
+  %32 = xor i64 %31, 126
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN2cv23CommandLineParserParamsESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %.lcssa9, ptr %.lcssa10, i64 noundef %32, ptr nonnull @_ZN2cvL10cmp_paramsERKNS_23CommandLineParserParamsES2_)
+  br i1 %.lcssa8, label %33, label %36
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %.lcssa9, i64 1536
-  tail call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN2cv23CommandLineParserParamsESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_(ptr %.lcssa9, ptr nonnull %38, ptr nonnull @_ZN2cvL10cmp_paramsERKNS_23CommandLineParserParamsES2_)
-  %.not7.i.i.i.i = icmp eq ptr %38, %.lcssa10
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds i8, ptr %.lcssa9, i64 1536
+  tail call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN2cv23CommandLineParserParamsESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_(ptr %.lcssa9, ptr nonnull %34, ptr nonnull @_ZN2cvL10cmp_paramsERKNS_23CommandLineParserParamsES2_)
+  %.not7.i.i.i.i = icmp eq ptr %34, %.lcssa10
   br i1 %.not7.i.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv23CommandLineParserParamsESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %37, %.lr.ph.i.i.i.i
-  %.sroa.0.08.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i ], [ %38, %37 ]
+.lr.ph.i.i.i.i:                                   ; preds = %33, %.lr.ph.i.i.i.i
+  %.sroa.0.08.i.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i.i ], [ %34, %33 ]
   tail call void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv23CommandLineParserParamsESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_(ptr nonnull %.sroa.0.08.i.i.i.i, ptr nonnull @_ZN2cvL10cmp_paramsERKNS_23CommandLineParserParamsES2_)
-  %39 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i.i, i64 96
-  %.not.i.i.i.i = icmp eq ptr %39, %.lcssa10
+  %35 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i.i, i64 96
+  %.not.i.i.i.i = icmp eq ptr %35, %.lcssa10
   br i1 %.not.i.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv23CommandLineParserParamsESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !21
 
-40:                                               ; preds = %33
+36:                                               ; preds = %29
   tail call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN2cv23CommandLineParserParamsESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_(ptr %.lcssa9, ptr %.lcssa10, ptr nonnull @_ZN2cvL10cmp_paramsERKNS_23CommandLineParserParamsES2_)
   br label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv23CommandLineParserParamsESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_.exit
 
-_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv23CommandLineParserParamsESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %._crit_edge, %37, %40
+_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv23CommandLineParserParamsESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %._crit_edge, %33, %36
   ret void
 }
 

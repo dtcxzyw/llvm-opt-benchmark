@@ -8536,13 +8536,13 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_15MIRefELb1EE28reserveForParamAn
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPN12_GLOBAL__N_15MIRefES2_ET0_T_S4_S3_.exit.i.i, label %80
 
 80:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_15MIRefELb1EE28reserveForParamAndGetAddressERKS2_m.exit.i.i
-  %81 = ptrtoint ptr %78 to i64
-  %82 = ptrtoint ptr %70 to i64
-  %83 = sub i64 %81, %82
-  %.neg.i.i.i.i.i.i.i = sdiv exact i64 %83, -24
-  %84 = getelementptr inbounds %"struct.(anonymous namespace)::MIRef", ptr %.val.i20.i.i, i64 %79
-  %85 = getelementptr inbounds %"struct.(anonymous namespace)::MIRef", ptr %84, i64 %.neg.i.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %85, ptr nonnull align 8 %70, i64 %83, i1 false)
+  %81 = getelementptr inbounds %"struct.(anonymous namespace)::MIRef", ptr %.val.i20.i.i, i64 %79
+  %82 = ptrtoint ptr %78 to i64
+  %83 = ptrtoint ptr %70 to i64
+  %84 = sub i64 %82, %83
+  %.neg.i.i.i.i.i.i.i = sdiv exact i64 %84, -24
+  %85 = getelementptr inbounds %"struct.(anonymous namespace)::MIRef", ptr %81, i64 %.neg.i.i.i.i.i.i.i
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %85, ptr nonnull align 8 %70, i64 %84, i1 false)
   br label %_ZSt13move_backwardIPN12_GLOBAL__N_15MIRefES2_ET0_T_S4_S3_.exit.i.i
 
 _ZSt13move_backwardIPN12_GLOBAL__N_15MIRefES2_ET0_T_S4_S3_.exit.i.i: ; preds = %80, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_15MIRefELb1EE28reserveForParamAndGetAddressERKS2_m.exit.i.i

@@ -291,7 +291,7 @@ define void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable9quicksort9quicks
   br i1 %10, label %.outer._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit
-  %.sroa.0.0.ph68 = phi ptr [ %112, %_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit ], [ %0, %7 ]
+  %.sroa.0.0.ph68 = phi ptr [ %111, %_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit ], [ %0, %7 ]
   %.sroa.12.0.ph67 = phi i64 [ %103, %_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit ], [ %1, %7 ]
   %.sroa.019.0.ph66 = phi i32 [ %19, %_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit ], [ %4, %7 ]
   %.sroa.022.0.ph65 = phi ptr [ null, %_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit ], [ %5, %7 ]
@@ -301,15 +301,15 @@ define void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable9quicksort9quicks
   %14 = getelementptr i8, ptr %.sroa.022.0.ph65, i64 16
   br label %15
 
-15:                                               ; preds = %.lr.ph, %119
-  %.sroa.12.061 = phi i64 [ %.sroa.12.0.ph67, %.lr.ph ], [ %.sroa.11.1.lcssa.i, %119 ]
-  %.sroa.019.060 = phi i32 [ %.sroa.019.0.ph66, %.lr.ph ], [ %19, %119 ]
+15:                                               ; preds = %.lr.ph, %118
+  %.sroa.12.061 = phi i64 [ %.sroa.12.0.ph67, %.lr.ph ], [ %.sroa.11.1.lcssa.i, %118 ]
+  %.sroa.019.060 = phi i32 [ %.sroa.019.0.ph66, %.lr.ph ], [ %19, %118 ]
   %16 = icmp eq i32 %.sroa.019.060, 0
   br i1 %16, label %17, label %18
 
-.outer._crit_edge:                                ; preds = %_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit, %119, %7
-  %.sroa.0.0.ph.lcssa59 = phi ptr [ %0, %7 ], [ %.sroa.0.0.ph68, %119 ], [ %112, %_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit ]
-  %.sroa.12.0.lcssa = phi i64 [ %1, %7 ], [ %.sroa.11.1.lcssa.i, %119 ], [ %103, %_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit ]
+.outer._crit_edge:                                ; preds = %_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit, %118, %_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit.thread, %7
+  %.sroa.0.0.ph.lcssa59 = phi ptr [ %0, %7 ], [ %104, %_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit.thread ], [ %.sroa.0.0.ph68, %118 ], [ %111, %_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit ]
+  %.sroa.12.0.lcssa = phi i64 [ %1, %7 ], [ 0, %_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit.thread ], [ %.sroa.11.1.lcssa.i, %118 ], [ %103, %_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit ]
   call void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared9smallsort31small_sort_general_with_scratchNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB1s_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 %.sroa.0.0.ph.lcssa59, i64 noundef range(i64 0, 33) %.sroa.12.0.lcssa, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, ptr noalias noundef nonnull align 1 %6)
   br label %40
 
@@ -459,7 +459,7 @@ _RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared5pivot12choose_pivotNtNtCs68wO
 
 77:                                               ; preds = %.loopexit
   %.not = icmp ugt i64 %.sroa.11.1.lcssa.i, %.sroa.12.061
-  br i1 %.not, label %114, label %119
+  br i1 %.not, label %113, label %118
 
 .thread103:                                       ; preds = %41, %.loopexit
   call void @llvm.experimental.noalias.scope.decl(metadata !36)
@@ -527,57 +527,58 @@ _RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared5pivot12choose_pivotNtNtCs68wO
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.ph68, ptr nonnull align 8 %2, i64 %102, i1 false), !alias.scope !39
   %103 = sub i64 %.sroa.12.061, %.sroa.11.1.lcssa.us.i
   %.not.i34 = icmp eq i64 %.sroa.12.061, %.sroa.11.1.lcssa.us.i
-  br i1 %.not.i34, label %_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable9quicksort16stable_partitionNtNtCs68wO5nsWeTG_5alloc6string6StringNCINvB2_9quicksortB1d_NvYB1d_NtNtBa_3cmp10PartialOrd2ltE0ECsff1zCjKRl2o_13turborepo_env.exit, label %.lr.ph33.i35
-
-.lr.ph33.i35:                                     ; preds = %.split30.us.i33
   %104 = getelementptr { { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.0.ph68, i64 %.sroa.11.1.lcssa.us.i
-  br label %105
+  br i1 %.not.i34, label %_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit.thread, label %.lr.ph33.i35
 
-105:                                              ; preds = %105, %.lr.ph33.i35
-  %.sroa.04.031.i36 = phi i64 [ 0, %.lr.ph33.i35 ], [ %106, %105 ]
-  %106 = add nuw i64 %.sroa.04.031.i36, 1
-  %107 = xor i64 %.sroa.04.031.i36, -1
-  %108 = getelementptr { { { i64, ptr, {} }, i64 } }, ptr %80, i64 %107
-  %109 = getelementptr { { { i64, ptr, {} }, i64 } }, ptr %104, i64 %.sroa.04.031.i36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, ptr noundef nonnull align 8 dereferenceable(24) %108, i64 24, i1 false), !alias.scope !39
-  %exitcond.not.i37 = icmp eq i64 %106, %103
-  br i1 %exitcond.not.i37, label %_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable9quicksort16stable_partitionNtNtCs68wO5nsWeTG_5alloc6string6StringNCINvB2_9quicksortB1d_NvYB1d_NtNtBa_3cmp10PartialOrd2ltE0ECsff1zCjKRl2o_13turborepo_env.exit, label %105
+.lr.ph33.i35:                                     ; preds = %.split30.us.i33, %.lr.ph33.i35
+  %.sroa.04.031.i36 = phi i64 [ %105, %.lr.ph33.i35 ], [ 0, %.split30.us.i33 ]
+  %105 = add nuw i64 %.sroa.04.031.i36, 1
+  %106 = xor i64 %.sroa.04.031.i36, -1
+  %107 = getelementptr { { { i64, ptr, {} }, i64 } }, ptr %80, i64 %106
+  %108 = getelementptr { { { i64, ptr, {} }, i64 } }, ptr %104, i64 %.sroa.04.031.i36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %108, ptr noundef nonnull align 8 dereferenceable(24) %107, i64 24, i1 false), !alias.scope !39
+  %exitcond.not.i37 = icmp eq i64 %105, %103
+  br i1 %exitcond.not.i37, label %_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable9quicksort16stable_partitionNtNtCs68wO5nsWeTG_5alloc6string6StringNCINvB2_9quicksortB1d_NvYB1d_NtNtBa_3cmp10PartialOrd2ltE0ECsff1zCjKRl2o_13turborepo_env.exit, label %.lr.ph33.i35
 
-_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable9quicksort16stable_partitionNtNtCs68wO5nsWeTG_5alloc6string6StringNCINvB2_9quicksortB1d_NvYB1d_NtNtBa_3cmp10PartialOrd2ltE0ECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %105, %.split30.us.i33
-  %110 = icmp ugt i64 %.sroa.11.1.lcssa.us.i, %.sroa.12.061
-  br i1 %110, label %111, label %_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit
+_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable9quicksort16stable_partitionNtNtCs68wO5nsWeTG_5alloc6string6StringNCINvB2_9quicksortB1d_NvYB1d_NtNtBa_3cmp10PartialOrd2ltE0ECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %.lr.ph33.i35
+  %109 = icmp ugt i64 %.sroa.11.1.lcssa.us.i, %.sroa.12.061
+  br i1 %109, label %110, label %_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit
 
-111:                                              ; preds = %_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable9quicksort16stable_partitionNtNtCs68wO5nsWeTG_5alloc6string6StringNCINvB2_9quicksortB1d_NvYB1d_NtNtBa_3cmp10PartialOrd2ltE0ECsff1zCjKRl2o_13turborepo_env.exit
+_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit.thread: ; preds = %.split30.us.i33
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  br label %.outer._crit_edge
+
+110:                                              ; preds = %_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable9quicksort16stable_partitionNtNtCs68wO5nsWeTG_5alloc6string6StringNCINvB2_9quicksortB1d_NvYB1d_NtNtBa_3cmp10PartialOrd2ltE0ECsff1zCjKRl2o_13turborepo_env.exit
   call void @_ZN4core5slice5index26slice_start_index_len_fail17hb39beb2525eed8e3E(i64 noundef %.sroa.11.1.lcssa.us.i, i64 noundef range(i64 33, 0) %.sroa.12.061, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30d6aabc9ae1ed816db2fe10cdc31e5c.7) #9, !noalias !48
   unreachable
 
 _RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit: ; preds = %_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable9quicksort16stable_partitionNtNtCs68wO5nsWeTG_5alloc6string6StringNCINvB2_9quicksortB1d_NvYB1d_NtNtBa_3cmp10PartialOrd2ltE0ECsff1zCjKRl2o_13turborepo_env.exit
-  %112 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.0.ph68, i64 %.sroa.11.1.lcssa.us.i
+  %111 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.0.ph68, i64 %.sroa.11.1.lcssa.us.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  %113 = icmp ult i64 %103, 33
-  br i1 %113, label %.outer._crit_edge, label %.lr.ph
+  %112 = icmp ult i64 %103, 33
+  br i1 %112, label %.outer._crit_edge, label %.lr.ph
 
-114:                                              ; preds = %77
+113:                                              ; preds = %77
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   store ptr @anon.30d6aabc9ae1ed816db2fe10cdc31e5c.5, ptr %8, align 8
-  %115 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 1, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr null, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %8, i64 24
-  store i64 0, ptr %118, align 8
+  %114 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 1, ptr %114, align 8
+  %115 = getelementptr inbounds i8, ptr %8, i64 32
+  store ptr null, ptr %115, align 8
+  %116 = getelementptr inbounds i8, ptr %8, i64 16
+  store ptr inttoptr (i64 8 to ptr), ptr %116, align 8
+  %117 = getelementptr inbounds i8, ptr %8, i64 24
+  store i64 0, ptr %117, align 8
   call void @_ZN4core9panicking9panic_fmt17hb0937d4ccfd82515E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30d6aabc9ae1ed816db2fe10cdc31e5c.6) #9
   unreachable
 
-119:                                              ; preds = %77
-  %120 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.0.ph68, i64 %.sroa.11.1.lcssa.i
-  %121 = sub nuw i64 %.sroa.12.061, %.sroa.11.1.lcssa.i
-  call void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable9quicksort9quicksortNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB15_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 %120, i64 noundef %121, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %19, ptr noalias noundef nonnull readonly align 8 dereferenceable_or_null(24) %9, ptr noalias noundef nonnull align 1 %6)
+118:                                              ; preds = %77
+  %119 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.0.ph68, i64 %.sroa.11.1.lcssa.i
+  %120 = sub nuw i64 %.sroa.12.061, %.sroa.11.1.lcssa.i
+  call void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable9quicksort9quicksortNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB15_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 %119, i64 noundef %120, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %19, ptr noalias noundef nonnull readonly align 8 dereferenceable_or_null(24) %9, ptr noalias noundef nonnull align 1 %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  %122 = icmp ult i64 %.sroa.11.1.lcssa.i, 33
-  br i1 %122, label %.outer._crit_edge, label %15
+  %121 = icmp ult i64 %.sroa.11.1.lcssa.i, 33
+  br i1 %121, label %.outer._crit_edge, label %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable

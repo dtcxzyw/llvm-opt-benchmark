@@ -7967,7 +7967,7 @@ _ZN4llvm15SmallVectorImplINS_8RegisterEE7reserveEm.exit: ; preds = %15, %24
   %31 = load ptr, ptr %0, align 8
   %32 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
   %33 = getelementptr inbounds %"class.llvm::Register", ptr %31, i64 %32
-  br i1 %.not, label %56, label %34
+  br i1 %.not, label %57, label %34
 
 34:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_8RegisterEE7reserveEm.exit
   %35 = load ptr, ptr %0, align 8
@@ -7987,74 +7987,74 @@ _ZN4llvm15SmallVectorImplINS_8RegisterEE7reserveEm.exit: ; preds = %15, %24
   %45 = ptrtoint ptr %43 to i64
   %46 = sub i64 %45, %29
   %47 = ashr exact i64 %46, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %47
-  %48 = getelementptr inbounds %"class.llvm::Register", ptr %33, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %48, ptr align 4 %27, i64 %46, i1 false)
+  %48 = sub nsw i64 0, %47
+  %49 = getelementptr inbounds %"class.llvm::Register", ptr %33, i64 %48
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %49, ptr align 4 %27, i64 %46, i1 false)
   br label %_ZSt13move_backwardIPN4llvm8RegisterES2_ET0_T_S4_S3_.exit
 
 _ZSt13move_backwardIPN4llvm8RegisterES2_ET0_T_S4_S3_.exit: ; preds = %34, %44
-  %49 = icmp sgt i64 %19, 0
-  br i1 %49, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKtPN4llvm8RegisterEET0_T_S6_S5_.exit
+  %50 = icmp sgt i64 %19, 0
+  br i1 %50, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKtPN4llvm8RegisterEET0_T_S6_S5_.exit
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZSt13move_backwardIPN4llvm8RegisterES2_ET0_T_S4_S3_.exit, %.lr.ph.i.i.i.i.i
-  %.012.i.i.i.i.i = phi i64 [ %54, %.lr.ph.i.i.i.i.i ], [ %19, %_ZSt13move_backwardIPN4llvm8RegisterES2_ET0_T_S4_S3_.exit ]
-  %.0811.i.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i.i ], [ %27, %_ZSt13move_backwardIPN4llvm8RegisterES2_ET0_T_S4_S3_.exit ]
-  %.0910.i.i.i.i.i = phi ptr [ %52, %.lr.ph.i.i.i.i.i ], [ %2, %_ZSt13move_backwardIPN4llvm8RegisterES2_ET0_T_S4_S3_.exit ]
-  %50 = load i16, ptr %.0910.i.i.i.i.i, align 2
-  %51 = zext i16 %50 to i32
-  store i32 %51, ptr %.0811.i.i.i.i.i, align 4
-  %52 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 2
-  %53 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 4
-  %54 = add nsw i64 %.012.i.i.i.i.i, -1
-  %55 = icmp ugt i64 %.012.i.i.i.i.i, 1
-  br i1 %55, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKtPN4llvm8RegisterEET0_T_S6_S5_.exit, !llvm.loop !304
+  %.012.i.i.i.i.i = phi i64 [ %55, %.lr.ph.i.i.i.i.i ], [ %19, %_ZSt13move_backwardIPN4llvm8RegisterES2_ET0_T_S4_S3_.exit ]
+  %.0811.i.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i.i ], [ %27, %_ZSt13move_backwardIPN4llvm8RegisterES2_ET0_T_S4_S3_.exit ]
+  %.0910.i.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i.i ], [ %2, %_ZSt13move_backwardIPN4llvm8RegisterES2_ET0_T_S4_S3_.exit ]
+  %51 = load i16, ptr %.0910.i.i.i.i.i, align 2
+  %52 = zext i16 %51 to i32
+  store i32 %52, ptr %.0811.i.i.i.i.i, align 4
+  %53 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 2
+  %54 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 4
+  %55 = add nsw i64 %.012.i.i.i.i.i, -1
+  %56 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  br i1 %56, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKtPN4llvm8RegisterEET0_T_S6_S5_.exit, !llvm.loop !304
 
-56:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_8RegisterEE7reserveEm.exit
-  %57 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
-  %58 = add i64 %57, %19
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %58) #11
-  %59 = load ptr, ptr %0, align 8
-  %60 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
+57:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_8RegisterEE7reserveEm.exit
+  %58 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
+  %59 = add i64 %58, %19
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %59) #11
+  %60 = load ptr, ptr %0, align 8
+  %61 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
   %.not.i.i = icmp eq ptr %27, %33
   br i1 %.not.i.i, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %56
-  %61 = ptrtoint ptr %33 to i64
-  %62 = sub i64 %61, %29
-  %63 = ashr exact i64 %62, 2
-  %64 = getelementptr inbounds %"class.llvm::Register", ptr %59, i64 %60
-  %65 = sub nsw i64 0, %63
-  %66 = getelementptr inbounds %"class.llvm::Register", ptr %64, i64 %65
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %66, ptr align 4 %27, i64 %62, i1 false)
+.lr.ph.preheader:                                 ; preds = %57
+  %62 = ptrtoint ptr %33 to i64
+  %63 = sub i64 %62, %29
+  %64 = ashr exact i64 %63, 2
+  %65 = getelementptr inbounds %"class.llvm::Register", ptr %60, i64 %61
+  %66 = sub nsw i64 0, %64
+  %67 = getelementptr inbounds %"class.llvm::Register", ptr %65, i64 %66
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %67, ptr align 4 %27, i64 %63, i1 false)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.051 = phi ptr [ %69, %.lr.ph ], [ %27, %.lr.ph.preheader ]
-  %.04050 = phi i64 [ %71, %.lr.ph ], [ %63, %.lr.ph.preheader ]
-  %.04249 = phi ptr [ %70, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %67 = load i16, ptr %.04249, align 2
-  %68 = zext i16 %67 to i32
-  store i32 %68, ptr %.051, align 4
-  %69 = getelementptr inbounds i8, ptr %.051, i64 4
-  %70 = getelementptr inbounds i8, ptr %.04249, i64 2
-  %71 = add i64 %.04050, -1
-  %.not44 = icmp eq i64 %71, 0
+  %.051 = phi ptr [ %70, %.lr.ph ], [ %27, %.lr.ph.preheader ]
+  %.04050 = phi i64 [ %72, %.lr.ph ], [ %64, %.lr.ph.preheader ]
+  %.04249 = phi ptr [ %71, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %68 = load i16, ptr %.04249, align 2
+  %69 = zext i16 %68 to i32
+  store i32 %69, ptr %.051, align 4
+  %70 = getelementptr inbounds i8, ptr %.051, i64 4
+  %71 = getelementptr inbounds i8, ptr %.04249, i64 2
+  %72 = add i64 %.04050, -1
+  %.not44 = icmp eq i64 %72, 0
   br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !305
 
-._crit_edge:                                      ; preds = %.lr.ph, %56
-  %.042.lcssa = phi ptr [ %2, %56 ], [ %70, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %57
+  %.042.lcssa = phi ptr [ %2, %57 ], [ %71, %.lr.ph ]
   %.not9.i.i.i.i = icmp eq ptr %.042.lcssa, %3
   br i1 %.not9.i.i.i.i, label %_ZSt4copyIPKtPN4llvm8RegisterEET0_T_S6_S5_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %75, %.lr.ph.i.i.i.i ], [ %33, %._crit_edge ]
-  %.0810.i.i.i.i = phi ptr [ %74, %.lr.ph.i.i.i.i ], [ %.042.lcssa, %._crit_edge ]
-  %72 = load i16, ptr %.0810.i.i.i.i, align 2
-  %73 = zext i16 %72 to i32
-  store i32 %73, ptr %.011.i.i.i.i, align 4
-  %74 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 2
-  %75 = getelementptr inbounds i8, ptr %.011.i.i.i.i, i64 4
-  %.not.i.i.i.i = icmp eq ptr %74, %3
+  %.011.i.i.i.i = phi ptr [ %76, %.lr.ph.i.i.i.i ], [ %33, %._crit_edge ]
+  %.0810.i.i.i.i = phi ptr [ %75, %.lr.ph.i.i.i.i ], [ %.042.lcssa, %._crit_edge ]
+  %73 = load i16, ptr %.0810.i.i.i.i, align 2
+  %74 = zext i16 %73 to i32
+  store i32 %74, ptr %.011.i.i.i.i, align 4
+  %75 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 2
+  %76 = getelementptr inbounds i8, ptr %.011.i.i.i.i, i64 4
+  %.not.i.i.i.i = icmp eq ptr %75, %3
   br i1 %.not.i.i.i.i, label %_ZSt4copyIPKtPN4llvm8RegisterEET0_T_S6_S5_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !306
 
 _ZSt4copyIPKtPN4llvm8RegisterEET0_T_S6_S5_.exit:  ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i, %._crit_edge, %_ZSt13move_backwardIPN4llvm8RegisterES2_ET0_T_S4_S3_.exit, %12

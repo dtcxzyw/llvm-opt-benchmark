@@ -416,7 +416,7 @@ for.body16:                                       ; preds = %for.body16.lr.ph, %
 for.end27:                                        ; preds = %for.body16, %entry
   %.lcssa21 = phi ptr [ %0, %entry ], [ %19, %for.body16 ]
   %.lcssa = phi ptr [ %1, %entry ], [ %20, %for.body16 ]
-  %sub.ptr.div.i17.lcssa = phi i64 [ %sub.ptr.div.i, %entry ], [ %sub.ptr.div.i17, %for.body16 ]
+  %sub.ptr.div.i17.lcssa = phi i64 [ 0, %entry ], [ %sub.ptr.div.i17, %for.body16 ]
   %cmp.i.not.i.i = icmp eq ptr %.lcssa, %.lcssa21
   br i1 %cmp.i.not.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit, label %if.then.i.i
 
@@ -1776,8 +1776,8 @@ if.then.i.i.i.i.i:                                ; preds = %if.then11
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %1, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %1, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i, ptr align 4 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %invoke.cont20
 

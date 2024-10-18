@@ -5354,7 +5354,7 @@ _ZSt8_DestroyIP13gmx_moltype_tEvT_S2_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.
   br label %.loopexit171
 
 .loopexit171:                                     ; preds = %_ZNSt6vectorI13gmx_moltype_tSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i, %.loopexit171.loopexit
-  %.pre-phi275 = phi i64 [ %.pre274, %.loopexit171.loopexit ], [ %199, %_ZNSt6vectorI13gmx_moltype_tSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
+  %.pre-phi275 = phi i64 [ %.pre274, %.loopexit171.loopexit ], [ 0, %_ZNSt6vectorI13gmx_moltype_tSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
   %219 = phi ptr [ %202, %.loopexit171.loopexit ], [ null, %_ZNSt6vectorI13gmx_moltype_tSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
   %220 = phi ptr [ %.pre263, %.loopexit171.loopexit ], [ %195, %_ZNSt6vectorI13gmx_moltype_tSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
   %221 = phi ptr [ %.pre, %.loopexit171.loopexit ], [ %194, %_ZNSt6vectorI13gmx_moltype_tSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]

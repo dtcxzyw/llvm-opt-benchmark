@@ -384,8 +384,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt
   %sub.ptr.lhs.cast.i.i.i.i.i.i37.i = ptrtoint ptr %__i.sroa.0.012.i20.i to i64
   %sub.ptr.sub.i.i.i.i.i.i38.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i37.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i.i.i.i39.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i38.i, 3
-  %.pre.i.i.i.i.i.i40.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i39.i
-  %add.ptr.i.i.i.i.i.i41.i = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %add.ptr.i2.i36.i, i64 %.pre.i.i.i.i.i.i40.i
+  %idx.neg.i.i.i.i.i.i40.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i39.i
+  %add.ptr.i.i.i.i.i.i41.i = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %add.ptr.i2.i36.i, i64 %idx.neg.i.i.i.i.i.i40.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i41.i, ptr noundef nonnull align 4 dereferenceable(1) %call5.i.i.i.i2.i.i18, i64 %sub.ptr.sub.i.i.i.i.i.i38.i, i1 false)
   br label %for.inc.i27.i
 
@@ -608,8 +608,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt
   %sub.ptr.lhs.cast.i.i.i.i.i.i37.i79 = ptrtoint ptr %__i.sroa.0.012.i20.i62 to i64
   %sub.ptr.sub.i.i.i.i.i.i38.i80 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i37.i79, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i.i39.i81 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i38.i80, 3
-  %.pre.i.i.i.i.i.i40.i82 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i39.i81
-  %add.ptr.i.i.i.i.i.i41.i83 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %add.ptr.i2.i36.i78, i64 %.pre.i.i.i.i.i.i40.i82
+  %idx.neg.i.i.i.i.i.i40.i82 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i39.i81
+  %add.ptr.i.i.i.i.i.i41.i83 = getelementptr inbounds %"struct.net::HpackHuffmanSymbol", ptr %add.ptr.i2.i36.i78, i64 %idx.neg.i.i.i.i.i.i40.i82
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i41.i83, ptr noundef nonnull align 4 dereferenceable(1) %33, i64 %sub.ptr.sub.i.i.i.i.i.i38.i80, i1 false)
   br label %for.inc.i27.i69
 

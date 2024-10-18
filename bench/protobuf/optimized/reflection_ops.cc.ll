@@ -1733,10 +1733,8 @@ _ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EE13_M_deallocate
 if.else.i:                                        ; preds = %invoke.cont13
   %_M_finish.i.i = getelementptr inbounds i8, ptr %fields, i64 8
   %10 = load ptr, ptr %_M_finish.i.i, align 8
-  %sub.ptr.lhs.cast.i14.i = ptrtoint ptr %10 to i64
-  %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i.i
   %cmp24.not.i = icmp eq ptr %10, %8
-  br i1 %cmp24.not.i, label %_ZSt4copyIPKPKN6google8protobuf15FieldDescriptorEPS4_ET0_T_S9_S8_.exit31.i, label %if.then25.i
+  br i1 %cmp24.not.i, label %_ZSt22__uninitialized_copy_aIPKPKN6google8protobuf15FieldDescriptorEPS4_S4_ET0_T_S9_S8_RSaIT1_E.exit.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.else.i
   store i64 %9, ptr %8, align 8
@@ -1749,17 +1747,12 @@ invoke.cont.i.i:                                  ; preds = %if.then25.i
   store ptr %add.ptr.i.i.i.i.i.i, ptr %_M_finish.i.i, align 8
   br label %if.end18
 
-_ZSt4copyIPKPKN6google8protobuf15FieldDescriptorEPS4_ET0_T_S9_S8_.exit31.i: ; preds = %if.else.i
+_ZSt22__uninitialized_copy_aIPKPKN6google8protobuf15FieldDescriptorEPS4_S4_ET0_T_S9_S8_RSaIT1_E.exit.i: ; preds = %if.else.i
+  %sub.ptr.lhs.cast.i14.i = ptrtoint ptr %10 to i64
+  %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i.i
   %gepdiff = sub nsw i64 8, %sub.ptr.sub.i16.i
-  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i16.i, 8
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKPKN6google8protobuf15FieldDescriptorEPS4_S4_ET0_T_S9_S8_RSaIT1_E.exit.i, label %if.then.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZSt4copyIPKPKN6google8protobuf15FieldDescriptorEPS4_ET0_T_S9_S8_.exit31.i
   %incdec.ptr4.sink.i.i45.i.ptr = getelementptr inbounds i8, ptr %ref.tmp, i64 %sub.ptr.sub.i16.i
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %10, ptr nonnull align 8 %incdec.ptr4.sink.i.i45.i.ptr, i64 %gepdiff, i1 false)
-  br label %_ZSt22__uninitialized_copy_aIPKPKN6google8protobuf15FieldDescriptorEPS4_S4_ET0_T_S9_S8_RSaIT1_E.exit.i
-
-_ZSt22__uninitialized_copy_aIPKPKN6google8protobuf15FieldDescriptorEPS4_S4_ET0_T_S9_S8_RSaIT1_E.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZSt4copyIPKPKN6google8protobuf15FieldDescriptorEPS4_ET0_T_S9_S8_.exit31.i
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 %gepdiff
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i, align 8
   br label %if.end18

@@ -4409,7 +4409,7 @@ _ZSt4moveIPcS0_ET0_T_S2_S1_.exit:                 ; preds = %27, %30
 45:                                               ; preds = %22
   %46 = icmp eq i64 %23, 1
   %47 = getelementptr inbounds i8, ptr %.053, i64 %.076
-  br i1 %46, label %48, label %56
+  br i1 %46, label %48, label %57
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds i8, ptr %47, i64 -1
@@ -4421,44 +4421,44 @@ _ZSt4moveIPcS0_ET0_T_S2_S1_.exit:                 ; preds = %27, %30
   %52 = ptrtoint ptr %49 to i64
   %53 = ptrtoint ptr %.053 to i64
   %54 = sub i64 %52, %53
-  %.pre.i.i.i.i.i = sub i64 0, %54
-  %55 = getelementptr inbounds i8, ptr %47, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %55, ptr nonnull align 1 %.053, i64 %54, i1 false)
+  %55 = sub i64 0, %54
+  %56 = getelementptr inbounds i8, ptr %47, i64 %55
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %56, ptr nonnull align 1 %.053, i64 %54, i1 false)
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit
 
 _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %48, %51
   store i8 %50, ptr %.053, align 1
   br label %_ZSt11swap_rangesIPcS0_ET0_T_S2_S1_.exit
 
-56:                                               ; preds = %45
-  %57 = sub i64 0, %23
-  %58 = getelementptr inbounds i8, ptr %47, i64 %57
-  %59 = icmp sgt i64 %.074, 0
-  br i1 %59, label %.lr.ph, label %._crit_edge
+57:                                               ; preds = %45
+  %58 = sub i64 0, %23
+  %59 = getelementptr inbounds i8, ptr %47, i64 %58
+  %60 = icmp sgt i64 %.074, 0
+  br i1 %60, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %56, %.lr.ph
-  %.085 = phi i64 [ %64, %.lr.ph ], [ 0, %56 ]
-  %.04984 = phi ptr [ %61, %.lr.ph ], [ %47, %56 ]
-  %.383 = phi ptr [ %60, %.lr.ph ], [ %58, %56 ]
-  %60 = getelementptr inbounds i8, ptr %.383, i64 -1
-  %61 = getelementptr inbounds i8, ptr %.04984, i64 -1
-  %62 = load i8, ptr %60, align 1
+.lr.ph:                                           ; preds = %57, %.lr.ph
+  %.085 = phi i64 [ %65, %.lr.ph ], [ 0, %57 ]
+  %.04984 = phi ptr [ %62, %.lr.ph ], [ %47, %57 ]
+  %.383 = phi ptr [ %61, %.lr.ph ], [ %59, %57 ]
+  %61 = getelementptr inbounds i8, ptr %.383, i64 -1
+  %62 = getelementptr inbounds i8, ptr %.04984, i64 -1
   %63 = load i8, ptr %61, align 1
-  store i8 %63, ptr %60, align 1
-  store i8 %62, ptr %61, align 1
-  %64 = add nuw nsw i64 %.085, 1
-  %exitcond.not = icmp eq i64 %64, %.074
+  %64 = load i8, ptr %62, align 1
+  store i8 %64, ptr %61, align 1
+  store i8 %63, ptr %62, align 1
+  %65 = add nuw nsw i64 %.085, 1
+  %exitcond.not = icmp eq i64 %65, %.074
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !235
 
-._crit_edge:                                      ; preds = %.lr.ph, %56
-  %.3.lcssa = phi ptr [ %58, %56 ], [ %.053, %.lr.ph ]
-  %65 = srem i64 %.076, %23
-  %66 = icmp eq i64 %65, 0
-  br i1 %66, label %_ZSt11swap_rangesIPcS0_ET0_T_S2_S1_.exit, label %.backedge
+._crit_edge:                                      ; preds = %.lr.ph, %57
+  %.3.lcssa = phi ptr [ %59, %57 ], [ %.053, %.lr.ph ]
+  %66 = srem i64 %.076, %23
+  %67 = icmp eq i64 %66, 0
+  br i1 %67, label %_ZSt11swap_rangesIPcS0_ET0_T_S2_S1_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %43
   %.076.be = phi i64 [ %.074, %43 ], [ %23, %._crit_edge ]
-  %.074.be = phi i64 [ %44, %43 ], [ %65, %._crit_edge ]
+  %.074.be = phi i64 [ %44, %43 ], [ %66, %._crit_edge ]
   %.053.be = phi ptr [ %.1.lcssa, %43 ], [ %.3.lcssa, %._crit_edge ]
   br label %22, !llvm.loop !236
 
@@ -6190,124 +6190,109 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %.not.i.i.i.i.i = icmp eq ptr %9, %10
-  br i1 %.not.i.i.i.i.i, label %_ZNK5clang10ASTContext17getTraversalScopeEv.exit, label %14
+  br i1 %.not.i.i.i.i.i, label %.thread79, label %14
 
 14:                                               ; preds = %2
   %15 = icmp ugt i64 %13, 9223372036854775800
-  br i1 %15, label %16, label %17
+  br i1 %15, label %16, label %_ZNK5clang10ASTContext17getTraversalScopeEv.exit
 
 16:                                               ; preds = %14
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #21, !noalias !273
   unreachable
 
-17:                                               ; preds = %14
-  %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #18, !noalias !273
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %18, ptr align 8 %10, i64 %13, i1 false), !noalias !273
-  br label %_ZNK5clang10ASTContext17getTraversalScopeEv.exit
-
-_ZNK5clang10ASTContext17getTraversalScopeEv.exit: ; preds = %2, %17
-  %.sroa.034.0 = phi ptr [ %18, %17 ], [ null, %2 ]
-  %19 = getelementptr inbounds i8, ptr %.sroa.034.0, i64 %13
+_ZNK5clang10ASTContext17getTraversalScopeEv.exit: ; preds = %14
+  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #18, !noalias !273
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %17, ptr align 8 %10, i64 %13, i1 false), !noalias !273
+  %18 = getelementptr inbounds i8, ptr %17, i64 %13
   %.not = icmp eq i64 %13, 8
-  br i1 %.not, label %20, label %.thread
+  br i1 %.not, label %19, label %.lr.ph
 
-20:                                               ; preds = %_ZNK5clang10ASTContext17getTraversalScopeEv.exit
-  %21 = load ptr, ptr %.sroa.034.0, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 28
-  %23 = load i32, ptr %22, align 4
-  %24 = and i32 %23, 127
-  %.not45 = icmp eq i32 %24, 0
-  br i1 %.not45, label %48, label %.thread
+19:                                               ; preds = %_ZNK5clang10ASTContext17getTraversalScopeEv.exit
+  %20 = load ptr, ptr %17, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 28
+  %22 = load i32, ptr %21, align 4
+  %23 = and i32 %22, 127
+  %.not45 = icmp eq i32 %23, 0
+  br i1 %.not45, label %48, label %.lr.ph
 
-.thread:                                          ; preds = %_ZNK5clang10ASTContext17getTraversalScopeEv.exit, %20
-  br i1 %.not.i.i.i.i.i, label %.loopexit48, label %.lr.ph
+.lr.ph:                                           ; preds = %_ZNK5clang10ASTContext17getTraversalScopeEv.exit, %19
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  br label %26
 
-.lr.ph:                                           ; preds = %.thread
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %27
+26:                                               ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread43
+  %.sroa.031.050 = phi ptr [ %17, %.lr.ph ], [ %46, %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread43 ]
+  %27 = load ptr, ptr %.sroa.031.050, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 28
+  %29 = load i32, ptr %28, align 4
+  %30 = and i32 %29, 126
+  %switch.i = icmp eq i32 %30, 6
+  br i1 %switch.i, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread43, label %31
 
-27:                                               ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread43
-  %.sroa.031.050 = phi ptr [ %.sroa.034.0, %.lr.ph ], [ %47, %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread43 ]
-  %28 = load ptr, ptr %.sroa.031.050, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 28
-  %30 = load i32, ptr %29, align 4
-  %31 = and i32 %30, 126
-  %switch.i = icmp eq i32 %31, 6
-  br i1 %switch.i, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread43, label %32
+31:                                               ; preds = %26
+  %32 = and i32 %29, 127
+  %33 = add nsw i32 %32, -59
+  %34 = icmp ult i32 %33, -3
+  br i1 %34, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %35
 
-32:                                               ; preds = %27
-  %33 = and i32 %30, 127
-  %34 = add nsw i32 %33, -59
-  %35 = icmp ult i32 %34, -3
-  br i1 %35, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %36
-
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds nuw i8, ptr %28, i64 128
-  %38 = load ptr, ptr %37, align 8
-  %.not.i.i = icmp eq ptr %38, null
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 128
+  %37 = load ptr, ptr %36, align 8
+  %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit
 
-_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit: ; preds = %36
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load i32, ptr %39, align 8
-  %41 = and i32 %40, 1048576
-  %.not47 = icmp eq i32 %41, 0
+_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit: ; preds = %35
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %39 = load i32, ptr %38, align 8
+  %40 = and i32 %39, 1048576
+  %.not47 = icmp eq i32 %40, 0
   br i1 %.not47, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread43
 
-_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit: ; preds = %36, %32, %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit
-  %42 = load ptr, ptr %0, align 8
+_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit: ; preds = %35, %31, %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit
+  %41 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  call void @_ZN5clang16ParentMapContext9ParentMap10ASTVisitor9addParentIPNS_4DeclEN4llvm8DenseMapIPKvNS6_12PointerUnionIJPKS4_PKNS_4StmtEPNS_12DynTypedNodeEPNS1_12ParentVectorEEEENS6_12DenseMapInfoIS9_vEENS6_6detail12DenseMapPairIS9_SK_EEEEEEvT_PT0_(ptr noundef nonnull align 8 dereferenceable(664) %0, ptr noundef nonnull %28, ptr noundef %42)
+  call void @_ZN5clang16ParentMapContext9ParentMap10ASTVisitor9addParentIPNS_4DeclEN4llvm8DenseMapIPKvNS6_12PointerUnionIJPKS4_PKNS_4StmtEPNS_12DynTypedNodeEPNS1_12ParentVectorEEEENS6_12DenseMapInfoIS9_vEENS6_6detail12DenseMapPairIS9_SK_EEEEEEvT_PT0_(ptr noundef nonnull align 8 dereferenceable(664) %0, ptr noundef nonnull %27, ptr noundef %41)
   call void @llvm.experimental.noalias.scope.decl(metadata !276)
   call void @llvm.experimental.noalias.scope.decl(metadata !279)
   call void @llvm.experimental.noalias.scope.decl(metadata !282)
-  %43 = call i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(33) %28) #16, !noalias !285
-  store i32 %43, ptr %4, align 8, !alias.scope !285
-  store ptr %28, ptr %26, align 8, !alias.scope !285
-  call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang12DynTypedNodeELb1EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(40) %4)
-  %44 = call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE12TraverseDeclEPNS_4DeclE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %28)
-  %45 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #16
-  %46 = add i64 %45, -1
-  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %25, i64 noundef %46) #16
+  %42 = call i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(33) %27) #16, !noalias !285
+  store i32 %42, ptr %4, align 8, !alias.scope !285
+  store ptr %27, ptr %25, align 8, !alias.scope !285
+  call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang12DynTypedNodeELb1EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(40) %4)
+  %43 = call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE12TraverseDeclEPNS_4DeclE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %27)
+  %44 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #16
+  %45 = add i64 %44, -1
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %24, i64 noundef %45) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  br i1 %44, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread43, label %.loopexit48.thread74
+  br i1 %43, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread43, label %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit
 
-_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread43: ; preds = %27, %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit, %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit
-  %47 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 8
-  %.not46 = icmp eq ptr %47, %19
-  br i1 %.not46, label %.loopexit48, label %27
+_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread43: ; preds = %26, %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit, %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit
+  %46 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 8
+  %.not46 = icmp eq ptr %46, %18
+  br i1 %.not46, label %47, label %26
 
-.loopexit48:                                      ; preds = %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread43, %.thread
-  %.not.i.i.i = icmp eq ptr %.sroa.034.0, null
-  br i1 %.not.i.i.i, label %.thread66, label %.loopexit48.thread
-
-.loopexit48.thread74:                             ; preds = %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit
-  %.not.i.i.i76 = icmp eq ptr %.sroa.034.0, null
-  br i1 %.not.i.i.i76, label %.loopexit, label %.loopexit48.thread.thread
-
-.loopexit48.thread.thread:                        ; preds = %.loopexit48.thread74
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.034.0, i64 noundef %13) #17
+_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit:     ; preds = %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit
+  call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %13) #17
   br label %.loopexit
 
-.loopexit48.thread:                               ; preds = %.loopexit48
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.034.0, i64 noundef %13) #17
-  br label %.thread66
+47:                                               ; preds = %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread43
+  call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %13) #17
+  br label %.thread79
 
-48:                                               ; preds = %20
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.034.0, i64 noundef 8) #17
+48:                                               ; preds = %19
+  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef 8) #17
   %49 = getelementptr inbounds i8, ptr %1, i64 40
   %50 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE25TraverseDeclContextHelperEPNS_11DeclContextE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %49)
-  br i1 %50, label %.thread66, label %.loopexit
+  br i1 %50, label %.thread79, label %.loopexit
 
-.thread66:                                        ; preds = %.loopexit48, %.loopexit48.thread, %48
+.thread79:                                        ; preds = %2, %47, %48
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %52 = load i32, ptr %51, align 4
   %53 = and i32 %52, 256
   %.not.i.i29 = icmp eq i32 %53, 0
   br i1 %.not.i.i29, label %.loopexit, label %_ZNK5clang4Decl10attr_beginEv.exit.i
 
-_ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %.thread66
+_ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %.thread79
   %54 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #16
   %55 = load ptr, ptr %54, align 8
   %.pre.i = load i32, ptr %51, align 4
@@ -6342,8 +6327,8 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   %67 = load ptr, ptr %.02653, align 8
   %68 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  %.not.i.i73 = icmp eq ptr %67, null
-  br i1 %.not.i.i73, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeIPNS_4AttrES5_ZNS2_12TraverseAttrES5_EUlvE_N4llvm8DenseMapIPKvNS7_12PointerUnionIJPKNS_4DeclEPKNS_4StmtEPNS_12DynTypedNodeEPNS1_12ParentVectorEEEENS7_12DenseMapInfoISA_vEENS7_6detail12DenseMapPairISA_SM_EEEEEEbT_T0_T1_PT2_.exit.thread, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeIPNS_4AttrES5_ZNS2_12TraverseAttrES5_EUlvE_N4llvm8DenseMapIPKvNS7_12PointerUnionIJPKNS_4DeclEPKNS_4StmtEPNS_12DynTypedNodeEPNS1_12ParentVectorEEEENS7_12DenseMapInfoISA_vEENS7_6detail12DenseMapPairISA_SM_EEEEEEbT_T0_T1_PT2_.exit
+  %.not.i.i84 = icmp eq ptr %67, null
+  br i1 %.not.i.i84, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeIPNS_4AttrES5_ZNS2_12TraverseAttrES5_EUlvE_N4llvm8DenseMapIPKvNS7_12PointerUnionIJPKNS_4DeclEPKNS_4StmtEPNS_12DynTypedNodeEPNS1_12ParentVectorEEEENS7_12DenseMapInfoISA_vEENS7_6detail12DenseMapPairISA_SM_EEEEEEbT_T0_T1_PT2_.exit.thread, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeIPNS_4AttrES5_ZNS2_12TraverseAttrES5_EUlvE_N4llvm8DenseMapIPKvNS7_12PointerUnionIJPKNS_4DeclEPKNS_4StmtEPNS_12DynTypedNodeEPNS1_12ParentVectorEEEENS7_12DenseMapInfoISA_vEENS7_6detail12DenseMapPairISA_SM_EEEEEEbT_T0_T1_PT2_.exit
 
 _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeIPNS_4AttrES5_ZNS2_12TraverseAttrES5_EUlvE_N4llvm8DenseMapIPKvNS7_12PointerUnionIJPKNS_4DeclEPKNS_4StmtEPNS_12DynTypedNodeEPNS1_12ParentVectorEEEENS7_12DenseMapInfoISA_vEENS7_6detail12DenseMapPairISA_SM_EEEEEEbT_T0_T1_PT2_.exit.thread: ; preds = %.lr.ph54
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
@@ -6365,8 +6350,8 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeIPNS_4AttrES5_ZNS
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   br i1 %70, label %65, label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeIPNS_4AttrES5_ZNS2_12TraverseAttrES5_EUlvE_N4llvm8DenseMapIPKvNS7_12PointerUnionIJPKNS_4DeclEPKNS_4StmtEPNS_12DynTypedNodeEPNS1_12ParentVectorEEEENS7_12DenseMapInfoISA_vEENS7_6detail12DenseMapPairISA_SM_EEEEEEbT_T0_T1_PT2_.exit, %65, %.loopexit48.thread74, %.loopexit48.thread.thread, %.thread66, %_ZNK5clang4Decl5attrsEv.exit, %48
-  %.0 = phi i1 [ false, %48 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.thread66 ], [ false, %.loopexit48.thread.thread ], [ false, %.loopexit48.thread74 ], [ true, %65 ], [ false, %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeIPNS_4AttrES5_ZNS2_12TraverseAttrES5_EUlvE_N4llvm8DenseMapIPKvNS7_12PointerUnionIJPKNS_4DeclEPKNS_4StmtEPNS_12DynTypedNodeEPNS1_12ParentVectorEEEENS7_12DenseMapInfoISA_vEENS7_6detail12DenseMapPairISA_SM_EEEEEEbT_T0_T1_PT2_.exit ]
+.loopexit:                                        ; preds = %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeIPNS_4AttrES5_ZNS2_12TraverseAttrES5_EUlvE_N4llvm8DenseMapIPKvNS7_12PointerUnionIJPKNS_4DeclEPKNS_4StmtEPNS_12DynTypedNodeEPNS1_12ParentVectorEEEENS7_12DenseMapInfoISA_vEENS7_6detail12DenseMapPairISA_SM_EEEEEEbT_T0_T1_PT2_.exit, %65, %.thread79, %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit, %_ZNK5clang4Decl5attrsEv.exit, %48
+  %.0 = phi i1 [ false, %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit ], [ false, %48 ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.thread79 ], [ true, %65 ], [ false, %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeIPNS_4AttrES5_ZNS2_12TraverseAttrES5_EUlvE_N4llvm8DenseMapIPKvNS7_12PointerUnionIJPKNS_4DeclEPKNS_4StmtEPNS_12DynTypedNodeEPNS1_12ParentVectorEEEENS7_12DenseMapInfoISA_vEENS7_6detail12DenseMapPairISA_SM_EEEEEEbT_T0_T1_PT2_.exit ]
   ret i1 %.0
 }
 

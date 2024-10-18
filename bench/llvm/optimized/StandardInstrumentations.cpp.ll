@@ -26133,7 +26133,7 @@ _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i: ; pred
   br label %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i
 
 _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt3mapIKjSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm9StringRefEESt4lessIS0_ESaIS1_IS0_SA_EEEC2ERKSF_.exit.i.i.i.i.i.i.i
-  %.pre-phi27 = phi i64 [ %.pre26, %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %87, %_ZNSt3mapIKjSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm9StringRefEESt4lessIS0_ESaIS1_IS0_SA_EEEC2ERKSF_.exit.i.i.i.i.i.i.i ]
+  %.pre-phi27 = phi i64 [ %.pre26, %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %_ZNSt3mapIKjSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm9StringRefEESt4lessIS0_ESaIS1_IS0_SA_EEEC2ERKSF_.exit.i.i.i.i.i.i.i ]
   %93 = phi ptr [ %.pre20, %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %83, %_ZNSt3mapIKjSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm9StringRefEESt4lessIS0_ESaIS1_IS0_SA_EEEC2ERKSF_.exit.i.i.i.i.i.i.i ]
   %94 = phi ptr [ %.pre, %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %84, %_ZNSt3mapIKjSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm9StringRefEESt4lessIS0_ESaIS1_IS0_SA_EEEC2ERKSF_.exit.i.i.i.i.i.i.i ]
   %95 = phi ptr [ %92, %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZNSt3mapIKjSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm9StringRefEESt4lessIS0_ESaIS1_IS0_SA_EEEC2ERKSF_.exit.i.i.i.i.i.i.i ]
@@ -26184,7 +26184,7 @@ _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i10.i.i.i.i.i.i.i: ; pr
   br label %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.i11.i.i.i.i.i.i.i
 
 _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.i11.i.i.i.i.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i10.i.i.i.i.i.i.i, %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit.i.i.i.i.i.i.i
-  %.pre-phi33 = phi i64 [ %.pre32, %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i10.i.i.i.i.i.i.i ], [ %108, %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit.i.i.i.i.i.i.i ]
+  %.pre-phi33 = phi i64 [ %.pre32, %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i10.i.i.i.i.i.i.i ], [ 0, %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit.i.i.i.i.i.i.i ]
   %114 = phi ptr [ %.pre22, %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i10.i.i.i.i.i.i.i ], [ %104, %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit.i.i.i.i.i.i.i ]
   %115 = phi ptr [ %.pre21, %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i10.i.i.i.i.i.i.i ], [ %105, %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit.i.i.i.i.i.i.i ]
   %116 = phi ptr [ %113, %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i10.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit.i.i.i.i.i.i.i ]

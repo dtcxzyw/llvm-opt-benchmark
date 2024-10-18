@@ -6205,7 +6205,7 @@ _ZNSt16allocator_traitsISaIPK4TypeEE8allocateERS3_m.exit.i.i.i.i: ; preds = %100
   br i1 %or.cond97.not, label %.lr.ph.preheader.i, label %112
 
 .lr.ph.preheader.i:                               ; preds = %.noexc58
-  %105 = ashr exact i64 %99, 3
+  %105 = lshr exact i64 %99, 3
   %umax.i = call i64 @llvm.umax.i64(i64 %105, i64 1)
   br label %.lr.ph.i
 
@@ -7752,7 +7752,7 @@ _ZNSt16allocator_traitsISaIPK4TypeEE8allocateERS3_m.exit.i.i.i.i: ; preds = %74
   br i1 %or.cond.not, label %.lr.ph.preheader.i, label %86
 
 .lr.ph.preheader.i:                               ; preds = %.noexc52
-  %79 = ashr exact i64 %73, 3
+  %79 = lshr exact i64 %73, 3
   %umax.i = call i64 @llvm.umax.i64(i64 %79, i64 1)
   br label %.lr.ph.i50
 
@@ -7978,7 +7978,7 @@ _ZNSt16allocator_traitsISaIPK4TypeEE8allocateERS3_m.exit.i.i.i.i: ; preds = %22
   br i1 %or.cond.not, label %.lr.ph.preheader.i, label %34
 
 .lr.ph.preheader.i:                               ; preds = %.noexc22
-  %27 = ashr exact i64 %21, 3
+  %27 = lshr exact i64 %21, 3
   %umax.i = call i64 @llvm.umax.i64(i64 %27, i64 1)
   br label %.lr.ph.i
 

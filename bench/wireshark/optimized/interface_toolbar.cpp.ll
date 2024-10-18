@@ -20764,7 +20764,7 @@ _ZN9QtPrivate16QMovableArrayOpsI10QByteArrayE5eraseEPS1_x.exit.i.i: ; preds = %7
   br label %_ZN5QListI10QByteArrayE5eraseENS1_14const_iteratorES2_.exit
 
 _ZN5QListI10QByteArrayE5eraseENS1_14const_iteratorES2_.exit: ; preds = %_ZN9QtPrivate16QMovableArrayOpsI10QByteArrayE5eraseEPS1_x.exit.i.i, %._crit_edge, %2
-  %.0 = phi i64 [ 0, %2 ], [ %54, %._crit_edge ], [ %54, %_ZN9QtPrivate16QMovableArrayOpsI10QByteArrayE5eraseEPS1_x.exit.i.i ]
+  %.0 = phi i64 [ 0, %2 ], [ 0, %._crit_edge ], [ %54, %_ZN9QtPrivate16QMovableArrayOpsI10QByteArrayE5eraseEPS1_x.exit.i.i ]
   ret i64 %.0
 }
 

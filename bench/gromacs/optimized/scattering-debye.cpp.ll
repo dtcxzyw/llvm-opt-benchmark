@@ -2213,7 +2213,7 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %16
   br label %19
 
 19:                                               ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, %.lr.ph
-  %.pre-phi28 = phi i64 [ %.pre27, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i ], [ %15, %.lr.ph ]
+  %.pre-phi28 = phi i64 [ %.pre27, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i ], [ 0, %.lr.ph ]
   %.pre-phi = phi i64 [ %.pre26, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i ], [ %13, %.lr.ph ]
   %20 = phi ptr [ %.pre, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i ], [ %11, %.lr.ph ]
   %21 = phi ptr [ %18, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i ], [ null, %.lr.ph ]

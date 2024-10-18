@@ -3058,7 +3058,7 @@ if.then34.i:                                      ; preds = %if.end9.i
   br label %invoke.cont51
 
 invoke.cont51:                                    ; preds = %if.then34.i, %if.end9.i, %invoke.cont46
-  %42 = phi i64 [ %.pre68, %if.then34.i ], [ %sub32.i, %if.end9.i ], [ 0, %invoke.cont46 ]
+  %42 = phi i64 [ %.pre68, %if.then34.i ], [ 0, %if.end9.i ], [ 0, %invoke.cont46 ]
   %43 = load ptr, ptr %this, align 8
   %add.ptr.i51 = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %43, i64 %conv26
   %async_read_in_progress_55 = getelementptr inbounds i8, ptr %add.ptr.i51, i64 56
@@ -3713,11 +3713,9 @@ _ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit.i: ; preds = %if.e
 
 if.else.i136:                                     ; preds = %if.end.i125, %_ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit.i
   %sub8.i = sub i64 %77, %sub.i129
-  %.pre526 = add i64 %sub8.i, %offset.addr.1
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.else.i136, %_ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit.i
-  %add31.i.pre-phi = phi i64 [ %.pre526, %if.else.i136 ], [ %add.i.i, %_ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit.i ]
   %copy_len.0.i = phi i64 [ %sub8.i, %if.else.i136 ], [ %length.addr.1, %_ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit.i ]
   %bufstart_.i.i = getelementptr inbounds i8, ptr %76, i64 272
   %79 = load ptr, ptr %bufstart_.i.i, align 8
@@ -3733,32 +3731,26 @@ if.end9.i:                                        ; preds = %if.else.i136, %_ZN7
   %83 = load i64, ptr %cursize_.i23.i, align 8
   %add.i133 = add i64 %83, %copy_len.0.i
   store i64 %add.i133, ptr %cursize_.i23.i, align 8
-  %sub32.i = sub i64 %length.addr.1, %copy_len.0.i
   %cmp33.not.i = icmp eq i64 %length.addr.1, %copy_len.0.i
-  br i1 %cmp33.not.i, label %invoke.cont96, label %if.then34.i
+  br i1 %cmp33.not.i, label %if.then98.invoke, label %if.end101.thread
 
-if.then34.i:                                      ; preds = %if.end9.i
+if.end101.thread:                                 ; preds = %if.end9.i
+  %sub32.i = sub i64 %length.addr.1, %copy_len.0.i
+  %add31.i = add i64 %copy_len.0.i, %offset.addr.1
   %84 = load ptr, ptr %this, align 8
   %add.ptr.i25.i = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %84, i64 %conv.i121
   %cursize_.i.i26.i = getelementptr inbounds i8, ptr %add.ptr.i25.i, i64 24
   store i64 0, ptr %cursize_.i.i26.i, align 8
   %initial_end_offset_.i.i134 = getelementptr inbounds i8, ptr %add.ptr.i25.i, i64 112
   store i64 0, ptr %initial_end_offset_.i.i134, align 8
-  br label %invoke.cont96
-
-invoke.cont96:                                    ; preds = %if.then34.i, %if.end9.i
-  %cmp97 = icmp eq i64 %sub32.i, 0
-  br i1 %cmp97, label %if.then98.invoke, label %if.end101.thread
-
-if.end101.thread:                                 ; preds = %invoke.cont96
-  store i64 %add31.i.pre-phi, ptr %start_offset1, align 8
+  store i64 %add31.i, ptr %start_offset1, align 8
   store i64 0, ptr %end_offset1, align 8
   store i64 0, ptr %chunk_len1, align 8
   store i64 0, ptr %read_len1, align 8
   %.pre = load i32, ptr %curr_, align 8
   br label %if.then103
 
-if.then98.invoke:                                 ; preds = %invoke.cont96, %if.then94, %invoke.cont48, %if.end20.i, %land.lhs.true5.i, %if.then22
+if.then98.invoke:                                 ; preds = %if.end9.i, %if.then94, %invoke.cont48, %if.end20.i, %land.lhs.true5.i, %if.then22
   invoke void @_ZN7rocksdb18FilePrefetchBuffer11UpdateStatsEbm(ptr noundef nonnull align 8 dereferenceable(176) %this, i1 noundef zeroext true, i64 noundef %length)
           to label %return unwind label %lpad
 
@@ -3773,7 +3765,7 @@ if.end101:                                        ; preds = %invoke.cont92, %if.
 if.then103:                                       ; preds = %if.end101.thread, %if.end101
   %85 = phi i32 [ %.pre, %if.end101.thread ], [ %.pre524.pre, %if.end101 ]
   %length.addr.2518 = phi i64 [ %sub32.i, %if.end101.thread ], [ %length.addr.1, %if.end101 ]
-  %offset.addr.2517 = phi i64 [ %add31.i.pre-phi, %if.end101.thread ], [ %offset.addr.1, %if.end101 ]
+  %offset.addr.2517 = phi i64 [ %add31.i, %if.end101.thread ], [ %offset.addr.1, %if.end101 ]
   invoke void @_ZN7rocksdb18FilePrefetchBuffer19ReadAheadSizeTuningEbbmjmmmRmS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(176) %this, i1 noundef zeroext true, i1 noundef zeroext false, i64 noundef %offset.addr.2517, i32 noundef %85, i64 noundef %call2, i64 noundef %length.addr.2518, i64 noundef %readahead_size, ptr noundef nonnull align 8 dereferenceable(8) %start_offset1, ptr noundef nonnull align 8 dereferenceable(8) %end_offset1, ptr noundef nonnull align 8 dereferenceable(8) %read_len1, ptr noundef nonnull align 8 dereferenceable(8) %chunk_len1)
           to label %invoke.cont105 unwind label %lpad
 

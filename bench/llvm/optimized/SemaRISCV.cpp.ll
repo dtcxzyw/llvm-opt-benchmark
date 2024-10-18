@@ -8235,12 +8235,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22Creat
 
 _ZNSt6vectorIPN5clang5RISCV7RVVTypeESaIS3_EEC2ERKS5_.exit: ; preds = %6, %31
   %33 = phi ptr [ %32, %31 ], [ null, %6 ]
-  %34 = ashr exact i64 %27, 3
+  %34 = lshr exact i64 %27, 3
   %35 = load ptr, ptr %33, align 8
   %36 = tail call fastcc i64 @_ZL12RVVType2QualRN5clang10ASTContextEPKNS_5RISCV7RVVTypeE(ptr noundef nonnull align 8 dereferenceable(23096) %17, ptr noundef %35)
   %37 = getelementptr inbounds i8, ptr %10, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %10, ptr noundef nonnull %37, i64 noundef 8) #19
-  %38 = icmp ugt i64 %34, 1
+  %38 = icmp ugt i64 %27, 8
   br i1 %38, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIPN5clang5RISCV7RVVTypeESaIS3_EEC2ERKS5_.exit, %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE9push_backES2_.exit

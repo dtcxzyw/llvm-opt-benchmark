@@ -1284,7 +1284,7 @@ _ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIN
   br label %.loopexit.split-lp
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backEOS1_.exit, %134, %.preheader
-  %500 = phi i64 [ %141, %.preheader ], [ 0, %134 ], [ %141, %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backEOS1_.exit ]
+  %500 = phi i64 [ 0, %.preheader ], [ 0, %134 ], [ %141, %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backEOS1_.exit ]
   %.sroa.0236.0.lcssa325 = phi ptr [ %.sroa.0236.3, %.preheader ], [ null, %134 ], [ %.sroa.0236.3, %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backEOS1_.exit ]
   %.sroa.0229.0.lcssa322 = phi ptr [ %.sroa.0229.1, %.preheader ], [ null, %134 ], [ %.sroa.0229.1, %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backEOS1_.exit ]
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %48) #13

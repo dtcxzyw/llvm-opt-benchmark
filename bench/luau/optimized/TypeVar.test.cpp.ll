@@ -7136,7 +7136,7 @@ _ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE13_M_deallocateEPS3_m.exit.i.i: ; pred
   br i1 %.not.i68.i, label %_ZSt7advanceIPKPKN4Luau4TypeEmEvRT_T0_.exit.i.i, label %55
 
 55:                                               ; preds = %50
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
   %.pre.i.i = load ptr, ptr %51, align 8
   %56 = getelementptr inbounds i8, ptr %40, i64 16
   %.not.i16.i.i = icmp eq ptr %.pre.i.i, %56
@@ -7148,23 +7148,24 @@ _ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE13_M_deallocateEPS3_m.exit.i.i: ; pred
 
 _ZSt7advanceIPKPKN4Luau4TypeEmEvRT_T0_.exit.i.i:  ; preds = %50
   %.not.i.i.i.i.i17.i.i = icmp eq ptr %52, %40
-  br i1 %.not.i.i.i.i.i17.i.i, label %_ZSt4copyIPKPKN4Luau4TypeEPS3_ET0_T_S8_S7_.exit18.i.i, label %58
+  br i1 %.not.i.i.i.i.i17.i.i, label %_ZSt4copyIPKPKN4Luau4TypeEPS3_ET0_T_S8_S7_.exit18.i.thread.i, label %_ZSt4copyIPKPKN4Luau4TypeEPS3_ET0_T_S8_S7_.exit18.i.i
 
-58:                                               ; preds = %_ZSt7advanceIPKPKN4Luau4TypeEmEvRT_T0_.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %40, ptr noundef nonnull align 8 dereferenceable(1) %6, i64 %54, i1 false)
+_ZSt4copyIPKPKN4Luau4TypeEPS3_ET0_T_S8_S7_.exit18.i.i: ; preds = %_ZSt7advanceIPKPKN4Luau4TypeEmEvRT_T0_.exit.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %40, ptr noundef nonnull align 8 dereferenceable(1) %6, i64 %54, i1 false)
   %.pre26.i.i = load ptr, ptr %51, align 8
-  br label %_ZSt4copyIPKPKN4Luau4TypeEPS3_ET0_T_S8_S7_.exit18.i.i
+  %gepdiff.i = sub nuw nsw i64 16, %54
+  br label %_ZSt4copyIPKPKN4Luau4TypeEPS3_ET0_T_S8_S7_.exit18.i.thread.i
 
-_ZSt4copyIPKPKN4Luau4TypeEPS3_ET0_T_S8_S7_.exit18.i.i: ; preds = %58, %_ZSt7advanceIPKPKN4Luau4TypeEmEvRT_T0_.exit.i.i
-  %59 = phi ptr [ %52, %_ZSt7advanceIPKPKN4Luau4TypeEmEvRT_T0_.exit.i.i ], [ %.pre26.i.i, %58 ]
-  %gepdiff = sub nuw nsw i64 16, %54
+_ZSt4copyIPKPKN4Luau4TypeEPS3_ET0_T_S8_S7_.exit18.i.thread.i: ; preds = %_ZSt4copyIPKPKN4Luau4TypeEPS3_ET0_T_S8_S7_.exit18.i.i, %_ZSt7advanceIPKPKN4Luau4TypeEmEvRT_T0_.exit.i.i
+  %58 = phi i64 [ %gepdiff.i, %_ZSt4copyIPKPKN4Luau4TypeEPS3_ET0_T_S8_S7_.exit18.i.i ], [ 16, %_ZSt7advanceIPKPKN4Luau4TypeEmEvRT_T0_.exit.i.i ]
+  %59 = phi ptr [ %.pre26.i.i, %_ZSt4copyIPKPKN4Luau4TypeEPS3_ET0_T_S8_S7_.exit18.i.i ], [ %52, %_ZSt7advanceIPKPKN4Luau4TypeEmEvRT_T0_.exit.i.i ]
   %.sink.i.i25.i.ptr.i = getelementptr inbounds i8, ptr %6, i64 %54
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %59, ptr nonnull align 8 %.sink.i.i25.i.ptr.i, i64 %gepdiff, i1 false)
-  %60 = getelementptr inbounds i8, ptr %59, i64 %gepdiff
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %59, ptr nonnull align 8 %.sink.i.i25.i.ptr.i, i64 %58, i1 false)
+  %60 = getelementptr inbounds i8, ptr %59, i64 %58
   store ptr %60, ptr %51, align 8
   br label %61
 
-61:                                               ; preds = %_ZSt4copyIPKPKN4Luau4TypeEPS3_ET0_T_S8_S7_.exit18.i.i, %57, %55, %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE13_M_deallocateEPS3_m.exit.i.i
+61:                                               ; preds = %_ZSt4copyIPKPKN4Luau4TypeEPS3_ET0_T_S8_S7_.exit18.i.thread.i, %57, %55, %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE13_M_deallocateEPS3_m.exit.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %62 = load ptr, ptr %32, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 112
@@ -8084,7 +8085,7 @@ _ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE13_M_deallocateEPS3_m.exit.i.i: ; pred
   br i1 %.not.i.i, label %_ZSt7advanceIPKPKN4Luau4TypeEmEvRT_T0_.exit.i.i, label %56
 
 56:                                               ; preds = %51
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
   %.pre.i.i = load ptr, ptr %52, align 8
   %57 = getelementptr inbounds i8, ptr %41, i64 16
   %.not.i16.i.i = icmp eq ptr %.pre.i.i, %57
@@ -8096,23 +8097,24 @@ _ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE13_M_deallocateEPS3_m.exit.i.i: ; pred
 
 _ZSt7advanceIPKPKN4Luau4TypeEmEvRT_T0_.exit.i.i:  ; preds = %51
   %.not.i.i.i.i.i17.i.i = icmp eq ptr %53, %41
-  br i1 %.not.i.i.i.i.i17.i.i, label %_ZSt4copyIPKPKN4Luau4TypeEPS3_ET0_T_S8_S7_.exit18.i.i, label %59
+  br i1 %.not.i.i.i.i.i17.i.i, label %_ZSt4copyIPKPKN4Luau4TypeEPS3_ET0_T_S8_S7_.exit18.i.thread.i, label %_ZSt4copyIPKPKN4Luau4TypeEPS3_ET0_T_S8_S7_.exit18.i.i
 
-59:                                               ; preds = %_ZSt7advanceIPKPKN4Luau4TypeEmEvRT_T0_.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %41, ptr noundef nonnull align 8 dereferenceable(1) %6, i64 %55, i1 false)
+_ZSt4copyIPKPKN4Luau4TypeEPS3_ET0_T_S8_S7_.exit18.i.i: ; preds = %_ZSt7advanceIPKPKN4Luau4TypeEmEvRT_T0_.exit.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %41, ptr noundef nonnull align 8 dereferenceable(1) %6, i64 %55, i1 false)
   %.pre26.i.i = load ptr, ptr %52, align 8
-  br label %_ZSt4copyIPKPKN4Luau4TypeEPS3_ET0_T_S8_S7_.exit18.i.i
+  %gepdiff.i = sub nuw nsw i64 16, %55
+  br label %_ZSt4copyIPKPKN4Luau4TypeEPS3_ET0_T_S8_S7_.exit18.i.thread.i
 
-_ZSt4copyIPKPKN4Luau4TypeEPS3_ET0_T_S8_S7_.exit18.i.i: ; preds = %59, %_ZSt7advanceIPKPKN4Luau4TypeEmEvRT_T0_.exit.i.i
-  %60 = phi ptr [ %53, %_ZSt7advanceIPKPKN4Luau4TypeEmEvRT_T0_.exit.i.i ], [ %.pre26.i.i, %59 ]
-  %gepdiff = sub nuw nsw i64 16, %55
+_ZSt4copyIPKPKN4Luau4TypeEPS3_ET0_T_S8_S7_.exit18.i.thread.i: ; preds = %_ZSt4copyIPKPKN4Luau4TypeEPS3_ET0_T_S8_S7_.exit18.i.i, %_ZSt7advanceIPKPKN4Luau4TypeEmEvRT_T0_.exit.i.i
+  %59 = phi i64 [ %gepdiff.i, %_ZSt4copyIPKPKN4Luau4TypeEPS3_ET0_T_S8_S7_.exit18.i.i ], [ 16, %_ZSt7advanceIPKPKN4Luau4TypeEmEvRT_T0_.exit.i.i ]
+  %60 = phi ptr [ %.pre26.i.i, %_ZSt4copyIPKPKN4Luau4TypeEPS3_ET0_T_S8_S7_.exit18.i.i ], [ %53, %_ZSt7advanceIPKPKN4Luau4TypeEmEvRT_T0_.exit.i.i ]
   %.sink.i.i25.i.ptr.i = getelementptr inbounds i8, ptr %6, i64 %55
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %60, ptr nonnull align 8 %.sink.i.i25.i.ptr.i, i64 %gepdiff, i1 false)
-  %61 = getelementptr inbounds i8, ptr %60, i64 %gepdiff
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %60, ptr nonnull align 8 %.sink.i.i25.i.ptr.i, i64 %59, i1 false)
+  %61 = getelementptr inbounds i8, ptr %60, i64 %59
   store ptr %61, ptr %52, align 8
   br label %62
 
-62:                                               ; preds = %_ZSt4copyIPKPKN4Luau4TypeEPS3_ET0_T_S8_S7_.exit18.i.i, %58, %56, %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE13_M_deallocateEPS3_m.exit.i.i
+62:                                               ; preds = %_ZSt4copyIPKPKN4Luau4TypeEPS3_ET0_T_S8_S7_.exit18.i.thread.i, %58, %56, %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE13_M_deallocateEPS3_m.exit.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %63 = load ptr, ptr %33, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 112

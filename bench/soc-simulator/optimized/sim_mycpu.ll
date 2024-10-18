@@ -16264,7 +16264,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
   br label %48
 
 48:                                               ; preds = %40, %38
-  %49 = phi i64 [ %33, %38 ], [ %47, %40 ]
+  %49 = phi i64 [ 0, %38 ], [ %47, %40 ]
   %50 = phi ptr [ %6, %38 ], [ %44, %40 ]
   %51 = phi ptr [ %31, %38 ], [ %42, %40 ]
   %52 = phi ptr [ %7, %38 ], [ %41, %40 ]

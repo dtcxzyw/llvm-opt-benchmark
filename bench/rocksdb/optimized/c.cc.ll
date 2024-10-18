@@ -19414,7 +19414,7 @@ cleanup.action:                                   ; preds = %lpad25, %lpad28.bod
   br label %ehcleanup50
 
 for.end:                                          ; preds = %invoke.cont29, %if.then
-  %sub.ptr.div.i31.lcssa = phi i64 [ %sub.ptr.div.i, %if.then ], [ %sub.ptr.div.i31, %invoke.cont29 ]
+  %sub.ptr.div.i31.lcssa = phi i64 [ 0, %if.then ], [ %sub.ptr.div.i31, %invoke.cont29 ]
   store i64 %sub.ptr.div.i31.lcssa, ptr %num_column_families, align 8
   %call35 = invoke noalias noundef nonnull dereferenceable(1512) ptr @_Znwm(i64 noundef 1512) #39
           to label %invoke.cont34 unwind label %lpad10.loopexit.split-lp
@@ -44485,7 +44485,7 @@ if.then.i.i.i.i.i35:                              ; preds = %if.else49
   br label %_ZSt4copyIPN7rocksdb18FileTemperatureAgeES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPN7rocksdb18FileTemperatureAgeES2_ET0_T_S4_S3_.exit: ; preds = %if.else49, %if.then.i.i.i.i.i35
-  %sub.ptr.sub.i40.pre-phi = phi i64 [ %sub.ptr.sub.i22, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
+  %sub.ptr.sub.i40.pre-phi = phi i64 [ 0, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
   %9 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
   %10 = phi ptr [ %8, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
   %11 = phi ptr [ %1, %if.else49 ], [ %.pre, %if.then.i.i.i.i.i35 ]

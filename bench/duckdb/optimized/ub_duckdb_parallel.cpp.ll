@@ -26284,7 +26284,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %for.cond.preheader
-  %sub.ptr.div.i86.lcssa = phi i64 [ %sub.ptr.div.i, %for.cond.preheader ], [ %sub.ptr.div.i86, %for.body ]
+  %sub.ptr.div.i86.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %sub.ptr.div.i86, %for.body ]
   %queue.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noundef ptr @_ZNK6duckdb10unique_ptrINS_15ConcurrentQueueESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %queue.i)
   %semaphore.i = getelementptr inbounds i8, ptr %call.i, i64 616
@@ -31579,7 +31579,12 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6du
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6duckdb8PipelineEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6duckdb8PipelineEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6duckdb8PipelineEESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit
   %29 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6duckdb8PipelineEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6duckdb8PipelineEESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit ]
   %cmp.i.i.not18.i.i.i.i.i165 = icmp eq ptr %1, %__position.coerce
-  br i1 %cmp.i.i.not18.i.i.i.i.i165, label %_ZSt22__uninitialized_move_aIPSt10shared_ptrIN6duckdb8PipelineEES4_SaIS3_EET0_T_S7_S6_RT1_.exit175, label %for.body.i.i.i.i.i166.preheader
+  br i1 %cmp.i.i.not18.i.i.i.i.i165, label %_ZSt22__uninitialized_move_aIPSt10shared_ptrIN6duckdb8PipelineEES4_SaIS3_EET0_T_S7_S6_RT1_.exit175.thread, label %for.body.i.i.i.i.i166.preheader
+
+_ZSt22__uninitialized_move_aIPSt10shared_ptrIN6duckdb8PipelineEES4_SaIS3_EET0_T_S7_S6_RT1_.exit175.thread: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6duckdb8PipelineEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit
+  %add.ptr5813 = getelementptr inbounds i8, ptr %29, i64 %sub.ptr.sub.i.i.i
+  store ptr %add.ptr5813, ptr %_M_finish, align 8, !tbaa !101
+  br label %if.end109
 
 for.body.i.i.i.i.i166.preheader:                  ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6duckdb8PipelineEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit
   %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
@@ -31601,7 +31606,7 @@ for.body.i.i.i.i.i166:                            ; preds = %for.body.i.i.i.i.i1
   %cmp.i.i.not.i.i.i.i.i173 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i171, %1
   br i1 %cmp.i.i.not.i.i.i.i.i173, label %_ZSt22__uninitialized_move_aIPSt10shared_ptrIN6duckdb8PipelineEES4_SaIS3_EET0_T_S7_S6_RT1_.exit175, label %for.body.i.i.i.i.i166, !llvm.loop !1047
 
-_ZSt22__uninitialized_move_aIPSt10shared_ptrIN6duckdb8PipelineEES4_SaIS3_EET0_T_S7_S6_RT1_.exit175: ; preds = %for.body.i.i.i.i.i166, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN6duckdb8PipelineEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit
+_ZSt22__uninitialized_move_aIPSt10shared_ptrIN6duckdb8PipelineEES4_SaIS3_EET0_T_S7_S6_RT1_.exit175: ; preds = %for.body.i.i.i.i.i166
   %add.ptr58 = getelementptr inbounds i8, ptr %29, i64 %sub.ptr.sub.i.i.i
   store ptr %add.ptr58, ptr %_M_finish, align 8, !tbaa !101
   %cmp7.i.i.i.i.i180 = icmp sgt i64 %sub.ptr.div.i, 0
@@ -31879,7 +31884,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN6duckdb8PipelineEESaIS3_EE13_M_deallocateEPS
   store ptr %add.ptr105, ptr %_M_end_of_storage, align 8, !tbaa !100
   br label %if.end109
 
-if.end109:                                        ; preds = %_ZNSt10shared_ptrIN6duckdb8PipelineEEaSERKS2_.exit.i.i.i.i.i213, %_ZNSt10shared_ptrIN6duckdb8PipelineEEaSERKS2_.exit.i.i.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN6duckdb8PipelineEESaIS3_EE13_M_deallocateEPS3_m.exit, %_ZSt22__uninitialized_move_aIPSt10shared_ptrIN6duckdb8PipelineEES4_SaIS3_EET0_T_S7_S6_RT1_.exit175, %_ZSt13move_backwardIPSt10shared_ptrIN6duckdb8PipelineEES4_ET0_T_S6_S5_.exit, %entry
+if.end109:                                        ; preds = %_ZNSt10shared_ptrIN6duckdb8PipelineEEaSERKS2_.exit.i.i.i.i.i213, %_ZNSt10shared_ptrIN6duckdb8PipelineEEaSERKS2_.exit.i.i.i.i.i, %_ZSt22__uninitialized_move_aIPSt10shared_ptrIN6duckdb8PipelineEES4_SaIS3_EET0_T_S7_S6_RT1_.exit175.thread, %_ZNSt12_Vector_baseISt10shared_ptrIN6duckdb8PipelineEESaIS3_EE13_M_deallocateEPS3_m.exit, %_ZSt22__uninitialized_move_aIPSt10shared_ptrIN6duckdb8PipelineEES4_SaIS3_EET0_T_S7_S6_RT1_.exit175, %_ZSt13move_backwardIPSt10shared_ptrIN6duckdb8PipelineEES4_ET0_T_S6_S5_.exit, %entry
   ret void
 }
 

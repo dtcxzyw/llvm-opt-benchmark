@@ -1212,7 +1212,7 @@ land.lhs.true:                                    ; preds = %_ZN4node16MaybeStac
   br i1 %or.cond130.not, label %if.end144, label %.thread
 
 .thread:                                          ; preds = %if.then126..thread_crit_edge, %_ZN4node16MaybeStackBufferIDsLm1024EE9SetLengthEm.exit, %land.lhs.true
-  %mul147123 = phi i64 [ %84, %if.then126..thread_crit_edge ], [ %sub.ptr.sub, %_ZN4node16MaybeStackBufferIDsLm1024EE9SetLengthEm.exit ], [ %sub.ptr.sub, %land.lhs.true ]
+  %mul147123 = phi i64 [ %84, %if.then126..thread_crit_edge ], [ 0, %_ZN4node16MaybeStackBufferIDsLm1024EE9SetLengthEm.exit ], [ %sub.ptr.sub, %land.lhs.true ]
   %91 = phi ptr [ %.pre133, %if.then126..thread_crit_edge ], [ %87, %_ZN4node16MaybeStackBufferIDsLm1024EE9SetLengthEm.exit ], [ %87, %land.lhs.true ]
   store ptr null, ptr %error, align 8
   br label %if.end154

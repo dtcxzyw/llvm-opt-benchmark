@@ -8586,7 +8586,7 @@ _ZNSt12_Vector_baseIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEE13_M_dealloc
   br label %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPdS0_ET0_T_S2_S1_.exit:                 ; preds = %33, %34
-  %.pre-phi34 = phi i64 [ %30, %33 ], [ %.pre33, %34 ]
+  %.pre-phi34 = phi i64 [ 0, %33 ], [ %.pre33, %34 ]
   %35 = phi ptr [ %6, %33 ], [ %.pre29, %34 ]
   %36 = phi ptr [ %28, %33 ], [ %.pre27, %34 ]
   %37 = phi ptr [ %7, %33 ], [ %.pre, %34 ]

@@ -6881,99 +6881,99 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_15ChainESt6ve
   %36 = ptrtoint ptr %.sroa.0.025 to i64
   %37 = sub i64 %36, %4
   %38 = ashr exact i64 %37, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %38
-  %39 = getelementptr inbounds ptr, ptr %35, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %39, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %37, i1 false)
+  %39 = sub nsw i64 0, %38
+  %40 = getelementptr inbounds ptr, ptr %35, i64 %39
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %40, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %37, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_15ChainESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_25AArch64A57FPLoadBalancing13colorChainSetES8_RN4llvm17MachineBasicBlockERiE3$_0EEEvT_T0_.exit"
 
 _ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit30.i.i.thread18: ; preds = %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit28.i.i, %12, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_125AArch64A57FPLoadBalancing13colorChainSetESt6vectorIPNS2_5ChainESaIS6_EERN4llvm17MachineBasicBlockERiE3$_0EclINS_17__normal_iteratorIPS6_S8_EESI_EEbT_T0_.exit"
-  %40 = getelementptr i8, ptr %6, i64 16
-  %41 = getelementptr i8, ptr %6, i64 88
-  %42 = getelementptr i8, ptr %6, i64 24
-  br label %43
+  %41 = getelementptr i8, ptr %6, i64 16
+  %42 = getelementptr i8, ptr %6, i64 88
+  %43 = getelementptr i8, ptr %6, i64 24
+  br label %44
 
-43:                                               ; preds = %68, %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit30.i.i.thread18
-  %.val16.i.i.i = phi i64 [ %.val16.i.i, %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit30.i.i.thread18 ], [ %.val16.i.i.i.pre, %68 ]
-  %.sroa.06.0.i = phi ptr [ %.sroa.0.025, %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit30.i.i.thread18 ], [ %.sroa.0.0.i, %68 ]
+44:                                               ; preds = %69, %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit30.i.i.thread18
+  %.val16.i.i.i = phi i64 [ %.val16.i.i, %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit30.i.i.thread18 ], [ %.val16.i.i.i.pre, %69 ]
+  %.sroa.06.0.i = phi ptr [ %.sroa.0.025, %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit30.i.i.thread18 ], [ %.sroa.0.0.i, %69 ]
   %.sroa.0.0.i = getelementptr inbounds i8, ptr %.sroa.06.0.i, i64 -8
-  %44 = load ptr, ptr %.sroa.0.0.i, align 8
-  %45 = trunc i64 %.val16.i.i.i to i32
-  %46 = getelementptr i8, ptr %44, i64 80
-  %.val15.i.i.i = load i64, ptr %46, align 8
-  %47 = trunc i64 %.val15.i.i.i to i32
-  %.not.i.i.i15 = icmp eq i32 %45, %47
-  br i1 %.not.i.i.i15, label %50, label %48
+  %45 = load ptr, ptr %.sroa.0.0.i, align 8
+  %46 = trunc i64 %.val16.i.i.i to i32
+  %47 = getelementptr i8, ptr %45, i64 80
+  %.val15.i.i.i = load i64, ptr %47, align 8
+  %48 = trunc i64 %.val15.i.i.i to i32
+  %.not.i.i.i15 = icmp eq i32 %46, %48
+  br i1 %.not.i.i.i15, label %51, label %49
 
-48:                                               ; preds = %43
-  %49 = icmp ugt i32 %45, %47
-  br i1 %49, label %68, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_15ChainESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_25AArch64A57FPLoadBalancing13colorChainSetES8_RN4llvm17MachineBasicBlockERiE3$_0EEEvT_T0_.exit"
+49:                                               ; preds = %44
+  %50 = icmp ugt i32 %46, %48
+  br i1 %50, label %69, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_15ChainESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_25AArch64A57FPLoadBalancing13colorChainSetES8_RN4llvm17MachineBasicBlockERiE3$_0EEEvT_T0_.exit"
 
-50:                                               ; preds = %43
-  %.val23.i.i.i = load ptr, ptr %40, align 8
-  %.val24.i.i.i = load i8, ptr %41, align 8
+51:                                               ; preds = %44
+  %.val23.i.i.i = load ptr, ptr %41, align 8
+  %.val24.i.i.i = load i8, ptr %42, align 8
   %.not.i.i.i.i = icmp eq ptr %.val23.i.i.i, null
-  br i1 %.not.i.i.i.i, label %53, label %51
+  br i1 %.not.i.i.i.i, label %54, label %52
 
-51:                                               ; preds = %50
-  %52 = trunc i8 %.val24.i.i.i to i1
-  br i1 %52, label %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit.i.i.i, label %53
+52:                                               ; preds = %51
+  %53 = trunc i8 %.val24.i.i.i to i1
+  br i1 %53, label %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit.i.i.i, label %54
 
-53:                                               ; preds = %51, %50
+54:                                               ; preds = %52, %51
   br label %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit.i.i.i
 
-_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit.i.i.i: ; preds = %53, %51
-  %54 = phi i1 [ true, %51 ], [ %.not.i.i.i.i, %53 ]
-  %55 = getelementptr i8, ptr %44, i64 16
-  %.val21.i.i.i = load ptr, ptr %55, align 8
-  %56 = getelementptr i8, ptr %44, i64 88
-  %.val22.i.i.i = load i8, ptr %56, align 8
+_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit.i.i.i: ; preds = %54, %52
+  %55 = phi i1 [ true, %52 ], [ %.not.i.i.i.i, %54 ]
+  %56 = getelementptr i8, ptr %45, i64 16
+  %.val21.i.i.i = load ptr, ptr %56, align 8
+  %57 = getelementptr i8, ptr %45, i64 88
+  %.val22.i.i.i = load i8, ptr %57, align 8
   %.not.i25.i.i.i = icmp eq ptr %.val21.i.i.i, null
-  br i1 %.not.i25.i.i.i, label %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit26.i.i.i, label %57
+  br i1 %.not.i25.i.i.i, label %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit26.i.i.i, label %58
 
-57:                                               ; preds = %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit.i.i.i
-  %58 = trunc i8 %.val22.i.i.i to i1
-  br i1 %58, label %._ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit26_crit_edge.i.i.i, label %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit26.i.i.i
+58:                                               ; preds = %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit.i.i.i
+  %59 = trunc i8 %.val22.i.i.i to i1
+  br i1 %59, label %._ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit26_crit_edge.i.i.i, label %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit26.i.i.i
 
-._ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit26_crit_edge.i.i.i: ; preds = %57
-  br i1 %54, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_125AArch64A57FPLoadBalancing13colorChainSetESt6vectorIPNS2_5ChainESaIS6_EERN4llvm17MachineBasicBlockERiE3$_0EclIS6_NS_17__normal_iteratorIPS6_S8_EEEEbRT_T0_.exit.i", label %60
+._ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit26_crit_edge.i.i.i: ; preds = %58
+  br i1 %55, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_125AArch64A57FPLoadBalancing13colorChainSetESt6vectorIPNS2_5ChainESaIS6_EERN4llvm17MachineBasicBlockERiE3$_0EclIS6_NS_17__normal_iteratorIPS6_S8_EEEEbRT_T0_.exit.i", label %61
 
-_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit26.i.i.i: ; preds = %57, %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit.i.i.i
-  %59 = xor i1 %54, %.not.i25.i.i.i
-  br i1 %59, label %60, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_125AArch64A57FPLoadBalancing13colorChainSetESt6vectorIPNS2_5ChainESaIS6_EERN4llvm17MachineBasicBlockERiE3$_0EclIS6_NS_17__normal_iteratorIPS6_S8_EEEEbRT_T0_.exit.i"
+_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit26.i.i.i: ; preds = %58, %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit.i.i.i
+  %60 = xor i1 %55, %.not.i25.i.i.i
+  br i1 %60, label %61, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_125AArch64A57FPLoadBalancing13colorChainSetESt6vectorIPNS2_5ChainESaIS6_EERN4llvm17MachineBasicBlockERiE3$_0EclIS6_NS_17__normal_iteratorIPS6_S8_EEEEbRT_T0_.exit.i"
 
-60:                                               ; preds = %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit26.i.i.i, %._ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit26_crit_edge.i.i.i
-  br i1 %.not.i.i.i.i, label %63, label %61
+61:                                               ; preds = %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit26.i.i.i, %._ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit26_crit_edge.i.i.i
+  br i1 %.not.i.i.i.i, label %64, label %62
 
-61:                                               ; preds = %60
-  %62 = trunc i8 %.val24.i.i.i to i1
-  br i1 %62, label %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit28.i.i.i, label %63
+62:                                               ; preds = %61
+  %63 = trunc i8 %.val24.i.i.i to i1
+  br i1 %63, label %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit28.i.i.i, label %64
 
-63:                                               ; preds = %61, %60
+64:                                               ; preds = %62, %61
   br label %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit28.i.i.i
 
-_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit28.i.i.i: ; preds = %63, %61
-  %64 = phi i1 [ true, %61 ], [ %.not.i.i.i.i, %63 ]
+_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit28.i.i.i: ; preds = %64, %62
+  %65 = phi i1 [ true, %62 ], [ %.not.i.i.i.i, %64 ]
   %.not.i25.i.i.not.i = xor i1 %.not.i25.i.i.i, true
-  %65 = trunc i8 %.val22.i.i.i to i1
-  %.not.i = xor i1 %65, true
-  %or.cond.i = and i1 %64, %.not.i
+  %66 = trunc i8 %.val22.i.i.i to i1
+  %.not.i = xor i1 %66, true
+  %or.cond.i = and i1 %65, %.not.i
   %or.cond9.i = select i1 %.not.i25.i.i.not.i, i1 %or.cond.i, i1 false
-  br i1 %or.cond9.i, label %68, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_15ChainESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_25AArch64A57FPLoadBalancing13colorChainSetES8_RN4llvm17MachineBasicBlockERiE3$_0EEEvT_T0_.exit"
+  br i1 %or.cond9.i, label %69, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_15ChainESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_25AArch64A57FPLoadBalancing13colorChainSetES8_RN4llvm17MachineBasicBlockERiE3$_0EEEvT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_125AArch64A57FPLoadBalancing13colorChainSetESt6vectorIPNS2_5ChainESaIS6_EERN4llvm17MachineBasicBlockERiE3$_0EclIS6_NS_17__normal_iteratorIPS6_S8_EEEEbRT_T0_.exit.i": ; preds = %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit26.i.i.i, %._ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit26_crit_edge.i.i.i
-  %.val.i.i.i = load i32, ptr %42, align 8
-  %66 = getelementptr i8, ptr %44, i64 24
-  %.val12.i.i.i = load i32, ptr %66, align 8
-  %67 = icmp ult i32 %.val.i.i.i, %.val12.i.i.i
-  br i1 %67, label %68, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_15ChainESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_25AArch64A57FPLoadBalancing13colorChainSetES8_RN4llvm17MachineBasicBlockERiE3$_0EEEvT_T0_.exit"
+  %.val.i.i.i = load i32, ptr %43, align 8
+  %67 = getelementptr i8, ptr %45, i64 24
+  %.val12.i.i.i = load i32, ptr %67, align 8
+  %68 = icmp ult i32 %.val.i.i.i, %.val12.i.i.i
+  br i1 %68, label %69, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_15ChainESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_25AArch64A57FPLoadBalancing13colorChainSetES8_RN4llvm17MachineBasicBlockERiE3$_0EEEvT_T0_.exit"
 
-68:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_125AArch64A57FPLoadBalancing13colorChainSetESt6vectorIPNS2_5ChainESaIS6_EERN4llvm17MachineBasicBlockERiE3$_0EclIS6_NS_17__normal_iteratorIPS6_S8_EEEEbRT_T0_.exit.i", %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit28.i.i.i, %48
-  store ptr %44, ptr %.sroa.06.0.i, align 8
+69:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_125AArch64A57FPLoadBalancing13colorChainSetESt6vectorIPNS2_5ChainESaIS6_EERN4llvm17MachineBasicBlockERiE3$_0EclIS6_NS_17__normal_iteratorIPS6_S8_EEEEbRT_T0_.exit.i", %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit28.i.i.i, %49
+  store ptr %45, ptr %.sroa.06.0.i, align 8
   %.val16.i.i.i.pre = load i64, ptr %8, align 8
-  br label %43, !llvm.loop !41
+  br label %44, !llvm.loop !41
 
-"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_15ChainESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_25AArch64A57FPLoadBalancing13colorChainSetES8_RN4llvm17MachineBasicBlockERiE3$_0EEEvT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_125AArch64A57FPLoadBalancing13colorChainSetESt6vectorIPNS2_5ChainESaIS6_EERN4llvm17MachineBasicBlockERiE3$_0EclIS6_NS_17__normal_iteratorIPS6_S8_EEEEbRT_T0_.exit.i", %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit28.i.i.i, %48, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_15ChainESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
-  %.sink = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_15ChainESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ], [ %.sroa.06.0.i, %48 ], [ %.sroa.06.0.i, %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit28.i.i.i ], [ %.sroa.06.0.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_125AArch64A57FPLoadBalancing13colorChainSetESt6vectorIPNS2_5ChainESaIS6_EERN4llvm17MachineBasicBlockERiE3$_0EclIS6_NS_17__normal_iteratorIPS6_S8_EEEEbRT_T0_.exit.i" ]
+"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_15ChainESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_25AArch64A57FPLoadBalancing13colorChainSetES8_RN4llvm17MachineBasicBlockERiE3$_0EEEvT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_125AArch64A57FPLoadBalancing13colorChainSetESt6vectorIPNS2_5ChainESaIS6_EERN4llvm17MachineBasicBlockERiE3$_0EclIS6_NS_17__normal_iteratorIPS6_S8_EEEEbRT_T0_.exit.i", %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit28.i.i.i, %49, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_15ChainESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
+  %.sink = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_15ChainESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ], [ %.sroa.06.0.i, %49 ], [ %.sroa.06.0.i, %_ZNK12_GLOBAL__N_15Chain13requiresFixupEv.exit28.i.i.i ], [ %.sroa.06.0.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_125AArch64A57FPLoadBalancing13colorChainSetESt6vectorIPNS2_5ChainESaIS6_EERN4llvm17MachineBasicBlockERiE3$_0EclIS6_NS_17__normal_iteratorIPS6_S8_EEEEbRT_T0_.exit.i" ]
   store ptr %6, ptr %.sink, align 8
   %.sroa.0.0 = getelementptr inbounds i8, ptr %.sroa.0.025, i64 8
   %.not20 = icmp eq ptr %.sroa.0.0, %1

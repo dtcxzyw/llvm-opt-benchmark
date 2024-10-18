@@ -1780,7 +1780,7 @@ for.inc54:                                        ; preds = %for.inc54.loopexit,
   br i1 %cmp25, label %for.cond28.preheader, label %for.end56, !llvm.loop !33
 
 for.end56:                                        ; preds = %for.inc54, %for.end18.thread
-  %sub.ptr.div.i.i.pre-phi = phi i64 [ %sub.ptr.div.i, %for.end18.thread ], [ %sub.ptr.div.i38, %for.inc54 ]
+  %sub.ptr.div.i.i.pre-phi = phi i64 [ 0, %for.end18.thread ], [ %sub.ptr.div.i38, %for.inc54 ]
   %33 = phi ptr [ %0, %for.end18.thread ], [ %32, %for.inc54 ]
   %.lcssa = phi ptr [ %1, %for.end18.thread ], [ %31, %for.inc54 ]
   %cmp35.not.i = icmp eq ptr %33, %.lcssa

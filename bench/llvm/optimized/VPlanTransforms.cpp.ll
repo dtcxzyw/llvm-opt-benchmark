@@ -6675,7 +6675,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_31VPFirstOrderRecurrencePHIRecipeELb1EE9pu
   br label %67
 
 67:                                               ; preds = %.lr.ph74, %_ZN4llvm11SmallPtrSetIPNS_31VPFirstOrderRecurrencePHIRecipeELj4EED2Ev.exit
-  %.03271 = phi ptr [ %50, %.lr.ph74 ], [ %231, %_ZN4llvm11SmallPtrSetIPNS_31VPFirstOrderRecurrencePHIRecipeELj4EED2Ev.exit ]
+  %.03271 = phi ptr [ %50, %.lr.ph74 ], [ %232, %_ZN4llvm11SmallPtrSetIPNS_31VPFirstOrderRecurrencePHIRecipeELj4EED2Ev.exit ]
   %68 = load ptr, ptr %.03271, align 8
   store ptr %53, ptr %6, align 8
   store ptr %53, ptr %54, align 8
@@ -6966,163 +6966,163 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12VPRecipeBaseELb1EE9push_backES2_.exit.i.
   %.val18.i24.i.i.i.i.i.i = load ptr, ptr %155, align 8
   %178 = call noundef zeroext i1 @_ZN4llvm15VPDominatorTree17properlyDominatesEPKNS_12VPRecipeBaseES3_(ptr noundef nonnull align 8 dereferenceable(140) %4, ptr noundef %.0.val.i23.i.i.i.i.i.i, ptr noundef %.val18.i24.i.i.i.i.i.i) #18
   %179 = load ptr, ptr %.022.i21.i.i.i.i.i.i, align 8
-  br i1 %178, label %180, label %186
+  br i1 %178, label %180, label %187
 
 180:                                              ; preds = %.lr.ph.i20.i.i.i.i.i.i
   %181 = getelementptr inbounds i8, ptr %.pn21.i22.i.i.i.i.i.i, i64 16
   %182 = ptrtoint ptr %.022.i21.i.i.i.i.i.i to i64
   %183 = sub i64 %182, %159
   %184 = ashr exact i64 %183, 3
-  %.pre.i.i.i.i.i.i35.i.i.i.i.i.i = sub nsw i64 0, %184
-  %185 = getelementptr inbounds ptr, ptr %181, i64 %.pre.i.i.i.i.i.i35.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %185, ptr noundef nonnull align 8 dereferenceable(1) %155, i64 %183, i1 false)
+  %185 = sub nsw i64 0, %184
+  %186 = getelementptr inbounds ptr, ptr %181, i64 %185
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %186, ptr noundef nonnull align 8 dereferenceable(1) %155, i64 %183, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIPPN4llvm12VPRecipeBaseEN9__gnu_cxx5__ops14_Val_comp_iterIZL32sinkRecurrenceUsersAfterPreviousPNS0_31VPFirstOrderRecurrencePHIRecipeES2_RNS0_15VPDominatorTreeEE3$_0EEEvT_T0_.exit.i26.i.i.i.i.i.i"
 
-186:                                              ; preds = %.lr.ph.i20.i.i.i.i.i.i
+187:                                              ; preds = %.lr.ph.i20.i.i.i.i.i.i
   %.0.val12.i.i25.i.i.i.i.i.i = load ptr, ptr %.pn21.i22.i.i.i.i.i.i, align 8
-  %187 = call noundef zeroext i1 @_ZN4llvm15VPDominatorTree17properlyDominatesEPKNS_12VPRecipeBaseES3_(ptr noundef nonnull align 8 dereferenceable(140) %4, ptr noundef %179, ptr noundef %.0.val12.i.i25.i.i.i.i.i.i) #18
-  br i1 %187, label %.lr.ph.i.i30.i.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm12VPRecipeBaseEN9__gnu_cxx5__ops14_Val_comp_iterIZL32sinkRecurrenceUsersAfterPreviousPNS0_31VPFirstOrderRecurrencePHIRecipeES2_RNS0_15VPDominatorTreeEE3$_0EEEvT_T0_.exit.i26.i.i.i.i.i.i"
+  %188 = call noundef zeroext i1 @_ZN4llvm15VPDominatorTree17properlyDominatesEPKNS_12VPRecipeBaseES3_(ptr noundef nonnull align 8 dereferenceable(140) %4, ptr noundef %179, ptr noundef %.0.val12.i.i25.i.i.i.i.i.i) #18
+  br i1 %188, label %.lr.ph.i.i30.i.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm12VPRecipeBaseEN9__gnu_cxx5__ops14_Val_comp_iterIZL32sinkRecurrenceUsersAfterPreviousPNS0_31VPFirstOrderRecurrencePHIRecipeES2_RNS0_15VPDominatorTreeEE3$_0EEEvT_T0_.exit.i26.i.i.i.i.i.i"
 
-.lr.ph.i.i30.i.i.i.i.i.i:                         ; preds = %186, %.lr.ph.i.i30.i.i.i.i.i.i
-  %.014.i.i31.i.i.i.i.i.i = phi ptr [ %.0.i.i33.i.i.i.i.i.i, %.lr.ph.i.i30.i.i.i.i.i.i ], [ %.pn21.i22.i.i.i.i.i.i, %186 ]
-  %.0913.i.i32.i.i.i.i.i.i = phi ptr [ %.014.i.i31.i.i.i.i.i.i, %.lr.ph.i.i30.i.i.i.i.i.i ], [ %.022.i21.i.i.i.i.i.i, %186 ]
-  %188 = load ptr, ptr %.014.i.i31.i.i.i.i.i.i, align 8
-  store ptr %188, ptr %.0913.i.i32.i.i.i.i.i.i, align 8
+.lr.ph.i.i30.i.i.i.i.i.i:                         ; preds = %187, %.lr.ph.i.i30.i.i.i.i.i.i
+  %.014.i.i31.i.i.i.i.i.i = phi ptr [ %.0.i.i33.i.i.i.i.i.i, %.lr.ph.i.i30.i.i.i.i.i.i ], [ %.pn21.i22.i.i.i.i.i.i, %187 ]
+  %.0913.i.i32.i.i.i.i.i.i = phi ptr [ %.014.i.i31.i.i.i.i.i.i, %.lr.ph.i.i30.i.i.i.i.i.i ], [ %.022.i21.i.i.i.i.i.i, %187 ]
+  %189 = load ptr, ptr %.014.i.i31.i.i.i.i.i.i, align 8
+  store ptr %189, ptr %.0913.i.i32.i.i.i.i.i.i, align 8
   %.0.i.i33.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.014.i.i31.i.i.i.i.i.i, i64 -8
   %.0.val.i.i34.i.i.i.i.i.i = load ptr, ptr %.0.i.i33.i.i.i.i.i.i, align 8
-  %189 = call noundef zeroext i1 @_ZN4llvm15VPDominatorTree17properlyDominatesEPKNS_12VPRecipeBaseES3_(ptr noundef nonnull align 8 dereferenceable(140) %4, ptr noundef %179, ptr noundef %.0.val.i.i34.i.i.i.i.i.i) #18
-  br i1 %189, label %.lr.ph.i.i30.i.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm12VPRecipeBaseEN9__gnu_cxx5__ops14_Val_comp_iterIZL32sinkRecurrenceUsersAfterPreviousPNS0_31VPFirstOrderRecurrencePHIRecipeES2_RNS0_15VPDominatorTreeEE3$_0EEEvT_T0_.exit.i26.i.i.i.i.i.i", !llvm.loop !140
+  %190 = call noundef zeroext i1 @_ZN4llvm15VPDominatorTree17properlyDominatesEPKNS_12VPRecipeBaseES3_(ptr noundef nonnull align 8 dereferenceable(140) %4, ptr noundef %179, ptr noundef %.0.val.i.i34.i.i.i.i.i.i) #18
+  br i1 %190, label %.lr.ph.i.i30.i.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm12VPRecipeBaseEN9__gnu_cxx5__ops14_Val_comp_iterIZL32sinkRecurrenceUsersAfterPreviousPNS0_31VPFirstOrderRecurrencePHIRecipeES2_RNS0_15VPDominatorTreeEE3$_0EEEvT_T0_.exit.i26.i.i.i.i.i.i", !llvm.loop !140
 
-"_ZSt25__unguarded_linear_insertIPPN4llvm12VPRecipeBaseEN9__gnu_cxx5__ops14_Val_comp_iterIZL32sinkRecurrenceUsersAfterPreviousPNS0_31VPFirstOrderRecurrencePHIRecipeES2_RNS0_15VPDominatorTreeEE3$_0EEEvT_T0_.exit.i26.i.i.i.i.i.i": ; preds = %.lr.ph.i.i30.i.i.i.i.i.i, %186, %180
-  %.sink.i27.i.i.i.i.i.i = phi ptr [ %155, %180 ], [ %.022.i21.i.i.i.i.i.i, %186 ], [ %.014.i.i31.i.i.i.i.i.i, %.lr.ph.i.i30.i.i.i.i.i.i ]
+"_ZSt25__unguarded_linear_insertIPPN4llvm12VPRecipeBaseEN9__gnu_cxx5__ops14_Val_comp_iterIZL32sinkRecurrenceUsersAfterPreviousPNS0_31VPFirstOrderRecurrencePHIRecipeES2_RNS0_15VPDominatorTreeEE3$_0EEEvT_T0_.exit.i26.i.i.i.i.i.i": ; preds = %.lr.ph.i.i30.i.i.i.i.i.i, %187, %180
+  %.sink.i27.i.i.i.i.i.i = phi ptr [ %155, %180 ], [ %.022.i21.i.i.i.i.i.i, %187 ], [ %.014.i.i31.i.i.i.i.i.i, %.lr.ph.i.i30.i.i.i.i.i.i ]
   store ptr %179, ptr %.sink.i27.i.i.i.i.i.i, align 8
   %.0.i28.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.022.i21.i.i.i.i.i.i, i64 8
   %.not.i29.i.i.i.i.i.i = icmp eq ptr %.0.i28.i.i.i.i.i.i, %157
   br i1 %.not.i29.i.i.i.i.i.i, label %"_ZN4llvm4sortIRNS_11SmallVectorIPNS_12VPRecipeBaseELj6EEEZL32sinkRecurrenceUsersAfterPreviousPNS_31VPFirstOrderRecurrencePHIRecipeES3_RNS_15VPDominatorTreeEE3$_0EEvOT_T0_.exit.i", label %.lr.ph.i20.i.i.i.i.i.i, !llvm.loop !141
 
 "_ZN4llvm4sortIRNS_11SmallVectorIPNS_12VPRecipeBaseELj6EEEZL32sinkRecurrenceUsersAfterPreviousPNS_31VPFirstOrderRecurrencePHIRecipeES3_RNS_15VPDominatorTreeEE3$_0EEvOT_T0_.exit.i": ; preds = %"_ZSt25__unguarded_linear_insertIPPN4llvm12VPRecipeBaseEN9__gnu_cxx5__ops14_Val_comp_iterIZL32sinkRecurrenceUsersAfterPreviousPNS0_31VPFirstOrderRecurrencePHIRecipeES2_RNS0_15VPDominatorTreeEE3$_0EEEvT_T0_.exit.i26.i.i.i.i.i.i", %"_ZSt25__unguarded_linear_insertIPPN4llvm12VPRecipeBaseEN9__gnu_cxx5__ops14_Val_comp_iterIZL32sinkRecurrenceUsersAfterPreviousPNS0_31VPFirstOrderRecurrencePHIRecipeES2_RNS0_15VPDominatorTreeEE3$_0EEEvT_T0_.exit.i12.i.i.i.i.i.i", %177, %._crit_edge56.i
-  %190 = load ptr, ptr %2, align 8
-  %191 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #18
-  %192 = getelementptr inbounds ptr, ptr %190, i64 %191
-  %.not3257.i = icmp eq i64 %191, 0
+  %191 = load ptr, ptr %2, align 8
+  %192 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #18
+  %193 = getelementptr inbounds ptr, ptr %191, i64 %192
+  %.not3257.i = icmp eq i64 %192, 0
   br i1 %.not3257.i, label %"_ZZL32sinkRecurrenceUsersAfterPreviousPN4llvm31VPFirstOrderRecurrencePHIRecipeEPNS_12VPRecipeBaseERNS_15VPDominatorTreeEENK3$_1clES3_.exit.i", label %.lr.ph60.i
 
-.lr.ph60.i:                                       ; preds = %"_ZN4llvm4sortIRNS_11SmallVectorIPNS_12VPRecipeBaseELj6EEEZL32sinkRecurrenceUsersAfterPreviousPNS_31VPFirstOrderRecurrencePHIRecipeES3_RNS_15VPDominatorTreeEE3$_0EEvOT_T0_.exit.i", %196
-  %.02759.i = phi ptr [ %197, %196 ], [ %190, %"_ZN4llvm4sortIRNS_11SmallVectorIPNS_12VPRecipeBaseELj6EEEZL32sinkRecurrenceUsersAfterPreviousPNS_31VPFirstOrderRecurrencePHIRecipeES3_RNS_15VPDominatorTreeEE3$_0EEvOT_T0_.exit.i" ]
-  %.058.i = phi ptr [ %.1.i, %196 ], [ %storemerge.lcssa, %"_ZN4llvm4sortIRNS_11SmallVectorIPNS_12VPRecipeBaseELj6EEEZL32sinkRecurrenceUsersAfterPreviousPNS_31VPFirstOrderRecurrencePHIRecipeES3_RNS_15VPDominatorTreeEE3$_0EEvOT_T0_.exit.i" ]
-  %193 = load ptr, ptr %.02759.i, align 8
-  %194 = icmp eq ptr %193, %68
-  br i1 %194, label %196, label %195
+.lr.ph60.i:                                       ; preds = %"_ZN4llvm4sortIRNS_11SmallVectorIPNS_12VPRecipeBaseELj6EEEZL32sinkRecurrenceUsersAfterPreviousPNS_31VPFirstOrderRecurrencePHIRecipeES3_RNS_15VPDominatorTreeEE3$_0EEvOT_T0_.exit.i", %197
+  %.02759.i = phi ptr [ %198, %197 ], [ %191, %"_ZN4llvm4sortIRNS_11SmallVectorIPNS_12VPRecipeBaseELj6EEEZL32sinkRecurrenceUsersAfterPreviousPNS_31VPFirstOrderRecurrencePHIRecipeES3_RNS_15VPDominatorTreeEE3$_0EEvOT_T0_.exit.i" ]
+  %.058.i = phi ptr [ %.1.i, %197 ], [ %storemerge.lcssa, %"_ZN4llvm4sortIRNS_11SmallVectorIPNS_12VPRecipeBaseELj6EEEZL32sinkRecurrenceUsersAfterPreviousPNS_31VPFirstOrderRecurrencePHIRecipeES3_RNS_15VPDominatorTreeEE3$_0EEvOT_T0_.exit.i" ]
+  %194 = load ptr, ptr %.02759.i, align 8
+  %195 = icmp eq ptr %194, %68
+  br i1 %195, label %197, label %196
 
-195:                                              ; preds = %.lr.ph60.i
-  call void @_ZN4llvm12VPRecipeBase9moveAfterEPS0_(ptr noundef nonnull align 8 dereferenceable(104) %193, ptr noundef %.058.i) #18
-  br label %196
+196:                                              ; preds = %.lr.ph60.i
+  call void @_ZN4llvm12VPRecipeBase9moveAfterEPS0_(ptr noundef nonnull align 8 dereferenceable(104) %194, ptr noundef %.058.i) #18
+  br label %197
 
-196:                                              ; preds = %195, %.lr.ph60.i
-  %.1.i = phi ptr [ %.058.i, %.lr.ph60.i ], [ %193, %195 ]
-  %197 = getelementptr inbounds i8, ptr %.02759.i, i64 8
-  %.not32.i = icmp eq ptr %197, %192
+197:                                              ; preds = %196, %.lr.ph60.i
+  %.1.i = phi ptr [ %.058.i, %.lr.ph60.i ], [ %194, %196 ]
+  %198 = getelementptr inbounds i8, ptr %.02759.i, i64 8
+  %.not32.i = icmp eq ptr %198, %193
   br i1 %.not32.i, label %"_ZZL32sinkRecurrenceUsersAfterPreviousPN4llvm31VPFirstOrderRecurrencePHIRecipeEPNS_12VPRecipeBaseERNS_15VPDominatorTreeEENK3$_1clES3_.exit.i", label %.lr.ph60.i
 
-"_ZZL32sinkRecurrenceUsersAfterPreviousPN4llvm31VPFirstOrderRecurrencePHIRecipeEPNS_12VPRecipeBaseERNS_15VPDominatorTreeEENK3$_1clES3_.exit.i": ; preds = %196, %138, %113, %"_ZN4llvm4sortIRNS_11SmallVectorIPNS_12VPRecipeBaseELj6EEEZL32sinkRecurrenceUsersAfterPreviousPNS_31VPFirstOrderRecurrencePHIRecipeES3_RNS_15VPDominatorTreeEE3$_0EEvOT_T0_.exit.i"
-  %.not49.i = phi i1 [ true, %"_ZN4llvm4sortIRNS_11SmallVectorIPNS_12VPRecipeBaseELj6EEEZL32sinkRecurrenceUsersAfterPreviousPNS_31VPFirstOrderRecurrencePHIRecipeES3_RNS_15VPDominatorTreeEE3$_0EEvOT_T0_.exit.i" ], [ false, %113 ], [ false, %138 ], [ true, %196 ]
-  %198 = load ptr, ptr %60, align 8
-  %199 = load ptr, ptr %3, align 8
-  %200 = icmp eq ptr %198, %199
-  br i1 %200, label %_ZN4llvm11SmallPtrSetIPNS_12VPRecipeBaseELj8EED2Ev.exit.i, label %201
+"_ZZL32sinkRecurrenceUsersAfterPreviousPN4llvm31VPFirstOrderRecurrencePHIRecipeEPNS_12VPRecipeBaseERNS_15VPDominatorTreeEENK3$_1clES3_.exit.i": ; preds = %197, %138, %113, %"_ZN4llvm4sortIRNS_11SmallVectorIPNS_12VPRecipeBaseELj6EEEZL32sinkRecurrenceUsersAfterPreviousPNS_31VPFirstOrderRecurrencePHIRecipeES3_RNS_15VPDominatorTreeEE3$_0EEvOT_T0_.exit.i"
+  %.not49.i = phi i1 [ true, %"_ZN4llvm4sortIRNS_11SmallVectorIPNS_12VPRecipeBaseELj6EEEZL32sinkRecurrenceUsersAfterPreviousPNS_31VPFirstOrderRecurrencePHIRecipeES3_RNS_15VPDominatorTreeEE3$_0EEvOT_T0_.exit.i" ], [ false, %113 ], [ false, %138 ], [ true, %197 ]
+  %199 = load ptr, ptr %60, align 8
+  %200 = load ptr, ptr %3, align 8
+  %201 = icmp eq ptr %199, %200
+  br i1 %201, label %_ZN4llvm11SmallPtrSetIPNS_12VPRecipeBaseELj8EED2Ev.exit.i, label %202
 
-201:                                              ; preds = %"_ZZL32sinkRecurrenceUsersAfterPreviousPN4llvm31VPFirstOrderRecurrencePHIRecipeEPNS_12VPRecipeBaseERNS_15VPDominatorTreeEENK3$_1clES3_.exit.i"
-  call void @free(ptr noundef %198) #18
+202:                                              ; preds = %"_ZZL32sinkRecurrenceUsersAfterPreviousPN4llvm31VPFirstOrderRecurrencePHIRecipeEPNS_12VPRecipeBaseERNS_15VPDominatorTreeEENK3$_1clES3_.exit.i"
+  call void @free(ptr noundef %199) #18
   br label %_ZN4llvm11SmallPtrSetIPNS_12VPRecipeBaseELj8EED2Ev.exit.i
 
-_ZN4llvm11SmallPtrSetIPNS_12VPRecipeBaseELj8EED2Ev.exit.i: ; preds = %201, %"_ZZL32sinkRecurrenceUsersAfterPreviousPN4llvm31VPFirstOrderRecurrencePHIRecipeEPNS_12VPRecipeBaseERNS_15VPDominatorTreeEENK3$_1clES3_.exit.i"
-  %202 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %2) #18
-  %203 = load ptr, ptr %2, align 8
-  %204 = icmp eq ptr %203, %58
-  br i1 %204, label %_ZL32sinkRecurrenceUsersAfterPreviousPN4llvm31VPFirstOrderRecurrencePHIRecipeEPNS_12VPRecipeBaseERNS_15VPDominatorTreeE.exit, label %205
+_ZN4llvm11SmallPtrSetIPNS_12VPRecipeBaseELj8EED2Ev.exit.i: ; preds = %202, %"_ZZL32sinkRecurrenceUsersAfterPreviousPN4llvm31VPFirstOrderRecurrencePHIRecipeEPNS_12VPRecipeBaseERNS_15VPDominatorTreeEENK3$_1clES3_.exit.i"
+  %203 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %2) #18
+  %204 = load ptr, ptr %2, align 8
+  %205 = icmp eq ptr %204, %58
+  br i1 %205, label %_ZL32sinkRecurrenceUsersAfterPreviousPN4llvm31VPFirstOrderRecurrencePHIRecipeEPNS_12VPRecipeBaseERNS_15VPDominatorTreeE.exit, label %206
 
-205:                                              ; preds = %_ZN4llvm11SmallPtrSetIPNS_12VPRecipeBaseELj8EED2Ev.exit.i
-  call void @free(ptr noundef %203) #18
+206:                                              ; preds = %_ZN4llvm11SmallPtrSetIPNS_12VPRecipeBaseELj8EED2Ev.exit.i
+  call void @free(ptr noundef %204) #18
   br label %_ZL32sinkRecurrenceUsersAfterPreviousPN4llvm31VPFirstOrderRecurrencePHIRecipeEPNS_12VPRecipeBaseERNS_15VPDominatorTreeE.exit
 
-_ZL32sinkRecurrenceUsersAfterPreviousPN4llvm31VPFirstOrderRecurrencePHIRecipeEPNS_12VPRecipeBaseERNS_15VPDominatorTreeE.exit: ; preds = %_ZN4llvm11SmallPtrSetIPNS_12VPRecipeBaseELj8EED2Ev.exit.i, %205
+_ZL32sinkRecurrenceUsersAfterPreviousPN4llvm31VPFirstOrderRecurrencePHIRecipeEPNS_12VPRecipeBaseERNS_15VPDominatorTreeE.exit: ; preds = %_ZN4llvm11SmallPtrSetIPNS_12VPRecipeBaseELj8EED2Ev.exit.i, %206
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br i1 %.not49.i, label %206, label %.critedge
+  br i1 %.not49.i, label %207, label %.critedge
 
-206:                                              ; preds = %_ZL32sinkRecurrenceUsersAfterPreviousPN4llvm31VPFirstOrderRecurrencePHIRecipeEPNS_12VPRecipeBaseERNS_15VPDominatorTreeE.exit
-  %207 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa, i64 88
-  %208 = load ptr, ptr %207, align 8
-  %209 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa, i64 8
-  %210 = load i8, ptr %209, align 8
-  %211 = add i8 %210, -24
-  %spec.select.i.i.i.i.i.i.i.i = icmp ult i8 %211, 7
-  br i1 %spec.select.i.i.i.i.i.i.i.i, label %212, label %.preheader.i.i.i
+207:                                              ; preds = %_ZL32sinkRecurrenceUsersAfterPreviousPN4llvm31VPFirstOrderRecurrencePHIRecipeEPNS_12VPRecipeBaseERNS_15VPDominatorTreeE.exit
+  %208 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa, i64 88
+  %209 = load ptr, ptr %208, align 8
+  %210 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa, i64 8
+  %211 = load i8, ptr %210, align 8
+  %212 = add i8 %211, -24
+  %spec.select.i.i.i.i.i.i.i.i = icmp ult i8 %212, 7
+  br i1 %spec.select.i.i.i.i.i.i.i.i, label %213, label %.preheader.i.i.i
 
-212:                                              ; preds = %206
-  %213 = call ptr @_ZN4llvm12VPBasicBlock14getFirstNonPhiEv(ptr noundef nonnull align 8 dereferenceable(128) %208) #18
-  br label %216
+213:                                              ; preds = %207
+  %214 = call ptr @_ZN4llvm12VPBasicBlock14getFirstNonPhiEv(ptr noundef nonnull align 8 dereferenceable(128) %209) #18
+  br label %217
 
-.preheader.i.i.i:                                 ; preds = %206
-  %214 = getelementptr inbounds i8, ptr %storemerge.lcssa, i64 32
-  %215 = load ptr, ptr %214, align 8
-  br label %216
+.preheader.i.i.i:                                 ; preds = %207
+  %215 = getelementptr inbounds i8, ptr %storemerge.lcssa, i64 32
+  %216 = load ptr, ptr %215, align 8
+  br label %217
 
-216:                                              ; preds = %.preheader.i.i.i, %212
-  %storemerge = phi ptr [ %215, %.preheader.i.i.i ], [ %213, %212 ]
-  store ptr %208, ptr %1, align 8
+217:                                              ; preds = %.preheader.i.i.i, %213
+  %storemerge = phi ptr [ %216, %.preheader.i.i.i ], [ %214, %213 ]
+  store ptr %209, ptr %1, align 8
   store ptr %storemerge, ptr %64, align 8
-  %217 = getelementptr inbounds i8, ptr %68, i64 104
-  store ptr %217, ptr %7, align 8
-  %218 = load ptr, ptr %68, align 8
-  %219 = getelementptr inbounds i8, ptr %218, i64 40
-  %220 = load ptr, ptr %219, align 8
-  %221 = call noundef ptr %220(ptr noundef nonnull align 8 dereferenceable(160) %68) #18
-  store ptr %221, ptr %65, align 8
+  %218 = getelementptr inbounds i8, ptr %68, i64 104
+  store ptr %218, ptr %7, align 8
+  %219 = load ptr, ptr %68, align 8
+  %220 = getelementptr inbounds i8, ptr %219, i64 40
+  %221 = load ptr, ptr %220, align 8
+  %222 = call noundef ptr %221(ptr noundef nonnull align 8 dereferenceable(160) %68) #18
+  store ptr %222, ptr %65, align 8
   store i16 257, ptr %66, align 8
-  %222 = call noundef ptr @_ZN4llvm9VPBuilder12createNaryOpEjNS_8ArrayRefIPNS_7VPValueEEEPNS_11InstructionERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 69, ptr nonnull %7, i64 2, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(34) %8)
-  %223 = icmp eq ptr %222, null
-  %224 = getelementptr inbounds i8, ptr %222, i64 104
-  %225 = select i1 %223, ptr null, ptr %224
-  call void @_ZN4llvm7VPValue18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(56) %217, ptr noundef %225) #18
-  %226 = getelementptr inbounds i8, ptr %222, i64 40
-  call void @_ZN4llvm6VPUser10setOperandEjPNS_7VPValueE(ptr noundef nonnull align 8 dereferenceable(44) %226, i32 noundef 0, ptr noundef nonnull %217)
-  %227 = load ptr, ptr %54, align 8
-  %228 = load ptr, ptr %6, align 8
-  %229 = icmp eq ptr %227, %228
-  br i1 %229, label %_ZN4llvm11SmallPtrSetIPNS_31VPFirstOrderRecurrencePHIRecipeELj4EED2Ev.exit, label %230
+  %223 = call noundef ptr @_ZN4llvm9VPBuilder12createNaryOpEjNS_8ArrayRefIPNS_7VPValueEEEPNS_11InstructionERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 69, ptr nonnull %7, i64 2, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(34) %8)
+  %224 = icmp eq ptr %223, null
+  %225 = getelementptr inbounds i8, ptr %223, i64 104
+  %226 = select i1 %224, ptr null, ptr %225
+  call void @_ZN4llvm7VPValue18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(56) %218, ptr noundef %226) #18
+  %227 = getelementptr inbounds i8, ptr %223, i64 40
+  call void @_ZN4llvm6VPUser10setOperandEjPNS_7VPValueE(ptr noundef nonnull align 8 dereferenceable(44) %227, i32 noundef 0, ptr noundef nonnull %218)
+  %228 = load ptr, ptr %54, align 8
+  %229 = load ptr, ptr %6, align 8
+  %230 = icmp eq ptr %228, %229
+  br i1 %230, label %_ZN4llvm11SmallPtrSetIPNS_31VPFirstOrderRecurrencePHIRecipeELj4EED2Ev.exit, label %231
 
-230:                                              ; preds = %216
-  call void @free(ptr noundef %227) #18
+231:                                              ; preds = %217
+  call void @free(ptr noundef %228) #18
   br label %_ZN4llvm11SmallPtrSetIPNS_31VPFirstOrderRecurrencePHIRecipeELj4EED2Ev.exit
 
-_ZN4llvm11SmallPtrSetIPNS_31VPFirstOrderRecurrencePHIRecipeELj4EED2Ev.exit: ; preds = %230, %216
-  %231 = getelementptr inbounds i8, ptr %.03271, i64 8
-  %.not = icmp eq ptr %231, %52
+_ZN4llvm11SmallPtrSetIPNS_31VPFirstOrderRecurrencePHIRecipeELj4EED2Ev.exit: ; preds = %231, %217
+  %232 = getelementptr inbounds i8, ptr %.03271, i64 8
+  %.not = icmp eq ptr %232, %52
   br i1 %.not, label %_ZN4llvm11SmallPtrSetIPNS_31VPFirstOrderRecurrencePHIRecipeELj4EED2Ev.exit40, label %67
 
 .critedge:                                        ; preds = %_ZL32sinkRecurrenceUsersAfterPreviousPN4llvm31VPFirstOrderRecurrencePHIRecipeEPNS_12VPRecipeBaseERNS_15VPDominatorTreeE.exit
-  %232 = load ptr, ptr %54, align 8
-  %233 = load ptr, ptr %6, align 8
-  %234 = icmp eq ptr %232, %233
-  br i1 %234, label %_ZN4llvm11SmallPtrSetIPNS_31VPFirstOrderRecurrencePHIRecipeELj4EED2Ev.exit40, label %235
+  %233 = load ptr, ptr %54, align 8
+  %234 = load ptr, ptr %6, align 8
+  %235 = icmp eq ptr %233, %234
+  br i1 %235, label %_ZN4llvm11SmallPtrSetIPNS_31VPFirstOrderRecurrencePHIRecipeELj4EED2Ev.exit40, label %236
 
-235:                                              ; preds = %.critedge
-  call void @free(ptr noundef %232) #18
+236:                                              ; preds = %.critedge
+  call void @free(ptr noundef %233) #18
   br label %_ZN4llvm11SmallPtrSetIPNS_31VPFirstOrderRecurrencePHIRecipeELj4EED2Ev.exit40
 
-_ZN4llvm11SmallPtrSetIPNS_31VPFirstOrderRecurrencePHIRecipeELj4EED2Ev.exit40: ; preds = %_ZN4llvm11SmallPtrSetIPNS_31VPFirstOrderRecurrencePHIRecipeELj4EED2Ev.exit, %._crit_edge, %235, %.critedge
-  %.not59 = phi i1 [ false, %235 ], [ false, %.critedge ], [ true, %._crit_edge ], [ true, %_ZN4llvm11SmallPtrSetIPNS_31VPFirstOrderRecurrencePHIRecipeELj4EED2Ev.exit ]
-  %236 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %5) #18
-  %237 = load ptr, ptr %5, align 8
-  %238 = icmp eq ptr %237, %17
-  br i1 %238, label %_ZN4llvm11SmallVectorIPNS_31VPFirstOrderRecurrencePHIRecipeELj6EED2Ev.exit, label %239
+_ZN4llvm11SmallPtrSetIPNS_31VPFirstOrderRecurrencePHIRecipeELj4EED2Ev.exit40: ; preds = %_ZN4llvm11SmallPtrSetIPNS_31VPFirstOrderRecurrencePHIRecipeELj4EED2Ev.exit, %._crit_edge, %236, %.critedge
+  %.not59 = phi i1 [ false, %236 ], [ false, %.critedge ], [ true, %._crit_edge ], [ true, %_ZN4llvm11SmallPtrSetIPNS_31VPFirstOrderRecurrencePHIRecipeELj4EED2Ev.exit ]
+  %237 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %5) #18
+  %238 = load ptr, ptr %5, align 8
+  %239 = icmp eq ptr %238, %17
+  br i1 %239, label %_ZN4llvm11SmallVectorIPNS_31VPFirstOrderRecurrencePHIRecipeELj6EED2Ev.exit, label %240
 
-239:                                              ; preds = %_ZN4llvm11SmallPtrSetIPNS_31VPFirstOrderRecurrencePHIRecipeELj4EED2Ev.exit40
-  call void @free(ptr noundef %237) #18
+240:                                              ; preds = %_ZN4llvm11SmallPtrSetIPNS_31VPFirstOrderRecurrencePHIRecipeELj4EED2Ev.exit40
+  call void @free(ptr noundef %238) #18
   br label %_ZN4llvm11SmallVectorIPNS_31VPFirstOrderRecurrencePHIRecipeELj6EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPNS_31VPFirstOrderRecurrencePHIRecipeELj6EED2Ev.exit: ; preds = %_ZN4llvm11SmallPtrSetIPNS_31VPFirstOrderRecurrencePHIRecipeELj4EED2Ev.exit40, %239
+_ZN4llvm11SmallVectorIPNS_31VPFirstOrderRecurrencePHIRecipeELj6EED2Ev.exit: ; preds = %_ZN4llvm11SmallPtrSetIPNS_31VPFirstOrderRecurrencePHIRecipeELj4EED2Ev.exit40, %240
   call void @_ZN4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(140) %4) #18
   ret i1 %.not59
 }

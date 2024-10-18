@@ -3322,14 +3322,14 @@ entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %d_released, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
   %cmp13.not = icmp eq ptr %0, %1
   br i1 %cmp13.not, label %if.else.i7, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
   %d_image.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %d_pool = getelementptr inbounds i8, ptr %this, i64 152
   %_M_finish.i5 = getelementptr inbounds i8, ptr %this, i64 160
@@ -3449,7 +3449,7 @@ if.else.i7:                                       ; preds = %entry, %for.end
   %writePos.0.lcssa25 = phi i64 [ %writePos.1, %for.end ], [ 0, %entry ]
   %11 = phi ptr [ %.pre, %for.end ], [ %0, %entry ]
   %12 = phi ptr [ %.pre16, %for.end ], [ %1, %entry ]
-  %sub.ptr.div.i.i.pre-phi24 = phi i64 [ %.pre20, %for.end ], [ %sub.ptr.div.i, %entry ]
+  %sub.ptr.div.i.i.pre-phi24 = phi i64 [ %.pre20, %for.end ], [ 0, %entry ]
   %cmp4.i = icmp ult i64 %writePos.0.lcssa25, %sub.ptr.div.i.i.pre-phi24
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
@@ -9592,8 +9592,8 @@ if.then.i.i.i.i.i:                                ; preds = %if.then11
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %1, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %1, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i, ptr align 4 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %invoke.cont20
 

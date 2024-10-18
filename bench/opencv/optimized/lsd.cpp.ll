@@ -3187,103 +3187,98 @@ define hidden noundef zeroext i1 @_ZN2cv23LineSegmentDetectorImpl20reduce_region
   %.pre = load ptr, ptr %35, align 8
   br label %37
 
-37:                                               ; preds = %.lr.ph57, %82
-  %38 = phi ptr [ %10, %.lr.ph57 ], [ %84, %82 ]
-  %39 = phi ptr [ %.pre, %.lr.ph57 ], [ %83, %82 ]
-  %.04855 = phi double [ %34, %.lr.ph57 ], [ %40, %82 ]
+37:                                               ; preds = %.lr.ph57, %78
+  %38 = phi ptr [ %10, %.lr.ph57 ], [ %80, %78 ]
+  %39 = phi ptr [ %.pre, %.lr.ph57 ], [ %79, %78 ]
+  %.04855 = phi double [ %34, %.lr.ph57 ], [ %40, %78 ]
   %40 = fmul double %.04855, 5.625000e-01
-  %41 = ptrtoint ptr %39 to i64
-  %42 = ptrtoint ptr %38 to i64
-  %43 = sub i64 %41, %42
-  %44 = ashr exact i64 %43, 5
   %.not = icmp eq ptr %39, %38
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge58, label %.lr.ph
 
-.lr.ph:                                           ; preds = %37, %72
-  %45 = phi ptr [ %73, %72 ], [ %38, %37 ]
-  %46 = phi ptr [ %74, %72 ], [ %39, %37 ]
-  %.053 = phi i64 [ %75, %72 ], [ 0, %37 ]
-  %47 = getelementptr inbounds %"struct.cv::LineSegmentDetectorImpl::RegionPoint", ptr %45, i64 %.053
-  %48 = load i32, ptr %47, align 8
-  %49 = sitofp i32 %48 to double
-  %50 = getelementptr inbounds i8, ptr %47, i64 4
-  %51 = load i32, ptr %50, align 4
-  %52 = sitofp i32 %51 to double
-  %53 = fsub double %49, %12
-  %54 = fsub double %52, %15
-  %55 = fmul double %54, %54
-  %56 = tail call noundef double @llvm.fmuladd.f64(double %53, double %53, double %55)
-  %57 = fcmp ogt double %56, %40
-  br i1 %57, label %58, label %72
+.lr.ph:                                           ; preds = %37, %68
+  %41 = phi ptr [ %69, %68 ], [ %38, %37 ]
+  %42 = phi ptr [ %70, %68 ], [ %39, %37 ]
+  %.053 = phi i64 [ %71, %68 ], [ 0, %37 ]
+  %43 = getelementptr inbounds %"struct.cv::LineSegmentDetectorImpl::RegionPoint", ptr %41, i64 %.053
+  %44 = load i32, ptr %43, align 8
+  %45 = sitofp i32 %44 to double
+  %46 = getelementptr inbounds i8, ptr %43, i64 4
+  %47 = load i32, ptr %46, align 4
+  %48 = sitofp i32 %47 to double
+  %49 = fsub double %45, %12
+  %50 = fsub double %48, %15
+  %51 = fmul double %50, %50
+  %52 = tail call noundef double @llvm.fmuladd.f64(double %49, double %49, double %51)
+  %53 = fcmp ogt double %52, %40
+  br i1 %53, label %54, label %68
 
-58:                                               ; preds = %.lr.ph
-  %59 = getelementptr inbounds i8, ptr %47, i64 8
-  %60 = load ptr, ptr %59, align 8
-  store i8 0, ptr %60, align 1
-  %61 = load ptr, ptr %1, align 8
-  %62 = getelementptr inbounds %"struct.cv::LineSegmentDetectorImpl::RegionPoint", ptr %61, i64 %.053
-  %63 = load ptr, ptr %35, align 8
-  %64 = ptrtoint ptr %63 to i64
-  %65 = ptrtoint ptr %61 to i64
-  %66 = sub i64 %64, %65
-  %67 = getelementptr i8, ptr %61, i64 %66
-  %68 = getelementptr i8, ptr %67, i64 -32
+54:                                               ; preds = %.lr.ph
+  %55 = getelementptr inbounds i8, ptr %43, i64 8
+  %56 = load ptr, ptr %55, align 8
+  store i8 0, ptr %56, align 1
+  %57 = load ptr, ptr %1, align 8
+  %58 = getelementptr inbounds %"struct.cv::LineSegmentDetectorImpl::RegionPoint", ptr %57, i64 %.053
+  %59 = load ptr, ptr %35, align 8
+  %60 = ptrtoint ptr %59 to i64
+  %61 = ptrtoint ptr %57 to i64
+  %62 = sub i64 %60, %61
+  %63 = getelementptr i8, ptr %57, i64 %62
+  %64 = getelementptr i8, ptr %63, i64 -32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %62, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %68, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %58, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull align 8 dereferenceable(32) %64, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  %69 = load ptr, ptr %35, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 -32
-  store ptr %70, ptr %35, align 8
-  %71 = add i64 %.053, -1
+  %65 = load ptr, ptr %35, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 -32
+  store ptr %66, ptr %35, align 8
+  %67 = add i64 %.053, -1
   %.pre62 = load ptr, ptr %1, align 8
-  br label %72
+  br label %68
 
-72:                                               ; preds = %.lr.ph, %58
-  %73 = phi ptr [ %.pre62, %58 ], [ %45, %.lr.ph ]
-  %74 = phi ptr [ %70, %58 ], [ %46, %.lr.ph ]
-  %.1 = phi i64 [ %71, %58 ], [ %.053, %.lr.ph ]
-  %75 = add i64 %.1, 1
-  %76 = ptrtoint ptr %74 to i64
-  %77 = ptrtoint ptr %73 to i64
-  %78 = sub i64 %76, %77
-  %79 = ashr exact i64 %78, 5
-  %80 = icmp ult i64 %75, %79
-  br i1 %80, label %.lr.ph, label %._crit_edge, !llvm.loop !45
+68:                                               ; preds = %.lr.ph, %54
+  %69 = phi ptr [ %.pre62, %54 ], [ %41, %.lr.ph ]
+  %70 = phi ptr [ %66, %54 ], [ %42, %.lr.ph ]
+  %.1 = phi i64 [ %67, %54 ], [ %.053, %.lr.ph ]
+  %71 = add i64 %.1, 1
+  %72 = ptrtoint ptr %70 to i64
+  %73 = ptrtoint ptr %69 to i64
+  %74 = sub i64 %72, %73
+  %75 = ashr exact i64 %74, 5
+  %76 = icmp ult i64 %71, %75
+  br i1 %76, label %.lr.ph, label %._crit_edge, !llvm.loop !45
 
-._crit_edge:                                      ; preds = %72, %37
-  %.lcssa = phi i64 [ %44, %37 ], [ %79, %72 ]
-  %81 = icmp ugt i64 %.lcssa, 1
-  br i1 %81, label %82, label %._crit_edge58
+._crit_edge:                                      ; preds = %68
+  %77 = icmp ugt i64 %75, 1
+  br i1 %77, label %78, label %._crit_edge58
 
-82:                                               ; preds = %._crit_edge
+78:                                               ; preds = %._crit_edge
   tail call void @_ZNK2cv23LineSegmentDetectorImpl11region2rectERKSt6vectorINS0_11RegionPointESaIS2_EEdddRNS0_4rectE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef nonnull align 8 dereferenceable(96) %5)
-  %83 = load ptr, ptr %35, align 8
-  %84 = load ptr, ptr %1, align 8
-  %85 = ptrtoint ptr %83 to i64
-  %86 = ptrtoint ptr %84 to i64
-  %87 = sub i64 %85, %86
-  %88 = ashr exact i64 %87, 5
-  %89 = uitofp i64 %88 to double
-  %90 = load double, ptr %5, align 8
-  %91 = load double, ptr %16, align 8
-  %92 = load double, ptr %17, align 8
-  %93 = load double, ptr %18, align 8
-  %94 = fsub double %92, %90
-  %95 = fsub double %93, %91
-  %96 = fmul double %95, %95
-  %97 = tail call noundef double @llvm.fmuladd.f64(double %94, double %94, double %96)
-  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %97)
-  %98 = load double, ptr %36, align 8
-  %99 = fmul double %98, %sqrt.i
-  %100 = fdiv double %89, %99
-  %101 = load double, ptr %7, align 8
-  %102 = fcmp uge double %100, %101
-  br i1 %102, label %._crit_edge58, label %37, !llvm.loop !46
+  %79 = load ptr, ptr %35, align 8
+  %80 = load ptr, ptr %1, align 8
+  %81 = ptrtoint ptr %79 to i64
+  %82 = ptrtoint ptr %80 to i64
+  %83 = sub i64 %81, %82
+  %84 = ashr exact i64 %83, 5
+  %85 = uitofp i64 %84 to double
+  %86 = load double, ptr %5, align 8
+  %87 = load double, ptr %16, align 8
+  %88 = load double, ptr %17, align 8
+  %89 = load double, ptr %18, align 8
+  %90 = fsub double %88, %86
+  %91 = fsub double %89, %87
+  %92 = fmul double %91, %91
+  %93 = tail call noundef double @llvm.fmuladd.f64(double %90, double %90, double %92)
+  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %93)
+  %94 = load double, ptr %36, align 8
+  %95 = fmul double %94, %sqrt.i
+  %96 = fdiv double %85, %95
+  %97 = load double, ptr %7, align 8
+  %98 = fcmp uge double %96, %97
+  br i1 %98, label %._crit_edge58, label %37, !llvm.loop !46
 
-._crit_edge58:                                    ; preds = %._crit_edge, %82, %8
-  %.lcssa52 = phi i1 [ true, %8 ], [ %81, %82 ], [ %81, %._crit_edge ]
+._crit_edge58:                                    ; preds = %._crit_edge, %78, %37, %8
+  %.lcssa52 = phi i1 [ true, %8 ], [ false, %37 ], [ false, %._crit_edge ], [ true, %78 ]
   ret i1 %.lcssa52
 }
 
@@ -6460,28 +6455,28 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPoin
   br label %.outer
 
 .outer:                                           ; preds = %37, %32
-  %.sroa.021.0.i.ph = phi ptr [ %2, %32 ], [ %36, %37 ]
-  %.sroa.025.0.i.ph.pn = phi ptr [ %.tr103122, %32 ], [ %.sroa.025.0.i.ph, %37 ]
+  %.sroa.022.0.i.ph = phi ptr [ %2, %32 ], [ %36, %37 ]
+  %.sroa.026.0.i.ph.pn = phi ptr [ %.tr103122, %32 ], [ %.sroa.026.0.i.ph, %37 ]
   %.0.i.ph = phi ptr [ %33, %32 ], [ %.0.i, %37 ]
-  %.sroa.025.0.i.ph = getelementptr inbounds i8, ptr %.sroa.025.0.i.ph.pn, i64 -12
+  %.sroa.026.0.i.ph = getelementptr inbounds i8, ptr %.sroa.026.0.i.ph.pn, i64 -12
   br label %34
 
 34:                                               ; preds = %.outer, %43
-  %.sroa.021.0.i = phi ptr [ %36, %43 ], [ %.sroa.021.0.i.ph, %.outer ]
+  %.sroa.022.0.i = phi ptr [ %36, %43 ], [ %.sroa.022.0.i.ph, %.outer ]
   %.0.i = phi ptr [ %44, %43 ], [ %.0.i.ph, %.outer ]
-  %35 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 4 dereferenceable(12) %.0.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.025.0.i.ph)
-  %36 = getelementptr inbounds i8, ptr %.sroa.021.0.i, i64 -12
+  %35 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 4 dereferenceable(12) %.0.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.026.0.i.ph)
+  %36 = getelementptr inbounds i8, ptr %.sroa.022.0.i, i64 -12
   br i1 %35, label %37, label %41
 
 37:                                               ; preds = %34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %36, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.025.0.i.ph, i64 12, i1 false)
-  %38 = icmp eq ptr %.tr121, %.sroa.025.0.i.ph
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %36, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.026.0.i.ph, i64 12, i1 false)
+  %38 = icmp eq ptr %.tr121, %.sroa.026.0.i.ph
   br i1 %38, label %39, label %.outer, !llvm.loop !93
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds i8, ptr %.0.i, i64 12
-  %.not.i.i.i.i.i19.i = icmp eq ptr %40, %5
-  br i1 %.not.i.i.i.i.i19.i, label %_ZSt21__move_merge_adaptiveIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterIPFbRKS2_SD_EEEEvT_SH_T0_SI_T1_T2_.exit, label %_ZSt13move_backwardIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.sink.split.i
+  %.not.i.i.i.i.i18.i = icmp eq ptr %40, %5
+  br i1 %.not.i.i.i.i.i18.i, label %_ZSt21__move_merge_adaptiveIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterIPFbRKS2_SD_EEEEvT_SH_T0_SI_T1_T2_.exit, label %_ZSt13move_backwardIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.sink.split.i
 
 41:                                               ; preds = %34
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %36, ptr noundef nonnull align 4 dereferenceable(12) %.0.i, i64 12, i1 false)
@@ -6498,8 +6493,8 @@ _ZSt13move_backwardIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__norm
   %45 = ptrtoint ptr %.sink.i to i64
   %46 = ptrtoint ptr %5 to i64
   %47 = sub i64 %45, %46
-  %.neg.i.i.i.i.i18.i = sdiv exact i64 %47, -12
-  %48 = getelementptr inbounds %"struct.cv::LineSegmentDetectorImpl::normPoint", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i18.i
+  %.neg.i.i.i.i.i19.i = sdiv exact i64 %47, -12
+  %48 = getelementptr inbounds %"struct.cv::LineSegmentDetectorImpl::normPoint", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i19.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %48, ptr align 4 %5, i64 %47, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterIPFbRKS2_SD_EEEEvT_SH_T0_SI_T1_T2_.exit
 
@@ -6818,16 +6813,17 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPoin
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit40, %31
-  %.neg.i.i.i.i.i42 = sdiv exact i64 %29, -12
   br i1 %.not.i.i.i.i.i39, label %_ZSt13move_backwardIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit, label %34
 
 34:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
-  %35 = getelementptr inbounds %"struct.cv::LineSegmentDetectorImpl::normPoint", ptr %2, i64 %.neg.i.i.i.i.i42
+  %.neg.i.i.i.i.i43 = sdiv exact i64 %29, -12
+  %35 = getelementptr inbounds %"struct.cv::LineSegmentDetectorImpl::normPoint", ptr %2, i64 %.neg.i.i.i.i.i43
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %35, ptr align 4 %5, i64 %29, i1 false)
   br label %_ZSt13move_backwardIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit
 
 _ZSt13move_backwardIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, %34
-  %36 = getelementptr inbounds %"struct.cv::LineSegmentDetectorImpl::normPoint", ptr %2, i64 %.neg.i.i.i.i.i42
+  %.pre-phi.i.i.i.i.i44 = phi i64 [ %.neg.i.i.i.i.i43, %34 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ]
+  %36 = getelementptr inbounds %"struct.cv::LineSegmentDetectorImpl::normPoint", ptr %2, i64 %.pre-phi.i.i.i.i.i44
   br label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_.exit
 
 37:                                               ; preds = %24

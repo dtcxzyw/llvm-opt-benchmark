@@ -301,7 +301,7 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %.noexc37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit
   %.not80 = phi i1 [ true, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit ], [ true, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ false, %.lr.ph ]
-  %31 = phi i64 [ %20, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit ], [ 0, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %28, %.lr.ph ]
+  %31 = phi i64 [ 0, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit ], [ 0, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %28, %.lr.ph ]
   %.0.i.i.i.i.i79 = phi ptr [ %26, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %.0.i.i.i.i.i86, %.lr.ph ]
   %.sroa.051.074 = phi ptr [ %23, %_ZNSt6vectorImSaImEEC2EmRKS0_.exit ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %23, %.lr.ph ]
   invoke void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4perf18KeypointIdxCompareEEEEvT_SC_T0_(ptr %.sroa.051.074, ptr %.0.i.i.i.i.i79, ptr nonnull %0)
@@ -1322,64 +1322,64 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf18KeypointIdxCompareEEclINS_17__norma
   br i1 %23, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit, label %.preheader26
 
 .preheader26:                                     ; preds = %21, %17, %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf18KeypointIdxCompareEEclINS_17__normal_iteratorIPmSt6vectorImSaImEEEESB_EEbT_T0_.exit
-  br label %29
+  br label %30
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit: ; preds = %21, %17, %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf18KeypointIdxCompareEEclINS_17__normal_iteratorIPmSt6vectorImSaImEEEESB_EEbT_T0_.exit
   %24 = getelementptr inbounds i8, ptr %.pn20, i64 16
   %25 = ptrtoint ptr %.sroa.0.021 to i64
   %26 = sub i64 %25, %5
   %27 = ashr exact i64 %26, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %27
-  %28 = getelementptr inbounds i64, ptr %24, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %28, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %26, i1 false)
+  %28 = sub nsw i64 0, %27
+  %29 = getelementptr inbounds i64, ptr %24, i64 %28
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %29, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %26, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEEEvT_T0_.exit
 
-29:                                               ; preds = %.preheader26, %45
-  %.sroa.712.0.copyload.i.i.i = phi i32 [ %.sroa.712.0.copyload.i.i.i.pre, %45 ], [ %.sroa.712.0.copyload.i.i, %.preheader26 ]
-  %.sroa.510.0.copyload.i.i.i = phi float [ %.sroa.510.0.copyload.i.i.i.pre, %45 ], [ %.sroa.510.0.copyload.i.i, %.preheader26 ]
-  %.sroa.37.0.copyload.i.i.i = phi float [ %.sroa.37.0.copyload.i.i.i.pre, %45 ], [ %.sroa.37.0.copyload.i.i, %.preheader26 ]
-  %.sroa.05.0.copyload.i.i.i = phi float [ %.sroa.05.0.copyload.i.i.i.pre, %45 ], [ %.sroa.05.0.copyload.i.i, %.preheader26 ]
-  %30 = phi ptr [ %.pre, %45 ], [ %9, %.preheader26 ]
-  %.sroa.05.0.i = phi ptr [ %.sroa.0.0.i, %45 ], [ %.sroa.0.021, %.preheader26 ]
+30:                                               ; preds = %.preheader26, %46
+  %.sroa.712.0.copyload.i.i.i = phi i32 [ %.sroa.712.0.copyload.i.i.i.pre, %46 ], [ %.sroa.712.0.copyload.i.i, %.preheader26 ]
+  %.sroa.510.0.copyload.i.i.i = phi float [ %.sroa.510.0.copyload.i.i.i.pre, %46 ], [ %.sroa.510.0.copyload.i.i, %.preheader26 ]
+  %.sroa.37.0.copyload.i.i.i = phi float [ %.sroa.37.0.copyload.i.i.i.pre, %46 ], [ %.sroa.37.0.copyload.i.i, %.preheader26 ]
+  %.sroa.05.0.copyload.i.i.i = phi float [ %.sroa.05.0.copyload.i.i.i.pre, %46 ], [ %.sroa.05.0.copyload.i.i, %.preheader26 ]
+  %31 = phi ptr [ %.pre, %46 ], [ %9, %.preheader26 ]
+  %.sroa.05.0.i = phi ptr [ %.sroa.0.0.i, %46 ], [ %.sroa.0.021, %.preheader26 ]
   %.sroa.0.0.i = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 -8
-  %31 = load i64, ptr %.sroa.0.0.i, align 8
-  %32 = getelementptr inbounds %"class.cv::KeyPoint", ptr %30, i64 %31
-  %.sroa.0.0.copyload.i.i.i = load float, ptr %32, align 4
-  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %32, i64 4
+  %32 = load i64, ptr %.sroa.0.0.i, align 8
+  %33 = getelementptr inbounds %"class.cv::KeyPoint", ptr %31, i64 %32
+  %.sroa.0.0.copyload.i.i.i = load float, ptr %33, align 4
+  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %33, i64 4
   %.sroa.3.0.copyload.i.i.i = load float, ptr %.sroa.3.0..sroa_idx.i.i.i, align 4
-  %.sroa.53.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %32, i64 16
+  %.sroa.53.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %33, i64 16
   %.sroa.53.0.copyload.i.i.i = load float, ptr %.sroa.53.0..sroa_idx.i.i.i, align 4
-  %.sroa.7.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %32, i64 20
+  %.sroa.7.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %33, i64 20
   %.sroa.7.0.copyload.i.i.i = load i32, ptr %.sroa.7.0..sroa_idx.i.i.i, align 4
-  %33 = fcmp une float %.sroa.05.0.copyload.i.i.i, %.sroa.0.0.copyload.i.i.i
-  br i1 %33, label %34, label %36
+  %34 = fcmp une float %.sroa.05.0.copyload.i.i.i, %.sroa.0.0.copyload.i.i.i
+  br i1 %34, label %35, label %37
 
-34:                                               ; preds = %29
-  %35 = fcmp olt float %.sroa.05.0.copyload.i.i.i, %.sroa.0.0.copyload.i.i.i
-  br i1 %35, label %45, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEEEvT_T0_.exit
+35:                                               ; preds = %30
+  %36 = fcmp olt float %.sroa.05.0.copyload.i.i.i, %.sroa.0.0.copyload.i.i.i
+  br i1 %36, label %46, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEEEvT_T0_.exit
 
-36:                                               ; preds = %29
-  %37 = fcmp une float %.sroa.37.0.copyload.i.i.i, %.sroa.3.0.copyload.i.i.i
-  br i1 %37, label %38, label %40
+37:                                               ; preds = %30
+  %38 = fcmp une float %.sroa.37.0.copyload.i.i.i, %.sroa.3.0.copyload.i.i.i
+  br i1 %38, label %39, label %41
 
-38:                                               ; preds = %36
-  %39 = fcmp olt float %.sroa.37.0.copyload.i.i.i, %.sroa.3.0.copyload.i.i.i
-  br i1 %39, label %45, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEEEvT_T0_.exit
+39:                                               ; preds = %37
+  %40 = fcmp olt float %.sroa.37.0.copyload.i.i.i, %.sroa.3.0.copyload.i.i.i
+  br i1 %40, label %46, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEEEvT_T0_.exit
 
-40:                                               ; preds = %36
-  %41 = fcmp une float %.sroa.510.0.copyload.i.i.i, %.sroa.53.0.copyload.i.i.i
-  br i1 %41, label %42, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEclImNS_17__normal_iteratorIPmSt6vectorImSaImEEEEEEbRT_T0_.exit.i
+41:                                               ; preds = %37
+  %42 = fcmp une float %.sroa.510.0.copyload.i.i.i, %.sroa.53.0.copyload.i.i.i
+  br i1 %42, label %43, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEclImNS_17__normal_iteratorIPmSt6vectorImSaImEEEEEEbRT_T0_.exit.i
 
-42:                                               ; preds = %40
-  %43 = fcmp olt float %.sroa.510.0.copyload.i.i.i, %.sroa.53.0.copyload.i.i.i
-  br i1 %43, label %45, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEEEvT_T0_.exit
+43:                                               ; preds = %41
+  %44 = fcmp olt float %.sroa.510.0.copyload.i.i.i, %.sroa.53.0.copyload.i.i.i
+  br i1 %44, label %46, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEEEvT_T0_.exit
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEclImNS_17__normal_iteratorIPmSt6vectorImSaImEEEEEEbRT_T0_.exit.i: ; preds = %40
-  %44 = icmp slt i32 %.sroa.712.0.copyload.i.i.i, %.sroa.7.0.copyload.i.i.i
-  br i1 %44, label %45, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEEEvT_T0_.exit
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEclImNS_17__normal_iteratorIPmSt6vectorImSaImEEEEEEbRT_T0_.exit.i: ; preds = %41
+  %45 = icmp slt i32 %.sroa.712.0.copyload.i.i.i, %.sroa.7.0.copyload.i.i.i
+  br i1 %45, label %46, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEEEvT_T0_.exit
 
-45:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEclImNS_17__normal_iteratorIPmSt6vectorImSaImEEEEEEbRT_T0_.exit.i, %42, %38, %34
-  store i64 %31, ptr %.sroa.05.0.i, align 8
+46:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEclImNS_17__normal_iteratorIPmSt6vectorImSaImEEEEEEbRT_T0_.exit.i, %43, %39, %35
+  store i64 %32, ptr %.sroa.05.0.i, align 8
   %.pre = load ptr, ptr %2, align 8
   %.phi.trans.insert = getelementptr inbounds %"class.cv::KeyPoint", ptr %.pre, i64 %7
   %.sroa.05.0.copyload.i.i.i.pre = load float, ptr %.phi.trans.insert, align 4
@@ -1389,10 +1389,10 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEclImNS_17__norma
   %.sroa.510.0.copyload.i.i.i.pre = load float, ptr %.sroa.510.0..sroa_idx.i.i.i.phi.trans.insert, align 4
   %.sroa.712.0..sroa_idx.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %.phi.trans.insert, i64 20
   %.sroa.712.0.copyload.i.i.i.pre = load i32, ptr %.sroa.712.0..sroa_idx.i.i.i.phi.trans.insert, align 4
-  br label %29, !llvm.loop !17
+  br label %30, !llvm.loop !17
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEclImNS_17__normal_iteratorIPmSt6vectorImSaImEEEEEEbRT_T0_.exit.i, %42, %38, %34, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit
-  %.sink = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit ], [ %.sroa.05.0.i, %34 ], [ %.sroa.05.0.i, %38 ], [ %.sroa.05.0.i, %42 ], [ %.sroa.05.0.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEclImNS_17__normal_iteratorIPmSt6vectorImSaImEEEEEEbRT_T0_.exit.i ]
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEclImNS_17__normal_iteratorIPmSt6vectorImSaImEEEEEEbRT_T0_.exit.i, %43, %39, %35, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit
+  %.sink = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit ], [ %.sroa.05.0.i, %35 ], [ %.sroa.05.0.i, %39 ], [ %.sroa.05.0.i, %43 ], [ %.sroa.05.0.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEclImNS_17__normal_iteratorIPmSt6vectorImSaImEEEEEEbRT_T0_.exit.i ]
   store i64 %7, ptr %.sink, align 8
   %.sroa.0.0 = getelementptr inbounds i8, ptr %.sroa.0.021, i64 8
   %.not = icmp eq ptr %.sroa.0.0, %1

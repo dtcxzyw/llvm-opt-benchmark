@@ -9599,7 +9599,7 @@ if.then1045.sink.split:                           ; preds = %call.i1206.noexc, %
 if.then1045:                                      ; preds = %_ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit1296, %for.inc1012, %for.inc977, %for.inc908, %for.inc875, %_ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit1154, %for.inc815, %for.inc770, %for.inc686, %for.inc652, %if.then1045.sink.split, %invoke.cont1018, %invoke.cont983, %invoke.cont859, %invoke.cont633, %_ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit1280, %arrayctor.cont968, %arrayctor.cont900, %_ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit1135, %arrayctor.cont754, %arrayctor.cont673, %for.end722, %for.end938, %if.then725, %if.then941
   %facePtr.7.ph = phi ptr [ %facePtr.10.lcssa, %if.then941 ], [ %facePtr.2.lcssa, %if.then725 ], [ %facePtr.10.lcssa, %for.end938 ], [ %facePtr.2.lcssa, %for.end722 ], [ %490, %arrayctor.cont673 ], [ %516, %arrayctor.cont754 ], [ %facePtr.23, %_ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit1135 ], [ %558, %arrayctor.cont900 ], [ %570, %arrayctor.cont968 ], [ %facePtr.33, %_ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit1280 ], [ %483, %invoke.cont633 ], [ %554, %invoke.cont859 ], [ %576, %invoke.cont983 ], [ %581, %invoke.cont1018 ], [ %incdec.ptr.i1062, %if.then1045.sink.split ], [ %facePtr.15, %for.inc652 ], [ %facePtr.16, %for.inc686 ], [ %facePtr.20, %for.inc770 ], [ %facePtr.5, %for.inc815 ], [ %facePtr.24, %_ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit1154 ], [ %facePtr.25, %for.inc875 ], [ %facePtr.26, %for.inc908 ], [ %facePtr.30, %for.inc977 ], [ %facePtr.13, %for.inc1012 ], [ %facePtr.34, %_ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit1296 ]
   %faces.0.ph = phi ptr [ %563, %if.then941 ], [ %499, %if.then725 ], [ %563, %for.end938 ], [ %499, %for.end722 ], [ %490, %arrayctor.cont673 ], [ %516, %arrayctor.cont754 ], [ %539, %_ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit1135 ], [ %558, %arrayctor.cont900 ], [ %570, %arrayctor.cont968 ], [ %581, %_ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit1280 ], [ %483, %invoke.cont633 ], [ %554, %invoke.cont859 ], [ %576, %invoke.cont983 ], [ %581, %invoke.cont1018 ], [ %faces.0.ph.ph, %if.then1045.sink.split ], [ %483, %for.inc652 ], [ %490, %for.inc686 ], [ %516, %for.inc770 ], [ %527, %for.inc815 ], [ %539, %_ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit1154 ], [ %554, %for.inc875 ], [ %558, %for.inc908 ], [ %570, %for.inc977 ], [ %576, %for.inc1012 ], [ %581, %_ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit1296 ]
-  %nFaces.0.ph = phi i64 [ %conv916, %if.then941 ], [ %sub693, %if.then725 ], [ %conv916, %for.end938 ], [ %sub693, %for.end722 ], [ %div656342, %arrayctor.cont673 ], [ %div736, %arrayctor.cont754 ], [ %sub819, %_ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit1135 ], [ %conv880, %arrayctor.cont900 ], [ %conv948, %arrayctor.cont968 ], [ %conv1017, %_ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit1280 ], [ %sub.ptr.div.i1005, %invoke.cont633 ], [ 0, %invoke.cont859 ], [ 0, %invoke.cont983 ], [ 0, %invoke.cont1018 ], [ %nFaces.0.ph.ph, %if.then1045.sink.split ], [ %sub.ptr.div.i1005, %for.inc652 ], [ %div656342, %for.inc686 ], [ %div736, %for.inc770 ], [ %sub774, %for.inc815 ], [ %sub819, %_ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit1154 ], [ %conv858, %for.inc875 ], [ %conv880, %for.inc908 ], [ %conv948, %for.inc977 ], [ %conv982, %for.inc1012 ], [ %conv1017, %_ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit1296 ]
+  %nFaces.0.ph = phi i64 [ %conv916, %if.then941 ], [ %sub693, %if.then725 ], [ %conv916, %for.end938 ], [ %sub693, %for.end722 ], [ %div656342, %arrayctor.cont673 ], [ %div736, %arrayctor.cont754 ], [ %sub819, %_ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit1135 ], [ %conv880, %arrayctor.cont900 ], [ %conv948, %arrayctor.cont968 ], [ %conv1017, %_ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit1280 ], [ 0, %invoke.cont633 ], [ 0, %invoke.cont859 ], [ 0, %invoke.cont983 ], [ 0, %invoke.cont1018 ], [ %nFaces.0.ph.ph, %if.then1045.sink.split ], [ %sub.ptr.div.i1005, %for.inc652 ], [ %div656342, %for.inc686 ], [ %div736, %for.inc770 ], [ %sub774, %for.inc815 ], [ %sub819, %_ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit1154 ], [ %conv858, %for.inc875 ], [ %conv880, %for.inc908 ], [ %conv948, %for.inc977 ], [ %conv982, %for.inc1012 ], [ %conv1017, %_ZL18SetFaceAndAdvance3RP6aiFacejjjj.exit1296 ]
   %mFaces = getelementptr inbounds i8, ptr %call122, i64 208
   store ptr %faces.0.ph, ptr %mFaces, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %facePtr.7.ph to i64
@@ -85962,8 +85962,8 @@ if.then11:                                        ; preds = %if.then4
 if.then.i.i.i.i.i:                                ; preds = %if.then11
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
-  %.pre.i.i.i.i.i = sub i64 0, %sub.ptr.sub.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub i64 0, %sub.ptr.sub.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i, ptr align 1 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %if.then.i.i.i
 
@@ -98707,8 +98707,8 @@ if.then.i.i.i.i.i:                                ; preds = %if.then11
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %1, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %1, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i, ptr align 4 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %invoke.cont20
 

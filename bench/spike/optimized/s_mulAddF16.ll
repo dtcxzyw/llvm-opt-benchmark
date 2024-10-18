@@ -272,7 +272,7 @@ softfloat_shiftRightJam32.exit179:                ; preds = %130, %139
   %162 = icmp ne i32 %161, 0
   %163 = zext i1 %162 to i32
   %164 = or i32 %158, %163
-  %165 = zext i32 %164 to i64
+  %165 = zext nneg i32 %164 to i64
   br label %softfloat_shiftRightJam32.exit180
 
 softfloat_shiftRightJam32.exit180:                ; preds = %153, %155

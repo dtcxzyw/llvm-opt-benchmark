@@ -30747,8 +30747,8 @@ if.then.i.i.i.i.i:                                ; preds = %if.end10
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %I.addr.0 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i38, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i38, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i, ptr align 8 %I.addr.0, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   %.pre28 = load i32, ptr %Size.i, align 8
   %.pre29 = load ptr, ptr %this, align 8

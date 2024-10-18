@@ -22584,31 +22584,30 @@ for.body28.lr.ph.i:                               ; preds = %for.cond26.preheade
   %idx.ext29.i = zext nneg i32 %div59.i to i64
   %add.ptr30.i = getelementptr inbounds i8, ptr %arrayidx.i36, i64 %idx.ext29.i
   %add.ptr32.i = getelementptr inbounds i8, ptr %add.ptr30.i, i64 %indvar.i
-  %52 = tail call i32 @llvm.umax.i32(i32 %sub3.i, i32 1)
-  %umax89.i = zext i32 %52 to i64
+  %umax89.i = zext i32 %sub3.i to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr32.i, i8 0, i64 %umax89.i, i1 false)
   br label %if.end82.i
 
 if.else.i38:                                      ; preds = %for.body.i
-  %53 = load ptr, ptr %TexPixelsRGBA32.i32, align 8
-  %54 = load i16, ptr %X83.i, align 4
-  %conv40.i = zext i16 %54 to i32
-  %55 = load i16, ptr %Y88.i, align 2
-  %conv42.i = zext i16 %55 to i32
+  %52 = load ptr, ptr %TexPixelsRGBA32.i32, align 8
+  %53 = load i16, ptr %X83.i, align 4
+  %conv40.i = zext i16 %53 to i32
+  %54 = load i16, ptr %Y88.i, align 2
+  %conv42.i = zext i16 %54 to i32
   %add43.i = add nuw nsw i32 %conv42.i, %46
-  %56 = load i32, ptr %TexWidth.i, align 8
-  %mul45.i = mul i32 %add43.i, %56
+  %55 = load i32, ptr %TexWidth.i, align 8
+  %mul45.i = mul i32 %add43.i, %55
   %add46.i = add i32 %mul45.i, %conv40.i
   %idxprom47.i = zext i32 %add46.i to i64
-  %arrayidx48.i = getelementptr inbounds i32, ptr %53, i64 %idxprom47.i
+  %arrayidx48.i = getelementptr inbounds i32, ptr %52, i64 %idxprom47.i
   %cmp5178.not.i = icmp ult i32 %sub.i, 2
   br i1 %cmp5178.not.i, label %for.cond59.preheader.i, label %for.body52.preheader.i
 
 for.body52.preheader.i:                           ; preds = %if.else.i38
-  %57 = add i32 %indvars.iv, %conv.i33
-  %58 = lshr i32 %57, 1
-  %59 = tail call i32 @llvm.umax.i32(i32 %58, i32 1)
-  %umax = zext nneg i32 %59 to i64
+  %56 = add i32 %indvars.iv, %conv.i33
+  %57 = lshr i32 %56, 1
+  %58 = tail call i32 @llvm.umax.i32(i32 %57, i32 1)
+  %umax = zext nneg i32 %58 to i64
   br label %for.body52.i
 
 for.cond59.preheader.i:                           ; preds = %for.body52.i, %if.else.i38
@@ -22637,11 +22636,11 @@ for.body72.lr.ph.i:                               ; preds = %for.cond70.preheade
   %idx.ext73.i = zext nneg i32 %div59.i to i64
   %add.ptr74.i = getelementptr inbounds i32, ptr %arrayidx48.i, i64 %idx.ext73.i
   %add.ptr76.i = getelementptr inbounds i32, ptr %add.ptr74.i, i64 %indvar.i
-  %60 = add i32 %indvars.iv, %conv.i33
-  %61 = lshr i32 %60, 1
-  %62 = sub i32 %60, %61
-  %63 = tail call i32 @llvm.umax.i32(i32 %62, i32 1)
-  %umax61 = zext i32 %63 to i64
+  %59 = add i32 %indvars.iv, %conv.i33
+  %60 = lshr i32 %59, 1
+  %61 = sub i32 %59, %60
+  %62 = tail call i32 @llvm.umax.i32(i32 %61, i32 1)
+  %umax61 = zext i32 %62 to i64
   br label %for.body72.i
 
 for.body72.i:                                     ; preds = %for.body72.i, %for.body72.lr.ph.i
@@ -22653,13 +22652,13 @@ for.body72.i:                                     ; preds = %for.body72.i, %for.
   br i1 %exitcond62.not, label %if.end82.i, label %for.body72.i, !llvm.loop !121
 
 if.end82.i:                                       ; preds = %for.body72.i, %for.cond70.preheader.i, %for.body28.lr.ph.i, %for.cond26.preheader.i
-  %64 = load i16, ptr %X83.i, align 4
-  %conv84.i = zext i16 %64 to i32
+  %63 = load i16, ptr %X83.i, align 4
+  %conv84.i = zext i16 %63 to i32
   %add85.i = add nuw i32 %div59.i, %conv84.i
   %sub86.i = add i32 %add85.i, -1
   %conv87.i = uitofp i32 %sub86.i to float
-  %65 = load i16, ptr %Y88.i, align 2
-  %conv89.i = zext i16 %65 to i32
+  %64 = load i16, ptr %Y88.i, align 2
+  %conv89.i = zext i16 %64 to i32
   %add90.i = add nuw nsw i32 %conv89.i, %46
   %conv91.i = uitofp nneg i32 %add90.i to float
   %TexUvScale.val63.i = load float, ptr %TexUvScale.i, align 4
@@ -22667,8 +22666,8 @@ if.end82.i:                                       ; preds = %for.body72.i, %for.
   %mul.i.i37 = fmul float %TexUvScale.val63.i, %conv87.i
   %mul3.i.i = fmul float %TexUvScale.val64.i, %conv91.i
   %indvar.next.i = add nuw nsw i64 %indvar.i, 1
-  %66 = trunc nuw nsw i64 %indvar.next.i to i32
-  %add98.i = add nuw i32 %add85.i, %66
+  %65 = trunc nuw nsw i64 %indvar.next.i to i32
+  %add98.i = add nuw i32 %add85.i, %65
   %conv99.i = uitofp i32 %add98.i to float
   %add103.i = add nuw nsw i32 %add90.i, 1
   %conv104.i = uitofp nneg i32 %add103.i to float
@@ -22690,92 +22689,92 @@ if.end82.i:                                       ; preds = %for.body72.i, %for.
 
 _ZL34ImFontAtlasBuildRenderLinesTexDataP11ImFontAtlas.exit: ; preds = %if.end82.i, %_ZL36ImFontAtlasBuildRenderDefaultTexDataP11ImFontAtlas.exit
   %CustomRects = getelementptr inbounds i8, ptr %atlas, i64 104
-  %67 = load i32, ptr %CustomRects, align 8
-  %cmp55 = icmp sgt i32 %67, 0
+  %66 = load i32, ptr %CustomRects, align 8
+  %cmp55 = icmp sgt i32 %66, 0
   br i1 %cmp55, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZL34ImFontAtlasBuildRenderLinesTexDataP11ImFontAtlas.exit, %for.inc
-  %68 = phi i32 [ %81, %for.inc ], [ %67, %_ZL34ImFontAtlasBuildRenderLinesTexDataP11ImFontAtlas.exit ]
+  %67 = phi i32 [ %80, %for.inc ], [ %66, %_ZL34ImFontAtlasBuildRenderLinesTexDataP11ImFontAtlas.exit ]
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %for.inc ], [ 0, %_ZL34ImFontAtlasBuildRenderLinesTexDataP11ImFontAtlas.exit ]
-  %69 = load ptr, ptr %Data.i.i.i, align 8
-  %arrayidx.i40 = getelementptr inbounds %struct.ImFontAtlasCustomRect, ptr %69, i64 %indvars.iv63
+  %68 = load ptr, ptr %Data.i.i.i, align 8
+  %arrayidx.i40 = getelementptr inbounds %struct.ImFontAtlasCustomRect, ptr %68, i64 %indvars.iv63
   %Font = getelementptr inbounds i8, ptr %arrayidx.i40, i64 24
-  %70 = load ptr, ptr %Font, align 8
-  %cmp2 = icmp eq ptr %70, null
+  %69 = load ptr, ptr %Font, align 8
+  %cmp2 = icmp eq ptr %69, null
   br i1 %cmp2, label %for.inc, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
   %GlyphID = getelementptr inbounds i8, ptr %arrayidx.i40, i64 8
-  %71 = load i32, ptr %GlyphID, align 8
-  %cmp3 = icmp eq i32 %71, 0
+  %70 = load i32, ptr %GlyphID, align 8
+  %cmp3 = icmp eq i32 %70, 0
   br i1 %cmp3, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
   %X.i43 = getelementptr inbounds i8, ptr %arrayidx.i40, i64 4
-  %72 = load i16, ptr %X.i43, align 4
-  %conv.i44 = uitofp i16 %72 to float
-  %73 = load float, ptr %TexUvScale.i, align 8
-  %mul.i46 = fmul float %73, %conv.i44
+  %71 = load i16, ptr %X.i43, align 4
+  %conv.i44 = uitofp i16 %71 to float
+  %72 = load float, ptr %TexUvScale.i, align 8
+  %mul.i46 = fmul float %72, %conv.i44
   %Y.i = getelementptr inbounds i8, ptr %arrayidx.i40, i64 6
-  %74 = load i16, ptr %Y.i, align 2
-  %conv2.i = uitofp i16 %74 to float
-  %75 = load float, ptr %y.i, align 4
-  %mul4.i = fmul float %75, %conv2.i
-  %conv7.i48 = zext i16 %72 to i32
-  %76 = load i16, ptr %arrayidx.i40, align 8
-  %conv8.i49 = zext i16 %76 to i32
+  %73 = load i16, ptr %Y.i, align 2
+  %conv2.i = uitofp i16 %73 to float
+  %74 = load float, ptr %y.i, align 4
+  %mul4.i = fmul float %74, %conv2.i
+  %conv7.i48 = zext i16 %71 to i32
+  %75 = load i16, ptr %arrayidx.i40, align 8
+  %conv8.i49 = zext i16 %75 to i32
   %add.i = add nuw nsw i32 %conv8.i49, %conv7.i48
   %conv9.i50 = uitofp nneg i32 %add.i to float
-  %mul12.i = fmul float %73, %conv9.i50
-  %conv14.i = zext i16 %74 to i32
+  %mul12.i = fmul float %72, %conv9.i50
+  %conv14.i = zext i16 %73 to i32
   %Height.i = getelementptr inbounds i8, ptr %arrayidx.i40, i64 2
-  %77 = load i16, ptr %Height.i, align 2
-  %conv15.i = zext i16 %77 to i32
+  %76 = load i16, ptr %Height.i, align 2
+  %conv15.i = zext i16 %76 to i32
   %add16.i = add nuw nsw i32 %conv15.i, %conv14.i
   %conv17.i = uitofp nneg i32 %add16.i to float
-  %mul20.i = fmul float %75, %conv17.i
-  %conv = trunc i32 %71 to i16
+  %mul20.i = fmul float %74, %conv17.i
+  %conv = trunc i32 %70 to i16
   %GlyphOffset = getelementptr inbounds i8, ptr %arrayidx.i40, i64 16
-  %78 = load float, ptr %GlyphOffset, align 8
+  %77 = load float, ptr %GlyphOffset, align 8
   %y = getelementptr inbounds i8, ptr %arrayidx.i40, i64 20
-  %79 = load float, ptr %y, align 4
-  %conv10 = uitofp i16 %76 to float
-  %add = fadd float %78, %conv10
-  %conv14 = uitofp i16 %77 to float
-  %add15 = fadd float %79, %conv14
+  %78 = load float, ptr %y, align 4
+  %conv10 = uitofp i16 %75 to float
+  %add = fadd float %77, %conv10
+  %conv14 = uitofp i16 %76 to float
+  %add15 = fadd float %78, %conv14
   %GlyphAdvanceX = getelementptr inbounds i8, ptr %arrayidx.i40, i64 12
-  %80 = load float, ptr %GlyphAdvanceX, align 4
-  tail call void @_ZN6ImFont8AddGlyphEPK12ImFontConfigtfffffffff(ptr noundef nonnull align 8 dereferenceable(118) %70, ptr noundef null, i16 noundef zeroext %conv, float noundef %78, float noundef %79, float noundef %add, float noundef %add15, float noundef %mul.i46, float noundef %mul4.i, float noundef %mul12.i, float noundef %mul20.i, float noundef %80)
+  %79 = load float, ptr %GlyphAdvanceX, align 4
+  tail call void @_ZN6ImFont8AddGlyphEPK12ImFontConfigtfffffffff(ptr noundef nonnull align 8 dereferenceable(118) %69, ptr noundef null, i16 noundef zeroext %conv, float noundef %77, float noundef %78, float noundef %add, float noundef %add15, float noundef %mul.i46, float noundef %mul4.i, float noundef %mul12.i, float noundef %mul20.i, float noundef %79)
   %.pre = load i32, ptr %CustomRects, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %lor.lhs.false, %if.end
-  %81 = phi i32 [ %68, %for.body ], [ %68, %lor.lhs.false ], [ %.pre, %if.end ]
+  %80 = phi i32 [ %67, %for.body ], [ %67, %lor.lhs.false ], [ %.pre, %if.end ]
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %82 = sext i32 %81 to i64
-  %cmp = icmp slt i64 %indvars.iv.next64, %82
+  %81 = sext i32 %80 to i64
+  %cmp = icmp slt i64 %indvars.iv.next64, %81
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !123
 
 for.end:                                          ; preds = %for.inc, %_ZL34ImFontAtlasBuildRenderLinesTexDataP11ImFontAtlas.exit
   %Fonts = getelementptr inbounds i8, ptr %atlas, i64 88
   %Data.i51 = getelementptr inbounds i8, ptr %atlas, i64 96
-  %83 = load ptr, ptr %Data.i51, align 8
-  %84 = load i32, ptr %Fonts, align 8
-  %idx.ext.i = sext i32 %84 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %83, i64 %idx.ext.i
-  %cmp23.not57 = icmp eq i32 %84, 0
+  %82 = load ptr, ptr %Data.i51, align 8
+  %83 = load i32, ptr %Fonts, align 8
+  %idx.ext.i = sext i32 %83 to i64
+  %add.ptr.i = getelementptr inbounds ptr, ptr %82, i64 %idx.ext.i
+  %cmp23.not57 = icmp eq i32 %83, 0
   br i1 %cmp23.not57, label %for.end28, label %for.body24
 
 for.body24:                                       ; preds = %for.end, %for.inc27
-  %__begin1.058 = phi ptr [ %incdec.ptr, %for.inc27 ], [ %83, %for.end ]
-  %85 = load ptr, ptr %__begin1.058, align 8
-  %DirtyLookupTables = getelementptr inbounds i8, ptr %85, i64 96
-  %86 = load i8, ptr %DirtyLookupTables, align 8
-  %tobool = trunc i8 %86 to i1
+  %__begin1.058 = phi ptr [ %incdec.ptr, %for.inc27 ], [ %82, %for.end ]
+  %84 = load ptr, ptr %__begin1.058, align 8
+  %DirtyLookupTables = getelementptr inbounds i8, ptr %84, i64 96
+  %85 = load i8, ptr %DirtyLookupTables, align 8
+  %tobool = trunc i8 %85 to i1
   br i1 %tobool, label %if.then25, label %for.inc27
 
 if.then25:                                        ; preds = %for.body24
-  tail call void @_ZN6ImFont16BuildLookupTableEv(ptr noundef nonnull align 8 dereferenceable(118) %85)
+  tail call void @_ZN6ImFont16BuildLookupTableEv(ptr noundef nonnull align 8 dereferenceable(118) %84)
   br label %for.inc27
 
 for.inc27:                                        ; preds = %for.body24, %if.then25

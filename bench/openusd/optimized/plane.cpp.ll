@@ -380,7 +380,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__18GfFitPlaneToPo
   br i1 %.not100, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %.preheader
-  %18 = uitofp i64 %16 to double
+  %18 = uitofp nneg i64 %16 to double
   %19 = fdiv double 1.000000e+00, %18
   %20 = fmul double %19, 0.000000e+00
   %21 = fmul double %19, 0.000000e+00

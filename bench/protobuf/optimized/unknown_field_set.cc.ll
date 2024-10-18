@@ -1520,10 +1520,6 @@ entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i14 = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i15 = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 4
   %cmp18.not = icmp eq ptr %0, %1
   br i1 %cmp18.not, label %if.else.i, label %for.body
 
@@ -1621,7 +1617,7 @@ if.then.i:                                        ; preds = %for.end
   br label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE6resizeEm.exit
 
 if.else.i:                                        ; preds = %entry, %for.end
-  %sub.ptr.div.i.lcssa35 = phi i64 [ %sub.ptr.div.i, %for.end ], [ %sub.ptr.div.i17, %entry ]
+  %sub.ptr.div.i.lcssa35 = phi i64 [ %sub.ptr.div.i, %for.end ], [ 0, %entry ]
   %.lcssa34 = phi ptr [ %11, %for.end ], [ %1, %entry ]
   %.lcssa1333 = phi ptr [ %10, %for.end ], [ %0, %entry ]
   %left.0.lcssa32 = phi i64 [ %left.1, %for.end ], [ 0, %entry ]
@@ -2850,8 +2846,8 @@ if.then.i.i.i.i.i:                                ; preds = %_ZSt22__uninitializ
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 4
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::UnknownField", ptr %1, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::UnknownField", ptr %1, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i, ptr align 8 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %if.then.i.i.i.i.i30
 

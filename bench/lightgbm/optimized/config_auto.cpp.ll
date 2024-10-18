@@ -18532,7 +18532,6 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc10
   %.0.i.i.i.i.i.ph.i = phi ptr [ %446, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ %448, %.noexc10 ]
   %452 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %.0.i.i.i.i.i.ph.i, ptr %452, align 8, !alias.scope !43
-  %umax = call i64 @llvm.umax.i64(i64 %442, i64 1)
   br label %453
 
 453:                                              ; preds = %453, %.lr.ph.i7
@@ -18543,7 +18542,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc10
   %457 = getelementptr inbounds i32, ptr %445, i64 %.010.i
   store i32 %456, ptr %457, align 4, !noalias !43
   %458 = add nuw i64 %.010.i, 1
-  %exitcond.not = icmp eq i64 %458, %umax
+  %exitcond.not = icmp eq i64 %458, %442
   br i1 %exitcond.not, label %_ZN8LightGBM6CommonL9ArrayCastIaiEESt6vectorIT0_SaIS3_EERKS2_IT_SaIS6_EE.exit, label %453, !llvm.loop !46
 
 _ZN8LightGBM6CommonL9ArrayCastIaiEESt6vectorIT0_SaIS3_EERKS2_IT_SaIS6_EE.exit: ; preds = %453, %451

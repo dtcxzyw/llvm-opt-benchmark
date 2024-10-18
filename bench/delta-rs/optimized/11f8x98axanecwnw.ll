@@ -62589,7 +62589,7 @@ define hidden void @"_ZN95_$LT$futures_util..stream..poll_fn..PollFn$LT$F$GT$$u2
   br label %33
 
 33:                                               ; preds = %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hd2715435d24d73c0E.exit.i", %3
-  %34 = phi i64 [ %142, %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hd2715435d24d73c0E.exit.i" ], [ %.pre.i, %3 ]
+  %34 = phi i64 [ 0, %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hd2715435d24d73c0E.exit.i" ], [ %.pre.i, %3 ]
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %36, label %125
 

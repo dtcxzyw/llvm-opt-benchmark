@@ -599,8 +599,8 @@ if.then3.i72:                                     ; preds = %if.end28.i.i.i43, %
   %sub.ptr.lhs.cast.i.i.i.i.i.i74 = ptrtoint ptr %__i.019.i30 to i64
   %sub.ptr.sub.i.i.i.i.i.i75 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i74, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i.i76 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i75, 2
-  %.pre.i.i.i.i.i.i77 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i76
-  %add.ptr.i.i.i.i.i.i78 = getelementptr inbounds i32, ptr %add.ptr4.i73, i64 %.pre.i.i.i.i.i.i77
+  %idx.neg.i.i.i.i.i.i77 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i76
+  %add.ptr.i.i.i.i.i.i78 = getelementptr inbounds i32, ptr %add.ptr4.i73, i64 %idx.neg.i.i.i.i.i.i77
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i78, ptr noundef nonnull align 4 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i75, i1 false)
   br label %for.inc.i64
 

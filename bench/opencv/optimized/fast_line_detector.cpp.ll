@@ -4824,7 +4824,7 @@ _ZNSt12_Vector_baseI7SEGMENTSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt
   br label %_ZSt4copyIP7SEGMENTS1_ET0_T_S3_S2_.exit
 
 _ZSt4copyIP7SEGMENTS1_ET0_T_S3_S2_.exit:          ; preds = %32, %33
-  %.pre-phi33 = phi i64 [ %29, %32 ], [ %.pre32, %33 ]
+  %.pre-phi33 = phi i64 [ 0, %32 ], [ %.pre32, %33 ]
   %34 = phi ptr [ %5, %32 ], [ %.pre28, %33 ]
   %35 = phi ptr [ %27, %32 ], [ %.pre26, %33 ]
   %36 = phi ptr [ %6, %32 ], [ %.pre, %33 ]

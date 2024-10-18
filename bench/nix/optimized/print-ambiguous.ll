@@ -2488,9 +2488,9 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   %8 = ptrtoint ptr %0 to i64
   br label %9
 
-9:                                                ; preds = %.lr.ph, %48
-  %.sroa.0.020 = phi ptr [ %.sroa.0.018, %.lr.ph ], [ %.sroa.0.0, %48 ]
-  %.pn19 = phi ptr [ %0, %.lr.ph ], [ %.sroa.0.020, %48 ]
+9:                                                ; preds = %.lr.ph, %49
+  %.sroa.0.020 = phi ptr [ %.sroa.0.018, %.lr.ph ], [ %.sroa.0.0, %49 ]
+  %.pn19 = phi ptr [ %0, %.lr.ph ], [ %.sroa.0.020, %49 ]
   %10 = load ptr, ptr %.sroa.0.020, align 8
   %.sroa.07.0.copyload.i.i = load i32, ptr %10, align 8
   %11 = load i32, ptr %6, align 8
@@ -2553,29 +2553,29 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11cha
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i
   %.0.i.i.i.i = phi i32 [ %.0.i4.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i ], [ %38, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
   %41 = icmp slt i32 %.0.i.i.i.i, 0
-  br i1 %41, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, label %47
+  br i1 %41, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, label %48
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit
   %42 = getelementptr inbounds i8, ptr %.pn19, i64 16
   %43 = ptrtoint ptr %.sroa.0.020 to i64
   %44 = sub i64 %43, %8
   %45 = ashr exact i64 %44, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %45
-  %46 = getelementptr inbounds ptr, ptr %42, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %46, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %44, i1 false)
+  %46 = sub nsw i64 0, %45
+  %47 = getelementptr inbounds ptr, ptr %42, i64 %46
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %47, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %44, i1 false)
   store ptr %10, ptr %0, align 8
-  br label %48
+  br label %49
 
-47:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit
+48:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlPKNS2_4AttrES9_E_EclINS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEESI_EEbT_T0_.exit
   tail call void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EEEvT_T0_(ptr nonnull %.sroa.0.020, ptr nonnull %2)
-  br label %48
+  br label %49
 
-48:                                               ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, %47
+49:                                               ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, %48
   %.sroa.0.0 = getelementptr inbounds i8, ptr %.sroa.0.020, i64 8
-  %49 = icmp eq ptr %.sroa.0.0, %1
-  br i1 %49, label %.loopexit, label %9, !llvm.loop !20
+  %50 = icmp eq ptr %.sroa.0.0, %1
+  br i1 %50, label %.loopexit, label %9, !llvm.loop !20
 
-.loopexit:                                        ; preds = %48, %.preheader, %3
+.loopexit:                                        ; preds = %49, %.preheader, %3
   ret void
 }
 

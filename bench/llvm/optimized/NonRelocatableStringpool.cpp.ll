@@ -439,52 +439,52 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntry
   %131 = getelementptr inbounds nuw i8, ptr %.0.i.i3.i.i.i37.i.i.i.i.i, i64 16
   %132 = load i32, ptr %131, align 8
   %133 = icmp ult i32 %126, %132
-  br i1 %133, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i53.i.i.i.i.i, label %139
+  br i1 %133, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i53.i.i.i.i.i, label %140
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i53.i.i.i.i.i: ; preds = %.lr.ph.i29.i.i.i.i.i
   %134 = getelementptr inbounds i8, ptr %.pn20.i31.i.i.i.i.i, i64 16
   %135 = ptrtoint ptr %.sroa.0.021.i30.i.i.i.i.i to i64
   %136 = sub i64 %135, %60
   %137 = ashr exact i64 %136, 3
-  %.pre.i.i.i.i.i.i54.i.i.i.i.i = sub nsw i64 0, %137
-  %138 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %134, i64 %.pre.i.i.i.i.i.i54.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %138, ptr noundef nonnull align 8 dereferenceable(1) %.val.pre, i64 %136, i1 false)
+  %138 = sub nsw i64 0, %137
+  %139 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %134, i64 %138
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %139, ptr noundef nonnull align 8 dereferenceable(1) %.val.pre, i64 %136, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_T0_.exit.i41.i.i.i.i.i"
 
-139:                                              ; preds = %.lr.ph.i29.i.i.i.i.i
+140:                                              ; preds = %.lr.ph.i29.i.i.i.i.i
   %.sroa.0.0.copyload.i9.i.i38.i.i.i.i.i = load i64, ptr %.pn20.i31.i.i.i.i.i, align 8
-  %140 = and i64 %.sroa.0.0.copyload.i9.i.i38.i.i.i.i.i, -8
-  %141 = inttoptr i64 %140 to ptr
-  %142 = shl i64 %.sroa.0.0.copyload.i9.i.i38.i.i.i.i.i, 1
-  %143 = and i64 %142, 8
-  %.0.idx.i.i2.i.i10.i.i39.i.i.i.i.i = xor i64 %143, 8
-  %.0.i.i3.i.i11.i.i40.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %141, i64 %.0.idx.i.i2.i.i10.i.i39.i.i.i.i.i
-  %144 = getelementptr inbounds nuw i8, ptr %.0.i.i3.i.i11.i.i40.i.i.i.i.i, i64 16
-  %145 = load i32, ptr %144, align 8
-  %146 = icmp ult i32 %126, %145
-  br i1 %146, label %.lr.ph.i.i45.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_T0_.exit.i41.i.i.i.i.i"
+  %141 = and i64 %.sroa.0.0.copyload.i9.i.i38.i.i.i.i.i, -8
+  %142 = inttoptr i64 %141 to ptr
+  %143 = shl i64 %.sroa.0.0.copyload.i9.i.i38.i.i.i.i.i, 1
+  %144 = and i64 %143, 8
+  %.0.idx.i.i2.i.i10.i.i39.i.i.i.i.i = xor i64 %144, 8
+  %.0.i.i3.i.i11.i.i40.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %142, i64 %.0.idx.i.i2.i.i10.i.i39.i.i.i.i.i
+  %145 = getelementptr inbounds nuw i8, ptr %.0.i.i3.i.i11.i.i40.i.i.i.i.i, i64 16
+  %146 = load i32, ptr %145, align 8
+  %147 = icmp ult i32 %126, %146
+  br i1 %147, label %.lr.ph.i.i45.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_T0_.exit.i41.i.i.i.i.i"
 
-.lr.ph.i.i45.i.i.i.i.i:                           ; preds = %139, %.lr.ph.i.i45.i.i.i.i.i
-  %.sroa.0.0.copyload.i14.i.i46.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i50.i.i.i.i.i, %.lr.ph.i.i45.i.i.i.i.i ], [ %.sroa.0.0.copyload.i9.i.i38.i.i.i.i.i, %139 ]
-  %.sroa.0.013.i.i47.i.i.i.i.i = phi ptr [ %.sroa.0.0.i.i49.i.i.i.i.i, %.lr.ph.i.i45.i.i.i.i.i ], [ %.pn20.i31.i.i.i.i.i, %139 ]
-  %.sroa.05.012.i.i48.i.i.i.i.i = phi ptr [ %.sroa.0.013.i.i47.i.i.i.i.i, %.lr.ph.i.i45.i.i.i.i.i ], [ %.sroa.0.021.i30.i.i.i.i.i, %139 ]
+.lr.ph.i.i45.i.i.i.i.i:                           ; preds = %140, %.lr.ph.i.i45.i.i.i.i.i
+  %.sroa.0.0.copyload.i14.i.i46.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i50.i.i.i.i.i, %.lr.ph.i.i45.i.i.i.i.i ], [ %.sroa.0.0.copyload.i9.i.i38.i.i.i.i.i, %140 ]
+  %.sroa.0.013.i.i47.i.i.i.i.i = phi ptr [ %.sroa.0.0.i.i49.i.i.i.i.i, %.lr.ph.i.i45.i.i.i.i.i ], [ %.pn20.i31.i.i.i.i.i, %140 ]
+  %.sroa.05.012.i.i48.i.i.i.i.i = phi ptr [ %.sroa.0.013.i.i47.i.i.i.i.i, %.lr.ph.i.i45.i.i.i.i.i ], [ %.sroa.0.021.i30.i.i.i.i.i, %140 ]
   store i64 %.sroa.0.0.copyload.i14.i.i46.i.i.i.i.i, ptr %.sroa.05.012.i.i48.i.i.i.i.i, align 8
   %.sroa.0.0.i.i49.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.013.i.i47.i.i.i.i.i, i64 -8
   %.sroa.0.0.copyload.i.i.i50.i.i.i.i.i = load i64, ptr %.sroa.0.0.i.i49.i.i.i.i.i, align 8
-  %147 = load i32, ptr %125, align 8
-  %148 = and i64 %.sroa.0.0.copyload.i.i.i50.i.i.i.i.i, -8
-  %149 = inttoptr i64 %148 to ptr
-  %150 = shl i64 %.sroa.0.0.copyload.i.i.i50.i.i.i.i.i, 1
-  %151 = and i64 %150, 8
-  %.0.idx.i.i2.i.i.i.i51.i.i.i.i.i = xor i64 %151, 8
-  %.0.i.i3.i.i.i.i52.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %149, i64 %.0.idx.i.i2.i.i.i.i51.i.i.i.i.i
-  %152 = getelementptr inbounds nuw i8, ptr %.0.i.i3.i.i.i.i52.i.i.i.i.i, i64 16
-  %153 = load i32, ptr %152, align 8
-  %154 = icmp ult i32 %147, %153
-  br i1 %154, label %.lr.ph.i.i45.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_T0_.exit.i41.i.i.i.i.i", !llvm.loop !12
+  %148 = load i32, ptr %125, align 8
+  %149 = and i64 %.sroa.0.0.copyload.i.i.i50.i.i.i.i.i, -8
+  %150 = inttoptr i64 %149 to ptr
+  %151 = shl i64 %.sroa.0.0.copyload.i.i.i50.i.i.i.i.i, 1
+  %152 = and i64 %151, 8
+  %.0.idx.i.i2.i.i.i.i51.i.i.i.i.i = xor i64 %152, 8
+  %.0.i.i3.i.i.i.i52.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %150, i64 %.0.idx.i.i2.i.i.i.i51.i.i.i.i.i
+  %153 = getelementptr inbounds nuw i8, ptr %.0.i.i3.i.i.i.i52.i.i.i.i.i, i64 16
+  %154 = load i32, ptr %153, align 8
+  %155 = icmp ult i32 %148, %154
+  br i1 %155, label %.lr.ph.i.i45.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_T0_.exit.i41.i.i.i.i.i", !llvm.loop !12
 
-"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_T0_.exit.i41.i.i.i.i.i": ; preds = %.lr.ph.i.i45.i.i.i.i.i, %139, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i53.i.i.i.i.i
-  %.sink.i42.i.i.i.i.i = phi ptr [ %.val.pre, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i53.i.i.i.i.i ], [ %.sroa.0.021.i30.i.i.i.i.i, %139 ], [ %.sroa.0.013.i.i47.i.i.i.i.i, %.lr.ph.i.i45.i.i.i.i.i ]
+"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_T0_.exit.i41.i.i.i.i.i": ; preds = %.lr.ph.i.i45.i.i.i.i.i, %140, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i53.i.i.i.i.i
+  %.sink.i42.i.i.i.i.i = phi ptr [ %.val.pre, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i53.i.i.i.i.i ], [ %.sroa.0.021.i30.i.i.i.i.i, %140 ], [ %.sroa.0.013.i.i47.i.i.i.i.i, %.lr.ph.i.i45.i.i.i.i.i ]
   store i64 %.sroa.01.0.copyload.i.i32.i.i.i.i.i, ptr %.sink.i42.i.i.i.i.i, align 8
   %.sroa.0.0.i43.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.021.i30.i.i.i.i.i, i64 8
   %.not.i44.i.i.i.i.i = icmp eq ptr %.sroa.0.0.i43.i.i.i.i.i, %54

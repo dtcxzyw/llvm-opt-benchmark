@@ -9346,7 +9346,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
           to label %invoke.cont.i.i unwind label %lpad14
 
 invoke.cont.i.i:                                  ; preds = %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i, %for.cond.cleanup, %for.cond.cleanup.thread
-  %sub.ptr.div.i.i.i85 = phi i64 [ %sub.ptr.div.i.i.i, %for.cond.cleanup ], [ %sub.ptr.div.i.i.i, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ 0, %for.cond.cleanup.thread ]
+  %sub.ptr.div.i.i.i85 = phi i64 [ 0, %for.cond.cleanup ], [ %sub.ptr.div.i.i.i, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ 0, %for.cond.cleanup.thread ]
   %_M_finish.i.i.i84 = phi ptr [ %_M_finish.i.i, %for.cond.cleanup ], [ %_M_finish.i.i, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ %_M_finish.i.i.i78, %for.cond.cleanup.thread ]
   %1 = phi ptr [ %.pre76, %for.cond.cleanup ], [ %.pre76, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ null, %for.cond.cleanup.thread ]
   %2 = phi ptr [ %.pre77, %for.cond.cleanup ], [ %.pre77, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ null, %for.cond.cleanup.thread ]
@@ -9851,7 +9851,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
           to label %invoke.cont.i.i unwind label %lpad30
 
 invoke.cont.i.i:                                  ; preds = %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i, %for.cond.cleanup11, %for.cond.cleanup11.thread
-  %sub.ptr.div.i.i.i114 = phi i64 [ %sub.ptr.div.i.i.i, %for.cond.cleanup11 ], [ %sub.ptr.div.i.i.i, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ 0, %for.cond.cleanup11.thread ]
+  %sub.ptr.div.i.i.i114 = phi i64 [ 0, %for.cond.cleanup11 ], [ %sub.ptr.div.i.i.i, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ 0, %for.cond.cleanup11.thread ]
   %_M_finish.i.i.i113 = phi ptr [ %_M_finish.i.i, %for.cond.cleanup11 ], [ %_M_finish.i.i, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ %_M_finish.i.i.i107, %for.cond.cleanup11.thread ]
   %3 = phi ptr [ %.pre105, %for.cond.cleanup11 ], [ %.pre105, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ null, %for.cond.cleanup11.thread ]
   %4 = phi ptr [ %.pre106, %for.cond.cleanup11 ], [ %.pre106, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ null, %for.cond.cleanup11.thread ]

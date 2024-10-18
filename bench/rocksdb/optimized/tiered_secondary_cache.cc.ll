@@ -810,16 +810,14 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp.not.i.i.i.i25, label %invoke.cont.i.thread, label %cond.true.i.i.i.i26
 
 invoke.cont.i.thread:                             ; preds = %for.end.thread, %for.end
-  %sub.ptr.sub.i.i23143 = phi i64 [ 0, %for.end.thread ], [ %sub.ptr.sub.i.i23, %for.end ]
   %9 = phi ptr [ %2, %for.end.thread ], [ %8, %for.end ]
   %nvm_handles.sroa.0.1.lcssa141 = phi ptr [ null, %for.end.thread ], [ %nvm_handles.sroa.0.2, %for.end ]
   %my_handles.sroa.0.1.lcssa139 = phi ptr [ null, %for.end.thread ], [ %my_handles.sroa.0.2, %for.end ]
   %my_handles.sroa.6.0.lcssa137 = phi ptr [ null, %for.end.thread ], [ %my_handles.sroa.6.1, %for.end ]
   %_M_finish.i.i.i83 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %add.ptr.i.i.i2984 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i23143
   %_M_end_of_storage.i.i.i85 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i2984, ptr %_M_end_of_storage.i.i.i85, align 8
+  store ptr null, ptr %_M_end_of_storage.i.i.i85, align 8
   br label %invoke.cont15
 
 cond.true.i.i.i.i26:                              ; preds = %for.end
@@ -848,7 +846,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_tr
   br label %invoke.cont15
 
 invoke.cont15:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont.i.thread
-  %sub.ptr.sub.i.i23142 = phi i64 [ %sub.ptr.sub.i.i23143, %invoke.cont.i.thread ], [ %sub.ptr.sub.i.i23, %if.then.i.i.i.i.i.i.i.i.i ]
+  %sub.ptr.sub.i.i23142 = phi i64 [ 0, %invoke.cont.i.thread ], [ %sub.ptr.sub.i.i23, %if.then.i.i.i.i.i.i.i.i.i ]
   %10 = phi ptr [ %9, %invoke.cont.i.thread ], [ %8, %if.then.i.i.i.i.i.i.i.i.i ]
   %nvm_handles.sroa.0.1.lcssa140 = phi ptr [ %nvm_handles.sroa.0.1.lcssa141, %invoke.cont.i.thread ], [ %nvm_handles.sroa.0.2, %if.then.i.i.i.i.i.i.i.i.i ]
   %my_handles.sroa.0.1.lcssa138 = phi ptr [ %my_handles.sroa.0.1.lcssa139, %invoke.cont.i.thread ], [ %my_handles.sroa.0.2, %if.then.i.i.i.i.i.i.i.i.i ]

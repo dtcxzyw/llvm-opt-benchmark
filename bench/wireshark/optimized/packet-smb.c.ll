@@ -8257,7 +8257,7 @@ define internal i32 @dissect_old_dir_request(ptr noundef %0, ptr nocapture nound
   %20 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef %16, i32 noundef 2, i32 noundef %19) #15
   %21 = add i32 %3, 3
   %22 = icmp eq i16 %17, 0
-  br i1 %22, label %70, label %23
+  br i1 %22, label %71, label %23
 
 23:                                               ; preds = %11
   %24 = load i32, ptr @hf_smb_buffer_format, align 4
@@ -8296,7 +8296,7 @@ define internal i32 @dissect_old_dir_request(ptr noundef %0, ptr nocapture nound
 45:                                               ; preds = %39, %36, %23
   %46 = icmp eq ptr %30, null
   %.pre = load i32, ptr %7, align 4
-  br i1 %46, label %70, label %47
+  br i1 %46, label %71, label %47
 
 47:                                               ; preds = %45
   %48 = load i32, ptr @hf_smb_dir_name, align 4
@@ -8313,32 +8313,35 @@ define internal i32 @dissect_old_dir_request(ptr noundef %0, ptr nocapture nound
   %59 = call ptr @format_text(ptr noundef %57, ptr noundef nonnull %30, i64 noundef %58) #15
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %56, i32 noundef 25, ptr noundef nonnull @.str.2604, ptr noundef %59) #15
   %.not40 = icmp eq i16 %53, %54
-  br i1 %.not40, label %70, label %thread-pre-split
+  br i1 %.not40, label %71, label %60
 
-thread-pre-split:                                 ; preds = %47
-  %60 = sub i16 %53, %54
-  %61 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %52) #15
-  %62 = zext i16 %60 to i32
-  %63 = icmp slt i32 %61, %62
-  %64 = trunc i32 %61 to i16
-  %spec.select = select i1 %63, i16 %64, i16 %60
-  %.not41 = icmp eq i16 %spec.select, 0
-  br i1 %.not41, label %._crit_edge, label %65
+60:                                               ; preds = %47
+  %61 = sub i16 %53, %54
+  %62 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %52) #15
+  %63 = zext i16 %61 to i32
+  %64 = icmp slt i32 %62, %63
+  br i1 %64, label %thread-pre-split, label %thread-pre-split.thread
 
-65:                                               ; preds = %thread-pre-split
-  %66 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
-  %67 = zext i16 %spec.select to i32
-  %68 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %66, ptr noundef %0, i32 noundef %52, i32 noundef %67, i32 noundef 0) #15
+thread-pre-split:                                 ; preds = %60
+  %65 = trunc i32 %62 to i16
+  %.not41 = icmp eq i16 %65, 0
+  br i1 %.not41, label %._crit_edge, label %thread-pre-split.thread
+
+thread-pre-split.thread:                          ; preds = %60, %thread-pre-split
+  %66 = phi i16 [ %65, %thread-pre-split ], [ %61, %60 ]
+  %67 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
+  %68 = zext i16 %66 to i32
+  %69 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %67, ptr noundef %0, i32 noundef %52, i32 noundef %68, i32 noundef 0) #15
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %thread-pre-split, %65
-  %.pre-phi = phi i32 [ %67, %65 ], [ 0, %thread-pre-split ]
-  %69 = add i32 %52, %.pre-phi
-  br label %70
+._crit_edge:                                      ; preds = %thread-pre-split, %thread-pre-split.thread
+  %.pre-phi = phi i32 [ %68, %thread-pre-split.thread ], [ 0, %thread-pre-split ]
+  %70 = add i32 %52, %.pre-phi
+  br label %71
 
-70:                                               ; preds = %47, %._crit_edge, %45, %11
-  %71 = phi i32 [ %52, %47 ], [ %69, %._crit_edge ], [ %.pre, %45 ], [ %21, %11 ]
-  ret i32 %71
+71:                                               ; preds = %47, %._crit_edge, %45, %11
+  %72 = phi i32 [ %52, %47 ], [ %70, %._crit_edge ], [ %.pre, %45 ], [ %21, %11 ]
+  ret i32 %72
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8461,7 +8464,7 @@ define internal i32 @dissect_open_file_request(ptr noundef %0, ptr nocapture nou
   %32 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef %28, i32 noundef 2, i32 noundef %31) #15
   %33 = add i32 %28, 2
   %34 = icmp eq i16 %29, 0
-  br i1 %34, label %85, label %35
+  br i1 %34, label %86, label %35
 
 35:                                               ; preds = %27
   %36 = load i32, ptr @hf_smb_buffer_format, align 4
@@ -8475,7 +8478,7 @@ define internal i32 @dissect_open_file_request(ptr noundef %0, ptr nocapture nou
   %42 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %41, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %43 = icmp eq ptr %42, null
   %.pre = load i32, ptr %7, align 4
-  br i1 %43, label %85, label %44
+  br i1 %43, label %86, label %44
 
 44:                                               ; preds = %35
   %45 = load i32, ptr @hf_smb_file_name, align 4
@@ -8522,31 +8525,34 @@ define internal i32 @dissect_open_file_request(ptr noundef %0, ptr nocapture nou
   %75 = call ptr @format_text(ptr noundef %73, ptr noundef nonnull %42, i64 noundef %74) #15
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %72, i32 noundef 25, ptr noundef nonnull @.str.2605, ptr noundef %75) #15
   %.not49 = icmp eq i16 %50, %51
-  br i1 %.not49, label %85, label %thread-pre-split
+  br i1 %.not49, label %86, label %76
 
-thread-pre-split:                                 ; preds = %70
-  %76 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %49) #15
-  %77 = zext i16 %52 to i32
-  %78 = icmp slt i32 %76, %77
-  %79 = trunc i32 %76 to i16
-  %spec.select = select i1 %78, i16 %79, i16 %52
-  %.not50 = icmp eq i16 %spec.select, 0
-  br i1 %.not50, label %._crit_edge, label %80
+76:                                               ; preds = %70
+  %77 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %49) #15
+  %78 = zext i16 %52 to i32
+  %79 = icmp slt i32 %77, %78
+  br i1 %79, label %thread-pre-split, label %thread-pre-split.thread
 
-80:                                               ; preds = %thread-pre-split
-  %81 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
-  %82 = zext i16 %spec.select to i32
-  %83 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %81, ptr noundef %0, i32 noundef %49, i32 noundef %82, i32 noundef 0) #15
+thread-pre-split:                                 ; preds = %76
+  %80 = trunc i32 %77 to i16
+  %.not50 = icmp eq i16 %80, 0
+  br i1 %.not50, label %._crit_edge, label %thread-pre-split.thread
+
+thread-pre-split.thread:                          ; preds = %76, %thread-pre-split
+  %81 = phi i16 [ %80, %thread-pre-split ], [ %52, %76 ]
+  %82 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
+  %83 = zext i16 %81 to i32
+  %84 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %82, ptr noundef %0, i32 noundef %49, i32 noundef %83, i32 noundef 0) #15
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %thread-pre-split, %80
-  %.pre-phi = phi i32 [ %82, %80 ], [ 0, %thread-pre-split ]
-  %84 = add i32 %49, %.pre-phi
-  br label %85
+._crit_edge:                                      ; preds = %thread-pre-split, %thread-pre-split.thread
+  %.pre-phi = phi i32 [ %83, %thread-pre-split.thread ], [ 0, %thread-pre-split ]
+  %85 = add i32 %49, %.pre-phi
+  br label %86
 
-85:                                               ; preds = %70, %._crit_edge, %35, %27
-  %86 = phi i32 [ %49, %70 ], [ %84, %._crit_edge ], [ %.pre, %35 ], [ %33, %27 ]
-  ret i32 %86
+86:                                               ; preds = %70, %._crit_edge, %35, %27
+  %87 = phi i32 [ %49, %70 ], [ %85, %._crit_edge ], [ %.pre, %35 ], [ %33, %27 ]
+  ret i32 %87
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8730,7 +8736,7 @@ dissect_smb_UTIME.exit:                           ; preds = %31, %33
   %46 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %44, ptr noundef %0, i32 noundef %42, i32 noundef 2, i32 noundef %45) #15
   %47 = add i32 %42, 2
   %48 = icmp eq i16 %43, 0
-  br i1 %48, label %100, label %49
+  br i1 %48, label %101, label %49
 
 49:                                               ; preds = %41
   %50 = load i32, ptr @hf_smb_buffer_format, align 4
@@ -8744,7 +8750,7 @@ dissect_smb_UTIME.exit:                           ; preds = %31, %33
   %56 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %8, i32 noundef %55, ptr noundef %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %10)
   %57 = icmp eq ptr %56, null
   %.pre = load i32, ptr %8, align 4
-  br i1 %57, label %100, label %58
+  br i1 %57, label %101, label %58
 
 58:                                               ; preds = %49
   %59 = load i32, ptr @hf_smb_file_name, align 4
@@ -8793,31 +8799,34 @@ dissect_smb_UTIME.exit:                           ; preds = %31, %33
   %90 = call ptr @format_text(ptr noundef %88, ptr noundef nonnull %56, i64 noundef %89) #15
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %87, i32 noundef 25, ptr noundef nonnull @.str.2605, ptr noundef %90) #15
   %.not53 = icmp eq i16 %64, %65
-  br i1 %.not53, label %100, label %thread-pre-split
+  br i1 %.not53, label %101, label %91
 
-thread-pre-split:                                 ; preds = %85
-  %91 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %63) #15
-  %92 = zext i16 %66 to i32
-  %93 = icmp slt i32 %91, %92
-  %94 = trunc i32 %91 to i16
-  %spec.select = select i1 %93, i16 %94, i16 %66
-  %.not54 = icmp eq i16 %spec.select, 0
-  br i1 %.not54, label %._crit_edge, label %95
+91:                                               ; preds = %85
+  %92 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %63) #15
+  %93 = zext i16 %66 to i32
+  %94 = icmp slt i32 %92, %93
+  br i1 %94, label %thread-pre-split, label %thread-pre-split.thread
 
-95:                                               ; preds = %thread-pre-split
-  %96 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
-  %97 = zext i16 %spec.select to i32
-  %98 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %96, ptr noundef %0, i32 noundef %63, i32 noundef %97, i32 noundef 0) #15
+thread-pre-split:                                 ; preds = %91
+  %95 = trunc i32 %92 to i16
+  %.not54 = icmp eq i16 %95, 0
+  br i1 %.not54, label %._crit_edge, label %thread-pre-split.thread
+
+thread-pre-split.thread:                          ; preds = %91, %thread-pre-split
+  %96 = phi i16 [ %95, %thread-pre-split ], [ %66, %91 ]
+  %97 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
+  %98 = zext i16 %96 to i32
+  %99 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %97, ptr noundef %0, i32 noundef %63, i32 noundef %98, i32 noundef 0) #15
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %thread-pre-split, %95
-  %.pre-phi = phi i32 [ %97, %95 ], [ 0, %thread-pre-split ]
-  %99 = add i32 %63, %.pre-phi
-  br label %100
+._crit_edge:                                      ; preds = %thread-pre-split, %thread-pre-split.thread
+  %.pre-phi = phi i32 [ %98, %thread-pre-split.thread ], [ 0, %thread-pre-split ]
+  %100 = add i32 %63, %.pre-phi
+  br label %101
 
-100:                                              ; preds = %85, %._crit_edge, %49, %41
-  %101 = phi i32 [ %63, %85 ], [ %99, %._crit_edge ], [ %.pre, %49 ], [ %47, %41 ]
-  ret i32 %101
+101:                                              ; preds = %85, %._crit_edge, %49, %41
+  %102 = phi i32 [ %63, %85 ], [ %100, %._crit_edge ], [ %.pre, %49 ], [ %47, %41 ]
+  ret i32 %102
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9057,7 +9066,7 @@ define internal i32 @dissect_delete_file_request(ptr noundef %0, ptr nocapture n
   %28 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef %24, i32 noundef 2, i32 noundef %27) #15
   %29 = add i32 %24, 2
   %30 = icmp eq i16 %25, 0
-  br i1 %30, label %78, label %31
+  br i1 %30, label %79, label %31
 
 31:                                               ; preds = %23
   %32 = load i32, ptr @hf_smb_buffer_format, align 4
@@ -9096,7 +9105,7 @@ define internal i32 @dissect_delete_file_request(ptr noundef %0, ptr nocapture n
 53:                                               ; preds = %47, %44, %31
   %54 = icmp eq ptr %38, null
   %.pre = load i32, ptr %7, align 4
-  br i1 %54, label %78, label %55
+  br i1 %54, label %79, label %55
 
 55:                                               ; preds = %53
   %56 = load i32, ptr @hf_smb_file_name, align 4
@@ -9113,32 +9122,35 @@ define internal i32 @dissect_delete_file_request(ptr noundef %0, ptr nocapture n
   %67 = call ptr @format_text(ptr noundef %65, ptr noundef nonnull %38, i64 noundef %66) #15
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %64, i32 noundef 25, ptr noundef nonnull @.str.2605, ptr noundef %67) #15
   %.not43 = icmp eq i16 %61, %62
-  br i1 %.not43, label %78, label %thread-pre-split
+  br i1 %.not43, label %79, label %68
 
-thread-pre-split:                                 ; preds = %55
-  %68 = sub i16 %61, %62
-  %69 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %60) #15
-  %70 = zext i16 %68 to i32
-  %71 = icmp slt i32 %69, %70
-  %72 = trunc i32 %69 to i16
-  %spec.select = select i1 %71, i16 %72, i16 %68
-  %.not44 = icmp eq i16 %spec.select, 0
-  br i1 %.not44, label %._crit_edge, label %73
+68:                                               ; preds = %55
+  %69 = sub i16 %61, %62
+  %70 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %60) #15
+  %71 = zext i16 %69 to i32
+  %72 = icmp slt i32 %70, %71
+  br i1 %72, label %thread-pre-split, label %thread-pre-split.thread
 
-73:                                               ; preds = %thread-pre-split
-  %74 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
-  %75 = zext i16 %spec.select to i32
-  %76 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %74, ptr noundef %0, i32 noundef %60, i32 noundef %75, i32 noundef 0) #15
+thread-pre-split:                                 ; preds = %68
+  %73 = trunc i32 %70 to i16
+  %.not44 = icmp eq i16 %73, 0
+  br i1 %.not44, label %._crit_edge, label %thread-pre-split.thread
+
+thread-pre-split.thread:                          ; preds = %68, %thread-pre-split
+  %74 = phi i16 [ %73, %thread-pre-split ], [ %69, %68 ]
+  %75 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
+  %76 = zext i16 %74 to i32
+  %77 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %75, ptr noundef %0, i32 noundef %60, i32 noundef %76, i32 noundef 0) #15
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %thread-pre-split, %73
-  %.pre-phi = phi i32 [ %75, %73 ], [ 0, %thread-pre-split ]
-  %77 = add i32 %60, %.pre-phi
-  br label %78
+._crit_edge:                                      ; preds = %thread-pre-split, %thread-pre-split.thread
+  %.pre-phi = phi i32 [ %76, %thread-pre-split.thread ], [ 0, %thread-pre-split ]
+  %78 = add i32 %60, %.pre-phi
+  br label %79
 
-78:                                               ; preds = %55, %._crit_edge, %53, %23
-  %79 = phi i32 [ %60, %55 ], [ %77, %._crit_edge ], [ %.pre, %53 ], [ %29, %23 ]
-  ret i32 %79
+79:                                               ; preds = %55, %._crit_edge, %53, %23
+  %80 = phi i32 [ %60, %55 ], [ %78, %._crit_edge ], [ %.pre, %53 ], [ %29, %23 ]
+  ret i32 %80
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9178,7 +9190,7 @@ define internal i32 @dissect_rename_file_request(ptr noundef %0, ptr nocapture n
   %29 = add i32 %24, 2
   store i32 %29, ptr %7, align 4
   %30 = icmp eq i16 %25, 0
-  br i1 %30, label %87, label %31
+  br i1 %30, label %88, label %31
 
 31:                                               ; preds = %23
   %32 = load i32, ptr @hf_smb_buffer_format, align 4
@@ -9191,7 +9203,7 @@ define internal i32 @dissect_rename_file_request(ptr noundef %0, ptr nocapture n
   %37 = load i32, ptr %36, align 8
   %38 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %37, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %87, label %40
+  br i1 %39, label %88, label %40
 
 40:                                               ; preds = %31
   %41 = load i32, ptr @hf_smb_old_file_name, align 4
@@ -9210,7 +9222,7 @@ define internal i32 @dissect_rename_file_request(ptr noundef %0, ptr nocapture n
   %53 = call ptr @format_text(ptr noundef %51, ptr noundef nonnull %38, i64 noundef %52) #15
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %50, i32 noundef 25, ptr noundef nonnull @.str.2607, ptr noundef %53) #15
   %54 = icmp eq i16 %47, %48
-  br i1 %54, label %87, label %55
+  br i1 %54, label %88, label %55
 
 55:                                               ; preds = %40
   %56 = load i32, ptr @hf_smb_buffer_format, align 4
@@ -9223,7 +9235,7 @@ define internal i32 @dissect_rename_file_request(ptr noundef %0, ptr nocapture n
   %61 = load i32, ptr %36, align 8
   %62 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %61, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %87, label %64
+  br i1 %63, label %88, label %64
 
 64:                                               ; preds = %55
   %65 = load i32, ptr @hf_smb_file_name, align 4
@@ -9241,68 +9253,71 @@ define internal i32 @dissect_rename_file_request(ptr noundef %0, ptr nocapture n
   %76 = call ptr @format_text(ptr noundef %74, ptr noundef nonnull %62, i64 noundef %75) #15
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %73, i32 noundef 25, ptr noundef nonnull @.str.2608, ptr noundef %76) #15
   %.not64 = icmp eq i16 %71, %72
-  br i1 %.not64, label %87, label %thread-pre-split
+  br i1 %.not64, label %88, label %77
 
-thread-pre-split:                                 ; preds = %64
-  %77 = sub i16 %71, %72
-  %78 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %70) #15
-  %79 = zext i16 %77 to i32
-  %80 = icmp slt i32 %78, %79
-  %81 = trunc i32 %78 to i16
-  %spec.select = select i1 %80, i16 %81, i16 %77
-  %.not65 = icmp eq i16 %spec.select, 0
-  br i1 %.not65, label %._crit_edge, label %82
+77:                                               ; preds = %64
+  %78 = sub i16 %71, %72
+  %79 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %70) #15
+  %80 = zext i16 %78 to i32
+  %81 = icmp slt i32 %79, %80
+  br i1 %81, label %thread-pre-split, label %thread-pre-split.thread
 
-82:                                               ; preds = %thread-pre-split
-  %83 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
-  %84 = zext i16 %spec.select to i32
-  %85 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %83, ptr noundef %0, i32 noundef %70, i32 noundef %84, i32 noundef 0) #15
+thread-pre-split:                                 ; preds = %77
+  %82 = trunc i32 %79 to i16
+  %.not65 = icmp eq i16 %82, 0
+  br i1 %.not65, label %._crit_edge, label %thread-pre-split.thread
+
+thread-pre-split.thread:                          ; preds = %77, %thread-pre-split
+  %83 = phi i16 [ %82, %thread-pre-split ], [ %78, %77 ]
+  %84 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
+  %85 = zext i16 %83 to i32
+  %86 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %84, ptr noundef %0, i32 noundef %70, i32 noundef %85, i32 noundef 0) #15
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %thread-pre-split, %82
-  %.pre-phi = phi i32 [ %84, %82 ], [ 0, %thread-pre-split ]
-  %86 = add i32 %70, %.pre-phi
-  store i32 %86, ptr %7, align 4
-  br label %87
+._crit_edge:                                      ; preds = %thread-pre-split, %thread-pre-split.thread
+  %.pre-phi = phi i32 [ %85, %thread-pre-split.thread ], [ 0, %thread-pre-split ]
+  %87 = add i32 %70, %.pre-phi
+  store i32 %87, ptr %7, align 4
+  br label %88
 
-87:                                               ; preds = %64, %._crit_edge, %55, %40, %31, %23
+88:                                               ; preds = %64, %._crit_edge, %55, %40, %31, %23
   %.058 = phi ptr [ null, %23 ], [ null, %31 ], [ null, %40 ], [ null, %55 ], [ %62, %._crit_edge ], [ %62, %64 ]
   %.0 = phi ptr [ null, %23 ], [ null, %31 ], [ %38, %40 ], [ %38, %55 ], [ %38, %._crit_edge ], [ %38, %64 ]
-  %88 = getelementptr inbounds i8, ptr %5, i64 48
-  %89 = load ptr, ptr %88, align 8
-  %.not66 = icmp eq ptr %89, null
-  br i1 %.not66, label %108, label %90
+  %89 = getelementptr inbounds i8, ptr %5, i64 48
+  %90 = load ptr, ptr %89, align 8
+  %.not66 = icmp eq ptr %90, null
+  br i1 %.not66, label %109, label %91
 
-90:                                               ; preds = %87
-  %91 = getelementptr inbounds i8, ptr %1, i64 80
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 50
-  %94 = load i16, ptr %93, align 2
-  %95 = and i16 %94, 8
-  %.not67 = icmp eq i16 %95, 0
-  br i1 %.not67, label %96, label %108
+91:                                               ; preds = %88
+  %92 = getelementptr inbounds i8, ptr %1, i64 80
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 50
+  %95 = load i16, ptr %94, align 2
+  %96 = and i16 %95, 8
+  %.not67 = icmp eq i16 %96, 0
+  br i1 %.not67, label %97, label %109
 
-96:                                               ; preds = %90
-  %97 = call ptr @wmem_file_scope() #15
-  %98 = call noalias ptr @wmem_alloc(ptr noundef %97, i64 noundef 16) #15
-  %99 = call ptr @wmem_file_scope() #15
-  %100 = call noalias ptr @wmem_strdup(ptr noundef %99, ptr noundef %.0) #15
-  store ptr %100, ptr %98, align 8
-  %101 = call ptr @wmem_file_scope() #15
-  %102 = call noalias ptr @wmem_strdup(ptr noundef %101, ptr noundef %.058) #15
-  %103 = getelementptr inbounds i8, ptr %98, i64 8
-  store ptr %102, ptr %103, align 8
-  %104 = load ptr, ptr %88, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 40
-  store i32 11, ptr %105, align 8
-  %106 = load ptr, ptr %88, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 32
-  store ptr %98, ptr %107, align 8
-  br label %108
+97:                                               ; preds = %91
+  %98 = call ptr @wmem_file_scope() #15
+  %99 = call noalias ptr @wmem_alloc(ptr noundef %98, i64 noundef 16) #15
+  %100 = call ptr @wmem_file_scope() #15
+  %101 = call noalias ptr @wmem_strdup(ptr noundef %100, ptr noundef %.0) #15
+  store ptr %101, ptr %99, align 8
+  %102 = call ptr @wmem_file_scope() #15
+  %103 = call noalias ptr @wmem_strdup(ptr noundef %102, ptr noundef %.058) #15
+  %104 = getelementptr inbounds i8, ptr %99, i64 8
+  store ptr %103, ptr %104, align 8
+  %105 = load ptr, ptr %89, align 8
+  %106 = getelementptr inbounds i8, ptr %105, i64 40
+  store i32 11, ptr %106, align 8
+  %107 = load ptr, ptr %89, align 8
+  %108 = getelementptr inbounds i8, ptr %107, i64 32
+  store ptr %99, ptr %108, align 8
+  br label %109
 
-108:                                              ; preds = %96, %90, %87
-  %109 = load i32, ptr %7, align 4
-  ret i32 %109
+109:                                              ; preds = %97, %91, %88
+  %110 = load i32, ptr %7, align 4
+  ret i32 %110
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9431,7 +9446,7 @@ define internal i32 @dissect_query_information_request(ptr noundef %0, ptr nocap
   %20 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef %16, i32 noundef 2, i32 noundef %19) #15
   %21 = add i32 %3, 3
   %22 = icmp eq i16 %17, 0
-  br i1 %22, label %55, label %23
+  br i1 %22, label %56, label %23
 
 23:                                               ; preds = %11
   %24 = load i32, ptr @hf_smb_buffer_format, align 4
@@ -9445,7 +9460,7 @@ define internal i32 @dissect_query_information_request(ptr noundef %0, ptr nocap
   %30 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %29, ptr noundef %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
   %31 = icmp eq ptr %30, null
   %.pre = load i32, ptr %7, align 4
-  br i1 %31, label %55, label %32
+  br i1 %31, label %56, label %32
 
 32:                                               ; preds = %23
   %33 = load i32, ptr @hf_smb_file_name, align 4
@@ -9462,32 +9477,35 @@ define internal i32 @dissect_query_information_request(ptr noundef %0, ptr nocap
   %44 = call ptr @format_text(ptr noundef %42, ptr noundef nonnull %30, i64 noundef %43) #15
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %41, i32 noundef 25, ptr noundef nonnull @.str.2605, ptr noundef %44) #15
   %.not32 = icmp eq i16 %38, %39
-  br i1 %.not32, label %55, label %thread-pre-split
+  br i1 %.not32, label %56, label %45
 
-thread-pre-split:                                 ; preds = %32
-  %45 = sub i16 %38, %39
-  %46 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %37) #15
-  %47 = zext i16 %45 to i32
-  %48 = icmp slt i32 %46, %47
-  %49 = trunc i32 %46 to i16
-  %spec.select = select i1 %48, i16 %49, i16 %45
-  %.not33 = icmp eq i16 %spec.select, 0
-  br i1 %.not33, label %._crit_edge, label %50
+45:                                               ; preds = %32
+  %46 = sub i16 %38, %39
+  %47 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %37) #15
+  %48 = zext i16 %46 to i32
+  %49 = icmp slt i32 %47, %48
+  br i1 %49, label %thread-pre-split, label %thread-pre-split.thread
 
-50:                                               ; preds = %thread-pre-split
-  %51 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
-  %52 = zext i16 %spec.select to i32
-  %53 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %51, ptr noundef %0, i32 noundef %37, i32 noundef %52, i32 noundef 0) #15
+thread-pre-split:                                 ; preds = %45
+  %50 = trunc i32 %47 to i16
+  %.not33 = icmp eq i16 %50, 0
+  br i1 %.not33, label %._crit_edge, label %thread-pre-split.thread
+
+thread-pre-split.thread:                          ; preds = %45, %thread-pre-split
+  %51 = phi i16 [ %50, %thread-pre-split ], [ %46, %45 ]
+  %52 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
+  %53 = zext i16 %51 to i32
+  %54 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %52, ptr noundef %0, i32 noundef %37, i32 noundef %53, i32 noundef 0) #15
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %thread-pre-split, %50
-  %.pre-phi = phi i32 [ %52, %50 ], [ 0, %thread-pre-split ]
-  %54 = add i32 %37, %.pre-phi
-  br label %55
+._crit_edge:                                      ; preds = %thread-pre-split, %thread-pre-split.thread
+  %.pre-phi = phi i32 [ %53, %thread-pre-split.thread ], [ 0, %thread-pre-split ]
+  %55 = add i32 %37, %.pre-phi
+  br label %56
 
-55:                                               ; preds = %32, %._crit_edge, %23, %11
-  %56 = phi i32 [ %37, %32 ], [ %54, %._crit_edge ], [ %.pre, %23 ], [ %21, %11 ]
-  ret i32 %56
+56:                                               ; preds = %32, %._crit_edge, %23, %11
+  %57 = phi i32 [ %37, %32 ], [ %55, %._crit_edge ], [ %.pre, %23 ], [ %21, %11 ]
+  ret i32 %57
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9645,7 +9663,7 @@ dissect_smb_UTIME.exit:                           ; preds = %29, %31
   %47 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %45, ptr noundef %0, i32 noundef %43, i32 noundef 2, i32 noundef %46) #15
   %48 = add i32 %43, 2
   %49 = icmp eq i16 %44, 0
-  br i1 %49, label %82, label %50
+  br i1 %49, label %83, label %50
 
 50:                                               ; preds = %42
   %51 = load i32, ptr @hf_smb_buffer_format, align 4
@@ -9659,7 +9677,7 @@ dissect_smb_UTIME.exit:                           ; preds = %29, %31
   %57 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %8, i32 noundef %56, ptr noundef %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %10)
   %58 = icmp eq ptr %57, null
   %.pre = load i32, ptr %8, align 4
-  br i1 %58, label %82, label %59
+  br i1 %58, label %83, label %59
 
 59:                                               ; preds = %50
   %60 = load i32, ptr @hf_smb_file_name, align 4
@@ -9676,32 +9694,35 @@ dissect_smb_UTIME.exit:                           ; preds = %29, %31
   %71 = call ptr @format_text(ptr noundef %69, ptr noundef nonnull %57, i64 noundef %70) #15
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %68, i32 noundef 25, ptr noundef nonnull @.str.2605, ptr noundef %71) #15
   %.not39 = icmp eq i16 %65, %66
-  br i1 %.not39, label %82, label %thread-pre-split
+  br i1 %.not39, label %83, label %72
 
-thread-pre-split:                                 ; preds = %59
-  %72 = sub i16 %65, %66
-  %73 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %64) #15
-  %74 = zext i16 %72 to i32
-  %75 = icmp slt i32 %73, %74
-  %76 = trunc i32 %73 to i16
-  %spec.select = select i1 %75, i16 %76, i16 %72
-  %.not40 = icmp eq i16 %spec.select, 0
-  br i1 %.not40, label %._crit_edge, label %77
+72:                                               ; preds = %59
+  %73 = sub i16 %65, %66
+  %74 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %64) #15
+  %75 = zext i16 %73 to i32
+  %76 = icmp slt i32 %74, %75
+  br i1 %76, label %thread-pre-split, label %thread-pre-split.thread
 
-77:                                               ; preds = %thread-pre-split
-  %78 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
-  %79 = zext i16 %spec.select to i32
-  %80 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %78, ptr noundef %0, i32 noundef %64, i32 noundef %79, i32 noundef 0) #15
+thread-pre-split:                                 ; preds = %72
+  %77 = trunc i32 %74 to i16
+  %.not40 = icmp eq i16 %77, 0
+  br i1 %.not40, label %._crit_edge, label %thread-pre-split.thread
+
+thread-pre-split.thread:                          ; preds = %72, %thread-pre-split
+  %78 = phi i16 [ %77, %thread-pre-split ], [ %73, %72 ]
+  %79 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
+  %80 = zext i16 %78 to i32
+  %81 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %79, ptr noundef %0, i32 noundef %64, i32 noundef %80, i32 noundef 0) #15
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %thread-pre-split, %77
-  %.pre-phi = phi i32 [ %79, %77 ], [ 0, %thread-pre-split ]
-  %81 = add i32 %64, %.pre-phi
-  br label %82
+._crit_edge:                                      ; preds = %thread-pre-split, %thread-pre-split.thread
+  %.pre-phi = phi i32 [ %80, %thread-pre-split.thread ], [ 0, %thread-pre-split ]
+  %82 = add i32 %64, %.pre-phi
+  br label %83
 
-82:                                               ; preds = %59, %._crit_edge, %50, %42
-  %83 = phi i32 [ %64, %59 ], [ %81, %._crit_edge ], [ %.pre, %50 ], [ %48, %42 ]
-  ret i32 %83
+83:                                               ; preds = %59, %._crit_edge, %50, %42
+  %84 = phi i32 [ %64, %59 ], [ %82, %._crit_edge ], [ %.pre, %50 ], [ %48, %42 ]
+  ret i32 %84
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10405,7 +10426,7 @@ dissect_smb_UTIME.exit:                           ; preds = %28, %30
   %43 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %41, ptr noundef %0, i32 noundef %39, i32 noundef 2, i32 noundef %42) #15
   %44 = add i32 %39, 2
   %45 = icmp eq i16 %40, 0
-  br i1 %45, label %78, label %46
+  br i1 %45, label %79, label %46
 
 46:                                               ; preds = %38
   %47 = load i32, ptr @hf_smb_buffer_format, align 4
@@ -10419,7 +10440,7 @@ dissect_smb_UTIME.exit:                           ; preds = %28, %30
   %53 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %8, i32 noundef %52, ptr noundef %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %10)
   %54 = icmp eq ptr %53, null
   %.pre = load i32, ptr %8, align 4
-  br i1 %54, label %78, label %55
+  br i1 %54, label %79, label %55
 
 55:                                               ; preds = %46
   %56 = load i32, ptr @hf_smb_dir_name, align 4
@@ -10436,32 +10457,35 @@ dissect_smb_UTIME.exit:                           ; preds = %28, %30
   %67 = call ptr @format_text(ptr noundef %65, ptr noundef nonnull %53, i64 noundef %66) #15
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %64, i32 noundef 25, ptr noundef nonnull @.str.2605, ptr noundef %67) #15
   %.not37 = icmp eq i16 %61, %62
-  br i1 %.not37, label %78, label %thread-pre-split
+  br i1 %.not37, label %79, label %68
 
-thread-pre-split:                                 ; preds = %55
-  %68 = sub i16 %61, %62
-  %69 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %60) #15
-  %70 = zext i16 %68 to i32
-  %71 = icmp slt i32 %69, %70
-  %72 = trunc i32 %69 to i16
-  %spec.select = select i1 %71, i16 %72, i16 %68
-  %.not38 = icmp eq i16 %spec.select, 0
-  br i1 %.not38, label %._crit_edge, label %73
+68:                                               ; preds = %55
+  %69 = sub i16 %61, %62
+  %70 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %60) #15
+  %71 = zext i16 %69 to i32
+  %72 = icmp slt i32 %70, %71
+  br i1 %72, label %thread-pre-split, label %thread-pre-split.thread
 
-73:                                               ; preds = %thread-pre-split
-  %74 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
-  %75 = zext i16 %spec.select to i32
-  %76 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %74, ptr noundef %0, i32 noundef %60, i32 noundef %75, i32 noundef 0) #15
+thread-pre-split:                                 ; preds = %68
+  %73 = trunc i32 %70 to i16
+  %.not38 = icmp eq i16 %73, 0
+  br i1 %.not38, label %._crit_edge, label %thread-pre-split.thread
+
+thread-pre-split.thread:                          ; preds = %68, %thread-pre-split
+  %74 = phi i16 [ %73, %thread-pre-split ], [ %69, %68 ]
+  %75 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
+  %76 = zext i16 %74 to i32
+  %77 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %75, ptr noundef %0, i32 noundef %60, i32 noundef %76, i32 noundef 0) #15
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %thread-pre-split, %73
-  %.pre-phi = phi i32 [ %75, %73 ], [ 0, %thread-pre-split ]
-  %77 = add i32 %60, %.pre-phi
-  br label %78
+._crit_edge:                                      ; preds = %thread-pre-split, %thread-pre-split.thread
+  %.pre-phi = phi i32 [ %76, %thread-pre-split.thread ], [ 0, %thread-pre-split ]
+  %78 = add i32 %60, %.pre-phi
+  br label %79
 
-78:                                               ; preds = %55, %._crit_edge, %46, %38
-  %79 = phi i32 [ %60, %55 ], [ %77, %._crit_edge ], [ %.pre, %46 ], [ %44, %38 ]
-  ret i32 %79
+79:                                               ; preds = %55, %._crit_edge, %46, %38
+  %80 = phi i32 [ %60, %55 ], [ %78, %._crit_edge ], [ %.pre, %46 ], [ %44, %38 ]
+  ret i32 %80
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10520,24 +10544,30 @@ get_unicode_or_ascii_string.exit:                 ; preds = %20
   %39 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %35) #15
   %40 = zext i16 %38 to i32
   %41 = icmp slt i32 %39, %40
-  %42 = trunc i32 %39 to i16
-  %spec.select = select i1 %41, i16 %42, i16 %38
-  %.not30 = icmp eq i16 %spec.select, 0
-  br i1 %.not30, label %._crit_edge, label %43
+  br i1 %41, label %42, label %.thread
 
-43:                                               ; preds = %37
+42:                                               ; preds = %37
+  %43 = and i32 %39, 65535
+  %.not30 = icmp eq i32 %43, 0
+  br i1 %.not30, label %46, label %..thread_crit_edge
+
+..thread_crit_edge:                               ; preds = %42
+  %.pre = and i32 %39, 65535
+  br label %.thread
+
+.thread:                                          ; preds = %..thread_crit_edge, %37
+  %.pre-phi = phi i32 [ %.pre, %..thread_crit_edge ], [ %40, %37 ]
   %44 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
-  %45 = zext i16 %spec.select to i32
-  %46 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %44, ptr noundef %0, i32 noundef %35, i32 noundef %45, i32 noundef 0) #15
-  br label %._crit_edge
+  %45 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %44, ptr noundef %0, i32 noundef %35, i32 noundef %.pre-phi, i32 noundef 0) #15
+  br label %46
 
-._crit_edge:                                      ; preds = %37, %43
-  %.pre-phi = phi i32 [ %45, %43 ], [ 0, %37 ]
-  %47 = add i32 %35, %.pre-phi
+46:                                               ; preds = %.thread, %42
+  %.054 = phi i32 [ %.pre-phi, %.thread ], [ 0, %42 ]
+  %47 = add i32 %.054, %35
   br label %48
 
-48:                                               ; preds = %30, %._crit_edge, %get_unicode_or_ascii_string.exit, %20
-  %.1 = phi i32 [ %25, %20 ], [ %25, %get_unicode_or_ascii_string.exit ], [ %35, %30 ], [ %47, %._crit_edge ]
+48:                                               ; preds = %30, %46, %get_unicode_or_ascii_string.exit, %20
+  %.1 = phi i32 [ %25, %20 ], [ %25, %get_unicode_or_ascii_string.exit ], [ %35, %30 ], [ %47, %46 ]
   ret i32 %.1
 }
 
@@ -15713,7 +15743,7 @@ define internal i32 @dissect_copy_request(ptr noundef %0, ptr nocapture noundef 
   %34 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %32, ptr noundef %0, i32 noundef %30, i32 noundef 2, i32 noundef %33) #15
   %35 = add i32 %30, 2
   %36 = icmp eq i16 %31, 0
-  br i1 %36, label %97, label %37
+  br i1 %36, label %98, label %37
 
 37:                                               ; preds = %29
   %38 = load i32, ptr @hf_smb_buffer_format, align 4
@@ -15727,7 +15757,7 @@ define internal i32 @dissect_copy_request(ptr noundef %0, ptr nocapture noundef 
   %44 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %43, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %45 = icmp eq ptr %44, null
   %.pre65 = load i32, ptr %7, align 4
-  br i1 %45, label %97, label %46
+  br i1 %45, label %98, label %46
 
 46:                                               ; preds = %37
   %47 = load i32, ptr @hf_smb_file_name, align 4
@@ -15747,7 +15777,7 @@ define internal i32 @dissect_copy_request(ptr noundef %0, ptr nocapture noundef 
   %61 = call ptr @format_text(ptr noundef %59, ptr noundef nonnull %44, i64 noundef %60) #15
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @.str.2660, ptr noundef %61) #15
   %62 = icmp eq i16 %55, %56
-  br i1 %62, label %97, label %63
+  br i1 %62, label %98, label %63
 
 63:                                               ; preds = %46
   %64 = load i32, ptr @hf_smb_buffer_format, align 4
@@ -15761,7 +15791,7 @@ define internal i32 @dissect_copy_request(ptr noundef %0, ptr nocapture noundef 
   %70 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %69, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %71 = icmp eq ptr %70, null
   %.pre = load i32, ptr %7, align 4
-  br i1 %71, label %97, label %72
+  br i1 %71, label %98, label %72
 
 72:                                               ; preds = %63
   %73 = load i32, ptr @hf_smb_file_name, align 4
@@ -15780,32 +15810,35 @@ define internal i32 @dissect_copy_request(ptr noundef %0, ptr nocapture noundef 
   %86 = call ptr @format_text(ptr noundef %84, ptr noundef nonnull %70, i64 noundef %85) #15
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %83, i32 noundef 25, ptr noundef nonnull @.str.2662, ptr noundef %86) #15
   %.not63 = icmp eq i16 %81, %82
-  br i1 %.not63, label %97, label %thread-pre-split
+  br i1 %.not63, label %98, label %87
 
-thread-pre-split:                                 ; preds = %72
-  %87 = sub i16 %81, %82
-  %88 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %80) #15
-  %89 = zext i16 %87 to i32
-  %90 = icmp slt i32 %88, %89
-  %91 = trunc i32 %88 to i16
-  %spec.select = select i1 %90, i16 %91, i16 %87
-  %.not64 = icmp eq i16 %spec.select, 0
-  br i1 %.not64, label %._crit_edge, label %92
+87:                                               ; preds = %72
+  %88 = sub i16 %81, %82
+  %89 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %80) #15
+  %90 = zext i16 %88 to i32
+  %91 = icmp slt i32 %89, %90
+  br i1 %91, label %thread-pre-split, label %thread-pre-split.thread
 
-92:                                               ; preds = %thread-pre-split
-  %93 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
-  %94 = zext i16 %spec.select to i32
-  %95 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %93, ptr noundef %0, i32 noundef %80, i32 noundef %94, i32 noundef 0) #15
+thread-pre-split:                                 ; preds = %87
+  %92 = trunc i32 %89 to i16
+  %.not64 = icmp eq i16 %92, 0
+  br i1 %.not64, label %._crit_edge, label %thread-pre-split.thread
+
+thread-pre-split.thread:                          ; preds = %87, %thread-pre-split
+  %93 = phi i16 [ %92, %thread-pre-split ], [ %88, %87 ]
+  %94 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
+  %95 = zext i16 %93 to i32
+  %96 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %94, ptr noundef %0, i32 noundef %80, i32 noundef %95, i32 noundef 0) #15
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %thread-pre-split, %92
-  %.pre-phi = phi i32 [ %94, %92 ], [ 0, %thread-pre-split ]
-  %96 = add i32 %80, %.pre-phi
-  br label %97
+._crit_edge:                                      ; preds = %thread-pre-split, %thread-pre-split.thread
+  %.pre-phi = phi i32 [ %95, %thread-pre-split.thread ], [ 0, %thread-pre-split ]
+  %97 = add i32 %80, %.pre-phi
+  br label %98
 
-97:                                               ; preds = %72, %._crit_edge, %63, %46, %37, %29
-  %98 = phi i32 [ %80, %72 ], [ %96, %._crit_edge ], [ %.pre, %63 ], [ %54, %46 ], [ %.pre65, %37 ], [ %35, %29 ]
-  ret i32 %98
+98:                                               ; preds = %72, %._crit_edge, %63, %46, %37, %29
+  %99 = phi i32 [ %80, %72 ], [ %97, %._crit_edge ], [ %.pre, %63 ], [ %54, %46 ], [ %.pre65, %37 ], [ %35, %29 ]
+  ret i32 %99
 }
 
 ; Function Attrs: nounwind uwtable
@@ -15843,7 +15876,7 @@ define internal i32 @dissect_move_copy_response(ptr noundef %0, ptr nocapture re
   %27 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef %23, i32 noundef 2, i32 noundef %26) #15
   %28 = add i32 %23, 2
   %29 = icmp eq i16 %24, 0
-  br i1 %29, label %57, label %30
+  br i1 %29, label %58, label %30
 
 30:                                               ; preds = %22
   %31 = load i32, ptr @hf_smb_buffer_format, align 4
@@ -15857,7 +15890,7 @@ define internal i32 @dissect_move_copy_response(ptr noundef %0, ptr nocapture re
   %37 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %36, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %38 = icmp eq ptr %37, null
   %.pre = load i32, ptr %7, align 4
-  br i1 %38, label %57, label %39
+  br i1 %38, label %58, label %39
 
 39:                                               ; preds = %30
   %40 = load i32, ptr @hf_smb_file_name, align 4
@@ -15868,32 +15901,35 @@ define internal i32 @dissect_move_copy_response(ptr noundef %0, ptr nocapture re
   %45 = load i16, ptr %9, align 2
   %46 = trunc i32 %43 to i16
   %.not32 = icmp eq i16 %45, %46
-  br i1 %.not32, label %57, label %thread-pre-split
+  br i1 %.not32, label %58, label %47
 
-thread-pre-split:                                 ; preds = %39
-  %47 = sub i16 %45, %46
-  %48 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %44) #15
-  %49 = zext i16 %47 to i32
-  %50 = icmp slt i32 %48, %49
-  %51 = trunc i32 %48 to i16
-  %spec.select = select i1 %50, i16 %51, i16 %47
-  %.not33 = icmp eq i16 %spec.select, 0
-  br i1 %.not33, label %._crit_edge, label %52
+47:                                               ; preds = %39
+  %48 = sub i16 %45, %46
+  %49 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %44) #15
+  %50 = zext i16 %48 to i32
+  %51 = icmp slt i32 %49, %50
+  br i1 %51, label %thread-pre-split, label %thread-pre-split.thread
 
-52:                                               ; preds = %thread-pre-split
-  %53 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
-  %54 = zext i16 %spec.select to i32
-  %55 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %53, ptr noundef %0, i32 noundef %44, i32 noundef %54, i32 noundef 0) #15
+thread-pre-split:                                 ; preds = %47
+  %52 = trunc i32 %49 to i16
+  %.not33 = icmp eq i16 %52, 0
+  br i1 %.not33, label %._crit_edge, label %thread-pre-split.thread
+
+thread-pre-split.thread:                          ; preds = %47, %thread-pre-split
+  %53 = phi i16 [ %52, %thread-pre-split ], [ %48, %47 ]
+  %54 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
+  %55 = zext i16 %53 to i32
+  %56 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %54, ptr noundef %0, i32 noundef %44, i32 noundef %55, i32 noundef 0) #15
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %thread-pre-split, %52
-  %.pre-phi = phi i32 [ %54, %52 ], [ 0, %thread-pre-split ]
-  %56 = add i32 %44, %.pre-phi
-  br label %57
+._crit_edge:                                      ; preds = %thread-pre-split, %thread-pre-split.thread
+  %.pre-phi = phi i32 [ %55, %thread-pre-split.thread ], [ 0, %thread-pre-split ]
+  %57 = add i32 %44, %.pre-phi
+  br label %58
 
-57:                                               ; preds = %39, %._crit_edge, %30, %22
-  %58 = phi i32 [ %44, %39 ], [ %56, %._crit_edge ], [ %.pre, %30 ], [ %28, %22 ]
-  ret i32 %58
+58:                                               ; preds = %39, %._crit_edge, %30, %22
+  %59 = phi i32 [ %44, %39 ], [ %57, %._crit_edge ], [ %.pre, %30 ], [ %28, %22 ]
+  ret i32 %59
 }
 
 ; Function Attrs: nounwind uwtable
@@ -15938,7 +15974,7 @@ define internal i32 @dissect_move_request(ptr noundef %0, ptr nocapture noundef 
   %34 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %32, ptr noundef %0, i32 noundef %30, i32 noundef 2, i32 noundef %33) #15
   %35 = add i32 %30, 2
   %36 = icmp eq i16 %31, 0
-  br i1 %36, label %97, label %37
+  br i1 %36, label %98, label %37
 
 37:                                               ; preds = %29
   %38 = load i32, ptr @hf_smb_buffer_format, align 4
@@ -15952,7 +15988,7 @@ define internal i32 @dissect_move_request(ptr noundef %0, ptr nocapture noundef 
   %44 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %43, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %45 = icmp eq ptr %44, null
   %.pre65 = load i32, ptr %7, align 4
-  br i1 %45, label %97, label %46
+  br i1 %45, label %98, label %46
 
 46:                                               ; preds = %37
   %47 = load i32, ptr @hf_smb_file_name, align 4
@@ -15972,7 +16008,7 @@ define internal i32 @dissect_move_request(ptr noundef %0, ptr nocapture noundef 
   %61 = call ptr @format_text(ptr noundef %59, ptr noundef nonnull %44, i64 noundef %60) #15
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @.str.2607, ptr noundef %61) #15
   %62 = icmp eq i16 %55, %56
-  br i1 %62, label %97, label %63
+  br i1 %62, label %98, label %63
 
 63:                                               ; preds = %46
   %64 = load i32, ptr @hf_smb_buffer_format, align 4
@@ -15986,7 +16022,7 @@ define internal i32 @dissect_move_request(ptr noundef %0, ptr nocapture noundef 
   %70 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %69, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %71 = icmp eq ptr %70, null
   %.pre = load i32, ptr %7, align 4
-  br i1 %71, label %97, label %72
+  br i1 %71, label %98, label %72
 
 72:                                               ; preds = %63
   %73 = load i32, ptr @hf_smb_file_name, align 4
@@ -16005,32 +16041,35 @@ define internal i32 @dissect_move_request(ptr noundef %0, ptr nocapture noundef 
   %86 = call ptr @format_text(ptr noundef %84, ptr noundef nonnull %70, i64 noundef %85) #15
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %83, i32 noundef 25, ptr noundef nonnull @.str.2608, ptr noundef %86) #15
   %.not63 = icmp eq i16 %81, %82
-  br i1 %.not63, label %97, label %thread-pre-split
+  br i1 %.not63, label %98, label %87
 
-thread-pre-split:                                 ; preds = %72
-  %87 = sub i16 %81, %82
-  %88 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %80) #15
-  %89 = zext i16 %87 to i32
-  %90 = icmp slt i32 %88, %89
-  %91 = trunc i32 %88 to i16
-  %spec.select = select i1 %90, i16 %91, i16 %87
-  %.not64 = icmp eq i16 %spec.select, 0
-  br i1 %.not64, label %._crit_edge, label %92
+87:                                               ; preds = %72
+  %88 = sub i16 %81, %82
+  %89 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %80) #15
+  %90 = zext i16 %88 to i32
+  %91 = icmp slt i32 %89, %90
+  br i1 %91, label %thread-pre-split, label %thread-pre-split.thread
 
-92:                                               ; preds = %thread-pre-split
-  %93 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
-  %94 = zext i16 %spec.select to i32
-  %95 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %93, ptr noundef %0, i32 noundef %80, i32 noundef %94, i32 noundef 0) #15
+thread-pre-split:                                 ; preds = %87
+  %92 = trunc i32 %89 to i16
+  %.not64 = icmp eq i16 %92, 0
+  br i1 %.not64, label %._crit_edge, label %thread-pre-split.thread
+
+thread-pre-split.thread:                          ; preds = %87, %thread-pre-split
+  %93 = phi i16 [ %92, %thread-pre-split ], [ %88, %87 ]
+  %94 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
+  %95 = zext i16 %93 to i32
+  %96 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %94, ptr noundef %0, i32 noundef %80, i32 noundef %95, i32 noundef 0) #15
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %thread-pre-split, %92
-  %.pre-phi = phi i32 [ %94, %92 ], [ 0, %thread-pre-split ]
-  %96 = add i32 %80, %.pre-phi
-  br label %97
+._crit_edge:                                      ; preds = %thread-pre-split, %thread-pre-split.thread
+  %.pre-phi = phi i32 [ %95, %thread-pre-split.thread ], [ 0, %thread-pre-split ]
+  %97 = add i32 %80, %.pre-phi
+  br label %98
 
-97:                                               ; preds = %72, %._crit_edge, %63, %46, %37, %29
-  %98 = phi i32 [ %80, %72 ], [ %96, %._crit_edge ], [ %.pre, %63 ], [ %54, %46 ], [ %.pre65, %37 ], [ %35, %29 ]
-  ret i32 %98
+98:                                               ; preds = %72, %._crit_edge, %63, %46, %37, %29
+  %99 = phi i32 [ %80, %72 ], [ %97, %._crit_edge ], [ %.pre, %63 ], [ %54, %46 ], [ %.pre65, %37 ], [ %35, %29 ]
+  ret i32 %99
 }
 
 ; Function Attrs: nounwind uwtable
@@ -16361,7 +16400,7 @@ smbext20_timeout_msecs_to_str.exit:               ; preds = %79, %80, %81, %82, 
   %97 = add i32 %92, 2
   store i32 %97, ptr %8, align 4
   %98 = icmp eq i16 %93, 0
-  br i1 %98, label %145, label %99
+  br i1 %98, label %146, label %99
 
 99:                                               ; preds = %91
   %100 = getelementptr inbounds i8, ptr %5, i64 24
@@ -16369,7 +16408,7 @@ smbext20_timeout_msecs_to_str.exit:               ; preds = %79, %80, %81, %82, 
   %102 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %8, i32 noundef %101, ptr noundef %10, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %103 = icmp eq ptr %102, null
   %.pre.pre = load i32, ptr %8, align 4
-  br i1 %103, label %145, label %104
+  br i1 %103, label %146, label %104
 
 104:                                              ; preds = %99
   %105 = load i32, ptr @hf_smb_file_name, align 4
@@ -16416,46 +16455,49 @@ smbext20_timeout_msecs_to_str.exit:               ; preds = %79, %80, %81, %82, 
   %135 = call ptr @format_text(ptr noundef %133, ptr noundef nonnull %102, i64 noundef %134) #15
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %132, i32 noundef 25, ptr noundef nonnull @.str.2605, ptr noundef %135) #15
   %.not86 = icmp eq i16 %110, %111
-  br i1 %.not86, label %145, label %thread-pre-split
+  br i1 %.not86, label %146, label %136
 
-thread-pre-split:                                 ; preds = %130
-  %136 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %109) #15
-  %137 = zext i16 %112 to i32
-  %138 = icmp slt i32 %136, %137
-  %139 = trunc i32 %136 to i16
-  %spec.select = select i1 %138, i16 %139, i16 %112
-  %.not87 = icmp eq i16 %spec.select, 0
-  br i1 %.not87, label %._crit_edge, label %140
+136:                                              ; preds = %130
+  %137 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %109) #15
+  %138 = zext i16 %112 to i32
+  %139 = icmp slt i32 %137, %138
+  br i1 %139, label %thread-pre-split, label %thread-pre-split.thread
 
-140:                                              ; preds = %thread-pre-split
-  %141 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
-  %142 = zext i16 %spec.select to i32
-  %143 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %141, ptr noundef %0, i32 noundef %109, i32 noundef %142, i32 noundef 0) #15
+thread-pre-split:                                 ; preds = %136
+  %140 = trunc i32 %137 to i16
+  %.not87 = icmp eq i16 %140, 0
+  br i1 %.not87, label %._crit_edge, label %thread-pre-split.thread
+
+thread-pre-split.thread:                          ; preds = %136, %thread-pre-split
+  %141 = phi i16 [ %140, %thread-pre-split ], [ %112, %136 ]
+  %142 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
+  %143 = zext i16 %141 to i32
+  %144 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %142, ptr noundef %0, i32 noundef %109, i32 noundef %143, i32 noundef 0) #15
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %thread-pre-split, %140
-  %.pre-phi = phi i32 [ %142, %140 ], [ 0, %thread-pre-split ]
-  %144 = add i32 %109, %.pre-phi
-  br label %145
+._crit_edge:                                      ; preds = %thread-pre-split, %thread-pre-split.thread
+  %.pre-phi = phi i32 [ %143, %thread-pre-split.thread ], [ 0, %thread-pre-split ]
+  %145 = add i32 %109, %.pre-phi
+  br label %146
 
-145:                                              ; preds = %130, %._crit_edge, %99, %91
-  %.pre = phi i32 [ %109, %130 ], [ %144, %._crit_edge ], [ %.pre.pre, %99 ], [ %97, %91 ]
+146:                                              ; preds = %130, %._crit_edge, %99, %91
+  %.pre = phi i32 [ %109, %130 ], [ %145, %._crit_edge ], [ %.pre.pre, %99 ], [ %97, %91 ]
   %.not88 = icmp eq i8 %.0, -1
-  br i1 %.not88, label %150, label %146
+  br i1 %.not88, label %151, label %147
 
-146:                                              ; preds = %145
-  %147 = icmp slt i32 %.076, %.pre
-  br i1 %147, label %148, label %149
+147:                                              ; preds = %146
+  %148 = icmp slt i32 %.076, %.pre
+  br i1 %148, label %149, label %150
 
-148:                                              ; preds = %146
+149:                                              ; preds = %147
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #16
   unreachable
 
-149:                                              ; preds = %146
+150:                                              ; preds = %147
   call fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1, i32 noundef %.076, ptr noundef %4, i8 noundef zeroext %.0, i32 noundef 0, ptr noundef nonnull %5)
-  br label %150
+  br label %151
 
-150:                                              ; preds = %149, %145
+151:                                              ; preds = %150, %146
   ret i32 %.pre
 }
 
@@ -17807,7 +17849,7 @@ define internal i32 @dissect_tree_connect_request(ptr noundef %0, ptr nocapture 
   %20 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef %16, i32 noundef 2, i32 noundef %19) #15
   %21 = add i32 %3, 3
   %22 = icmp eq i16 %17, 0
-  br i1 %22, label %88, label %23
+  br i1 %22, label %89, label %23
 
 23:                                               ; preds = %11
   %24 = load i32, ptr @hf_smb_buffer_format, align 4
@@ -17821,7 +17863,7 @@ define internal i32 @dissect_tree_connect_request(ptr noundef %0, ptr nocapture 
   %30 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %29, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %31 = icmp eq ptr %30, null
   %.pre60 = load i32, ptr %7, align 4
-  br i1 %31, label %88, label %32
+  br i1 %31, label %89, label %32
 
 32:                                               ; preds = %23
   %33 = load i32, ptr @hf_smb_path, align 4
@@ -17838,7 +17880,7 @@ define internal i32 @dissect_tree_connect_request(ptr noundef %0, ptr nocapture 
   %44 = call ptr @format_text(ptr noundef %42, ptr noundef nonnull %30, i64 noundef %43) #15
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %41, i32 noundef 25, ptr noundef nonnull @.str.2605, ptr noundef %44) #15
   %45 = icmp eq i16 %38, %39
-  br i1 %45, label %88, label %46
+  br i1 %45, label %89, label %46
 
 46:                                               ; preds = %32
   %47 = load i32, ptr @hf_smb_buffer_format, align 4
@@ -17849,7 +17891,7 @@ define internal i32 @dissect_tree_connect_request(ptr noundef %0, ptr nocapture 
   %52 = call i32 @tvb_strsize(ptr noundef %0, i32 noundef %49) #15
   %53 = zext i16 %51 to i32
   %54 = icmp sgt i32 %52, %53
-  br i1 %54, label %88, label %55
+  br i1 %54, label %89, label %55
 
 55:                                               ; preds = %46
   %56 = load i32, ptr @hf_smb_password, align 4
@@ -17857,7 +17899,7 @@ define internal i32 @dissect_tree_connect_request(ptr noundef %0, ptr nocapture 
   %58 = add i32 %52, %49
   %59 = trunc i32 %52 to i16
   %60 = icmp eq i16 %51, %59
-  br i1 %60, label %88, label %61
+  br i1 %60, label %89, label %61
 
 61:                                               ; preds = %55
   %62 = load i32, ptr @hf_smb_buffer_format, align 4
@@ -17871,7 +17913,7 @@ define internal i32 @dissect_tree_connect_request(ptr noundef %0, ptr nocapture 
   %68 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %67, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %69 = icmp eq ptr %68, null
   %.pre = load i32, ptr %7, align 4
-  br i1 %69, label %88, label %70
+  br i1 %69, label %89, label %70
 
 70:                                               ; preds = %61
   %71 = load i32, ptr @hf_smb_service, align 4
@@ -17882,32 +17924,35 @@ define internal i32 @dissect_tree_connect_request(ptr noundef %0, ptr nocapture 
   %76 = load i16, ptr %9, align 2
   %77 = trunc i32 %74 to i16
   %.not58 = icmp eq i16 %76, %77
-  br i1 %.not58, label %88, label %thread-pre-split
+  br i1 %.not58, label %89, label %78
 
-thread-pre-split:                                 ; preds = %70
-  %78 = sub i16 %76, %77
-  %79 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %75) #15
-  %80 = zext i16 %78 to i32
-  %81 = icmp slt i32 %79, %80
-  %82 = trunc i32 %79 to i16
-  %spec.select = select i1 %81, i16 %82, i16 %78
-  %.not59 = icmp eq i16 %spec.select, 0
-  br i1 %.not59, label %._crit_edge, label %83
+78:                                               ; preds = %70
+  %79 = sub i16 %76, %77
+  %80 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %75) #15
+  %81 = zext i16 %79 to i32
+  %82 = icmp slt i32 %80, %81
+  br i1 %82, label %thread-pre-split, label %thread-pre-split.thread
 
-83:                                               ; preds = %thread-pre-split
-  %84 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
-  %85 = zext i16 %spec.select to i32
-  %86 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %84, ptr noundef %0, i32 noundef %75, i32 noundef %85, i32 noundef 0) #15
+thread-pre-split:                                 ; preds = %78
+  %83 = trunc i32 %80 to i16
+  %.not59 = icmp eq i16 %83, 0
+  br i1 %.not59, label %._crit_edge, label %thread-pre-split.thread
+
+thread-pre-split.thread:                          ; preds = %78, %thread-pre-split
+  %84 = phi i16 [ %83, %thread-pre-split ], [ %79, %78 ]
+  %85 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
+  %86 = zext i16 %84 to i32
+  %87 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %85, ptr noundef %0, i32 noundef %75, i32 noundef %86, i32 noundef 0) #15
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %thread-pre-split, %83
-  %.pre-phi = phi i32 [ %85, %83 ], [ 0, %thread-pre-split ]
-  %87 = add i32 %75, %.pre-phi
-  br label %88
+._crit_edge:                                      ; preds = %thread-pre-split, %thread-pre-split.thread
+  %.pre-phi = phi i32 [ %86, %thread-pre-split.thread ], [ 0, %thread-pre-split ]
+  %88 = add i32 %75, %.pre-phi
+  br label %89
 
-88:                                               ; preds = %70, %._crit_edge, %61, %55, %46, %32, %23, %11
-  %89 = phi i32 [ %75, %70 ], [ %87, %._crit_edge ], [ %.pre, %61 ], [ %58, %55 ], [ %49, %46 ], [ %37, %32 ], [ %.pre60, %23 ], [ %21, %11 ]
-  ret i32 %89
+89:                                               ; preds = %70, %._crit_edge, %61, %55, %46, %32, %23, %11
+  %90 = phi i32 [ %75, %70 ], [ %88, %._crit_edge ], [ %.pre, %61 ], [ %58, %55 ], [ %49, %46 ], [ %37, %32 ], [ %.pre60, %23 ], [ %21, %11 ]
+  ret i32 %90
 }
 
 ; Function Attrs: nounwind uwtable
@@ -19498,7 +19543,7 @@ define internal i32 @dissect_tree_connect_andx_request(ptr noundef %0, ptr nound
   %54 = icmp eq i16 %49, 0
   %55 = icmp samesign ugt i32 %.066, %51
   %or.cond83 = select i1 %54, i1 true, i1 %55
-  br i1 %or.cond83, label %115, label %56
+  br i1 %or.cond83, label %116, label %56
 
 56:                                               ; preds = %47
   %57 = load i32, ptr @hf_smb_password, align 4
@@ -19514,7 +19559,7 @@ define internal i32 @dissect_tree_connect_andx_request(ptr noundef %0, ptr nound
   store ptr %64, ptr %10, align 8
   %65 = icmp eq ptr %64, null
   %.pre.pre = load i32, ptr %7, align 4
-  br i1 %65, label %115, label %66
+  br i1 %65, label %116, label %66
 
 66:                                               ; preds = %56
   %67 = load i32, ptr @hf_smb_path, align 4
@@ -19560,7 +19605,7 @@ define internal i32 @dissect_tree_connect_andx_request(ptr noundef %0, ptr nound
   store i32 %95, ptr %9, align 4
   %96 = zext i16 %74 to i32
   %97 = icmp sgt i32 %95, %96
-  br i1 %97, label %115, label %98
+  br i1 %97, label %116, label %98
 
 98:                                               ; preds = %89
   %99 = load i32, ptr @hf_smb_service, align 4
@@ -19570,47 +19615,50 @@ define internal i32 @dissect_tree_connect_andx_request(ptr noundef %0, ptr nound
   %103 = add i32 %102, %71
   %104 = trunc i32 %102 to i16
   %.not79 = icmp eq i16 %74, %104
-  br i1 %.not79, label %115, label %thread-pre-split
+  br i1 %.not79, label %116, label %105
 
-thread-pre-split:                                 ; preds = %98
-  %105 = sub i16 %74, %104
-  %106 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %103) #15
-  %107 = zext i16 %105 to i32
-  %108 = icmp slt i32 %106, %107
-  %109 = trunc i32 %106 to i16
-  %spec.select = select i1 %108, i16 %109, i16 %105
-  %.not80 = icmp eq i16 %spec.select, 0
-  br i1 %.not80, label %._crit_edge, label %110
+105:                                              ; preds = %98
+  %106 = sub i16 %74, %104
+  %107 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %103) #15
+  %108 = zext i16 %106 to i32
+  %109 = icmp slt i32 %107, %108
+  br i1 %109, label %thread-pre-split, label %thread-pre-split.thread
 
-110:                                              ; preds = %thread-pre-split
-  %111 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
-  %112 = zext i16 %spec.select to i32
-  %113 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %111, ptr noundef %0, i32 noundef %103, i32 noundef %112, i32 noundef 0) #15
+thread-pre-split:                                 ; preds = %105
+  %110 = trunc i32 %107 to i16
+  %.not80 = icmp eq i16 %110, 0
+  br i1 %.not80, label %._crit_edge, label %thread-pre-split.thread
+
+thread-pre-split.thread:                          ; preds = %105, %thread-pre-split
+  %111 = phi i16 [ %110, %thread-pre-split ], [ %106, %105 ]
+  %112 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
+  %113 = zext i16 %111 to i32
+  %114 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %112, ptr noundef %0, i32 noundef %103, i32 noundef %113, i32 noundef 0) #15
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %thread-pre-split, %110
-  %.pre-phi = phi i32 [ %112, %110 ], [ 0, %thread-pre-split ]
-  %114 = add i32 %103, %.pre-phi
-  br label %115
+._crit_edge:                                      ; preds = %thread-pre-split, %thread-pre-split.thread
+  %.pre-phi = phi i32 [ %113, %thread-pre-split.thread ], [ 0, %thread-pre-split ]
+  %115 = add i32 %103, %.pre-phi
+  br label %116
 
-115:                                              ; preds = %98, %._crit_edge, %89, %56, %47
-  %.pre = phi i32 [ %103, %98 ], [ %114, %._crit_edge ], [ %71, %89 ], [ %.pre.pre, %56 ], [ %53, %47 ]
+116:                                              ; preds = %98, %._crit_edge, %89, %56, %47
+  %.pre = phi i32 [ %103, %98 ], [ %115, %._crit_edge ], [ %71, %89 ], [ %.pre.pre, %56 ], [ %53, %47 ]
   %.not81 = icmp eq i8 %.0, -1
-  br i1 %.not81, label %120, label %116
+  br i1 %.not81, label %121, label %117
 
-116:                                              ; preds = %115
-  %117 = icmp slt i32 %.065, %.pre
-  br i1 %117, label %118, label %119
+117:                                              ; preds = %116
+  %118 = icmp slt i32 %.065, %.pre
+  br i1 %118, label %119, label %120
 
-118:                                              ; preds = %116
+119:                                              ; preds = %117
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #16
   unreachable
 
-119:                                              ; preds = %116
+120:                                              ; preds = %117
   call fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1, i32 noundef %.065, ptr noundef %4, i8 noundef zeroext %.0, i32 noundef 0, ptr noundef nonnull %5)
-  br label %120
+  br label %121
 
-120:                                              ; preds = %119, %115
+121:                                              ; preds = %120, %116
   ret i32 %.pre
 }
 
@@ -19703,13 +19751,13 @@ define internal i32 @dissect_tree_connect_andx_response(ptr noundef %0, ptr noun
   %66 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %64, ptr noundef %0, i32 noundef %62, i32 noundef 2, i32 noundef %65) #15
   %67 = add i32 %62, 2
   %68 = icmp eq i16 %63, 0
-  br i1 %68, label %138, label %69
+  br i1 %68, label %thread-pre-split.thread, label %69
 
 69:                                               ; preds = %.thread
   %70 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %67) #15
   store i32 %70, ptr %9, align 4
   %71 = icmp sgt i32 %70, %65
-  br i1 %71, label %138, label %72
+  br i1 %71, label %thread-pre-split.thread, label %72
 
 72:                                               ; preds = %69
   %73 = load i32, ptr @hf_smb_service, align 4
@@ -19767,7 +19815,7 @@ define internal i32 @dissect_tree_connect_andx_response(ptr noundef %0, ptr noun
 
 112:                                              ; preds = %.sink.split, %72
   %.not79 = icmp eq i16 %63, %77
-  br i1 %.not79, label %thread-pre-split, label %113
+  br i1 %.not79, label %thread-pre-split.thread, label %113
 
 113:                                              ; preds = %112
   %114 = getelementptr inbounds i8, ptr %5, i64 24
@@ -19776,67 +19824,62 @@ define internal i32 @dissect_tree_connect_andx_response(ptr noundef %0, ptr noun
   store ptr %116, ptr %10, align 8
   %117 = icmp eq ptr %116, null
   %.pre.pre = load i32, ptr %7, align 4
-  br i1 %117, label %138, label %118
+  br i1 %117, label %thread-pre-split.thread, label %thread-pre-split
 
-118:                                              ; preds = %113
-  %119 = load i32, ptr @hf_smb_fs, align 4
-  %120 = load i32, ptr %9, align 4
-  %121 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %119, ptr noundef %0, i32 noundef %.pre.pre, i32 noundef %120, ptr noundef nonnull %116) #15
-  %122 = load i32, ptr %9, align 4
-  %123 = add i32 %122, %.pre.pre
-  %124 = load i16, ptr %8, align 2
-  %125 = trunc i32 %122 to i16
-  %126 = sub i16 %124, %125
-  br label %thread-pre-split
+thread-pre-split:                                 ; preds = %113
+  %118 = load i32, ptr @hf_smb_fs, align 4
+  %119 = load i32, ptr %9, align 4
+  %120 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %118, ptr noundef %0, i32 noundef %.pre.pre, i32 noundef %119, ptr noundef nonnull %116) #15
+  %121 = load i32, ptr %9, align 4
+  %122 = add i32 %121, %.pre.pre
+  %123 = load i16, ptr %8, align 2
+  %124 = trunc i32 %121 to i16
+  %125 = sub i16 %123, %124
+  %.not80 = icmp eq i16 %125, 0
+  br i1 %.not80, label %thread-pre-split.thread, label %126
 
-thread-pre-split:                                 ; preds = %112, %118
-  %127 = phi i32 [ %123, %118 ], [ %76, %112 ]
-  %.pr84 = phi i16 [ %126, %118 ], [ %78, %112 ]
-  %.not80 = icmp eq i16 %.pr84, 0
-  br i1 %.not80, label %138, label %128
+126:                                              ; preds = %thread-pre-split
+  %127 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %122) #15
+  %128 = zext i16 %125 to i32
+  %129 = icmp slt i32 %127, %128
+  br i1 %129, label %thread-pre-split83, label %thread-pre-split83.thread
 
-128:                                              ; preds = %thread-pre-split
-  %129 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %127) #15
-  %130 = zext i16 %.pr84 to i32
-  %131 = icmp slt i32 %129, %130
-  br i1 %131, label %thread-pre-split83, label %thread-pre-split83.thread
-
-thread-pre-split83:                               ; preds = %128
-  %132 = trunc i32 %129 to i16
-  %.not81 = icmp eq i16 %132, 0
+thread-pre-split83:                               ; preds = %126
+  %130 = trunc i32 %127 to i16
+  %.not81 = icmp eq i16 %130, 0
   br i1 %.not81, label %._crit_edge, label %thread-pre-split83.thread
 
-thread-pre-split83.thread:                        ; preds = %128, %thread-pre-split83
-  %133 = phi i16 [ %132, %thread-pre-split83 ], [ %.pr84, %128 ]
-  %134 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
-  %135 = zext i16 %133 to i32
-  %136 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %134, ptr noundef %0, i32 noundef %127, i32 noundef %135, i32 noundef 0) #15
+thread-pre-split83.thread:                        ; preds = %126, %thread-pre-split83
+  %131 = phi i16 [ %130, %thread-pre-split83 ], [ %125, %126 ]
+  %132 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
+  %133 = zext i16 %131 to i32
+  %134 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %132, ptr noundef %0, i32 noundef %122, i32 noundef %133, i32 noundef 0) #15
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %thread-pre-split83, %thread-pre-split83.thread
-  %.pre-phi = phi i32 [ %135, %thread-pre-split83.thread ], [ 0, %thread-pre-split83 ]
-  %137 = add i32 %127, %.pre-phi
-  br label %138
+  %.pre-phi = phi i32 [ %133, %thread-pre-split83.thread ], [ 0, %thread-pre-split83 ]
+  %135 = add i32 %122, %.pre-phi
+  br label %thread-pre-split.thread
 
-138:                                              ; preds = %thread-pre-split, %._crit_edge, %113, %69, %.thread
-  %.pre = phi i32 [ %127, %thread-pre-split ], [ %137, %._crit_edge ], [ %.pre.pre, %113 ], [ %67, %69 ], [ %67, %.thread ]
+thread-pre-split.thread:                          ; preds = %112, %thread-pre-split, %._crit_edge, %113, %69, %.thread
+  %.pre = phi i32 [ %122, %thread-pre-split ], [ %135, %._crit_edge ], [ %.pre.pre, %113 ], [ %67, %69 ], [ %67, %.thread ], [ %76, %112 ]
   %.not82 = icmp eq i8 %.0, -1
-  br i1 %.not82, label %144, label %139
+  br i1 %.not82, label %141, label %136
 
-139:                                              ; preds = %138
-  %140 = zext i16 %.067 to i32
-  %141 = icmp sgt i32 %.pre, %140
-  br i1 %141, label %142, label %143
+136:                                              ; preds = %thread-pre-split.thread
+  %137 = zext i16 %.067 to i32
+  %138 = icmp sgt i32 %.pre, %137
+  br i1 %138, label %139, label %140
 
-142:                                              ; preds = %139
+139:                                              ; preds = %136
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #16
   unreachable
 
-143:                                              ; preds = %139
-  call fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1, i32 noundef %140, ptr noundef %4, i8 noundef zeroext %.0, i32 noundef 0, ptr noundef nonnull %5)
-  br label %144
+140:                                              ; preds = %136
+  call fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1, i32 noundef %137, ptr noundef %4, i8 noundef zeroext %.0, i32 noundef 0, ptr noundef nonnull %5)
+  br label %141
 
-144:                                              ; preds = %143, %138
+141:                                              ; preds = %140, %thread-pre-split.thread
   ret i32 %.pre
 }
 
@@ -20878,14 +20921,14 @@ define internal i32 @dissect_nt_create_andx_request(ptr noundef %0, ptr noundef 
   %98 = add i32 %93, 2
   store i32 %98, ptr %7, align 4
   %99 = icmp eq i16 %94, 0
-  br i1 %99, label %155, label %100
+  br i1 %99, label %156, label %100
 
 100:                                              ; preds = %92
   br i1 %17, label %101, label %103
 
 101:                                              ; preds = %100
   %102 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_smb_missing_word_parameters, ptr noundef %0, i32 noundef 0, i32 noundef 0) #15
-  br label %155
+  br label %156
 
 103:                                              ; preds = %100
   %104 = getelementptr inbounds i8, ptr %5, i64 24
@@ -20893,7 +20936,7 @@ define internal i32 @dissect_nt_create_andx_request(ptr noundef %0, ptr noundef 
   %106 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %105, ptr noundef %9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
   %107 = icmp eq ptr %106, null
   %.pre.pre = load i32, ptr %7, align 4
-  br i1 %107, label %155, label %108
+  br i1 %107, label %156, label %108
 
 108:                                              ; preds = %103
   %109 = load i32, ptr @hf_smb_file_name, align 4
@@ -20952,46 +20995,49 @@ define internal i32 @dissect_nt_create_andx_request(ptr noundef %0, ptr noundef 
   %145 = call ptr @format_text(ptr noundef %143, ptr noundef nonnull %106, i64 noundef %144) #15
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %142, i32 noundef 25, ptr noundef nonnull @.str.2605, ptr noundef %145) #15
   %.not122 = icmp eq i16 %114, %115
-  br i1 %.not122, label %155, label %thread-pre-split
+  br i1 %.not122, label %156, label %146
 
-thread-pre-split:                                 ; preds = %140
-  %146 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %113) #15
-  %147 = zext i16 %116 to i32
-  %148 = icmp slt i32 %146, %147
-  %149 = trunc i32 %146 to i16
-  %spec.select = select i1 %148, i16 %149, i16 %116
-  %.not123 = icmp eq i16 %spec.select, 0
-  br i1 %.not123, label %._crit_edge, label %150
+146:                                              ; preds = %140
+  %147 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %113) #15
+  %148 = zext i16 %116 to i32
+  %149 = icmp slt i32 %147, %148
+  br i1 %149, label %thread-pre-split, label %thread-pre-split.thread
 
-150:                                              ; preds = %thread-pre-split
-  %151 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
-  %152 = zext i16 %spec.select to i32
-  %153 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %151, ptr noundef %0, i32 noundef %113, i32 noundef %152, i32 noundef 0) #15
+thread-pre-split:                                 ; preds = %146
+  %150 = trunc i32 %147 to i16
+  %.not123 = icmp eq i16 %150, 0
+  br i1 %.not123, label %._crit_edge, label %thread-pre-split.thread
+
+thread-pre-split.thread:                          ; preds = %146, %thread-pre-split
+  %151 = phi i16 [ %150, %thread-pre-split ], [ %116, %146 ]
+  %152 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
+  %153 = zext i16 %151 to i32
+  %154 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %152, ptr noundef %0, i32 noundef %113, i32 noundef %153, i32 noundef 0) #15
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %thread-pre-split, %150
-  %.pre-phi = phi i32 [ %152, %150 ], [ 0, %thread-pre-split ]
-  %154 = add i32 %113, %.pre-phi
-  br label %155
+._crit_edge:                                      ; preds = %thread-pre-split, %thread-pre-split.thread
+  %.pre-phi = phi i32 [ %153, %thread-pre-split.thread ], [ 0, %thread-pre-split ]
+  %155 = add i32 %113, %.pre-phi
+  br label %156
 
-155:                                              ; preds = %140, %._crit_edge, %103, %92, %101
-  %.pre = phi i32 [ %113, %140 ], [ %154, %._crit_edge ], [ %.pre.pre, %103 ], [ %98, %92 ], [ %98, %101 ]
+156:                                              ; preds = %140, %._crit_edge, %103, %92, %101
+  %.pre = phi i32 [ %113, %140 ], [ %155, %._crit_edge ], [ %.pre.pre, %103 ], [ %98, %92 ], [ %98, %101 ]
   %.not124 = icmp eq i8 %.0, -1
-  br i1 %.not124, label %160, label %156
+  br i1 %.not124, label %161, label %157
 
-156:                                              ; preds = %155
-  %157 = icmp slt i32 %.0106, %.pre
-  br i1 %157, label %158, label %159
+157:                                              ; preds = %156
+  %158 = icmp slt i32 %.0106, %.pre
+  br i1 %158, label %159, label %160
 
-158:                                              ; preds = %156
+159:                                              ; preds = %157
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #16
   unreachable
 
-159:                                              ; preds = %156
+160:                                              ; preds = %157
   call fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1, i32 noundef %.0106, ptr noundef %4, i8 noundef zeroext %.0, i32 noundef 0, ptr noundef nonnull %5)
-  br label %160
+  br label %161
 
-160:                                              ; preds = %159, %155
+161:                                              ; preds = %160, %156
   ret i32 %.pre
 }
 
@@ -21276,7 +21322,7 @@ define internal i32 @dissect_nt_rename_file_request(ptr noundef %0, ptr nocaptur
   %34 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %32, ptr noundef %0, i32 noundef %30, i32 noundef 2, i32 noundef %33) #15
   %35 = add i32 %30, 2
   %36 = icmp eq i16 %31, 0
-  br i1 %36, label %91, label %37
+  br i1 %36, label %92, label %37
 
 37:                                               ; preds = %29
   %38 = load i32, ptr @hf_smb_buffer_format, align 4
@@ -21290,7 +21336,7 @@ define internal i32 @dissect_nt_rename_file_request(ptr noundef %0, ptr nocaptur
   %44 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %43, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %45 = icmp eq ptr %44, null
   %.pre57 = load i32, ptr %7, align 4
-  br i1 %45, label %91, label %46
+  br i1 %45, label %92, label %46
 
 46:                                               ; preds = %37
   %47 = load i32, ptr @hf_smb_old_file_name, align 4
@@ -21307,7 +21353,7 @@ define internal i32 @dissect_nt_rename_file_request(ptr noundef %0, ptr nocaptur
   %58 = call ptr @format_text(ptr noundef %56, ptr noundef nonnull %44, i64 noundef %57) #15
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %55, i32 noundef 25, ptr noundef nonnull @.str.2607, ptr noundef %58) #15
   %59 = icmp eq i16 %52, %53
-  br i1 %59, label %91, label %60
+  br i1 %59, label %92, label %60
 
 60:                                               ; preds = %46
   %61 = load i32, ptr @hf_smb_buffer_format, align 4
@@ -21321,7 +21367,7 @@ define internal i32 @dissect_nt_rename_file_request(ptr noundef %0, ptr nocaptur
   %67 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %66, ptr noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   %68 = icmp eq ptr %67, null
   %.pre = load i32, ptr %7, align 4
-  br i1 %68, label %91, label %69
+  br i1 %68, label %92, label %69
 
 69:                                               ; preds = %60
   %70 = load i32, ptr @hf_smb_file_name, align 4
@@ -21337,32 +21383,35 @@ define internal i32 @dissect_nt_rename_file_request(ptr noundef %0, ptr nocaptur
   %80 = call ptr @format_text(ptr noundef %78, ptr noundef nonnull %67, i64 noundef %79) #15
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %77, i32 noundef 25, ptr noundef nonnull @.str.2608, ptr noundef %80) #15
   %.not55 = icmp eq i16 %75, %76
-  br i1 %.not55, label %91, label %thread-pre-split
+  br i1 %.not55, label %92, label %81
 
-thread-pre-split:                                 ; preds = %69
-  %81 = sub i16 %75, %76
-  %82 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %74) #15
-  %83 = zext i16 %81 to i32
-  %84 = icmp slt i32 %82, %83
-  %85 = trunc i32 %82 to i16
-  %spec.select = select i1 %84, i16 %85, i16 %81
-  %.not56 = icmp eq i16 %spec.select, 0
-  br i1 %.not56, label %._crit_edge, label %86
+81:                                               ; preds = %69
+  %82 = sub i16 %75, %76
+  %83 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %74) #15
+  %84 = zext i16 %82 to i32
+  %85 = icmp slt i32 %83, %84
+  br i1 %85, label %thread-pre-split, label %thread-pre-split.thread
 
-86:                                               ; preds = %thread-pre-split
-  %87 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
-  %88 = zext i16 %spec.select to i32
-  %89 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %87, ptr noundef %0, i32 noundef %74, i32 noundef %88, i32 noundef 0) #15
+thread-pre-split:                                 ; preds = %81
+  %86 = trunc i32 %83 to i16
+  %.not56 = icmp eq i16 %86, 0
+  br i1 %.not56, label %._crit_edge, label %thread-pre-split.thread
+
+thread-pre-split.thread:                          ; preds = %81, %thread-pre-split
+  %87 = phi i16 [ %86, %thread-pre-split ], [ %82, %81 ]
+  %88 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
+  %89 = zext i16 %87 to i32
+  %90 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %88, ptr noundef %0, i32 noundef %74, i32 noundef %89, i32 noundef 0) #15
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %thread-pre-split, %86
-  %.pre-phi = phi i32 [ %88, %86 ], [ 0, %thread-pre-split ]
-  %90 = add i32 %74, %.pre-phi
-  br label %91
+._crit_edge:                                      ; preds = %thread-pre-split, %thread-pre-split.thread
+  %.pre-phi = phi i32 [ %89, %thread-pre-split.thread ], [ 0, %thread-pre-split ]
+  %91 = add i32 %74, %.pre-phi
+  br label %92
 
-91:                                               ; preds = %69, %._crit_edge, %60, %46, %37, %29
-  %92 = phi i32 [ %74, %69 ], [ %90, %._crit_edge ], [ %.pre, %60 ], [ %51, %46 ], [ %.pre57, %37 ], [ %35, %29 ]
-  ret i32 %92
+92:                                               ; preds = %69, %._crit_edge, %60, %46, %37, %29
+  %93 = phi i32 [ %74, %69 ], [ %91, %._crit_edge ], [ %.pre, %60 ], [ %51, %46 ], [ %.pre57, %37 ], [ %35, %29 ]
+  ret i32 %93
 }
 
 ; Function Attrs: nounwind uwtable
@@ -21403,7 +21452,7 @@ define internal i32 @dissect_open_print_file_request(ptr noundef %0, ptr nocaptu
   %30 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef %26, i32 noundef 2, i32 noundef %29) #15
   %31 = add i32 %26, 2
   %32 = icmp eq i16 %27, 0
-  br i1 %32, label %60, label %33
+  br i1 %32, label %61, label %33
 
 33:                                               ; preds = %25
   %34 = load i32, ptr @hf_smb_buffer_format, align 4
@@ -21417,7 +21466,7 @@ define internal i32 @dissect_open_print_file_request(ptr noundef %0, ptr nocaptu
   %40 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef %0, ptr noundef %7, i32 noundef %39, ptr noundef %8, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
   %41 = icmp eq ptr %40, null
   %.pre = load i32, ptr %7, align 4
-  br i1 %41, label %60, label %42
+  br i1 %41, label %61, label %42
 
 42:                                               ; preds = %33
   %43 = load i32, ptr @hf_smb_print_identifier, align 4
@@ -21428,32 +21477,35 @@ define internal i32 @dissect_open_print_file_request(ptr noundef %0, ptr nocaptu
   %48 = load i16, ptr %9, align 2
   %49 = trunc i32 %46 to i16
   %.not34 = icmp eq i16 %48, %49
-  br i1 %.not34, label %60, label %thread-pre-split
+  br i1 %.not34, label %61, label %50
 
-thread-pre-split:                                 ; preds = %42
-  %50 = sub i16 %48, %49
-  %51 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %47) #15
-  %52 = zext i16 %50 to i32
-  %53 = icmp slt i32 %51, %52
-  %54 = trunc i32 %51 to i16
-  %spec.select = select i1 %53, i16 %54, i16 %50
-  %.not35 = icmp eq i16 %spec.select, 0
-  br i1 %.not35, label %._crit_edge, label %55
+50:                                               ; preds = %42
+  %51 = sub i16 %48, %49
+  %52 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %47) #15
+  %53 = zext i16 %51 to i32
+  %54 = icmp slt i32 %52, %53
+  br i1 %54, label %thread-pre-split, label %thread-pre-split.thread
 
-55:                                               ; preds = %thread-pre-split
-  %56 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
-  %57 = zext i16 %spec.select to i32
-  %58 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %56, ptr noundef %0, i32 noundef %47, i32 noundef %57, i32 noundef 0) #15
+thread-pre-split:                                 ; preds = %50
+  %55 = trunc i32 %52 to i16
+  %.not35 = icmp eq i16 %55, 0
+  br i1 %.not35, label %._crit_edge, label %thread-pre-split.thread
+
+thread-pre-split.thread:                          ; preds = %50, %thread-pre-split
+  %56 = phi i16 [ %55, %thread-pre-split ], [ %51, %50 ]
+  %57 = load i32, ptr @hf_smb_extra_byte_parameters, align 4
+  %58 = zext i16 %56 to i32
+  %59 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %57, ptr noundef %0, i32 noundef %47, i32 noundef %58, i32 noundef 0) #15
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %thread-pre-split, %55
-  %.pre-phi = phi i32 [ %57, %55 ], [ 0, %thread-pre-split ]
-  %59 = add i32 %47, %.pre-phi
-  br label %60
+._crit_edge:                                      ; preds = %thread-pre-split, %thread-pre-split.thread
+  %.pre-phi = phi i32 [ %58, %thread-pre-split.thread ], [ 0, %thread-pre-split ]
+  %60 = add i32 %47, %.pre-phi
+  br label %61
 
-60:                                               ; preds = %42, %._crit_edge, %33, %25
-  %61 = phi i32 [ %47, %42 ], [ %59, %._crit_edge ], [ %.pre, %33 ], [ %31, %25 ]
-  ret i32 %61
+61:                                               ; preds = %42, %._crit_edge, %33, %25
+  %62 = phi i32 [ %47, %42 ], [ %60, %._crit_edge ], [ %.pre, %33 ], [ %31, %25 ]
+  ret i32 %62
 }
 
 ; Function Attrs: nounwind uwtable

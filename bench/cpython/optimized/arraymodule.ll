@@ -6495,7 +6495,7 @@ if.else.i.i:                                      ; preds = %if.end9.i
   %12 = load ptr, ptr %ob_item.i.i, align 8
   %sub.i.i = sub i64 %spec.select49.i.i, %spec.select.i.i
   %cmp17.not.i.i = icmp eq i64 %spec.select49.i.i, %spec.select.i.i
-  br i1 %cmp17.not.i.i, label %if.end20.i.i, label %land.lhs.true.i.i
+  br i1 %cmp17.not.i.i, label %exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.else.i.i
   %ob_exports.i.i = getelementptr inbounds i8, ptr %self, i64 56
@@ -6508,7 +6508,7 @@ if.then19.i.i:                                    ; preds = %land.lhs.true.i.i
   tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.53) #11
   br label %if.then17.i
 
-if.end20.i.i:                                     ; preds = %land.lhs.true.i.i, %if.else.i.i
+if.end20.i.i:                                     ; preds = %land.lhs.true.i.i
   %cmp21.i.i = icmp sgt i64 %sub.i.i, 0
   br i1 %cmp21.i.i, label %if.then22.i.i, label %exit
 
@@ -6546,8 +6546,8 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i.i) #11
   br label %exit
 
-exit:                                             ; preds = %if.then1.i.i, %if.end.i.i, %if.then17.i, %if.then22.i.i, %if.end20.i.i, %if.end9.i, %if.then8.i, %if.then.i, %land.lhs.true11, %lor.lhs.false
-  %return_value.0 = phi ptr [ null, %land.lhs.true11 ], [ null, %lor.lhs.false ], [ null, %if.then.i ], [ null, %if.then8.i ], [ null, %if.end9.i ], [ null, %if.then17.i ], [ null, %if.then1.i.i ], [ null, %if.end.i.i ], [ %call.i.i, %if.end20.i.i ], [ %call.i.i, %if.then22.i.i ]
+exit:                                             ; preds = %if.then1.i.i, %if.end.i.i, %if.then17.i, %if.then22.i.i, %if.end20.i.i, %if.else.i.i, %if.end9.i, %if.then8.i, %if.then.i, %land.lhs.true11, %lor.lhs.false
+  %return_value.0 = phi ptr [ null, %land.lhs.true11 ], [ null, %lor.lhs.false ], [ null, %if.then.i ], [ null, %if.then8.i ], [ null, %if.end9.i ], [ null, %if.then17.i ], [ null, %if.then1.i.i ], [ null, %if.end.i.i ], [ %call.i.i, %if.else.i.i ], [ %call.i.i, %if.end20.i.i ], [ %call.i.i, %if.then22.i.i ]
   ret ptr %return_value.0
 }
 
@@ -6876,7 +6876,7 @@ if.else10.i:                                      ; preds = %Py_DECREF.exit
   %5 = load ptr, ptr %ob_item.i, align 8
   %sub.i = sub i64 %spec.select49.i, %spec.select.i
   %cmp17.not.i = icmp eq i64 %spec.select49.i, %spec.select.i
-  br i1 %cmp17.not.i, label %if.end20.i, label %land.lhs.true.i
+  br i1 %cmp17.not.i, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else10.i
   %ob_exports.i = getelementptr inbounds i8, ptr %self, i64 56
@@ -6889,7 +6889,7 @@ if.then19.i:                                      ; preds = %land.lhs.true.i
   tail call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.53) #11
   br label %array_del_slice.exit.thread
 
-if.end20.i:                                       ; preds = %land.lhs.true.i, %if.else10.i
+if.end20.i:                                       ; preds = %land.lhs.true.i
   %cmp21.i = icmp sgt i64 %sub.i, 0
   br i1 %cmp21.i, label %if.then22.i, label %return
 
@@ -6929,8 +6929,8 @@ for.end:                                          ; preds = %for.inc, %entry
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.111) #11
   br label %return
 
-return:                                           ; preds = %if.else, %for.body, %array_del_slice.exit.thread, %if.then22.i, %if.end20.i, %for.end
-  %retval.0 = phi ptr [ null, %for.end ], [ null, %array_del_slice.exit.thread ], [ @_Py_NoneStruct, %if.then22.i ], [ @_Py_NoneStruct, %if.end20.i ], [ null, %for.body ], [ null, %if.else ]
+return:                                           ; preds = %if.else, %for.body, %array_del_slice.exit.thread, %if.then22.i, %if.end20.i, %if.else10.i, %for.end
+  %retval.0 = phi ptr [ null, %for.end ], [ null, %array_del_slice.exit.thread ], [ @_Py_NoneStruct, %if.then22.i ], [ @_Py_NoneStruct, %if.end20.i ], [ @_Py_NoneStruct, %if.else10.i ], [ null, %for.body ], [ null, %if.else ]
   ret ptr %retval.0
 }
 

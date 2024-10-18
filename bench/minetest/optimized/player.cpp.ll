@@ -1265,7 +1265,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %cmp.not.i, label %_ZN6Player12getFreeHudIDEv.exit, label %for.body.i, !llvm.loop !85
 
 _ZN6Player12getFreeHudIDEv.exit:                  ; preds = %for.inc.i, %for.body.i, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
-  %i.014.lcssa.sink.i = phi i64 [ %sub.ptr.div.i.i, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ], [ %i.014.i, %for.body.i ], [ %sub.ptr.div.i.i, %for.inc.i ]
+  %i.014.lcssa.sink.i = phi i64 [ 0, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ], [ %i.014.i, %for.body.i ], [ %sub.ptr.div.i.i, %for.inc.i ]
   %conv = and i64 %i.014.lcssa.sink.i, 4294967295
   %cmp = icmp ugt i64 %sub.ptr.div.i.i, %conv
   br i1 %cmp, label %if.then, label %if.else

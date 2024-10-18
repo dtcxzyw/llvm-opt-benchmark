@@ -11181,7 +11181,7 @@ define linkonce_odr void @_ZSt30__move_merge_adaptive_backwardIPN4llvm8ValueDFSE
   %.024 = phi ptr [ %96, %95 ], [ %.024.ph, %.outer ]
   %.0 = phi ptr [ %93, %95 ], [ %.0.ph, %.outer ]
   %24 = icmp eq ptr %.024, %.026.ph
-  br i1 %24, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit.thread38, label %25
+  br i1 %24, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit.thread39, label %25
 
 25:                                               ; preds = %23
   %26 = load i32, ptr %.024, align 8
@@ -11196,11 +11196,11 @@ define linkonce_odr void @_ZSt30__move_merge_adaptive_backwardIPN4llvm8ValueDFSE
   %or.cond28.i.i = select i1 %or.cond.i.i, i1 %33, i1 false
   %34 = getelementptr inbounds nuw i8, ptr %.024, i64 16
   %35 = load ptr, ptr %34, align 8
-  %.not.i.i35 = icmp eq ptr %35, null
+  %.not.i.i36 = icmp eq ptr %35, null
   br i1 %or.cond28.i.i, label %36, label %65
 
 36:                                               ; preds = %25
-  br i1 %.not.i.i35, label %37, label %44
+  br i1 %.not.i.i36, label %37, label %44
 
 37:                                               ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %.024, i64 24
@@ -11270,7 +11270,7 @@ _ZNK4llvm16ValueDFS_Compare12getBlockEdgeERKNS_8ValueDFSE.exit15.i: ; preds = %5
 
 70:                                               ; preds = %68
   %71 = icmp slt i32 %27, %26
-  br i1 %71, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit.thread38, label %72
+  br i1 %71, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit.thread39, label %72
 
 72:                                               ; preds = %70
   %73 = icmp ult i32 %30, %32
@@ -11278,13 +11278,13 @@ _ZNK4llvm16ValueDFS_Compare12getBlockEdgeERKNS_8ValueDFSE.exit15.i: ; preds = %5
 
 74:                                               ; preds = %72
   %75 = icmp uge i32 %32, %30
-  %76 = and i1 %.not.i.i35, %67
+  %76 = and i1 %.not.i.i36, %67
   %spec.select.i.i = select i1 %75, i1 %76, i1 false
-  br i1 %spec.select.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit.thread38
+  br i1 %spec.select.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit.thread39
 
 77:                                               ; preds = %65
   %78 = call noundef zeroext i1 @_ZNK4llvm16ValueDFS_Compare16localComesBeforeERKNS_8ValueDFSES3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(41) %.024, ptr noundef nonnull align 8 dereferenceable(41) %.026.ph)
-  br i1 %78, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit.thread38
+  br i1 %78, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit.thread39
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit: ; preds = %_ZNK4llvm16ValueDFS_Compare12getBlockEdgeERKNS_8ValueDFSE.exit15.i
   %79 = load ptr, ptr %20, align 8
@@ -11294,7 +11294,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFS
   %82 = icmp uge i32 %63, %62
   %83 = and i1 %80, %.not.i
   %spec.select.i = select i1 %82, i1 %83, i1 false
-  br i1 %spec.select.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit.thread38
+  br i1 %spec.select.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit.thread39
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit.thread: ; preds = %_ZNK4llvm16ValueDFS_Compare12getBlockEdgeERKNS_8ValueDFSE.exit15.i, %72, %68, %74, %77, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit
   %84 = getelementptr inbounds i8, ptr %.0, i64 -48
@@ -11304,29 +11304,29 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFS
 
 86:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit.thread
   %87 = getelementptr inbounds i8, ptr %.024, i64 48
-  %.not.i.i.i.i.i33 = icmp eq ptr %87, %2
-  br i1 %.not.i.i.i.i.i33, label %_ZSt13move_backwardIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit, label %88
+  %.not.i.i.i.i.i32 = icmp eq ptr %87, %2
+  br i1 %.not.i.i.i.i.i32, label %_ZSt13move_backwardIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit, label %88
 
 88:                                               ; preds = %86
   %89 = ptrtoint ptr %87 to i64
   %90 = ptrtoint ptr %2 to i64
   %91 = sub i64 %89, %90
-  %.neg.i.i.i.i.i32 = sdiv exact i64 %91, -48
-  %92 = getelementptr inbounds %"struct.llvm::ValueDFS", ptr %84, i64 %.neg.i.i.i.i.i32
+  %.neg.i.i.i.i.i33 = sdiv exact i64 %91, -48
+  %92 = getelementptr inbounds %"struct.llvm::ValueDFS", ptr %84, i64 %.neg.i.i.i.i.i33
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %92, ptr align 8 %2, i64 %91, i1 false)
   br label %_ZSt13move_backwardIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit.thread38: ; preds = %70, %23, %74, %77, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit.thread39: ; preds = %70, %23, %74, %77, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit
   %93 = getelementptr inbounds i8, ptr %.0, i64 -48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %93, ptr noundef nonnull align 8 dereferenceable(41) %.024, i64 41, i1 false)
   %94 = icmp eq ptr %2, %.024
   br i1 %94, label %_ZSt13move_backwardIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit, label %95
 
-95:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit.thread38
+95:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit.thread39
   %96 = getelementptr inbounds i8, ptr %.024, i64 -48
   br label %23, !llvm.loop !183
 
-_ZSt13move_backwardIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit.thread38, %88, %86, %10, %9, %15
+_ZSt13move_backwardIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm16ValueDFS_CompareEEclIPNS2_8ValueDFSES7_EEbT_T0_.exit.thread39, %88, %86, %10, %9, %15
   ret void
 }
 
@@ -11408,16 +11408,17 @@ _ZSt4moveIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit40: ; preds = %26, %30
   br label %_ZSt4moveIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit42
 
 _ZSt4moveIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit42: ; preds = %_ZSt4moveIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit40, %31
-  %.neg.i.i.i.i.i43 = sdiv exact i64 %29, -48
-  br i1 %.not.i.i.i.i.i39, label %_ZSt13move_backwardIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit45, label %34
+  br i1 %.not.i.i.i.i.i39, label %_ZSt13move_backwardIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit46, label %34
 
 34:                                               ; preds = %_ZSt4moveIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit42
-  %35 = getelementptr inbounds %"struct.llvm::ValueDFS", ptr %2, i64 %.neg.i.i.i.i.i43
+  %.neg.i.i.i.i.i44 = sdiv exact i64 %29, -48
+  %35 = getelementptr inbounds %"struct.llvm::ValueDFS", ptr %2, i64 %.neg.i.i.i.i.i44
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %35, ptr align 8 %5, i64 %29, i1 false)
-  br label %_ZSt13move_backwardIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit45
+  br label %_ZSt13move_backwardIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit46
 
-_ZSt13move_backwardIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit45: ; preds = %_ZSt4moveIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit42, %34
-  %36 = getelementptr inbounds %"struct.llvm::ValueDFS", ptr %2, i64 %.neg.i.i.i.i.i43
+_ZSt13move_backwardIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit46: ; preds = %_ZSt4moveIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit42, %34
+  %.pre-phi.i.i.i.i.i45 = phi i64 [ %.neg.i.i.i.i.i44, %34 ], [ 0, %_ZSt4moveIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit42 ]
+  %36 = getelementptr inbounds %"struct.llvm::ValueDFS", ptr %2, i64 %.pre-phi.i.i.i.i.i45
   br label %_ZNSt3_V26rotateIPN4llvm8ValueDFSEEET_S4_S4_S4_.exit
 
 37:                                               ; preds = %24
@@ -11533,8 +11534,8 @@ _ZSt13move_backwardIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit45: ; preds = %_ZSt4mov
   %.039.i.i.be = phi ptr [ %.1.lcssa.i.i, %67 ], [ %.3.lcssa.i.i, %._crit_edge.i.i ]
   br label %56, !llvm.loop !174
 
-_ZNSt3_V26rotateIPN4llvm8ValueDFSEEET_S4_S4_S4_.exit: ; preds = %._crit_edge.i.i, %._crit_edge70.i.i, %.lr.ph.i.i.i, %39, %37, %25, %12, %_ZSt13move_backwardIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit45, %_ZSt4moveIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit38
-  %.0 = phi ptr [ %23, %_ZSt4moveIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit38 ], [ %36, %_ZSt13move_backwardIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit45 ], [ %0, %12 ], [ %2, %25 ], [ %2, %37 ], [ %0, %39 ], [ %1, %.lr.ph.i.i.i ], [ %55, %._crit_edge70.i.i ], [ %55, %._crit_edge.i.i ]
+_ZNSt3_V26rotateIPN4llvm8ValueDFSEEET_S4_S4_S4_.exit: ; preds = %._crit_edge.i.i, %._crit_edge70.i.i, %.lr.ph.i.i.i, %39, %37, %25, %12, %_ZSt13move_backwardIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit46, %_ZSt4moveIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit38
+  %.0 = phi ptr [ %23, %_ZSt4moveIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit38 ], [ %36, %_ZSt13move_backwardIPN4llvm8ValueDFSES2_ET0_T_S4_S3_.exit46 ], [ %0, %12 ], [ %2, %25 ], [ %2, %37 ], [ %0, %39 ], [ %1, %.lr.ph.i.i.i ], [ %55, %._crit_edge70.i.i ], [ %55, %._crit_edge.i.i ]
   ret ptr %.0
 }
 

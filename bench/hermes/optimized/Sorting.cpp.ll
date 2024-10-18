@@ -57,7 +57,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %if.end, %if.end.i.i
   %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.end ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ]
   store ptr %__first.addr.0.i.i.i.i.i, ptr %0, align 8
   %cmp116.not = icmp eq i32 %end, %begin
-  br i1 %cmp116.not, label %for.end, label %for.body
+  br i1 %cmp116.not, label %if.else, label %for.body
 
 for.body:                                         ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit ]
@@ -68,11 +68,11 @@ for.body:                                         ; preds = %_ZNSt6vectorIjSaIjE
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
-for.end:                                          ; preds = %for.body, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
+for.end:                                          ; preds = %for.body
   %cmp3 = icmp ugt i32 %sub, 6
   br i1 %cmp3, label %cleanup, label %if.else
 
-if.else:                                          ; preds = %for.end
+if.else:                                          ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit, %for.end
   %i.028.i = add i32 %begin, 1
   %cmp1.not29.i = icmp eq i32 %i.028.i, %end
   br i1 %cmp1.not29.i, label %if.then.i.i.i, label %for.cond2.preheader.i
@@ -146,13 +146,13 @@ cleanup:                                          ; preds = %for.end
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.inc16.i, %if.end10.i, %for.body4.i, %if.else, %cleanup
-  %retval.122 = phi i32 [ %call7, %cleanup ], [ 1, %if.else ], [ 0, %for.body4.i ], [ 0, %if.end10.i ], [ 1, %for.inc16.i ]
+  %retval.123 = phi i32 [ %call7, %cleanup ], [ 1, %if.else ], [ 0, %for.body4.i ], [ 0, %if.end10.i ], [ 1, %for.inc16.i ]
   %11 = phi ptr [ %.pre, %cleanup ], [ %call5.i.i.i.i.i.i, %if.else ], [ %call5.i.i.i.i.i.i, %for.body4.i ], [ %call5.i.i.i.i.i.i, %if.end10.i ], [ %call5.i.i.i.i.i.i, %for.inc16.i ]
   call void @_ZdlPv(ptr noundef nonnull %11) #11
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %cleanup, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ %call7, %cleanup ], [ %retval.122, %if.then.i.i.i ]
+  %retval.0 = phi i32 [ 1, %entry ], [ %call7, %cleanup ], [ %retval.123, %if.then.i.i.i ]
   ret i32 %retval.0
 }
 

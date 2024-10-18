@@ -9799,8 +9799,8 @@ _ZN4llvh15SmallVectorImplIcE6appendISt13move_iteratorIPcEvEEvT_S6_.exit: ; preds
 if.then.i.i.i.i.i:                                ; preds = %_ZN4llvh15SmallVectorImplIcE6appendISt13move_iteratorIPcEvEEvT_S6_.exit
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr7 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %.pre.i.i.i.i.i = sub i64 0, %sub.ptr.sub.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i48, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub i64 0, %sub.ptr.sub.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i48, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i, ptr align 1 %add.ptr7, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit
 
@@ -9816,24 +9816,20 @@ if.end24:                                         ; preds = %_ZN4llvh15SmallVect
   %conv.i66 = add i32 %7, %13
   store i32 %conv.i66, ptr %Size.i, align 8
   %cmp.not.i.i69 = icmp eq i64 %sub.ptr.sub, %conv.i38.pre-phi
-  br i1 %cmp.not.i.i69, label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit, label %if.then.i.i70
+  br i1 %cmp.not.i.i69, label %for.end, label %for.body.preheader
 
-if.then.i.i70:                                    ; preds = %if.end24
+for.body.preheader:                               ; preds = %if.end24
   %conv.i68 = zext i32 %conv.i66 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %conv.i68
   %idx.neg33 = sub nsw i64 0, %gepdiff
   %add.ptr34 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.neg33
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr34, ptr align 1 %add.ptr7, i64 %gepdiff, i1 false)
-  br label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit
+  br label %for.body
 
-_ZN4llvh23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit: ; preds = %if.end24, %if.then.i.i70
-  %cmp35.not77 = icmp eq i64 %gepdiff, 0
-  br i1 %cmp35.not77, label %for.end, label %for.body
-
-for.body:                                         ; preds = %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit, %for.body
-  %J.080 = phi ptr [ %incdec.ptr, %for.body ], [ %add.ptr7, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit ]
-  %NumOverwritten.079 = phi i64 [ %dec, %for.body ], [ %gepdiff, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit ]
-  %From.addr.078 = phi ptr [ %incdec.ptr36, %for.body ], [ %From, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit ]
+for.body:                                         ; preds = %for.body.preheader, %for.body
+  %J.080 = phi ptr [ %incdec.ptr, %for.body ], [ %add.ptr7, %for.body.preheader ]
+  %NumOverwritten.079 = phi i64 [ %dec, %for.body ], [ %gepdiff, %for.body.preheader ]
+  %From.addr.078 = phi ptr [ %incdec.ptr36, %for.body ], [ %From, %for.body.preheader ]
   %14 = load i8, ptr %From.addr.078, align 1
   store i8 %14, ptr %J.080, align 1
   %incdec.ptr = getelementptr inbounds i8, ptr %J.080, i64 1
@@ -9842,8 +9838,8 @@ for.body:                                         ; preds = %_ZN4llvh23SmallVect
   %cmp35.not = icmp eq i64 %dec, 0
   br i1 %cmp35.not, label %for.end, label %for.body, !llvm.loop !129
 
-for.end:                                          ; preds = %for.body, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit
-  %From.addr.0.lcssa = phi ptr [ %From, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit ], [ %incdec.ptr36, %for.body ]
+for.end:                                          ; preds = %for.body, %if.end24
+  %From.addr.0.lcssa = phi ptr [ %From, %if.end24 ], [ %incdec.ptr36, %for.body ]
   %cmp.not.i = icmp eq ptr %From.addr.0.lcssa, %To
   br i1 %cmp.not.i, label %return, label %if.then.i74
 

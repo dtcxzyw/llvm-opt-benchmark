@@ -19594,7 +19594,7 @@ if.then.i.i.i61:                                  ; preds = %lpad39.body.thread,
 
 sw.bb41:                                          ; preds = %for.end
   %cmp.i.not.i.i = icmp eq ptr %temp.sroa.0.1, %__first.addr.0.i.i.i.i.i.fr
-  br i1 %cmp.i.not.i.i, label %sw.epilog, label %if.then.i.i62
+  br i1 %cmp.i.not.i.i, label %for.end86, label %if.then.i.i62
 
 if.then.i.i62:                                    ; preds = %sw.bb41
   %64 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i54, i1 true)
@@ -19733,8 +19733,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15Fsiz
   %sub.ptr.lhs.cast.i.i.i.i.i.i56.i.i.i = ptrtoint ptr %__i.sroa.0.011.i29.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i57.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i56.i.i.i, %sub.ptr.rhs.cast.i52
   %sub.ptr.div.i.i.i.i.i.i58.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i57.i.i.i, 4
-  %.pre.i.i.i.i.i.i59.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i58.i.i.i
-  %add.ptr.i.i.i.i.i.i60.i.i.i = getelementptr inbounds %"struct.rocksdb::(anonymous namespace)::Fsize", ptr %add.ptr.i7.i55.i.i.i, i64 %.pre.i.i.i.i.i.i59.i.i.i
+  %idx.neg.i.i.i.i.i.i59.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i58.i.i.i
+  %add.ptr.i.i.i.i.i.i60.i.i.i = getelementptr inbounds %"struct.rocksdb::(anonymous namespace)::Fsize", ptr %add.ptr.i7.i55.i.i.i, i64 %idx.neg.i.i.i.i.i.i59.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i60.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %temp.sroa.0.1, i64 %sub.ptr.sub.i.i.i.i.i.i57.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.sroa.0.1, ptr noundef nonnull align 8 dereferenceable(16) %__val.i21.i.i.i, i64 16, i1 false)
   br label %for.inc.i44.i.i.i
@@ -19778,7 +19778,7 @@ for.inc.i44.i.i.i:                                ; preds = %"_ZSt25__unguarded_
 
 sw.bb52:                                          ; preds = %for.end
   %cmp.i.not.i.i69 = icmp eq ptr %temp.sroa.0.1, %__first.addr.0.i.i.i.i.i.fr
-  br i1 %cmp.i.not.i.i69, label %sw.epilog, label %if.then.i.i70
+  br i1 %cmp.i.not.i.i69, label %for.end86, label %if.then.i.i70
 
 if.then.i.i70:                                    ; preds = %sw.bb52
   %86 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i54, i1 true)
@@ -19917,8 +19917,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15Fsiz
   %sub.ptr.lhs.cast.i.i.i.i.i.i56.i.i.i109 = ptrtoint ptr %__i.sroa.0.011.i29.i.i.i83 to i64
   %sub.ptr.sub.i.i.i.i.i.i57.i.i.i110 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i56.i.i.i109, %sub.ptr.rhs.cast.i52
   %sub.ptr.div.i.i.i.i.i.i58.i.i.i111 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i57.i.i.i110, 4
-  %.pre.i.i.i.i.i.i59.i.i.i112 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i58.i.i.i111
-  %add.ptr.i.i.i.i.i.i60.i.i.i113 = getelementptr inbounds %"struct.rocksdb::(anonymous namespace)::Fsize", ptr %add.ptr.i7.i55.i.i.i108, i64 %.pre.i.i.i.i.i.i59.i.i.i112
+  %idx.neg.i.i.i.i.i.i59.i.i.i112 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i58.i.i.i111
+  %add.ptr.i.i.i.i.i.i60.i.i.i113 = getelementptr inbounds %"struct.rocksdb::(anonymous namespace)::Fsize", ptr %add.ptr.i7.i55.i.i.i108, i64 %idx.neg.i.i.i.i.i.i59.i.i.i112
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i60.i.i.i113, ptr noundef nonnull align 8 dereferenceable(1) %temp.sroa.0.1, i64 %sub.ptr.sub.i.i.i.i.i.i57.i.i.i110, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.sroa.0.1, ptr noundef nonnull align 8 dereferenceable(16) %__val.i21.i.i.i67, i64 16, i1 false)
   br label %for.inc.i44.i.i.i97
@@ -20626,7 +20626,7 @@ sw.bb71:                                          ; preds = %for.end
 
 if.then.i:                                        ; preds = %sw.bb71
   %cmp.i.not.i.i.i = icmp eq ptr %temp.sroa.0.1, %__first.addr.0.i.i.i.i.i.fr
-  br i1 %cmp.i.not.i.i.i, label %sw.epilog, label %if.then.i.i.i190
+  br i1 %cmp.i.not.i.i.i, label %for.end86, label %if.then.i.i.i190
 
 if.then.i.i.i190:                                 ; preds = %if.then.i
   %174 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i54, i1 true)
@@ -20765,8 +20765,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15Fsiz
   %sub.ptr.lhs.cast.i.i.i.i.i.i56.i.i.i.i = ptrtoint ptr %__i.sroa.0.011.i29.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i57.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i56.i.i.i.i, %sub.ptr.rhs.cast.i52
   %sub.ptr.div.i.i.i.i.i.i58.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i57.i.i.i.i, 4
-  %.pre.i.i.i.i.i.i59.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i58.i.i.i.i
-  %add.ptr.i.i.i.i.i.i60.i.i.i.i = getelementptr inbounds %"struct.rocksdb::(anonymous namespace)::Fsize", ptr %add.ptr.i7.i55.i.i.i.i, i64 %.pre.i.i.i.i.i.i59.i.i.i.i
+  %idx.neg.i.i.i.i.i.i59.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i58.i.i.i.i
+  %add.ptr.i.i.i.i.i.i60.i.i.i.i = getelementptr inbounds %"struct.rocksdb::(anonymous namespace)::Fsize", ptr %add.ptr.i7.i55.i.i.i.i, i64 %idx.neg.i.i.i.i.i.i59.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i60.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %temp.sroa.0.1, i64 %sub.ptr.sub.i.i.i.i.i.i57.i.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.sroa.0.1, ptr noundef nonnull align 8 dereferenceable(16) %__val.i21.i.i.i.i, i64 16, i1 false)
   br label %for.inc.i44.i.i.i.i
@@ -21117,7 +21117,7 @@ if.then.i.i.i130.i:                               ; preds = %invoke.cont70.i, %f
   call void @_ZdlPv(ptr noundef nonnull %local_temp.sroa.0.5.i) #34
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS3_20SortFileByRoundRobinERKNS2_21InternalKeyComparatorEPS6_INS2_11InternalKeyESaISF_EEbiPS8_E3$_0EEEvT_T0_.exit.i11.i.i.i.i", %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_18VersionStorageInfo26UpdateFilesByCompactionPriERKNS2_16ImmutableOptionsERKNS2_16MutableCFOptionsEE3$_1EEEvT_T0_.exit.i11.i.i.i", %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_18VersionStorageInfo26UpdateFilesByCompactionPriERKNS2_16ImmutableOptionsERKNS2_16MutableCFOptionsEE3$_0EEEvT_T0_.exit.i11.i.i.i", %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_SH_RT0_.exit.i18.i.i, %if.then.i.i.i130.i, %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS2_11InternalKeyEZNS3_20SortFileByRoundRobinERKNS2_21InternalKeyComparatorEPS6_ISA_SaISA_EEbiPS8_E3$_1ET_SJ_SJ_RKT0_T1_.exit.i", %_ZNSt6vectorIN7rocksdb11InternalKeyESaIS1_EE2atEm.exit.i, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_20SortFileByRoundRobinERKNS2_21InternalKeyComparatorEPS6_INS2_11InternalKeyESaISF_EEbiPS8_E3$_0EEEvT_SM_T0_.exit61.i.i.i.i", %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_20SortFileByRoundRobinERKNS2_21InternalKeyComparatorEPS6_INS2_11InternalKeyESaISF_EEbiPS8_E3$_0EEEvT_SM_T0_.exit.i.i.i.i", %if.then.i, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18VersionStorageInfo26UpdateFilesByCompactionPriERKNS2_16ImmutableOptionsERKNS2_16MutableCFOptionsEE3$_1EEEvT_SL_T0_.exit61.i.i.i", %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18VersionStorageInfo26UpdateFilesByCompactionPriERKNS2_16ImmutableOptionsERKNS2_16MutableCFOptionsEE3$_1EEEvT_SL_T0_.exit.i.i.i", %sw.bb52, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18VersionStorageInfo26UpdateFilesByCompactionPriERKNS2_16ImmutableOptionsERKNS2_16MutableCFOptionsEE3$_0EEEvT_SL_T0_.exit61.i.i.i", %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18VersionStorageInfo26UpdateFilesByCompactionPriERKNS2_16ImmutableOptionsERKNS2_16MutableCFOptionsEE3$_0EEEvT_SL_T0_.exit.i.i.i", %sw.bb41, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_SH_T0_.exit.i.i, %_ZN7rocksdb12_GLOBAL__N_126SortFileByOverlappingRatioERKNS_21InternalKeyComparatorERKSt6vectorIPNS_12FileMetaDataESaIS6_EESA_PNS_11SystemClockEiimPS4_INS0_5FsizeESaISD_EE.exit, %for.end
+sw.epilog:                                        ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS3_20SortFileByRoundRobinERKNS2_21InternalKeyComparatorEPS6_INS2_11InternalKeyESaISF_EEbiPS8_E3$_0EEEvT_T0_.exit.i11.i.i.i.i", %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_18VersionStorageInfo26UpdateFilesByCompactionPriERKNS2_16ImmutableOptionsERKNS2_16MutableCFOptionsEE3$_1EEEvT_T0_.exit.i11.i.i.i", %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_18VersionStorageInfo26UpdateFilesByCompactionPriERKNS2_16ImmutableOptionsERKNS2_16MutableCFOptionsEE3$_0EEEvT_T0_.exit.i11.i.i.i", %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_SH_RT0_.exit.i18.i.i, %if.then.i.i.i130.i, %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS2_11InternalKeyEZNS3_20SortFileByRoundRobinERKNS2_21InternalKeyComparatorEPS6_ISA_SaISA_EEbiPS8_E3$_1ET_SJ_SJ_RKT0_T1_.exit.i", %_ZNSt6vectorIN7rocksdb11InternalKeyESaIS1_EE2atEm.exit.i, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_20SortFileByRoundRobinERKNS2_21InternalKeyComparatorEPS6_INS2_11InternalKeyESaISF_EEbiPS8_E3$_0EEEvT_SM_T0_.exit61.i.i.i.i", %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_20SortFileByRoundRobinERKNS2_21InternalKeyComparatorEPS6_INS2_11InternalKeyESaISF_EEbiPS8_E3$_0EEEvT_SM_T0_.exit.i.i.i.i", %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18VersionStorageInfo26UpdateFilesByCompactionPriERKNS2_16ImmutableOptionsERKNS2_16MutableCFOptionsEE3$_1EEEvT_SL_T0_.exit61.i.i.i", %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18VersionStorageInfo26UpdateFilesByCompactionPriERKNS2_16ImmutableOptionsERKNS2_16MutableCFOptionsEE3$_1EEEvT_SL_T0_.exit.i.i.i", %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18VersionStorageInfo26UpdateFilesByCompactionPriERKNS2_16ImmutableOptionsERKNS2_16MutableCFOptionsEE3$_0EEEvT_SL_T0_.exit61.i.i.i", %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18VersionStorageInfo26UpdateFilesByCompactionPriERKNS2_16ImmutableOptionsERKNS2_16MutableCFOptionsEE3$_0EEEvT_SL_T0_.exit.i.i.i", %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_SH_T0_.exit.i.i, %_ZN7rocksdb12_GLOBAL__N_126SortFileByOverlappingRatioERKNS_21InternalKeyComparatorERKSt6vectorIPNS_12FileMetaDataESaIS6_EESA_PNS_11SystemClockEiimPS4_INS0_5FsizeESaISD_EE.exit, %for.end
   %cmp77374.not = icmp ult i64 %sub.ptr.sub.i53, 16
   br i1 %cmp77374.not, label %for.end86, label %for.body78.lr.ph
 
@@ -21204,11 +21204,11 @@ for.inc84:                                        ; preds = %_ZNSt6vectorIiSaIiE
 
 for.end86.thread:                                 ; preds = %for.inc84
   %213 = load ptr, ptr %next_file_to_compact_by_size_, align 16
-  %add.ptr.i264476 = getelementptr inbounds i32, ptr %213, i64 %indvars.iv
-  store i32 0, ptr %add.ptr.i264476, align 4
+  %add.ptr.i264478 = getelementptr inbounds i32, ptr %213, i64 %indvars.iv
+  store i32 0, ptr %add.ptr.i264478, align 4
   br label %if.then.i.i.i266
 
-for.end86:                                        ; preds = %sw.epilog
+for.end86:                                        ; preds = %sw.bb41, %sw.bb52, %if.then.i, %sw.epilog
   %214 = load ptr, ptr %next_file_to_compact_by_size_, align 16
   %add.ptr.i264 = getelementptr inbounds i32, ptr %214, i64 %indvars.iv
   store i32 0, ptr %add.ptr.i264, align 4
@@ -46559,7 +46559,7 @@ if.then.i.i.i.i.i35:                              ; preds = %if.else49
   br label %_ZSt4copyIPPN7rocksdb12FileMetaDataES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPPN7rocksdb12FileMetaDataES3_ET0_T_S5_S4_.exit: ; preds = %if.else49, %if.then.i.i.i.i.i35
-  %sub.ptr.sub.i40.pre-phi = phi i64 [ %sub.ptr.sub.i22, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
+  %sub.ptr.sub.i40.pre-phi = phi i64 [ 0, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
   %5 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
   %6 = phi ptr [ %4, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
   %7 = phi ptr [ %1, %if.else49 ], [ %.pre, %if.then.i.i.i.i.i35 ]
@@ -48762,7 +48762,7 @@ _ZNSt16allocator_traitsISaIN7rocksdb22ColumnFamilyDescriptorEEE8allocateERS2_m.e
           to label %invoke.cont.i unwind label %lpad49.loopexit.split-lp
 
 invoke.cont.i:                                    ; preds = %for.end, %_ZNSt16allocator_traitsISaIN7rocksdb22ColumnFamilyDescriptorEEE8allocateERS2_m.exit.i.i.i.i, %for.end66
-  %sub.ptr.div.i.i172 = phi i64 [ %sub.ptr.div.i.i, %for.end66 ], [ %sub.ptr.div.i.i, %_ZNSt16allocator_traitsISaIN7rocksdb22ColumnFamilyDescriptorEEE8allocateERS2_m.exit.i.i.i.i ], [ 0, %for.end ]
+  %sub.ptr.div.i.i172 = phi i64 [ 0, %for.end66 ], [ %sub.ptr.div.i.i, %_ZNSt16allocator_traitsISaIN7rocksdb22ColumnFamilyDescriptorEEE8allocateERS2_m.exit.i.i.i.i ], [ 0, %for.end ]
   %_M_finish.i.i171 = phi ptr [ %_M_finish.i.i, %for.end66 ], [ %_M_finish.i.i, %_ZNSt16allocator_traitsISaIN7rocksdb22ColumnFamilyDescriptorEEE8allocateERS2_m.exit.i.i.i.i ], [ %_M_finish.i.i165, %for.end ]
   %62 = phi ptr [ %.pre, %for.end66 ], [ %.pre, %_ZNSt16allocator_traitsISaIN7rocksdb22ColumnFamilyDescriptorEEE8allocateERS2_m.exit.i.i.i.i ], [ null, %for.end ]
   %63 = phi ptr [ %.pre164, %for.end66 ], [ %.pre164, %_ZNSt16allocator_traitsISaIN7rocksdb22ColumnFamilyDescriptorEEE8allocateERS2_m.exit.i.i.i.i ], [ null, %for.end ]
@@ -65849,7 +65849,7 @@ if.then.i.i.i.i.i35:                              ; preds = %if.else49
   br label %_ZSt4copyIPN7rocksdb15BlobFileGarbageES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPN7rocksdb15BlobFileGarbageES2_ET0_T_S4_S3_.exit: ; preds = %if.else49, %if.then.i.i.i.i.i35
-  %sub.ptr.sub.i40.pre-phi = phi i64 [ %sub.ptr.sub.i22, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
+  %sub.ptr.sub.i40.pre-phi = phi i64 [ 0, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
   %10 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
   %11 = phi ptr [ %9, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
   %12 = phi ptr [ %1, %if.else49 ], [ %.pre, %if.then.i.i.i.i.i35 ]
@@ -65966,7 +65966,7 @@ if.then.i.i.i.i.i35:                              ; preds = %if.else49
   br label %_ZSt4copyIPN7rocksdb11WalAdditionES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPN7rocksdb11WalAdditionES2_ET0_T_S4_S3_.exit: ; preds = %if.else49, %if.then.i.i.i.i.i35
-  %sub.ptr.sub.i40.pre-phi = phi i64 [ %sub.ptr.sub.i22, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
+  %sub.ptr.sub.i40.pre-phi = phi i64 [ 0, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
   %9 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
   %10 = phi ptr [ %8, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
   %11 = phi ptr [ %1, %if.else49 ], [ %.pre, %if.then.i.i.i.i.i35 ]
@@ -82985,16 +82985,16 @@ if.then.i.i.i.i.i:                                ; preds = %if.then14
   br label %if.end65
 
 if.else:                                          ; preds = %if.then
-  br i1 %tobool.not.i.i.i.i.i, label %if.end65, label %if.then.i.i.i.i.i22
+  br i1 %tobool.not.i.i.i.i.i, label %if.end65, label %if.then.i.i.i.i.i19
 
-if.then.i.i.i.i.i22:                              ; preds = %if.else
-  %sub.ptr.lhs.cast.i.i.i.i.i18 = ptrtoint ptr %add.ptr21 to i64
-  %sub.ptr.sub.i.i.i.i.i20 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i18, %sub.ptr.rhs.cast
-  %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i20, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+if.then.i.i.i.i.i19:                              ; preds = %if.else
   %add.ptr29 = getelementptr inbounds ptr, ptr %add.ptr9, i64 %add
-  %add.ptr.i.i.i.i.i23 = getelementptr inbounds ptr, ptr %add.ptr29, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i23, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i20, i1 false)
+  %sub.ptr.lhs.cast.i.i.i.i.i20 = ptrtoint ptr %add.ptr21 to i64
+  %sub.ptr.sub.i.i.i.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i20, %sub.ptr.rhs.cast
+  %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i22, 3
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i23 = getelementptr inbounds ptr, ptr %add.ptr29, i64 %idx.neg.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i23, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i22, i1 false)
   br label %if.end65
 
 if.else31:                                        ; preds = %entry
@@ -83041,8 +83041,8 @@ _ZSt4copyIPPN7rocksdb10VersionSet14ManifestWriterES4_ET0_T_S6_S5_.exit30: ; pred
   store i64 %add38, ptr %_M_map_size, align 8
   br label %if.end65
 
-if.end65:                                         ; preds = %if.then.i.i.i.i.i22, %if.else, %if.then.i.i.i.i.i, %if.then14, %_ZSt4copyIPPN7rocksdb10VersionSet14ManifestWriterES4_ET0_T_S6_S5_.exit30
-  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPN7rocksdb10VersionSet14ManifestWriterES4_ET0_T_S6_S5_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i22 ]
+if.end65:                                         ; preds = %if.then.i.i.i.i.i19, %if.else, %if.then.i.i.i.i.i, %if.then14, %_ZSt4copyIPPN7rocksdb10VersionSet14ManifestWriterES4_ET0_T_S6_S5_.exit30
+  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPN7rocksdb10VersionSet14ManifestWriterES4_ET0_T_S6_S5_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
   %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -83179,16 +83179,16 @@ if.then.i.i.i.i.i:                                ; preds = %if.then14
   br label %if.end65
 
 if.else:                                          ; preds = %if.then
-  br i1 %tobool.not.i.i.i.i.i, label %if.end65, label %if.then.i.i.i.i.i22
+  br i1 %tobool.not.i.i.i.i.i, label %if.end65, label %if.then.i.i.i.i.i19
 
-if.then.i.i.i.i.i22:                              ; preds = %if.else
-  %sub.ptr.lhs.cast.i.i.i.i.i18 = ptrtoint ptr %add.ptr21 to i64
-  %sub.ptr.sub.i.i.i.i.i20 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i18, %sub.ptr.rhs.cast
-  %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i20, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+if.then.i.i.i.i.i19:                              ; preds = %if.else
   %add.ptr29 = getelementptr inbounds ptr, ptr %add.ptr9, i64 %add
-  %add.ptr.i.i.i.i.i23 = getelementptr inbounds ptr, ptr %add.ptr29, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i23, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i20, i1 false)
+  %sub.ptr.lhs.cast.i.i.i.i.i20 = ptrtoint ptr %add.ptr21 to i64
+  %sub.ptr.sub.i.i.i.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i20, %sub.ptr.rhs.cast
+  %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i22, 3
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i23 = getelementptr inbounds ptr, ptr %add.ptr29, i64 %idx.neg.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i23, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i22, i1 false)
   br label %if.end65
 
 if.else31:                                        ; preds = %entry
@@ -83235,8 +83235,8 @@ _ZSt4copyIPPPN7rocksdb10VersionSet14ManifestWriterES5_ET0_T_S7_S6_.exit30: ; pre
   store i64 %add38, ptr %_M_map_size, align 8
   br label %if.end65
 
-if.end65:                                         ; preds = %if.then.i.i.i.i.i22, %if.else, %if.then.i.i.i.i.i, %if.then14, %_ZSt4copyIPPPN7rocksdb10VersionSet14ManifestWriterES5_ET0_T_S7_S6_.exit30
-  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPPN7rocksdb10VersionSet14ManifestWriterES5_ET0_T_S7_S6_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i22 ]
+if.end65:                                         ; preds = %if.then.i.i.i.i.i19, %if.else, %if.then.i.i.i.i.i, %if.then14, %_ZSt4copyIPPPN7rocksdb10VersionSet14ManifestWriterES5_ET0_T_S7_S6_.exit30
+  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPPN7rocksdb10VersionSet14ManifestWriterES5_ET0_T_S7_S6_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
   %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24

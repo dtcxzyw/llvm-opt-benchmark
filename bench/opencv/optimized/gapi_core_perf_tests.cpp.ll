@@ -293857,11 +293857,11 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11opencv_test14ParserYoloTest9Detecti
   br label %.outer
 
 .outer:                                           ; preds = %43, %34
-  %.sroa.024.0.i.ph.pn = phi ptr [ %.tr106123, %34 ], [ %.sroa.024.0.i.ph, %43 ]
+  %.sroa.025.0.i.ph.pn = phi ptr [ %.tr106123, %34 ], [ %.sroa.025.0.i.ph, %43 ]
   %.sroa.0.0.i.ph = phi ptr [ %2, %34 ], [ %42, %43 ]
   %.0.i.ph = phi ptr [ %35, %34 ], [ %.0.i, %43 ]
-  %.sroa.024.0.i.ph = getelementptr inbounds i8, ptr %.sroa.024.0.i.ph.pn, i64 -24
-  %36 = getelementptr inbounds i8, ptr %.sroa.024.0.i.ph.pn, i64 -8
+  %.sroa.025.0.i.ph = getelementptr inbounds i8, ptr %.sroa.025.0.i.ph.pn, i64 -24
+  %36 = getelementptr inbounds i8, ptr %.sroa.025.0.i.ph.pn, i64 -8
   br label %37
 
 37:                                               ; preds = %.outer, %49
@@ -293875,14 +293875,14 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11opencv_test14ParserYoloTest9Detecti
   br i1 %41, label %43, label %47
 
 43:                                               ; preds = %37
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %42, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.024.0.i.ph, i64 24, i1 false)
-  %44 = icmp eq ptr %.tr122, %.sroa.024.0.i.ph
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %42, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.025.0.i.ph, i64 24, i1 false)
+  %44 = icmp eq ptr %.tr122, %.sroa.025.0.i.ph
   br i1 %44, label %45, label %.outer, !llvm.loop !1919
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds i8, ptr %.0.i, i64 24
-  %.not.i.i.i.i.i19.i = icmp eq ptr %46, %5
-  br i1 %.not.i.i.i.i.i19.i, label %_ZSt21__move_merge_adaptiveIPN11opencv_test14ParserYoloTest9DetectionEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterIZNS1_12parseYoloRefERKN2cv3MatERKNSC_5Size_IiEEffiRKS6_IfSaIfEERS6_INSC_5Rect_IiEESaISP_EERS6_IiSaIiEEEUlRKS2_SX_E_EEEvT_S10_T0_S11_T1_T2_.exit, label %_ZSt13move_backwardIPN11opencv_test14ParserYoloTest9DetectionEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.sink.split.i
+  %.not.i.i.i.i.i18.i = icmp eq ptr %46, %5
+  br i1 %.not.i.i.i.i.i18.i, label %_ZSt21__move_merge_adaptiveIPN11opencv_test14ParserYoloTest9DetectionEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterIZNS1_12parseYoloRefERKN2cv3MatERKNSC_5Size_IiEEffiRKS6_IfSaIfEERS6_INSC_5Rect_IiEESaISP_EERS6_IiSaIiEEEUlRKS2_SX_E_EEEvT_S10_T0_S11_T1_T2_.exit, label %_ZSt13move_backwardIPN11opencv_test14ParserYoloTest9DetectionEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.sink.split.i
 
 47:                                               ; preds = %37
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %42, ptr noundef nonnull align 4 dereferenceable(24) %.0.i, i64 24, i1 false)
@@ -293899,8 +293899,8 @@ _ZSt13move_backwardIPN11opencv_test14ParserYoloTest9DetectionEN9__gnu_cxx17__nor
   %51 = ptrtoint ptr %.sink.i to i64
   %52 = ptrtoint ptr %5 to i64
   %53 = sub i64 %51, %52
-  %.neg.i.i.i.i.i18.i = sdiv exact i64 %53, -24
-  %54 = getelementptr inbounds %"struct.opencv_test::ParserYoloTest::Detection", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i18.i
+  %.neg.i.i.i.i.i19.i = sdiv exact i64 %53, -24
+  %54 = getelementptr inbounds %"struct.opencv_test::ParserYoloTest::Detection", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i19.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %54, ptr align 4 %5, i64 %53, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPN11opencv_test14ParserYoloTest9DetectionEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterIZNS1_12parseYoloRefERKN2cv3MatERKNSC_5Size_IiEEffiRKS6_IfSaIfEERS6_INSC_5Rect_IiEESaISP_EERS6_IiSaIiEEEUlRKS2_SX_E_EEEvT_S10_T0_S11_T1_T2_.exit
 
@@ -294258,16 +294258,17 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11opencv_test14ParserYoloTest9Detecti
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11opencv_test14ParserYoloTest9DetectionESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11opencv_test14ParserYoloTest9DetectionESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11opencv_test14ParserYoloTest9DetectionESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit40, %31
-  %.neg.i.i.i.i.i42 = sdiv exact i64 %29, -24
   br i1 %.not.i.i.i.i.i39, label %_ZSt13move_backwardIPN11opencv_test14ParserYoloTest9DetectionEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit, label %34
 
 34:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11opencv_test14ParserYoloTest9DetectionESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
-  %35 = getelementptr inbounds %"struct.opencv_test::ParserYoloTest::Detection", ptr %2, i64 %.neg.i.i.i.i.i42
+  %.neg.i.i.i.i.i43 = sdiv exact i64 %29, -24
+  %35 = getelementptr inbounds %"struct.opencv_test::ParserYoloTest::Detection", ptr %2, i64 %.neg.i.i.i.i.i43
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %35, ptr align 4 %5, i64 %29, i1 false)
   br label %_ZSt13move_backwardIPN11opencv_test14ParserYoloTest9DetectionEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit
 
 _ZSt13move_backwardIPN11opencv_test14ParserYoloTest9DetectionEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11opencv_test14ParserYoloTest9DetectionESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, %34
-  %36 = getelementptr inbounds %"struct.opencv_test::ParserYoloTest::Detection", ptr %2, i64 %.neg.i.i.i.i.i42
+  %.pre-phi.i.i.i.i.i44 = phi i64 [ %.neg.i.i.i.i.i43, %34 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11opencv_test14ParserYoloTest9DetectionESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ]
+  %36 = getelementptr inbounds %"struct.opencv_test::ParserYoloTest::Detection", ptr %2, i64 %.pre-phi.i.i.i.i.i44
   br label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN11opencv_test14ParserYoloTest9DetectionESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_.exit
 
 37:                                               ; preds = %24

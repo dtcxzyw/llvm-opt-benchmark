@@ -3060,7 +3060,7 @@ _ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE6resizeEm.exit.i322: ; preds = %_ZNSt6vecto
   br i1 %.not28.i.i202.i, label %1168, label %_ZSt27__uninitialized_default_n_aIPN2cv7Point3_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i203.i
 
 _ZSt27__uninitialized_default_n_aIPN2cv7Point3_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i203.i: ; preds = %1160
-  %1167 = sub i64 12, %1157
+  %1167 = sub nuw nsw i64 12, %1157
   call void @llvm.memset.p0.i64(ptr align 4 %.sroa.11.0.i, i8 0, i64 %1167, i1 false)
   %scevgep.i.i.i.i.i204.i = getelementptr i8, ptr %.sroa.11.0.i, i64 %1167
   br label %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE6resizeEm.exit215.i
@@ -3071,7 +3071,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv7Point3_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.
 
 .noexc214.i:                                      ; preds = %1168
   %1170 = getelementptr inbounds i8, ptr %1169, i64 %1157
-  %1171 = sub i64 12, %1157
+  %1171 = sub nuw nsw i64 12, %1157
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %1170, i8 0, i64 %1171, i1 false)
   %.not.i35.i.i212.i = icmp eq ptr %.sroa.11.0.i, null
   br i1 %.not.i35.i.i212.i, label %_ZNSt12_Vector_baseIN2cv7Point3_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i213.i, label %1172

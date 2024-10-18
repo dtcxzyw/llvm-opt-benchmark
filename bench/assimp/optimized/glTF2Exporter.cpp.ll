@@ -11175,10 +11175,6 @@ if.then44:                                        ; preds = %for.end43
   br i1 %cmp.not.i115, label %if.else.i118, label %if.then.i116
 
 if.then44.thread:                                 ; preds = %for.cond18.preheader
-  %sub.ptr.lhs.cast.i423 = ptrtoint ptr %20 to i64
-  %sub.ptr.rhs.cast.i424 = ptrtoint ptr %21 to i64
-  %sub.ptr.sub.i425 = sub i64 %sub.ptr.lhs.cast.i423, %sub.ptr.rhs.cast.i424
-  %sub.ptr.div.i426 = ashr exact i64 %sub.ptr.sub.i425, 4
   %_M_finish.i100.le485 = getelementptr inbounds i8, ptr %19, i64 360
   %_M_end_of_storage.i114500 = getelementptr inbounds i8, ptr %19, i64 368
   %36 = load ptr, ptr %_M_end_of_storage.i114500, align 8
@@ -11210,7 +11206,7 @@ if.then.i.i.i121.cont:                            ; preds = %if.then.i.i.i121.in
 _ZNKSt6vectorIN10glTFCommon3RefIN5glTF24NodeEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.then44.thread, %if.else.i118
   %_M_finish.i100.le492503525 = phi ptr [ %_M_finish.i100.le, %if.else.i118 ], [ %_M_finish.i100.le485, %if.then44.thread ]
   %.pn530 = phi ptr [ %32, %if.else.i118 ], [ %19, %if.then44.thread ]
-  %sub.ptr.div.i.lcssa490505523 = phi i64 [ %sub.ptr.div.i, %if.else.i118 ], [ %sub.ptr.div.i426, %if.then44.thread ]
+  %sub.ptr.div.i.lcssa490505523 = phi i64 [ %sub.ptr.div.i, %if.else.i118 ], [ 0, %if.then44.thread ]
   %sub.ptr.sub.i.lcssa489506522 = phi i64 [ %sub.ptr.sub.i, %if.else.i118 ], [ 0, %if.then44.thread ]
   %.lcssa488507521 = phi ptr [ %34, %if.else.i118 ], [ %21, %if.then44.thread ]
   %.lcssa399487508520 = phi ptr [ %33, %if.else.i118 ], [ %20, %if.then44.thread ]
@@ -52671,8 +52667,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vect
   %sub.ptr.lhs.cast.i.i.i.i.i.i43 = ptrtoint ptr %__i.sroa.0.012.i23 to i64
   %sub.ptr.sub.i.i.i.i.i.i44 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i43, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i.i45 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i44, 3
-  %.pre.i.i.i.i.i.i46 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i45
-  %add.ptr.i.i.i.i.i.i47 = getelementptr inbounds %struct.boneIndexWeightPair, ptr %add.ptr.i2.i42, i64 %.pre.i.i.i.i.i.i46
+  %idx.neg.i.i.i.i.i.i46 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i45
+  %add.ptr.i.i.i.i.i.i47 = getelementptr inbounds %struct.boneIndexWeightPair, ptr %add.ptr.i2.i42, i64 %idx.neg.i.i.i.i.i.i46
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i47, ptr noundef nonnull align 4 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i44, i1 false)
   store i64 %15, ptr %__first.coerce, align 4
   br label %for.inc.i33
@@ -55209,7 +55205,7 @@ if.then.i.i.i.i.i35:                              ; preds = %if.else49
   br label %_ZSt4copyIPN10glTFCommon3RefIN5glTF28AccessorEEES5_ET0_T_S7_S6_.exit
 
 _ZSt4copyIPN10glTFCommon3RefIN5glTF28AccessorEEES5_ET0_T_S7_S6_.exit: ; preds = %if.else49, %if.then.i.i.i.i.i35
-  %sub.ptr.sub.i40.pre-phi = phi i64 [ %sub.ptr.sub.i22, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
+  %sub.ptr.sub.i40.pre-phi = phi i64 [ 0, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
   %9 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
   %10 = phi ptr [ %8, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
   %11 = phi ptr [ %1, %if.else49 ], [ %.pre, %if.then.i.i.i.i.i35 ]

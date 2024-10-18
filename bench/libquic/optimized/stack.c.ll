@@ -475,15 +475,18 @@ sk_sort.exit:                                     ; preds = %lor.lhs.false2.i, %
 
 if.end18:                                         ; preds = %sk_sort.exit
   %10 = load ptr, ptr %data14, align 8
+  %cmp20.not23 = icmp eq ptr %call, %10
+  br i1 %cmp20.not23, label %while.end, label %land.rhs.preheader
+
+land.rhs.preheader:                               ; preds = %if.end18
   %sub.ptr.lhs.cast = ptrtoint ptr %call to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %10 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
-  %cmp20.not23 = icmp eq ptr %call, %10
-  br i1 %cmp20.not23, label %while.end, label %land.rhs
+  br label %land.rhs
 
-land.rhs:                                         ; preds = %if.end18, %while.body
-  %i.124 = phi i64 [ %dec, %while.body ], [ %sub.ptr.div, %if.end18 ]
+land.rhs:                                         ; preds = %land.rhs.preheader, %while.body
+  %i.124 = phi i64 [ %dec, %while.body ], [ %sub.ptr.div, %land.rhs.preheader ]
   %11 = load ptr, ptr %comp, align 8
   %12 = load ptr, ptr %data14, align 8
   %13 = getelementptr ptr, ptr %12, i64 %i.124
@@ -498,7 +501,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %cmp20.not, label %while.end, label %land.rhs, !llvm.loop !11
 
 while.end:                                        ; preds = %land.rhs, %while.body, %if.end18
-  %i.1.lcssa = phi i64 [ %sub.ptr.div, %if.end18 ], [ 0, %while.body ], [ %i.124, %land.rhs ]
+  %i.1.lcssa = phi i64 [ 0, %if.end18 ], [ 0, %while.body ], [ %i.124, %land.rhs ]
   %tobool26.not = icmp eq ptr %out_index, null
   br i1 %tobool26.not, label %return, label %return.sink.split
 

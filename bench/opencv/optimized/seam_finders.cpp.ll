@@ -1031,7 +1031,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds =
   br label %_ZSt4copyIPN2cv6Point_IiEES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPN2cv6Point_IiEES3_ET0_T_S5_S4_.exit:   ; preds = %34, %35
-  %.pre-phi33 = phi i64 [ %31, %34 ], [ %.pre32, %35 ]
+  %.pre-phi33 = phi i64 [ 0, %34 ], [ %.pre32, %35 ]
   %36 = phi ptr [ %5, %34 ], [ %.pre28, %35 ]
   %37 = phi ptr [ %29, %34 ], [ %.pre26, %35 ]
   %38 = phi ptr [ %6, %34 ], [ %.pre, %35 ]
@@ -1330,7 +1330,7 @@ _ZNSt12_Vector_baseIN2cv5Size_IiEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = 
   br label %_ZSt4copyIPN2cv5Size_IiEES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPN2cv5Size_IiEES3_ET0_T_S5_S4_.exit:    ; preds = %34, %35
-  %.pre-phi33 = phi i64 [ %31, %34 ], [ %.pre32, %35 ]
+  %.pre-phi33 = phi i64 [ 0, %34 ], [ %.pre32, %35 ]
   %36 = phi ptr [ %5, %34 ], [ %.pre28, %35 ]
   %37 = phi ptr [ %29, %34 ], [ %.pre26, %35 ]
   %38 = phi ptr [ %6, %34 ], [ %.pre, %35 ]
@@ -8160,7 +8160,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vect
   br i1 %exitcond251.not, label %._crit_edge235, label %.lr.ph234, !llvm.loop !135
 
 ._crit_edge235:                                   ; preds = %.lr.ph234, %349
-  %.0109.lcssa = phi i64 [ %359, %349 ], [ %.1110, %.lr.ph234 ]
+  %.0109.lcssa = phi i64 [ 0, %349 ], [ %.1110, %.lr.ph234 ]
   %387 = getelementptr inbounds %"class.cv::Point_", ptr %355, i64 %.0109.lcssa
   %388 = load i64, ptr %387, align 4
   store i64 %388, ptr %indvars.iv252.sroa.phi, align 8

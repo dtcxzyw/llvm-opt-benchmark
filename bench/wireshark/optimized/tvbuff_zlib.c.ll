@@ -88,7 +88,7 @@ define noundef ptr @tvb_uncompress(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 .thread:                                          ; preds = %38
   %44 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.1) #8
-  %45 = add i32 %36, %.0197.ph
+  %45 = add nuw nsw i32 %36, %.0197.ph
   br label %.loopexit
 
 46:                                               ; preds = %33

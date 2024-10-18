@@ -217,20 +217,9 @@ if.then.i.i.i.i.i.i.i.i.i32:                      ; preds = %_ZNSt16allocator_tr
 invoke.cont:                                      ; preds = %if.end13, %if.then.i.i.i.i.i.i.i.i.i32
   %cond.i.i.i.i24141 = phi ptr [ %call5.i.i.i.i2.i6.i2235, %if.then.i.i.i.i.i.i.i.i.i32 ], [ null, %if.end13 ]
   %add.ptr.i.i.i26143 = getelementptr inbounds i8, ptr %cond.i.i.i.i24141, i64 %sub.ptr.sub.i.i16
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit75, label %cond.true.i.i.i.i43
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit75, label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i45
 
-cond.true.i.i.i.i43:                              ; preds = %invoke.cont
-  %cmp.i.i.i.i.i.i44 = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i44, label %if.then3.i.i.i.i.i.i58, label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i45, !prof !16
-
-if.then3.i.i.i.i.i.i58:                           ; preds = %cond.true.i.i.i.i43
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #7
-          to label %.noexc59 unwind label %ehcleanup
-
-.noexc59:                                         ; preds = %if.then3.i.i.i.i.i.i58
-  unreachable
-
-_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i45: ; preds = %cond.true.i.i.i.i43
+_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i45: ; preds = %invoke.cont
   %call5.i.i.i.i2.i6.i4660 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #8
           to label %for.body.i.preheader.i unwind label %ehcleanup
 
@@ -285,7 +274,7 @@ lpad:                                             ; preds = %_ZNSt16allocator_tr
           cleanup
   br label %if.then.i.i.i102
 
-ehcleanup:                                        ; preds = %if.then3.i.i.i.i.i.i58, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i45
+ehcleanup:                                        ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i45
   %10 = landingpad { ptr, i32 }
           cleanup
   %tobool.not.i.i.i93 = icmp eq ptr %cond.i.i.i.i24141, null

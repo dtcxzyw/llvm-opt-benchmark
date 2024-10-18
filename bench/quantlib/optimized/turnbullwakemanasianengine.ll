@@ -2426,6 +2426,7 @@ lpad428.loopexit.split-lp:                        ; preds = %if.then.i.i.i.i553
   br label %ehcleanup614
 
 for.cond.cleanup447:                              ; preds = %for.cond.cleanup457, %for.cond.cleanup358
+  %sub.ptr.sub.i3861501 = phi i64 [ 0, %for.cond.cleanup358 ], [ %sub.ptr.sub.i386, %for.cond.cleanup457 ]
   %EA2.0.lcssa = phi double [ 0.000000e+00, %for.cond.cleanup358 ], [ %EA2.1.lcssa, %for.cond.cleanup457 ]
   %mul471 = mul i64 %add, %add
   %conv472 = uitofp i64 %mul471 to double
@@ -2932,14 +2933,14 @@ call.i.i776.noexc:                                ; preds = %invoke.cont600
 
 invoke.cont.i.i.thread.i.i802:                    ; preds = %call.i.i776.noexc
   %_M_finish.i.i.i.i3.i.i803 = getelementptr inbounds nuw i8, ptr %call.i.i776806, i64 16
-  %add.ptr.i.i.i.i4.i.i804 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i386
+  %add.ptr.i.i.i.i4.i.i804 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i3861501
   %_M_end_of_storage.i.i.i.i5.i.i805 = getelementptr inbounds nuw i8, ptr %call.i.i776806, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %held.i.i.i777, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i.i.i.i4.i.i804, ptr %_M_end_of_storage.i.i.i.i5.i.i805, align 8, !tbaa !112
   br label %_ZN5boost3anyC2IRSt6vectorIdSaIdEEEEOT_PNSt9enable_ifIXntsr3std7is_sameIRS0_S6_EE5valueEvE4typeEPNS8_IXntsr3std8is_constIS6_EE5valueEvE4typeE.exit.i792
 
 cond.true.i.i.i.i.i.i.i783:                       ; preds = %call.i.i776.noexc
-  %cmp.i.i.i.i.i.i.i.i.i784 = icmp ugt i64 %sub.ptr.sub.i386, 9223372036854775800
+  %cmp.i.i.i.i.i.i.i.i.i784 = icmp ugt i64 %sub.ptr.sub.i3861501, 9223372036854775800
   br i1 %cmp.i.i.i.i.i.i.i.i.i784, label %if.then3.i.i.i.i.i.i.i.i.i800, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i.i.i785, !prof !41
 
 if.then3.i.i.i.i.i.i.i.i.i800:                    ; preds = %cond.true.i.i.i.i.i.i.i783
@@ -2950,17 +2951,17 @@ if.then3.i.i.i.i.i.i.i.i.i800:                    ; preds = %cond.true.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i.i.i785: ; preds = %cond.true.i.i.i.i.i.i.i783
-  %call5.i.i.i.i2.i6.i1.i1.i.i786 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i386) #31
+  %call5.i.i.i.i2.i6.i1.i1.i.i786 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i3861501) #31
           to label %if.then.i.i.i.i.i.i.i.i.i.i.i.i788 unwind label %lpad.i.i787
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i788:               ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i.i.i785
   store ptr %call5.i.i.i.i2.i6.i1.i1.i.i786, ptr %held.i.i.i777, align 8, !tbaa !114
   %_M_finish.i.i.i.i.i.i789 = getelementptr inbounds nuw i8, ptr %call.i.i776806, i64 16
   store ptr %call5.i.i.i.i2.i6.i1.i1.i.i786, ptr %_M_finish.i.i.i.i.i.i789, align 8, !tbaa !115
-  %add.ptr.i.i.i.i.i.i790 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i6.i1.i1.i.i786, i64 %sub.ptr.sub.i386
+  %add.ptr.i.i.i.i.i.i790 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i6.i1.i1.i.i786, i64 %sub.ptr.sub.i3861501
   %_M_end_of_storage.i.i.i.i.i.i791 = getelementptr inbounds nuw i8, ptr %call.i.i776806, i64 24
   store ptr %add.ptr.i.i.i.i.i.i790, ptr %_M_end_of_storage.i.i.i.i.i.i791, align 8, !tbaa !112
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i6.i1.i1.i.i786, ptr align 8 %forwards.sroa.0.3, i64 %sub.ptr.sub.i386, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i6.i1.i1.i.i786, ptr align 8 %forwards.sroa.0.3, i64 %sub.ptr.sub.i3861501, i1 false)
   br label %_ZN5boost3anyC2IRSt6vectorIdSaIdEEEEOT_PNSt9enable_ifIXntsr3std7is_sameIRS0_S6_EE5valueEvE4typeEPNS8_IXntsr3std8is_constIS6_EE5valueEvE4typeE.exit.i792
 
 lpad.i.i787:                                      ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i.i.i785, %if.then3.i.i.i.i.i.i.i.i.i800
@@ -2972,7 +2973,7 @@ lpad.i.i787:                                      ; preds = %_ZNSt16allocator_tr
 _ZN5boost3anyC2IRSt6vectorIdSaIdEEEEOT_PNSt9enable_ifIXntsr3std7is_sameIRS0_S6_EE5valueEvE4typeEPNS8_IXntsr3std8is_constIS6_EE5valueEvE4typeE.exit.i792: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i788, %invoke.cont.i.i.thread.i.i802
   %_M_finish.i.i.i.i7.i.i793 = phi ptr [ %_M_finish.i.i.i.i3.i.i803, %invoke.cont.i.i.thread.i.i802 ], [ %_M_finish.i.i.i.i.i.i789, %if.then.i.i.i.i.i.i.i.i.i.i.i.i788 ]
   %cond.i.i.i.i.i6.i.i794 = phi ptr [ null, %invoke.cont.i.i.thread.i.i802 ], [ %call5.i.i.i.i2.i6.i1.i1.i.i786, %if.then.i.i.i.i.i.i.i.i.i.i.i.i788 ]
-  %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i795 = getelementptr inbounds i8, ptr %cond.i.i.i.i.i6.i.i794, i64 %sub.ptr.sub.i386
+  %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i795 = getelementptr inbounds i8, ptr %cond.i.i.i.i.i6.i.i794, i64 %sub.ptr.sub.i3861501
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i795, ptr %_M_finish.i.i.i.i7.i.i793, align 8, !tbaa !115
   %250 = load ptr, ptr %call601, align 8, !tbaa !81
   store ptr %call.i.i776806, ptr %call601, align 8, !tbaa !81

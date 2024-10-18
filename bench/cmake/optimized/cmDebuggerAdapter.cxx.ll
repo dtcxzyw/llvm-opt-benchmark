@@ -4601,7 +4601,7 @@ _ZNSt12_Vector_baseIN3dap7integerESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds 
   br label %_ZSt4copyIPN3dap7integerES2_ET0_T_S4_S3_.exit.i
 
 _ZSt4copyIPN3dap7integerES2_ET0_T_S4_S3_.exit.i:  ; preds = %73, %72
-  %.pre-phi33.i = phi i64 [ %69, %72 ], [ %.pre32.i, %73 ]
+  %.pre-phi33.i = phi i64 [ 0, %72 ], [ %.pre32.i, %73 ]
   %74 = phi ptr [ %67, %72 ], [ %.pre26.i, %73 ]
   %.not9.i.i.i.i.i = icmp eq i64 %.pre-phi33.i, %45
   br i1 %.not9.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i48.preheader

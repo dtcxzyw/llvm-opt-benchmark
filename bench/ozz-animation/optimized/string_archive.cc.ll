@@ -212,8 +212,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE9_M_creat
 
 61:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE9_M_createERmm.exit.i
   %62 = load ptr, ptr %9, align 8
-  %cond29.i = icmp eq i64 %31, 1
-  br i1 %cond29.i, label %63, label %65
+  %cond30.i = icmp eq i64 %31, 1
+  br i1 %cond30.i, label %63, label %65
 
 63:                                               ; preds = %61
   %64 = load i8, ptr %62, align 1

@@ -45981,7 +45981,7 @@ if.then.i.i.i.i.i35:                              ; preds = %if.else49
   br label %_ZSt4copyIPfS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPfS0_ET0_T_S2_S1_.exit:                 ; preds = %if.else49, %if.then.i.i.i.i.i35
-  %sub.ptr.sub.i40.pre-phi = phi i64 [ %sub.ptr.sub.i22, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
+  %sub.ptr.sub.i40.pre-phi = phi i64 [ 0, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
   %5 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
   %6 = phi ptr [ %4, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
   %7 = phi ptr [ %1, %if.else49 ], [ %.pre, %if.then.i.i.i.i.i35 ]
@@ -61501,8 +61501,8 @@ if.then.i.i.i.i.i:                                ; preds = %if.then11
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %1, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %1, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i, ptr align 4 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %invoke.cont20
 
@@ -61802,8 +61802,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont20
 
 for.body.us103.preheader:                         ; preds = %for.body.lr.ph
   %umax204 = tail call i64 @llvm.umax.i64(i64 %conv31, i64 1)
-  %13 = tail call i32 @llvm.umax.i32(i32 %sub.i32, i32 1)
-  %umax206 = sext i32 %13 to i64
+  %umax206 = sext i32 %sub.i32 to i64
   br label %for.body.us103
 
 for.body.us103:                                   ; preds = %for.body.us103.preheader, %for.inc59.us110
@@ -61822,10 +61821,10 @@ for.body3.us.i.us:                                ; preds = %for.body3.us.i.us, 
   %j.012.us.i.us = phi i32 [ 0, %for.cond1.preheader.us.i.us ], [ %inc.us.i.us, %for.body3.us.i.us ]
   %dst.addr.111.us.i.us = phi ptr [ %dst.addr.016.us.i.us, %for.cond1.preheader.us.i.us ], [ %incdec.ptr.us.i.us, %for.body3.us.i.us ]
   %s.addr.110.us.i.us = phi ptr [ %s.addr.015.us.i.us, %for.cond1.preheader.us.i.us ], [ %incdec.ptr4.us.i.us, %for.body3.us.i.us ]
-  %14 = load float, ptr %s.addr.110.us.i.us, align 4
+  %13 = load float, ptr %s.addr.110.us.i.us, align 4
   %add.ptr.us.i.us = getelementptr inbounds float, ptr %s.addr.110.us.i.us, i64 %idx.ext.i
-  %15 = load float, ptr %add.ptr.us.i.us, align 4
-  %add.us.i.us = fadd float %14, %15
+  %14 = load float, ptr %add.ptr.us.i.us, align 4
+  %add.us.i.us = fadd float %13, %14
   %mul.us.i.us = fmul float %add.us.i.us, 5.000000e-01
   store float %mul.us.i.us, ptr %dst.addr.111.us.i.us, align 4
   %inc.us.i.us = add nuw nsw i32 %j.012.us.i.us, 1
@@ -61854,10 +61853,10 @@ for.body3.us.i41.us:                              ; preds = %for.body3.us.i41.us
   %j.012.us.i42.us = phi i32 [ 0, %for.cond1.preheader.us.i37.us ], [ %inc.us.i48.us, %for.body3.us.i41.us ]
   %dst.addr.111.us.i43.us = phi ptr [ %dst.addr.016.us.i39.us, %for.cond1.preheader.us.i37.us ], [ %incdec.ptr.us.i49.us, %for.body3.us.i41.us ]
   %s.addr.110.us.i44.us = phi ptr [ %s.addr.015.us.i40.us, %for.cond1.preheader.us.i37.us ], [ %incdec.ptr4.us.i50.us, %for.body3.us.i41.us ]
-  %16 = load float, ptr %s.addr.110.us.i44.us, align 4
+  %15 = load float, ptr %s.addr.110.us.i44.us, align 4
   %add.ptr.us.i45.us = getelementptr inbounds float, ptr %s.addr.110.us.i44.us, i64 %idx.ext.i36
-  %17 = load float, ptr %add.ptr.us.i45.us, align 4
-  %add.us.i46.us = fadd float %16, %17
+  %16 = load float, ptr %add.ptr.us.i45.us, align 4
+  %add.us.i46.us = fadd float %15, %16
   %mul.us.i47.us = fmul float %add.us.i46.us, 5.000000e-01
   store float %mul.us.i47.us, ptr %dst.addr.111.us.i43.us, align 4
   %inc.us.i48.us = add nuw nsw i32 %j.012.us.i42.us, 1
@@ -61893,9 +61892,9 @@ for.body52.us.us129:                              ; preds = %for.body52.us.us129
   %s1.183.us.us131 = phi ptr [ %s1.090.us.us126, %for.cond50.preheader.us.us124 ], [ %incdec.ptr54.us.us138, %for.body52.us.us129 ]
   %s0.182.us.us132 = phi ptr [ %s0.089.us.us127, %for.cond50.preheader.us.us124 ], [ %incdec.ptr.us.us137, %for.body52.us.us129 ]
   %d.281.us.us133 = phi ptr [ %d.188.us.us128, %for.cond50.preheader.us.us124 ], [ %incdec.ptr55.us.us139, %for.body52.us.us129 ]
-  %18 = load float, ptr %s0.182.us.us132, align 4
-  %19 = load float, ptr %s1.183.us.us131, align 4
-  %add.us.us134 = fadd float %18, %19
+  %17 = load float, ptr %s0.182.us.us132, align 4
+  %18 = load float, ptr %s1.183.us.us131, align 4
+  %add.us.us134 = fadd float %17, %18
   %mul53.us.us135 = fmul float %add.us.us134, 5.000000e-01
   store float %mul53.us.us135, ptr %d.281.us.us133, align 4
   %inc.us.us136 = add nuw nsw i32 %i.084.us.us130, 1
@@ -61911,12 +61910,12 @@ for.cond50.for.inc56_crit_edge.us.us141:          ; preds = %for.body52.us.us129
   br i1 %exitcond205.not, label %for.inc59.us110, label %for.cond50.preheader.us.us124, !llvm.loop !574
 
 lpad:                                             ; preds = %if.end
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit65
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %invoke.cont15, %invoke.cont13, %invoke.cont11, %invoke.cont
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdaPv(ptr noundef nonnull %call9) #24
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit65
@@ -61927,7 +61926,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit62: ; preds = %for.inc59.u
   br label %return
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit65: ; preds = %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit, %lpad
-  %.pn = phi { ptr, i32 } [ %21, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit ], [ %20, %lpad ]
+  %.pn = phi { ptr, i32 } [ %20, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit ], [ %19, %lpad ]
   tail call void @_ZdaPv(ptr noundef nonnull %call8) #24
   resume { ptr, i32 } %.pn
 
@@ -62026,8 +62025,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont20
 
 for.body.us106.preheader:                         ; preds = %for.body.lr.ph
   %umax209 = tail call i64 @llvm.umax.i64(i64 %conv31, i64 1)
-  %13 = tail call i32 @llvm.umax.i32(i32 %sub.i32, i32 1)
-  %umax211 = sext i32 %13 to i64
+  %umax211 = sext i32 %sub.i32 to i64
   br label %for.body.us106
 
 for.body.us106:                                   ; preds = %for.body.us106.preheader, %for.inc56.us113
@@ -62046,11 +62044,11 @@ for.body3.us.i.us:                                ; preds = %for.body3.us.i.us, 
   %j.012.us.i.us = phi i32 [ 0, %for.cond1.preheader.us.i.us ], [ %inc.us.i.us, %for.body3.us.i.us ]
   %dst.addr.111.us.i.us = phi ptr [ %dst.addr.016.us.i.us, %for.cond1.preheader.us.i.us ], [ %incdec.ptr.us.i.us, %for.body3.us.i.us ]
   %s.addr.110.us.i.us = phi ptr [ %s.addr.015.us.i.us, %for.cond1.preheader.us.i.us ], [ %incdec.ptr6.us.i.us, %for.body3.us.i.us ]
-  %14 = load i8, ptr %s.addr.110.us.i.us, align 1
-  %conv.us.i.us = zext i8 %14 to i32
+  %13 = load i8, ptr %s.addr.110.us.i.us, align 1
+  %conv.us.i.us = zext i8 %13 to i32
   %add.ptr.us.i.us = getelementptr inbounds i8, ptr %s.addr.110.us.i.us, i64 %idx.ext.i
-  %15 = load i8, ptr %add.ptr.us.i.us, align 1
-  %conv4.us.i.us = zext i8 %15 to i32
+  %14 = load i8, ptr %add.ptr.us.i.us, align 1
+  %conv4.us.i.us = zext i8 %14 to i32
   %add.us.i.us = add nuw nsw i32 %conv4.us.i.us, %conv.us.i.us
   %conv5.us.i.us = uitofp nneg i32 %add.us.i.us to float
   %mul.us.i.us = fmul float %conv5.us.i.us, 5.000000e-01
@@ -62081,11 +62079,11 @@ for.body3.us.i41.us:                              ; preds = %for.body3.us.i41.us
   %j.012.us.i42.us = phi i32 [ 0, %for.cond1.preheader.us.i37.us ], [ %inc.us.i51.us, %for.body3.us.i41.us ]
   %dst.addr.111.us.i43.us = phi ptr [ %dst.addr.016.us.i39.us, %for.cond1.preheader.us.i37.us ], [ %incdec.ptr.us.i52.us, %for.body3.us.i41.us ]
   %s.addr.110.us.i44.us = phi ptr [ %s.addr.015.us.i40.us, %for.cond1.preheader.us.i37.us ], [ %incdec.ptr6.us.i53.us, %for.body3.us.i41.us ]
-  %16 = load i8, ptr %s.addr.110.us.i44.us, align 1
-  %conv.us.i45.us = zext i8 %16 to i32
+  %15 = load i8, ptr %s.addr.110.us.i44.us, align 1
+  %conv.us.i45.us = zext i8 %15 to i32
   %add.ptr.us.i46.us = getelementptr inbounds i8, ptr %s.addr.110.us.i44.us, i64 %idx.ext.i36
-  %17 = load i8, ptr %add.ptr.us.i46.us, align 1
-  %conv4.us.i47.us = zext i8 %17 to i32
+  %16 = load i8, ptr %add.ptr.us.i46.us, align 1
+  %conv4.us.i47.us = zext i8 %16 to i32
   %add.us.i48.us = add nuw nsw i32 %conv4.us.i47.us, %conv.us.i45.us
   %conv5.us.i49.us = uitofp nneg i32 %add.us.i48.us to float
   %mul.us.i50.us = fmul float %conv5.us.i49.us, 5.000000e-01
@@ -62123,9 +62121,9 @@ for.body48.us.us132:                              ; preds = %for.body48.us.us132
   %s1.186.us.us134 = phi ptr [ %s1.093.us.us129, %for.cond46.preheader.us.us127 ], [ %incdec.ptr51.us.us142, %for.body48.us.us132 ]
   %s0.185.us.us135 = phi ptr [ %s0.092.us.us130, %for.cond46.preheader.us.us127 ], [ %incdec.ptr.us.us141, %for.body48.us.us132 ]
   %d.284.us.us136 = phi ptr [ %d.191.us.us131, %for.cond46.preheader.us.us127 ], [ %incdec.ptr52.us.us143, %for.body48.us.us132 ]
-  %18 = load float, ptr %s0.185.us.us135, align 4
-  %19 = load float, ptr %s1.186.us.us134, align 4
-  %add.us.us137 = fadd float %18, %19
+  %17 = load float, ptr %s0.185.us.us135, align 4
+  %18 = load float, ptr %s1.186.us.us134, align 4
+  %add.us.us137 = fadd float %17, %18
   %mul49.us.us138 = fmul float %add.us.us137, 5.000000e-01
   %conv50.us.us139 = fptoui float %mul49.us.us138 to i8
   store i8 %conv50.us.us139, ptr %d.284.us.us136, align 1
@@ -62142,12 +62140,12 @@ for.cond46.for.inc53_crit_edge.us.us145:          ; preds = %for.body48.us.us132
   br i1 %exitcond210.not, label %for.inc56.us113, label %for.cond46.preheader.us.us127, !llvm.loop !579
 
 lpad:                                             ; preds = %if.end
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit68
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %invoke.cont15, %invoke.cont13, %invoke.cont11, %invoke.cont
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdaPv(ptr noundef nonnull %call9) #24
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit68
@@ -62158,7 +62156,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit65: ; preds = %for.inc56.u
   br label %return
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit68: ; preds = %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit, %lpad
-  %.pn = phi { ptr, i32 } [ %21, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit ], [ %20, %lpad ]
+  %.pn = phi { ptr, i32 } [ %20, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit ], [ %19, %lpad ]
   tail call void @_ZdaPv(ptr noundef nonnull %call8) #24
   resume { ptr, i32 } %.pn
 
@@ -62256,8 +62254,7 @@ for.body.us.preheader:                            ; preds = %for.body.lr.ph
   %idx.ext = sext i32 %mul19 to i64
   %add.ptr = getelementptr inbounds %class.half, ptr %call14, i64 %idx.ext
   %umax = tail call i64 @llvm.umax.i64(i64 %conv31, i64 1)
-  %13 = tail call i32 @llvm.umax.i32(i32 %sub.i32, i32 1)
-  %umax191 = sext i32 %13 to i64
+  %umax191 = sext i32 %sub.i32 to i64
   br label %for.cond1.preheader.lr.ph.i.us
 
 for.cond1.preheader.lr.ph.i.us:                   ; preds = %for.cond43.for.inc56_crit_edge.us, %for.body.us.preheader
@@ -62276,16 +62273,16 @@ for.body3.us.i.us:                                ; preds = %for.body3.us.i.us, 
   %j.014.us.i.us = phi i32 [ 0, %for.cond1.preheader.us.i.us ], [ %inc.us.i.us, %for.body3.us.i.us ]
   %dst.addr.113.us.i.us = phi ptr [ %dst.addr.018.us.i.us, %for.cond1.preheader.us.i.us ], [ %incdec.ptr.us.i.us, %for.body3.us.i.us ]
   %s.addr.112.us.i.us = phi ptr [ %s.addr.017.us.i.us, %for.cond1.preheader.us.i.us ], [ %incdec.ptr5.us.i.us, %for.body3.us.i.us ]
-  %14 = load i16, ptr %s.addr.112.us.i.us, align 2
-  %idxprom.i.us.i.us = zext i16 %14 to i64
+  %13 = load i16, ptr %s.addr.112.us.i.us, align 2
+  %idxprom.i.us.i.us = zext i16 %13 to i64
   %arrayidx.i.us.i.us = getelementptr inbounds [65536 x %"union.half::uif"], ptr @_ZN4half8_toFloatE, i64 0, i64 %idxprom.i.us.i.us
-  %15 = load float, ptr %arrayidx.i.us.i.us, align 4
+  %14 = load float, ptr %arrayidx.i.us.i.us, align 4
   %add.ptr.us.i.us = getelementptr inbounds %class.half, ptr %s.addr.112.us.i.us, i64 %idx.ext.i
-  %16 = load i16, ptr %add.ptr.us.i.us, align 2
-  %idxprom.i9.us.i.us = zext i16 %16 to i64
+  %15 = load i16, ptr %add.ptr.us.i.us, align 2
+  %idxprom.i9.us.i.us = zext i16 %15 to i64
   %arrayidx.i10.us.i.us = getelementptr inbounds [65536 x %"union.half::uif"], ptr @_ZN4half8_toFloatE, i64 0, i64 %idxprom.i9.us.i.us
-  %17 = load float, ptr %arrayidx.i10.us.i.us, align 4
-  %add.us.i.us = fadd float %15, %17
+  %16 = load float, ptr %arrayidx.i10.us.i.us, align 4
+  %add.us.i.us = fadd float %14, %16
   %mul.us.i.us = fmul float %add.us.i.us, 5.000000e-01
   store float %mul.us.i.us, ptr %dst.addr.113.us.i.us, align 4
   %inc.us.i.us = add nuw nsw i32 %j.014.us.i.us, 1
@@ -62314,16 +62311,16 @@ for.body3.us.i41.us:                              ; preds = %for.body3.us.i41.us
   %j.014.us.i42.us = phi i32 [ 0, %for.cond1.preheader.us.i37.us ], [ %inc.us.i52.us, %for.body3.us.i41.us ]
   %dst.addr.113.us.i43.us = phi ptr [ %dst.addr.018.us.i39.us, %for.cond1.preheader.us.i37.us ], [ %incdec.ptr.us.i53.us, %for.body3.us.i41.us ]
   %s.addr.112.us.i44.us = phi ptr [ %s.addr.017.us.i40.us, %for.cond1.preheader.us.i37.us ], [ %incdec.ptr5.us.i54.us, %for.body3.us.i41.us ]
-  %18 = load i16, ptr %s.addr.112.us.i44.us, align 2
-  %idxprom.i.us.i45.us = zext i16 %18 to i64
+  %17 = load i16, ptr %s.addr.112.us.i44.us, align 2
+  %idxprom.i.us.i45.us = zext i16 %17 to i64
   %arrayidx.i.us.i46.us = getelementptr inbounds [65536 x %"union.half::uif"], ptr @_ZN4half8_toFloatE, i64 0, i64 %idxprom.i.us.i45.us
-  %19 = load float, ptr %arrayidx.i.us.i46.us, align 4
+  %18 = load float, ptr %arrayidx.i.us.i46.us, align 4
   %add.ptr.us.i47.us = getelementptr inbounds %class.half, ptr %s.addr.112.us.i44.us, i64 %idx.ext.i36
-  %20 = load i16, ptr %add.ptr.us.i47.us, align 2
-  %idxprom.i9.us.i48.us = zext i16 %20 to i64
+  %19 = load i16, ptr %add.ptr.us.i47.us, align 2
+  %idxprom.i9.us.i48.us = zext i16 %19 to i64
   %arrayidx.i10.us.i49.us = getelementptr inbounds [65536 x %"union.half::uif"], ptr @_ZN4half8_toFloatE, i64 0, i64 %idxprom.i9.us.i48.us
-  %21 = load float, ptr %arrayidx.i10.us.i49.us, align 4
-  %add.us.i50.us = fadd float %19, %21
+  %20 = load float, ptr %arrayidx.i10.us.i49.us, align 4
+  %add.us.i50.us = fadd float %18, %20
   %mul.us.i51.us = fmul float %add.us.i50.us, 5.000000e-01
   store float %mul.us.i51.us, ptr %dst.addr.113.us.i43.us, align 4
   %inc.us.i52.us = add nuw nsw i32 %j.014.us.i42.us, 1
@@ -62358,39 +62355,39 @@ for.body48.us.us:                                 ; preds = %invoke.cont50.us.us
   %s1.192.us.us = phi ptr [ %s1.099.us.us, %for.cond46.preheader.us.us ], [ %incdec.ptr51.us.us, %invoke.cont50.us.us ]
   %s0.191.us.us = phi ptr [ %s0.098.us.us, %for.cond46.preheader.us.us ], [ %incdec.ptr.us.us, %invoke.cont50.us.us ]
   %d.290.us.us = phi ptr [ %d.197.us.us, %for.cond46.preheader.us.us ], [ %incdec.ptr52.us.us, %invoke.cont50.us.us ]
-  %22 = load float, ptr %s0.191.us.us, align 4
-  %23 = load float, ptr %s1.192.us.us, align 4
-  %add.us.us = fadd float %22, %23
+  %21 = load float, ptr %s0.191.us.us, align 4
+  %22 = load float, ptr %s1.192.us.us, align 4
+  %add.us.us = fadd float %21, %22
   %mul49.us.us = fmul float %add.us.us, 5.000000e-01
-  %24 = bitcast float %mul49.us.us to i32
+  %23 = bitcast float %mul49.us.us to i32
   %cmp.i.us.us = fcmp oeq float %mul49.us.us, 0.000000e+00
   br i1 %cmp.i.us.us, label %if.then.i.us.us, label %if.else.i.us.us
 
 if.else.i.us.us:                                  ; preds = %for.body48.us.us
-  %shr2.i.us.us = lshr i32 %24, 23
+  %shr2.i.us.us = lshr i32 %23, 23
   %idxprom.i.us.us = zext nneg i32 %shr2.i.us.us to i64
   %arrayidx.i.us.us = getelementptr inbounds [512 x i16], ptr @_ZN4half5_eLutE, i64 0, i64 %idxprom.i.us.us
-  %25 = load i16, ptr %arrayidx.i.us.us, align 2
-  %tobool.not.i.us.us = icmp eq i16 %25, 0
+  %24 = load i16, ptr %arrayidx.i.us.us, align 2
+  %tobool.not.i.us.us = icmp eq i16 %24, 0
   br i1 %tobool.not.i.us.us, label %if.else13.i.us.us, label %if.then4.i.us.us
 
 if.then4.i.us.us:                                 ; preds = %if.else.i.us.us
-  %and5.i.us.us = and i32 %24, 8388607
+  %and5.i.us.us = and i32 %23, 8388607
   %add.i.us.us = add nuw nsw i32 %and5.i.us.us, 4095
-  %shr6.i.us.us = lshr i32 %24, 13
+  %shr6.i.us.us = lshr i32 %23, 13
   %and7.i.us.us = and i32 %shr6.i.us.us, 1
   %add8.i.us.us = add nuw nsw i32 %add.i.us.us, %and7.i.us.us
   %shr9.i.us.us = lshr i32 %add8.i.us.us, 13
-  %26 = trunc nuw nsw i32 %shr9.i.us.us to i16
-  %conv11.i.us.us = add i16 %25, %26
+  %25 = trunc nuw nsw i32 %shr9.i.us.us to i16
+  %conv11.i.us.us = add i16 %24, %25
   br label %invoke.cont50.us.us
 
 if.else13.i.us.us:                                ; preds = %if.else.i.us.us
-  %call.i61.us.us = invoke noundef signext i16 @_ZN4half7convertEi(i32 noundef %24)
+  %call.i61.us.us = invoke noundef signext i16 @_ZN4half7convertEi(i32 noundef %23)
           to label %invoke.cont50.us.us unwind label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.loopexit.split.us.split.us
 
 if.then.i.us.us:                                  ; preds = %for.body48.us.us
-  %shr.i.us.us = lshr exact i32 %24, 16
+  %shr.i.us.us = lshr exact i32 %23, 16
   %conv.i.us.us = trunc nuw i32 %shr.i.us.us to i16
   br label %invoke.cont50.us.us
 
@@ -62415,7 +62412,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.loopexit.split.us.split.u
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
 
 lpad:                                             ; preds = %if.end
-  %27 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit70
 
@@ -62435,7 +62432,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit67: ; preds = %for.cond43.
   br label %return
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit70: ; preds = %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit, %lpad
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit ], [ %27, %lpad ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit ], [ %26, %lpad ]
   tail call void @_ZdaPv(ptr noundef nonnull %call8) #24
   resume { ptr, i32 } %.pn
 
@@ -62534,8 +62531,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont20
 
 for.body.us106.preheader:                         ; preds = %for.body.lr.ph
   %umax209 = tail call i64 @llvm.umax.i64(i64 %conv31, i64 1)
-  %13 = tail call i32 @llvm.umax.i32(i32 %sub.i32, i32 1)
-  %umax211 = sext i32 %13 to i64
+  %umax211 = sext i32 %sub.i32 to i64
   br label %for.body.us106
 
 for.body.us106:                                   ; preds = %for.body.us106.preheader, %for.inc56.us113
@@ -62554,11 +62550,11 @@ for.body3.us.i.us:                                ; preds = %for.body3.us.i.us, 
   %j.012.us.i.us = phi i32 [ 0, %for.cond1.preheader.us.i.us ], [ %inc.us.i.us, %for.body3.us.i.us ]
   %dst.addr.111.us.i.us = phi ptr [ %dst.addr.016.us.i.us, %for.cond1.preheader.us.i.us ], [ %incdec.ptr.us.i.us, %for.body3.us.i.us ]
   %s.addr.110.us.i.us = phi ptr [ %s.addr.015.us.i.us, %for.cond1.preheader.us.i.us ], [ %incdec.ptr6.us.i.us, %for.body3.us.i.us ]
-  %14 = load i16, ptr %s.addr.110.us.i.us, align 2
-  %conv.us.i.us = zext i16 %14 to i32
+  %13 = load i16, ptr %s.addr.110.us.i.us, align 2
+  %conv.us.i.us = zext i16 %13 to i32
   %add.ptr.us.i.us = getelementptr inbounds i16, ptr %s.addr.110.us.i.us, i64 %idx.ext.i
-  %15 = load i16, ptr %add.ptr.us.i.us, align 2
-  %conv4.us.i.us = zext i16 %15 to i32
+  %14 = load i16, ptr %add.ptr.us.i.us, align 2
+  %conv4.us.i.us = zext i16 %14 to i32
   %add.us.i.us = add nuw nsw i32 %conv4.us.i.us, %conv.us.i.us
   %conv5.us.i.us = uitofp nneg i32 %add.us.i.us to float
   %mul.us.i.us = fmul float %conv5.us.i.us, 5.000000e-01
@@ -62589,11 +62585,11 @@ for.body3.us.i41.us:                              ; preds = %for.body3.us.i41.us
   %j.012.us.i42.us = phi i32 [ 0, %for.cond1.preheader.us.i37.us ], [ %inc.us.i51.us, %for.body3.us.i41.us ]
   %dst.addr.111.us.i43.us = phi ptr [ %dst.addr.016.us.i39.us, %for.cond1.preheader.us.i37.us ], [ %incdec.ptr.us.i52.us, %for.body3.us.i41.us ]
   %s.addr.110.us.i44.us = phi ptr [ %s.addr.015.us.i40.us, %for.cond1.preheader.us.i37.us ], [ %incdec.ptr6.us.i53.us, %for.body3.us.i41.us ]
-  %16 = load i16, ptr %s.addr.110.us.i44.us, align 2
-  %conv.us.i45.us = zext i16 %16 to i32
+  %15 = load i16, ptr %s.addr.110.us.i44.us, align 2
+  %conv.us.i45.us = zext i16 %15 to i32
   %add.ptr.us.i46.us = getelementptr inbounds i16, ptr %s.addr.110.us.i44.us, i64 %idx.ext.i36
-  %17 = load i16, ptr %add.ptr.us.i46.us, align 2
-  %conv4.us.i47.us = zext i16 %17 to i32
+  %16 = load i16, ptr %add.ptr.us.i46.us, align 2
+  %conv4.us.i47.us = zext i16 %16 to i32
   %add.us.i48.us = add nuw nsw i32 %conv4.us.i47.us, %conv.us.i45.us
   %conv5.us.i49.us = uitofp nneg i32 %add.us.i48.us to float
   %mul.us.i50.us = fmul float %conv5.us.i49.us, 5.000000e-01
@@ -62631,9 +62627,9 @@ for.body48.us.us132:                              ; preds = %for.body48.us.us132
   %s1.186.us.us134 = phi ptr [ %s1.093.us.us129, %for.cond46.preheader.us.us127 ], [ %incdec.ptr51.us.us142, %for.body48.us.us132 ]
   %s0.185.us.us135 = phi ptr [ %s0.092.us.us130, %for.cond46.preheader.us.us127 ], [ %incdec.ptr.us.us141, %for.body48.us.us132 ]
   %d.284.us.us136 = phi ptr [ %d.191.us.us131, %for.cond46.preheader.us.us127 ], [ %incdec.ptr52.us.us143, %for.body48.us.us132 ]
-  %18 = load float, ptr %s0.185.us.us135, align 4
-  %19 = load float, ptr %s1.186.us.us134, align 4
-  %add.us.us137 = fadd float %18, %19
+  %17 = load float, ptr %s0.185.us.us135, align 4
+  %18 = load float, ptr %s1.186.us.us134, align 4
+  %add.us.us137 = fadd float %17, %18
   %mul49.us.us138 = fmul float %add.us.us137, 5.000000e-01
   %conv50.us.us139 = fptoui float %mul49.us.us138 to i16
   store i16 %conv50.us.us139, ptr %d.284.us.us136, align 2
@@ -62650,12 +62646,12 @@ for.cond46.for.inc53_crit_edge.us.us145:          ; preds = %for.body48.us.us132
   br i1 %exitcond210.not, label %for.inc56.us113, label %for.cond46.preheader.us.us127, !llvm.loop !589
 
 lpad:                                             ; preds = %if.end
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit68
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %invoke.cont15, %invoke.cont13, %invoke.cont11, %invoke.cont
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdaPv(ptr noundef nonnull %call9) #24
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit68
@@ -62666,7 +62662,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit65: ; preds = %for.inc56.u
   br label %return
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit68: ; preds = %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit, %lpad
-  %.pn = phi { ptr, i32 } [ %21, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit ], [ %20, %lpad ]
+  %.pn = phi { ptr, i32 } [ %20, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit ], [ %19, %lpad ]
   tail call void @_ZdaPv(ptr noundef nonnull %call8) #24
   resume { ptr, i32 } %.pn
 
@@ -62765,8 +62761,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont20
 
 for.body.us106.preheader:                         ; preds = %for.body.lr.ph
   %umax209 = tail call i64 @llvm.umax.i64(i64 %conv31, i64 1)
-  %13 = tail call i32 @llvm.umax.i32(i32 %sub.i32, i32 1)
-  %umax211 = sext i32 %13 to i64
+  %umax211 = sext i32 %sub.i32 to i64
   br label %for.body.us106
 
 for.body.us106:                                   ; preds = %for.body.us106.preheader, %for.inc56.us113
@@ -62785,11 +62780,11 @@ for.body3.us.i.us:                                ; preds = %for.body3.us.i.us, 
   %j.012.us.i.us = phi i32 [ 0, %for.cond1.preheader.us.i.us ], [ %inc.us.i.us, %for.body3.us.i.us ]
   %dst.addr.111.us.i.us = phi ptr [ %dst.addr.016.us.i.us, %for.cond1.preheader.us.i.us ], [ %incdec.ptr.us.i.us, %for.body3.us.i.us ]
   %s.addr.110.us.i.us = phi ptr [ %s.addr.015.us.i.us, %for.cond1.preheader.us.i.us ], [ %incdec.ptr6.us.i.us, %for.body3.us.i.us ]
-  %14 = load i8, ptr %s.addr.110.us.i.us, align 1
-  %conv.us.i.us = sext i8 %14 to i32
+  %13 = load i8, ptr %s.addr.110.us.i.us, align 1
+  %conv.us.i.us = sext i8 %13 to i32
   %add.ptr.us.i.us = getelementptr inbounds i8, ptr %s.addr.110.us.i.us, i64 %idx.ext.i
-  %15 = load i8, ptr %add.ptr.us.i.us, align 1
-  %conv4.us.i.us = sext i8 %15 to i32
+  %14 = load i8, ptr %add.ptr.us.i.us, align 1
+  %conv4.us.i.us = sext i8 %14 to i32
   %add.us.i.us = add nsw i32 %conv4.us.i.us, %conv.us.i.us
   %conv5.us.i.us = sitofp i32 %add.us.i.us to float
   %mul.us.i.us = fmul float %conv5.us.i.us, 5.000000e-01
@@ -62820,11 +62815,11 @@ for.body3.us.i41.us:                              ; preds = %for.body3.us.i41.us
   %j.012.us.i42.us = phi i32 [ 0, %for.cond1.preheader.us.i37.us ], [ %inc.us.i51.us, %for.body3.us.i41.us ]
   %dst.addr.111.us.i43.us = phi ptr [ %dst.addr.016.us.i39.us, %for.cond1.preheader.us.i37.us ], [ %incdec.ptr.us.i52.us, %for.body3.us.i41.us ]
   %s.addr.110.us.i44.us = phi ptr [ %s.addr.015.us.i40.us, %for.cond1.preheader.us.i37.us ], [ %incdec.ptr6.us.i53.us, %for.body3.us.i41.us ]
-  %16 = load i8, ptr %s.addr.110.us.i44.us, align 1
-  %conv.us.i45.us = sext i8 %16 to i32
+  %15 = load i8, ptr %s.addr.110.us.i44.us, align 1
+  %conv.us.i45.us = sext i8 %15 to i32
   %add.ptr.us.i46.us = getelementptr inbounds i8, ptr %s.addr.110.us.i44.us, i64 %idx.ext.i36
-  %17 = load i8, ptr %add.ptr.us.i46.us, align 1
-  %conv4.us.i47.us = sext i8 %17 to i32
+  %16 = load i8, ptr %add.ptr.us.i46.us, align 1
+  %conv4.us.i47.us = sext i8 %16 to i32
   %add.us.i48.us = add nsw i32 %conv4.us.i47.us, %conv.us.i45.us
   %conv5.us.i49.us = sitofp i32 %add.us.i48.us to float
   %mul.us.i50.us = fmul float %conv5.us.i49.us, 5.000000e-01
@@ -62862,9 +62857,9 @@ for.body48.us.us132:                              ; preds = %for.body48.us.us132
   %s1.186.us.us134 = phi ptr [ %s1.093.us.us129, %for.cond46.preheader.us.us127 ], [ %incdec.ptr51.us.us142, %for.body48.us.us132 ]
   %s0.185.us.us135 = phi ptr [ %s0.092.us.us130, %for.cond46.preheader.us.us127 ], [ %incdec.ptr.us.us141, %for.body48.us.us132 ]
   %d.284.us.us136 = phi ptr [ %d.191.us.us131, %for.cond46.preheader.us.us127 ], [ %incdec.ptr52.us.us143, %for.body48.us.us132 ]
-  %18 = load float, ptr %s0.185.us.us135, align 4
-  %19 = load float, ptr %s1.186.us.us134, align 4
-  %add.us.us137 = fadd float %18, %19
+  %17 = load float, ptr %s0.185.us.us135, align 4
+  %18 = load float, ptr %s1.186.us.us134, align 4
+  %add.us.us137 = fadd float %17, %18
   %mul49.us.us138 = fmul float %add.us.us137, 5.000000e-01
   %conv50.us.us139 = fptosi float %mul49.us.us138 to i8
   store i8 %conv50.us.us139, ptr %d.284.us.us136, align 1
@@ -62881,12 +62876,12 @@ for.cond46.for.inc53_crit_edge.us.us145:          ; preds = %for.body48.us.us132
   br i1 %exitcond210.not, label %for.inc56.us113, label %for.cond46.preheader.us.us127, !llvm.loop !594
 
 lpad:                                             ; preds = %if.end
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit68
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %invoke.cont15, %invoke.cont13, %invoke.cont11, %invoke.cont
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdaPv(ptr noundef nonnull %call9) #24
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit68
@@ -62897,7 +62892,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit65: ; preds = %for.inc56.u
   br label %return
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit68: ; preds = %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit, %lpad
-  %.pn = phi { ptr, i32 } [ %21, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit ], [ %20, %lpad ]
+  %.pn = phi { ptr, i32 } [ %20, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit ], [ %19, %lpad ]
   tail call void @_ZdaPv(ptr noundef nonnull %call8) #24
   resume { ptr, i32 } %.pn
 
@@ -62996,8 +62991,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont20
 
 for.body.us106.preheader:                         ; preds = %for.body.lr.ph
   %umax209 = tail call i64 @llvm.umax.i64(i64 %conv31, i64 1)
-  %13 = tail call i32 @llvm.umax.i32(i32 %sub.i32, i32 1)
-  %umax211 = sext i32 %13 to i64
+  %umax211 = sext i32 %sub.i32 to i64
   br label %for.body.us106
 
 for.body.us106:                                   ; preds = %for.body.us106.preheader, %for.inc56.us113
@@ -63016,11 +63010,11 @@ for.body3.us.i.us:                                ; preds = %for.body3.us.i.us, 
   %j.012.us.i.us = phi i32 [ 0, %for.cond1.preheader.us.i.us ], [ %inc.us.i.us, %for.body3.us.i.us ]
   %dst.addr.111.us.i.us = phi ptr [ %dst.addr.016.us.i.us, %for.cond1.preheader.us.i.us ], [ %incdec.ptr.us.i.us, %for.body3.us.i.us ]
   %s.addr.110.us.i.us = phi ptr [ %s.addr.015.us.i.us, %for.cond1.preheader.us.i.us ], [ %incdec.ptr6.us.i.us, %for.body3.us.i.us ]
-  %14 = load i16, ptr %s.addr.110.us.i.us, align 2
-  %conv.us.i.us = sext i16 %14 to i32
+  %13 = load i16, ptr %s.addr.110.us.i.us, align 2
+  %conv.us.i.us = sext i16 %13 to i32
   %add.ptr.us.i.us = getelementptr inbounds i16, ptr %s.addr.110.us.i.us, i64 %idx.ext.i
-  %15 = load i16, ptr %add.ptr.us.i.us, align 2
-  %conv4.us.i.us = sext i16 %15 to i32
+  %14 = load i16, ptr %add.ptr.us.i.us, align 2
+  %conv4.us.i.us = sext i16 %14 to i32
   %add.us.i.us = add nsw i32 %conv4.us.i.us, %conv.us.i.us
   %conv5.us.i.us = sitofp i32 %add.us.i.us to float
   %mul.us.i.us = fmul float %conv5.us.i.us, 5.000000e-01
@@ -63051,11 +63045,11 @@ for.body3.us.i41.us:                              ; preds = %for.body3.us.i41.us
   %j.012.us.i42.us = phi i32 [ 0, %for.cond1.preheader.us.i37.us ], [ %inc.us.i51.us, %for.body3.us.i41.us ]
   %dst.addr.111.us.i43.us = phi ptr [ %dst.addr.016.us.i39.us, %for.cond1.preheader.us.i37.us ], [ %incdec.ptr.us.i52.us, %for.body3.us.i41.us ]
   %s.addr.110.us.i44.us = phi ptr [ %s.addr.015.us.i40.us, %for.cond1.preheader.us.i37.us ], [ %incdec.ptr6.us.i53.us, %for.body3.us.i41.us ]
-  %16 = load i16, ptr %s.addr.110.us.i44.us, align 2
-  %conv.us.i45.us = sext i16 %16 to i32
+  %15 = load i16, ptr %s.addr.110.us.i44.us, align 2
+  %conv.us.i45.us = sext i16 %15 to i32
   %add.ptr.us.i46.us = getelementptr inbounds i16, ptr %s.addr.110.us.i44.us, i64 %idx.ext.i36
-  %17 = load i16, ptr %add.ptr.us.i46.us, align 2
-  %conv4.us.i47.us = sext i16 %17 to i32
+  %16 = load i16, ptr %add.ptr.us.i46.us, align 2
+  %conv4.us.i47.us = sext i16 %16 to i32
   %add.us.i48.us = add nsw i32 %conv4.us.i47.us, %conv.us.i45.us
   %conv5.us.i49.us = sitofp i32 %add.us.i48.us to float
   %mul.us.i50.us = fmul float %conv5.us.i49.us, 5.000000e-01
@@ -63093,9 +63087,9 @@ for.body48.us.us132:                              ; preds = %for.body48.us.us132
   %s1.186.us.us134 = phi ptr [ %s1.093.us.us129, %for.cond46.preheader.us.us127 ], [ %incdec.ptr51.us.us142, %for.body48.us.us132 ]
   %s0.185.us.us135 = phi ptr [ %s0.092.us.us130, %for.cond46.preheader.us.us127 ], [ %incdec.ptr.us.us141, %for.body48.us.us132 ]
   %d.284.us.us136 = phi ptr [ %d.191.us.us131, %for.cond46.preheader.us.us127 ], [ %incdec.ptr52.us.us143, %for.body48.us.us132 ]
-  %18 = load float, ptr %s0.185.us.us135, align 4
-  %19 = load float, ptr %s1.186.us.us134, align 4
-  %add.us.us137 = fadd float %18, %19
+  %17 = load float, ptr %s0.185.us.us135, align 4
+  %18 = load float, ptr %s1.186.us.us134, align 4
+  %add.us.us137 = fadd float %17, %18
   %mul49.us.us138 = fmul float %add.us.us137, 5.000000e-01
   %conv50.us.us139 = fptosi float %mul49.us.us138 to i16
   store i16 %conv50.us.us139, ptr %d.284.us.us136, align 2
@@ -63112,12 +63106,12 @@ for.cond46.for.inc53_crit_edge.us.us145:          ; preds = %for.body48.us.us132
   br i1 %exitcond210.not, label %for.inc56.us113, label %for.cond46.preheader.us.us127, !llvm.loop !599
 
 lpad:                                             ; preds = %if.end
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit68
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %invoke.cont15, %invoke.cont13, %invoke.cont11, %invoke.cont
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdaPv(ptr noundef nonnull %call9) #24
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit68
@@ -63128,7 +63122,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit65: ; preds = %for.inc56.u
   br label %return
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit68: ; preds = %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit, %lpad
-  %.pn = phi { ptr, i32 } [ %21, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit ], [ %20, %lpad ]
+  %.pn = phi { ptr, i32 } [ %20, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit ], [ %19, %lpad ]
   tail call void @_ZdaPv(ptr noundef nonnull %call8) #24
   resume { ptr, i32 } %.pn
 
@@ -63227,8 +63221,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont20
 
 for.body.us104.preheader:                         ; preds = %for.body.lr.ph
   %umax207 = tail call i64 @llvm.umax.i64(i64 %conv31, i64 1)
-  %13 = tail call i32 @llvm.umax.i32(i32 %sub.i32, i32 1)
-  %umax209 = sext i32 %13 to i64
+  %umax209 = sext i32 %sub.i32 to i64
   br label %for.body.us104
 
 for.body.us104:                                   ; preds = %for.body.us104.preheader, %for.inc56.us111
@@ -63247,10 +63240,10 @@ for.body3.us.i.us:                                ; preds = %for.body3.us.i.us, 
   %j.012.us.i.us = phi i32 [ 0, %for.cond1.preheader.us.i.us ], [ %inc.us.i.us, %for.body3.us.i.us ]
   %dst.addr.111.us.i.us = phi ptr [ %dst.addr.016.us.i.us, %for.cond1.preheader.us.i.us ], [ %incdec.ptr.us.i.us, %for.body3.us.i.us ]
   %s.addr.110.us.i.us = phi ptr [ %s.addr.015.us.i.us, %for.cond1.preheader.us.i.us ], [ %incdec.ptr4.us.i.us, %for.body3.us.i.us ]
-  %14 = load i32, ptr %s.addr.110.us.i.us, align 4
+  %13 = load i32, ptr %s.addr.110.us.i.us, align 4
   %add.ptr.us.i.us = getelementptr inbounds i32, ptr %s.addr.110.us.i.us, i64 %idx.ext.i
-  %15 = load i32, ptr %add.ptr.us.i.us, align 4
-  %add.us.i.us = add i32 %15, %14
+  %14 = load i32, ptr %add.ptr.us.i.us, align 4
+  %add.us.i.us = add i32 %14, %13
   %conv.us.i.us = uitofp i32 %add.us.i.us to float
   %mul.us.i.us = fmul float %conv.us.i.us, 5.000000e-01
   store float %mul.us.i.us, ptr %dst.addr.111.us.i.us, align 4
@@ -63280,10 +63273,10 @@ for.body3.us.i41.us:                              ; preds = %for.body3.us.i41.us
   %j.012.us.i42.us = phi i32 [ 0, %for.cond1.preheader.us.i37.us ], [ %inc.us.i49.us, %for.body3.us.i41.us ]
   %dst.addr.111.us.i43.us = phi ptr [ %dst.addr.016.us.i39.us, %for.cond1.preheader.us.i37.us ], [ %incdec.ptr.us.i50.us, %for.body3.us.i41.us ]
   %s.addr.110.us.i44.us = phi ptr [ %s.addr.015.us.i40.us, %for.cond1.preheader.us.i37.us ], [ %incdec.ptr4.us.i51.us, %for.body3.us.i41.us ]
-  %16 = load i32, ptr %s.addr.110.us.i44.us, align 4
+  %15 = load i32, ptr %s.addr.110.us.i44.us, align 4
   %add.ptr.us.i45.us = getelementptr inbounds i32, ptr %s.addr.110.us.i44.us, i64 %idx.ext.i36
-  %17 = load i32, ptr %add.ptr.us.i45.us, align 4
-  %add.us.i46.us = add i32 %17, %16
+  %16 = load i32, ptr %add.ptr.us.i45.us, align 4
+  %add.us.i46.us = add i32 %16, %15
   %conv.us.i47.us = uitofp i32 %add.us.i46.us to float
   %mul.us.i48.us = fmul float %conv.us.i47.us, 5.000000e-01
   store float %mul.us.i48.us, ptr %dst.addr.111.us.i43.us, align 4
@@ -63320,9 +63313,9 @@ for.body48.us.us130:                              ; preds = %for.body48.us.us130
   %s1.184.us.us132 = phi ptr [ %s1.091.us.us127, %for.cond46.preheader.us.us125 ], [ %incdec.ptr51.us.us140, %for.body48.us.us130 ]
   %s0.183.us.us133 = phi ptr [ %s0.090.us.us128, %for.cond46.preheader.us.us125 ], [ %incdec.ptr.us.us139, %for.body48.us.us130 ]
   %d.282.us.us134 = phi ptr [ %d.189.us.us129, %for.cond46.preheader.us.us125 ], [ %incdec.ptr52.us.us141, %for.body48.us.us130 ]
-  %18 = load float, ptr %s0.183.us.us133, align 4
-  %19 = load float, ptr %s1.184.us.us132, align 4
-  %add.us.us135 = fadd float %18, %19
+  %17 = load float, ptr %s0.183.us.us133, align 4
+  %18 = load float, ptr %s1.184.us.us132, align 4
+  %add.us.us135 = fadd float %17, %18
   %mul49.us.us136 = fmul float %add.us.us135, 5.000000e-01
   %conv50.us.us137 = fptoui float %mul49.us.us136 to i32
   store i32 %conv50.us.us137, ptr %d.282.us.us134, align 4
@@ -63339,12 +63332,12 @@ for.cond46.for.inc53_crit_edge.us.us143:          ; preds = %for.body48.us.us130
   br i1 %exitcond208.not, label %for.inc56.us111, label %for.cond46.preheader.us.us125, !llvm.loop !604
 
 lpad:                                             ; preds = %if.end
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit66
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %invoke.cont15, %invoke.cont13, %invoke.cont11, %invoke.cont
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdaPv(ptr noundef nonnull %call9) #24
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit66
@@ -63355,7 +63348,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit63: ; preds = %for.inc56.u
   br label %return
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit66: ; preds = %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit, %lpad
-  %.pn = phi { ptr, i32 } [ %21, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit ], [ %20, %lpad ]
+  %.pn = phi { ptr, i32 } [ %20, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit ], [ %19, %lpad ]
   tail call void @_ZdaPv(ptr noundef nonnull %call8) #24
   resume { ptr, i32 } %.pn
 
@@ -63454,8 +63447,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont20
 
 for.body.us104.preheader:                         ; preds = %for.body.lr.ph
   %umax207 = tail call i64 @llvm.umax.i64(i64 %conv31, i64 1)
-  %13 = tail call i32 @llvm.umax.i32(i32 %sub.i32, i32 1)
-  %umax209 = sext i32 %13 to i64
+  %umax209 = sext i32 %sub.i32 to i64
   br label %for.body.us104
 
 for.body.us104:                                   ; preds = %for.body.us104.preheader, %for.inc56.us111
@@ -63474,10 +63466,10 @@ for.body3.us.i.us:                                ; preds = %for.body3.us.i.us, 
   %j.012.us.i.us = phi i32 [ 0, %for.cond1.preheader.us.i.us ], [ %inc.us.i.us, %for.body3.us.i.us ]
   %dst.addr.111.us.i.us = phi ptr [ %dst.addr.016.us.i.us, %for.cond1.preheader.us.i.us ], [ %incdec.ptr.us.i.us, %for.body3.us.i.us ]
   %s.addr.110.us.i.us = phi ptr [ %s.addr.015.us.i.us, %for.cond1.preheader.us.i.us ], [ %incdec.ptr4.us.i.us, %for.body3.us.i.us ]
-  %14 = load i32, ptr %s.addr.110.us.i.us, align 4
+  %13 = load i32, ptr %s.addr.110.us.i.us, align 4
   %add.ptr.us.i.us = getelementptr inbounds i32, ptr %s.addr.110.us.i.us, i64 %idx.ext.i
-  %15 = load i32, ptr %add.ptr.us.i.us, align 4
-  %add.us.i.us = add nsw i32 %15, %14
+  %14 = load i32, ptr %add.ptr.us.i.us, align 4
+  %add.us.i.us = add nsw i32 %14, %13
   %conv.us.i.us = sitofp i32 %add.us.i.us to float
   %mul.us.i.us = fmul float %conv.us.i.us, 5.000000e-01
   store float %mul.us.i.us, ptr %dst.addr.111.us.i.us, align 4
@@ -63507,10 +63499,10 @@ for.body3.us.i41.us:                              ; preds = %for.body3.us.i41.us
   %j.012.us.i42.us = phi i32 [ 0, %for.cond1.preheader.us.i37.us ], [ %inc.us.i49.us, %for.body3.us.i41.us ]
   %dst.addr.111.us.i43.us = phi ptr [ %dst.addr.016.us.i39.us, %for.cond1.preheader.us.i37.us ], [ %incdec.ptr.us.i50.us, %for.body3.us.i41.us ]
   %s.addr.110.us.i44.us = phi ptr [ %s.addr.015.us.i40.us, %for.cond1.preheader.us.i37.us ], [ %incdec.ptr4.us.i51.us, %for.body3.us.i41.us ]
-  %16 = load i32, ptr %s.addr.110.us.i44.us, align 4
+  %15 = load i32, ptr %s.addr.110.us.i44.us, align 4
   %add.ptr.us.i45.us = getelementptr inbounds i32, ptr %s.addr.110.us.i44.us, i64 %idx.ext.i36
-  %17 = load i32, ptr %add.ptr.us.i45.us, align 4
-  %add.us.i46.us = add nsw i32 %17, %16
+  %16 = load i32, ptr %add.ptr.us.i45.us, align 4
+  %add.us.i46.us = add nsw i32 %16, %15
   %conv.us.i47.us = sitofp i32 %add.us.i46.us to float
   %mul.us.i48.us = fmul float %conv.us.i47.us, 5.000000e-01
   store float %mul.us.i48.us, ptr %dst.addr.111.us.i43.us, align 4
@@ -63547,9 +63539,9 @@ for.body48.us.us130:                              ; preds = %for.body48.us.us130
   %s1.184.us.us132 = phi ptr [ %s1.091.us.us127, %for.cond46.preheader.us.us125 ], [ %incdec.ptr51.us.us140, %for.body48.us.us130 ]
   %s0.183.us.us133 = phi ptr [ %s0.090.us.us128, %for.cond46.preheader.us.us125 ], [ %incdec.ptr.us.us139, %for.body48.us.us130 ]
   %d.282.us.us134 = phi ptr [ %d.189.us.us129, %for.cond46.preheader.us.us125 ], [ %incdec.ptr52.us.us141, %for.body48.us.us130 ]
-  %18 = load float, ptr %s0.183.us.us133, align 4
-  %19 = load float, ptr %s1.184.us.us132, align 4
-  %add.us.us135 = fadd float %18, %19
+  %17 = load float, ptr %s0.183.us.us133, align 4
+  %18 = load float, ptr %s1.184.us.us132, align 4
+  %add.us.us135 = fadd float %17, %18
   %mul49.us.us136 = fmul float %add.us.us135, 5.000000e-01
   %conv50.us.us137 = fptosi float %mul49.us.us136 to i32
   store i32 %conv50.us.us137, ptr %d.282.us.us134, align 4
@@ -63566,12 +63558,12 @@ for.cond46.for.inc53_crit_edge.us.us143:          ; preds = %for.body48.us.us130
   br i1 %exitcond208.not, label %for.inc56.us111, label %for.cond46.preheader.us.us125, !llvm.loop !609
 
 lpad:                                             ; preds = %if.end
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit66
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %invoke.cont15, %invoke.cont13, %invoke.cont11, %invoke.cont
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdaPv(ptr noundef nonnull %call9) #24
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit66
@@ -63582,7 +63574,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit63: ; preds = %for.inc56.u
   br label %return
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit66: ; preds = %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit, %lpad
-  %.pn = phi { ptr, i32 } [ %21, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit ], [ %20, %lpad ]
+  %.pn = phi { ptr, i32 } [ %20, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit ], [ %19, %lpad ]
   tail call void @_ZdaPv(ptr noundef nonnull %call8) #24
   resume { ptr, i32 } %.pn
 
@@ -63681,8 +63673,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont20
 
 for.body.us104.preheader:                         ; preds = %for.body.lr.ph
   %umax207 = tail call i64 @llvm.umax.i64(i64 %conv31, i64 1)
-  %13 = tail call i32 @llvm.umax.i32(i32 %sub.i32, i32 1)
-  %umax209 = sext i32 %13 to i64
+  %umax209 = sext i32 %sub.i32 to i64
   br label %for.body.us104
 
 for.body.us104:                                   ; preds = %for.body.us104.preheader, %for.inc56.us111
@@ -63701,10 +63692,10 @@ for.body3.us.i.us:                                ; preds = %for.body3.us.i.us, 
   %j.012.us.i.us = phi i32 [ 0, %for.cond1.preheader.us.i.us ], [ %inc.us.i.us, %for.body3.us.i.us ]
   %dst.addr.111.us.i.us = phi ptr [ %dst.addr.016.us.i.us, %for.cond1.preheader.us.i.us ], [ %incdec.ptr.us.i.us, %for.body3.us.i.us ]
   %s.addr.110.us.i.us = phi ptr [ %s.addr.015.us.i.us, %for.cond1.preheader.us.i.us ], [ %incdec.ptr4.us.i.us, %for.body3.us.i.us ]
-  %14 = load double, ptr %s.addr.110.us.i.us, align 8
+  %13 = load double, ptr %s.addr.110.us.i.us, align 8
   %add.ptr.us.i.us = getelementptr inbounds double, ptr %s.addr.110.us.i.us, i64 %idx.ext.i
-  %15 = load double, ptr %add.ptr.us.i.us, align 8
-  %add.us.i.us = fadd double %14, %15
+  %14 = load double, ptr %add.ptr.us.i.us, align 8
+  %add.us.i.us = fadd double %13, %14
   %conv.us.i.us = fptrunc double %add.us.i.us to float
   %mul.us.i.us = fmul float %conv.us.i.us, 5.000000e-01
   store float %mul.us.i.us, ptr %dst.addr.111.us.i.us, align 4
@@ -63734,10 +63725,10 @@ for.body3.us.i41.us:                              ; preds = %for.body3.us.i41.us
   %j.012.us.i42.us = phi i32 [ 0, %for.cond1.preheader.us.i37.us ], [ %inc.us.i49.us, %for.body3.us.i41.us ]
   %dst.addr.111.us.i43.us = phi ptr [ %dst.addr.016.us.i39.us, %for.cond1.preheader.us.i37.us ], [ %incdec.ptr.us.i50.us, %for.body3.us.i41.us ]
   %s.addr.110.us.i44.us = phi ptr [ %s.addr.015.us.i40.us, %for.cond1.preheader.us.i37.us ], [ %incdec.ptr4.us.i51.us, %for.body3.us.i41.us ]
-  %16 = load double, ptr %s.addr.110.us.i44.us, align 8
+  %15 = load double, ptr %s.addr.110.us.i44.us, align 8
   %add.ptr.us.i45.us = getelementptr inbounds double, ptr %s.addr.110.us.i44.us, i64 %idx.ext.i36
-  %17 = load double, ptr %add.ptr.us.i45.us, align 8
-  %add.us.i46.us = fadd double %16, %17
+  %16 = load double, ptr %add.ptr.us.i45.us, align 8
+  %add.us.i46.us = fadd double %15, %16
   %conv.us.i47.us = fptrunc double %add.us.i46.us to float
   %mul.us.i48.us = fmul float %conv.us.i47.us, 5.000000e-01
   store float %mul.us.i48.us, ptr %dst.addr.111.us.i43.us, align 4
@@ -63774,9 +63765,9 @@ for.body48.us.us130:                              ; preds = %for.body48.us.us130
   %s1.184.us.us132 = phi ptr [ %s1.091.us.us127, %for.cond46.preheader.us.us125 ], [ %incdec.ptr51.us.us140, %for.body48.us.us130 ]
   %s0.183.us.us133 = phi ptr [ %s0.090.us.us128, %for.cond46.preheader.us.us125 ], [ %incdec.ptr.us.us139, %for.body48.us.us130 ]
   %d.282.us.us134 = phi ptr [ %d.189.us.us129, %for.cond46.preheader.us.us125 ], [ %incdec.ptr52.us.us141, %for.body48.us.us130 ]
-  %18 = load float, ptr %s0.183.us.us133, align 4
-  %19 = load float, ptr %s1.184.us.us132, align 4
-  %add.us.us135 = fadd float %18, %19
+  %17 = load float, ptr %s0.183.us.us133, align 4
+  %18 = load float, ptr %s1.184.us.us132, align 4
+  %add.us.us135 = fadd float %17, %18
   %mul49.us.us136 = fmul float %add.us.us135, 5.000000e-01
   %conv50.us.us137 = fpext float %mul49.us.us136 to double
   store double %conv50.us.us137, ptr %d.282.us.us134, align 8
@@ -63793,12 +63784,12 @@ for.cond46.for.inc53_crit_edge.us.us143:          ; preds = %for.body48.us.us130
   br i1 %exitcond208.not, label %for.inc56.us111, label %for.cond46.preheader.us.us125, !llvm.loop !614
 
 lpad:                                             ; preds = %if.end
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit66
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %invoke.cont15, %invoke.cont13, %invoke.cont11, %invoke.cont
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdaPv(ptr noundef nonnull %call9) #24
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit66
@@ -63809,7 +63800,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit63: ; preds = %for.inc56.u
   br label %return
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit66: ; preds = %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit, %lpad
-  %.pn = phi { ptr, i32 } [ %21, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit ], [ %20, %lpad ]
+  %.pn = phi { ptr, i32 } [ %20, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit ], [ %19, %lpad ]
   tail call void @_ZdaPv(ptr noundef nonnull %call8) #24
   resume { ptr, i32 } %.pn
 

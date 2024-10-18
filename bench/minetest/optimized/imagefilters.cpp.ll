@@ -216,7 +216,6 @@ invoke.cont23.i:                                  ; preds = %if.then.i.i.i.i.i.i
   %conv.i50.i265.i = and i32 %mul.i.i, 7
   %cmp1244.i266.i = icmp eq i32 %conv.i50.i265.i, 0
   %add.ptr.i.i.i268.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, i64 -1
-  %cmp.i.i.i.i.i.i = icmp slt i64 %sub.ptr.sub.i.i.i.i, 0
   %11 = and i64 %src.val, 4294967295
   %wide.trip.count151 = and i64 %sub.i250.i, 4294967295
   %exitcond.i277.i = icmp eq i32 %conv.i50.i265.i, 1
@@ -462,19 +461,9 @@ if.end142.i:                                      ; preds = %for.body.i252.i, %f
   %sub.ptr.rhs.cast.i90.i.i = ptrtoint ptr %bitmap.sroa.11.0144.i to i64
   %sub.ptr.sub.i91.i.i = sub i64 %sub.ptr.lhs.cast.i89.i.i, %sub.ptr.rhs.cast.i90.i.i
   %cmp3.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i, %sub.ptr.sub.i91.i.i
-  br i1 %cmp3.i.i, label %cond.true.i.i.i.i, label %if.else.i.i
+  br i1 %cmp3.i.i, label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i, label %if.else.i.i
 
-cond.true.i.i.i.i:                                ; preds = %if.end142.i
-  br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i, !prof !22
-
-if.end.i.i.i.i.i.i:                               ; preds = %cond.true.i.i.i.i
-  invoke void @_ZSt17__throw_bad_allocv() #9
-          to label %.noexc358.i unwind label %ehcleanup146.loopexit.split-lp.i
-
-.noexc358.i:                                      ; preds = %if.end.i.i.i.i.i.i
-  unreachable
-
-_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i
+_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i: ; preds = %if.end142.i
   %call5.i.i.i.i.i359.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i) #8
           to label %if.then.i.i.i.i.i.i.i.i.i.i357.i unwind label %ehcleanup146.loopexit.i
 
@@ -507,9 +496,8 @@ _ZSt4copyIPhS0_ET0_T_S2_S1_.exit.i.i:             ; preds = %if.else49.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit.i.i, %if.else49.i.i
   %32 = phi ptr [ %bitmap.sroa.25.0143.i, %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit.i.i ], [ %bitmap.sroa.11.0144.i, %if.else49.i.i ]
-  %sub.ptr.sub.i112.i.pre-phi178.i = phi i64 [ %sub.ptr.sub.i96.i.i, %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit.i.i ], [ 0, %if.else49.i.i ]
-  %add.ptr62.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i66.i, i64 %sub.ptr.sub.i112.i.pre-phi178.i
-  %gepdiff1 = sub i64 %sub.ptr.sub.i.i.i.i, %sub.ptr.sub.i112.i.pre-phi178.i
+  %add.ptr62.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i66.i, i64 %sub.ptr.sub.i96.i.i
+  %gepdiff1 = sub i64 %sub.ptr.sub.i.i.i.i, %sub.ptr.sub.i96.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %32, ptr align 1 %add.ptr62.i.i, i64 %gepdiff1, i1 false)
   br label %for.inc144.i
 
@@ -533,15 +521,6 @@ if.then.i.i.i.i.i:                                ; preds = %for.cond8.i275.i, %
 ehcleanup146.loopexit.i:                          ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
-  br label %if.then.i.i.i.i343.i
-
-ehcleanup146.loopexit.split-lp.i:                 ; preds = %if.end.i.i.i.i.i.i
-  %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
-          cleanup
-  br label %if.then.i.i.i.i343.i
-
-if.then.i.i.i.i343.i:                             ; preds = %ehcleanup146.loopexit.i, %ehcleanup146.loopexit.split-lp.i
-  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %ehcleanup146.loopexit.i ], [ %lpad.loopexit.split-lp.i, %ehcleanup146.loopexit.split-lp.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i.i.i.i.i66.i) #10
   br label %if.then.i.i.i.i351.i
 
@@ -550,9 +529,9 @@ if.then.i.i.i.i347.i:                             ; preds = %cleanup.i, %if.then
   tail call void @_ZdlPv(ptr noundef nonnull %bitmap.sroa.11.277.i) #10
   br label %if.end
 
-if.then.i.i.i.i351.i:                             ; preds = %if.then.i.i.i.i343.i, %ehcleanup155.thread.i
-  %.pn.pn.pn183.i = phi { ptr, i32 } [ %29, %ehcleanup155.thread.i ], [ %lpad.phi.i, %if.then.i.i.i.i343.i ]
-  %bitmap.sroa.11.3182.i = phi ptr [ %call5.i.i.i.i3.i.i5.i.i, %ehcleanup155.thread.i ], [ %bitmap.sroa.11.0144.i, %if.then.i.i.i.i343.i ]
+if.then.i.i.i.i351.i:                             ; preds = %ehcleanup146.loopexit.i, %ehcleanup155.thread.i
+  %.pn.pn.pn183.i = phi { ptr, i32 } [ %29, %ehcleanup155.thread.i ], [ %lpad.loopexit.i, %ehcleanup146.loopexit.i ]
+  %bitmap.sroa.11.3182.i = phi ptr [ %call5.i.i.i.i3.i.i5.i.i, %ehcleanup155.thread.i ], [ %bitmap.sroa.11.0144.i, %ehcleanup146.loopexit.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %bitmap.sroa.11.3182.i) #10
   br label %common.resume
 
@@ -761,7 +740,6 @@ invoke.cont21.i:                                  ; preds = %if.then.i.i.i.i.i.i
   %conv.i50.i249.i = and i32 %mul.i.i5, 7
   %cmp1244.i250.i = icmp eq i32 %conv.i50.i249.i, 0
   %add.ptr.i.i.i252.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i42, i64 -1
-  %cmp.i.i.i.i.i.i45 = icmp slt i64 %sub.ptr.sub.i.i.i.i37, 0
   %wide.trip.count141 = and i64 %sub.i234.i, 4294967295
   %exitcond.i261.i = icmp eq i32 %conv.i50.i249.i, 1
   %exitcond.i261.i.1 = icmp eq i32 %conv.i50.i249.i, 2
@@ -1026,19 +1004,9 @@ if.end129.i:                                      ; preds = %for.body.i236.i, %f
   %sub.ptr.rhs.cast.i90.i.i50 = ptrtoint ptr %bitmap.sroa.11.0481.i to i64
   %sub.ptr.sub.i91.i.i51 = sub i64 %sub.ptr.lhs.cast.i89.i.i49, %sub.ptr.rhs.cast.i90.i.i50
   %cmp3.i.i52 = icmp ugt i64 %sub.ptr.sub.i.i.i.i37, %sub.ptr.sub.i91.i.i51
-  br i1 %cmp3.i.i52, label %cond.true.i.i.i.i72, label %if.else.i.i53
+  br i1 %cmp3.i.i52, label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i73, label %if.else.i.i53
 
-cond.true.i.i.i.i72:                              ; preds = %if.end129.i
-  br i1 %cmp.i.i.i.i.i.i45, label %if.end.i.i.i.i.i.i79, label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i73, !prof !22
-
-if.end.i.i.i.i.i.i79:                             ; preds = %cond.true.i.i.i.i72
-  invoke void @_ZSt17__throw_bad_allocv() #9
-          to label %.noexc341.i unwind label %lpad130.loopexit.split-lp.i
-
-.noexc341.i:                                      ; preds = %if.end.i.i.i.i.i.i79
-  unreachable
-
-_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i73: ; preds = %cond.true.i.i.i.i72
+_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i73: ; preds = %if.end129.i
   %call5.i.i.i.i.i342.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i37) #8
           to label %if.then.i.i.i.i.i.i.i.i.i.i340.i unwind label %lpad130.loopexit.i
 
@@ -1071,9 +1039,8 @@ _ZSt4copyIPhS0_ET0_T_S2_S1_.exit.i.i67:           ; preds = %if.else49.i.i65
 
 if.then.i.i.i.i.i.i.i.i.i.i68:                    ; preds = %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit.i.i67, %if.else49.i.i65
   %58 = phi ptr [ %bitmap.sroa.25.0480.i, %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit.i.i67 ], [ %bitmap.sroa.11.0481.i, %if.else49.i.i65 ]
-  %sub.ptr.sub.i112.i.pre-phi506.i = phi i64 [ %sub.ptr.sub.i96.i.i55, %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit.i.i67 ], [ 0, %if.else49.i.i65 ]
-  %add.ptr62.i.i69 = getelementptr inbounds i8, ptr %cond.i.i.i.i.i400.i, i64 %sub.ptr.sub.i112.i.pre-phi506.i
-  %gepdiff = sub i64 %sub.ptr.sub.i.i.i.i37, %sub.ptr.sub.i112.i.pre-phi506.i
+  %add.ptr62.i.i69 = getelementptr inbounds i8, ptr %cond.i.i.i.i.i400.i, i64 %sub.ptr.sub.i96.i.i55
+  %gepdiff = sub i64 %sub.ptr.sub.i.i.i.i37, %sub.ptr.sub.i96.i.i55
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %58, ptr align 1 %add.ptr62.i.i69, i64 %gepdiff, i1 false)
   br label %for.inc132.i
 
@@ -1087,11 +1054,6 @@ for.inc132.i:                                     ; preds = %if.then.i.i.i.i.i.i
 
 lpad130.loopexit.i:                               ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i73
   %lpad.loopexit.i74 = landingpad { ptr, i32 }
-          cleanup
-  br label %if.then.i.i.i.i326.i
-
-lpad130.loopexit.split-lp.i:                      ; preds = %if.end.i.i.i.i.i.i79
-  %lpad.loopexit.split-lp.i80 = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i.i.i.i326.i
 
@@ -1109,8 +1071,8 @@ ehcleanup134.i:                                   ; preds = %lpad72.split.us.spl
   %tobool.not.i.i.i.i325.i = icmp eq ptr %cond.i.i.i.i.i400.i, null
   br i1 %tobool.not.i.i.i.i325.i, label %if.then.i.i.i.i334.i, label %if.then.i.i.i.i326.i
 
-if.then.i.i.i.i326.i:                             ; preds = %lpad130.loopexit.i, %lpad130.loopexit.split-lp.i, %ehcleanup134.i
-  %.pn.pn.i10 = phi { ptr, i32 } [ %.pn.pn.i, %ehcleanup134.i ], [ %lpad.loopexit.split-lp.i80, %lpad130.loopexit.split-lp.i ], [ %lpad.loopexit.i74, %lpad130.loopexit.i ]
+if.then.i.i.i.i326.i:                             ; preds = %lpad130.loopexit.i, %ehcleanup134.i
+  %.pn.pn.i10 = phi { ptr, i32 } [ %.pn.pn.i, %ehcleanup134.i ], [ %lpad.loopexit.i74, %lpad130.loopexit.i ]
   call void @_ZdlPv(ptr noundef nonnull %cond.i.i.i.i.i400.i) #10
   br label %if.then.i.i.i.i334.i
 

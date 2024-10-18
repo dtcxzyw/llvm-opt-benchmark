@@ -5102,17 +5102,20 @@ invoke.cont18:                                    ; preds = %invoke.cont16
   %_M_finish.i = getelementptr inbounds i8, ptr %op, i64 192
   %4 = load ptr, ptr %_M_finish.i, align 8, !tbaa !201
   %5 = load ptr, ptr %conditions, align 8, !tbaa !203
+  %cmp1056.not = icmp eq ptr %4, %5
+  br i1 %cmp1056.not, label %for.cond.cleanup, label %for.body.preheader
+
+for.body.preheader:                               ; preds = %invoke.cont18
   %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
-  %cmp1056.not = icmp eq ptr %4, %5
-  br i1 %cmp1056.not, label %for.cond.cleanup, label %for.body
+  br label %for.body
 
 for.cond.cleanup:                                 ; preds = %sw.epilog, %invoke.cont18
   %equi_indexes.sroa.9.0.lcssa = phi ptr [ null, %invoke.cont18 ], [ %equi_indexes.sroa.9.2, %sw.epilog ]
   %equi_indexes.sroa.0.0.lcssa = phi ptr [ null, %invoke.cont18 ], [ %equi_indexes.sroa.0.2, %sw.epilog ]
-  %asof_idx.0.lcssa = phi i64 [ %sub.ptr.div.i, %invoke.cont18 ], [ %asof_idx.1, %sw.epilog ]
+  %asof_idx.0.lcssa = phi i64 [ 0, %invoke.cont18 ], [ %asof_idx.1, %sw.epilog ]
   %6 = load ptr, ptr %context, align 8, !tbaa !75
   %call41 = invoke noundef nonnull align 8 dereferenceable(336) ptr @_ZN6duckdb12ClientConfig9GetConfigERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %6)
           to label %invoke.cont40 unwind label %lpad39
@@ -5122,12 +5125,12 @@ lpad:                                             ; preds = %invoke.cont16, %inv
           cleanup
   br label %ehcleanup341
 
-for.body:                                         ; preds = %invoke.cont18, %sw.epilog
-  %asof_idx.01061 = phi i64 [ %asof_idx.1, %sw.epilog ], [ %sub.ptr.div.i, %invoke.cont18 ]
-  %storemerge1060 = phi i64 [ %inc, %sw.epilog ], [ 0, %invoke.cont18 ]
-  %equi_indexes.sroa.0.01059 = phi ptr [ %equi_indexes.sroa.0.2, %sw.epilog ], [ null, %invoke.cont18 ]
-  %equi_indexes.sroa.9.01058 = phi ptr [ %equi_indexes.sroa.9.2, %sw.epilog ], [ null, %invoke.cont18 ]
-  %equi_indexes.sroa.13.01057 = phi ptr [ %equi_indexes.sroa.13.2, %sw.epilog ], [ null, %invoke.cont18 ]
+for.body:                                         ; preds = %for.body.preheader, %sw.epilog
+  %asof_idx.01061 = phi i64 [ %asof_idx.1, %sw.epilog ], [ %sub.ptr.div.i, %for.body.preheader ]
+  %storemerge1060 = phi i64 [ %inc, %sw.epilog ], [ 0, %for.body.preheader ]
+  %equi_indexes.sroa.0.01059 = phi ptr [ %equi_indexes.sroa.0.2, %sw.epilog ], [ null, %for.body.preheader ]
+  %equi_indexes.sroa.9.01058 = phi ptr [ %equi_indexes.sroa.9.2, %sw.epilog ], [ null, %for.body.preheader ]
+  %equi_indexes.sroa.13.01057 = phi ptr [ %equi_indexes.sroa.13.2, %sw.epilog ], [ null, %for.body.preheader ]
   %call25 = invoke noundef nonnull align 8 dereferenceable(17) ptr @_ZN6duckdb6vectorINS_13JoinConditionELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %conditions, i64 noundef %storemerge1060)
           to label %invoke.cont24 unwind label %lpad23.loopexit
 

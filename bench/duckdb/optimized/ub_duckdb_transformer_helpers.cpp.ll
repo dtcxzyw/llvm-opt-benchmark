@@ -1678,13 +1678,12 @@ if.then.i:                                        ; preds = %invoke.cont.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %21 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   %cmp3.i.not = icmp eq ptr %21, %22
-  br i1 %cmp3.i.not, label %if.then27.i, label %cond.true.i.i
+  br i1 %cmp3.i.not, label %if.end69.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.then.i
-  %cmp.i.i.i.i224 = icmp ugt i64 %sub.ptr.div.i.i, 288230376151711743
+  %cmp.i.i.i.i224 = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775776
   br i1 %cmp.i.i.i.i224, label %if.then3.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i, !prof !51
 
 if.then3.i.i.i.i:                                 ; preds = %cond.true.i.i
@@ -1873,13 +1872,8 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %add.ptr.i140, ptr %_M_end_of_storage.i.i, align 8, !tbaa !10
   br label %if.end69.i
 
-if.then27.i:                                      ; preds = %if.then.i
-  %cmp7.i.i.i.i.i.i = icmp slt i64 %sub.ptr.div.i.i, 1
-  call void @llvm.assume(i1 %cmp7.i.i.i.i.i.i)
-  br label %if.end69.i
-
-if.end69.i:                                       ; preds = %if.then27.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i
-  %49 = phi ptr [ null, %if.then27.i ], [ %call5.i.i.i.i235, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i ]
+if.end69.i:                                       ; preds = %if.then.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i
+  %49 = phi ptr [ null, %if.then.i ], [ %call5.i.i.i.i235, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i ]
   %add.ptr72.i = getelementptr inbounds i8, ptr %49, i64 %sub.ptr.sub.i.i
   %_M_finish74.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr %add.ptr72.i, ptr %_M_finish74.i, align 8, !tbaa !19
@@ -11703,7 +11697,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
           to label %invoke.cont.i.i unwind label %lpad379
 
 invoke.cont.i.i:                                  ; preds = %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i, %for.cond.cleanup265, %for.cond.cleanup265.thread
-  %sub.ptr.div.i.i.i2469 = phi i64 [ %sub.ptr.div.i.i.i, %for.cond.cleanup265 ], [ %sub.ptr.div.i.i.i, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ 0, %for.cond.cleanup265.thread ]
+  %sub.ptr.div.i.i.i2469 = phi i64 [ 0, %for.cond.cleanup265 ], [ %sub.ptr.div.i.i.i, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ 0, %for.cond.cleanup265.thread ]
   %_M_finish.i.i.i2468 = phi ptr [ %_M_finish.i.i1627, %for.cond.cleanup265 ], [ %_M_finish.i.i1627, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ %_M_finish.i.i.i2462, %for.cond.cleanup265.thread ]
   %168 = phi ptr [ %.pre2455, %for.cond.cleanup265 ], [ %.pre2455, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ null, %for.cond.cleanup265.thread ]
   %169 = phi ptr [ %.pre2456, %for.cond.cleanup265 ], [ %.pre2456, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEEEE8allocateERSA_m.exit.i.i.i.i.i ], [ null, %for.cond.cleanup265.thread ]

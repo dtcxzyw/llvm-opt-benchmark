@@ -46936,13 +46936,13 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang22InitializationSequence4StepELb1EE28re
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPN5clang22InitializationSequence4StepES3_ET0_T_S5_S4_.exit, label %50
 
 50:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang22InitializationSequence4StepELb1EE28reserveForParamAndGetAddressERKS3_m.exit
-  %51 = ptrtoint ptr %47 to i64
-  %52 = ptrtoint ptr %37 to i64
-  %53 = sub i64 %51, %52
-  %.neg.i.i.i.i.i = sdiv exact i64 %53, -40
-  %54 = getelementptr inbounds %"class.clang::InitializationSequence::Step", ptr %48, i64 %49
-  %55 = getelementptr inbounds %"class.clang::InitializationSequence::Step", ptr %54, i64 %.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %55, ptr nonnull align 8 %37, i64 %53, i1 false)
+  %51 = getelementptr inbounds %"class.clang::InitializationSequence::Step", ptr %48, i64 %49
+  %52 = ptrtoint ptr %47 to i64
+  %53 = ptrtoint ptr %37 to i64
+  %54 = sub i64 %52, %53
+  %.neg.i.i.i.i.i = sdiv exact i64 %54, -40
+  %55 = getelementptr inbounds %"class.clang::InitializationSequence::Step", ptr %51, i64 %.neg.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %55, ptr nonnull align 8 %37, i64 %54, i1 false)
   br label %_ZSt13move_backwardIPN5clang22InitializationSequence4StepES3_ET0_T_S5_S4_.exit
 
 _ZSt13move_backwardIPN5clang22InitializationSequence4StepES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang22InitializationSequence4StepELb1EE28reserveForParamAndGetAddressERKS3_m.exit, %50

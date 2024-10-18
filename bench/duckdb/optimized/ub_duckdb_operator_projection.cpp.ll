@@ -5956,10 +5956,6 @@ if.end9:                                          ; preds = %if.end11.i, %if.the
 for.cond.preheader:                               ; preds = %if.end9
   %62 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !213
   %63 = load ptr, ptr %input, align 8, !tbaa !214
-  %sub.ptr.lhs.cast.i.i592 = ptrtoint ptr %62 to i64
-  %sub.ptr.rhs.cast.i.i593 = ptrtoint ptr %63 to i64
-  %sub.ptr.sub.i.i594 = sub i64 %sub.ptr.lhs.cast.i.i592, %sub.ptr.rhs.cast.i.i593
-  %sub.ptr.div.i.i595 = sdiv exact i64 %sub.ptr.sub.i.i594, 104
   %cmp15596.not = icmp eq ptr %62, %63
   br i1 %cmp15596.not, label %if.end22, label %for.body
 
@@ -6053,7 +6049,7 @@ _ZN6duckdb6vectorINS_6VectorELb1EEixEm.exit199:   ; preds = %for.body
   br i1 %cmp15, label %for.body, label %if.end22, !llvm.loop !367
 
 if.end22:                                         ; preds = %_ZN6duckdb6vectorINS_6VectorELb1EEixEm.exit199, %for.cond.preheader, %if.end9
-  %col_offset.0 = phi i64 [ 0, %if.end9 ], [ %sub.ptr.div.i.i595, %for.cond.preheader ], [ %sub.ptr.div.i.i, %_ZN6duckdb6vectorINS_6VectorELb1EEixEm.exit199 ]
+  %col_offset.0 = phi i64 [ 0, %if.end9 ], [ 0, %for.cond.preheader ], [ %sub.ptr.div.i.i, %_ZN6duckdb6vectorINS_6VectorELb1EEixEm.exit199 ]
   %77 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !213
   %78 = load ptr, ptr %list_data.i, align 8, !tbaa !214
   %cmp26602.not = icmp eq ptr %77, %78

@@ -29577,7 +29577,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression2OpESa
   br label %_ZSt4copyIPN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression2OpES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression2OpES3_ET0_T_S5_S4_.exit: ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]
@@ -32056,7 +32056,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2
   br label %_ZSt4copyIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpES3_ET0_T_S5_S4_.exit: ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]

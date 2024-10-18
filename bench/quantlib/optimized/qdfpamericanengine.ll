@@ -10201,23 +10201,24 @@ invoke.cont.i.i298:                               ; preds = %if.then25.i
 
 _ZSt7advanceIPKmmEvRT_T0_.exit.i:                 ; preds = %if.else.i291
   %tobool.not.i.i.i.i.i28.i = icmp eq ptr %27, %26
-  br i1 %tobool.not.i.i.i.i.i28.i, label %_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i, label %if.then.i.i.i.i.i29.i
+  br i1 %tobool.not.i.i.i.i.i28.i, label %if.then.i.i.i.i.i.i.i.i.i302, label %_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i
 
-if.then.i.i.i.i.i29.i:                            ; preds = %_ZSt7advanceIPKmmEvRT_T0_.exit.i
+_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i:             ; preds = %_ZSt7advanceIPKmmEvRT_T0_.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %26, ptr noundef nonnull align 8 dereferenceable(1) @constinit.49, i64 %sub.ptr.sub.i16.i294, i1 false)
   %.pre49.i = load ptr, ptr %_M_finish.i.i292, align 8, !tbaa !286
-  br label %_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i
+  br label %if.then.i.i.i.i.i.i.i.i.i302
 
-_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i:             ; preds = %if.then.i.i.i.i.i29.i, %_ZSt7advanceIPKmmEvRT_T0_.exit.i
-  %28 = phi ptr [ %27, %_ZSt7advanceIPKmmEvRT_T0_.exit.i ], [ %.pre49.i, %if.then.i.i.i.i.i29.i ]
-  %gepdiff = sub nuw nsw i64 64, %sub.ptr.sub.i16.i294
-  %incdec.ptr4.sink.i.i45.i.ptr = getelementptr inbounds i8, ptr @constinit.49, i64 %sub.ptr.sub.i16.i294
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %28, ptr nonnull align 8 %incdec.ptr4.sink.i.i45.i.ptr, i64 %gepdiff, i1 false)
-  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 %gepdiff
+if.then.i.i.i.i.i.i.i.i.i302:                     ; preds = %_ZSt7advanceIPKmmEvRT_T0_.exit.i, %_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i
+  %incdec.ptr4.sink.i.i45.i.idx339 = phi i64 [ %sub.ptr.sub.i16.i294, %_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i ], [ 0, %_ZSt7advanceIPKmmEvRT_T0_.exit.i ]
+  %28 = phi ptr [ %.pre49.i, %_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i ], [ %27, %_ZSt7advanceIPKmmEvRT_T0_.exit.i ]
+  %sub.ptr.sub.i.i.i.i.i.i.i.i.i340 = sub nuw nsw i64 64, %sub.ptr.sub.i16.i294
+  %incdec.ptr4.sink.i.i45.i.ptr = getelementptr inbounds i8, ptr @constinit.49, i64 %incdec.ptr4.sink.i.i45.i.idx339
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %28, ptr nonnull align 8 %incdec.ptr4.sink.i.i45.i.ptr, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i340, i1 false)
+  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i340
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i292, align 8, !tbaa !286
   br label %_ZNSt6vectorImSaImEE13_M_assign_auxIPKmEEvT_S5_St20forward_iterator_tag.exit
 
-_ZNSt6vectorImSaImEE13_M_assign_auxIPKmEEvT_S5_St20forward_iterator_tag.exit: ; preds = %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i306, %if.then25.i, %invoke.cont.i.i298, %_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i
+_ZNSt6vectorImSaImEE13_M_assign_auxIPKmEEvT_S5_St20forward_iterator_tag.exit: ; preds = %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i306, %if.then25.i, %invoke.cont.i.i298, %if.then.i.i.i.i.i.i.i.i.i302
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %29 = load ptr, ptr %_M_finish.i, align 8, !tbaa !270
   %30 = load ptr, ptr %this, align 8, !tbaa !269
@@ -11060,7 +11061,7 @@ if.then.i.i.i.i.i35:                              ; preds = %if.else49
   br label %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPdS0_ET0_T_S2_S1_.exit:                 ; preds = %if.else49, %if.then.i.i.i.i.i35
-  %sub.ptr.sub.i40.pre-phi = phi i64 [ %sub.ptr.sub.i22, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
+  %sub.ptr.sub.i40.pre-phi = phi i64 [ 0, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
   %5 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
   %6 = phi ptr [ %4, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
   %7 = phi ptr [ %1, %if.else49 ], [ %.pre, %if.then.i.i.i.i.i35 ]

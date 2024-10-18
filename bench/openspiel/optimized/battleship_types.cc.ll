@@ -86,419 +86,415 @@ define noundef zeroext i1 @_ZN10open_spiel10battleship23ExistsFeasiblePlacementE
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %1, align 8
-  %16 = ptrtoint ptr %14 to i64
-  %17 = ptrtoint ptr %15 to i64
-  %18 = sub i64 %16, %17
-  %19 = ashr exact i64 %18, 5
   %.not109 = icmp eq ptr %14, %15
   br i1 %.not109, label %._crit_edge, label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE2atEm.exit.lr.ph
 
 _ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE2atEm.exit.lr.ph: ; preds = %2
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE2atEm.exit
 
-23:                                               ; preds = %_ZNK10open_spiel10battleship13ShipPlacement14IsWithinBoundsEii.exit
+19:                                               ; preds = %_ZNK10open_spiel10battleship13ShipPlacement14IsWithinBoundsEii.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = load ptr, ptr %13, align 8
-  %25 = load ptr, ptr %1, align 8
-  %26 = ptrtoint ptr %24 to i64
-  %27 = ptrtoint ptr %25 to i64
-  %28 = sub i64 %26, %27
-  %29 = ashr exact i64 %28, 5
-  %30 = icmp ugt i64 %29, %indvars.iv.next
-  br i1 %30, label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE2atEm.exit, label %._crit_edge, !llvm.loop !4
+  %20 = load ptr, ptr %13, align 8
+  %21 = load ptr, ptr %1, align 8
+  %22 = ptrtoint ptr %20 to i64
+  %23 = ptrtoint ptr %21 to i64
+  %24 = sub i64 %22, %23
+  %25 = ashr exact i64 %24, 5
+  %26 = icmp ugt i64 %25, %indvars.iv.next
+  br i1 %26, label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE2atEm.exit, label %._crit_edge, !llvm.loop !4
 
-_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE2atEm.exit: ; preds = %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE2atEm.exit.lr.ph, %23
-  %indvars.iv = phi i64 [ 0, %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE2atEm.exit.lr.ph ], [ %indvars.iv.next, %23 ]
-  %31 = phi ptr [ %15, %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE2atEm.exit.lr.ph ], [ %25, %23 ]
-  %32 = getelementptr inbounds %"class.open_spiel::battleship::ShipPlacement", ptr %31, i64 %indvars.iv
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %34 = load i32, ptr %33, align 8
-  store i32 %34, ptr %3, align 4
-  %35 = load ptr, ptr %21, align 8
-  %36 = load ptr, ptr %20, align 8
-  %37 = ptrtoint ptr %35 to i64
-  %38 = ptrtoint ptr %36 to i64
-  %39 = sub i64 %37, %38
-  %40 = ashr exact i64 %39, 4
-  %.not.i.i59 = icmp ugt i64 %40, %indvars.iv
-  br i1 %.not.i.i59, label %_ZNKSt6vectorIN10open_spiel10battleship4ShipESaIS2_EE2atEm.exit, label %41
+_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE2atEm.exit: ; preds = %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE2atEm.exit.lr.ph, %19
+  %indvars.iv = phi i64 [ 0, %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE2atEm.exit.lr.ph ], [ %indvars.iv.next, %19 ]
+  %27 = phi ptr [ %15, %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE2atEm.exit.lr.ph ], [ %21, %19 ]
+  %28 = getelementptr inbounds %"class.open_spiel::battleship::ShipPlacement", ptr %27, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %30 = load i32, ptr %29, align 8
+  store i32 %30, ptr %3, align 4
+  %31 = load ptr, ptr %17, align 8
+  %32 = load ptr, ptr %16, align 8
+  %33 = ptrtoint ptr %31 to i64
+  %34 = ptrtoint ptr %32 to i64
+  %35 = sub i64 %33, %34
+  %36 = ashr exact i64 %35, 4
+  %.not.i.i59 = icmp ugt i64 %36, %indvars.iv
+  br i1 %.not.i.i59, label %_ZNKSt6vectorIN10open_spiel10battleship4ShipESaIS2_EE2atEm.exit, label %37
 
-41:                                               ; preds = %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE2atEm.exit
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.22, i64 noundef %indvars.iv, i64 noundef %40) #11
+37:                                               ; preds = %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE2atEm.exit
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.22, i64 noundef %indvars.iv, i64 noundef %36) #11
   unreachable
 
 _ZNKSt6vectorIN10open_spiel10battleship4ShipESaIS2_EE2atEm.exit: ; preds = %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE2atEm.exit
-  %42 = getelementptr inbounds %"struct.open_spiel::battleship::Ship", ptr %36, i64 %indvars.iv
-  %43 = load i32, ptr %42, align 8
-  store i32 %43, ptr %4, align 4
-  %44 = icmp eq i32 %34, %43
-  br i1 %44, label %49, label %45
+  %38 = getelementptr inbounds %"struct.open_spiel::battleship::Ship", ptr %32, i64 %indvars.iv
+  %39 = load i32, ptr %38, align 8
+  store i32 %39, ptr %4, align 4
+  %40 = icmp eq i32 %30, %39
+  br i1 %40, label %45, label %41
 
-45:                                               ; preds = %_ZNKSt6vectorIN10open_spiel10battleship4ShipESaIS2_EE2atEm.exit
+41:                                               ; preds = %_ZNKSt6vectorIN10open_spiel10battleship4ShipESaIS2_EE2atEm.exit
   store i32 42, ptr %6, align 4
   call void @_ZN10open_spiel8internal11SpielStrCatIJRA146_KcRA2_S2_iS6_RA45_S2_RA19_S2_RA4_S2_RiRA29_S2_SD_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 1 dereferenceable(146) @.str, ptr noundef nonnull align 1 dereferenceable(2) @.str.1, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.2, ptr noundef nonnull align 1 dereferenceable(45) @.str.3, ptr noundef nonnull align 1 dereferenceable(19) @.str.4, ptr noundef nonnull align 1 dereferenceable(4) @.str.5, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 1 dereferenceable(29) @.str.6, ptr noundef nonnull align 4 dereferenceable(4) %4)
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
-          to label %46 unwind label %47
+          to label %42 unwind label %43
 
-46:                                               ; preds = %45
+42:                                               ; preds = %41
   unreachable
 
-47:                                               ; preds = %45
-  %48 = landingpad { ptr, i32 }
+43:                                               ; preds = %41
+  %44 = landingpad { ptr, i32 }
           cleanup
-  br label %185
+  br label %181
 
-49:                                               ; preds = %_ZNKSt6vectorIN10open_spiel10battleship4ShipESaIS2_EE2atEm.exit
-  %50 = load i32, ptr %0, align 8
-  %51 = load i32, ptr %22, align 4
-  %52 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  %.sroa.0.0.copyload.i.i = load i64, ptr %52, align 4
+45:                                               ; preds = %_ZNKSt6vectorIN10open_spiel10battleship4ShipESaIS2_EE2atEm.exit
+  %46 = load i32, ptr %0, align 8
+  %47 = load i32, ptr %18, align 4
+  %48 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %.sroa.0.0.copyload.i.i = load i64, ptr %48, align 4
   %.sroa.08.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload.i.i to i32
   %.sroa.310.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload.i.i, 32
   %.sroa.310.0.extract.trunc.i = trunc nuw i64 %.sroa.310.0.extract.shift.i to i32
-  %53 = tail call i64 @_ZNK10open_spiel10battleship13ShipPlacement17BottomRightCornerEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %32)
-  %.sroa.0.0.extract.trunc.i = trunc i64 %53 to i32
-  %.sroa.3.0.extract.shift.i = lshr i64 %53, 32
+  %49 = tail call i64 @_ZNK10open_spiel10battleship13ShipPlacement17BottomRightCornerEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %28)
+  %.sroa.0.0.extract.trunc.i = trunc i64 %49 to i32
+  %.sroa.3.0.extract.shift.i = lshr i64 %49, 32
   %.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.3.0.extract.shift.i to i32
-  %54 = icmp sgt i32 %.sroa.08.0.extract.trunc.i, -1
-  br i1 %54, label %55, label %_ZNK10open_spiel10battleship13ShipPlacement14IsWithinBoundsEii.exit.thread
+  %50 = icmp sgt i32 %.sroa.08.0.extract.trunc.i, -1
+  br i1 %50, label %51, label %_ZNK10open_spiel10battleship13ShipPlacement14IsWithinBoundsEii.exit.thread
 
-55:                                               ; preds = %49
-  %56 = icmp sgt i32 %51, %.sroa.08.0.extract.trunc.i
-  %57 = icmp sgt i32 %.sroa.0.0.extract.trunc.i, -1
-  %or.cond.i = select i1 %56, i1 %57, i1 false
-  br i1 %or.cond.i, label %58, label %_ZNK10open_spiel10battleship13ShipPlacement14IsWithinBoundsEii.exit.thread
+51:                                               ; preds = %45
+  %52 = icmp sgt i32 %47, %.sroa.08.0.extract.trunc.i
+  %53 = icmp sgt i32 %.sroa.0.0.extract.trunc.i, -1
+  %or.cond.i = select i1 %52, i1 %53, i1 false
+  br i1 %or.cond.i, label %54, label %_ZNK10open_spiel10battleship13ShipPlacement14IsWithinBoundsEii.exit.thread
 
-58:                                               ; preds = %55
-  %59 = icmp ugt i32 %51, %.sroa.0.0.extract.trunc.i
-  %60 = icmp sgt i64 %.sroa.0.0.copyload.i.i, -1
-  %or.cond5.i = select i1 %59, i1 %60, i1 false
-  %61 = icmp sgt i32 %50, %.sroa.310.0.extract.trunc.i
-  %or.cond16.i = select i1 %or.cond5.i, i1 %61, i1 false
+54:                                               ; preds = %51
+  %55 = icmp ugt i32 %47, %.sroa.0.0.extract.trunc.i
+  %56 = icmp sgt i64 %.sroa.0.0.copyload.i.i, -1
+  %or.cond5.i = select i1 %55, i1 %56, i1 false
+  %57 = icmp sgt i32 %46, %.sroa.310.0.extract.trunc.i
+  %or.cond16.i = select i1 %or.cond5.i, i1 %57, i1 false
   br i1 %or.cond16.i, label %_ZNK10open_spiel10battleship13ShipPlacement14IsWithinBoundsEii.exit, label %_ZNK10open_spiel10battleship13ShipPlacement14IsWithinBoundsEii.exit.thread
 
-_ZNK10open_spiel10battleship13ShipPlacement14IsWithinBoundsEii.exit: ; preds = %58
-  %62 = icmp sgt i64 %53, -1
-  %63 = icmp sgt i32 %50, %.sroa.3.0.extract.trunc.i
-  %64 = select i1 %62, i1 %63, i1 false
-  br i1 %64, label %23, label %_ZNK10open_spiel10battleship13ShipPlacement14IsWithinBoundsEii.exit.thread
+_ZNK10open_spiel10battleship13ShipPlacement14IsWithinBoundsEii.exit: ; preds = %54
+  %58 = icmp sgt i64 %49, -1
+  %59 = icmp sgt i32 %46, %.sroa.3.0.extract.trunc.i
+  %60 = select i1 %58, i1 %59, i1 false
+  br i1 %60, label %19, label %_ZNK10open_spiel10battleship13ShipPlacement14IsWithinBoundsEii.exit.thread
 
-_ZNK10open_spiel10battleship13ShipPlacement14IsWithinBoundsEii.exit.thread: ; preds = %49, %55, %58, %_ZNK10open_spiel10battleship13ShipPlacement14IsWithinBoundsEii.exit
+_ZNK10open_spiel10battleship13ShipPlacement14IsWithinBoundsEii.exit.thread: ; preds = %45, %51, %54, %_ZNK10open_spiel10battleship13ShipPlacement14IsWithinBoundsEii.exit
   store i32 44, ptr %8, align 4
   call void @_ZN10open_spiel8internal11SpielStrCatIJRA146_KcRA2_S2_iRA13_S2_RA62_S2_S6_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 1 dereferenceable(146) @.str, ptr noundef nonnull align 1 dereferenceable(2) @.str.1, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, ptr noundef nonnull align 1 dereferenceable(62) @.str.8, ptr noundef nonnull align 1 dereferenceable(2) @.str.9)
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %7) #11
-          to label %65 unwind label %66
+          to label %61 unwind label %62
 
-65:                                               ; preds = %_ZNK10open_spiel10battleship13ShipPlacement14IsWithinBoundsEii.exit.thread
+61:                                               ; preds = %_ZNK10open_spiel10battleship13ShipPlacement14IsWithinBoundsEii.exit.thread
   unreachable
 
-66:                                               ; preds = %_ZNK10open_spiel10battleship13ShipPlacement14IsWithinBoundsEii.exit.thread
-  %67 = landingpad { ptr, i32 }
+62:                                               ; preds = %_ZNK10open_spiel10battleship13ShipPlacement14IsWithinBoundsEii.exit.thread
+  %63 = landingpad { ptr, i32 }
           cleanup
-  br label %185
+  br label %181
 
-._crit_edge:                                      ; preds = %23, %2
-  %.lcssa84 = phi i64 [ %19, %2 ], [ %29, %23 ]
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %70 = load ptr, ptr %69, align 8
-  %71 = load ptr, ptr %68, align 8
-  %72 = ptrtoint ptr %70 to i64
-  %73 = ptrtoint ptr %71 to i64
-  %74 = sub i64 %72, %73
-  %75 = ashr exact i64 %74, 4
-  %76 = icmp eq i64 %.lcssa84, %75
-  br i1 %76, label %.loopexit, label %77
+._crit_edge:                                      ; preds = %19, %2
+  %.lcssa84 = phi i64 [ 0, %2 ], [ %25, %19 ]
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %66 = load ptr, ptr %65, align 8
+  %67 = load ptr, ptr %64, align 8
+  %68 = ptrtoint ptr %66 to i64
+  %69 = ptrtoint ptr %67 to i64
+  %70 = sub i64 %68, %69
+  %71 = ashr exact i64 %70, 4
+  %72 = icmp eq i64 %.lcssa84, %71
+  br i1 %72, label %.loopexit, label %73
 
-77:                                               ; preds = %._crit_edge
-  %.not.i.i60 = icmp ult i64 %.lcssa84, %75
-  br i1 %.not.i.i60, label %_ZNKSt6vectorIN10open_spiel10battleship4ShipESaIS2_EE2atEm.exit61, label %78
+73:                                               ; preds = %._crit_edge
+  %.not.i.i60 = icmp ult i64 %.lcssa84, %71
+  br i1 %.not.i.i60, label %_ZNKSt6vectorIN10open_spiel10battleship4ShipESaIS2_EE2atEm.exit61, label %74
 
-78:                                               ; preds = %77
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.22, i64 noundef %.lcssa84, i64 noundef %75) #11
+74:                                               ; preds = %73
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.22, i64 noundef %.lcssa84, i64 noundef %71) #11
   unreachable
 
-_ZNKSt6vectorIN10open_spiel10battleship4ShipESaIS2_EE2atEm.exit61: ; preds = %77
-  %79 = getelementptr inbounds %"struct.open_spiel::battleship::Ship", ptr %71, i64 %.lcssa84
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %81 = load i32, ptr %80, align 4
-  %82 = icmp sgt i32 %81, 0
-  %83 = getelementptr inbounds nuw i8, ptr %79, i64 4
-  br i1 %82, label %.preheader79.lr.ph, label %_ZNKSt6vectorIN10open_spiel10battleship4ShipESaIS2_EE2atEm.exit61..preheader78_crit_edge
+_ZNKSt6vectorIN10open_spiel10battleship4ShipESaIS2_EE2atEm.exit61: ; preds = %73
+  %75 = getelementptr inbounds %"struct.open_spiel::battleship::Ship", ptr %67, i64 %.lcssa84
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp sgt i32 %77, 0
+  %79 = getelementptr inbounds nuw i8, ptr %75, i64 4
+  br i1 %78, label %.preheader79.lr.ph, label %_ZNKSt6vectorIN10open_spiel10battleship4ShipESaIS2_EE2atEm.exit61..preheader78_crit_edge
 
 _ZNKSt6vectorIN10open_spiel10battleship4ShipESaIS2_EE2atEm.exit61..preheader78_crit_edge: ; preds = %_ZNKSt6vectorIN10open_spiel10battleship4ShipESaIS2_EE2atEm.exit61
-  %.pre124 = load i32, ptr %83, align 4
+  %.pre124 = load i32, ptr %79, align 4
   br label %.preheader78
 
 .preheader79.lr.ph:                               ; preds = %_ZNKSt6vectorIN10open_spiel10battleship4ShipESaIS2_EE2atEm.exit61
-  %84 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre = load i32, ptr %0, align 8
-  %.pre122 = load i32, ptr %83, align 4
+  %.pre122 = load i32, ptr %79, align 4
   br label %.preheader79
 
 .preheader79:                                     ; preds = %.preheader79.lr.ph, %._crit_edge102
-  %86 = phi i32 [ %81, %.preheader79.lr.ph ], [ %133, %._crit_edge102 ]
-  %87 = phi i32 [ %.pre122, %.preheader79.lr.ph ], [ %134, %._crit_edge102 ]
-  %88 = phi i32 [ %.pre, %.preheader79.lr.ph ], [ %135, %._crit_edge102 ]
-  %.051103 = phi i32 [ 0, %.preheader79.lr.ph ], [ %136, %._crit_edge102 ]
-  %.not57100 = icmp slt i32 %88, %87
+  %82 = phi i32 [ %77, %.preheader79.lr.ph ], [ %129, %._crit_edge102 ]
+  %83 = phi i32 [ %.pre122, %.preheader79.lr.ph ], [ %130, %._crit_edge102 ]
+  %84 = phi i32 [ %.pre, %.preheader79.lr.ph ], [ %131, %._crit_edge102 ]
+  %.051103 = phi i32 [ 0, %.preheader79.lr.ph ], [ %132, %._crit_edge102 ]
+  %.not57100 = icmp slt i32 %84, %83
   br i1 %.not57100, label %._crit_edge102, label %.lr.ph
 
 .preheader78:                                     ; preds = %._crit_edge102, %_ZNKSt6vectorIN10open_spiel10battleship4ShipESaIS2_EE2atEm.exit61..preheader78_crit_edge
-  %89 = phi i32 [ %.pre124, %_ZNKSt6vectorIN10open_spiel10battleship4ShipESaIS2_EE2atEm.exit61..preheader78_crit_edge ], [ %134, %._crit_edge102 ]
-  %90 = phi i32 [ %81, %_ZNKSt6vectorIN10open_spiel10battleship4ShipESaIS2_EE2atEm.exit61..preheader78_crit_edge ], [ %133, %._crit_edge102 ]
-  %91 = getelementptr inbounds nuw i8, ptr %79, i64 4
-  %.not107 = icmp slt i32 %90, %89
+  %85 = phi i32 [ %.pre124, %_ZNKSt6vectorIN10open_spiel10battleship4ShipESaIS2_EE2atEm.exit61..preheader78_crit_edge ], [ %130, %._crit_edge102 ]
+  %86 = phi i32 [ %77, %_ZNKSt6vectorIN10open_spiel10battleship4ShipESaIS2_EE2atEm.exit61..preheader78_crit_edge ], [ %129, %._crit_edge102 ]
+  %87 = getelementptr inbounds nuw i8, ptr %75, i64 4
+  %.not107 = icmp slt i32 %86, %85
   br i1 %.not107, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.preheader78
-  %92 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %94 = load i32, ptr %0, align 8
-  %95 = icmp sgt i32 %94, 0
-  br i1 %95, label %.preheader, label %.loopexit
+  %88 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %90 = load i32, ptr %0, align 8
+  %91 = icmp sgt i32 %90, 0
+  br i1 %91, label %.preheader, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader79, %126
-  %.050101 = phi i32 [ %129, %126 ], [ 0, %.preheader79 ]
+.lr.ph:                                           ; preds = %.preheader79, %122
+  %.050101 = phi i32 [ %125, %122 ], [ 0, %.preheader79 ]
   store i32 %.051103, ptr %10, align 4
-  store i32 %.050101, ptr %84, align 4
-  call void @_ZN10open_spiel10battleship13ShipPlacementC1ENS0_16CellAndDirection9DirectionERKNS0_4ShipERKNS0_4CellE(ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 4 dereferenceable(8) %10)
-  %96 = load ptr, ptr %13, align 8
-  %97 = load ptr, ptr %85, align 8
-  %.not.i.i62 = icmp eq ptr %96, %97
-  br i1 %.not.i.i62, label %101, label %98
+  store i32 %.050101, ptr %80, align 4
+  call void @_ZN10open_spiel10battleship13ShipPlacementC1ENS0_16CellAndDirection9DirectionERKNS0_4ShipERKNS0_4CellE(ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 4 dereferenceable(8) %10)
+  %92 = load ptr, ptr %13, align 8
+  %93 = load ptr, ptr %81, align 8
+  %.not.i.i62 = icmp eq ptr %92, %93
+  br i1 %.not.i.i62, label %97, label %94
 
-98:                                               ; preds = %.lr.ph
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
-  %99 = load ptr, ptr %13, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 32
-  store ptr %100, ptr %13, align 8
+94:                                               ; preds = %.lr.ph
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
+  %95 = load ptr, ptr %13, align 8
+  %96 = getelementptr inbounds i8, ptr %95, i64 32
+  store ptr %96, ptr %13, align 8
   br label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE9push_backEOS2_.exit
 
-101:                                              ; preds = %.lr.ph
-  %102 = load ptr, ptr %1, align 8
-  %103 = ptrtoint ptr %96 to i64
-  %104 = ptrtoint ptr %102 to i64
-  %105 = sub i64 %103, %104
-  %106 = icmp eq i64 %105, 9223372036854775776
-  br i1 %106, label %107, label %_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+97:                                               ; preds = %.lr.ph
+  %98 = load ptr, ptr %1, align 8
+  %99 = ptrtoint ptr %92 to i64
+  %100 = ptrtoint ptr %98 to i64
+  %101 = sub i64 %99, %100
+  %102 = icmp eq i64 %101, 9223372036854775776
+  br i1 %102, label %103, label %_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
-107:                                              ; preds = %101
+103:                                              ; preds = %97
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.23) #11
   unreachable
 
-_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %101
-  %108 = ashr exact i64 %105, 5
-  %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %108, i64 1)
-  %109 = add nsw i64 %.sroa.speculated.i.i.i.i, %108
-  %110 = icmp ult i64 %109, %108
-  %111 = call i64 @llvm.umin.i64(i64 %109, i64 288230376151711743)
-  %112 = select i1 %110, i64 288230376151711743, i64 %111
-  %.not.i.i.i.i = icmp eq i64 %112, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i, label %113
+_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %97
+  %104 = ashr exact i64 %101, 5
+  %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %104, i64 1)
+  %105 = add nsw i64 %.sroa.speculated.i.i.i.i, %104
+  %106 = icmp ult i64 %105, %104
+  %107 = call i64 @llvm.umin.i64(i64 %105, i64 288230376151711743)
+  %108 = select i1 %106, i64 288230376151711743, i64 %107
+  %.not.i.i.i.i = icmp eq i64 %108, 0
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i, label %109
 
-113:                                              ; preds = %_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
-  %114 = shl nuw nsw i64 %112, 5
-  %115 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %114) #12
+109:                                              ; preds = %_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+  %110 = shl nuw nsw i64 %108, 5
+  %111 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %110) #12
   br label %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i
 
-_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %113, %_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
-  %116 = phi ptr [ %115, %113 ], [ null, %_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %117 = getelementptr inbounds %"class.open_spiel::battleship::ShipPlacement", ptr %116, i64 %108
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
-  %.not10.i.i.i.i.i.i = icmp eq ptr %102, %96
+_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %109, %_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+  %112 = phi ptr [ %111, %109 ], [ null, %_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %113 = getelementptr inbounds %"class.open_spiel::battleship::ShipPlacement", ptr %112, i64 %104
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
+  %.not10.i.i.i.i.i.i = icmp eq ptr %98, %92
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i = phi ptr [ %119, %.lr.ph.i.i.i.i.i.i ], [ %116, %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i ]
-  %.0911.i.i.i.i.i.i = phi ptr [ %118, %.lr.ph.i.i.i.i.i.i ], [ %102, %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i ]
+  %.012.i.i.i.i.i.i = phi ptr [ %115, %.lr.ph.i.i.i.i.i.i ], [ %112, %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i ]
+  %.0911.i.i.i.i.i.i = phi ptr [ %114, %.lr.ph.i.i.i.i.i.i ], [ %98, %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !6
-  %118 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i.i, i64 32
-  %119 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i, i64 32
-  %.not.i.i.i.i.i.i = icmp eq ptr %118, %96
+  %114 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i.i, i64 32
+  %115 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i, i64 32
+  %.not.i.i.i.i.i.i = icmp eq ptr %114, %92
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !10
 
 _ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %116, %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %119, %.lr.ph.i.i.i.i.i.i ]
-  %120 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 32
-  %.not.i23.i.i.i = icmp eq ptr %102, null
-  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %121
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %112, %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %115, %.lr.ph.i.i.i.i.i.i ]
+  %116 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 32
+  %.not.i23.i.i.i = icmp eq ptr %98, null
+  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %117
 
-121:                                              ; preds = %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %102, i64 noundef %105) #13
+117:                                              ; preds = %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
+  call void @_ZdlPvm(ptr noundef nonnull %98, i64 noundef %101) #13
   br label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %121, %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
-  store ptr %116, ptr %1, align 8
-  store ptr %120, ptr %13, align 8
-  %122 = getelementptr inbounds %"class.open_spiel::battleship::ShipPlacement", ptr %116, i64 %112
-  store ptr %122, ptr %85, align 8
+_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %117, %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
+  store ptr %112, ptr %1, align 8
+  store ptr %116, ptr %13, align 8
+  %118 = getelementptr inbounds %"class.open_spiel::battleship::ShipPlacement", ptr %112, i64 %108
+  store ptr %118, ptr %81, align 8
   br label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE9push_backEOS2_.exit
 
-_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE9push_backEOS2_.exit: ; preds = %98, %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
-  %123 = call fastcc noundef zeroext i1 @_ZN10open_spiel10battleship12_GLOBAL__N_122IsOverlappingPlacementERKSt6vectorINS0_13ShipPlacementESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(24) %1)
-  br i1 %123, label %126, label %124
+_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE9push_backEOS2_.exit: ; preds = %94, %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
+  %119 = call fastcc noundef zeroext i1 @_ZN10open_spiel10battleship12_GLOBAL__N_122IsOverlappingPlacementERKSt6vectorINS0_13ShipPlacementESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(24) %1)
+  br i1 %119, label %122, label %120
 
-124:                                              ; preds = %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE9push_backEOS2_.exit
-  %125 = call noundef zeroext i1 @_ZN10open_spiel10battleship23ExistsFeasiblePlacementERKNS0_23BattleshipConfigurationEPSt6vectorINS0_13ShipPlacementESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %1)
-  br i1 %125, label %.loopexit.sink.split, label %126
+120:                                              ; preds = %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE9push_backEOS2_.exit
+  %121 = call noundef zeroext i1 @_ZN10open_spiel10battleship23ExistsFeasiblePlacementERKNS0_23BattleshipConfigurationEPSt6vectorINS0_13ShipPlacementESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %1)
+  br i1 %121, label %.loopexit.sink.split, label %122
 
-126:                                              ; preds = %124, %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE9push_backEOS2_.exit
-  %127 = load ptr, ptr %13, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 -32
-  store ptr %128, ptr %13, align 8
-  %129 = add nuw nsw i32 %.050101, 1
-  %130 = load i32, ptr %0, align 8
-  %131 = load i32, ptr %83, align 4
-  %132 = sub nsw i32 %130, %131
-  %.not57.not = icmp slt i32 %.050101, %132
+122:                                              ; preds = %120, %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE9push_backEOS2_.exit
+  %123 = load ptr, ptr %13, align 8
+  %124 = getelementptr inbounds i8, ptr %123, i64 -32
+  store ptr %124, ptr %13, align 8
+  %125 = add nuw nsw i32 %.050101, 1
+  %126 = load i32, ptr %0, align 8
+  %127 = load i32, ptr %79, align 4
+  %128 = sub nsw i32 %126, %127
+  %.not57.not = icmp slt i32 %.050101, %128
   br i1 %.not57.not, label %.lr.ph, label %._crit_edge102.loopexit, !llvm.loop !11
 
-._crit_edge102.loopexit:                          ; preds = %126
-  %.pre123 = load i32, ptr %80, align 4
+._crit_edge102.loopexit:                          ; preds = %122
+  %.pre123 = load i32, ptr %76, align 4
   br label %._crit_edge102
 
 ._crit_edge102:                                   ; preds = %._crit_edge102.loopexit, %.preheader79
-  %133 = phi i32 [ %.pre123, %._crit_edge102.loopexit ], [ %86, %.preheader79 ]
-  %134 = phi i32 [ %131, %._crit_edge102.loopexit ], [ %87, %.preheader79 ]
-  %135 = phi i32 [ %130, %._crit_edge102.loopexit ], [ %88, %.preheader79 ]
-  %136 = add nuw nsw i32 %.051103, 1
-  %137 = icmp slt i32 %136, %133
-  br i1 %137, label %.preheader79, label %.preheader78, !llvm.loop !12
+  %129 = phi i32 [ %.pre123, %._crit_edge102.loopexit ], [ %82, %.preheader79 ]
+  %130 = phi i32 [ %127, %._crit_edge102.loopexit ], [ %83, %.preheader79 ]
+  %131 = phi i32 [ %126, %._crit_edge102.loopexit ], [ %84, %.preheader79 ]
+  %132 = add nuw nsw i32 %.051103, 1
+  %133 = icmp slt i32 %132, %129
+  br i1 %133, label %.preheader79, label %.preheader78, !llvm.loop !12
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge106
-  %138 = phi i32 [ %178, %._crit_edge106 ], [ %89, %.preheader.lr.ph ]
-  %139 = phi i32 [ %179, %._crit_edge106 ], [ %90, %.preheader.lr.ph ]
-  %140 = phi i32 [ %180, %._crit_edge106 ], [ %94, %.preheader.lr.ph ]
-  %.049108 = phi i32 [ %181, %._crit_edge106 ], [ 0, %.preheader.lr.ph ]
-  %141 = icmp sgt i32 %140, 0
-  br i1 %141, label %.lr.ph105, label %._crit_edge106
+  %134 = phi i32 [ %174, %._crit_edge106 ], [ %85, %.preheader.lr.ph ]
+  %135 = phi i32 [ %175, %._crit_edge106 ], [ %86, %.preheader.lr.ph ]
+  %136 = phi i32 [ %176, %._crit_edge106 ], [ %90, %.preheader.lr.ph ]
+  %.049108 = phi i32 [ %177, %._crit_edge106 ], [ 0, %.preheader.lr.ph ]
+  %137 = icmp sgt i32 %136, 0
+  br i1 %137, label %.lr.ph105, label %._crit_edge106
 
-.lr.ph105:                                        ; preds = %.preheader, %172
-  %.0104 = phi i32 [ %175, %172 ], [ 0, %.preheader ]
+.lr.ph105:                                        ; preds = %.preheader, %168
+  %.0104 = phi i32 [ %171, %168 ], [ 0, %.preheader ]
   store i32 %.049108, ptr %12, align 4
-  store i32 %.0104, ptr %92, align 4
-  call void @_ZN10open_spiel10battleship13ShipPlacementC1ENS0_16CellAndDirection9DirectionERKNS0_4ShipERKNS0_4CellE(ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 4 dereferenceable(8) %12)
-  %142 = load ptr, ptr %13, align 8
-  %143 = load ptr, ptr %93, align 8
-  %.not.i.i63 = icmp eq ptr %142, %143
-  br i1 %.not.i.i63, label %147, label %144
+  store i32 %.0104, ptr %88, align 4
+  call void @_ZN10open_spiel10battleship13ShipPlacementC1ENS0_16CellAndDirection9DirectionERKNS0_4ShipERKNS0_4CellE(ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 4 dereferenceable(8) %12)
+  %138 = load ptr, ptr %13, align 8
+  %139 = load ptr, ptr %89, align 8
+  %.not.i.i63 = icmp eq ptr %138, %139
+  br i1 %.not.i.i63, label %143, label %140
 
-144:                                              ; preds = %.lr.ph105
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
-  %145 = load ptr, ptr %13, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 32
-  store ptr %146, ptr %13, align 8
+140:                                              ; preds = %.lr.ph105
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %138, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
+  %141 = load ptr, ptr %13, align 8
+  %142 = getelementptr inbounds i8, ptr %141, i64 32
+  store ptr %142, ptr %13, align 8
   br label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE9push_backEOS2_.exit77
 
-147:                                              ; preds = %.lr.ph105
-  %148 = load ptr, ptr %1, align 8
-  %149 = ptrtoint ptr %142 to i64
-  %150 = ptrtoint ptr %148 to i64
-  %151 = sub i64 %149, %150
-  %152 = icmp eq i64 %151, 9223372036854775776
-  br i1 %152, label %153, label %_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i64
+143:                                              ; preds = %.lr.ph105
+  %144 = load ptr, ptr %1, align 8
+  %145 = ptrtoint ptr %138 to i64
+  %146 = ptrtoint ptr %144 to i64
+  %147 = sub i64 %145, %146
+  %148 = icmp eq i64 %147, 9223372036854775776
+  br i1 %148, label %149, label %_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i64
 
-153:                                              ; preds = %147
+149:                                              ; preds = %143
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.23) #11
   unreachable
 
-_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i64: ; preds = %147
-  %154 = ashr exact i64 %151, 5
-  %.sroa.speculated.i.i.i.i65 = call i64 @llvm.umax.i64(i64 %154, i64 1)
-  %155 = add nsw i64 %.sroa.speculated.i.i.i.i65, %154
-  %156 = icmp ult i64 %155, %154
-  %157 = call i64 @llvm.umin.i64(i64 %155, i64 288230376151711743)
-  %158 = select i1 %156, i64 288230376151711743, i64 %157
-  %.not.i.i.i.i66 = icmp eq i64 %158, 0
-  br i1 %.not.i.i.i.i66, label %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i67, label %159
+_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i64: ; preds = %143
+  %150 = ashr exact i64 %147, 5
+  %.sroa.speculated.i.i.i.i65 = call i64 @llvm.umax.i64(i64 %150, i64 1)
+  %151 = add nsw i64 %.sroa.speculated.i.i.i.i65, %150
+  %152 = icmp ult i64 %151, %150
+  %153 = call i64 @llvm.umin.i64(i64 %151, i64 288230376151711743)
+  %154 = select i1 %152, i64 288230376151711743, i64 %153
+  %.not.i.i.i.i66 = icmp eq i64 %154, 0
+  br i1 %.not.i.i.i.i66, label %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i67, label %155
 
-159:                                              ; preds = %_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i64
-  %160 = shl nuw nsw i64 %158, 5
-  %161 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %160) #12
+155:                                              ; preds = %_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i64
+  %156 = shl nuw nsw i64 %154, 5
+  %157 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %156) #12
   br label %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i67
 
-_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i67: ; preds = %159, %_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i64
-  %162 = phi ptr [ %161, %159 ], [ null, %_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i64 ]
-  %163 = getelementptr inbounds %"class.open_spiel::battleship::ShipPlacement", ptr %162, i64 %154
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %163, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
-  %.not10.i.i.i.i.i.i68 = icmp eq ptr %148, %142
+_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i67: ; preds = %155, %_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i64
+  %158 = phi ptr [ %157, %155 ], [ null, %_ZNKSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i64 ]
+  %159 = getelementptr inbounds %"class.open_spiel::battleship::ShipPlacement", ptr %158, i64 %150
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %159, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
+  %.not10.i.i.i.i.i.i68 = icmp eq ptr %144, %138
   br i1 %.not10.i.i.i.i.i.i68, label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i73, label %.lr.ph.i.i.i.i.i.i69
 
 .lr.ph.i.i.i.i.i.i69:                             ; preds = %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i67, %.lr.ph.i.i.i.i.i.i69
-  %.012.i.i.i.i.i.i70 = phi ptr [ %165, %.lr.ph.i.i.i.i.i.i69 ], [ %162, %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i67 ]
-  %.0911.i.i.i.i.i.i71 = phi ptr [ %164, %.lr.ph.i.i.i.i.i.i69 ], [ %148, %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i67 ]
+  %.012.i.i.i.i.i.i70 = phi ptr [ %161, %.lr.ph.i.i.i.i.i.i69 ], [ %158, %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i67 ]
+  %.0911.i.i.i.i.i.i71 = phi ptr [ %160, %.lr.ph.i.i.i.i.i.i69 ], [ %144, %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i67 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i.i.i70, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i.i.i71, i64 32, i1 false), !alias.scope !13
-  %164 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i.i71, i64 32
-  %165 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i70, i64 32
-  %.not.i.i.i.i.i.i72 = icmp eq ptr %164, %142
+  %160 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i.i71, i64 32
+  %161 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i70, i64 32
+  %.not.i.i.i.i.i.i72 = icmp eq ptr %160, %138
   br i1 %.not.i.i.i.i.i.i72, label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i73, label %.lr.ph.i.i.i.i.i.i69, !llvm.loop !10
 
 _ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i73: ; preds = %.lr.ph.i.i.i.i.i.i69, %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i67
-  %.0.lcssa.i.i.i.i.i.i74 = phi ptr [ %162, %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i67 ], [ %165, %.lr.ph.i.i.i.i.i.i69 ]
-  %166 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i74, i64 32
-  %.not.i23.i.i.i75 = icmp eq ptr %148, null
-  br i1 %.not.i23.i.i.i75, label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i76, label %167
+  %.0.lcssa.i.i.i.i.i.i74 = phi ptr [ %158, %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i67 ], [ %161, %.lr.ph.i.i.i.i.i.i69 ]
+  %162 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i74, i64 32
+  %.not.i23.i.i.i75 = icmp eq ptr %144, null
+  br i1 %.not.i23.i.i.i75, label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i76, label %163
 
-167:                                              ; preds = %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i73
-  call void @_ZdlPvm(ptr noundef nonnull %148, i64 noundef %151) #13
+163:                                              ; preds = %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i73
+  call void @_ZdlPvm(ptr noundef nonnull %144, i64 noundef %147) #13
   br label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i76
 
-_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i76: ; preds = %167, %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i73
-  store ptr %162, ptr %1, align 8
-  store ptr %166, ptr %13, align 8
-  %168 = getelementptr inbounds %"class.open_spiel::battleship::ShipPlacement", ptr %162, i64 %158
-  store ptr %168, ptr %93, align 8
+_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i76: ; preds = %163, %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i73
+  store ptr %158, ptr %1, align 8
+  store ptr %162, ptr %13, align 8
+  %164 = getelementptr inbounds %"class.open_spiel::battleship::ShipPlacement", ptr %158, i64 %154
+  store ptr %164, ptr %89, align 8
   br label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE9push_backEOS2_.exit77
 
-_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE9push_backEOS2_.exit77: ; preds = %144, %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i76
-  %169 = call fastcc noundef zeroext i1 @_ZN10open_spiel10battleship12_GLOBAL__N_122IsOverlappingPlacementERKSt6vectorINS0_13ShipPlacementESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(24) %1)
-  br i1 %169, label %172, label %170
+_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE9push_backEOS2_.exit77: ; preds = %140, %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i76
+  %165 = call fastcc noundef zeroext i1 @_ZN10open_spiel10battleship12_GLOBAL__N_122IsOverlappingPlacementERKSt6vectorINS0_13ShipPlacementESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(24) %1)
+  br i1 %165, label %168, label %166
 
-170:                                              ; preds = %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE9push_backEOS2_.exit77
-  %171 = call noundef zeroext i1 @_ZN10open_spiel10battleship23ExistsFeasiblePlacementERKNS0_23BattleshipConfigurationEPSt6vectorINS0_13ShipPlacementESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %1)
-  br i1 %171, label %.loopexit.sink.split, label %172
+166:                                              ; preds = %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE9push_backEOS2_.exit77
+  %167 = call noundef zeroext i1 @_ZN10open_spiel10battleship23ExistsFeasiblePlacementERKNS0_23BattleshipConfigurationEPSt6vectorINS0_13ShipPlacementESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %1)
+  br i1 %167, label %.loopexit.sink.split, label %168
 
-172:                                              ; preds = %170, %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE9push_backEOS2_.exit77
-  %173 = load ptr, ptr %13, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 -32
-  store ptr %174, ptr %13, align 8
-  %175 = add nuw nsw i32 %.0104, 1
-  %176 = load i32, ptr %0, align 8
-  %177 = icmp slt i32 %175, %176
-  br i1 %177, label %.lr.ph105, label %._crit_edge106.loopexit, !llvm.loop !17
+168:                                              ; preds = %166, %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE9push_backEOS2_.exit77
+  %169 = load ptr, ptr %13, align 8
+  %170 = getelementptr inbounds i8, ptr %169, i64 -32
+  store ptr %170, ptr %13, align 8
+  %171 = add nuw nsw i32 %.0104, 1
+  %172 = load i32, ptr %0, align 8
+  %173 = icmp slt i32 %171, %172
+  br i1 %173, label %.lr.ph105, label %._crit_edge106.loopexit, !llvm.loop !17
 
-._crit_edge106.loopexit:                          ; preds = %172
-  %.pre125 = load i32, ptr %80, align 4
-  %.pre126 = load i32, ptr %91, align 4
+._crit_edge106.loopexit:                          ; preds = %168
+  %.pre125 = load i32, ptr %76, align 4
+  %.pre126 = load i32, ptr %87, align 4
   br label %._crit_edge106
 
 ._crit_edge106:                                   ; preds = %._crit_edge106.loopexit, %.preheader
-  %178 = phi i32 [ %.pre126, %._crit_edge106.loopexit ], [ %138, %.preheader ]
-  %179 = phi i32 [ %.pre125, %._crit_edge106.loopexit ], [ %139, %.preheader ]
-  %180 = phi i32 [ %176, %._crit_edge106.loopexit ], [ %140, %.preheader ]
-  %181 = add nuw nsw i32 %.049108, 1
-  %182 = sub nsw i32 %179, %178
-  %.not.not = icmp slt i32 %.049108, %182
+  %174 = phi i32 [ %.pre126, %._crit_edge106.loopexit ], [ %134, %.preheader ]
+  %175 = phi i32 [ %.pre125, %._crit_edge106.loopexit ], [ %135, %.preheader ]
+  %176 = phi i32 [ %172, %._crit_edge106.loopexit ], [ %136, %.preheader ]
+  %177 = add nuw nsw i32 %.049108, 1
+  %178 = sub nsw i32 %175, %174
+  %.not.not = icmp slt i32 %.049108, %178
   br i1 %.not.not, label %.preheader, label %.loopexit, !llvm.loop !18
 
-.loopexit.sink.split:                             ; preds = %124, %170
-  %183 = load ptr, ptr %13, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 -32
-  store ptr %184, ptr %13, align 8
+.loopexit.sink.split:                             ; preds = %120, %166
+  %179 = load ptr, ptr %13, align 8
+  %180 = getelementptr inbounds i8, ptr %179, i64 -32
+  store ptr %180, ptr %13, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge106, %.loopexit.sink.split, %.preheader.lr.ph, %.preheader78, %._crit_edge
   %.052 = phi i1 [ true, %._crit_edge ], [ false, %.preheader78 ], [ false, %.preheader.lr.ph ], [ true, %.loopexit.sink.split ], [ false, %._crit_edge106 ]
   ret i1 %.052
 
-185:                                              ; preds = %66, %47
-  %.sink = phi ptr [ %7, %66 ], [ %5, %47 ]
-  %.pn = phi { ptr, i32 } [ %67, %66 ], [ %48, %47 ]
+181:                                              ; preds = %62, %43
+  %.sink = phi ptr [ %7, %62 ], [ %5, %43 ]
+  %.pn = phi { ptr, i32 } [ %63, %62 ], [ %44, %43 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #14
   resume { ptr, i32 } %.pn
 }

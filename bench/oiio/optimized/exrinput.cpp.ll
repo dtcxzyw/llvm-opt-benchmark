@@ -6609,7 +6609,7 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.invoke.cont.i691_crit
   br label %invoke.cont.i691
 
 invoke.cont.i691:                                 ; preds = %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.invoke.cont.i691_crit_edge, %if.then415
-  %sub.ptr.sub.i.i.i.i.i.i.i.i.i.pre-phi = phi i64 [ %.pre1080, %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.invoke.cont.i691_crit_edge ], [ %sub.ptr.sub.i.i, %if.then415 ]
+  %sub.ptr.sub.i.i.i.i.i.i.i.i.i.pre-phi = phi i64 [ %.pre1080, %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.invoke.cont.i691_crit_edge ], [ 0, %if.then415 ]
   %118 = phi ptr [ %.pre1077, %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.invoke.cont.i691_crit_edge ], [ %116, %if.then415 ]
   %119 = phi ptr [ %.pre, %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.invoke.cont.i691_crit_edge ], [ %117, %if.then415 ]
   %cond.i.i.i.i = phi ptr [ %call5.i.i.i.i2.i6.i695, %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.invoke.cont.i691_crit_edge ], [ null, %if.then415 ]
@@ -12270,7 +12270,7 @@ _ZNSt6vectorIfSaIfEEC2ERKS1_.exit:                ; preds = %invoke.cont.i.threa
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i61, i64 %sub.ptr.sub.i.i
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i62, align 8
   %conv = sext i32 %chend to i64
-  %sub.ptr.div.i.i22 = ashr exact i64 %sub.ptr.sub.i.i, 2
+  %sub.ptr.div.i.i22 = lshr exact i64 %sub.ptr.sub.i.i, 2
   %cmp.i = icmp ult i64 %sub.ptr.div.i.i22, %conv
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -12289,7 +12289,7 @@ if.else.i:                                        ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %cmp6.i, label %if.then7.i, label %invoke.cont
 
 if.then7.i:                                       ; preds = %if.else.i
-  %add.ptr.i.idx = shl nsw i64 %conv, 2
+  %add.ptr.i.idx = shl nuw nsw i64 %conv, 2
   %tobool.not.i.i = icmp eq i64 %sub.ptr.sub.i.i, %add.ptr.i.idx
   br i1 %tobool.not.i.i, label %invoke.cont, label %invoke.cont.i.i
 
@@ -54216,8 +54216,8 @@ if.then.i.i.i.i.i:                                ; preds = %if.then11
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %1, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %1, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i, ptr align 4 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %invoke.cont20
 

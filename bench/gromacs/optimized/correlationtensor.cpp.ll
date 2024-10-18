@@ -400,7 +400,7 @@ _ZNSt12_Vector_baseIN3gmx20CorrelationBlockData9CoordDataESaIS2_EE13_M_deallocat
   br label %_ZSt4copyIPN3gmx20CorrelationBlockData9CoordDataES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPN3gmx20CorrelationBlockData9CoordDataES3_ET0_T_S5_S4_.exit: ; preds = %34, %35
-  %.pre-phi33 = phi i64 [ %31, %34 ], [ %.pre32, %35 ]
+  %.pre-phi33 = phi i64 [ 0, %34 ], [ %.pre32, %35 ]
   %36 = phi ptr [ %5, %34 ], [ %.pre28, %35 ]
   %37 = phi ptr [ %29, %34 ], [ %.pre26, %35 ]
   %38 = phi ptr [ %6, %34 ], [ %.pre, %35 ]
@@ -512,7 +512,7 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit: ; preds = %_ZNSt6vectorIdSa
   br label %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPdS0_ET0_T_S2_S1_.exit:                 ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]
@@ -686,7 +686,7 @@ _ZNSt12_Vector_baseIN3gmx20CorrelationBlockData9CoordDataESaIS2_EE13_M_deallocat
   br label %_ZSt4copyIPN3gmx20CorrelationBlockData9CoordDataES3_ET0_T_S5_S4_.exit.i
 
 _ZSt4copyIPN3gmx20CorrelationBlockData9CoordDataES3_ET0_T_S5_S4_.exit.i: ; preds = %53, %52
-  %.pre-phi33.i19 = phi i64 [ %49, %52 ], [ %.pre32.i18, %53 ]
+  %.pre-phi33.i19 = phi i64 [ 0, %52 ], [ %.pre32.i18, %53 ]
   %54 = phi ptr [ %23, %52 ], [ %.pre28.i15, %53 ]
   %55 = phi ptr [ %47, %52 ], [ %.pre26.i13, %53 ]
   %56 = phi ptr [ %24, %52 ], [ %.pre.i12, %53 ]
@@ -788,7 +788,7 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i: ; preds = %83, %_ZNSt6vec
   br label %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit.i
 
 _ZSt4copyIPdS0_ET0_T_S2_S1_.exit.i:               ; preds = %93, %92
-  %.pre-phi33.i = phi i64 [ %89, %92 ], [ %.pre32.i, %93 ]
+  %.pre-phi33.i = phi i64 [ 0, %92 ], [ %.pre32.i, %93 ]
   %94 = phi ptr [ %66, %92 ], [ %.pre28.i, %93 ]
   %95 = phi ptr [ %87, %92 ], [ %.pre26.i, %93 ]
   %96 = phi ptr [ %67, %92 ], [ %.pre.i, %93 ]

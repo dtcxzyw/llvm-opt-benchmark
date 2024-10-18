@@ -5916,7 +5916,7 @@ define dso_local void @_ZN4llvm6object25WindowsResourceCOFFWriter16writeStringTa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm6object25WindowsResourceCOFFWriter18writeDirectoryTreeEv(ptr noundef nonnull align 8 dereferenceable(176) %0) local_unnamed_addr #0 align 2 {
-.lr.ph207:
+.lr.ph206:
   %1 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #26
   %.06.i.i.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #26
@@ -5951,28 +5951,28 @@ define dso_local void @_ZN4llvm6object25WindowsResourceCOFFWriter18writeDirector
   %.sroa.0.11 = phi ptr [ %.sroa.0.3, %._crit_edge ], [ %.sroa.0.6, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
   %.sroa.16.3.lcssa = phi ptr [ %.sroa.16.1.lcssa, %._crit_edge ], [ %.sroa.16.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
   %.sroa.7.3.lcssa = phi ptr [ %.sroa.7.1.lcssa, %._crit_edge ], [ %.sroa.7.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
-  %.sroa.0110.3.lcssa = phi ptr [ %.sroa.0110.1.lcssa, %._crit_edge ], [ %.sroa.0110.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
-  %.260.lcssa = phi i32 [ %.159.lcssa, %._crit_edge ], [ %322, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
+  %.sroa.0109.3.lcssa = phi ptr [ %.sroa.0109.1.lcssa, %._crit_edge ], [ %.sroa.0109.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
+  %.260.lcssa = phi i32 [ %.159.lcssa, %._crit_edge ], [ %324, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
   %.3.lcssa = phi i32 [ %.1.lcssa, %._crit_edge ], [ %.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
   %17 = icmp eq ptr %.sroa.39.6, %storemerge.i.i
-  br i1 %17, label %._crit_edge208, label %18, !llvm.loop !162
+  br i1 %17, label %._crit_edge207, label %18, !llvm.loop !162
 
-18:                                               ; preds = %.lr.ph207, %.loopexit
-  %.sroa.66.0 = phi ptr [ %.06.i.i.ptr.i.i.i, %.lr.ph207 ], [ %.sroa.66.9, %.loopexit ]
-  %.sroa.59.0 = phi ptr [ %6, %.lr.ph207 ], [ %.sroa.59.6, %.loopexit ]
-  %.sroa.52.0 = phi ptr [ %2, %.lr.ph207 ], [ %.sroa.52.6, %.loopexit ]
-  %.sroa.39.0 = phi ptr [ %5, %.lr.ph207 ], [ %.sroa.39.6, %.loopexit ]
-  %.sroa.31.0 = phi ptr [ %.06.i.i.ptr.i.i.i, %.lr.ph207 ], [ %.sroa.31.10, %.loopexit ]
-  %.sroa.24.0 = phi ptr [ %6, %.lr.ph207 ], [ %.sroa.24.9, %.loopexit ]
-  %.sroa.19.0 = phi ptr [ %2, %.lr.ph207 ], [ %.sroa.19.9, %.loopexit ]
-  %.sroa.7.0 = phi i64 [ 8, %.lr.ph207 ], [ %.sroa.7.11, %.loopexit ]
-  %.sroa.0.0 = phi ptr [ %1, %.lr.ph207 ], [ %.sroa.0.11, %.loopexit ]
-  %19 = phi ptr [ %2, %.lr.ph207 ], [ %storemerge.i.i, %.loopexit ]
-  %.0206 = phi i32 [ %13, %.lr.ph207 ], [ %.3.lcssa, %.loopexit ]
-  %.058205 = phi i32 [ 0, %.lr.ph207 ], [ %.260.lcssa, %.loopexit ]
-  %.sroa.0110.0204 = phi ptr [ null, %.lr.ph207 ], [ %.sroa.0110.3.lcssa, %.loopexit ]
-  %.sroa.7.0203 = phi ptr [ null, %.lr.ph207 ], [ %.sroa.7.3.lcssa, %.loopexit ]
-  %.sroa.16.0202 = phi ptr [ null, %.lr.ph207 ], [ %.sroa.16.3.lcssa, %.loopexit ]
+18:                                               ; preds = %.lr.ph206, %.loopexit
+  %.sroa.66.0 = phi ptr [ %.06.i.i.ptr.i.i.i, %.lr.ph206 ], [ %.sroa.66.9, %.loopexit ]
+  %.sroa.59.0 = phi ptr [ %6, %.lr.ph206 ], [ %.sroa.59.6, %.loopexit ]
+  %.sroa.52.0 = phi ptr [ %2, %.lr.ph206 ], [ %.sroa.52.6, %.loopexit ]
+  %.sroa.39.0 = phi ptr [ %5, %.lr.ph206 ], [ %.sroa.39.6, %.loopexit ]
+  %.sroa.31.0 = phi ptr [ %.06.i.i.ptr.i.i.i, %.lr.ph206 ], [ %.sroa.31.10, %.loopexit ]
+  %.sroa.24.0 = phi ptr [ %6, %.lr.ph206 ], [ %.sroa.24.9, %.loopexit ]
+  %.sroa.19.0 = phi ptr [ %2, %.lr.ph206 ], [ %.sroa.19.9, %.loopexit ]
+  %.sroa.7.0 = phi i64 [ 8, %.lr.ph206 ], [ %.sroa.7.11, %.loopexit ]
+  %.sroa.0.0 = phi ptr [ %1, %.lr.ph206 ], [ %.sroa.0.11, %.loopexit ]
+  %19 = phi ptr [ %2, %.lr.ph206 ], [ %storemerge.i.i, %.loopexit ]
+  %.0205 = phi i32 [ %13, %.lr.ph206 ], [ %.3.lcssa, %.loopexit ]
+  %.058204 = phi i32 [ 0, %.lr.ph206 ], [ %.260.lcssa, %.loopexit ]
+  %.sroa.0109.0203 = phi ptr [ null, %.lr.ph206 ], [ %.sroa.0109.3.lcssa, %.loopexit ]
+  %.sroa.7.0202 = phi ptr [ null, %.lr.ph206 ], [ %.sroa.7.3.lcssa, %.loopexit ]
+  %.sroa.16.0201 = phi ptr [ null, %.lr.ph206 ], [ %.sroa.16.3.lcssa, %.loopexit ]
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %.sroa.24.0, i64 -8
   %.not.i.i = icmp eq ptr %19, %21
@@ -6029,19 +6029,19 @@ _ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EE
   %48 = load i64, ptr %15, align 8
   %49 = add i64 %48, 16
   store i64 %49, ptr %15, align 8
-  %50 = add i32 %.058205, 16
+  %50 = add i32 %.058204, 16
   %51 = getelementptr inbounds i8, ptr %20, i64 88
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %20, i64 72
-  %.not177 = icmp eq ptr %52, %53
-  br i1 %.not177, label %._crit_edge, label %.lr.ph.preheader
+  %.not176 = icmp eq ptr %52, %53
+  br i1 %.not176, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEE3popEv.exit
   %54 = ptrtoint ptr %storemerge.i.i to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit
-  %55 = phi i64 [ %49, %.lr.ph.preheader ], [ %187, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
+  %55 = phi i64 [ %49, %.lr.ph.preheader ], [ %188, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
   %.sroa.66.2 = phi ptr [ %.sroa.66.0, %.lr.ph.preheader ], [ %.sroa.66.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
   %.sroa.59.1 = phi ptr [ %.sroa.59.0, %.lr.ph.preheader ], [ %.sroa.59.3, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
   %.sroa.52.1 = phi ptr [ %.sroa.52.0, %.lr.ph.preheader ], [ %.sroa.52.3, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
@@ -6049,17 +6049,17 @@ _ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EE
   %.sroa.31.2 = phi ptr [ %.sroa.31.7, %.lr.ph.preheader ], [ %.sroa.31.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
   %.sroa.24.1 = phi ptr [ %.sroa.24.6, %.lr.ph.preheader ], [ %.sroa.24.3, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
   %.sroa.19.1 = phi ptr [ %.sroa.19.6, %.lr.ph.preheader ], [ %.sroa.19.3, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
-  %.sroa.7.2245 = phi i64 [ %.sroa.7.0, %.lr.ph.preheader ], [ %.sroa.7.4246, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
+  %.sroa.7.2244 = phi i64 [ %.sroa.7.0, %.lr.ph.preheader ], [ %.sroa.7.4245, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
   %.sroa.0.2 = phi ptr [ %.sroa.0.0, %.lr.ph.preheader ], [ %.sroa.0.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
-  %.1183 = phi i32 [ %.0206, %.lr.ph.preheader ], [ %.2, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
-  %.159182 = phi i32 [ %50, %.lr.ph.preheader ], [ %188, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
-  %.sroa.0110.1181 = phi ptr [ %.sroa.0110.0204, %.lr.ph.preheader ], [ %.sroa.0110.2, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
-  %.sroa.7.1180 = phi ptr [ %.sroa.7.0203, %.lr.ph.preheader ], [ %.sroa.7.2, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
-  %.sroa.16.1179 = phi ptr [ %.sroa.16.0202, %.lr.ph.preheader ], [ %.sroa.16.2, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
-  %.sroa.0107.0178 = phi ptr [ %52, %.lr.ph.preheader ], [ %189, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
+  %.1182 = phi i32 [ %.0205, %.lr.ph.preheader ], [ %.2, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
+  %.159181 = phi i32 [ %50, %.lr.ph.preheader ], [ %189, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
+  %.sroa.0109.1180 = phi ptr [ %.sroa.0109.0203, %.lr.ph.preheader ], [ %.sroa.0109.2, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
+  %.sroa.7.1179 = phi ptr [ %.sroa.7.0202, %.lr.ph.preheader ], [ %.sroa.7.2, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
+  %.sroa.16.1178 = phi ptr [ %.sroa.16.0201, %.lr.ph.preheader ], [ %.sroa.16.2, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
+  %.sroa.0106.0177 = phi ptr [ %52, %.lr.ph.preheader ], [ %190, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
   %56 = load ptr, ptr %14, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 %55
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0107.0178, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0106.0177, i64 64
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = load i32, ptr %60, align 4
@@ -6078,20 +6078,20 @@ _ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EE
 70:                                               ; preds = %.lr.ph
   %71 = getelementptr inbounds nuw i8, ptr %57, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %71, i64 1) ]
-  store i32 %.1183, ptr %71, align 1
-  %72 = add i32 %.1183, 16
+  store i32 %.1182, ptr %71, align 1
+  %72 = add i32 %.1182, 16
   %73 = load ptr, ptr %58, align 8
-  %.not.i.i64 = icmp eq ptr %.sroa.7.1180, %.sroa.16.1179
+  %.not.i.i64 = icmp eq ptr %.sroa.7.1179, %.sroa.16.1178
   br i1 %.not.i.i64, label %76, label %74
 
 74:                                               ; preds = %70
-  store ptr %73, ptr %.sroa.7.1180, align 8
-  %75 = getelementptr inbounds i8, ptr %.sroa.7.1180, i64 8
+  store ptr %73, ptr %.sroa.7.1179, align 8
+  %75 = getelementptr inbounds i8, ptr %.sroa.7.1179, i64 8
   br label %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit
 
 76:                                               ; preds = %70
-  %77 = ptrtoint ptr %.sroa.7.1180 to i64
-  %78 = ptrtoint ptr %.sroa.0110.1181 to i64
+  %77 = ptrtoint ptr %.sroa.7.1179 to i64
+  %78 = ptrtoint ptr %.sroa.0109.1180 to i64
   %79 = sub i64 %77, %78
   %80 = icmp eq i64 %79, 9223372036854775800
   br i1 %80, label %81, label %_ZNKSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -6123,17 +6123,17 @@ _ZNSt12_Vector_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE11_M
   br i1 %92, label %93, label %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i
 
 93:                                               ; preds = %_ZNSt12_Vector_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %90, ptr align 8 %.sroa.0110.1181, i64 %79, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %90, ptr align 8 %.sroa.0109.1180, i64 %79, i1 false)
   br label %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i
 
 _ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i: ; preds = %93, %_ZNSt12_Vector_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE11_M_allocateEm.exit.i.i.i
   %94 = getelementptr inbounds i8, ptr %90, i64 %79
   %95 = getelementptr inbounds i8, ptr %94, i64 8
-  %.not.i17.i.i.i = icmp eq ptr %.sroa.0110.1181, null
+  %.not.i17.i.i.i = icmp eq ptr %.sroa.0109.1180, null
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, label %96
 
 96:                                               ; preds = %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0110.1181, i64 noundef %79) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0109.1180, i64 noundef %79) #27
   br label %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %96, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i
@@ -6141,7 +6141,7 @@ _ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallo
   br label %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit
 
 98:                                               ; preds = %.lr.ph
-  %99 = xor i32 %.1183, -2147483648
+  %99 = xor i32 %.1182, -2147483648
   %100 = getelementptr inbounds nuw i8, ptr %57, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %100, i64 1) ]
   store i32 %99, ptr %100, align 1
@@ -6153,7 +6153,7 @@ _ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallo
   %106 = add i64 %105, %103
   %.tr63 = trunc i64 %106 to i32
   %107 = shl i32 %.tr63, 3
-  %108 = add i32 %.1183, 16
+  %108 = add i32 %.1182, 16
   %109 = add i32 %108, %107
   %110 = getelementptr inbounds i8, ptr %.sroa.59.1, i64 -8
   %.not.i.i.i65 = icmp eq ptr %.sroa.39.1, %110
@@ -6191,7 +6191,7 @@ _ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallo
   %132 = ptrtoint ptr %.sroa.0.2 to i64
   %133 = sub i64 %114, %132
   %134 = ashr exact i64 %133, 3
-  %135 = sub i64 %.sroa.7.2245, %134
+  %135 = sub i64 %.sroa.7.2244, %134
   %136 = icmp ult i64 %135, 2
   br i1 %136, label %137, label %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit
 
@@ -6199,11 +6199,11 @@ _ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallo
   %138 = add nsw i64 %117, 1
   %139 = add nsw i64 %117, 2
   %140 = shl nsw i64 %139, 1
-  %141 = icmp ugt i64 %.sroa.7.2245, %140
-  br i1 %141, label %142, label %159
+  %141 = icmp ugt i64 %.sroa.7.2244, %140
+  br i1 %141, label %142, label %160
 
 142:                                              ; preds = %137
-  %143 = sub i64 %.sroa.7.2245, %139
+  %143 = sub i64 %.sroa.7.2244, %139
   %144 = lshr i64 %143, 1
   %145 = getelementptr inbounds ptr, ptr %.sroa.0.2, i64 %144
   %146 = icmp ult ptr %145, %.sroa.31.2
@@ -6224,105 +6224,105 @@ _ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallo
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit, label %153
 
 153:                                              ; preds = %152
-  %154 = ptrtoint ptr %147 to i64
-  %155 = sub i64 %154, %115
-  %156 = ashr exact i64 %155, 3
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %156
-  %157 = getelementptr inbounds ptr, ptr %145, i64 %138
-  %158 = getelementptr inbounds ptr, ptr %157, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %158, ptr align 8 %.sroa.31.2, i64 %155, i1 false)
+  %154 = getelementptr inbounds ptr, ptr %145, i64 %138
+  %155 = ptrtoint ptr %147 to i64
+  %156 = sub i64 %155, %115
+  %157 = ashr exact i64 %156, 3
+  %158 = sub nsw i64 0, %157
+  %159 = getelementptr inbounds ptr, ptr %154, i64 %158
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %159, ptr align 8 %.sroa.31.2, i64 %156, i1 false)
   br label %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit
 
-159:                                              ; preds = %137
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %.sroa.7.2245, i64 1)
-  %160 = add i64 %.sroa.7.2245, 2
-  %161 = add i64 %160, %.sroa.speculated.i
-  %162 = icmp ugt i64 %161, 1152921504606846975
-  br i1 %162, label %163, label %_ZNSt11_Deque_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE15_M_allocate_mapEm.exit.i
+160:                                              ; preds = %137
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %.sroa.7.2244, i64 1)
+  %161 = add i64 %.sroa.7.2244, 2
+  %162 = add i64 %161, %.sroa.speculated.i
+  %163 = icmp ugt i64 %162, 1152921504606846975
+  br i1 %163, label %164, label %_ZNSt11_Deque_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE15_M_allocate_mapEm.exit.i
 
-163:                                              ; preds = %159
-  %164 = icmp ugt i64 %161, 2305843009213693951
-  br i1 %164, label %165, label %166
+164:                                              ; preds = %160
+  %165 = icmp ugt i64 %162, 2305843009213693951
+  br i1 %165, label %166, label %167
 
-165:                                              ; preds = %163
+166:                                              ; preds = %164
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #29
   unreachable
 
-166:                                              ; preds = %163
+167:                                              ; preds = %164
   tail call void @_ZSt17__throw_bad_allocv() #29
   unreachable
 
-_ZNSt11_Deque_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE15_M_allocate_mapEm.exit.i: ; preds = %159
-  %167 = shl nuw nsw i64 %161, 3
-  %168 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %167) #26
-  %169 = sub nsw i64 %161, %139
-  %170 = lshr i64 %169, 1
-  %171 = getelementptr inbounds ptr, ptr %168, i64 %170
-  %172 = getelementptr inbounds i8, ptr %.sroa.66.2, i64 8
-  %.not.i.i.i.i.i25.i = icmp eq ptr %172, %.sroa.31.2
-  br i1 %.not.i.i.i.i.i25.i, label %_ZSt4copyIPPPKN4llvm6object21WindowsResourceParser8TreeNodeES7_ET0_T_S9_S8_.exit26.i, label %173
+_ZNSt11_Deque_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE15_M_allocate_mapEm.exit.i: ; preds = %160
+  %168 = shl nuw nsw i64 %162, 3
+  %169 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %168) #26
+  %170 = sub nsw i64 %162, %139
+  %171 = lshr i64 %170, 1
+  %172 = getelementptr inbounds ptr, ptr %169, i64 %171
+  %173 = getelementptr inbounds i8, ptr %.sroa.66.2, i64 8
+  %.not.i.i.i.i.i25.i = icmp eq ptr %173, %.sroa.31.2
+  br i1 %.not.i.i.i.i.i25.i, label %_ZSt4copyIPPPKN4llvm6object21WindowsResourceParser8TreeNodeES7_ET0_T_S9_S8_.exit26.i, label %174
 
-173:                                              ; preds = %_ZNSt11_Deque_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE15_M_allocate_mapEm.exit.i
-  %174 = ptrtoint ptr %172 to i64
-  %175 = sub i64 %174, %115
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %171, ptr align 8 %.sroa.31.2, i64 %175, i1 false)
+174:                                              ; preds = %_ZNSt11_Deque_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE15_M_allocate_mapEm.exit.i
+  %175 = ptrtoint ptr %173 to i64
+  %176 = sub i64 %175, %115
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %172, ptr align 8 %.sroa.31.2, i64 %176, i1 false)
   br label %_ZSt4copyIPPPKN4llvm6object21WindowsResourceParser8TreeNodeES7_ET0_T_S9_S8_.exit26.i
 
-_ZSt4copyIPPPKN4llvm6object21WindowsResourceParser8TreeNodeES7_ET0_T_S9_S8_.exit26.i: ; preds = %173, %_ZNSt11_Deque_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE15_M_allocate_mapEm.exit.i
-  %176 = shl i64 %.sroa.7.2245, 3
-  tail call void @_ZdlPvm(ptr noundef %.sroa.0.2, i64 noundef %176) #27
+_ZSt4copyIPPPKN4llvm6object21WindowsResourceParser8TreeNodeES7_ET0_T_S9_S8_.exit26.i: ; preds = %174, %_ZNSt11_Deque_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE15_M_allocate_mapEm.exit.i
+  %177 = shl i64 %.sroa.7.2244, 3
+  tail call void @_ZdlPvm(ptr noundef %.sroa.0.2, i64 noundef %177) #27
   br label %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit
 
 _ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit: ; preds = %148, %149, %152, %153, %_ZSt4copyIPPPKN4llvm6object21WindowsResourceParser8TreeNodeES7_ET0_T_S9_S8_.exit26.i
-  %.sroa.7.9 = phi i64 [ %.sroa.7.2245, %148 ], [ %.sroa.7.2245, %149 ], [ %.sroa.7.2245, %152 ], [ %.sroa.7.2245, %153 ], [ %161, %_ZSt4copyIPPPKN4llvm6object21WindowsResourceParser8TreeNodeES7_ET0_T_S9_S8_.exit26.i ]
-  %.sroa.0.9 = phi ptr [ %.sroa.0.2, %148 ], [ %.sroa.0.2, %149 ], [ %.sroa.0.2, %152 ], [ %.sroa.0.2, %153 ], [ %168, %_ZSt4copyIPPPKN4llvm6object21WindowsResourceParser8TreeNodeES7_ET0_T_S9_S8_.exit26.i ]
-  %.0.i = phi ptr [ %145, %148 ], [ %145, %149 ], [ %145, %152 ], [ %145, %153 ], [ %171, %_ZSt4copyIPPPKN4llvm6object21WindowsResourceParser8TreeNodeES7_ET0_T_S9_S8_.exit26.i ]
-  %177 = load ptr, ptr %.0.i, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 512
-  %179 = getelementptr inbounds ptr, ptr %.0.i, i64 %138
-  %180 = getelementptr inbounds i8, ptr %179, i64 -8
+  %.sroa.7.9 = phi i64 [ %.sroa.7.2244, %148 ], [ %.sroa.7.2244, %149 ], [ %.sroa.7.2244, %152 ], [ %.sroa.7.2244, %153 ], [ %162, %_ZSt4copyIPPPKN4llvm6object21WindowsResourceParser8TreeNodeES7_ET0_T_S9_S8_.exit26.i ]
+  %.sroa.0.9 = phi ptr [ %.sroa.0.2, %148 ], [ %.sroa.0.2, %149 ], [ %.sroa.0.2, %152 ], [ %.sroa.0.2, %153 ], [ %169, %_ZSt4copyIPPPKN4llvm6object21WindowsResourceParser8TreeNodeES7_ET0_T_S9_S8_.exit26.i ]
+  %.0.i = phi ptr [ %145, %148 ], [ %145, %149 ], [ %145, %152 ], [ %145, %153 ], [ %172, %_ZSt4copyIPPPKN4llvm6object21WindowsResourceParser8TreeNodeES7_ET0_T_S9_S8_.exit26.i ]
+  %178 = load ptr, ptr %.0.i, align 8
+  %179 = getelementptr inbounds i8, ptr %178, i64 512
+  %180 = getelementptr inbounds ptr, ptr %.0.i, i64 %138
+  %181 = getelementptr inbounds i8, ptr %180, i64 -8
   br label %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit
 
 _ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit: ; preds = %131, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit
-  %.sroa.66.7 = phi ptr [ %180, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.66.2, %131 ]
+  %.sroa.66.7 = phi ptr [ %181, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.66.2, %131 ]
   %.sroa.31.8 = phi ptr [ %.0.i, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.31.2, %131 ]
-  %.sroa.24.7 = phi ptr [ %178, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.24.1, %131 ]
-  %.sroa.19.7 = phi ptr [ %177, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.19.1, %131 ]
-  %.sroa.7.7 = phi i64 [ %.sroa.7.9, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.7.2245, %131 ]
+  %.sroa.24.7 = phi ptr [ %179, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.24.1, %131 ]
+  %.sroa.19.7 = phi ptr [ %178, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.19.1, %131 ]
+  %.sroa.7.7 = phi i64 [ %.sroa.7.9, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.7.2244, %131 ]
   %.sroa.0.7 = phi ptr [ %.sroa.0.9, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.0.2, %131 ]
-  %181 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #26
-  %182 = getelementptr inbounds i8, ptr %.sroa.66.7, i64 8
-  store ptr %181, ptr %182, align 8
-  store ptr %101, ptr %.sroa.39.1, align 8
+  %182 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #26
   %183 = getelementptr inbounds i8, ptr %.sroa.66.7, i64 8
-  %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 512
+  store ptr %182, ptr %183, align 8
+  store ptr %101, ptr %.sroa.39.1, align 8
+  %184 = getelementptr inbounds i8, ptr %.sroa.66.7, i64 8
+  %185 = load ptr, ptr %184, align 8
+  %186 = getelementptr inbounds i8, ptr %185, i64 512
   br label %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit
 
 _ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit, %111, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, %74
-  %.sroa.66.4 = phi ptr [ %.sroa.66.2, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %.sroa.66.2, %74 ], [ %183, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit ], [ %.sroa.66.2, %111 ]
-  %.sroa.59.3 = phi ptr [ %.sroa.59.1, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %.sroa.59.1, %74 ], [ %185, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit ], [ %.sroa.59.1, %111 ]
-  %.sroa.52.3 = phi ptr [ %.sroa.52.1, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %.sroa.52.1, %74 ], [ %184, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit ], [ %.sroa.52.1, %111 ]
-  %.sroa.39.3 = phi ptr [ %.sroa.39.1, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %.sroa.39.1, %74 ], [ %184, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit ], [ %112, %111 ]
+  %.sroa.66.4 = phi ptr [ %.sroa.66.2, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %.sroa.66.2, %74 ], [ %184, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit ], [ %.sroa.66.2, %111 ]
+  %.sroa.59.3 = phi ptr [ %.sroa.59.1, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %.sroa.59.1, %74 ], [ %186, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit ], [ %.sroa.59.1, %111 ]
+  %.sroa.52.3 = phi ptr [ %.sroa.52.1, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %.sroa.52.1, %74 ], [ %185, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit ], [ %.sroa.52.1, %111 ]
+  %.sroa.39.3 = phi ptr [ %.sroa.39.1, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %.sroa.39.1, %74 ], [ %185, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit ], [ %112, %111 ]
   %.sroa.31.4 = phi ptr [ %.sroa.31.2, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %.sroa.31.2, %74 ], [ %.sroa.31.8, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit ], [ %.sroa.31.2, %111 ]
   %.sroa.24.3 = phi ptr [ %.sroa.24.1, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %.sroa.24.1, %74 ], [ %.sroa.24.7, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit ], [ %.sroa.24.1, %111 ]
   %.sroa.19.3 = phi ptr [ %.sroa.19.1, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %.sroa.19.1, %74 ], [ %.sroa.19.7, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit ], [ %.sroa.19.1, %111 ]
-  %.sroa.7.4246 = phi i64 [ %.sroa.7.2245, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %.sroa.7.2245, %74 ], [ %.sroa.7.7, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit ], [ %.sroa.7.2245, %111 ]
+  %.sroa.7.4245 = phi i64 [ %.sroa.7.2244, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %.sroa.7.2244, %74 ], [ %.sroa.7.7, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit ], [ %.sroa.7.2244, %111 ]
   %.sroa.0.4 = phi ptr [ %.sroa.0.2, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %.sroa.0.2, %74 ], [ %.sroa.0.7, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit ], [ %.sroa.0.2, %111 ]
-  %.sroa.16.2 = phi ptr [ %97, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %.sroa.16.1179, %74 ], [ %.sroa.16.1179, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit ], [ %.sroa.16.1179, %111 ]
-  %.sroa.7.2 = phi ptr [ %95, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %75, %74 ], [ %.sroa.7.1180, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit ], [ %.sroa.7.1180, %111 ]
-  %.sroa.0110.2 = phi ptr [ %90, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %.sroa.0110.1181, %74 ], [ %.sroa.0110.1181, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit ], [ %.sroa.0110.1181, %111 ]
+  %.sroa.16.2 = phi ptr [ %97, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %.sroa.16.1178, %74 ], [ %.sroa.16.1178, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit ], [ %.sroa.16.1178, %111 ]
+  %.sroa.7.2 = phi ptr [ %95, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %75, %74 ], [ %.sroa.7.1179, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit ], [ %.sroa.7.1179, %111 ]
+  %.sroa.0109.2 = phi ptr [ %90, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %.sroa.0109.1180, %74 ], [ %.sroa.0109.1180, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit ], [ %.sroa.0109.1180, %111 ]
   %.2 = phi i32 [ %72, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %72, %74 ], [ %109, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit ], [ %109, %111 ]
-  %186 = load i64, ptr %15, align 8
-  %187 = add i64 %186, 8
-  store i64 %187, ptr %15, align 8
-  %188 = add i32 %.159182, 8
-  %189 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0107.0178) #28
-  %.not = icmp eq ptr %189, %53
+  %187 = load i64, ptr %15, align 8
+  %188 = add i64 %187, 8
+  store i64 %188, ptr %15, align 8
+  %189 = add i32 %.159181, 8
+  %190 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0106.0177) #28
+  %.not = icmp eq ptr %190, %53
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit, %_ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEE3popEv.exit
-  %190 = phi i64 [ %49, %_ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEE3popEv.exit ], [ %187, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
+  %191 = phi i64 [ %49, %_ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEE3popEv.exit ], [ %188, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
   %.sroa.66.3 = phi ptr [ %.sroa.66.0, %_ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEE3popEv.exit ], [ %.sroa.66.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
   %.sroa.59.2 = phi ptr [ %.sroa.59.0, %_ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEE3popEv.exit ], [ %.sroa.59.3, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
   %.sroa.52.2 = phi ptr [ %.sroa.52.0, %_ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEE3popEv.exit ], [ %.sroa.52.3, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
@@ -6330,411 +6330,411 @@ _ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backE
   %.sroa.31.3 = phi ptr [ %.sroa.31.7, %_ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEE3popEv.exit ], [ %.sroa.31.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
   %.sroa.24.2 = phi ptr [ %.sroa.24.6, %_ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEE3popEv.exit ], [ %.sroa.24.3, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
   %.sroa.19.2 = phi ptr [ %.sroa.19.6, %_ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEE3popEv.exit ], [ %.sroa.19.3, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
-  %.sroa.7.3 = phi i64 [ %.sroa.7.0, %_ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEE3popEv.exit ], [ %.sroa.7.4246, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
+  %.sroa.7.3 = phi i64 [ %.sroa.7.0, %_ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEE3popEv.exit ], [ %.sroa.7.4245, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
   %.sroa.0.3 = phi ptr [ %.sroa.0.0, %_ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEE3popEv.exit ], [ %.sroa.0.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
-  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.0202, %_ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEE3popEv.exit ], [ %.sroa.16.2, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
-  %.sroa.7.1.lcssa = phi ptr [ %.sroa.7.0203, %_ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEE3popEv.exit ], [ %.sroa.7.2, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
-  %.sroa.0110.1.lcssa = phi ptr [ %.sroa.0110.0204, %_ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEE3popEv.exit ], [ %.sroa.0110.2, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
-  %.159.lcssa = phi i32 [ %50, %_ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEE3popEv.exit ], [ %188, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
-  %.1.lcssa = phi i32 [ %.0206, %_ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEE3popEv.exit ], [ %.2, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
-  %191 = getelementptr inbounds i8, ptr %20, i64 40
-  %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds i8, ptr %20, i64 24
-  %.not120188 = icmp eq ptr %192, %193
-  br i1 %.not120188, label %.loopexit, label %.lr.ph196.preheader
+  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.0201, %_ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEE3popEv.exit ], [ %.sroa.16.2, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
+  %.sroa.7.1.lcssa = phi ptr [ %.sroa.7.0202, %_ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEE3popEv.exit ], [ %.sroa.7.2, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
+  %.sroa.0109.1.lcssa = phi ptr [ %.sroa.0109.0203, %_ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEE3popEv.exit ], [ %.sroa.0109.2, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
+  %.159.lcssa = phi i32 [ %50, %_ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEE3popEv.exit ], [ %189, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
+  %.1.lcssa = phi i32 [ %.0205, %_ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEE3popEv.exit ], [ %.2, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit ]
+  %192 = getelementptr inbounds i8, ptr %20, i64 40
+  %193 = load ptr, ptr %192, align 8
+  %194 = getelementptr inbounds i8, ptr %20, i64 24
+  %.not119187 = icmp eq ptr %193, %194
+  br i1 %.not119187, label %.loopexit, label %.lr.ph195.preheader
 
-.lr.ph196.preheader:                              ; preds = %._crit_edge
-  %194 = ptrtoint ptr %storemerge.i.i to i64
-  br label %.lr.ph196
+.lr.ph195.preheader:                              ; preds = %._crit_edge
+  %195 = ptrtoint ptr %storemerge.i.i to i64
+  br label %.lr.ph195
 
-.lr.ph196:                                        ; preds = %.lr.ph196.preheader, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75
-  %195 = phi i64 [ %190, %.lr.ph196.preheader ], [ %321, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
-  %.sroa.66.5 = phi ptr [ %.sroa.66.3, %.lr.ph196.preheader ], [ %.sroa.66.6, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
-  %.sroa.59.4 = phi ptr [ %.sroa.59.2, %.lr.ph196.preheader ], [ %.sroa.59.5, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
-  %.sroa.52.4 = phi ptr [ %.sroa.52.2, %.lr.ph196.preheader ], [ %.sroa.52.5, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
-  %.sroa.39.4 = phi ptr [ %.sroa.39.2, %.lr.ph196.preheader ], [ %.sroa.39.5, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
-  %.sroa.31.5 = phi ptr [ %.sroa.31.3, %.lr.ph196.preheader ], [ %.sroa.31.6, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
-  %.sroa.24.4 = phi ptr [ %.sroa.24.2, %.lr.ph196.preheader ], [ %.sroa.24.5, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
-  %.sroa.19.4 = phi ptr [ %.sroa.19.2, %.lr.ph196.preheader ], [ %.sroa.19.5, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
-  %.sroa.7.5 = phi i64 [ %.sroa.7.3, %.lr.ph196.preheader ], [ %.sroa.7.6, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
-  %.sroa.0.5 = phi ptr [ %.sroa.0.3, %.lr.ph196.preheader ], [ %.sroa.0.6, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
-  %.3194 = phi i32 [ %.1.lcssa, %.lr.ph196.preheader ], [ %.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
-  %.260193 = phi i32 [ %.159.lcssa, %.lr.ph196.preheader ], [ %322, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
-  %.sroa.0110.3192 = phi ptr [ %.sroa.0110.1.lcssa, %.lr.ph196.preheader ], [ %.sroa.0110.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
-  %.sroa.7.3191 = phi ptr [ %.sroa.7.1.lcssa, %.lr.ph196.preheader ], [ %.sroa.7.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
-  %.sroa.16.3190 = phi ptr [ %.sroa.16.1.lcssa, %.lr.ph196.preheader ], [ %.sroa.16.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
-  %.sroa.099.0189 = phi ptr [ %192, %.lr.ph196.preheader ], [ %323, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
-  %196 = getelementptr inbounds nuw i8, ptr %.sroa.099.0189, i64 32
-  %197 = load ptr, ptr %14, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 %195
-  %199 = load i32, ptr %196, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %198, i64 1) ]
-  store i32 %199, ptr %198, align 1
-  %200 = getelementptr inbounds nuw i8, ptr %.sroa.099.0189, i64 40
-  %201 = load ptr, ptr %200, align 8
-  %202 = load i8, ptr %201, align 8
-  %203 = trunc i8 %202 to i1
-  br i1 %203, label %204, label %232
+.lr.ph195:                                        ; preds = %.lr.ph195.preheader, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75
+  %196 = phi i64 [ %191, %.lr.ph195.preheader ], [ %323, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
+  %.sroa.66.5 = phi ptr [ %.sroa.66.3, %.lr.ph195.preheader ], [ %.sroa.66.6, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
+  %.sroa.59.4 = phi ptr [ %.sroa.59.2, %.lr.ph195.preheader ], [ %.sroa.59.5, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
+  %.sroa.52.4 = phi ptr [ %.sroa.52.2, %.lr.ph195.preheader ], [ %.sroa.52.5, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
+  %.sroa.39.4 = phi ptr [ %.sroa.39.2, %.lr.ph195.preheader ], [ %.sroa.39.5, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
+  %.sroa.31.5 = phi ptr [ %.sroa.31.3, %.lr.ph195.preheader ], [ %.sroa.31.6, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
+  %.sroa.24.4 = phi ptr [ %.sroa.24.2, %.lr.ph195.preheader ], [ %.sroa.24.5, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
+  %.sroa.19.4 = phi ptr [ %.sroa.19.2, %.lr.ph195.preheader ], [ %.sroa.19.5, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
+  %.sroa.7.5 = phi i64 [ %.sroa.7.3, %.lr.ph195.preheader ], [ %.sroa.7.6, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
+  %.sroa.0.5 = phi ptr [ %.sroa.0.3, %.lr.ph195.preheader ], [ %.sroa.0.6, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
+  %.3193 = phi i32 [ %.1.lcssa, %.lr.ph195.preheader ], [ %.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
+  %.260192 = phi i32 [ %.159.lcssa, %.lr.ph195.preheader ], [ %324, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
+  %.sroa.0109.3191 = phi ptr [ %.sroa.0109.1.lcssa, %.lr.ph195.preheader ], [ %.sroa.0109.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
+  %.sroa.7.3190 = phi ptr [ %.sroa.7.1.lcssa, %.lr.ph195.preheader ], [ %.sroa.7.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
+  %.sroa.16.3189 = phi ptr [ %.sroa.16.1.lcssa, %.lr.ph195.preheader ], [ %.sroa.16.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
+  %.sroa.098.0188 = phi ptr [ %193, %.lr.ph195.preheader ], [ %325, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75 ]
+  %197 = getelementptr inbounds nuw i8, ptr %.sroa.098.0188, i64 32
+  %198 = load ptr, ptr %14, align 8
+  %199 = getelementptr inbounds i8, ptr %198, i64 %196
+  %200 = load i32, ptr %197, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %199, i64 1) ]
+  store i32 %200, ptr %199, align 1
+  %201 = getelementptr inbounds nuw i8, ptr %.sroa.098.0188, i64 40
+  %202 = load ptr, ptr %201, align 8
+  %203 = load i8, ptr %202, align 8
+  %204 = trunc i8 %203 to i1
+  br i1 %204, label %205, label %233
 
-204:                                              ; preds = %.lr.ph196
-  %205 = getelementptr inbounds nuw i8, ptr %198, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %205, i64 1) ]
-  store i32 %.3194, ptr %205, align 1
-  %206 = add i32 %.3194, 16
-  %207 = load ptr, ptr %200, align 8
-  %.not.i.i67 = icmp eq ptr %.sroa.7.3191, %.sroa.16.3190
-  br i1 %.not.i.i67, label %210, label %208
+205:                                              ; preds = %.lr.ph195
+  %206 = getelementptr inbounds nuw i8, ptr %199, i64 4
+  call void @llvm.assume(i1 true) [ "align"(ptr %206, i64 1) ]
+  store i32 %.3193, ptr %206, align 1
+  %207 = add i32 %.3193, 16
+  %208 = load ptr, ptr %201, align 8
+  %.not.i.i67 = icmp eq ptr %.sroa.7.3190, %.sroa.16.3189
+  br i1 %.not.i.i67, label %211, label %209
 
-208:                                              ; preds = %204
-  store ptr %207, ptr %.sroa.7.3191, align 8
-  %209 = getelementptr inbounds i8, ptr %.sroa.7.3191, i64 8
+209:                                              ; preds = %205
+  store ptr %208, ptr %.sroa.7.3190, align 8
+  %210 = getelementptr inbounds i8, ptr %.sroa.7.3190, i64 8
   br label %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75
 
-210:                                              ; preds = %204
-  %211 = ptrtoint ptr %.sroa.7.3191 to i64
-  %212 = ptrtoint ptr %.sroa.0110.3192 to i64
-  %213 = sub i64 %211, %212
-  %214 = icmp eq i64 %213, 9223372036854775800
-  br i1 %214, label %215, label %_ZNKSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i68
+211:                                              ; preds = %205
+  %212 = ptrtoint ptr %.sroa.7.3190 to i64
+  %213 = ptrtoint ptr %.sroa.0109.3191 to i64
+  %214 = sub i64 %212, %213
+  %215 = icmp eq i64 %214, 9223372036854775800
+  br i1 %215, label %216, label %_ZNKSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i68
 
-215:                                              ; preds = %210
+216:                                              ; preds = %211
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.36) #29
   unreachable
 
-_ZNKSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i68: ; preds = %210
-  %216 = ashr exact i64 %213, 3
-  %.sroa.speculated.i.i.i.i69 = tail call i64 @llvm.umax.i64(i64 %216, i64 1)
-  %217 = add nsw i64 %.sroa.speculated.i.i.i.i69, %216
-  %218 = icmp ult i64 %217, %216
-  %219 = tail call i64 @llvm.umin.i64(i64 %217, i64 1152921504606846975)
-  %220 = select i1 %218, i64 1152921504606846975, i64 %219
-  %.not.i.i.i.i70 = icmp eq i64 %220, 0
-  br i1 %.not.i.i.i.i70, label %_ZNSt12_Vector_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE11_M_allocateEm.exit.i.i.i71, label %221
+_ZNKSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i68: ; preds = %211
+  %217 = ashr exact i64 %214, 3
+  %.sroa.speculated.i.i.i.i69 = tail call i64 @llvm.umax.i64(i64 %217, i64 1)
+  %218 = add nsw i64 %.sroa.speculated.i.i.i.i69, %217
+  %219 = icmp ult i64 %218, %217
+  %220 = tail call i64 @llvm.umin.i64(i64 %218, i64 1152921504606846975)
+  %221 = select i1 %219, i64 1152921504606846975, i64 %220
+  %.not.i.i.i.i70 = icmp eq i64 %221, 0
+  br i1 %.not.i.i.i.i70, label %_ZNSt12_Vector_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE11_M_allocateEm.exit.i.i.i71, label %222
 
-221:                                              ; preds = %_ZNKSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i68
-  %222 = shl nuw nsw i64 %220, 3
-  %223 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %222) #26
+222:                                              ; preds = %_ZNKSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i68
+  %223 = shl nuw nsw i64 %221, 3
+  %224 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %223) #26
   br label %_ZNSt12_Vector_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE11_M_allocateEm.exit.i.i.i71
 
-_ZNSt12_Vector_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE11_M_allocateEm.exit.i.i.i71: ; preds = %221, %_ZNKSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i68
-  %224 = phi ptr [ %223, %221 ], [ null, %_ZNKSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i68 ]
-  %225 = getelementptr inbounds ptr, ptr %224, i64 %216
-  store ptr %207, ptr %225, align 8
-  %226 = icmp sgt i64 %213, 0
-  br i1 %226, label %227, label %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i72
+_ZNSt12_Vector_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE11_M_allocateEm.exit.i.i.i71: ; preds = %222, %_ZNKSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i68
+  %225 = phi ptr [ %224, %222 ], [ null, %_ZNKSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i68 ]
+  %226 = getelementptr inbounds ptr, ptr %225, i64 %217
+  store ptr %208, ptr %226, align 8
+  %227 = icmp sgt i64 %214, 0
+  br i1 %227, label %228, label %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i72
 
-227:                                              ; preds = %_ZNSt12_Vector_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE11_M_allocateEm.exit.i.i.i71
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %224, ptr align 8 %.sroa.0110.3192, i64 %213, i1 false)
+228:                                              ; preds = %_ZNSt12_Vector_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE11_M_allocateEm.exit.i.i.i71
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %225, ptr align 8 %.sroa.0109.3191, i64 %214, i1 false)
   br label %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i72
 
-_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i72: ; preds = %227, %_ZNSt12_Vector_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE11_M_allocateEm.exit.i.i.i71
-  %228 = getelementptr inbounds i8, ptr %224, i64 %213
-  %229 = getelementptr inbounds i8, ptr %228, i64 8
-  %.not.i17.i.i.i73 = icmp eq ptr %.sroa.0110.3192, null
-  br i1 %.not.i17.i.i.i73, label %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74, label %230
+_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i72: ; preds = %228, %_ZNSt12_Vector_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE11_M_allocateEm.exit.i.i.i71
+  %229 = getelementptr inbounds i8, ptr %225, i64 %214
+  %230 = getelementptr inbounds i8, ptr %229, i64 8
+  %.not.i17.i.i.i73 = icmp eq ptr %.sroa.0109.3191, null
+  br i1 %.not.i17.i.i.i73, label %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74, label %231
 
-230:                                              ; preds = %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i72
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0110.3192, i64 noundef %213) #27
+231:                                              ; preds = %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i72
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0109.3191, i64 noundef %214) #27
   br label %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74
 
-_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74: ; preds = %230, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i72
-  %231 = getelementptr inbounds ptr, ptr %224, i64 %220
+_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74: ; preds = %231, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i72
+  %232 = getelementptr inbounds ptr, ptr %225, i64 %221
   br label %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75
 
-232:                                              ; preds = %.lr.ph196
-  %233 = xor i32 %.3194, -2147483648
-  %234 = getelementptr inbounds nuw i8, ptr %198, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %234, i64 1) ]
-  store i32 %233, ptr %234, align 1
-  %235 = load ptr, ptr %200, align 8
-  %236 = getelementptr inbounds i8, ptr %235, i64 104
-  %237 = load i64, ptr %236, align 8
-  %238 = getelementptr inbounds i8, ptr %235, i64 56
-  %239 = load i64, ptr %238, align 8
-  %240 = add i64 %239, %237
-  %.tr62 = trunc i64 %240 to i32
-  %241 = shl i32 %.tr62, 3
-  %242 = add i32 %.3194, 16
-  %243 = add i32 %242, %241
-  %244 = getelementptr inbounds i8, ptr %.sroa.59.4, i64 -8
-  %.not.i.i.i76 = icmp eq ptr %.sroa.39.4, %244
-  br i1 %.not.i.i.i76, label %247, label %245
+233:                                              ; preds = %.lr.ph195
+  %234 = xor i32 %.3193, -2147483648
+  %235 = getelementptr inbounds nuw i8, ptr %199, i64 4
+  call void @llvm.assume(i1 true) [ "align"(ptr %235, i64 1) ]
+  store i32 %234, ptr %235, align 1
+  %236 = load ptr, ptr %201, align 8
+  %237 = getelementptr inbounds i8, ptr %236, i64 104
+  %238 = load i64, ptr %237, align 8
+  %239 = getelementptr inbounds i8, ptr %236, i64 56
+  %240 = load i64, ptr %239, align 8
+  %241 = add i64 %240, %238
+  %.tr62 = trunc i64 %241 to i32
+  %242 = shl i32 %.tr62, 3
+  %243 = add i32 %.3193, 16
+  %244 = add i32 %243, %242
+  %245 = getelementptr inbounds i8, ptr %.sroa.59.4, i64 -8
+  %.not.i.i.i76 = icmp eq ptr %.sroa.39.4, %245
+  br i1 %.not.i.i.i76, label %248, label %246
 
-245:                                              ; preds = %232
-  store ptr %235, ptr %.sroa.39.4, align 8
-  %246 = getelementptr inbounds i8, ptr %.sroa.39.4, i64 8
+246:                                              ; preds = %233
+  store ptr %236, ptr %.sroa.39.4, align 8
+  %247 = getelementptr inbounds i8, ptr %.sroa.39.4, i64 8
   br label %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75
 
-247:                                              ; preds = %232
-  %248 = ptrtoint ptr %.sroa.66.5 to i64
-  %249 = ptrtoint ptr %.sroa.31.5 to i64
-  %250 = sub i64 %248, %249
-  %251 = ashr exact i64 %250, 3
-  %252 = shl i64 %250, 3
-  %253 = add i64 %252, -64
-  %254 = ptrtoint ptr %.sroa.39.4 to i64
-  %255 = ptrtoint ptr %.sroa.52.4 to i64
-  %256 = sub i64 %254, %255
-  %257 = ashr exact i64 %256, 3
-  %258 = add nsw i64 %253, %257
-  %259 = ptrtoint ptr %.sroa.24.4 to i64
-  %260 = sub i64 %259, %194
-  %261 = ashr exact i64 %260, 3
-  %262 = add nsw i64 %258, %261
-  %263 = icmp eq i64 %262, 1152921504606846975
-  br i1 %263, label %264, label %265
+248:                                              ; preds = %233
+  %249 = ptrtoint ptr %.sroa.66.5 to i64
+  %250 = ptrtoint ptr %.sroa.31.5 to i64
+  %251 = sub i64 %249, %250
+  %252 = ashr exact i64 %251, 3
+  %253 = shl i64 %251, 3
+  %254 = add i64 %253, -64
+  %255 = ptrtoint ptr %.sroa.39.4 to i64
+  %256 = ptrtoint ptr %.sroa.52.4 to i64
+  %257 = sub i64 %255, %256
+  %258 = ashr exact i64 %257, 3
+  %259 = add nsw i64 %254, %258
+  %260 = ptrtoint ptr %.sroa.24.4 to i64
+  %261 = sub i64 %260, %195
+  %262 = ashr exact i64 %261, 3
+  %263 = add nsw i64 %259, %262
+  %264 = icmp eq i64 %263, 1152921504606846975
+  br i1 %264, label %265, label %266
 
-264:                                              ; preds = %247
+265:                                              ; preds = %248
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.56) #29
   unreachable
 
-265:                                              ; preds = %247
-  %266 = ptrtoint ptr %.sroa.0.5 to i64
-  %267 = sub i64 %248, %266
-  %268 = ashr exact i64 %267, 3
-  %269 = sub i64 %.sroa.7.5, %268
-  %270 = icmp ult i64 %269, 2
-  br i1 %270, label %271, label %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83
+266:                                              ; preds = %248
+  %267 = ptrtoint ptr %.sroa.0.5 to i64
+  %268 = sub i64 %249, %267
+  %269 = ashr exact i64 %268, 3
+  %270 = sub i64 %.sroa.7.5, %269
+  %271 = icmp ult i64 %270, 2
+  br i1 %271, label %272, label %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83
 
-271:                                              ; preds = %265
-  %272 = add nsw i64 %251, 1
-  %273 = add nsw i64 %251, 2
-  %274 = shl nsw i64 %273, 1
-  %275 = icmp ugt i64 %.sroa.7.5, %274
-  br i1 %275, label %276, label %293
+272:                                              ; preds = %266
+  %273 = add nsw i64 %252, 1
+  %274 = add nsw i64 %252, 2
+  %275 = shl nsw i64 %274, 1
+  %276 = icmp ugt i64 %.sroa.7.5, %275
+  br i1 %276, label %277, label %295
 
-276:                                              ; preds = %271
-  %277 = sub i64 %.sroa.7.5, %273
-  %278 = lshr i64 %277, 1
-  %279 = getelementptr inbounds ptr, ptr %.sroa.0.5, i64 %278
-  %280 = icmp ult ptr %279, %.sroa.31.5
-  %281 = getelementptr inbounds i8, ptr %.sroa.66.5, i64 8
-  %.not.i.i.i.i.i.i89 = icmp eq ptr %281, %.sroa.31.5
-  br i1 %280, label %282, label %286
+277:                                              ; preds = %272
+  %278 = sub i64 %.sroa.7.5, %274
+  %279 = lshr i64 %278, 1
+  %280 = getelementptr inbounds ptr, ptr %.sroa.0.5, i64 %279
+  %281 = icmp ult ptr %280, %.sroa.31.5
+  %282 = getelementptr inbounds i8, ptr %.sroa.66.5, i64 8
+  %.not.i.i.i.i.i.i89 = icmp eq ptr %282, %.sroa.31.5
+  br i1 %281, label %283, label %287
 
-282:                                              ; preds = %276
-  br i1 %.not.i.i.i.i.i.i89, label %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit91, label %283
+283:                                              ; preds = %277
+  br i1 %.not.i.i.i.i.i.i89, label %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit90, label %284
 
-283:                                              ; preds = %282
-  %284 = ptrtoint ptr %281 to i64
-  %285 = sub i64 %284, %249
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %279, ptr nonnull align 8 %.sroa.31.5, i64 %285, i1 false)
-  br label %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit91
+284:                                              ; preds = %283
+  %285 = ptrtoint ptr %282 to i64
+  %286 = sub i64 %285, %250
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %280, ptr nonnull align 8 %.sroa.31.5, i64 %286, i1 false)
+  br label %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit90
 
-286:                                              ; preds = %276
-  br i1 %.not.i.i.i.i.i.i89, label %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit91, label %287
+287:                                              ; preds = %277
+  br i1 %.not.i.i.i.i.i.i89, label %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit90, label %288
 
-287:                                              ; preds = %286
-  %288 = ptrtoint ptr %281 to i64
-  %289 = sub i64 %288, %249
-  %290 = ashr exact i64 %289, 3
-  %.pre.i.i.i.i.i.i90 = sub nsw i64 0, %290
-  %291 = getelementptr inbounds ptr, ptr %279, i64 %272
-  %292 = getelementptr inbounds ptr, ptr %291, i64 %.pre.i.i.i.i.i.i90
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %292, ptr align 8 %.sroa.31.5, i64 %289, i1 false)
-  br label %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit91
+288:                                              ; preds = %287
+  %289 = getelementptr inbounds ptr, ptr %280, i64 %273
+  %290 = ptrtoint ptr %282 to i64
+  %291 = sub i64 %290, %250
+  %292 = ashr exact i64 %291, 3
+  %293 = sub nsw i64 0, %292
+  %294 = getelementptr inbounds ptr, ptr %289, i64 %293
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %294, ptr align 8 %.sroa.31.5, i64 %291, i1 false)
+  br label %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit90
 
-293:                                              ; preds = %271
+295:                                              ; preds = %272
   %.sroa.speculated.i84 = tail call i64 @llvm.umax.i64(i64 %.sroa.7.5, i64 1)
-  %294 = add i64 %.sroa.7.5, 2
-  %295 = add i64 %294, %.sroa.speculated.i84
-  %296 = icmp ugt i64 %295, 1152921504606846975
-  br i1 %296, label %297, label %_ZNSt11_Deque_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE15_M_allocate_mapEm.exit.i85
+  %296 = add i64 %.sroa.7.5, 2
+  %297 = add i64 %296, %.sroa.speculated.i84
+  %298 = icmp ugt i64 %297, 1152921504606846975
+  br i1 %298, label %299, label %_ZNSt11_Deque_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE15_M_allocate_mapEm.exit.i85
 
-297:                                              ; preds = %293
-  %298 = icmp ugt i64 %295, 2305843009213693951
-  br i1 %298, label %299, label %300
+299:                                              ; preds = %295
+  %300 = icmp ugt i64 %297, 2305843009213693951
+  br i1 %300, label %301, label %302
 
-299:                                              ; preds = %297
+301:                                              ; preds = %299
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #29
   unreachable
 
-300:                                              ; preds = %297
+302:                                              ; preds = %299
   tail call void @_ZSt17__throw_bad_allocv() #29
   unreachable
 
-_ZNSt11_Deque_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE15_M_allocate_mapEm.exit.i85: ; preds = %293
-  %301 = shl nuw nsw i64 %295, 3
-  %302 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %301) #26
-  %303 = sub nsw i64 %295, %273
-  %304 = lshr i64 %303, 1
-  %305 = getelementptr inbounds ptr, ptr %302, i64 %304
-  %306 = getelementptr inbounds i8, ptr %.sroa.66.5, i64 8
-  %.not.i.i.i.i.i25.i86 = icmp eq ptr %306, %.sroa.31.5
-  br i1 %.not.i.i.i.i.i25.i86, label %_ZSt4copyIPPPKN4llvm6object21WindowsResourceParser8TreeNodeES7_ET0_T_S9_S8_.exit26.i87, label %307
+_ZNSt11_Deque_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE15_M_allocate_mapEm.exit.i85: ; preds = %295
+  %303 = shl nuw nsw i64 %297, 3
+  %304 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %303) #26
+  %305 = sub nsw i64 %297, %274
+  %306 = lshr i64 %305, 1
+  %307 = getelementptr inbounds ptr, ptr %304, i64 %306
+  %308 = getelementptr inbounds i8, ptr %.sroa.66.5, i64 8
+  %.not.i.i.i.i.i25.i86 = icmp eq ptr %308, %.sroa.31.5
+  br i1 %.not.i.i.i.i.i25.i86, label %_ZSt4copyIPPPKN4llvm6object21WindowsResourceParser8TreeNodeES7_ET0_T_S9_S8_.exit26.i87, label %309
 
-307:                                              ; preds = %_ZNSt11_Deque_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE15_M_allocate_mapEm.exit.i85
-  %308 = ptrtoint ptr %306 to i64
-  %309 = sub i64 %308, %249
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %305, ptr align 8 %.sroa.31.5, i64 %309, i1 false)
+309:                                              ; preds = %_ZNSt11_Deque_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE15_M_allocate_mapEm.exit.i85
+  %310 = ptrtoint ptr %308 to i64
+  %311 = sub i64 %310, %250
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %307, ptr align 8 %.sroa.31.5, i64 %311, i1 false)
   br label %_ZSt4copyIPPPKN4llvm6object21WindowsResourceParser8TreeNodeES7_ET0_T_S9_S8_.exit26.i87
 
-_ZSt4copyIPPPKN4llvm6object21WindowsResourceParser8TreeNodeES7_ET0_T_S9_S8_.exit26.i87: ; preds = %307, %_ZNSt11_Deque_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE15_M_allocate_mapEm.exit.i85
-  %310 = shl i64 %.sroa.7.5, 3
-  tail call void @_ZdlPvm(ptr noundef %.sroa.0.5, i64 noundef %310) #27
-  br label %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit91
+_ZSt4copyIPPPKN4llvm6object21WindowsResourceParser8TreeNodeES7_ET0_T_S9_S8_.exit26.i87: ; preds = %309, %_ZNSt11_Deque_baseIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE15_M_allocate_mapEm.exit.i85
+  %312 = shl i64 %.sroa.7.5, 3
+  tail call void @_ZdlPvm(ptr noundef %.sroa.0.5, i64 noundef %312) #27
+  br label %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit90
 
-_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit91: ; preds = %282, %283, %286, %287, %_ZSt4copyIPPPKN4llvm6object21WindowsResourceParser8TreeNodeES7_ET0_T_S9_S8_.exit26.i87
-  %.sroa.7.10 = phi i64 [ %.sroa.7.5, %282 ], [ %.sroa.7.5, %283 ], [ %.sroa.7.5, %286 ], [ %.sroa.7.5, %287 ], [ %295, %_ZSt4copyIPPPKN4llvm6object21WindowsResourceParser8TreeNodeES7_ET0_T_S9_S8_.exit26.i87 ]
-  %.sroa.0.10 = phi ptr [ %.sroa.0.5, %282 ], [ %.sroa.0.5, %283 ], [ %.sroa.0.5, %286 ], [ %.sroa.0.5, %287 ], [ %302, %_ZSt4copyIPPPKN4llvm6object21WindowsResourceParser8TreeNodeES7_ET0_T_S9_S8_.exit26.i87 ]
-  %.0.i88 = phi ptr [ %279, %282 ], [ %279, %283 ], [ %279, %286 ], [ %279, %287 ], [ %305, %_ZSt4copyIPPPKN4llvm6object21WindowsResourceParser8TreeNodeES7_ET0_T_S9_S8_.exit26.i87 ]
-  %311 = load ptr, ptr %.0.i88, align 8
-  %312 = getelementptr inbounds i8, ptr %311, i64 512
-  %313 = getelementptr inbounds ptr, ptr %.0.i88, i64 %272
-  %314 = getelementptr inbounds i8, ptr %313, i64 -8
+_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit90: ; preds = %283, %284, %287, %288, %_ZSt4copyIPPPKN4llvm6object21WindowsResourceParser8TreeNodeES7_ET0_T_S9_S8_.exit26.i87
+  %.sroa.7.10 = phi i64 [ %.sroa.7.5, %283 ], [ %.sroa.7.5, %284 ], [ %.sroa.7.5, %287 ], [ %.sroa.7.5, %288 ], [ %297, %_ZSt4copyIPPPKN4llvm6object21WindowsResourceParser8TreeNodeES7_ET0_T_S9_S8_.exit26.i87 ]
+  %.sroa.0.10 = phi ptr [ %.sroa.0.5, %283 ], [ %.sroa.0.5, %284 ], [ %.sroa.0.5, %287 ], [ %.sroa.0.5, %288 ], [ %304, %_ZSt4copyIPPPKN4llvm6object21WindowsResourceParser8TreeNodeES7_ET0_T_S9_S8_.exit26.i87 ]
+  %.0.i88 = phi ptr [ %280, %283 ], [ %280, %284 ], [ %280, %287 ], [ %280, %288 ], [ %307, %_ZSt4copyIPPPKN4llvm6object21WindowsResourceParser8TreeNodeES7_ET0_T_S9_S8_.exit26.i87 ]
+  %313 = load ptr, ptr %.0.i88, align 8
+  %314 = getelementptr inbounds i8, ptr %313, i64 512
+  %315 = getelementptr inbounds ptr, ptr %.0.i88, i64 %273
+  %316 = getelementptr inbounds i8, ptr %315, i64 -8
   br label %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83
 
-_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83: ; preds = %265, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit91
-  %.sroa.66.8 = phi ptr [ %314, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit91 ], [ %.sroa.66.5, %265 ]
-  %.sroa.31.9 = phi ptr [ %.0.i88, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit91 ], [ %.sroa.31.5, %265 ]
-  %.sroa.24.8 = phi ptr [ %312, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit91 ], [ %.sroa.24.4, %265 ]
-  %.sroa.19.8 = phi ptr [ %311, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit91 ], [ %.sroa.19.4, %265 ]
-  %.sroa.7.8 = phi i64 [ %.sroa.7.10, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit91 ], [ %.sroa.7.5, %265 ]
-  %.sroa.0.8 = phi ptr [ %.sroa.0.10, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit91 ], [ %.sroa.0.5, %265 ]
-  %315 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #26
-  %316 = getelementptr inbounds i8, ptr %.sroa.66.8, i64 8
-  store ptr %315, ptr %316, align 8
-  store ptr %235, ptr %.sroa.39.4, align 8
-  %317 = getelementptr inbounds i8, ptr %.sroa.66.8, i64 8
-  %318 = load ptr, ptr %317, align 8
-  %319 = getelementptr inbounds i8, ptr %318, i64 512
+_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83: ; preds = %266, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit90
+  %.sroa.66.8 = phi ptr [ %316, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit90 ], [ %.sroa.66.5, %266 ]
+  %.sroa.31.9 = phi ptr [ %.0.i88, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit90 ], [ %.sroa.31.5, %266 ]
+  %.sroa.24.8 = phi ptr [ %314, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit90 ], [ %.sroa.24.4, %266 ]
+  %.sroa.19.8 = phi ptr [ %313, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit90 ], [ %.sroa.19.4, %266 ]
+  %.sroa.7.8 = phi i64 [ %.sroa.7.10, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit90 ], [ %.sroa.7.5, %266 ]
+  %.sroa.0.8 = phi ptr [ %.sroa.0.10, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_reallocate_mapEmb.exit90 ], [ %.sroa.0.5, %266 ]
+  %317 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #26
+  %318 = getelementptr inbounds i8, ptr %.sroa.66.8, i64 8
+  store ptr %317, ptr %318, align 8
+  store ptr %236, ptr %.sroa.39.4, align 8
+  %319 = getelementptr inbounds i8, ptr %.sroa.66.8, i64 8
+  %320 = load ptr, ptr %319, align 8
+  %321 = getelementptr inbounds i8, ptr %320, i64 512
   br label %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75
 
-_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75: ; preds = %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83, %245, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74, %208
-  %.sroa.66.6 = phi ptr [ %.sroa.66.5, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74 ], [ %.sroa.66.5, %208 ], [ %317, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83 ], [ %.sroa.66.5, %245 ]
-  %.sroa.59.5 = phi ptr [ %.sroa.59.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74 ], [ %.sroa.59.4, %208 ], [ %319, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83 ], [ %.sroa.59.4, %245 ]
-  %.sroa.52.5 = phi ptr [ %.sroa.52.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74 ], [ %.sroa.52.4, %208 ], [ %318, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83 ], [ %.sroa.52.4, %245 ]
-  %.sroa.39.5 = phi ptr [ %.sroa.39.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74 ], [ %.sroa.39.4, %208 ], [ %318, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83 ], [ %246, %245 ]
-  %.sroa.31.6 = phi ptr [ %.sroa.31.5, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74 ], [ %.sroa.31.5, %208 ], [ %.sroa.31.9, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83 ], [ %.sroa.31.5, %245 ]
-  %.sroa.24.5 = phi ptr [ %.sroa.24.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74 ], [ %.sroa.24.4, %208 ], [ %.sroa.24.8, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83 ], [ %.sroa.24.4, %245 ]
-  %.sroa.19.5 = phi ptr [ %.sroa.19.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74 ], [ %.sroa.19.4, %208 ], [ %.sroa.19.8, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83 ], [ %.sroa.19.4, %245 ]
-  %.sroa.7.6 = phi i64 [ %.sroa.7.5, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74 ], [ %.sroa.7.5, %208 ], [ %.sroa.7.8, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83 ], [ %.sroa.7.5, %245 ]
-  %.sroa.0.6 = phi ptr [ %.sroa.0.5, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74 ], [ %.sroa.0.5, %208 ], [ %.sroa.0.8, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83 ], [ %.sroa.0.5, %245 ]
-  %.sroa.16.4 = phi ptr [ %231, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74 ], [ %.sroa.16.3190, %208 ], [ %.sroa.16.3190, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83 ], [ %.sroa.16.3190, %245 ]
-  %.sroa.7.4 = phi ptr [ %229, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74 ], [ %209, %208 ], [ %.sroa.7.3191, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83 ], [ %.sroa.7.3191, %245 ]
-  %.sroa.0110.4 = phi ptr [ %224, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74 ], [ %.sroa.0110.3192, %208 ], [ %.sroa.0110.3192, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83 ], [ %.sroa.0110.3192, %245 ]
-  %.4 = phi i32 [ %206, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74 ], [ %206, %208 ], [ %243, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83 ], [ %243, %245 ]
-  %320 = load i64, ptr %15, align 8
-  %321 = add i64 %320, 8
-  store i64 %321, ptr %15, align 8
-  %322 = add i32 %.260193, 8
-  %323 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.099.0189) #28
-  %.not120 = icmp eq ptr %323, %193
-  br i1 %.not120, label %.loopexit, label %.lr.ph196
+_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE9push_backEOS5_.exit75: ; preds = %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83, %246, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74, %209
+  %.sroa.66.6 = phi ptr [ %.sroa.66.5, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74 ], [ %.sroa.66.5, %209 ], [ %319, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83 ], [ %.sroa.66.5, %246 ]
+  %.sroa.59.5 = phi ptr [ %.sroa.59.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74 ], [ %.sroa.59.4, %209 ], [ %321, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83 ], [ %.sroa.59.4, %246 ]
+  %.sroa.52.5 = phi ptr [ %.sroa.52.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74 ], [ %.sroa.52.4, %209 ], [ %320, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83 ], [ %.sroa.52.4, %246 ]
+  %.sroa.39.5 = phi ptr [ %.sroa.39.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74 ], [ %.sroa.39.4, %209 ], [ %320, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83 ], [ %247, %246 ]
+  %.sroa.31.6 = phi ptr [ %.sroa.31.5, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74 ], [ %.sroa.31.5, %209 ], [ %.sroa.31.9, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83 ], [ %.sroa.31.5, %246 ]
+  %.sroa.24.5 = phi ptr [ %.sroa.24.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74 ], [ %.sroa.24.4, %209 ], [ %.sroa.24.8, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83 ], [ %.sroa.24.4, %246 ]
+  %.sroa.19.5 = phi ptr [ %.sroa.19.4, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74 ], [ %.sroa.19.4, %209 ], [ %.sroa.19.8, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83 ], [ %.sroa.19.4, %246 ]
+  %.sroa.7.6 = phi i64 [ %.sroa.7.5, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74 ], [ %.sroa.7.5, %209 ], [ %.sroa.7.8, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83 ], [ %.sroa.7.5, %246 ]
+  %.sroa.0.6 = phi ptr [ %.sroa.0.5, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74 ], [ %.sroa.0.5, %209 ], [ %.sroa.0.8, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83 ], [ %.sroa.0.5, %246 ]
+  %.sroa.16.4 = phi ptr [ %232, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74 ], [ %.sroa.16.3189, %209 ], [ %.sroa.16.3189, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83 ], [ %.sroa.16.3189, %246 ]
+  %.sroa.7.4 = phi ptr [ %230, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74 ], [ %210, %209 ], [ %.sroa.7.3190, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83 ], [ %.sroa.7.3190, %246 ]
+  %.sroa.0109.4 = phi ptr [ %225, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74 ], [ %.sroa.0109.3191, %209 ], [ %.sroa.0109.3191, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83 ], [ %.sroa.0109.3191, %246 ]
+  %.4 = phi i32 [ %207, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i74 ], [ %207, %209 ], [ %244, %_ZNSt5dequeIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EE16_M_push_back_auxIJS5_EEEvDpOT_.exit83 ], [ %244, %246 ]
+  %322 = load i64, ptr %15, align 8
+  %323 = add i64 %322, 8
+  store i64 %323, ptr %15, align 8
+  %324 = add i32 %.260192, 8
+  %325 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.098.0188) #28
+  %.not119 = icmp eq ptr %325, %194
+  br i1 %.not119, label %.loopexit, label %.lr.ph195
 
-._crit_edge208:                                   ; preds = %.loopexit
-  %324 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %325 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %326 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %327 = load i64, ptr %326, align 8
-  %328 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %329 = load ptr, ptr %328, align 8
-  %330 = load ptr, ptr %324, align 8
-  %331 = ptrtoint ptr %329 to i64
-  %332 = ptrtoint ptr %330 to i64
-  %333 = sub i64 %331, %332
-  %334 = ashr exact i64 %333, 2
-  %335 = icmp ugt i64 %327, %334
-  br i1 %335, label %336, label %338
+._crit_edge207:                                   ; preds = %.loopexit
+  %326 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %327 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %328 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %329 = load i64, ptr %328, align 8
+  %330 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %331 = load ptr, ptr %330, align 8
+  %332 = load ptr, ptr %326, align 8
+  %333 = ptrtoint ptr %331 to i64
+  %334 = ptrtoint ptr %332 to i64
+  %335 = sub i64 %333, %334
+  %336 = ashr exact i64 %335, 2
+  %337 = icmp ugt i64 %329, %336
+  br i1 %337, label %338, label %340
 
-336:                                              ; preds = %._crit_edge208
-  %337 = sub nuw i64 %327, %334
-  tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %324, i64 noundef %337)
+338:                                              ; preds = %._crit_edge207
+  %339 = sub nuw i64 %329, %336
+  tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %326, i64 noundef %339)
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
-338:                                              ; preds = %._crit_edge208
-  %339 = icmp ult i64 %327, %334
-  br i1 %339, label %340, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-
-340:                                              ; preds = %338
-  %341 = getelementptr inbounds i32, ptr %330, i64 %327
-  %.not.i.i78 = icmp eq ptr %329, %341
-  br i1 %.not.i.i78, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit, label %342
+340:                                              ; preds = %._crit_edge207
+  %341 = icmp ult i64 %329, %336
+  br i1 %341, label %342, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 342:                                              ; preds = %340
-  store ptr %341, ptr %328, align 8
+  %343 = getelementptr inbounds i32, ptr %332, i64 %329
+  %.not.i.i78 = icmp eq ptr %331, %343
+  br i1 %.not.i.i78, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit, label %344
+
+344:                                              ; preds = %342
+  store ptr %343, ptr %330, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
-_ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %336, %338, %340, %342
-  %.not121213 = icmp eq ptr %.sroa.0110.3.lcssa, %.sroa.7.3.lcssa
-  br i1 %.not121213, label %._crit_edge217, label %.lr.ph216
+_ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %338, %340, %342, %344
+  %.not120212 = icmp eq ptr %.sroa.0109.3.lcssa, %.sroa.7.3.lcssa
+  br i1 %.not120212, label %._crit_edge216, label %.lr.ph215
 
-.lr.ph216:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-  %343 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %344 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre = load i64, ptr %344, align 8
-  br label %345
+.lr.ph215:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
+  %345 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %346 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.pre = load i64, ptr %346, align 8
+  br label %347
 
-345:                                              ; preds = %.lr.ph216, %345
-  %346 = phi i64 [ %.pre, %.lr.ph216 ], [ %370, %345 ]
-  %.361215 = phi i32 [ %.260.lcssa, %.lr.ph216 ], [ %371, %345 ]
-  %.sroa.092.0214 = phi ptr [ %.sroa.0110.3.lcssa, %.lr.ph216 ], [ %372, %345 ]
-  %347 = load ptr, ptr %.sroa.092.0214, align 8
-  %348 = load ptr, ptr %343, align 8
-  %349 = getelementptr inbounds i8, ptr %348, i64 %346
-  %350 = getelementptr inbounds nuw i8, ptr %347, i64 8
-  %351 = load i32, ptr %350, align 8
-  %352 = zext i32 %351 to i64
-  %353 = load ptr, ptr %324, align 8
-  %354 = getelementptr inbounds i32, ptr %353, i64 %352
-  store i32 %.361215, ptr %354, align 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %349, i64 1) ]
-  store i32 0, ptr %349, align 1
-  %355 = load i32, ptr %350, align 8
-  %356 = zext i32 %355 to i64
-  %357 = load ptr, ptr %325, align 8
-  %358 = getelementptr inbounds %"class.std::vector.76", ptr %357, i64 %356
-  %359 = getelementptr inbounds nuw i8, ptr %358, i64 8
-  %360 = load ptr, ptr %359, align 8
-  %361 = load ptr, ptr %358, align 8
-  %362 = ptrtoint ptr %360 to i64
-  %363 = ptrtoint ptr %361 to i64
-  %364 = sub i64 %362, %363
-  %365 = trunc i64 %364 to i32
-  %366 = getelementptr inbounds nuw i8, ptr %349, i64 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %366, i64 1) ]
-  store i32 %365, ptr %366, align 1
-  %367 = getelementptr inbounds nuw i8, ptr %349, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %367, i64 1) ]
-  store i32 0, ptr %367, align 1
-  %368 = getelementptr inbounds nuw i8, ptr %349, i64 12
+347:                                              ; preds = %.lr.ph215, %347
+  %348 = phi i64 [ %.pre, %.lr.ph215 ], [ %372, %347 ]
+  %.361214 = phi i32 [ %.260.lcssa, %.lr.ph215 ], [ %373, %347 ]
+  %.sroa.091.0213 = phi ptr [ %.sroa.0109.3.lcssa, %.lr.ph215 ], [ %374, %347 ]
+  %349 = load ptr, ptr %.sroa.091.0213, align 8
+  %350 = load ptr, ptr %345, align 8
+  %351 = getelementptr inbounds i8, ptr %350, i64 %348
+  %352 = getelementptr inbounds nuw i8, ptr %349, i64 8
+  %353 = load i32, ptr %352, align 8
+  %354 = zext i32 %353 to i64
+  %355 = load ptr, ptr %326, align 8
+  %356 = getelementptr inbounds i32, ptr %355, i64 %354
+  store i32 %.361214, ptr %356, align 4
+  call void @llvm.assume(i1 true) [ "align"(ptr %351, i64 1) ]
+  store i32 0, ptr %351, align 1
+  %357 = load i32, ptr %352, align 8
+  %358 = zext i32 %357 to i64
+  %359 = load ptr, ptr %327, align 8
+  %360 = getelementptr inbounds %"class.std::vector.76", ptr %359, i64 %358
+  %361 = getelementptr inbounds nuw i8, ptr %360, i64 8
+  %362 = load ptr, ptr %361, align 8
+  %363 = load ptr, ptr %360, align 8
+  %364 = ptrtoint ptr %362 to i64
+  %365 = ptrtoint ptr %363 to i64
+  %366 = sub i64 %364, %365
+  %367 = trunc i64 %366 to i32
+  %368 = getelementptr inbounds nuw i8, ptr %351, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %368, i64 1) ]
-  store i32 0, ptr %368, align 1
-  %369 = load i64, ptr %344, align 8
-  %370 = add i64 %369, 16
-  store i64 %370, ptr %344, align 8
-  %371 = add i32 %.361215, 16
-  %372 = getelementptr inbounds i8, ptr %.sroa.092.0214, i64 8
-  %.not121 = icmp eq ptr %372, %.sroa.7.3.lcssa
-  br i1 %.not121, label %._crit_edge217, label %345
+  store i32 %367, ptr %368, align 1
+  %369 = getelementptr inbounds nuw i8, ptr %351, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %369, i64 1) ]
+  store i32 0, ptr %369, align 1
+  %370 = getelementptr inbounds nuw i8, ptr %351, i64 12
+  call void @llvm.assume(i1 true) [ "align"(ptr %370, i64 1) ]
+  store i32 0, ptr %370, align 1
+  %371 = load i64, ptr %346, align 8
+  %372 = add i64 %371, 16
+  store i64 %372, ptr %346, align 8
+  %373 = add i32 %.361214, 16
+  %374 = getelementptr inbounds i8, ptr %.sroa.091.0213, i64 8
+  %.not120 = icmp eq ptr %374, %.sroa.7.3.lcssa
+  br i1 %.not120, label %._crit_edge216, label %347
 
-._crit_edge217:                                   ; preds = %345, %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-  %.not.i.i.i79 = icmp eq ptr %.sroa.0110.3.lcssa, null
-  br i1 %.not.i.i.i79, label %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EED2Ev.exit, label %373
+._crit_edge216:                                   ; preds = %347, %_ZNSt6vectorIjSaIjEE6resizeEm.exit
+  %.not.i.i.i79 = icmp eq ptr %.sroa.0109.3.lcssa, null
+  br i1 %.not.i.i.i79, label %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EED2Ev.exit, label %375
 
-373:                                              ; preds = %._crit_edge217
-  %374 = ptrtoint ptr %.sroa.16.3.lcssa to i64
-  %375 = ptrtoint ptr %.sroa.0110.3.lcssa to i64
-  %376 = sub i64 %374, %375
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0110.3.lcssa, i64 noundef %376) #27
+375:                                              ; preds = %._crit_edge216
+  %376 = ptrtoint ptr %.sroa.16.3.lcssa to i64
+  %377 = ptrtoint ptr %.sroa.0109.3.lcssa to i64
+  %378 = sub i64 %376, %377
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0109.3.lcssa, i64 noundef %378) #27
   br label %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EED2Ev.exit
 
-_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EED2Ev.exit: ; preds = %373, %._crit_edge217
-  %377 = getelementptr inbounds i8, ptr %.sroa.66.9, i64 8
-  %378 = icmp ult ptr %.sroa.31.10, %377
-  br i1 %378, label %.lr.ph.i.i.i.i, label %_ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEED2Ev.exit
+_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EED2Ev.exit: ; preds = %375, %._crit_edge216
+  %379 = getelementptr inbounds i8, ptr %.sroa.66.9, i64 8
+  %380 = icmp ult ptr %.sroa.31.10, %379
+  br i1 %380, label %.lr.ph.i.i.i.i, label %_ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEED2Ev.exit
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EED2Ev.exit, %.lr.ph.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %380, %.lr.ph.i.i.i.i ], [ %.sroa.31.10, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EED2Ev.exit ]
-  %379 = load ptr, ptr %.06.i.i.i.i, align 8
-  tail call void @_ZdlPvm(ptr noundef %379, i64 noundef 512) #27
-  %380 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 8
-  %381 = icmp ult ptr %.06.i.i.i.i, %.sroa.66.9
-  br i1 %381, label %.lr.ph.i.i.i.i, label %_ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEED2Ev.exit, !llvm.loop !163
+  %.06.i.i.i.i = phi ptr [ %382, %.lr.ph.i.i.i.i ], [ %.sroa.31.10, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EED2Ev.exit ]
+  %381 = load ptr, ptr %.06.i.i.i.i, align 8
+  tail call void @_ZdlPvm(ptr noundef %381, i64 noundef 512) #27
+  %382 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 8
+  %383 = icmp ult ptr %.06.i.i.i.i, %.sroa.66.9
+  br i1 %383, label %.lr.ph.i.i.i.i, label %_ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEED2Ev.exit, !llvm.loop !163
 
 _ZNSt5queueIPKN4llvm6object21WindowsResourceParser8TreeNodeESt5dequeIS5_SaIS5_EEED2Ev.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt6vectorIPKN4llvm6object21WindowsResourceParser8TreeNodeESaIS5_EED2Ev.exit
-  %382 = shl i64 %.sroa.7.11, 3
-  tail call void @_ZdlPvm(ptr noundef %.sroa.0.11, i64 noundef %382) #27
+  %384 = shl i64 %.sroa.7.11, 3
+  tail call void @_ZdlPvm(ptr noundef %.sroa.0.11, i64 noundef %384) #27
   ret void
 }
 

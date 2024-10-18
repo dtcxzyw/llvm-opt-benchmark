@@ -24117,8 +24117,8 @@ if.else.i19574:                                   ; preds = %if.then.i19572
 if.then.i.i.i.i.i.i.i19580:                       ; preds = %if.else.i19574
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i19581 = ptrtoint ptr %add.ptr9.i.i19578 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i19582 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i19581, %sub.ptr.lhs.cast.i.i19566
-  %.pre.i.i.i.i.i.i.i19583 = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i.i19582
-  %add.ptr.i.i.i.i.i.i.i19584 = getelementptr inbounds i8, ptr %2053, i64 %.pre.i.i.i.i.i.i.i19583
+  %idx.neg.i.i.i.i.i.i.i19583 = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i.i19582
+  %add.ptr.i.i.i.i.i.i.i19584 = getelementptr inbounds i8, ptr %2053, i64 %idx.neg.i.i.i.i.i.i.i19583
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i.i.i19584, ptr nonnull align 1 %call5.i.i.i.i.i19565, i64 %sub.ptr.sub.i.i.i.i.i.i.i19582, i1 false)
   %.pre21607.pre.pre = load ptr, ptr %_M_finish.i.i.i, align 8
   br label %_ZNSt6vectorIhSaIhEE13_M_insert_auxIhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEOT_.exit.i19585
@@ -24189,8 +24189,8 @@ if.else.i19630:                                   ; preds = %if.then.i19628
 if.then.i.i.i.i.i.i.i19636:                       ; preds = %if.else.i19630
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i19637 = ptrtoint ptr %add.ptr9.i.i19634 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i19638 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i19637, %sub.ptr.lhs.cast.i.i19622
-  %.pre.i.i.i.i.i.i.i19639 = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i.i19638
-  %add.ptr.i.i.i.i.i.i.i19640 = getelementptr inbounds i8, ptr %2060, i64 %.pre.i.i.i.i.i.i.i19639
+  %idx.neg.i.i.i.i.i.i.i19639 = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i.i19638
+  %add.ptr.i.i.i.i.i.i.i19640 = getelementptr inbounds i8, ptr %2060, i64 %idx.neg.i.i.i.i.i.i.i19639
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i.i.i19640, ptr align 1 %2057, i64 %sub.ptr.sub.i.i.i.i.i.i.i19638, i1 false)
   br label %_ZNSt6vectorIhSaIhEE13_M_insert_auxIhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEOT_.exit.i19641
 
@@ -24281,8 +24281,8 @@ if.else.i19686:                                   ; preds = %if.then.i19684
 if.then.i.i.i.i.i.i.i19692:                       ; preds = %if.else.i19686
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i19693 = ptrtoint ptr %add.ptr9.i.i19690 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i19694 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i19693, %sub.ptr.lhs.cast.i.i19678
-  %.pre.i.i.i.i.i.i.i19695 = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i.i19694
-  %add.ptr.i.i.i.i.i.i.i19696 = getelementptr inbounds i8, ptr %2067, i64 %.pre.i.i.i.i.i.i.i19695
+  %idx.neg.i.i.i.i.i.i.i19695 = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i.i19694
+  %add.ptr.i.i.i.i.i.i.i19696 = getelementptr inbounds i8, ptr %2067, i64 %idx.neg.i.i.i.i.i.i.i19695
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i.i.i19696, ptr align 1 %2064, i64 %sub.ptr.sub.i.i.i.i.i.i.i19694, i1 false)
   br label %_ZNSt6vectorIhSaIhEE13_M_insert_auxIhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEOT_.exit.i19697
 
@@ -24894,8 +24894,8 @@ if.else.i19799:                                   ; preds = %if.then.i19797
 if.then.i.i.i.i.i.i.i19805:                       ; preds = %if.else.i19799
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i19806 = ptrtoint ptr %add.ptr9.i.i19803 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i19807 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i19806, %sub.ptr.lhs.cast.i.i19791
-  %.pre.i.i.i.i.i.i.i19808 = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i.i19807
-  %add.ptr.i.i.i.i.i.i.i19809 = getelementptr inbounds i8, ptr %2125, i64 %.pre.i.i.i.i.i.i.i19808
+  %idx.neg.i.i.i.i.i.i.i19808 = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i.i19807
+  %add.ptr.i.i.i.i.i.i.i19809 = getelementptr inbounds i8, ptr %2125, i64 %idx.neg.i.i.i.i.i.i.i19808
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i.i.i19809, ptr nonnull align 1 %call5.i.i.i.i.i19789, i64 %sub.ptr.sub.i.i.i.i.i.i.i19807, i1 false)
   %.pre21612.pre.pre = load ptr, ptr %_M_finish.i.i.i5938, align 8
   br label %_ZNSt6vectorIhSaIhEE13_M_insert_auxIhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEOT_.exit.i19810
@@ -24966,8 +24966,8 @@ if.else.i19855:                                   ; preds = %if.then.i19853
 if.then.i.i.i.i.i.i.i19861:                       ; preds = %if.else.i19855
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i19862 = ptrtoint ptr %add.ptr9.i.i19859 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i19863 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i19862, %sub.ptr.lhs.cast.i.i19847
-  %.pre.i.i.i.i.i.i.i19864 = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i.i19863
-  %add.ptr.i.i.i.i.i.i.i19865 = getelementptr inbounds i8, ptr %2132, i64 %.pre.i.i.i.i.i.i.i19864
+  %idx.neg.i.i.i.i.i.i.i19864 = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i.i19863
+  %add.ptr.i.i.i.i.i.i.i19865 = getelementptr inbounds i8, ptr %2132, i64 %idx.neg.i.i.i.i.i.i.i19864
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i.i.i19865, ptr align 1 %2129, i64 %sub.ptr.sub.i.i.i.i.i.i.i19863, i1 false)
   br label %_ZNSt6vectorIhSaIhEE13_M_insert_auxIhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEOT_.exit.i19866
 
@@ -25058,8 +25058,8 @@ if.else.i19911:                                   ; preds = %if.then.i19909
 if.then.i.i.i.i.i.i.i19917:                       ; preds = %if.else.i19911
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i19918 = ptrtoint ptr %add.ptr9.i.i19915 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i19919 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i19918, %sub.ptr.lhs.cast.i.i19903
-  %.pre.i.i.i.i.i.i.i19920 = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i.i19919
-  %add.ptr.i.i.i.i.i.i.i19921 = getelementptr inbounds i8, ptr %2139, i64 %.pre.i.i.i.i.i.i.i19920
+  %idx.neg.i.i.i.i.i.i.i19920 = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i.i19919
+  %add.ptr.i.i.i.i.i.i.i19921 = getelementptr inbounds i8, ptr %2139, i64 %idx.neg.i.i.i.i.i.i.i19920
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i.i.i19921, ptr align 1 %2136, i64 %sub.ptr.sub.i.i.i.i.i.i.i19919, i1 false)
   br label %_ZNSt6vectorIhSaIhEE13_M_insert_auxIhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEOT_.exit.i19922
 
@@ -25672,8 +25672,8 @@ if.else.i20024:                                   ; preds = %if.then.i20022
 if.then.i.i.i.i.i.i.i20030:                       ; preds = %if.else.i20024
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i20031 = ptrtoint ptr %add.ptr9.i.i20028 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i20032 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i20031, %sub.ptr.lhs.cast.i.i20016
-  %.pre.i.i.i.i.i.i.i20033 = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i.i20032
-  %add.ptr.i.i.i.i.i.i.i20034 = getelementptr inbounds i8, ptr %2197, i64 %.pre.i.i.i.i.i.i.i20033
+  %idx.neg.i.i.i.i.i.i.i20033 = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i.i20032
+  %add.ptr.i.i.i.i.i.i.i20034 = getelementptr inbounds i8, ptr %2197, i64 %idx.neg.i.i.i.i.i.i.i20033
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i.i.i20034, ptr nonnull align 1 %call5.i.i.i.i.i20014, i64 %sub.ptr.sub.i.i.i.i.i.i.i20032, i1 false)
   %.pre21617.pre.pre = load ptr, ptr %_M_finish.i.i.i6037, align 8
   br label %_ZNSt6vectorIhSaIhEE13_M_insert_auxIhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEOT_.exit.i20035
@@ -25747,8 +25747,8 @@ if.else.i20080:                                   ; preds = %if.then.i20078
 if.then.i.i.i.i.i.i.i20086:                       ; preds = %if.else.i20080
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i20087 = ptrtoint ptr %add.ptr9.i.i20084 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i20088 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i20087, %sub.ptr.lhs.cast.i.i20072
-  %.pre.i.i.i.i.i.i.i20089 = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i.i20088
-  %add.ptr.i.i.i.i.i.i.i20090 = getelementptr inbounds i8, ptr %2205, i64 %.pre.i.i.i.i.i.i.i20089
+  %idx.neg.i.i.i.i.i.i.i20089 = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i.i20088
+  %add.ptr.i.i.i.i.i.i.i20090 = getelementptr inbounds i8, ptr %2205, i64 %idx.neg.i.i.i.i.i.i.i20089
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i.i.i20090, ptr align 1 %2201, i64 %sub.ptr.sub.i.i.i.i.i.i.i20088, i1 false)
   br label %_ZNSt6vectorIhSaIhEE13_M_insert_auxIhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEOT_.exit.i20091
 
@@ -25841,8 +25841,8 @@ if.else.i20136:                                   ; preds = %if.then.i20134
 if.then.i.i.i.i.i.i.i20142:                       ; preds = %if.else.i20136
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i20143 = ptrtoint ptr %add.ptr9.i.i20140 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i20144 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i20143, %sub.ptr.lhs.cast.i.i20128
-  %.pre.i.i.i.i.i.i.i20145 = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i.i20144
-  %add.ptr.i.i.i.i.i.i.i20146 = getelementptr inbounds i8, ptr %2213, i64 %.pre.i.i.i.i.i.i.i20145
+  %idx.neg.i.i.i.i.i.i.i20145 = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i.i20144
+  %add.ptr.i.i.i.i.i.i.i20146 = getelementptr inbounds i8, ptr %2213, i64 %idx.neg.i.i.i.i.i.i.i20145
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i.i.i20146, ptr align 1 %2209, i64 %sub.ptr.sub.i.i.i.i.i.i.i20144, i1 false)
   br label %_ZNSt6vectorIhSaIhEE13_M_insert_auxIhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEOT_.exit.i20147
 
@@ -25933,8 +25933,8 @@ if.else.i20192:                                   ; preds = %if.then.i20190
 if.then.i.i.i.i.i.i.i20198:                       ; preds = %if.else.i20192
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i20199 = ptrtoint ptr %add.ptr9.i.i20196 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i20200 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i20199, %sub.ptr.lhs.cast.i.i20184
-  %.pre.i.i.i.i.i.i.i20201 = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i.i20200
-  %add.ptr.i.i.i.i.i.i.i20202 = getelementptr inbounds i8, ptr %2220, i64 %.pre.i.i.i.i.i.i.i20201
+  %idx.neg.i.i.i.i.i.i.i20201 = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i.i20200
+  %add.ptr.i.i.i.i.i.i.i20202 = getelementptr inbounds i8, ptr %2220, i64 %idx.neg.i.i.i.i.i.i.i20201
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i.i.i20202, ptr align 1 %2217, i64 %sub.ptr.sub.i.i.i.i.i.i.i20200, i1 false)
   br label %_ZNSt6vectorIhSaIhEE13_M_insert_auxIhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEOT_.exit.i20203
 
@@ -26025,8 +26025,8 @@ if.else.i20248:                                   ; preds = %if.then.i20246
 if.then.i.i.i.i.i.i.i20254:                       ; preds = %if.else.i20248
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i20255 = ptrtoint ptr %add.ptr9.i.i20252 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i20256 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i20255, %sub.ptr.lhs.cast.i.i20240
-  %.pre.i.i.i.i.i.i.i20257 = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i.i20256
-  %add.ptr.i.i.i.i.i.i.i20258 = getelementptr inbounds i8, ptr %2227, i64 %.pre.i.i.i.i.i.i.i20257
+  %idx.neg.i.i.i.i.i.i.i20257 = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i.i20256
+  %add.ptr.i.i.i.i.i.i.i20258 = getelementptr inbounds i8, ptr %2227, i64 %idx.neg.i.i.i.i.i.i.i20257
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i.i.i20258, ptr align 1 %2224, i64 %sub.ptr.sub.i.i.i.i.i.i.i20256, i1 false)
   br label %_ZNSt6vectorIhSaIhEE13_M_insert_auxIhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEOT_.exit.i20259
 
@@ -118368,8 +118368,8 @@ _ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit: ; preds = %if.then
 if.then.i.i.i.i.i:                                ; preds = %_ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
-  %.pre.i.i.i.i.i = sub i64 0, %sub.ptr.sub.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub i64 0, %sub.ptr.sub.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i, ptr align 1 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEET0_T_SA_S9_.exit
 
@@ -128796,8 +128796,8 @@ _ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit: ; preds = %if.then
 if.then.i.i.i.i.i:                                ; preds = %_ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
-  %.pre.i.i.i.i.i = sub i64 0, %sub.ptr.sub.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub i64 0, %sub.ptr.sub.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i, ptr align 1 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %if.then.i.i.i.i.i30
 
@@ -172511,8 +172511,8 @@ if.else:                                          ; preds = %if.then
 if.then.i.i.i.i.i.i:                              ; preds = %if.else
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr9.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.lhs.cast.i
-  %.pre.i.i.i.i.i.i = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %.pre.i.i.i.i.i.i
+  %idx.neg.i.i.i.i.i.i = sub i64 0, %sub.ptr.sub.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %idx.neg.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i.i, ptr align 1 %add.ptr.i, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   br label %invoke.cont
 
@@ -172807,8 +172807,8 @@ _ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit: ; preds = %if.then
 if.then.i.i.i.i.i:                                ; preds = %_ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
-  %.pre.i.i.i.i.i = sub i64 0, %sub.ptr.sub.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub i64 0, %sub.ptr.sub.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i, ptr align 1 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %if.then.i.i.i.i.i30
 

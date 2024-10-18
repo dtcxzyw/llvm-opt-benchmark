@@ -2455,7 +2455,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiSt6vectorIN2cv6Point_IfEESaIS5_EEESt10_Select1stIS8_ES
   br label %_ZSt4copyIPN2cv6Point_IfEES3_ET0_T_S5_S4_.exit.i.us
 
 _ZSt4copyIPN2cv6Point_IfEES3_ET0_T_S5_S4_.exit.i.us: ; preds = %110, %109
-  %.pre-phi33.i.us = phi i64 [ %106, %109 ], [ %.pre32.i.us, %110 ]
+  %.pre-phi33.i.us = phi i64 [ 0, %109 ], [ %.pre32.i.us, %110 ]
   %111 = phi ptr [ %90, %109 ], [ %.pre28.i.us, %110 ]
   %112 = phi ptr [ %104, %109 ], [ %.pre26.i.us, %110 ]
   %113 = phi ptr [ %91, %109 ], [ %.pre.i.us, %110 ]

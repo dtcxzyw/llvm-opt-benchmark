@@ -3045,7 +3045,7 @@ _ZNSt12_Vector_baseIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE13_M_deallocateEPS4_m.exi
   br label %_ZSt4copyIPN4Luau7NotNullIKNS0_3DefEEES5_ET0_T_S7_S6_.exit.i
 
 _ZSt4copyIPN4Luau7NotNullIKNS0_3DefEEES5_ET0_T_S7_S6_.exit.i: ; preds = %86, %85
-  %.pre-phi33.i = phi i64 [ %82, %85 ], [ %.pre32.i, %86 ]
+  %.pre-phi33.i = phi i64 [ 0, %85 ], [ %.pre32.i, %86 ]
   %87 = phi ptr [ %56, %85 ], [ %.pre28.i, %86 ]
   %88 = phi ptr [ %80, %85 ], [ %.pre26.i, %86 ]
   %89 = phi ptr [ %57, %85 ], [ %.pre.i, %86 ]

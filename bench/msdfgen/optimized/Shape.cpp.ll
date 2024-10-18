@@ -894,29 +894,24 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %entry
   %cmp.not.i.i.i.i = icmp eq ptr %0, %1
-  br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit126, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %sub.ptr.div.i, 2
   %call5.i.i.i.i2.i.i55 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #23
   store i32 0, ptr %call5.i.i.i.i2.i.i55, align 4
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i, 24
-  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.preheader, label %if.end.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.preheader, label %invoke.cont
 
-if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
+invoke.cont:                                      ; preds = %if.then.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i55, i64 4
   %2 = add nsw i64 %mul.i.i.i.i.i.i, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %2, i1 false)
-  br label %invoke.cont
-
-invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.i, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %orientations.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i55, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   %conv241 = trunc i64 %sub.ptr.div.i to i32
   %cmp242 = icmp sgt i32 %conv241, 0
-  br i1 %cmp242, label %for.body.preheader, label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit123
+  br i1 %cmp242, label %for.body.preheader, label %if.then.i.i.i125
 
 for.body.preheader:                               ; preds = %if.then.i.i.i.i.i, %invoke.cont
-  %orientations.sroa.0.0298 = phi ptr [ %orientations.sroa.0.0, %invoke.cont ], [ %call5.i.i.i.i2.i.i55, %if.then.i.i.i.i.i ]
   br label %for.body
 
 for.cond195.preheader:                            ; preds = %for.inc191
@@ -925,12 +920,12 @@ for.cond195.preheader:                            ; preds = %for.inc191
   br i1 %3, label %for.body200, label %for.end212
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc191
-  %indvars.iv283 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next284, %for.inc191 ]
-  %4 = phi ptr [ %1, %for.body.preheader ], [ %54, %for.inc191 ]
-  %intersections.sroa.0.0245 = phi ptr [ null, %for.body.preheader ], [ %intersections.sroa.0.5, %for.inc191 ]
-  %intersections.sroa.18.0244 = phi ptr [ null, %for.body.preheader ], [ %intersections.sroa.18.4, %for.inc191 ]
-  %intersections.sroa.28.0243 = phi ptr [ null, %for.body.preheader ], [ %intersections.sroa.28.4, %for.inc191 ]
-  %add.ptr.i = getelementptr inbounds i32, ptr %orientations.sroa.0.0298, i64 %indvars.iv283
+  %indvars.iv283 = phi i64 [ %indvars.iv.next284, %for.inc191 ], [ 0, %for.body.preheader ]
+  %4 = phi ptr [ %54, %for.inc191 ], [ %1, %for.body.preheader ]
+  %intersections.sroa.0.0245 = phi ptr [ %intersections.sroa.0.5, %for.inc191 ], [ null, %for.body.preheader ]
+  %intersections.sroa.18.0244 = phi ptr [ %intersections.sroa.18.4, %for.inc191 ], [ null, %for.body.preheader ]
+  %intersections.sroa.28.0243 = phi ptr [ %intersections.sroa.28.4, %for.inc191 ], [ null, %for.body.preheader ]
+  %add.ptr.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i55, i64 %indvars.iv283
   %5 = load i32, ptr %add.ptr.i, align 4
   %tobool.not = icmp eq i32 %5, 0
   br i1 %tobool.not, label %land.lhs.true, label %for.inc191
@@ -1030,19 +1025,15 @@ lpad17:                                           ; preds = %lpad17.loopexit.spl
   %intersections.sroa.0.1 = phi ptr [ %intersections.sroa.0.5, %lpad17.loopexit ], [ %intersections.sroa.0.4205, %lpad17.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.3215, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.0245, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.0245, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.1.ph.ph.ph.ph.ph.ph, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.4205, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad17.loopexit ], [ %lpad.loopexit145, %lpad17.loopexit.split-lp.loopexit ], [ %lpad.loopexit148, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit150, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit153, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit155, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp156, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %tobool.not.i.i.i = icmp eq ptr %intersections.sroa.0.1, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit, label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %if.then.i.i.i68, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad17
   call void @_ZdlPv(ptr noundef nonnull %intersections.sroa.0.1) #21
-  br label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit
+  br label %if.then.i.i.i68
 
-_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit: ; preds = %lpad17, %if.then.i.i.i
-  %tobool.not.i.i.i67 = icmp eq ptr %orientations.sroa.0.0298, null
-  br i1 %tobool.not.i.i.i67, label %eh.resume, label %if.then.i.i.i68
-
-if.then.i.i.i68:                                  ; preds = %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %orientations.sroa.0.0298) #21
-  br label %eh.resume
+if.then.i.i.i68:                                  ; preds = %if.then.i.i.i, %lpad17
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i55) #21
+  resume { ptr, i32 } %lpad.phi
 
 for.end.loopexit:                                 ; preds = %invoke.cont45
   %.pre = load ptr, ptr %add.ptr.i65, align 8
@@ -1329,7 +1320,7 @@ if.then172:                                       ; preds = %for.body167
   %contourIndex182 = getelementptr inbounds i8, ptr %add.ptr.i109, i64 12
   %51 = load i32, ptr %contourIndex182, align 4
   %conv183 = sext i32 %51 to i64
-  %add.ptr.i112 = getelementptr inbounds i32, ptr %orientations.sroa.0.0298, i64 %conv183
+  %add.ptr.i112 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i55, i64 %conv183
   %52 = load i32, ptr %add.ptr.i112, align 4
   %add = add nsw i32 %sub179, %52
   store i32 %add, ptr %add.ptr.i112, align 4
@@ -1360,7 +1351,7 @@ for.body200:                                      ; preds = %for.cond195.prehead
   %56 = phi ptr [ %59, %for.inc210 ], [ %54, %for.cond195.preheader ]
   %57 = phi ptr [ %60, %for.inc210 ], [ %53, %for.cond195.preheader ]
   %indvars.iv286 = phi i64 [ %indvars.iv.next287, %for.inc210 ], [ 0, %for.cond195.preheader ]
-  %add.ptr.i119 = getelementptr inbounds i32, ptr %orientations.sroa.0.0298, i64 %indvars.iv286
+  %add.ptr.i119 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i55, i64 %indvars.iv286
   %58 = load i32, ptr %add.ptr.i119, align 4
   %cmp203 = icmp slt i32 %58, 0
   br i1 %cmp203, label %if.then204, label %for.inc210
@@ -1390,26 +1381,18 @@ for.inc210:                                       ; preds = %if.then204.for.inc2
 
 for.end212:                                       ; preds = %for.inc210, %for.cond195.preheader
   %tobool.not.i.i.i121 = icmp eq ptr %intersections.sroa.0.5, null
-  br i1 %tobool.not.i.i.i121, label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit123, label %if.then.i.i.i122
+  br i1 %tobool.not.i.i.i121, label %if.then.i.i.i125, label %if.then.i.i.i122
 
 if.then.i.i.i122:                                 ; preds = %for.end212
   call void @_ZdlPv(ptr noundef nonnull %intersections.sroa.0.5) #21
-  br label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit123
+  br label %if.then.i.i.i125
 
-_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit123: ; preds = %invoke.cont, %for.end212, %if.then.i.i.i122
-  %orientations.sroa.0.0300304309 = phi ptr [ %orientations.sroa.0.0298, %for.end212 ], [ %orientations.sroa.0.0298, %if.then.i.i.i122 ], [ %orientations.sroa.0.0, %invoke.cont ]
-  %tobool.not.i.i.i124 = icmp eq ptr %orientations.sroa.0.0300304309, null
-  br i1 %tobool.not.i.i.i124, label %_ZNSt6vectorIiSaIiEED2Ev.exit126, label %if.then.i.i.i125
-
-if.then.i.i.i125:                                 ; preds = %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit123
-  call void @_ZdlPv(ptr noundef nonnull %orientations.sroa.0.0300304309) #21
+if.then.i.i.i125:                                 ; preds = %if.then.i.i.i122, %for.end212, %invoke.cont
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i55) #21
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit126
 
-_ZNSt6vectorIiSaIiEED2Ev.exit126:                 ; preds = %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit123, %if.then.i.i.i125
+_ZNSt6vectorIiSaIiEED2Ev.exit126:                 ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %if.then.i.i.i125
   ret void
-
-eh.resume:                                        ; preds = %if.then.i.i.i68, %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit
-  resume { ptr, i32 } %lpad.phi
 }
 
 ; Function Attrs: nofree

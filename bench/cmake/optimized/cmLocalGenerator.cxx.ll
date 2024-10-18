@@ -31388,7 +31388,7 @@ _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i..noexc39_crit_edge:
   br label %.noexc39
 
 .noexc39:                                         ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i..noexc39_crit_edge, %44
-  %.pre-phi93 = phi i64 [ %.pre92, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i..noexc39_crit_edge ], [ %52, %44 ]
+  %.pre-phi93 = phi i64 [ %.pre92, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i..noexc39_crit_edge ], [ 0, %44 ]
   %57 = phi ptr [ %.pre87, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i..noexc39_crit_edge ], [ %48, %44 ]
   %58 = phi ptr [ %.pre, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i..noexc39_crit_edge ], [ %49, %44 ]
   %59 = phi ptr [ %56, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i..noexc39_crit_edge ], [ null, %44 ]

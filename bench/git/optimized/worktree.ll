@@ -542,8 +542,8 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i.not.i, label %land.lhs.true13.i, label %for.inc.i
 
 land.lhs.true13.i:                                ; preds = %land.lhs.true.i, %for.body.i
-  %idx.ext.i = sext i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %idx.ext.i
+  %idx.ext.pre-phi.i = phi i64 [ %3, %land.lhs.true.i ], [ 0, %for.body.i ]
+  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %idx.ext.pre-phi.i
   %call14.i = tail call i32 @fspathcmp(ptr noundef %arg, ptr noundef %add.ptr.i) #17
   %tobool15.not.i = icmp eq i32 %call14.i, 0
   br i1 %tobool15.not.i, label %if.then16.i, label %for.inc.i

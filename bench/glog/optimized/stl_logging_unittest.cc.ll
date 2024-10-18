@@ -1065,7 +1065,7 @@ _ZnwmRKSt9nothrow_t.exit.i.i.i.i.i..noexc68_crit_edge.i: ; preds = %_ZnwmRKSt9no
   unreachable
 
 .noexc68.i:                                       ; preds = %_ZnwmRKSt9nothrow_t.exit.i.i.i.i.i..noexc68_crit_edge.i, %_ZN7testing15AssertionResultD2Ev.exit.i
-  %.pre-phi282.i = phi i64 [ %.pre281.i, %_ZnwmRKSt9nothrow_t.exit.i.i.i.i.i..noexc68_crit_edge.i ], [ %135, %_ZN7testing15AssertionResultD2Ev.exit.i ]
+  %.pre-phi282.i = phi i64 [ %.pre281.i, %_ZnwmRKSt9nothrow_t.exit.i.i.i.i.i..noexc68_crit_edge.i ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit.i ]
   %150 = phi ptr [ %.pre271.i, %_ZnwmRKSt9nothrow_t.exit.i.i.i.i.i..noexc68_crit_edge.i ], [ %131, %_ZN7testing15AssertionResultD2Ev.exit.i ]
   %151 = phi ptr [ %.pre270.i, %_ZnwmRKSt9nothrow_t.exit.i.i.i.i.i..noexc68_crit_edge.i ], [ %132, %_ZN7testing15AssertionResultD2Ev.exit.i ]
   %152 = phi ptr [ %146, %_ZnwmRKSt9nothrow_t.exit.i.i.i.i.i..noexc68_crit_edge.i ], [ null, %_ZN7testing15AssertionResultD2Ev.exit.i ]

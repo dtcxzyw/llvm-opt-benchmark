@@ -4106,8 +4106,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEES8
   %sub.ptr.lhs.cast.i.i.i.i.i.i47 = ptrtoint ptr %__i.sroa.0.012.i22 to i64
   %sub.ptr.sub.i.i.i.i.i.i48 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i47, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i.i49 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i48, 3
-  %.pre.i.i.i.i.i.i50 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i49
-  %add.ptr.i.i.i.i.i.i51 = getelementptr inbounds ptr, ptr %add.ptr.i2.i46, i64 %.pre.i.i.i.i.i.i50
+  %idx.neg.i.i.i.i.i.i50 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i49
+  %add.ptr.i.i.i.i.i.i51 = getelementptr inbounds ptr, ptr %add.ptr.i2.i46, i64 %idx.neg.i.i.i.i.i.i50
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i51, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i48, i1 false)
   br label %for.inc.i33
 

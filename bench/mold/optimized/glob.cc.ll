@@ -867,7 +867,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   br i1 %cmp.i.i.i.i.i5.i.i, label %_ZN4mold4GlobD2Ev.exit, label %for.body.i.i.i.i.i.i, !llvm.loop !9
 
 _ZN4mold4GlobD2Ev.exit:                           ; preds = %for.body.i.i.i.i.i.i, %entry, %while.end106
-  %sub.ptr.sub.i.i.i368 = phi i64 [ %sub.ptr.sub.i.i.i, %while.end106 ], [ 0, %entry ], [ %sub.ptr.sub.i.i.i, %for.body.i.i.i.i.i.i ]
+  %sub.ptr.sub.i.i.i368 = phi i64 [ 0, %while.end106 ], [ 0, %entry ], [ %sub.ptr.sub.i.i.i, %for.body.i.i.i.i.i.i ]
   %cond.i.i.i.i.i306 = phi ptr [ null, %while.end106 ], [ null, %entry ], [ %call5.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %while.end106 ], [ null, %entry ], [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %add.ptr.i.i.i.i307 = getelementptr inbounds i8, ptr %cond.i.i.i.i.i306, i64 %sub.ptr.sub.i.i.i368
@@ -1485,10 +1485,8 @@ if.then13:                                        ; preds = %if.end11
   %add.ptr15 = getelementptr inbounds i8, ptr %add.ptr14, i64 %__len2
   %add.ptr17 = getelementptr inbounds i8, ptr %2, i64 %__pos
   %add.ptr18 = getelementptr inbounds i8, ptr %add.ptr17, i64 %__len1
-  switch i64 %sub2, label %if.end.i.i25 [
-    i64 1, label %if.then.i24
-    i64 0, label %if.end19
-  ]
+  %cond33 = icmp eq i64 %sub2, 1
+  br i1 %cond33, label %if.then.i24, label %if.end.i.i25
 
 if.then.i24:                                      ; preds = %if.then13
   %7 = load i8, ptr %add.ptr18, align 1
@@ -1499,7 +1497,7 @@ if.end.i.i25:                                     ; preds = %if.then13
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr15, ptr align 1 %add.ptr18, i64 %sub2, i1 false)
   br label %if.end19
 
-if.end19:                                         ; preds = %if.end.i.i25, %if.then.i24, %if.then13, %if.end11
+if.end19:                                         ; preds = %if.end.i.i25, %if.then.i24, %if.end11
   br i1 %cmp.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i, label %if.then.i28
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i: ; preds = %if.end19

@@ -2323,16 +2323,16 @@ if.then.i.i.i.i.i.i908.i.i:                       ; preds = %if.then14.i.i.i
   br label %_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_reallocate_mapEmb.exit.i.i
 
 if.else.i906.i.i:                                 ; preds = %if.then.i902.i.i
-  br i1 %tobool.not.i.i.i.i.i.i905.i.i, label %_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_reallocate_mapEmb.exit.i.i, label %if.then.i.i.i.i.i22.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i905.i.i, label %_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_reallocate_mapEmb.exit.i.i, label %if.then.i.i.i.i.i19.i.i.i
 
-if.then.i.i.i.i.i22.i.i.i:                        ; preds = %if.else.i906.i.i
-  %sub.ptr.lhs.cast.i.i.i.i.i18.i.i.i = ptrtoint ptr %add.ptr21.i.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i20.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i18.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i200
-  %sub.ptr.div.i.i.i.i.i.i907.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i20.i.i.i, 3
-  %.pre.i.i.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i907.i.i
+if.then.i.i.i.i.i19.i.i.i:                        ; preds = %if.else.i906.i.i
   %add.ptr29.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i904.i.i, i64 %add.i893.i.i
-  %add.ptr.i.i.i.i.i23.i.i.i = getelementptr inbounds ptr, ptr %add.ptr29.i.i.i, i64 %.pre.i.i.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i23.i.i.i, ptr align 8 %135, i64 %sub.ptr.sub.i.i.i.i.i20.i.i.i, i1 false)
+  %sub.ptr.lhs.cast.i.i.i.i.i20.i.i.i = ptrtoint ptr %add.ptr21.i.i.i to i64
+  %sub.ptr.sub.i.i.i.i.i22.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i20.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i200
+  %sub.ptr.div.i.i.i.i.i.i907.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i22.i.i.i, 3
+  %idx.neg.i.i.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i907.i.i
+  %add.ptr.i.i.i.i.i23.i.i.i = getelementptr inbounds ptr, ptr %add.ptr29.i.i.i, i64 %idx.neg.i.i.i.i.i.i.i.i
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i23.i.i.i, ptr align 8 %135, i64 %sub.ptr.sub.i.i.i.i.i22.i.i.i, i1 false)
   br label %_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_reallocate_mapEmb.exit.i.i
 
 if.else31.i.i.i:                                  ; preds = %if.then.i.i521.i.i
@@ -2376,8 +2376,8 @@ _ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.
   store i64 %add38.i.i.i, ptr %_M_map_size.i.i.i.i.i.i160, align 8
   br label %_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_reallocate_mapEmb.exit.i.i
 
-_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_reallocate_mapEmb.exit.i.i: ; preds = %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit30.i.i.i, %if.then.i.i.i.i.i22.i.i.i, %if.else.i906.i.i, %if.then.i.i.i.i.i.i908.i.i, %if.then14.i.i.i
-  %__new_nstart.0.i.i.i = phi ptr [ %add.ptr42.i.i.i, %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit30.i.i.i ], [ %add.ptr.i904.i.i, %if.then14.i.i.i ], [ %add.ptr.i904.i.i, %if.then.i.i.i.i.i.i908.i.i ], [ %add.ptr.i904.i.i, %if.else.i906.i.i ], [ %add.ptr.i904.i.i, %if.then.i.i.i.i.i22.i.i.i ]
+_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_reallocate_mapEmb.exit.i.i: ; preds = %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit30.i.i.i, %if.then.i.i.i.i.i19.i.i.i, %if.else.i906.i.i, %if.then.i.i.i.i.i.i908.i.i, %if.then14.i.i.i
+  %__new_nstart.0.i.i.i = phi ptr [ %add.ptr42.i.i.i, %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit30.i.i.i ], [ %add.ptr.i904.i.i, %if.then14.i.i.i ], [ %add.ptr.i904.i.i, %if.then.i.i.i.i.i.i908.i.i ], [ %add.ptr.i904.i.i, %if.else.i906.i.i ], [ %add.ptr.i904.i.i, %if.then.i.i.i.i.i19.i.i.i ]
   store ptr %__new_nstart.0.i.i.i, ptr %_M_node.i.i.i.i.i.i.i165, align 8
   %146 = load ptr, ptr %__new_nstart.0.i.i.i, align 8
   store ptr %146, ptr %_M_first.i.i.i.i.i.i.i166, align 8
@@ -3095,16 +3095,16 @@ if.then.i.i.i.i.i.i1051.i.i:                      ; preds = %if.then14.i1050.i.i
   br label %_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_reallocate_mapEmb.exit1054.i.i
 
 if.else.i1042.i.i:                                ; preds = %if.then.i1035.i.i
-  br i1 %tobool.not.i.i.i.i.i.i1041.i.i, label %_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_reallocate_mapEmb.exit1054.i.i, label %if.then.i.i.i.i.i22.i1043.i.i
+  br i1 %tobool.not.i.i.i.i.i.i1041.i.i, label %_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_reallocate_mapEmb.exit1054.i.i, label %if.then.i.i.i.i.i19.i1043.i.i
 
-if.then.i.i.i.i.i22.i1043.i.i:                    ; preds = %if.else.i1042.i.i
-  %sub.ptr.lhs.cast.i.i.i.i.i18.i1044.i.i = ptrtoint ptr %add.ptr21.i1040.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i20.i1045.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i18.i1044.i.i, %sub.ptr.rhs.cast.i.i.i250.i.i
-  %sub.ptr.div.i.i.i.i.i.i1046.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i20.i1045.i.i, 3
-  %.pre.i.i.i.i.i.i1047.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i1046.i.i
-  %add.ptr29.i1048.i.i = getelementptr inbounds ptr, ptr %add.ptr.i1038.i.i, i64 %add.i1000.i.i
-  %add.ptr.i.i.i.i.i23.i1049.i.i = getelementptr inbounds ptr, ptr %add.ptr29.i1048.i.i, i64 %.pre.i.i.i.i.i.i1047.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i23.i1049.i.i, ptr align 8 %214, i64 %sub.ptr.sub.i.i.i.i.i20.i1045.i.i, i1 false)
+if.then.i.i.i.i.i19.i1043.i.i:                    ; preds = %if.else.i1042.i.i
+  %add.ptr29.i1044.i.i = getelementptr inbounds ptr, ptr %add.ptr.i1038.i.i, i64 %add.i1000.i.i
+  %sub.ptr.lhs.cast.i.i.i.i.i20.i1045.i.i = ptrtoint ptr %add.ptr21.i1040.i.i to i64
+  %sub.ptr.sub.i.i.i.i.i22.i1046.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i20.i1045.i.i, %sub.ptr.rhs.cast.i.i.i250.i.i
+  %sub.ptr.div.i.i.i.i.i.i1047.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i22.i1046.i.i, 3
+  %idx.neg.i.i.i.i.i.i1048.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i1047.i.i
+  %add.ptr.i.i.i.i.i23.i1049.i.i = getelementptr inbounds ptr, ptr %add.ptr29.i1044.i.i, i64 %idx.neg.i.i.i.i.i.i1048.i.i
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i23.i1049.i.i, ptr align 8 %214, i64 %sub.ptr.sub.i.i.i.i.i22.i1046.i.i, i1 false)
   br label %_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_reallocate_mapEmb.exit1054.i.i
 
 if.else31.i1005.i.i:                              ; preds = %if.then.i.i867.i.i
@@ -3148,8 +3148,8 @@ _ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.
   store i64 %add38.i1008.i.i, ptr %_M_map_size.i.i.i.i.i2.i, align 8
   br label %_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_reallocate_mapEmb.exit1054.i.i
 
-_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_reallocate_mapEmb.exit1054.i.i: ; preds = %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit30.i1021.i.i, %if.then.i.i.i.i.i22.i1043.i.i, %if.else.i1042.i.i, %if.then.i.i.i.i.i.i1051.i.i, %if.then14.i1050.i.i
-  %__new_nstart.0.i1022.i.i = phi ptr [ %add.ptr42.i1015.i.i, %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit30.i1021.i.i ], [ %add.ptr.i1038.i.i, %if.then14.i1050.i.i ], [ %add.ptr.i1038.i.i, %if.then.i.i.i.i.i.i1051.i.i ], [ %add.ptr.i1038.i.i, %if.else.i1042.i.i ], [ %add.ptr.i1038.i.i, %if.then.i.i.i.i.i22.i1043.i.i ]
+_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_reallocate_mapEmb.exit1054.i.i: ; preds = %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit30.i1021.i.i, %if.then.i.i.i.i.i19.i1043.i.i, %if.else.i1042.i.i, %if.then.i.i.i.i.i.i1051.i.i, %if.then14.i1050.i.i
+  %__new_nstart.0.i1022.i.i = phi ptr [ %add.ptr42.i1015.i.i, %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit30.i1021.i.i ], [ %add.ptr.i1038.i.i, %if.then14.i1050.i.i ], [ %add.ptr.i1038.i.i, %if.then.i.i.i.i.i.i1051.i.i ], [ %add.ptr.i1038.i.i, %if.else.i1042.i.i ], [ %add.ptr.i1038.i.i, %if.then.i.i.i.i.i19.i1043.i.i ]
   store ptr %__new_nstart.0.i1022.i.i, ptr %_M_node.i.i.i.i.i.i7.i, align 8
   %225 = load ptr, ptr %__new_nstart.0.i1022.i.i, align 8
   store ptr %225, ptr %_M_first.i.i.i.i.i.i8.i, align 8
@@ -3712,16 +3712,16 @@ if.then.i.i.i.i.i.i979.i.i:                       ; preds = %if.then14.i978.i.i
   br label %_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_reallocate_mapEmb.exit982.i.i
 
 if.else.i970.i.i:                                 ; preds = %if.then.i963.i.i
-  br i1 %tobool.not.i.i.i.i.i.i969.i.i, label %_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_reallocate_mapEmb.exit982.i.i, label %if.then.i.i.i.i.i22.i971.i.i
+  br i1 %tobool.not.i.i.i.i.i.i969.i.i, label %_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_reallocate_mapEmb.exit982.i.i, label %if.then.i.i.i.i.i19.i971.i.i
 
-if.then.i.i.i.i.i22.i971.i.i:                     ; preds = %if.else.i970.i.i
-  %sub.ptr.lhs.cast.i.i.i.i.i18.i972.i.i = ptrtoint ptr %add.ptr21.i968.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i20.i973.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i18.i972.i.i, %sub.ptr.rhs.cast.i.i.i190.i.i
-  %sub.ptr.div.i.i.i.i.i.i974.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i20.i973.i.i, 3
-  %.pre.i.i.i.i.i.i975.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i974.i.i
-  %add.ptr29.i976.i.i = getelementptr inbounds ptr, ptr %add.ptr.i966.i.i, i64 %add.i928.i.i
-  %add.ptr.i.i.i.i.i23.i977.i.i = getelementptr inbounds ptr, ptr %add.ptr29.i976.i.i, i64 %.pre.i.i.i.i.i.i975.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i23.i977.i.i, ptr align 8 %277, i64 %sub.ptr.sub.i.i.i.i.i20.i973.i.i, i1 false)
+if.then.i.i.i.i.i19.i971.i.i:                     ; preds = %if.else.i970.i.i
+  %add.ptr29.i972.i.i = getelementptr inbounds ptr, ptr %add.ptr.i966.i.i, i64 %add.i928.i.i
+  %sub.ptr.lhs.cast.i.i.i.i.i20.i973.i.i = ptrtoint ptr %add.ptr21.i968.i.i to i64
+  %sub.ptr.sub.i.i.i.i.i22.i974.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i20.i973.i.i, %sub.ptr.rhs.cast.i.i.i190.i.i
+  %sub.ptr.div.i.i.i.i.i.i975.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i22.i974.i.i, 3
+  %idx.neg.i.i.i.i.i.i976.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i975.i.i
+  %add.ptr.i.i.i.i.i23.i977.i.i = getelementptr inbounds ptr, ptr %add.ptr29.i972.i.i, i64 %idx.neg.i.i.i.i.i.i976.i.i
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i23.i977.i.i, ptr align 8 %277, i64 %sub.ptr.sub.i.i.i.i.i22.i974.i.i, i1 false)
   br label %_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_reallocate_mapEmb.exit982.i.i
 
 if.else31.i933.i.i:                               ; preds = %if.then.i.i692.i.i
@@ -3765,8 +3765,8 @@ _ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.
   store i64 %add38.i936.i.i, ptr %_M_map_size.i.i.i.i.i17.i, align 8
   br label %_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_reallocate_mapEmb.exit982.i.i
 
-_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_reallocate_mapEmb.exit982.i.i: ; preds = %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit30.i949.i.i, %if.then.i.i.i.i.i22.i971.i.i, %if.else.i970.i.i, %if.then.i.i.i.i.i.i979.i.i, %if.then14.i978.i.i
-  %__new_nstart.0.i950.i.i = phi ptr [ %add.ptr42.i943.i.i, %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit30.i949.i.i ], [ %add.ptr.i966.i.i, %if.then14.i978.i.i ], [ %add.ptr.i966.i.i, %if.then.i.i.i.i.i.i979.i.i ], [ %add.ptr.i966.i.i, %if.else.i970.i.i ], [ %add.ptr.i966.i.i, %if.then.i.i.i.i.i22.i971.i.i ]
+_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_reallocate_mapEmb.exit982.i.i: ; preds = %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit30.i949.i.i, %if.then.i.i.i.i.i19.i971.i.i, %if.else.i970.i.i, %if.then.i.i.i.i.i.i979.i.i, %if.then14.i978.i.i
+  %__new_nstart.0.i950.i.i = phi ptr [ %add.ptr42.i943.i.i, %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit30.i949.i.i ], [ %add.ptr.i966.i.i, %if.then14.i978.i.i ], [ %add.ptr.i966.i.i, %if.then.i.i.i.i.i.i979.i.i ], [ %add.ptr.i966.i.i, %if.else.i970.i.i ], [ %add.ptr.i966.i.i, %if.then.i.i.i.i.i19.i971.i.i ]
   store ptr %__new_nstart.0.i950.i.i, ptr %_M_node.i.i.i.i.i.i22.i, align 8
   %288 = load ptr, ptr %__new_nstart.0.i950.i.i, align 8
   store ptr %288, ptr %_M_first.i.i.i.i.i.i23.i, align 8
@@ -7331,16 +7331,16 @@ if.then.i.i.i.i.i:                                ; preds = %if.then14
   br label %if.end65
 
 if.else:                                          ; preds = %if.then
-  br i1 %tobool.not.i.i.i.i.i, label %if.end65, label %if.then.i.i.i.i.i22
+  br i1 %tobool.not.i.i.i.i.i, label %if.end65, label %if.then.i.i.i.i.i19
 
-if.then.i.i.i.i.i22:                              ; preds = %if.else
-  %sub.ptr.lhs.cast.i.i.i.i.i18 = ptrtoint ptr %add.ptr21 to i64
-  %sub.ptr.sub.i.i.i.i.i20 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i18, %sub.ptr.rhs.cast
-  %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i20, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+if.then.i.i.i.i.i19:                              ; preds = %if.else
   %add.ptr29 = getelementptr inbounds ptr, ptr %add.ptr9, i64 %add
-  %add.ptr.i.i.i.i.i23 = getelementptr inbounds ptr, ptr %add.ptr29, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i23, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i20, i1 false)
+  %sub.ptr.lhs.cast.i.i.i.i.i20 = ptrtoint ptr %add.ptr21 to i64
+  %sub.ptr.sub.i.i.i.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i20, %sub.ptr.rhs.cast
+  %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i22, 3
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i23 = getelementptr inbounds ptr, ptr %add.ptr29, i64 %idx.neg.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i23, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i22, i1 false)
   br label %if.end65
 
 if.else31:                                        ; preds = %entry
@@ -7387,8 +7387,8 @@ _ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.
   store i64 %add38, ptr %_M_map_size, align 8
   br label %if.end65
 
-if.end65:                                         ; preds = %if.then.i.i.i.i.i22, %if.else, %if.then.i.i.i.i.i, %if.then14, %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit30
-  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i22 ]
+if.end65:                                         ; preds = %if.then.i.i.i.i.i19, %if.else, %if.then.i.i.i.i.i, %if.then14, %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit30
+  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
   %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24

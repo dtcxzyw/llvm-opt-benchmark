@@ -27641,8 +27641,8 @@ _ZSt4moveIPN12_GLOBAL__N_113TagStoreInstrES2_ET0_T_S4_S3_.exit74.thread: ; preds
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds i8, ptr %.024.i75, i64 24
-  %.not.i.i.i.i.i33.i = icmp eq ptr %51, %5
-  br i1 %.not.i.i.i.i.i33.i, label %"_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_113TagStoreInstrES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_19tryMergeAdjacentSTGEN4llvm26MachineInstrBundleIteratorINS6_12MachineInstrELb0EEEPKNS6_20AArch64FrameLoweringEPNS6_12RegScavengerEE3$_0EEEvT_SH_T0_SI_T1_T2_.exit", label %_ZSt13move_backwardIPN12_GLOBAL__N_113TagStoreInstrES2_ET0_T_S4_S3_.exit.sink.split.i
+  %.not.i.i.i.i.i32.i = icmp eq ptr %51, %5
+  br i1 %.not.i.i.i.i.i32.i, label %"_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_113TagStoreInstrES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_19tryMergeAdjacentSTGEN4llvm26MachineInstrBundleIteratorINS6_12MachineInstrELb0EEEPKNS6_20AArch64FrameLoweringEPNS6_12RegScavengerEE3$_0EEEvT_SH_T0_SI_T1_T2_.exit", label %_ZSt13move_backwardIPN12_GLOBAL__N_113TagStoreInstrES2_ET0_T_S4_S3_.exit.sink.split.i
 
 52:                                               ; preds = %44
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %.024.i75, i64 24, i1 false)
@@ -27659,8 +27659,8 @@ _ZSt13move_backwardIPN12_GLOBAL__N_113TagStoreInstrES2_ET0_T_S4_S3_.exit.sink.sp
   %56 = ptrtoint ptr %.sink.i to i64
   %57 = ptrtoint ptr %5 to i64
   %58 = sub i64 %56, %57
-  %.neg.i.i.i.i.i32.i = sdiv exact i64 %58, -24
-  %59 = getelementptr inbounds %"struct.(anonymous namespace)::TagStoreInstr", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i32.i
+  %.neg.i.i.i.i.i33.i = sdiv exact i64 %58, -24
+  %59 = getelementptr inbounds %"struct.(anonymous namespace)::TagStoreInstr", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i33.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %59, ptr align 8 %5, i64 %58, i1 false)
   br label %"_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_113TagStoreInstrES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_19tryMergeAdjacentSTGEN4llvm26MachineInstrBundleIteratorINS6_12MachineInstrELb0EEEPKNS6_20AArch64FrameLoweringEPNS6_12RegScavengerEE3$_0EEEvT_SH_T0_SI_T1_T2_.exit"
 
@@ -27828,16 +27828,17 @@ _ZSt4moveIPN12_GLOBAL__N_113TagStoreInstrES2_ET0_T_S4_S3_.exit40.i: ; preds = %1
   br label %_ZSt4moveIPN12_GLOBAL__N_113TagStoreInstrES2_ET0_T_S4_S3_.exit42.i
 
 _ZSt4moveIPN12_GLOBAL__N_113TagStoreInstrES2_ET0_T_S4_S3_.exit42.i: ; preds = %117, %_ZSt4moveIPN12_GLOBAL__N_113TagStoreInstrES2_ET0_T_S4_S3_.exit40.i
-  %.neg.i.i.i.i.i43.i = sdiv exact i64 %115, -24
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPN12_GLOBAL__N_113TagStoreInstrES2_ET0_T_S4_S3_.exit45.i, label %120
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPN12_GLOBAL__N_113TagStoreInstrES2_ET0_T_S4_S3_.exit46.i, label %120
 
 120:                                              ; preds = %_ZSt4moveIPN12_GLOBAL__N_113TagStoreInstrES2_ET0_T_S4_S3_.exit42.i
-  %121 = getelementptr inbounds %"struct.(anonymous namespace)::TagStoreInstr", ptr %.0105, i64 %.neg.i.i.i.i.i43.i
+  %.neg.i.i.i.i.i44.i = sdiv exact i64 %115, -24
+  %121 = getelementptr inbounds %"struct.(anonymous namespace)::TagStoreInstr", ptr %.0105, i64 %.neg.i.i.i.i.i44.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %121, ptr align 8 %5, i64 %115, i1 false)
-  br label %_ZSt13move_backwardIPN12_GLOBAL__N_113TagStoreInstrES2_ET0_T_S4_S3_.exit45.i
+  br label %_ZSt13move_backwardIPN12_GLOBAL__N_113TagStoreInstrES2_ET0_T_S4_S3_.exit46.i
 
-_ZSt13move_backwardIPN12_GLOBAL__N_113TagStoreInstrES2_ET0_T_S4_S3_.exit45.i: ; preds = %120, %_ZSt4moveIPN12_GLOBAL__N_113TagStoreInstrES2_ET0_T_S4_S3_.exit42.i
-  %122 = getelementptr inbounds %"struct.(anonymous namespace)::TagStoreInstr", ptr %.0105, i64 %.neg.i.i.i.i.i43.i
+_ZSt13move_backwardIPN12_GLOBAL__N_113TagStoreInstrES2_ET0_T_S4_S3_.exit46.i: ; preds = %120, %_ZSt4moveIPN12_GLOBAL__N_113TagStoreInstrES2_ET0_T_S4_S3_.exit42.i
+  %.pre-phi.i.i.i.i.i45.i = phi i64 [ %.neg.i.i.i.i.i44.i, %120 ], [ 0, %_ZSt4moveIPN12_GLOBAL__N_113TagStoreInstrES2_ET0_T_S4_S3_.exit42.i ]
+  %122 = getelementptr inbounds %"struct.(anonymous namespace)::TagStoreInstr", ptr %.0105, i64 %.pre-phi.i.i.i.i.i45.i
   br label %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_113TagStoreInstrES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit
 
 123:                                              ; preds = %110
@@ -27953,8 +27954,8 @@ _ZSt13move_backwardIPN12_GLOBAL__N_113TagStoreInstrES2_ET0_T_S4_S3_.exit45.i: ; 
   %.039.i.i.i.be = phi ptr [ %.1.lcssa.i.i.i, %153 ], [ %.3.lcssa.i.i.i, %._crit_edge.i.i.i ]
   br label %142, !llvm.loop !869
 
-_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_113TagStoreInstrES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit: ; preds = %._crit_edge70.i.i.i, %._crit_edge.i.i.i, %.lr.ph.i.i.i.i, %98, %_ZSt4moveIPN12_GLOBAL__N_113TagStoreInstrES2_ET0_T_S4_S3_.exit38.i, %111, %_ZSt13move_backwardIPN12_GLOBAL__N_113TagStoreInstrES2_ET0_T_S4_S3_.exit45.i, %123, %125
-  %.0.i95 = phi ptr [ %109, %_ZSt4moveIPN12_GLOBAL__N_113TagStoreInstrES2_ET0_T_S4_S3_.exit38.i ], [ %122, %_ZSt13move_backwardIPN12_GLOBAL__N_113TagStoreInstrES2_ET0_T_S4_S3_.exit45.i ], [ %.0106, %98 ], [ %.0105, %111 ], [ %.0105, %123 ], [ %.0106, %125 ], [ %.tr109126, %.lr.ph.i.i.i.i ], [ %141, %._crit_edge.i.i.i ], [ %141, %._crit_edge70.i.i.i ]
+_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_113TagStoreInstrES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit: ; preds = %._crit_edge70.i.i.i, %._crit_edge.i.i.i, %.lr.ph.i.i.i.i, %98, %_ZSt4moveIPN12_GLOBAL__N_113TagStoreInstrES2_ET0_T_S4_S3_.exit38.i, %111, %_ZSt13move_backwardIPN12_GLOBAL__N_113TagStoreInstrES2_ET0_T_S4_S3_.exit46.i, %123, %125
+  %.0.i95 = phi ptr [ %109, %_ZSt4moveIPN12_GLOBAL__N_113TagStoreInstrES2_ET0_T_S4_S3_.exit38.i ], [ %122, %_ZSt13move_backwardIPN12_GLOBAL__N_113TagStoreInstrES2_ET0_T_S4_S3_.exit46.i ], [ %.0106, %98 ], [ %.0105, %111 ], [ %.0105, %123 ], [ %.0106, %125 ], [ %.tr109126, %.lr.ph.i.i.i.i ], [ %141, %._crit_edge.i.i.i ], [ %141, %._crit_edge70.i.i.i ]
   tail call fastcc void @"_ZSt16__merge_adaptiveIPN12_GLOBAL__N_113TagStoreInstrElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_19tryMergeAdjacentSTGEN4llvm26MachineInstrBundleIteratorINS6_12MachineInstrELb0EEEPKNS6_20AArch64FrameLoweringEPNS6_12RegScavengerEE3$_0EEEvT_SH_SH_T0_SI_T1_SI_T2_"(ptr noundef %.tr125, ptr noundef %.0106, ptr noundef %.0.i95, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
   %165 = sub nsw i64 %.tr112128, %.066
   %.not = icmp sgt i64 %96, %165
@@ -30352,28 +30353,28 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111FrameObjectESt6vector
   br label %.outer
 
 .outer:                                           ; preds = %40, %35
-  %.sroa.028.0.i.ph = phi ptr [ %2, %35 ], [ %39, %40 ]
-  %.sroa.030.0.i.ph.pn = phi ptr [ %.tr105126, %35 ], [ %.sroa.030.0.i.ph, %40 ]
+  %.sroa.029.0.i.ph = phi ptr [ %2, %35 ], [ %39, %40 ]
+  %.sroa.031.0.i.ph.pn = phi ptr [ %.tr105126, %35 ], [ %.sroa.031.0.i.ph, %40 ]
   %.0.i.ph = phi ptr [ %36, %35 ], [ %.0.i, %40 ]
-  %.sroa.030.0.i.ph = getelementptr inbounds i8, ptr %.sroa.030.0.i.ph.pn, i64 -20
+  %.sroa.031.0.i.ph = getelementptr inbounds i8, ptr %.sroa.031.0.i.ph.pn, i64 -20
   br label %37
 
 37:                                               ; preds = %.outer, %46
-  %.sroa.028.0.i = phi ptr [ %39, %46 ], [ %.sroa.028.0.i.ph, %.outer ]
+  %.sroa.029.0.i = phi ptr [ %39, %46 ], [ %.sroa.029.0.i.ph, %.outer ]
   %.0.i = phi ptr [ %47, %46 ], [ %.0.i.ph, %.outer ]
-  %38 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 4 dereferenceable(20) %.0.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.030.0.i.ph) #25
-  %39 = getelementptr inbounds i8, ptr %.sroa.028.0.i, i64 -20
+  %38 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 4 dereferenceable(20) %.0.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.031.0.i.ph) #25
+  %39 = getelementptr inbounds i8, ptr %.sroa.029.0.i, i64 -20
   br i1 %38, label %40, label %44
 
 40:                                               ; preds = %37
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %39, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.030.0.i.ph, i64 20, i1 false)
-  %41 = icmp eq ptr %.tr125, %.sroa.030.0.i.ph
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %39, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.031.0.i.ph, i64 20, i1 false)
+  %41 = icmp eq ptr %.tr125, %.sroa.031.0.i.ph
   br i1 %41, label %42, label %.outer, !llvm.loop !932
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds i8, ptr %.0.i, i64 20
-  %.not.i.i.i.i.i26.i = icmp eq ptr %43, %5
-  br i1 %.not.i.i.i.i.i26.i, label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_111FrameObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterIPFbRKS1_SC_EEEEvT_SG_T0_SH_T1_T2_.exit, label %_ZSt13move_backwardIPN12_GLOBAL__N_111FrameObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.sink.split.i
+  %.not.i.i.i.i.i25.i = icmp eq ptr %43, %5
+  br i1 %.not.i.i.i.i.i25.i, label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_111FrameObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterIPFbRKS1_SC_EEEEvT_SG_T0_SH_T1_T2_.exit, label %_ZSt13move_backwardIPN12_GLOBAL__N_111FrameObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.sink.split.i
 
 44:                                               ; preds = %37
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %39, ptr noundef nonnull align 4 dereferenceable(20) %.0.i, i64 20, i1 false)
@@ -30390,8 +30391,8 @@ _ZSt13move_backwardIPN12_GLOBAL__N_111FrameObjectEN9__gnu_cxx17__normal_iterator
   %48 = ptrtoint ptr %.sink.i to i64
   %49 = ptrtoint ptr %5 to i64
   %50 = sub i64 %48, %49
-  %.neg.i.i.i.i.i25.i = sdiv exact i64 %50, -20
-  %51 = getelementptr inbounds %"struct.(anonymous namespace)::FrameObject", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i25.i
+  %.neg.i.i.i.i.i26.i = sdiv exact i64 %50, -20
+  %51 = getelementptr inbounds %"struct.(anonymous namespace)::FrameObject", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i26.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %51, ptr align 4 %5, i64 %50, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_111FrameObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterIPFbRKS1_SC_EEEEvT_SG_T0_SH_T1_T2_.exit
 
@@ -30551,16 +30552,17 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111FrameObjectESt6vector
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111FrameObjectESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111FrameObjectESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i: ; preds = %105, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111FrameObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit40.i
-  %.neg.i.i.i.i.i42.i = sdiv exact i64 %103, -20
   br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPN12_GLOBAL__N_111FrameObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i, label %108
 
 108:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111FrameObjectESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i
-  %109 = getelementptr inbounds %"struct.(anonymous namespace)::FrameObject", ptr %.sroa.0.0, i64 %.neg.i.i.i.i.i42.i
+  %.neg.i.i.i.i.i43.i = sdiv exact i64 %103, -20
+  %109 = getelementptr inbounds %"struct.(anonymous namespace)::FrameObject", ptr %.sroa.0.0, i64 %.neg.i.i.i.i.i43.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %109, ptr align 4 %5, i64 %103, i1 false)
   br label %_ZSt13move_backwardIPN12_GLOBAL__N_111FrameObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i
 
 _ZSt13move_backwardIPN12_GLOBAL__N_111FrameObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i: ; preds = %108, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111FrameObjectESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i
-  %110 = getelementptr inbounds %"struct.(anonymous namespace)::FrameObject", ptr %.sroa.0.0, i64 %.neg.i.i.i.i.i42.i
+  %.pre-phi.i.i.i.i.i44.i = phi i64 [ %.neg.i.i.i.i.i43.i, %108 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111FrameObjectESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i ]
+  %110 = getelementptr inbounds %"struct.(anonymous namespace)::FrameObject", ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i44.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111FrameObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit
 
 111:                                              ; preds = %98

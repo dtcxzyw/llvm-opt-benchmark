@@ -18619,7 +18619,7 @@ _ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit: ; preds = %29, %32
 47:                                               ; preds = %24
   %48 = icmp eq i64 %25, 1
   %49 = getelementptr inbounds ptr, ptr %.053, i64 %.076
-  br i1 %48, label %50, label %59
+  br i1 %48, label %50, label %60
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds i8, ptr %49, i64 -8
@@ -18632,44 +18632,44 @@ _ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit: ; preds = %29, %32
   %55 = ptrtoint ptr %.053 to i64
   %56 = sub i64 %54, %55
   %57 = ashr exact i64 %56, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %57
-  %58 = getelementptr inbounds ptr, ptr %49, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %58, ptr nonnull align 8 %.053, i64 %56, i1 false)
+  %58 = sub nsw i64 0, %57
+  %59 = getelementptr inbounds ptr, ptr %49, i64 %58
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %59, ptr nonnull align 8 %.053, i64 %56, i1 false)
   br label %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit
 
 _ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit: ; preds = %50, %53
   store ptr %52, ptr %.053, align 8
   br label %_ZSt11swap_rangesIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit
 
-59:                                               ; preds = %47
-  %60 = sub i64 0, %25
-  %61 = getelementptr inbounds ptr, ptr %49, i64 %60
-  %62 = icmp sgt i64 %.074, 0
-  br i1 %62, label %.lr.ph, label %._crit_edge
+60:                                               ; preds = %47
+  %61 = sub i64 0, %25
+  %62 = getelementptr inbounds ptr, ptr %49, i64 %61
+  %63 = icmp sgt i64 %.074, 0
+  br i1 %63, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %59, %.lr.ph
-  %.085 = phi i64 [ %67, %.lr.ph ], [ 0, %59 ]
-  %.04984 = phi ptr [ %64, %.lr.ph ], [ %49, %59 ]
-  %.383 = phi ptr [ %63, %.lr.ph ], [ %61, %59 ]
-  %63 = getelementptr inbounds i8, ptr %.383, i64 -8
-  %64 = getelementptr inbounds i8, ptr %.04984, i64 -8
-  %65 = load ptr, ptr %63, align 8
+.lr.ph:                                           ; preds = %60, %.lr.ph
+  %.085 = phi i64 [ %68, %.lr.ph ], [ 0, %60 ]
+  %.04984 = phi ptr [ %65, %.lr.ph ], [ %49, %60 ]
+  %.383 = phi ptr [ %64, %.lr.ph ], [ %62, %60 ]
+  %64 = getelementptr inbounds i8, ptr %.383, i64 -8
+  %65 = getelementptr inbounds i8, ptr %.04984, i64 -8
   %66 = load ptr, ptr %64, align 8
-  store ptr %66, ptr %63, align 8
-  store ptr %65, ptr %64, align 8
-  %67 = add nuw nsw i64 %.085, 1
-  %exitcond.not = icmp eq i64 %67, %.074
+  %67 = load ptr, ptr %65, align 8
+  store ptr %67, ptr %64, align 8
+  store ptr %66, ptr %65, align 8
+  %68 = add nuw nsw i64 %.085, 1
+  %exitcond.not = icmp eq i64 %68, %.074
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !129
 
-._crit_edge:                                      ; preds = %.lr.ph, %59
-  %.3.lcssa = phi ptr [ %61, %59 ], [ %.053, %.lr.ph ]
-  %68 = srem i64 %.076, %25
-  %69 = icmp eq i64 %68, 0
-  br i1 %69, label %_ZSt11swap_rangesIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit, label %.backedge
+._crit_edge:                                      ; preds = %.lr.ph, %60
+  %.3.lcssa = phi ptr [ %62, %60 ], [ %.053, %.lr.ph ]
+  %69 = srem i64 %.076, %25
+  %70 = icmp eq i64 %69, 0
+  br i1 %70, label %_ZSt11swap_rangesIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %45
   %.076.be = phi i64 [ %.074, %45 ], [ %25, %._crit_edge ]
-  %.074.be = phi i64 [ %46, %45 ], [ %68, %._crit_edge ]
+  %.074.be = phi i64 [ %46, %45 ], [ %69, %._crit_edge ]
   %.053.be = phi ptr [ %.1.lcssa, %45 ], [ %.3.lcssa, %._crit_edge ]
   br label %24, !llvm.loop !130
 
@@ -22358,8 +22358,8 @@ _ZSt4moveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.
 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds i8, ptr %.024.i75, i64 24
-  %.not.i.i.i.i.i33.i = icmp eq ptr %47, %5
-  br i1 %.not.i.i.i.i.i33.i, label %"_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_26getBestNonConflictingEdgesEPKN4llvm17MachineBasicBlockENS7_15MutableArrayRefINS7_11SmallVectorIS2_Lj8EEEEEE3$_0EEEvT_SH_T0_SI_T1_T2_.exit", label %_ZSt13move_backwardIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit.sink.split.i
+  %.not.i.i.i.i.i32.i = icmp eq ptr %47, %5
+  br i1 %.not.i.i.i.i.i32.i, label %"_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_26getBestNonConflictingEdgesEPKN4llvm17MachineBasicBlockENS7_15MutableArrayRefINS7_11SmallVectorIS2_Lj8EEEEEE3$_0EEEvT_SH_T0_SI_T1_T2_.exit", label %_ZSt13move_backwardIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit.sink.split.i
 
 48:                                               ; preds = %41
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %.024.i75, i64 24, i1 false)
@@ -22376,8 +22376,8 @@ _ZSt13move_backwardIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0
   %52 = ptrtoint ptr %.sink.i to i64
   %53 = ptrtoint ptr %5 to i64
   %54 = sub i64 %52, %53
-  %.neg.i.i.i.i.i32.i = sdiv exact i64 %54, -24
-  %55 = getelementptr inbounds %"struct.(anonymous namespace)::MachineBlockPlacement::WeightedEdge", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i32.i
+  %.neg.i.i.i.i.i33.i = sdiv exact i64 %54, -24
+  %55 = getelementptr inbounds %"struct.(anonymous namespace)::MachineBlockPlacement::WeightedEdge", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i33.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %55, ptr align 8 %5, i64 %54, i1 false)
   br label %"_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_26getBestNonConflictingEdgesEPKN4llvm17MachineBasicBlockENS7_15MutableArrayRefINS7_11SmallVectorIS2_Lj8EEEEEE3$_0EEEvT_SH_T0_SI_T1_T2_.exit"
 
@@ -22541,16 +22541,17 @@ _ZSt4moveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.
   br label %_ZSt4moveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit42.i
 
 _ZSt4moveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit42.i: ; preds = %109, %_ZSt4moveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit40.i
-  %.neg.i.i.i.i.i43.i = sdiv exact i64 %107, -24
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit45.i, label %112
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit46.i, label %112
 
 112:                                              ; preds = %_ZSt4moveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit42.i
-  %113 = getelementptr inbounds %"struct.(anonymous namespace)::MachineBlockPlacement::WeightedEdge", ptr %.0109, i64 %.neg.i.i.i.i.i43.i
+  %.neg.i.i.i.i.i44.i = sdiv exact i64 %107, -24
+  %113 = getelementptr inbounds %"struct.(anonymous namespace)::MachineBlockPlacement::WeightedEdge", ptr %.0109, i64 %.neg.i.i.i.i.i44.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %113, ptr align 8 %5, i64 %107, i1 false)
-  br label %_ZSt13move_backwardIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit45.i
+  br label %_ZSt13move_backwardIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit46.i
 
-_ZSt13move_backwardIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit45.i: ; preds = %112, %_ZSt4moveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit42.i
-  %114 = getelementptr inbounds %"struct.(anonymous namespace)::MachineBlockPlacement::WeightedEdge", ptr %.0109, i64 %.neg.i.i.i.i.i43.i
+_ZSt13move_backwardIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit46.i: ; preds = %112, %_ZSt4moveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit42.i
+  %.pre-phi.i.i.i.i.i45.i = phi i64 [ %.neg.i.i.i.i.i44.i, %112 ], [ 0, %_ZSt4moveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit42.i ]
+  %114 = getelementptr inbounds %"struct.(anonymous namespace)::MachineBlockPlacement::WeightedEdge", ptr %.0109, i64 %.pre-phi.i.i.i.i.i45.i
   br label %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
 115:                                              ; preds = %102
@@ -22666,8 +22667,8 @@ _ZSt13move_backwardIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0
   %.039.i.i.i.be = phi ptr [ %.1.lcssa.i.i.i, %145 ], [ %.3.lcssa.i.i.i, %._crit_edge.i.i.i ]
   br label %134, !llvm.loop !148
 
-_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit: ; preds = %._crit_edge70.i.i.i, %._crit_edge.i.i.i, %.lr.ph.i.i.i.i, %90, %_ZSt4moveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit38.i, %103, %_ZSt13move_backwardIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit45.i, %115, %117
-  %.0.i99 = phi ptr [ %101, %_ZSt4moveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit38.i ], [ %114, %_ZSt13move_backwardIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit45.i ], [ %.0110, %90 ], [ %.0109, %103 ], [ %.0109, %115 ], [ %.0110, %117 ], [ %.tr113130, %.lr.ph.i.i.i.i ], [ %133, %._crit_edge.i.i.i ], [ %133, %._crit_edge70.i.i.i ]
+_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit: ; preds = %._crit_edge70.i.i.i, %._crit_edge.i.i.i, %.lr.ph.i.i.i.i, %90, %_ZSt4moveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit38.i, %103, %_ZSt13move_backwardIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit46.i, %115, %117
+  %.0.i99 = phi ptr [ %101, %_ZSt4moveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit38.i ], [ %114, %_ZSt13move_backwardIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES3_ET0_T_S5_S4_.exit46.i ], [ %.0110, %90 ], [ %.0109, %103 ], [ %.0109, %115 ], [ %.0110, %117 ], [ %.tr113130, %.lr.ph.i.i.i.i ], [ %133, %._crit_edge.i.i.i ], [ %133, %._crit_edge70.i.i.i ]
   tail call fastcc void @"_ZSt16__merge_adaptiveIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_26getBestNonConflictingEdgesEPKN4llvm17MachineBasicBlockENS7_15MutableArrayRefINS7_11SmallVectorIS2_Lj8EEEEEE3$_0EEEvT_SH_SH_T0_SI_T1_SI_T2_"(ptr noundef %.tr129, ptr noundef %.0110, ptr noundef %.0.i99, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
   %157 = sub nsw i64 %.tr116132, %.066
   %.not = icmp sgt i64 %88, %157
@@ -26468,47 +26469,47 @@ define internal fastcc void @"_ZSt16__insertion_sortIPPN4llvm17MachineBasicBlock
   %14 = tail call i32 @_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef %13, ptr noundef %.val20) #22
   %15 = icmp ult i32 %14, %11
   %16 = load ptr, ptr %.024, align 8
-  br i1 %15, label %17, label %23
+  br i1 %15, label %17, label %24
 
 17:                                               ; preds = %8
   %18 = getelementptr inbounds i8, ptr %.pn23, i64 16
   %19 = ptrtoint ptr %.024 to i64
   %20 = sub i64 %19, %7
   %21 = ashr exact i64 %20, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %21
-  %22 = getelementptr inbounds ptr, ptr %18, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %22, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %20, i1 false)
+  %22 = sub nsw i64 0, %21
+  %23 = getelementptr inbounds ptr, ptr %18, i64 %22
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %23, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %20, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEEvT_T0_.exit"
 
-23:                                               ; preds = %8
+24:                                               ; preds = %8
   %.0.val13.i = load ptr, ptr %.pn23, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %3, align 8
-  %26 = tail call i32 @_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_(ptr noundef nonnull align 1 dereferenceable(1) %24, ptr noundef %25, ptr noundef %16) #22
-  %27 = load ptr, ptr %6, align 8
-  %28 = load ptr, ptr %3, align 8
-  %29 = tail call i32 @_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_(ptr noundef nonnull align 1 dereferenceable(1) %27, ptr noundef %28, ptr noundef %.0.val13.i) #22
-  %30 = icmp ult i32 %29, %26
-  br i1 %30, label %.lr.ph.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEEvT_T0_.exit"
+  %25 = load ptr, ptr %6, align 8
+  %26 = load ptr, ptr %3, align 8
+  %27 = tail call i32 @_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef %26, ptr noundef %16) #22
+  %28 = load ptr, ptr %6, align 8
+  %29 = load ptr, ptr %3, align 8
+  %30 = tail call i32 @_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_(ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef %29, ptr noundef %.0.val13.i) #22
+  %31 = icmp ult i32 %30, %27
+  br i1 %31, label %.lr.ph.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEEvT_T0_.exit"
 
-.lr.ph.i:                                         ; preds = %23, %.lr.ph.i
-  %.015.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.pn23, %23 ]
-  %.0914.i = phi ptr [ %.015.i, %.lr.ph.i ], [ %.024, %23 ]
-  %31 = load ptr, ptr %.015.i, align 8
-  store ptr %31, ptr %.0914.i, align 8
+.lr.ph.i:                                         ; preds = %24, %.lr.ph.i
+  %.015.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.pn23, %24 ]
+  %.0914.i = phi ptr [ %.015.i, %.lr.ph.i ], [ %.024, %24 ]
+  %32 = load ptr, ptr %.015.i, align 8
+  store ptr %32, ptr %.0914.i, align 8
   %.0.i = getelementptr inbounds i8, ptr %.015.i, i64 -8
   %.0.val.i = load ptr, ptr %.0.i, align 8
-  %32 = load ptr, ptr %6, align 8
-  %33 = load ptr, ptr %3, align 8
-  %34 = tail call i32 @_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_(ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef %33, ptr noundef %16) #22
-  %35 = load ptr, ptr %6, align 8
-  %36 = load ptr, ptr %3, align 8
-  %37 = tail call i32 @_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_(ptr noundef nonnull align 1 dereferenceable(1) %35, ptr noundef %36, ptr noundef %.0.val.i) #22
-  %38 = icmp ult i32 %37, %34
-  br i1 %38, label %.lr.ph.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEEvT_T0_.exit", !llvm.loop !179
+  %33 = load ptr, ptr %6, align 8
+  %34 = load ptr, ptr %3, align 8
+  %35 = tail call i32 @_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_(ptr noundef nonnull align 1 dereferenceable(1) %33, ptr noundef %34, ptr noundef %16) #22
+  %36 = load ptr, ptr %6, align 8
+  %37 = load ptr, ptr %3, align 8
+  %38 = tail call i32 @_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_(ptr noundef nonnull align 1 dereferenceable(1) %36, ptr noundef %37, ptr noundef %.0.val.i) #22
+  %39 = icmp ult i32 %38, %35
+  br i1 %39, label %.lr.ph.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEEvT_T0_.exit", !llvm.loop !179
 
-"_ZSt25__unguarded_linear_insertIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEEvT_T0_.exit": ; preds = %.lr.ph.i, %23, %17
-  %.sink = phi ptr [ %0, %17 ], [ %.024, %23 ], [ %.015.i, %.lr.ph.i ]
+"_ZSt25__unguarded_linear_insertIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEEvT_T0_.exit": ; preds = %.lr.ph.i, %24, %17
+  %.sink = phi ptr [ %0, %17 ], [ %.024, %24 ], [ %.015.i, %.lr.ph.i ]
   store ptr %16, ptr %.sink, align 8
   %.0 = getelementptr inbounds i8, ptr %.024, i64 8
   %.not = icmp eq ptr %.0, %1
@@ -26757,12 +26758,12 @@ _ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i: ; preds = %._crit_
 
 34:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
   %.not134 = phi i1 [ %.not126, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr117133 = phi i64 [ %4, %.lr.ph ], [ %144, %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr116132 = phi i64 [ %3, %.lr.ph ], [ %113, %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr117133 = phi i64 [ %4, %.lr.ph ], [ %147, %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr116132 = phi i64 [ %3, %.lr.ph ], [ %114, %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
   %.tr114130 = phi ptr [ %1, %.lr.ph ], [ %.0110, %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
   %.tr129 = phi ptr [ %0, %.lr.ph ], [ %.0.i95, %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
   %.not66 = icmp sgt i64 %.tr117133, %6
-  br i1 %.not66, label %67, label %35
+  br i1 %.not66, label %68, label %35
 
 35:                                               ; preds = %34
   %.not.i.i.i.i.i70 = icmp eq ptr %2, %.tr114130
@@ -26827,218 +26828,219 @@ _ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit71.thread: ; preds = %
   br label %43, !llvm.loop !184
 
 _ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.sink.split.i: ; preds = %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit71.thread, %55
-  %.sink7.i = phi ptr [ %56, %55 ], [ %38, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit71.thread ]
+  %.sink8.i = phi ptr [ %56, %55 ], [ %38, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit71.thread ]
   %.lcssa.sink.i = phi ptr [ %51, %55 ], [ %2, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit71.thread ]
-  %62 = ptrtoint ptr %.sink7.i to i64
+  %62 = ptrtoint ptr %.sink8.i to i64
   %63 = ptrtoint ptr %5 to i64
   %64 = sub i64 %62, %63
   %65 = ashr exact i64 %64, 3
-  %.pre.i.i.i.i.i34.i = sub nsw i64 0, %65
-  %66 = getelementptr inbounds ptr, ptr %.lcssa.sink.i, i64 %.pre.i.i.i.i.i34.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %66, ptr align 8 %5, i64 %64, i1 false)
+  %66 = sub nsw i64 0, %65
+  %67 = getelementptr inbounds ptr, ptr %.lcssa.sink.i, i64 %66
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %67, ptr align 8 %5, i64 %64, i1 false)
   br label %"_ZSt21__move_merge_adaptiveIPPN4llvm17MachineBasicBlockES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEEvT_SJ_T0_SK_T1_T2_.exit"
 
-67:                                               ; preds = %34
+68:                                               ; preds = %34
   %.sroa.25.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
-  %68 = ptrtoint ptr %.tr114130 to i64
+  %69 = ptrtoint ptr %.tr114130 to i64
   br i1 %.not134, label %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit, label %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit78
 
-_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit: ; preds = %67
-  %69 = sdiv i64 %.tr116132, 2
-  %70 = getelementptr inbounds ptr, ptr %.tr129, i64 %69
-  %71 = sub i64 %9, %68
-  %72 = ashr exact i64 %71, 3
-  %73 = icmp sgt i64 %72, 0
-  br i1 %73, label %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.lr.ph.i, label %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit"
+_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit: ; preds = %68
+  %70 = sdiv i64 %.tr116132, 2
+  %71 = getelementptr inbounds ptr, ptr %.tr129, i64 %70
+  %72 = sub i64 %9, %69
+  %73 = ashr exact i64 %72, 3
+  %74 = icmp sgt i64 %73, 0
+  br i1 %74, label %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.lr.ph.i, label %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit"
 
 _ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit
   %.sroa.04.0.copyload = load ptr, ptr %7, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload, i64 376
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload, i64 376
   br label %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i
 
 _ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.lr.ph.i
   %.020.i = phi ptr [ %.tr114130, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.lr.ph.i ], [ %.1.i74, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i ]
-  %.01119.i = phi i64 [ %72, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i ]
-  %75 = lshr i64 %.01119.i, 1
-  %76 = getelementptr inbounds ptr, ptr %.020.i, i64 %75
-  %.val14.i = load ptr, ptr %76, align 8
-  %.val15.i = load ptr, ptr %70, align 8
-  %77 = load ptr, ptr %74, align 8
-  %78 = load ptr, ptr %.sroa.25.0.copyload, align 8
-  %79 = tail call i32 @_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_(ptr noundef nonnull align 1 dereferenceable(1) %77, ptr noundef %78, ptr noundef %.val14.i) #22
-  %80 = load ptr, ptr %74, align 8
-  %81 = load ptr, ptr %.sroa.25.0.copyload, align 8
-  %82 = tail call i32 @_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_(ptr noundef nonnull align 1 dereferenceable(1) %80, ptr noundef %81, ptr noundef %.val15.i) #22
-  %83 = icmp ult i32 %82, %79
-  %84 = getelementptr inbounds i8, ptr %76, i64 8
-  %85 = xor i64 %75, -1
-  %86 = add nsw i64 %.01119.i, %85
-  %.112.i = select i1 %83, i64 %86, i64 %75
-  %.1.i74 = select i1 %83, ptr %84, ptr %.020.i
-  %87 = icmp sgt i64 %.112.i, 0
-  br i1 %87, label %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit.loopexit", !llvm.loop !181
+  %.01119.i = phi i64 [ %73, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i ]
+  %76 = lshr i64 %.01119.i, 1
+  %77 = getelementptr inbounds ptr, ptr %.020.i, i64 %76
+  %.val14.i = load ptr, ptr %77, align 8
+  %.val15.i = load ptr, ptr %71, align 8
+  %78 = load ptr, ptr %75, align 8
+  %79 = load ptr, ptr %.sroa.25.0.copyload, align 8
+  %80 = tail call i32 @_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_(ptr noundef nonnull align 1 dereferenceable(1) %78, ptr noundef %79, ptr noundef %.val14.i) #22
+  %81 = load ptr, ptr %75, align 8
+  %82 = load ptr, ptr %.sroa.25.0.copyload, align 8
+  %83 = tail call i32 @_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_(ptr noundef nonnull align 1 dereferenceable(1) %81, ptr noundef %82, ptr noundef %.val15.i) #22
+  %84 = icmp ult i32 %83, %80
+  %85 = getelementptr inbounds i8, ptr %77, i64 8
+  %86 = xor i64 %76, -1
+  %87 = add nsw i64 %.01119.i, %86
+  %.112.i = select i1 %84, i64 %87, i64 %76
+  %.1.i74 = select i1 %84, ptr %85, ptr %.020.i
+  %88 = icmp sgt i64 %.112.i, 0
+  br i1 %88, label %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit.loopexit", !llvm.loop !181
 
 "_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i
   %.pre = ptrtoint ptr %.1.i74 to i64
   br label %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit"
 
 "_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit.loopexit" ], [ %68, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit.loopexit" ], [ %69, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit ]
   %.0.lcssa.i73 = phi ptr [ %.1.i74, %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit.loopexit" ], [ %.tr114130, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit ]
-  %88 = sub i64 %.pre-phi, %68
-  %89 = ashr exact i64 %88, 3
-  br label %112
+  %89 = sub i64 %.pre-phi, %69
+  %90 = ashr exact i64 %89, 3
+  br label %113
 
-_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit78: ; preds = %67
-  %90 = sdiv i64 %.tr117133, 2
-  %91 = getelementptr inbounds ptr, ptr %.tr114130, i64 %90
-  %92 = ptrtoint ptr %.tr129 to i64
-  %93 = sub i64 %68, %92
-  %94 = ashr exact i64 %93, 3
-  %95 = icmp sgt i64 %94, 0
-  br i1 %95, label %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.lr.ph.i83, label %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit"
+_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit78: ; preds = %68
+  %91 = sdiv i64 %.tr117133, 2
+  %92 = getelementptr inbounds ptr, ptr %.tr114130, i64 %91
+  %93 = ptrtoint ptr %.tr129 to i64
+  %94 = sub i64 %69, %93
+  %95 = ashr exact i64 %94, 3
+  %96 = icmp sgt i64 %95, 0
+  br i1 %96, label %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.lr.ph.i83, label %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit"
 
 _ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.lr.ph.i83: ; preds = %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit78
   %.sroa.0.0.copyload = load ptr, ptr %7, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 376
+  %97 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 376
   br label %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i84
 
 _ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i84: ; preds = %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i84, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.lr.ph.i83
   %.020.i85 = phi ptr [ %.tr129, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.lr.ph.i83 ], [ %.1.i92, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i84 ]
-  %.01119.i86 = phi i64 [ %94, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.lr.ph.i83 ], [ %.112.i91, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i84 ]
-  %97 = lshr i64 %.01119.i86, 1
-  %98 = getelementptr inbounds ptr, ptr %.020.i85, i64 %97
-  %.val14.i89 = load ptr, ptr %91, align 8
-  %.val15.i90 = load ptr, ptr %98, align 8
-  %99 = load ptr, ptr %96, align 8
-  %100 = load ptr, ptr %.sroa.25.0.copyload, align 8
-  %101 = tail call i32 @_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_(ptr noundef nonnull align 1 dereferenceable(1) %99, ptr noundef %100, ptr noundef %.val14.i89) #22
-  %102 = load ptr, ptr %96, align 8
-  %103 = load ptr, ptr %.sroa.25.0.copyload, align 8
-  %104 = tail call i32 @_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_(ptr noundef nonnull align 1 dereferenceable(1) %102, ptr noundef %103, ptr noundef %.val15.i90) #22
-  %105 = icmp ult i32 %104, %101
-  %106 = getelementptr inbounds i8, ptr %98, i64 8
-  %107 = xor i64 %97, -1
-  %108 = add nsw i64 %.01119.i86, %107
-  %.112.i91 = select i1 %105, i64 %97, i64 %108
-  %.1.i92 = select i1 %105, ptr %.020.i85, ptr %106
-  %109 = icmp sgt i64 %.112.i91, 0
-  br i1 %109, label %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i84, label %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit.loopexit", !llvm.loop !182
+  %.01119.i86 = phi i64 [ %95, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.lr.ph.i83 ], [ %.112.i91, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i84 ]
+  %98 = lshr i64 %.01119.i86, 1
+  %99 = getelementptr inbounds ptr, ptr %.020.i85, i64 %98
+  %.val14.i89 = load ptr, ptr %92, align 8
+  %.val15.i90 = load ptr, ptr %99, align 8
+  %100 = load ptr, ptr %97, align 8
+  %101 = load ptr, ptr %.sroa.25.0.copyload, align 8
+  %102 = tail call i32 @_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_(ptr noundef nonnull align 1 dereferenceable(1) %100, ptr noundef %101, ptr noundef %.val14.i89) #22
+  %103 = load ptr, ptr %97, align 8
+  %104 = load ptr, ptr %.sroa.25.0.copyload, align 8
+  %105 = tail call i32 @_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_(ptr noundef nonnull align 1 dereferenceable(1) %103, ptr noundef %104, ptr noundef %.val15.i90) #22
+  %106 = icmp ult i32 %105, %102
+  %107 = getelementptr inbounds i8, ptr %99, i64 8
+  %108 = xor i64 %98, -1
+  %109 = add nsw i64 %.01119.i86, %108
+  %.112.i91 = select i1 %106, i64 %98, i64 %109
+  %.1.i92 = select i1 %106, ptr %.020.i85, ptr %107
+  %110 = icmp sgt i64 %.112.i91, 0
+  br i1 %110, label %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i84, label %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit.loopexit", !llvm.loop !182
 
 "_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i84
   %.pre143 = ptrtoint ptr %.1.i92 to i64
   br label %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit"
 
 "_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit78
-  %.pre-phi144 = phi i64 [ %.pre143, %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit.loopexit" ], [ %92, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit78 ]
+  %.pre-phi144 = phi i64 [ %.pre143, %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit.loopexit" ], [ %93, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit78 ]
   %.0.lcssa.i82 = phi ptr [ %.1.i92, %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit.loopexit" ], [ %.tr129, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit78 ]
-  %110 = sub i64 %.pre-phi144, %92
-  %111 = ashr exact i64 %110, 3
-  br label %112
+  %111 = sub i64 %.pre-phi144, %93
+  %112 = ashr exact i64 %111, 3
+  br label %113
 
-112:                                              ; preds = %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit", %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit"
-  %.0111 = phi ptr [ %70, %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit" ], [ %.0.lcssa.i82, %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit" ]
-  %.0110 = phi ptr [ %.0.lcssa.i73, %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit" ], [ %91, %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit" ]
-  %.061 = phi i64 [ %89, %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit" ], [ %90, %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit" ]
-  %.0 = phi i64 [ %69, %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit" ], [ %111, %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit" ]
-  %113 = sub nsw i64 %.tr116132, %.0
-  %114 = icmp sle i64 %113, %.061
+113:                                              ; preds = %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit", %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit"
+  %.0111 = phi ptr [ %71, %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit" ], [ %.0.lcssa.i82, %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit" ]
+  %.0110 = phi ptr [ %.0.lcssa.i73, %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit" ], [ %92, %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit" ]
+  %.061 = phi i64 [ %90, %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit" ], [ %91, %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit" ]
+  %.0 = phi i64 [ %70, %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit" ], [ %112, %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEET_SJ_SJ_RKT0_T1_.exit" ]
+  %114 = sub nsw i64 %.tr116132, %.0
+  %115 = icmp sle i64 %114, %.061
   %.not.i = icmp sgt i64 %.061, %6
-  %or.cond.i = or i1 %.not.i, %114
-  br i1 %or.cond.i, label %128, label %115
+  %or.cond.i = or i1 %.not.i, %115
+  br i1 %or.cond.i, label %130, label %116
 
-115:                                              ; preds = %112
+116:                                              ; preds = %113
   %.not35.i = icmp eq i64 %.061, 0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %116
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %117
 
-116:                                              ; preds = %115
-  %117 = ptrtoint ptr %.0110 to i64
-  %118 = ptrtoint ptr %.tr114130 to i64
-  %119 = sub i64 %117, %118
+117:                                              ; preds = %116
+  %118 = ptrtoint ptr %.0110 to i64
+  %119 = ptrtoint ptr %.tr114130 to i64
+  %120 = sub i64 %118, %119
   %.not.i.i.i.i.i.i93 = icmp eq ptr %.0110, %.tr114130
-  br i1 %.not.i.i.i.i.i.i93, label %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i94, label %120
+  br i1 %.not.i.i.i.i.i.i93, label %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i94, label %121
 
-120:                                              ; preds = %116
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr114130, i64 %119, i1 false)
+121:                                              ; preds = %117
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr114130, i64 %120, i1 false)
   br label %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i94
 
-_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i94: ; preds = %120, %116
+_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i94: ; preds = %121, %117
   %.not.i.i.i.i.i36.i = icmp eq ptr %.tr114130, %.0111
-  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i, label %121
+  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i, label %122
 
-121:                                              ; preds = %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i94
-  %122 = ptrtoint ptr %.0111 to i64
-  %123 = sub i64 %118, %122
-  %124 = ashr exact i64 %123, 3
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %124
-  %125 = getelementptr inbounds ptr, ptr %.0110, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %125, ptr align 8 %.0111, i64 %123, i1 false)
+122:                                              ; preds = %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i94
+  %123 = ptrtoint ptr %.0111 to i64
+  %124 = sub i64 %119, %123
+  %125 = ashr exact i64 %124, 3
+  %126 = sub nsw i64 0, %125
+  %127 = getelementptr inbounds ptr, ptr %.0110, i64 %126
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %127, ptr align 8 %.0111, i64 %124, i1 false)
   br label %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i
 
-_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i: ; preds = %121, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i94
-  br i1 %.not.i.i.i.i.i.i93, label %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit38.i, label %126
+_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i: ; preds = %122, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i94
+  br i1 %.not.i.i.i.i.i.i93, label %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit38.i, label %128
 
-126:                                              ; preds = %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0111, ptr align 8 %5, i64 %119, i1 false)
+128:                                              ; preds = %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0111, ptr align 8 %5, i64 %120, i1 false)
   br label %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit38.i
 
-_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit38.i: ; preds = %126, %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i
-  %127 = getelementptr inbounds i8, ptr %.0111, i64 %119
+_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit38.i: ; preds = %128, %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i
+  %129 = getelementptr inbounds i8, ptr %.0111, i64 %120
   br label %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
-128:                                              ; preds = %112
-  %.not33.i = icmp sgt i64 %113, %6
-  br i1 %.not33.i, label %142, label %129
+130:                                              ; preds = %113
+  %.not33.i = icmp sgt i64 %114, %6
+  br i1 %.not33.i, label %145, label %131
 
-129:                                              ; preds = %128
+131:                                              ; preds = %130
   %.not34.i = icmp eq i64 %.tr116132, %.0
-  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %130
+  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %132
 
-130:                                              ; preds = %129
-  %131 = ptrtoint ptr %.tr114130 to i64
-  %132 = ptrtoint ptr %.0111 to i64
-  %133 = sub i64 %131, %132
+132:                                              ; preds = %131
+  %133 = ptrtoint ptr %.tr114130 to i64
+  %134 = ptrtoint ptr %.0111 to i64
+  %135 = sub i64 %133, %134
   %.not.i.i.i.i.i39.i = icmp eq ptr %.tr114130, %.0111
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit40.i, label %134
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit40.i, label %136
 
-134:                                              ; preds = %130
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.0111, i64 %133, i1 false)
+136:                                              ; preds = %132
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.0111, i64 %135, i1 false)
   br label %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit40.i
 
-_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit40.i: ; preds = %134, %130
+_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit40.i: ; preds = %136, %132
   %.not.i.i.i.i.i41.i = icmp eq ptr %.0110, %.tr114130
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit42.i, label %135
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit42.i, label %137
 
-135:                                              ; preds = %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit40.i
-  %136 = ptrtoint ptr %.0110 to i64
-  %137 = sub i64 %136, %131
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0111, ptr align 8 %.tr114130, i64 %137, i1 false)
+137:                                              ; preds = %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit40.i
+  %138 = ptrtoint ptr %.0110 to i64
+  %139 = sub i64 %138, %133
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0111, ptr align 8 %.tr114130, i64 %139, i1 false)
   br label %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit42.i
 
-_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit42.i: ; preds = %135, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit40.i
-  %138 = ashr exact i64 %133, 3
-  %.pre.i.i.i.i.i44.i = sub nsw i64 0, %138
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit45.i, label %139
+_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit42.i: ; preds = %137, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit40.i
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit45.i, label %140
 
-139:                                              ; preds = %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit42.i
-  %140 = getelementptr inbounds ptr, ptr %.0110, i64 %.pre.i.i.i.i.i44.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %140, ptr align 8 %5, i64 %133, i1 false)
+140:                                              ; preds = %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit42.i
+  %141 = ashr exact i64 %135, 3
+  %142 = sub nsw i64 0, %141
+  %143 = getelementptr inbounds ptr, ptr %.0110, i64 %142
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %143, ptr align 8 %5, i64 %135, i1 false)
   br label %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit45.i
 
-_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit45.i: ; preds = %139, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit42.i
-  %141 = getelementptr inbounds ptr, ptr %.0110, i64 %.pre.i.i.i.i.i44.i
+_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit45.i: ; preds = %140, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit42.i
+  %.pre-phi.i.i.i.i.i44.i = phi i64 [ %142, %140 ], [ 0, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit42.i ]
+  %144 = getelementptr inbounds ptr, ptr %.0110, i64 %.pre-phi.i.i.i.i.i44.i
   br label %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
-142:                                              ; preds = %128
-  %143 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN4llvm17MachineBasicBlockEEET_S5_S5_S5_St26random_access_iterator_tag(ptr noundef %.0111, ptr noundef %.tr114130, ptr noundef %.0110)
+145:                                              ; preds = %130
+  %146 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN4llvm17MachineBasicBlockEEET_S5_S5_S5_St26random_access_iterator_tag(ptr noundef %.0111, ptr noundef %.tr114130, ptr noundef %.0110)
   br label %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
-_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit: ; preds = %115, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit38.i, %129, %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit45.i, %142
-  %.0.i95 = phi ptr [ %127, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit38.i ], [ %141, %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit45.i ], [ %143, %142 ], [ %.0111, %115 ], [ %.0110, %129 ]
+_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit: ; preds = %116, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit38.i, %131, %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit45.i, %145
+  %.0.i95 = phi ptr [ %129, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit38.i ], [ %144, %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit45.i ], [ %146, %145 ], [ %.0111, %116 ], [ %.0110, %131 ]
   tail call fastcc void @"_ZSt16__merge_adaptiveIPPN4llvm17MachineBasicBlockElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEEvT_SJ_SJ_T0_SK_T1_SK_T2_"(ptr noundef %.tr129, ptr noundef %.0111, ptr noundef %.0.i95, i64 noundef %.0, i64 noundef %.061, ptr noundef %5, i64 noundef %6, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.565") align 8 %7)
-  %144 = sub nsw i64 %.tr117133, %.061
-  %.not = icmp sgt i64 %113, %144
-  %.not65 = icmp sgt i64 %113, %6
+  %147 = sub nsw i64 %.tr117133, %.061
+  %.not = icmp sgt i64 %114, %147
+  %.not65 = icmp sgt i64 %114, %6
   %or.cond = or i1 %.not65, %.not
   br i1 %or.cond, label %34, label %tailrecurse._crit_edge
 
@@ -27340,43 +27342,43 @@ define internal fastcc void @"_ZSt16__insertion_sortIPPN4llvm17MachineBasicBlock
   %11 = tail call i64 @_ZNK4llvm11MBFIWrapper12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %.val18) #22
   %12 = icmp ugt i64 %9, %11
   %13 = load ptr, ptr %.022, align 8
-  br i1 %12, label %14, label %20
+  br i1 %12, label %14, label %21
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %.pn21, i64 16
   %16 = ptrtoint ptr %.022 to i64
   %17 = sub i64 %16, %6
   %18 = ashr exact i64 %17, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %18
-  %19 = getelementptr inbounds ptr, ptr %15, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %17, i1 false)
+  %19 = sub nsw i64 0, %18
+  %20 = getelementptr inbounds ptr, ptr %15, i64 %19
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %20, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %17, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEEvT_T0_.exit"
 
-20:                                               ; preds = %7
+21:                                               ; preds = %7
   %.0.val12.i = load ptr, ptr %.pn21, align 8
-  %21 = load ptr, ptr %5, align 8
-  %22 = tail call i64 @_ZNK4llvm11MBFIWrapper12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef %13) #22
-  %23 = load ptr, ptr %5, align 8
-  %24 = tail call i64 @_ZNK4llvm11MBFIWrapper12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef %.0.val12.i) #22
-  %25 = icmp ugt i64 %22, %24
-  br i1 %25, label %.lr.ph.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEEvT_T0_.exit"
+  %22 = load ptr, ptr %5, align 8
+  %23 = tail call i64 @_ZNK4llvm11MBFIWrapper12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef %13) #22
+  %24 = load ptr, ptr %5, align 8
+  %25 = tail call i64 @_ZNK4llvm11MBFIWrapper12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef %.0.val12.i) #22
+  %26 = icmp ugt i64 %23, %25
+  br i1 %26, label %.lr.ph.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEEvT_T0_.exit"
 
-.lr.ph.i:                                         ; preds = %20, %.lr.ph.i
-  %.014.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.pn21, %20 ]
-  %.0913.i = phi ptr [ %.014.i, %.lr.ph.i ], [ %.022, %20 ]
-  %26 = load ptr, ptr %.014.i, align 8
-  store ptr %26, ptr %.0913.i, align 8
+.lr.ph.i:                                         ; preds = %21, %.lr.ph.i
+  %.014.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.pn21, %21 ]
+  %.0913.i = phi ptr [ %.014.i, %.lr.ph.i ], [ %.022, %21 ]
+  %27 = load ptr, ptr %.014.i, align 8
+  store ptr %27, ptr %.0913.i, align 8
   %.0.i = getelementptr inbounds i8, ptr %.014.i, i64 -8
   %.0.val.i = load ptr, ptr %.0.i, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = tail call i64 @_ZNK4llvm11MBFIWrapper12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef %13) #22
-  %29 = load ptr, ptr %5, align 8
-  %30 = tail call i64 @_ZNK4llvm11MBFIWrapper12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef %.0.val.i) #22
-  %31 = icmp ugt i64 %28, %30
-  br i1 %31, label %.lr.ph.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEEvT_T0_.exit", !llvm.loop !189
+  %28 = load ptr, ptr %5, align 8
+  %29 = tail call i64 @_ZNK4llvm11MBFIWrapper12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef %13) #22
+  %30 = load ptr, ptr %5, align 8
+  %31 = tail call i64 @_ZNK4llvm11MBFIWrapper12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef %.0.val.i) #22
+  %32 = icmp ugt i64 %29, %31
+  br i1 %32, label %.lr.ph.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEEvT_T0_.exit", !llvm.loop !189
 
-"_ZSt25__unguarded_linear_insertIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEEvT_T0_.exit": ; preds = %.lr.ph.i, %20, %14
-  %.sink = phi ptr [ %0, %14 ], [ %.022, %20 ], [ %.014.i, %.lr.ph.i ]
+"_ZSt25__unguarded_linear_insertIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEEvT_T0_.exit": ; preds = %.lr.ph.i, %21, %14
+  %.sink = phi ptr [ %0, %14 ], [ %.022, %21 ], [ %.014.i, %.lr.ph.i ]
   store ptr %13, ptr %.sink, align 8
   %.0 = getelementptr inbounds i8, ptr %.022, i64 8
   %.not = icmp eq ptr %.0, %1
@@ -27602,12 +27604,12 @@ _ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i: ; preds = %._crit_
 
 34:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
   %.not129 = phi i1 [ %.not121, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr110128 = phi i64 [ %4, %.lr.ph ], [ %135, %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr109127 = phi i64 [ %3, %.lr.ph ], [ %104, %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr110128 = phi i64 [ %4, %.lr.ph ], [ %138, %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr109127 = phi i64 [ %3, %.lr.ph ], [ %105, %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
   %.tr107125 = phi ptr [ %1, %.lr.ph ], [ %.0103, %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
   %.tr124 = phi ptr [ %0, %.lr.ph ], [ %.0.i93, %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
   %.not68 = icmp sgt i64 %.tr110128, %6
-  br i1 %.not68, label %64, label %35
+  br i1 %.not68, label %65, label %35
 
 35:                                               ; preds = %34
   %.not.i.i.i.i.i69 = icmp eq ptr %2, %.tr107125
@@ -27667,203 +27669,204 @@ _ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit70.thread: ; preds = %
   br label %42, !llvm.loop !194
 
 _ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.sink.split.i: ; preds = %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit70.thread, %52
-  %.sink41.i = phi ptr [ %53, %52 ], [ %38, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit70.thread ]
+  %.sink42.i = phi ptr [ %53, %52 ], [ %38, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit70.thread ]
   %.lcssa.sink.i = phi ptr [ %48, %52 ], [ %2, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit70.thread ]
-  %59 = ptrtoint ptr %.sink41.i to i64
+  %59 = ptrtoint ptr %.sink42.i to i64
   %60 = ptrtoint ptr %5 to i64
   %61 = sub i64 %59, %60
   %62 = ashr exact i64 %61, 3
-  %.pre.i.i.i.i.i33.i = sub nsw i64 0, %62
-  %63 = getelementptr inbounds ptr, ptr %.lcssa.sink.i, i64 %.pre.i.i.i.i.i33.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %63, ptr align 8 %5, i64 %61, i1 false)
+  %63 = sub nsw i64 0, %62
+  %64 = getelementptr inbounds ptr, ptr %.lcssa.sink.i, i64 %63
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %64, ptr align 8 %5, i64 %61, i1 false)
   br label %"_ZSt21__move_merge_adaptiveIPPN4llvm17MachineBasicBlockES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEEvT_SJ_T0_SK_T1_T2_.exit"
 
-64:                                               ; preds = %34
-  %65 = ptrtoint ptr %.tr107125 to i64
+65:                                               ; preds = %34
+  %66 = ptrtoint ptr %.tr107125 to i64
   br i1 %.not129, label %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit, label %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit78
 
-_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit: ; preds = %64
-  %66 = sdiv i64 %.tr109127, 2
-  %67 = getelementptr inbounds ptr, ptr %.tr124, i64 %66
-  %68 = sub i64 %11, %65
-  %69 = ashr exact i64 %68, 3
-  %70 = icmp sgt i64 %69, 0
-  br i1 %70, label %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit"
+_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit: ; preds = %65
+  %67 = sdiv i64 %.tr109127, 2
+  %68 = getelementptr inbounds ptr, ptr %.tr124, i64 %67
+  %69 = sub i64 %11, %66
+  %70 = ashr exact i64 %69, 3
+  %71 = icmp sgt i64 %70, 0
+  br i1 %71, label %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit"
 
 _ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i
   %.019.i = phi ptr [ %.1.i74, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i ], [ %.tr107125, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit ]
-  %.01118.i = phi i64 [ %.112.i, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i ], [ %69, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit ]
-  %71 = lshr i64 %.01118.i, 1
-  %72 = getelementptr inbounds ptr, ptr %.019.i, i64 %71
-  %.val13.i = load ptr, ptr %72, align 8
-  %.val14.i = load ptr, ptr %67, align 8
-  %73 = load ptr, ptr %10, align 8
-  %74 = tail call i64 @_ZNK4llvm11MBFIWrapper12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef %.val13.i) #22
-  %75 = load ptr, ptr %10, align 8
-  %76 = tail call i64 @_ZNK4llvm11MBFIWrapper12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef %.val14.i) #22
-  %77 = icmp ugt i64 %74, %76
-  %78 = getelementptr inbounds i8, ptr %72, i64 8
-  %79 = xor i64 %71, -1
-  %80 = add nsw i64 %.01118.i, %79
-  %.112.i = select i1 %77, i64 %80, i64 %71
-  %.1.i74 = select i1 %77, ptr %78, ptr %.019.i
-  %81 = icmp sgt i64 %.112.i, 0
-  br i1 %81, label %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit", !llvm.loop !191
+  %.01118.i = phi i64 [ %.112.i, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i ], [ %70, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit ]
+  %72 = lshr i64 %.01118.i, 1
+  %73 = getelementptr inbounds ptr, ptr %.019.i, i64 %72
+  %.val13.i = load ptr, ptr %73, align 8
+  %.val14.i = load ptr, ptr %68, align 8
+  %74 = load ptr, ptr %10, align 8
+  %75 = tail call i64 @_ZNK4llvm11MBFIWrapper12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef %.val13.i) #22
+  %76 = load ptr, ptr %10, align 8
+  %77 = tail call i64 @_ZNK4llvm11MBFIWrapper12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(32) %76, ptr noundef %.val14.i) #22
+  %78 = icmp ugt i64 %75, %77
+  %79 = getelementptr inbounds i8, ptr %73, i64 8
+  %80 = xor i64 %72, -1
+  %81 = add nsw i64 %.01118.i, %80
+  %.112.i = select i1 %78, i64 %81, i64 %72
+  %.1.i74 = select i1 %78, ptr %79, ptr %.019.i
+  %82 = icmp sgt i64 %.112.i, 0
+  br i1 %82, label %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit", !llvm.loop !191
 
 "_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i
   %.pre = ptrtoint ptr %.1.i74 to i64
   br label %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit"
 
 "_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit" ], [ %65, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit" ], [ %66, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit ]
   %.0.lcssa.i73 = phi ptr [ %.1.i74, %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit" ], [ %.tr107125, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit ]
-  %82 = sub i64 %.pre-phi, %65
-  %83 = ashr exact i64 %82, 3
-  br label %103
+  %83 = sub i64 %.pre-phi, %66
+  %84 = ashr exact i64 %83, 3
+  br label %104
 
-_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit78: ; preds = %64
-  %84 = sdiv i64 %.tr110128, 2
-  %85 = getelementptr inbounds ptr, ptr %.tr107125, i64 %84
-  %86 = ptrtoint ptr %.tr124 to i64
-  %87 = sub i64 %65, %86
-  %88 = ashr exact i64 %87, 3
-  %89 = icmp sgt i64 %88, 0
-  br i1 %89, label %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i82, label %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit"
+_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit78: ; preds = %65
+  %85 = sdiv i64 %.tr110128, 2
+  %86 = getelementptr inbounds ptr, ptr %.tr107125, i64 %85
+  %87 = ptrtoint ptr %.tr124 to i64
+  %88 = sub i64 %66, %87
+  %89 = ashr exact i64 %88, 3
+  %90 = icmp sgt i64 %89, 0
+  br i1 %90, label %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i82, label %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit"
 
 _ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i82: ; preds = %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit78, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i82
   %.019.i83 = phi ptr [ %.1.i90, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i82 ], [ %.tr124, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit78 ]
-  %.01118.i84 = phi i64 [ %.112.i89, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i82 ], [ %88, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit78 ]
-  %90 = lshr i64 %.01118.i84, 1
-  %91 = getelementptr inbounds ptr, ptr %.019.i83, i64 %90
-  %.val13.i87 = load ptr, ptr %85, align 8
-  %.val14.i88 = load ptr, ptr %91, align 8
-  %92 = load ptr, ptr %10, align 8
-  %93 = tail call i64 @_ZNK4llvm11MBFIWrapper12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef %.val13.i87) #22
-  %94 = load ptr, ptr %10, align 8
-  %95 = tail call i64 @_ZNK4llvm11MBFIWrapper12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef %.val14.i88) #22
-  %96 = icmp ugt i64 %93, %95
-  %97 = getelementptr inbounds i8, ptr %91, i64 8
-  %98 = xor i64 %90, -1
-  %99 = add nsw i64 %.01118.i84, %98
-  %.112.i89 = select i1 %96, i64 %90, i64 %99
-  %.1.i90 = select i1 %96, ptr %.019.i83, ptr %97
-  %100 = icmp sgt i64 %.112.i89, 0
-  br i1 %100, label %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i82, label %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit", !llvm.loop !192
+  %.01118.i84 = phi i64 [ %.112.i89, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i82 ], [ %89, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit78 ]
+  %91 = lshr i64 %.01118.i84, 1
+  %92 = getelementptr inbounds ptr, ptr %.019.i83, i64 %91
+  %.val13.i87 = load ptr, ptr %86, align 8
+  %.val14.i88 = load ptr, ptr %92, align 8
+  %93 = load ptr, ptr %10, align 8
+  %94 = tail call i64 @_ZNK4llvm11MBFIWrapper12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef %.val13.i87) #22
+  %95 = load ptr, ptr %10, align 8
+  %96 = tail call i64 @_ZNK4llvm11MBFIWrapper12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef %.val14.i88) #22
+  %97 = icmp ugt i64 %94, %96
+  %98 = getelementptr inbounds i8, ptr %92, i64 8
+  %99 = xor i64 %91, -1
+  %100 = add nsw i64 %.01118.i84, %99
+  %.112.i89 = select i1 %97, i64 %91, i64 %100
+  %.1.i90 = select i1 %97, ptr %.019.i83, ptr %98
+  %101 = icmp sgt i64 %.112.i89, 0
+  br i1 %101, label %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i82, label %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit", !llvm.loop !192
 
 "_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit.i82
   %.pre138 = ptrtoint ptr %.1.i90 to i64
   br label %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit"
 
 "_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit78
-  %.pre-phi139 = phi i64 [ %.pre138, %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit" ], [ %86, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit78 ]
+  %.pre-phi139 = phi i64 [ %.pre138, %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit" ], [ %87, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit78 ]
   %.0.lcssa.i80 = phi ptr [ %.1.i90, %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit" ], [ %.tr124, %_ZSt7advanceIPPN4llvm17MachineBasicBlockElEvRT_T0_.exit78 ]
-  %101 = sub i64 %.pre-phi139, %86
-  %102 = ashr exact i64 %101, 3
-  br label %103
+  %102 = sub i64 %.pre-phi139, %87
+  %103 = ashr exact i64 %102, 3
+  br label %104
 
-103:                                              ; preds = %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit", %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit"
-  %.0104 = phi ptr [ %67, %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ], [ %.0.lcssa.i80, %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ]
-  %.0103 = phi ptr [ %.0.lcssa.i73, %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ], [ %85, %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ]
-  %.063 = phi i64 [ %83, %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ], [ %84, %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ]
-  %.0 = phi i64 [ %66, %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ], [ %102, %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ]
-  %104 = sub nsw i64 %.tr109127, %.0
-  %105 = icmp sle i64 %104, %.063
+104:                                              ; preds = %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit", %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit"
+  %.0104 = phi ptr [ %68, %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ], [ %.0.lcssa.i80, %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ]
+  %.0103 = phi ptr [ %.0.lcssa.i73, %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ], [ %86, %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ]
+  %.063 = phi i64 [ %84, %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ], [ %85, %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ]
+  %.0 = phi i64 [ %67, %"_ZSt13__lower_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ], [ %103, %"_ZSt13__upper_boundIPPN4llvm17MachineBasicBlockES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ]
+  %105 = sub nsw i64 %.tr109127, %.0
+  %106 = icmp sle i64 %105, %.063
   %.not.i = icmp sgt i64 %.063, %6
-  %or.cond.i = or i1 %.not.i, %105
-  br i1 %or.cond.i, label %119, label %106
+  %or.cond.i = or i1 %.not.i, %106
+  br i1 %or.cond.i, label %121, label %107
 
-106:                                              ; preds = %103
+107:                                              ; preds = %104
   %.not35.i = icmp eq i64 %.063, 0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %107
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %108
 
-107:                                              ; preds = %106
-  %108 = ptrtoint ptr %.0103 to i64
-  %109 = ptrtoint ptr %.tr107125 to i64
-  %110 = sub i64 %108, %109
+108:                                              ; preds = %107
+  %109 = ptrtoint ptr %.0103 to i64
+  %110 = ptrtoint ptr %.tr107125 to i64
+  %111 = sub i64 %109, %110
   %.not.i.i.i.i.i.i91 = icmp eq ptr %.0103, %.tr107125
-  br i1 %.not.i.i.i.i.i.i91, label %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i92, label %111
+  br i1 %.not.i.i.i.i.i.i91, label %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i92, label %112
 
-111:                                              ; preds = %107
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr107125, i64 %110, i1 false)
+112:                                              ; preds = %108
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr107125, i64 %111, i1 false)
   br label %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i92
 
-_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i92: ; preds = %111, %107
+_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i92: ; preds = %112, %108
   %.not.i.i.i.i.i36.i = icmp eq ptr %.tr107125, %.0104
-  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i, label %112
+  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i, label %113
 
-112:                                              ; preds = %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i92
-  %113 = ptrtoint ptr %.0104 to i64
-  %114 = sub i64 %109, %113
-  %115 = ashr exact i64 %114, 3
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %115
-  %116 = getelementptr inbounds ptr, ptr %.0103, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %116, ptr align 8 %.0104, i64 %114, i1 false)
+113:                                              ; preds = %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i92
+  %114 = ptrtoint ptr %.0104 to i64
+  %115 = sub i64 %110, %114
+  %116 = ashr exact i64 %115, 3
+  %117 = sub nsw i64 0, %116
+  %118 = getelementptr inbounds ptr, ptr %.0103, i64 %117
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %118, ptr align 8 %.0104, i64 %115, i1 false)
   br label %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i
 
-_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i: ; preds = %112, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i92
-  br i1 %.not.i.i.i.i.i.i91, label %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit38.i, label %117
+_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i: ; preds = %113, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i92
+  br i1 %.not.i.i.i.i.i.i91, label %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit38.i, label %119
 
-117:                                              ; preds = %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0104, ptr align 8 %5, i64 %110, i1 false)
+119:                                              ; preds = %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0104, ptr align 8 %5, i64 %111, i1 false)
   br label %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit38.i
 
-_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit38.i: ; preds = %117, %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i
-  %118 = getelementptr inbounds i8, ptr %.0104, i64 %110
+_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit38.i: ; preds = %119, %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit.i
+  %120 = getelementptr inbounds i8, ptr %.0104, i64 %111
   br label %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
-119:                                              ; preds = %103
-  %.not33.i = icmp sgt i64 %104, %6
-  br i1 %.not33.i, label %133, label %120
+121:                                              ; preds = %104
+  %.not33.i = icmp sgt i64 %105, %6
+  br i1 %.not33.i, label %136, label %122
 
-120:                                              ; preds = %119
+122:                                              ; preds = %121
   %.not34.i = icmp eq i64 %.tr109127, %.0
-  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %121
+  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %123
 
-121:                                              ; preds = %120
-  %122 = ptrtoint ptr %.tr107125 to i64
-  %123 = ptrtoint ptr %.0104 to i64
-  %124 = sub i64 %122, %123
+123:                                              ; preds = %122
+  %124 = ptrtoint ptr %.tr107125 to i64
+  %125 = ptrtoint ptr %.0104 to i64
+  %126 = sub i64 %124, %125
   %.not.i.i.i.i.i39.i = icmp eq ptr %.tr107125, %.0104
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit40.i, label %125
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit40.i, label %127
 
-125:                                              ; preds = %121
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.0104, i64 %124, i1 false)
+127:                                              ; preds = %123
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.0104, i64 %126, i1 false)
   br label %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit40.i
 
-_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit40.i: ; preds = %125, %121
+_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit40.i: ; preds = %127, %123
   %.not.i.i.i.i.i41.i = icmp eq ptr %.0103, %.tr107125
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit42.i, label %126
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit42.i, label %128
 
-126:                                              ; preds = %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit40.i
-  %127 = ptrtoint ptr %.0103 to i64
-  %128 = sub i64 %127, %122
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0104, ptr align 8 %.tr107125, i64 %128, i1 false)
+128:                                              ; preds = %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit40.i
+  %129 = ptrtoint ptr %.0103 to i64
+  %130 = sub i64 %129, %124
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0104, ptr align 8 %.tr107125, i64 %130, i1 false)
   br label %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit42.i
 
-_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit42.i: ; preds = %126, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit40.i
-  %129 = ashr exact i64 %124, 3
-  %.pre.i.i.i.i.i44.i = sub nsw i64 0, %129
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit45.i, label %130
+_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit42.i: ; preds = %128, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit40.i
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit45.i, label %131
 
-130:                                              ; preds = %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit42.i
-  %131 = getelementptr inbounds ptr, ptr %.0103, i64 %.pre.i.i.i.i.i44.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %131, ptr align 8 %5, i64 %124, i1 false)
+131:                                              ; preds = %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit42.i
+  %132 = ashr exact i64 %126, 3
+  %133 = sub nsw i64 0, %132
+  %134 = getelementptr inbounds ptr, ptr %.0103, i64 %133
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %134, ptr align 8 %5, i64 %126, i1 false)
   br label %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit45.i
 
-_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit45.i: ; preds = %130, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit42.i
-  %132 = getelementptr inbounds ptr, ptr %.0103, i64 %.pre.i.i.i.i.i44.i
+_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit45.i: ; preds = %131, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit42.i
+  %.pre-phi.i.i.i.i.i44.i = phi i64 [ %133, %131 ], [ 0, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit42.i ]
+  %135 = getelementptr inbounds ptr, ptr %.0103, i64 %.pre-phi.i.i.i.i.i44.i
   br label %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
-133:                                              ; preds = %119
-  %134 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN4llvm17MachineBasicBlockEEET_S5_S5_S5_St26random_access_iterator_tag(ptr noundef %.0104, ptr noundef %.tr107125, ptr noundef %.0103)
+136:                                              ; preds = %121
+  %137 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN4llvm17MachineBasicBlockEEET_S5_S5_S5_St26random_access_iterator_tag(ptr noundef %.0104, ptr noundef %.tr107125, ptr noundef %.0103)
   br label %_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
-_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit: ; preds = %106, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit38.i, %120, %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit45.i, %133
-  %.0.i93 = phi ptr [ %118, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit38.i ], [ %132, %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit45.i ], [ %134, %133 ], [ %.0104, %106 ], [ %.0103, %120 ]
+_ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit: ; preds = %107, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit38.i, %122, %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit45.i, %136
+  %.0.i93 = phi ptr [ %120, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit38.i ], [ %135, %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit45.i ], [ %137, %136 ], [ %.0104, %107 ], [ %.0103, %122 ]
   tail call fastcc void @"_ZSt16__merge_adaptiveIPPN4llvm17MachineBasicBlockElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEEvT_SJ_SJ_T0_SK_T1_SK_T2_"(ptr noundef %.tr124, ptr noundef %.0104, ptr noundef %.0.i93, i64 noundef %.0, i64 noundef %.063, ptr noundef %5, i64 noundef %6, i64 %7)
-  %135 = sub nsw i64 %.tr110128, %.063
-  %.not = icmp sgt i64 %104, %135
-  %.not67 = icmp sgt i64 %104, %6
+  %138 = sub nsw i64 %.tr110128, %.063
+  %.not = icmp sgt i64 %105, %138
+  %.not67 = icmp sgt i64 %105, %6
   %or.cond = or i1 %.not67, %.not
   br i1 %or.cond, label %34, label %tailrecurse._crit_edge
 

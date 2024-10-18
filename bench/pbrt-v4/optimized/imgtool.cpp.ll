@@ -52035,10 +52035,6 @@ invoke.cont17.i.i.i:                              ; preds = %invoke.cont12.i.i.i
   %_M_finish.i18105.i.i.i = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load ptr, ptr %_M_finish.i18105.i.i.i, align 8
   %22 = load ptr, ptr %20, align 8
-  %sub.ptr.lhs.cast.i19106.i.i.i = ptrtoint ptr %21 to i64
-  %sub.ptr.rhs.cast.i20107.i.i.i = ptrtoint ptr %22 to i64
-  %sub.ptr.sub.i21108.i.i.i = sub i64 %sub.ptr.lhs.cast.i19106.i.i.i, %sub.ptr.rhs.cast.i20107.i.i.i
-  %sub.ptr.div.i22109.i.i.i = ashr exact i64 %sub.ptr.sub.i21108.i.i.i, 2
   %cmp28110.not.i.i.i = icmp eq ptr %21, %22
   br i1 %cmp28110.not.i.i.i, label %for.end.i.i.i, label %for.body29.lr.ph.i.i.i
 
@@ -52076,7 +52072,7 @@ invoke.cont35.i.i.i:                              ; preds = %for.body29.i.i.i
 
 for.end.i.i.i:                                    ; preds = %invoke.cont35.i.i.i, %invoke.cont17.i.i.i
   %.lcssa.i.i.i = phi ptr [ %22, %invoke.cont17.i.i.i ], [ %29, %invoke.cont35.i.i.i ]
-  %sub.ptr.div.i22.lcssa.i.i.i = phi i64 [ %sub.ptr.div.i22109.i.i.i, %invoke.cont17.i.i.i ], [ %sub.ptr.div.i22.i.i.i, %invoke.cont35.i.i.i ]
+  %sub.ptr.div.i22.lcssa.i.i.i = phi i64 [ 0, %invoke.cont17.i.i.i ], [ %sub.ptr.div.i22.i.i.i, %invoke.cont35.i.i.i ]
   %call.i.i.i.i = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #34
   invoke void @_ZN4pbrt23PiecewiseLinearSpectrumC1EN4pstd4spanIKfEES4_NS1_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(64) %spec.i.i.i, ptr %.lcssa.i.i.i, i64 %sub.ptr.div.i22.lcssa.i.i.i, ptr %skyv.sroa.0.0.i.i.i, i64 %sub.ptr.div.i.i28.i.i.i, ptr %call.i.i.i.i)
           to label %invoke.cont49.i.i.i unwind label %lpad10.loopexit.split-lp.i.i.i
@@ -67667,7 +67663,7 @@ if.then.i.i.i.i.i35:                              ; preds = %if.else49
   br label %_ZSt4copyIPN4pbrt17VarianceEstimatorIdEES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPN4pbrt17VarianceEstimatorIdEES3_ET0_T_S5_S4_.exit: ; preds = %if.else49, %if.then.i.i.i.i.i35
-  %sub.ptr.sub.i40.pre-phi = phi i64 [ %sub.ptr.sub.i22, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
+  %sub.ptr.sub.i40.pre-phi = phi i64 [ 0, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
   %10 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
   %11 = phi ptr [ %9, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
   %12 = phi ptr [ %1, %if.else49 ], [ %.pre, %if.then.i.i.i.i.i35 ]

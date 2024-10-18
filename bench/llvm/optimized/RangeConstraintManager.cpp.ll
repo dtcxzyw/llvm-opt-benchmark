@@ -29702,11 +29702,11 @@ define internal fastcc void @"_ZSt16__insertion_sortIPPKN5clang4ento7SymExprEN9_
   %19 = ptrtoint ptr %0 to i64
   br label %20
 
-20:                                               ; preds = %.lr.ph, %43
-  %.020 = phi ptr [ %.017, %.lr.ph ], [ %.0, %43 ]
-  %.pn19 = phi ptr [ %0, %.lr.ph ], [ %.020, %43 ]
+20:                                               ; preds = %.lr.ph, %44
+  %.020 = phi ptr [ %.017, %.lr.ph ], [ %.0, %44 ]
+  %.pn19 = phi ptr [ %0, %.lr.ph ], [ %.020, %44 ]
   %21 = call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %.020, ptr noundef nonnull readonly align 8 dereferenceable(8) %0)
-  br i1 %21, label %22, label %29
+  br i1 %21, label %22, label %30
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %.020, align 8
@@ -29714,24 +29714,24 @@ define internal fastcc void @"_ZSt16__insertion_sortIPPKN5clang4ento7SymExprEN9_
   %25 = ptrtoint ptr %.020 to i64
   %26 = sub i64 %25, %19
   %27 = ashr exact i64 %26, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %27
-  %28 = getelementptr inbounds ptr, ptr %24, i64 %.pre.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %28, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %26, i1 false)
+  %28 = sub nsw i64 0, %27
+  %29 = getelementptr inbounds ptr, ptr %24, i64 %28
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %29, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %26, i1 false)
   store ptr %23, ptr %0, align 8
-  br label %43
+  br label %44
 
-29:                                               ; preds = %20
+30:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %30 = load ptr, ptr %.020, align 8
-  store ptr %30, ptr %7, align 8
-  %31 = call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noundef nonnull readonly align 8 dereferenceable(8) %.pn19)
-  br i1 %31, label %.lr.ph.i, label %"_ZSt25__unguarded_linear_insertIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops14_Val_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_.exit"
+  %31 = load ptr, ptr %.020, align 8
+  store ptr %31, ptr %7, align 8
+  %32 = call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noundef nonnull readonly align 8 dereferenceable(8) %.pn19)
+  br i1 %32, label %.lr.ph.i, label %"_ZSt25__unguarded_linear_insertIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops14_Val_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_.exit"
 
-.lr.ph.i:                                         ; preds = %29, %.lr.ph.i
-  %.012.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.pn19, %29 ]
-  %.0911.i = phi ptr [ %.012.i, %.lr.ph.i ], [ %.020, %29 ]
-  %32 = load ptr, ptr %.012.i, align 8
-  store ptr %32, ptr %.0911.i, align 8
+.lr.ph.i:                                         ; preds = %30, %.lr.ph.i
+  %.012.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.pn19, %30 ]
+  %.0911.i = phi ptr [ %.012.i, %.lr.ph.i ], [ %.020, %30 ]
+  %33 = load ptr, ptr %.012.i, align 8
+  store ptr %33, ptr %.0911.i, align 8
   %.0.i = getelementptr inbounds i8, ptr %.012.i, i64 -8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
@@ -29744,11 +29744,11 @@ define internal fastcc void @"_ZSt16__insertion_sortIPPKN5clang4ento7SymExprEN9_
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %4, align 8, !noalias !775
   store ptr %5, ptr %13, align 8, !noalias !775
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
-  %33 = load ptr, ptr %7, align 8, !noalias !775
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 32
-  %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(48) %4) #22
+  %34 = load ptr, ptr %7, align 8, !noalias !775
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 32
+  %37 = load ptr, ptr %36, align 8
+  call void %37(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(48) %4) #22
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #22
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
@@ -29760,33 +29760,33 @@ define internal fastcc void @"_ZSt16__insertion_sortIPPKN5clang4ento7SymExprEN9_
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8, !noalias !778
   store ptr %6, ptr %18, align 8, !noalias !778
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
-  %37 = load ptr, ptr %.0.i, align 8, !noalias !778
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 32
-  %40 = load ptr, ptr %39, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(48) %3) #22
+  %38 = load ptr, ptr %.0.i, align 8, !noalias !778
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 32
+  %41 = load ptr, ptr %40, align 8
+  call void %41(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(48) %3) #22
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #22
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  %41 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6) #22
-  %42 = icmp slt i32 %41, 0
+  %42 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6) #22
+  %43 = icmp slt i32 %42, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  br i1 %42, label %.lr.ph.i, label %"_ZSt25__unguarded_linear_insertIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops14_Val_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_.exit", !llvm.loop !708
+  br i1 %43, label %.lr.ph.i, label %"_ZSt25__unguarded_linear_insertIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops14_Val_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_.exit", !llvm.loop !708
 
-"_ZSt25__unguarded_linear_insertIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops14_Val_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_.exit": ; preds = %.lr.ph.i, %29
-  %.09.lcssa.i = phi ptr [ %.020, %29 ], [ %.012.i, %.lr.ph.i ]
-  store ptr %30, ptr %.09.lcssa.i, align 8
+"_ZSt25__unguarded_linear_insertIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops14_Val_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_.exit": ; preds = %.lr.ph.i, %30
+  %.09.lcssa.i = phi ptr [ %.020, %30 ], [ %.012.i, %.lr.ph.i ]
+  store ptr %31, ptr %.09.lcssa.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %43
+  br label %44
 
-43:                                               ; preds = %22, %"_ZSt25__unguarded_linear_insertIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops14_Val_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_.exit"
+44:                                               ; preds = %22, %"_ZSt25__unguarded_linear_insertIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops14_Val_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_.exit"
   %.0 = getelementptr inbounds i8, ptr %.020, i64 8
   %.not = icmp eq ptr %.0, %1
   br i1 %.not, label %.loopexit, label %20, !llvm.loop !781
 
-.loopexit:                                        ; preds = %43, %.preheader, %2
+.loopexit:                                        ; preds = %44, %.preheader, %2
   ret void
 }
 

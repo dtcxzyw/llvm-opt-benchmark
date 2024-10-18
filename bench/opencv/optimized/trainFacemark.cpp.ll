@@ -2473,7 +2473,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds
   br label %_ZSt4copyIPN2cv6Point_IfEES3_ET0_T_S5_S4_.exit.i
 
 _ZSt4copyIPN2cv6Point_IfEES3_ET0_T_S5_S4_.exit.i: ; preds = %83, %82
-  %.pre-phi33.i = phi i64 [ %79, %82 ], [ %.pre32.i, %83 ]
+  %.pre-phi33.i = phi i64 [ 0, %82 ], [ %.pre32.i, %83 ]
   %84 = phi ptr [ %53, %82 ], [ %.pre28.i, %83 ]
   %85 = phi ptr [ %77, %82 ], [ %.pre26.i, %83 ]
   %86 = phi ptr [ %54, %82 ], [ %.pre.i, %83 ]
@@ -2597,7 +2597,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i56: ; pre
   br label %_ZSt4copyIPN2cv6Point_IfEES3_ET0_T_S5_S4_.exit.i44
 
 _ZSt4copyIPN2cv6Point_IfEES3_ET0_T_S5_S4_.exit.i44: ; preds = %134, %133
-  %.pre-phi33.i45 = phi i64 [ %130, %133 ], [ %.pre32.i43, %134 ]
+  %.pre-phi33.i45 = phi i64 [ 0, %133 ], [ %.pre32.i43, %134 ]
   %135 = phi ptr [ %104, %133 ], [ %.pre28.i40, %134 ]
   %136 = phi ptr [ %128, %133 ], [ %.pre26.i38, %134 ]
   %137 = phi ptr [ %105, %133 ], [ %.pre.i37, %134 ]
@@ -2732,7 +2732,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i83: ; pre
   br label %_ZSt4copyIPN2cv6Point_IfEES3_ET0_T_S5_S4_.exit.i71
 
 _ZSt4copyIPN2cv6Point_IfEES3_ET0_T_S5_S4_.exit.i71: ; preds = %197, %196
-  %.pre-phi33.i72 = phi i64 [ %193, %196 ], [ %.pre32.i70, %197 ]
+  %.pre-phi33.i72 = phi i64 [ 0, %196 ], [ %.pre32.i70, %197 ]
   %198 = phi ptr [ %167, %196 ], [ %.pre28.i67, %197 ]
   %199 = phi ptr [ %191, %196 ], [ %.pre26.i65, %197 ]
   %200 = phi ptr [ %168, %196 ], [ %.pre.i64, %197 ]
@@ -4184,7 +4184,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds
   br label %_ZSt4copyIPN2cv6Point_IfEES3_ET0_T_S5_S4_.exit.i
 
 _ZSt4copyIPN2cv6Point_IfEES3_ET0_T_S5_S4_.exit.i: ; preds = %178, %177
-  %.pre-phi33.i = phi i64 [ %174, %177 ], [ %.pre32.i, %178 ]
+  %.pre-phi33.i = phi i64 [ 0, %177 ], [ %.pre32.i, %178 ]
   %179 = phi ptr [ %149, %177 ], [ %.pre28.i, %178 ]
   %180 = phi ptr [ %172, %177 ], [ %.pre26.i, %178 ]
   %181 = phi ptr [ %150, %177 ], [ %.pre.i, %178 ]

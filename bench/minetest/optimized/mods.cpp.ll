@@ -10257,7 +10257,7 @@ lpad4.i.i.i.i:                                    ; preds = %invoke.cont5.i.i.i.
           to label %common.resume unwind label %terminate.lpad.i.i.i.i
 
 common.resume:                                    ; preds = %lpad90, %lpad4.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %5, %lpad4.i.i.i.i ], [ %20, %lpad90 ]
+  %common.resume.op = phi { ptr, i32 } [ %5, %lpad4.i.i.i.i ], [ %19, %lpad90 ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad4.i.i.i.i
@@ -10280,7 +10280,12 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIP7ModSpecSt6vectorIS
   %add.ptr50 = getelementptr inbounds %struct.ModSpec, ptr %8, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8, !tbaa !176
   %cmp.i.i.not18.i.i.i.i.i155 = icmp eq ptr %1, %__position.coerce
-  br i1 %cmp.i.i.not18.i.i.i.i.i155, label %_ZSt22__uninitialized_move_aIP7ModSpecS1_SaIS0_EET0_T_S4_S3_RT1_.exit163, label %for.body.i.i.i.i.i156
+  br i1 %cmp.i.i.not18.i.i.i.i.i155, label %_ZSt22__uninitialized_move_aIP7ModSpecS1_SaIS0_EET0_T_S4_S3_RT1_.exit163.thread, label %for.body.i.i.i.i.i156
+
+_ZSt22__uninitialized_move_aIP7ModSpecS1_SaIS0_EET0_T_S4_S3_RT1_.exit163.thread: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIP7ModSpecSt6vectorIS2_SaIS2_EEEES3_S2_ET0_T_S9_S8_RSaIT1_E.exit
+  %add.ptr583 = getelementptr inbounds i8, ptr %add.ptr50, i64 %sub.ptr.sub.i
+  store ptr %add.ptr583, ptr %_M_finish, align 8, !tbaa !176
+  br label %if.end109
 
 for.body.i.i.i.i.i156:                            ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIP7ModSpecSt6vectorIS2_SaIS2_EEEES3_S2_ET0_T_S9_S8_RSaIT1_E.exit, %for.body.i.i.i.i.i156
   %__cur.020.i.i.i.i.i157 = phi ptr [ %incdec.ptr.i.i.i.i.i160, %for.body.i.i.i.i.i156 ], [ %add.ptr50, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIP7ModSpecSt6vectorIS2_SaIS2_EEEES3_S2_ET0_T_S9_S8_RSaIT1_E.exit ]
@@ -10289,15 +10294,11 @@ for.body.i.i.i.i.i156:                            ; preds = %_ZSt22__uninitializ
   %incdec.ptr.i.i.i.i.i.i159 = getelementptr inbounds i8, ptr %__first.sroa.0.019.i.i.i.i.i158, i64 416
   %incdec.ptr.i.i.i.i.i160 = getelementptr inbounds i8, ptr %__cur.020.i.i.i.i.i157, i64 416
   %cmp.i.i.not.i.i.i.i.i161 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i159, %1
-  br i1 %cmp.i.i.not.i.i.i.i.i161, label %_ZSt22__uninitialized_move_aIP7ModSpecS1_SaIS0_EET0_T_S4_S3_RT1_.exit163.loopexit, label %for.body.i.i.i.i.i156, !llvm.loop !233
+  br i1 %cmp.i.i.not.i.i.i.i.i161, label %_ZSt22__uninitialized_move_aIP7ModSpecS1_SaIS0_EET0_T_S4_S3_RT1_.exit163, label %for.body.i.i.i.i.i156, !llvm.loop !233
 
-_ZSt22__uninitialized_move_aIP7ModSpecS1_SaIS0_EET0_T_S4_S3_RT1_.exit163.loopexit: ; preds = %for.body.i.i.i.i.i156
+_ZSt22__uninitialized_move_aIP7ModSpecS1_SaIS0_EET0_T_S4_S3_RT1_.exit163: ; preds = %for.body.i.i.i.i.i156
   %.pre247 = load ptr, ptr %_M_finish, align 8, !tbaa !176
-  br label %_ZSt22__uninitialized_move_aIP7ModSpecS1_SaIS0_EET0_T_S4_S3_RT1_.exit163
-
-_ZSt22__uninitialized_move_aIP7ModSpecS1_SaIS0_EET0_T_S4_S3_RT1_.exit163: ; preds = %_ZSt22__uninitialized_move_aIP7ModSpecS1_SaIS0_EET0_T_S4_S3_RT1_.exit163.loopexit, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIP7ModSpecSt6vectorIS2_SaIS2_EEEES3_S2_ET0_T_S9_S8_RSaIT1_E.exit
-  %9 = phi ptr [ %.pre247, %_ZSt22__uninitialized_move_aIP7ModSpecS1_SaIS0_EET0_T_S4_S3_RT1_.exit163.loopexit ], [ %add.ptr50, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIP7ModSpecSt6vectorIS2_SaIS2_EEEES3_S2_ET0_T_S9_S8_RSaIT1_E.exit ]
-  %add.ptr58 = getelementptr inbounds i8, ptr %9, i64 %sub.ptr.sub.i
+  %add.ptr58 = getelementptr inbounds i8, ptr %.pre247, i64 %sub.ptr.sub.i
   store ptr %add.ptr58, ptr %_M_finish, align 8, !tbaa !176
   %cmp7.i.i.i.i.i167 = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp7.i.i.i.i.i167, label %for.body.preheader.i.i.i.i.i173, label %if.end109
@@ -10318,8 +10319,8 @@ for.body.i.i.i.i.i175:                            ; preds = %for.body.i.i.i.i.i1
   br i1 %cmp.i.i.i.i.i183, label %for.body.i.i.i.i.i175, label %if.end109, !llvm.loop !235
 
 if.else68:                                        ; preds = %if.then
-  %10 = load ptr, ptr %this, align 8, !tbaa !178
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
+  %9 = load ptr, ptr %this, align 8, !tbaa !178
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 416
   %sub.i = sub nsw i64 22171567396285518, %sub.ptr.div.i.i
@@ -10334,8 +10335,8 @@ _ZNKSt6vectorI7ModSpecSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %if.else68
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 %sub.ptr.div.i.i.i)
   %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %11 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 22171567396285518)
-  %cond.i = select i1 %cmp7.i, i64 22171567396285518, i64 %11
+  %10 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 22171567396285518)
+  %cond.i = select i1 %cmp7.i, i64 22171567396285518, i64 %10
   %cmp.not.i = icmp eq i64 %cond.i, 0
   br i1 %cmp.not.i, label %_ZNSt12_Vector_baseI7ModSpecSaIS0_EE11_M_allocateEm.exit, label %cond.true.i
 
@@ -10346,12 +10347,12 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorI7ModS
 
 _ZNSt12_Vector_baseI7ModSpecSaIS0_EE11_M_allocateEm.exit: ; preds = %cond.true.i, %_ZNKSt6vectorI7ModSpecSaIS0_EE12_M_check_lenEmPKc.exit
   %cond.i186 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI7ModSpecSaIS0_EE12_M_check_lenEmPKc.exit ]
-  %cmp.i.i.not18.i.i.i.i.i187 = icmp eq ptr %10, %__position.coerce
+  %cmp.i.i.not18.i.i.i.i.i187 = icmp eq ptr %9, %__position.coerce
   br i1 %cmp.i.i.not18.i.i.i.i.i187, label %for.body.i.i.i.i196.preheader, label %for.body.i.i.i.i.i188
 
 for.body.i.i.i.i.i188:                            ; preds = %_ZNSt12_Vector_baseI7ModSpecSaIS0_EE11_M_allocateEm.exit, %for.body.i.i.i.i.i188
   %__cur.020.i.i.i.i.i189 = phi ptr [ %incdec.ptr.i.i.i.i.i192, %for.body.i.i.i.i.i188 ], [ %cond.i186, %_ZNSt12_Vector_baseI7ModSpecSaIS0_EE11_M_allocateEm.exit ]
-  %__first.sroa.0.019.i.i.i.i.i190 = phi ptr [ %incdec.ptr.i.i.i.i.i.i191, %for.body.i.i.i.i.i188 ], [ %10, %_ZNSt12_Vector_baseI7ModSpecSaIS0_EE11_M_allocateEm.exit ]
+  %__first.sroa.0.019.i.i.i.i.i190 = phi ptr [ %incdec.ptr.i.i.i.i.i.i191, %for.body.i.i.i.i.i188 ], [ %9, %_ZNSt12_Vector_baseI7ModSpecSaIS0_EE11_M_allocateEm.exit ]
   tail call void @_ZN7ModSpecC2EOS_(ptr noundef nonnull align 8 dereferenceable(416) %__cur.020.i.i.i.i.i189, ptr noundef nonnull align 8 dereferenceable(416) %__first.sroa.0.019.i.i.i.i.i190) #24
   %incdec.ptr.i.i.i.i.i.i191 = getelementptr inbounds i8, ptr %__first.sroa.0.019.i.i.i.i.i190, i64 416
   %incdec.ptr.i.i.i.i.i192 = getelementptr inbounds i8, ptr %__cur.020.i.i.i.i.i189, i64 416
@@ -10375,10 +10376,10 @@ for.inc.i.i.i.i210:                               ; preds = %for.body.i.i.i.i196
   br i1 %cmp.i.not.i.i.i.i213, label %invoke.cont83, label %for.body.i.i.i.i196, !llvm.loop !236
 
 lpad.i.i.i.i199:                                  ; preds = %for.body.i.i.i.i196
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  %14 = tail call ptr @__cxa_begin_catch(ptr %13) #24
+  %12 = extractvalue { ptr, i32 } %11, 0
+  %13 = tail call ptr @__cxa_begin_catch(ptr %12) #24
   %cmp.not3.i.i.i.i.i.i200 = icmp eq ptr %__cur.018.i.i.i.i197, %__cur.0.lcssa.i.i.i.i.i194
   br i1 %cmp.not3.i.i.i.i.i.i200, label %invoke.cont5.i.i.i.i205, label %for.body.i.i.i.i.i.i201
 
@@ -10394,16 +10395,16 @@ invoke.cont5.i.i.i.i205:                          ; preds = %for.body.i.i.i.i.i.
           to label %unreachable.i.i.i.i209 unwind label %lpad4.i.i.i.i206
 
 lpad4.i.i.i.i206:                                 ; preds = %invoke.cont5.i.i.i.i205
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
           to label %lpad.body unwind label %terminate.lpad.i.i.i.i207
 
 terminate.lpad.i.i.i.i207:                        ; preds = %lpad4.i.i.i.i206
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #27
+  %16 = extractvalue { ptr, i32 } %15, 0
+  tail call void @__clang_call_terminate(ptr %16) #27
   unreachable
 
 unreachable.i.i.i.i209:                           ; preds = %invoke.cont5.i.i.i.i205
@@ -10424,22 +10425,22 @@ for.body.i.i.i.i.i217:                            ; preds = %invoke.cont83, %for
 
 invoke.cont87:                                    ; preds = %for.body.i.i.i.i.i217, %invoke.cont83
   %__cur.0.lcssa.i.i.i.i.i223 = phi ptr [ %incdec.ptr.i.i.i.i212, %invoke.cont83 ], [ %incdec.ptr.i.i.i.i.i221, %for.body.i.i.i.i.i217 ]
-  %cmp.not3.i.i.i = icmp eq ptr %10, %1
+  %cmp.not3.i.i.i = icmp eq ptr %9, %1
   br i1 %cmp.not3.i.i.i, label %_ZSt8_DestroyIP7ModSpecS0_EvT_S2_RSaIT0_E.exit, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %invoke.cont87, %for.body.i.i.i
-  %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i225, %for.body.i.i.i ], [ %10, %invoke.cont87 ]
+  %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i225, %for.body.i.i.i ], [ %9, %invoke.cont87 ]
   tail call void @_ZN7ModSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %__first.addr.04.i.i.i) #24
   %incdec.ptr.i.i.i225 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 416
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i225, %1
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIP7ModSpecS0_EvT_S2_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !179
 
 _ZSt8_DestroyIP7ModSpecS0_EvT_S2_RSaIT0_E.exit:   ; preds = %for.body.i.i.i, %invoke.cont87
-  %tobool.not.i = icmp eq ptr %10, null
+  %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseI7ModSpecSaIS0_EE13_M_deallocateEPS0_m.exit, label %if.then.i226
 
 if.then.i226:                                     ; preds = %_ZSt8_DestroyIP7ModSpecS0_EvT_S2_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #26
   br label %_ZNSt12_Vector_baseI7ModSpecSaIS0_EE13_M_deallocateEPS0_m.exit
 
 _ZNSt12_Vector_baseI7ModSpecSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %if.then.i226, %_ZSt8_DestroyIP7ModSpecS0_EvT_S2_RSaIT0_E.exit
@@ -10450,8 +10451,8 @@ _ZNSt12_Vector_baseI7ModSpecSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %if.th
   br label %if.end109
 
 lpad.body:                                        ; preds = %lpad4.i.i.i.i206
-  %18 = extractvalue { ptr, i32 } %15, 0
-  %19 = tail call ptr @__cxa_begin_catch(ptr %18) #24
+  %17 = extractvalue { ptr, i32 } %14, 0
+  %18 = tail call ptr @__cxa_begin_catch(ptr %17) #24
   %cmp.not3.i.i.i227 = icmp eq ptr %cond.i186, %__cur.0.lcssa.i.i.i.i.i194
   br i1 %cmp.not3.i.i.i227, label %invoke.cont91, label %for.body.i.i.i228
 
@@ -10475,19 +10476,19 @@ invoke.cont92:                                    ; preds = %if.then.i234, %invo
           to label %unreachable unwind label %lpad90
 
 lpad90:                                           ; preds = %invoke.cont92
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad
 
-if.end109:                                        ; preds = %for.body.i.i.i.i.i175, %for.body.i.i.i.i.i147, %_ZNSt12_Vector_baseI7ModSpecSaIS0_EE13_M_deallocateEPS0_m.exit, %_ZSt22__uninitialized_move_aIP7ModSpecS1_SaIS0_EET0_T_S4_S3_RT1_.exit163, %_ZSt13move_backwardIP7ModSpecS1_ET0_T_S3_S2_.exit, %entry
+if.end109:                                        ; preds = %for.body.i.i.i.i.i175, %for.body.i.i.i.i.i147, %_ZSt22__uninitialized_move_aIP7ModSpecS1_SaIS0_EET0_T_S4_S3_RT1_.exit163.thread, %_ZNSt12_Vector_baseI7ModSpecSaIS0_EE13_M_deallocateEPS0_m.exit, %_ZSt22__uninitialized_move_aIP7ModSpecS1_SaIS0_EET0_T_S4_S3_RT1_.exit163, %_ZSt13move_backwardIP7ModSpecS1_ET0_T_S3_S2_.exit, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %lpad90
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #27
+  %21 = extractvalue { ptr, i32 } %20, 0
+  tail call void @__clang_call_terminate(ptr %21) #27
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont92

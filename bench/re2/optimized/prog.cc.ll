@@ -3134,8 +3134,8 @@ if.then2.i36.i:                                   ; preds = %for.body.i20.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i38.i = ptrtoint ptr %__i.015.i21.i to i64
   %sub.ptr.sub.i.i.i.i.i.i39.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i38.i, %sub.ptr.rhs.cast.i.i72
   %sub.ptr.div.i.i.i.i.i.i40.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i39.i, 3
-  %.pre.i.i.i.i.i.i41.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i40.i
-  %add.ptr.i.i.i.i.i.i42.i = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %add.ptr3.i37.i, i64 %.pre.i.i.i.i.i.i41.i
+  %idx.neg.i.i.i.i.i.i41.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i40.i
+  %add.ptr.i.i.i.i.i.i42.i = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %add.ptr3.i37.i, i64 %idx.neg.i.i.i.i.i.i41.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i42.i, ptr noundef nonnull align 4 dereferenceable(1) %call5.i3.i1517.i, i64 %sub.ptr.sub.i.i.i.i.i.i39.i, i1 false)
   br label %for.inc.i28.i
 

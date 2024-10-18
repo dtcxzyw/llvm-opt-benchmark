@@ -14839,7 +14839,7 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.invoke.cont.i_crit_ed
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.invoke.cont.i_crit_edge, %invoke.cont
-  %sub.ptr.sub.i.i.i.i.i.i.i.i.i.pre-phi = phi i64 [ %.pre1106, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.invoke.cont.i_crit_edge ], [ %sub.ptr.sub.i.i, %invoke.cont ]
+  %sub.ptr.sub.i.i.i.i.i.i.i.i.i.pre-phi = phi i64 [ %.pre1106, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.invoke.cont.i_crit_edge ], [ 0, %invoke.cont ]
   %7 = phi ptr [ %.pre1085, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.invoke.cont.i_crit_edge ], [ %5, %invoke.cont ]
   %8 = phi ptr [ %.pre, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.invoke.cont.i_crit_edge ], [ %6, %invoke.cont ]
   %cond.i.i.i.i = phi ptr [ %call5.i.i.i.i2.i6.i40, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.invoke.cont.i_crit_edge ], [ null, %invoke.cont ]
@@ -14998,8 +14998,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T
   %sub.ptr.lhs.cast.i.i.i.i.i.i32.i.i.i = ptrtoint ptr %__i.sroa.0.013.i16.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i33.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i32.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i.i.i.i34.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i.i.i, 3
-  %.pre.i.i.i.i.i.i35.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i.i.i
-  %add.ptr.i.i.i.i.i.i36.i.i.i = getelementptr inbounds double, ptr %add.ptr.i3.i31.i.i.i, i64 %.pre.i.i.i.i.i.i35.i.i.i
+  %idx.neg.i.i.i.i.i.i35.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i.i.i
+  %add.ptr.i.i.i.i.i.i36.i.i.i = getelementptr inbounds double, ptr %add.ptr.i3.i31.i.i.i, i64 %idx.neg.i.i.i.i.i.i35.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %11, i64 %sub.ptr.sub.i.i.i.i.i.i33.i.i.i, i1 false)
   br label %for.inc.i21.i.i.i
 
@@ -15129,7 +15129,7 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i99.invoke.cont.i100_cr
   br label %invoke.cont.i100
 
 invoke.cont.i100:                                 ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i99.invoke.cont.i100_crit_edge, %invoke.cont58
-  %sub.ptr.sub.i.i.i.i.i.i.i.i.i107.pre-phi = phi i64 [ %.pre1109, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i99.invoke.cont.i100_crit_edge ], [ %sub.ptr.sub.i.i94, %invoke.cont58 ]
+  %sub.ptr.sub.i.i.i.i.i.i.i.i.i107.pre-phi = phi i64 [ %.pre1109, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i99.invoke.cont.i100_crit_edge ], [ 0, %invoke.cont58 ]
   %38 = phi ptr [ %.pre1087, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i99.invoke.cont.i100_crit_edge ], [ %36, %invoke.cont58 ]
   %39 = phi ptr [ %.pre1086, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i99.invoke.cont.i100_crit_edge ], [ %37, %invoke.cont58 ]
   %cond.i.i.i.i101 = phi ptr [ %call5.i.i.i.i2.i6.i114, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i99.invoke.cont.i100_crit_edge ], [ null, %invoke.cont58 ]
@@ -15288,8 +15288,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T
   %sub.ptr.lhs.cast.i.i.i.i.i.i32.i.i.i181 = ptrtoint ptr %__i.sroa.0.013.i16.i.i.i165 to i64
   %sub.ptr.sub.i.i.i.i.i.i33.i.i.i182 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i32.i.i.i181, %sub.ptr.rhs.cast.i.i.i155
   %sub.ptr.div.i.i.i.i.i.i34.i.i.i183 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i.i.i182, 3
-  %.pre.i.i.i.i.i.i35.i.i.i184 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i.i.i183
-  %add.ptr.i.i.i.i.i.i36.i.i.i185 = getelementptr inbounds double, ptr %add.ptr.i3.i31.i.i.i180, i64 %.pre.i.i.i.i.i.i35.i.i.i184
+  %idx.neg.i.i.i.i.i.i35.i.i.i184 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i.i.i183
+  %add.ptr.i.i.i.i.i.i36.i.i.i185 = getelementptr inbounds double, ptr %add.ptr.i3.i31.i.i.i180, i64 %idx.neg.i.i.i.i.i.i35.i.i.i184
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i.i.i185, ptr noundef nonnull align 8 dereferenceable(1) %42, i64 %sub.ptr.sub.i.i.i.i.i.i33.i.i.i182, i1 false)
   br label %for.inc.i21.i.i.i170
 
@@ -15589,8 +15589,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3
   %sub.ptr.lhs.cast.i.i.i.i.i.i32.i.i.i354 = ptrtoint ptr %__i.sroa.0.013.i16.i.i.i343 to i64
   %sub.ptr.sub.i.i.i.i.i.i33.i.i.i355 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i32.i.i.i354, %sub.ptr.rhs.cast.i.i.i334
   %sub.ptr.div.i.i.i.i.i.i34.i.i.i356 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i.i.i355, 3
-  %.pre.i.i.i.i.i.i35.i.i.i357 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i.i.i356
-  %add.ptr.i.i.i.i.i.i36.i.i.i358 = getelementptr inbounds %"class.QuantLib::Date", ptr %add.ptr.i3.i31.i.i.i353, i64 %.pre.i.i.i.i.i.i35.i.i.i357
+  %idx.neg.i.i.i.i.i.i35.i.i.i357 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i.i.i356
+  %add.ptr.i.i.i.i.i.i36.i.i.i358 = getelementptr inbounds %"class.QuantLib::Date", ptr %add.ptr.i3.i31.i.i.i353, i64 %idx.neg.i.i.i.i.i.i35.i.i.i357
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i.i.i358, ptr noundef nonnull align 8 dereferenceable(1) %75, i64 %sub.ptr.sub.i.i.i.i.i.i33.i.i.i355, i1 false)
   br label %for.inc.i21.i.i.i346
 
@@ -27594,8 +27594,8 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.else.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i6.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %sub.ptr.lhs.cast.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, 3
-  %.pre.i.i.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.QuantLib::Date", ptr %48, i64 %.pre.i.i.i.i.i.i.i.i
+  %idx.neg.i.i.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.QuantLib::Date", ptr %48, i64 %idx.neg.i.i.i.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i.i.i, ptr align 8 %add.ptr.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE13_M_insert_auxIS1_EEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEOT_.exit.i.i
 
@@ -27737,8 +27737,8 @@ if.then.i.i.i.i.i.i.i.i101:                       ; preds = %if.else.i.i96
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i102 = ptrtoint ptr %add.ptr9.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i103 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i102, %sub.ptr.lhs.cast.i.i.i88
   %sub.ptr.div.i.i.i.i.i.i.i.i104 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i103, 3
-  %.pre.i.i.i.i.i.i.i.i105 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i.i104
-  %add.ptr.i.i.i.i.i.i.i.i106 = getelementptr inbounds %"class.QuantLib::Period", ptr %63, i64 %.pre.i.i.i.i.i.i.i.i105
+  %idx.neg.i.i.i.i.i.i.i.i105 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i.i104
+  %add.ptr.i.i.i.i.i.i.i.i106 = getelementptr inbounds %"class.QuantLib::Period", ptr %63, i64 %idx.neg.i.i.i.i.i.i.i.i105
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i.i.i106, ptr align 4 %add.ptr.i87, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i103, i1 false)
   br label %_ZNSt6vectorIN8QuantLib6PeriodESaIS1_EE13_M_insert_auxIS1_EEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEOT_.exit.i.i
 
@@ -28760,8 +28760,8 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.else
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i6 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.lhs.cast.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 3
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds double, ptr %1, i64 %.pre.i.i.i.i.i.i
+  %idx.neg.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds double, ptr %1, i64 %idx.neg.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i, ptr align 8 %add.ptr.i, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   %.pre.pre = load ptr, ptr %this, align 8, !tbaa !198
   br label %_ZNSt6vectorIdSaIdEE13_M_insert_auxIdEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEOT_.exit
@@ -29578,7 +29578,7 @@ if.then.i.i.i.i.i35:                              ; preds = %if.else49
   br label %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPdS0_ET0_T_S2_S1_.exit:                 ; preds = %if.else49, %if.then.i.i.i.i.i35
-  %sub.ptr.sub.i40.pre-phi = phi i64 [ %sub.ptr.sub.i22, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
+  %sub.ptr.sub.i40.pre-phi = phi i64 [ 0, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
   %5 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
   %6 = phi ptr [ %4, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
   %7 = phi ptr [ %1, %if.else49 ], [ %.pre, %if.then.i.i.i.i.i35 ]
@@ -29694,7 +29694,7 @@ if.then.i.i.i.i.i35:                              ; preds = %if.else49
   br label %_ZSt4copyIPN8QuantLib4DateES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPN8QuantLib4DateES2_ET0_T_S4_S3_.exit:  ; preds = %if.else49, %if.then.i.i.i.i.i35
-  %sub.ptr.sub.i40.pre-phi = phi i64 [ %sub.ptr.sub.i22, %if.else49 ], [ %.pre48, %if.then.i.i.i.i.i35 ]
+  %sub.ptr.sub.i40.pre-phi = phi i64 [ 0, %if.else49 ], [ %.pre48, %if.then.i.i.i.i.i35 ]
   %9 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
   %10 = phi ptr [ %3, %if.else49 ], [ %.pre43, %if.then.i.i.i.i.i35 ]
   %11 = phi ptr [ %8, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
@@ -29813,7 +29813,7 @@ if.then.i.i.i.i.i35:                              ; preds = %if.else49
   br label %_ZSt4copyIPN8QuantLib6PeriodES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPN8QuantLib6PeriodES2_ET0_T_S4_S3_.exit: ; preds = %if.else49, %if.then.i.i.i.i.i35
-  %sub.ptr.sub.i40.pre-phi = phi i64 [ %sub.ptr.sub.i22, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
+  %sub.ptr.sub.i40.pre-phi = phi i64 [ 0, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
   %9 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
   %10 = phi ptr [ %8, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
   %11 = phi ptr [ %1, %if.else49 ], [ %.pre, %if.then.i.i.i.i.i35 ]
@@ -34071,8 +34071,8 @@ if.then.i.i.i.i.i:                                ; preds = %_ZSt22__uninitializ
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds double, ptr %1, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds double, ptr %1, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i, ptr align 8 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %if.then.i.i.i.i.i30
 
@@ -34602,8 +34602,8 @@ if.then.i.i.i.i.i:                                ; preds = %_ZSt22__uninitializ
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.QuantLib::Date", ptr %1, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.QuantLib::Date", ptr %1, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i, ptr align 8 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %if.then.i.i.i.i.i30
 
@@ -35159,8 +35159,8 @@ if.then.i.i.i.i.i:                                ; preds = %_ZSt22__uninitializ
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.QuantLib::Period", ptr %1, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.QuantLib::Period", ptr %1, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i, ptr align 4 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %if.then.i.i.i.i.i30
 
@@ -35501,8 +35501,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8QuantLib6PeriodESt6vectorI
   %sub.ptr.lhs.cast.i.i.i.i.i.i37 = ptrtoint ptr %__i.sroa.0.012.i20 to i64
   %sub.ptr.sub.i.i.i.i.i.i38 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i37, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i.i39 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i38, 3
-  %.pre.i.i.i.i.i.i40 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i39
-  %add.ptr.i.i.i.i.i.i41 = getelementptr inbounds %"class.QuantLib::Period", ptr %add.ptr.i2.i36, i64 %.pre.i.i.i.i.i.i40
+  %idx.neg.i.i.i.i.i.i40 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i39
+  %add.ptr.i.i.i.i.i.i41 = getelementptr inbounds %"class.QuantLib::Period", ptr %add.ptr.i2.i36, i64 %idx.neg.i.i.i.i.i.i40
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i41, ptr noundef nonnull align 4 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i38, i1 false)
   store i64 %7, ptr %__first.coerce, align 4
   br label %for.inc.i27

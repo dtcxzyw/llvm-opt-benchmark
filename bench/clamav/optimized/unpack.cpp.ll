@@ -1637,7 +1637,6 @@ define linkonce_odr noundef i32 @_ZN6Unpack7GetCharEv(ptr noundef nonnull align 
 .thread:                                          ; preds = %10
   store i32 0, ptr %2, align 8
   store i32 %8, ptr %6, align 8
-  %.pre = zext nneg i32 %8 to i64
   br label %22
 
 16:                                               ; preds = %10
@@ -1653,7 +1652,7 @@ define linkonce_odr noundef i32 @_ZN6Unpack7GetCharEv(ptr noundef nonnull align 
   br i1 %.not18.i, label %.thread.i, label %22
 
 22:                                               ; preds = %.thread, %16
-  %.pre-phi = phi i64 [ %.pre, %.thread ], [ %21, %16 ]
+  %.pre-phi = phi i64 [ 0, %.thread ], [ %21, %16 ]
   %23 = load ptr, ptr %0, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8

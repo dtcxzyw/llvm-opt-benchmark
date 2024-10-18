@@ -621,7 +621,7 @@ if.end:                                           ; preds = %if.then.i.i, %.noex
   br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body
 
 invoke.cont40:                                    ; preds = %invoke.cont5, %call.i.noexc, %for.cond.cleanup
-  %sub.ptr.div.i455 = phi i64 [ %sub.ptr.div.i, %for.cond.cleanup ], [ %sub.ptr.div.i, %call.i.noexc ], [ 0, %invoke.cont5 ]
+  %sub.ptr.div.i455 = phi i64 [ 0, %for.cond.cleanup ], [ %sub.ptr.div.i, %call.i.noexc ], [ 0, %invoke.cont5 ]
   %ref.tmp36.sroa.0.0 = phi ptr [ null, %for.cond.cleanup ], [ %call.i59, %call.i.noexc ], [ null, %invoke.cont5 ]
   %48 = load ptr, ptr %dividendValues_, align 8, !tbaa !69
   store ptr %ref.tmp36.sroa.0.0, ptr %dividendValues_, align 8, !tbaa !69

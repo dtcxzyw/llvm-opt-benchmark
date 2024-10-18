@@ -1053,7 +1053,7 @@ if.then.i.i.i.i.i35.i:                            ; preds = %if.else49.i
   br label %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i
 
 _ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i:               ; preds = %if.then.i.i.i.i.i35.i, %if.else49.i
-  %sub.ptr.sub.i40.pre-phi.i = phi i64 [ %sub.ptr.sub.i22.i, %if.else49.i ], [ %.pre47.i, %if.then.i.i.i.i.i35.i ]
+  %sub.ptr.sub.i40.pre-phi.i = phi i64 [ 0, %if.else49.i ], [ %.pre47.i, %if.then.i.i.i.i.i35.i ]
   %23 = phi ptr [ %18, %if.else49.i ], [ %.pre44.i, %if.then.i.i.i.i.i35.i ]
   %24 = phi ptr [ %22, %if.else49.i ], [ %.pre42.i, %if.then.i.i.i.i.i35.i ]
   %25 = phi ptr [ %19, %if.else49.i ], [ %.pre.i82, %if.then.i.i.i.i.i35.i ]

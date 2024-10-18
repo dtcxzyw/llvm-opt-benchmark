@@ -2341,10 +2341,8 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   %53 = getelementptr inbounds i8, ptr %52, i64 %4
   %54 = getelementptr inbounds i8, ptr %12, i64 %1
   %55 = getelementptr inbounds i8, ptr %54, i64 %2
-  switch i64 %9, label %58 [
-    i64 1, label %56
-    i64 0, label %59
-  ]
+  %cond = icmp eq i64 %9, 1
+  br i1 %cond, label %56, label %58
 
 56:                                               ; preds = %51
   %57 = load i8, ptr %55, align 1, !tbaa !17
@@ -2355,7 +2353,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr align 1 %55, i64 %9, i1 false)
   br label %59
 
-59:                                               ; preds = %58, %56, %51, %49
+59:                                               ; preds = %58, %56, %49
   br i1 %14, label %60, label %62
 
 60:                                               ; preds = %59

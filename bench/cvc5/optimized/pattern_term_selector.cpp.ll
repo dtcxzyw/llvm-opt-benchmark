@@ -10828,14 +10828,14 @@ if.else.i:                                        ; preds = %if.else.i.loopexit,
 invoke.cont9:                                     ; preds = %if.else.i
   %15 = load ptr, ptr %_M_finish.i, align 8
   %16 = load ptr, ptr %nodes, align 8
-  %sub.ptr.lhs.cast.i63 = ptrtoint ptr %15 to i64
-  %sub.ptr.rhs.cast.i64 = ptrtoint ptr %16 to i64
-  %sub.ptr.sub.i65 = sub i64 %sub.ptr.lhs.cast.i63, %sub.ptr.rhs.cast.i64
-  %sub.ptr.div.i66 = ashr exact i64 %sub.ptr.sub.i65, 3
   %cmp14494.not = icmp eq ptr %15, %16
   br i1 %cmp14494.not, label %for.end105, label %for.body15.lr.ph
 
 for.body15.lr.ph:                                 ; preds = %invoke.cont9
+  %sub.ptr.lhs.cast.i63 = ptrtoint ptr %15 to i64
+  %sub.ptr.rhs.cast.i64 = ptrtoint ptr %16 to i64
+  %sub.ptr.sub.i65 = sub i64 %sub.ptr.lhs.cast.i63, %sub.ptr.rhs.cast.i64
+  %sub.ptr.div.i66 = ashr exact i64 %sub.ptr.sub.i65, 3
   %_M_node.i.i = getelementptr inbounds i8, ptr %__z.i, i64 8
   %umax500 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i66, i64 1)
   br label %for.body15
@@ -11272,7 +11272,7 @@ for.end105.loopexit:                              ; preds = %for.inc103
   br label %for.end105
 
 for.end105:                                       ; preds = %for.end105.loopexit, %invoke.cont9
-  %sub.ptr.div.i421.pre-phi = phi i64 [ %.pre515, %for.end105.loopexit ], [ %sub.ptr.div.i66, %invoke.cont9 ]
+  %sub.ptr.div.i421.pre-phi = phi i64 [ %.pre515, %for.end105.loopexit ], [ 0, %invoke.cont9 ]
   %65 = phi ptr [ %.pre506, %for.end105.loopexit ], [ %16, %invoke.cont9 ]
   %66 = phi ptr [ %.pre505, %for.end105.loopexit ], [ %15, %invoke.cont9 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %temp, i8 0, i64 24, i1 false)

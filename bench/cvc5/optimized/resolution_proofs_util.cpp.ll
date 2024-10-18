@@ -1434,7 +1434,7 @@ if.else.i.i.i:                                    ; preds = %.noexc1142
 
 invoke.cont336:                                   ; preds = %.noexc1144, %cond.true309.thread, %.noexc1143, %cond.true309, %if.else.i.i.i
   %cmp.i.not.i.i6681.not = phi i1 [ false, %cond.true309.thread ], [ true, %.noexc1143 ], [ false, %cond.true309 ], [ true, %if.else.i.i.i ], [ true, %.noexc1144 ]
-  %sub.ptr.div.i11376680 = phi i64 [ 0, %cond.true309.thread ], [ %sub.ptr.div.i1137, %.noexc1143 ], [ %sub.ptr.div.i1137, %cond.true309 ], [ %sub.ptr.div.i1137, %if.else.i.i.i ], [ %sub.ptr.div.i1137, %.noexc1144 ]
+  %sub.ptr.div.i11376680 = phi i64 [ 0, %cond.true309.thread ], [ %sub.ptr.div.i1137, %.noexc1143 ], [ 0, %cond.true309 ], [ %sub.ptr.div.i1137, %if.else.i.i.i ], [ %sub.ptr.div.i1137, %.noexc1144 ]
   %_M_finish.i11336679 = phi ptr [ %_M_finish.i11336667, %cond.true309.thread ], [ %_M_finish.i1133, %.noexc1143 ], [ %_M_finish.i1133, %cond.true309 ], [ %_M_finish.i1133, %if.else.i.i.i ], [ %_M_finish.i1133, %.noexc1144 ]
   %eliminators.sroa.0.0.lcssa6675 = phi ptr [ null, %cond.true309.thread ], [ %eliminators.sroa.0.2, %.noexc1143 ], [ %eliminators.sroa.0.2, %cond.true309 ], [ %eliminators.sroa.0.2, %if.else.i.i.i ], [ %eliminators.sroa.0.2, %.noexc1144 ]
   %eliminators.sroa.13.0.lcssa6674 = phi ptr [ null, %cond.true309.thread ], [ %eliminators.sroa.13.1, %.noexc1143 ], [ %eliminators.sroa.13.1, %cond.true309 ], [ %eliminators.sroa.13.1, %if.else.i.i.i ], [ %eliminators.sroa.13.1, %.noexc1144 ]
@@ -9490,8 +9490,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T
   %sub.ptr.lhs.cast.i.i.i.i.i.i32.i = ptrtoint ptr %__i.sroa.0.013.i16.i to i64
   %sub.ptr.sub.i.i.i.i.i.i33.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i32.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i, 3
-  %.pre.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
-  %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds i64, ptr %add.ptr.i3.i31.i, i64 %.pre.i.i.i.i.i.i35.i
+  %idx.neg.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
+  %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds i64, ptr %add.ptr.i3.i31.i, i64 %idx.neg.i.i.i.i.i.i35.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
   br label %for.inc.i21.i
 

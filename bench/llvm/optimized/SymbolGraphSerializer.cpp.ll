@@ -12022,7 +12022,7 @@ _ZNSt12_Vector_baseIN4llvm4json5ValueESaIS2_EEC2EmRKS3_.exit.i.i.i: ; preds = %1
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm4json5ArrayC2ERKS1_.exit.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !74
 
 _ZN4llvm4json5ArrayC2ERKS1_.exit.i:               ; preds = %.lr.ph.i.i.i.i.i.i.i, %._crit_edge.thread, %._crit_edge
-  %183 = phi i64 [ %175, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %175, %.lr.ph.i.i.i.i.i.i.i ]
+  %183 = phi i64 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %175, %.lr.ph.i.i.i.i.i.i.i ]
   %184 = phi ptr [ %172, %._crit_edge ], [ %97, %._crit_edge.thread ], [ %172, %.lr.ph.i.i.i.i.i.i.i ]
   %185 = phi ptr [ null, %._crit_edge ], [ null, %._crit_edge.thread ], [ %180, %.lr.ph.i.i.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ null, %._crit_edge ], [ null, %._crit_edge.thread ], [ %182, %.lr.ph.i.i.i.i.i.i.i ]

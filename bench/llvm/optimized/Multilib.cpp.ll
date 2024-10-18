@@ -2394,94 +2394,92 @@ _ZNSt6vectorIN5clang6driver8MultilibESaIS2_EE7reserveEm.exit: ; preds = %431, %_
   %468 = sub i64 %466, %467
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %45, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq ptr %.pre, %.pre34
-  br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIN5clang6driver8MultilibESaIS2_EEC2EmRKS3_.exit.i.i.thread, label %474
+  br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIN5clang6driver8MultilibESaIS2_EEC2EmRKS3_.exit.i.i.thread, label %472
 
 _ZNSt12_Vector_baseIN5clang6driver8MultilibESaIS2_EEC2EmRKS3_.exit.i.i.thread: ; preds = %._crit_edge.thread, %._crit_edge
-  %469 = phi i64 [ 0, %._crit_edge.thread ], [ %468, %._crit_edge ]
-  %470 = phi ptr [ %444, %._crit_edge.thread ], [ %465, %._crit_edge ]
-  %471 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %472 = getelementptr inbounds i8, ptr null, i64 %469
-  %473 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %469 = phi ptr [ %444, %._crit_edge.thread ], [ %465, %._crit_edge ]
+  %470 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %471 = getelementptr inbounds nuw i8, ptr %45, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
-  store ptr %472, ptr %473, align 8
+  store ptr null, ptr %471, align 8
   br label %_ZN4llvm7ErrorOrIN5clang6driver11MultilibSetEEC2IS3_EEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S3_EEvE4typeE.exit
 
-474:                                              ; preds = %._crit_edge
-  %475 = sdiv exact i64 %468, 192
-  %476 = icmp ugt i64 %475, 48038396025285290
-  br i1 %476, label %477, label %_ZNSt12_Vector_baseIN5clang6driver8MultilibESaIS2_EEC2EmRKS3_.exit.i.i
+472:                                              ; preds = %._crit_edge
+  %473 = sdiv exact i64 %468, 192
+  %474 = icmp ugt i64 %473, 48038396025285290
+  br i1 %474, label %475, label %_ZNSt12_Vector_baseIN5clang6driver8MultilibESaIS2_EEC2EmRKS3_.exit.i.i
 
-477:                                              ; preds = %474
+475:                                              ; preds = %472
   call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
-_ZNSt12_Vector_baseIN5clang6driver8MultilibESaIS2_EEC2EmRKS3_.exit.i.i: ; preds = %474
-  %478 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %468) #19
-  store ptr %478, ptr %45, align 8
-  %479 = getelementptr inbounds nuw i8, ptr %45, i64 8
+_ZNSt12_Vector_baseIN5clang6driver8MultilibESaIS2_EEC2EmRKS3_.exit.i.i: ; preds = %472
+  %476 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %468) #19
+  store ptr %476, ptr %45, align 8
+  %477 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  store ptr %476, ptr %477, align 8
+  %478 = getelementptr inbounds i8, ptr %476, i64 %468
+  %479 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr %478, ptr %479, align 8
-  %480 = getelementptr inbounds i8, ptr %478, i64 %468
-  %481 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store ptr %480, ptr %481, align 8
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN5clang6driver8MultilibESaIS2_EEC2EmRKS3_.exit.i.i, %.lr.ph.i.i.i.i.i.i
-  %.09.i.i.i.i.i.i = phi ptr [ %483, %.lr.ph.i.i.i.i.i.i ], [ %478, %_ZNSt12_Vector_baseIN5clang6driver8MultilibESaIS2_EEC2EmRKS3_.exit.i.i ]
-  %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %482, %.lr.ph.i.i.i.i.i.i ], [ %.pre34, %_ZNSt12_Vector_baseIN5clang6driver8MultilibESaIS2_EEC2EmRKS3_.exit.i.i ]
+  %.09.i.i.i.i.i.i = phi ptr [ %481, %.lr.ph.i.i.i.i.i.i ], [ %476, %_ZNSt12_Vector_baseIN5clang6driver8MultilibESaIS2_EEC2EmRKS3_.exit.i.i ]
+  %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %480, %.lr.ph.i.i.i.i.i.i ], [ %.pre34, %_ZNSt12_Vector_baseIN5clang6driver8MultilibESaIS2_EEC2EmRKS3_.exit.i.i ]
   call void @_ZN5clang6driver8MultilibC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(192) %.09.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(192) %.sroa.04.08.i.i.i.i.i.i)
-  %482 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 192
-  %483 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i, i64 192
-  %.not.i.i.i.i.i.i18 = icmp eq ptr %482, %.pre
+  %480 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 192
+  %481 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i, i64 192
+  %.not.i.i.i.i.i.i18 = icmp eq ptr %480, %.pre
   br i1 %.not.i.i.i.i.i.i18, label %_ZN4llvm7ErrorOrIN5clang6driver11MultilibSetEEC2IS3_EEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S3_EEvE4typeE.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !69
 
 _ZN4llvm7ErrorOrIN5clang6driver11MultilibSetEEC2IS3_EEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S3_EEvE4typeE.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN5clang6driver8MultilibESaIS2_EEC2EmRKS3_.exit.i.i.thread
-  %484 = phi ptr [ %470, %_ZNSt12_Vector_baseIN5clang6driver8MultilibESaIS2_EEC2EmRKS3_.exit.i.i.thread ], [ %465, %.lr.ph.i.i.i.i.i.i ]
-  %485 = phi ptr [ %473, %_ZNSt12_Vector_baseIN5clang6driver8MultilibESaIS2_EEC2EmRKS3_.exit.i.i.thread ], [ %481, %.lr.ph.i.i.i.i.i.i ]
-  %486 = phi ptr [ %471, %_ZNSt12_Vector_baseIN5clang6driver8MultilibESaIS2_EEC2EmRKS3_.exit.i.i.thread ], [ %479, %.lr.ph.i.i.i.i.i.i ]
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN5clang6driver8MultilibESaIS2_EEC2EmRKS3_.exit.i.i.thread ], [ %483, %.lr.ph.i.i.i.i.i.i ]
-  store ptr %.0.lcssa.i.i.i.i.i.i, ptr %486, align 8
-  %487 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  call void @_ZNSt6vectorIN5clang6driver11MultilibSet11FlagMatcherESaIS3_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %487, ptr noundef nonnull align 8 dereferenceable(24) %389)
-  %488 = getelementptr inbounds nuw i8, ptr %45, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %488, i8 0, i64 64, i1 false)
-  %489 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %490 = load i8, ptr %489, align 8
-  %491 = and i8 %490, -2
-  store i8 %491, ptr %489, align 8
-  %492 = load ptr, ptr %45, align 8
-  store ptr %492, ptr %0, align 8
-  %493 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %494 = load ptr, ptr %486, align 8
+  %482 = phi ptr [ %469, %_ZNSt12_Vector_baseIN5clang6driver8MultilibESaIS2_EEC2EmRKS3_.exit.i.i.thread ], [ %465, %.lr.ph.i.i.i.i.i.i ]
+  %483 = phi ptr [ %471, %_ZNSt12_Vector_baseIN5clang6driver8MultilibESaIS2_EEC2EmRKS3_.exit.i.i.thread ], [ %479, %.lr.ph.i.i.i.i.i.i ]
+  %484 = phi ptr [ %470, %_ZNSt12_Vector_baseIN5clang6driver8MultilibESaIS2_EEC2EmRKS3_.exit.i.i.thread ], [ %477, %.lr.ph.i.i.i.i.i.i ]
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN5clang6driver8MultilibESaIS2_EEC2EmRKS3_.exit.i.i.thread ], [ %481, %.lr.ph.i.i.i.i.i.i ]
+  store ptr %.0.lcssa.i.i.i.i.i.i, ptr %484, align 8
+  %485 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  call void @_ZNSt6vectorIN5clang6driver11MultilibSet11FlagMatcherESaIS3_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %485, ptr noundef nonnull align 8 dereferenceable(24) %389)
+  %486 = getelementptr inbounds nuw i8, ptr %45, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %486, i8 0, i64 64, i1 false)
+  %487 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %488 = load i8, ptr %487, align 8
+  %489 = and i8 %488, -2
+  store i8 %489, ptr %487, align 8
+  %490 = load ptr, ptr %45, align 8
+  store ptr %490, ptr %0, align 8
+  %491 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %492 = load ptr, ptr %484, align 8
+  store ptr %492, ptr %491, align 8
+  %493 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %494 = load ptr, ptr %483, align 8
   store ptr %494, ptr %493, align 8
-  %495 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %45, i8 0, i64 24, i1 false)
+  %495 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %496 = load ptr, ptr %485, align 8
   store ptr %496, ptr %495, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %45, i8 0, i64 24, i1 false)
-  %497 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %498 = load ptr, ptr %487, align 8
-  store ptr %498, ptr %497, align 8
-  %499 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %500 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %501 = load ptr, ptr %500, align 8
-  store ptr %501, ptr %499, align 8
-  %502 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %503 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  %504 = load ptr, ptr %503, align 8
-  store ptr %504, ptr %502, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %487, i8 0, i64 24, i1 false)
-  %505 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %505, i8 0, i64 64, i1 false)
+  %497 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %498 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  %499 = load ptr, ptr %498, align 8
+  store ptr %499, ptr %497, align 8
+  %500 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %501 = getelementptr inbounds nuw i8, ptr %45, i64 40
+  %502 = load ptr, ptr %501, align 8
+  store ptr %502, ptr %500, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %485, i8 0, i64 24, i1 false)
+  %503 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %503, i8 0, i64 64, i1 false)
   call void @_ZN5clang6driver11MultilibSetD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %45) #17
-  %506 = load ptr, ptr %42, align 8
-  %507 = load ptr, ptr %484, align 8
-  %.not4.i.i.i.i = icmp eq ptr %506, %507
+  %504 = load ptr, ptr %42, align 8
+  %505 = load ptr, ptr %482, align 8
+  %.not4.i.i.i.i = icmp eq ptr %504, %505
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5clang6driver8MultilibES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN4llvm7ErrorOrIN5clang6driver11MultilibSetEEC2IS3_EEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S3_EEvE4typeE.exit, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %508, %.lr.ph.i.i.i.i ], [ %506, %_ZN4llvm7ErrorOrIN5clang6driver11MultilibSetEEC2IS3_EEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S3_EEvE4typeE.exit ]
+  %.05.i.i.i.i = phi ptr [ %506, %.lr.ph.i.i.i.i ], [ %504, %_ZN4llvm7ErrorOrIN5clang6driver11MultilibSetEEC2IS3_EEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S3_EEvE4typeE.exit ]
   call void @_ZN5clang6driver8MultilibD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %.05.i.i.i.i) #17
-  %508 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 192
-  %.not.i.i.i.i = icmp eq ptr %508, %507
+  %506 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 192
+  %.not.i.i.i.i = icmp eq ptr %506, %505
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN5clang6driver8MultilibES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !7
 
 _ZSt8_DestroyIPN5clang6driver8MultilibES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
@@ -2489,64 +2487,64 @@ _ZSt8_DestroyIPN5clang6driver8MultilibES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i
   br label %_ZSt8_DestroyIPN5clang6driver8MultilibES2_EvT_S4_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN5clang6driver8MultilibES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5clang6driver8MultilibES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %_ZN4llvm7ErrorOrIN5clang6driver11MultilibSetEEC2IS3_EEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S3_EEvE4typeE.exit
-  %509 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5clang6driver8MultilibES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %506, %_ZN4llvm7ErrorOrIN5clang6driver11MultilibSetEEC2IS3_EEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S3_EEvE4typeE.exit ]
-  %.not.i.i.i = icmp eq ptr %509, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5clang6driver8MultilibESaIS2_EED2Ev.exit, label %510
+  %507 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5clang6driver8MultilibES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %504, %_ZN4llvm7ErrorOrIN5clang6driver11MultilibSetEEC2IS3_EEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S3_EEvE4typeE.exit ]
+  %.not.i.i.i = icmp eq ptr %507, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5clang6driver8MultilibESaIS2_EED2Ev.exit, label %508
 
-510:                                              ; preds = %_ZSt8_DestroyIPN5clang6driver8MultilibES2_EvT_S4_RSaIT0_E.exit.i
-  %511 = load ptr, ptr %432, align 8
-  %512 = ptrtoint ptr %511 to i64
-  %513 = ptrtoint ptr %509 to i64
-  %514 = sub i64 %512, %513
-  call void @_ZdlPvm(ptr noundef nonnull %509, i64 noundef %514) #21
+508:                                              ; preds = %_ZSt8_DestroyIPN5clang6driver8MultilibES2_EvT_S4_RSaIT0_E.exit.i
+  %509 = load ptr, ptr %432, align 8
+  %510 = ptrtoint ptr %509 to i64
+  %511 = ptrtoint ptr %507 to i64
+  %512 = sub i64 %510, %511
+  call void @_ZdlPvm(ptr noundef nonnull %507, i64 noundef %512) #21
   br label %_ZNSt6vectorIN5clang6driver8MultilibESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN5clang6driver8MultilibESaIS2_EED2Ev.exit: ; preds = %510, %_ZSt8_DestroyIPN5clang6driver8MultilibES2_EvT_S4_RSaIT0_E.exit.i, %416
+_ZNSt6vectorIN5clang6driver8MultilibESaIS2_EED2Ev.exit: ; preds = %508, %_ZSt8_DestroyIPN5clang6driver8MultilibES2_EvT_S4_RSaIT0_E.exit.i, %416
   call void @_ZN4llvm4yaml5InputD1Ev(ptr noundef nonnull align 8 dereferenceable(682) %41) #17
-  %515 = load ptr, ptr %389, align 8
-  %516 = getelementptr inbounds nuw i8, ptr %40, i64 72
-  %517 = load ptr, ptr %516, align 8
-  %.not4.i.i.i.i.i = icmp eq ptr %515, %517
+  %513 = load ptr, ptr %389, align 8
+  %514 = getelementptr inbounds nuw i8, ptr %40, i64 72
+  %515 = load ptr, ptr %514, align 8
+  %.not4.i.i.i.i.i = icmp eq ptr %513, %515
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN5clang6driver11MultilibSet11FlagMatcherES3_EvT_S5_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt6vectorIN5clang6driver8MultilibESaIS2_EED2Ev.exit, %_ZSt8_DestroyIN5clang6driver11MultilibSet11FlagMatcherEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %530, %_ZSt8_DestroyIN5clang6driver11MultilibSet11FlagMatcherEEvPT_.exit.i.i.i.i.i ], [ %515, %_ZNSt6vectorIN5clang6driver8MultilibESaIS2_EED2Ev.exit ]
-  %518 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 32
+  %.05.i.i.i.i.i = phi ptr [ %528, %_ZSt8_DestroyIN5clang6driver11MultilibSet11FlagMatcherEEvPT_.exit.i.i.i.i.i ], [ %513, %_ZNSt6vectorIN5clang6driver8MultilibESaIS2_EED2Ev.exit ]
+  %516 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 32
+  %517 = load ptr, ptr %516, align 8
+  %518 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 40
   %519 = load ptr, ptr %518, align 8
-  %520 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 40
-  %521 = load ptr, ptr %520, align 8
-  %.not4.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %519, %521
+  %.not4.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %517, %519
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %522, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ %519, %.lr.ph.i.i.i.i.i ]
+  %.05.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %520, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ %517, %.lr.ph.i.i.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i.i.i.i.i.i) #17
-  %522 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i.i, i64 32
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %522, %521
+  %520 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i.i, i64 32
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %520, %519
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !55
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
-  %.pr.i.i.i.i.i.i.i.i = load ptr, ptr %518, align 8
+  %.pr.i.i.i.i.i.i.i.i = load ptr, ptr %516, align 8
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %523 = phi ptr [ %.pr.i.i.i.i.i.i.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i.i ], [ %519, %.lr.ph.i.i.i.i.i ]
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %523, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN5clang6driver11MultilibSet11FlagMatcherEEvPT_.exit.i.i.i.i.i, label %524
+  %521 = phi ptr [ %.pr.i.i.i.i.i.i.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i.i ], [ %517, %.lr.ph.i.i.i.i.i ]
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %521, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN5clang6driver11MultilibSet11FlagMatcherEEvPT_.exit.i.i.i.i.i, label %522
 
-524:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i
-  %525 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 48
-  %526 = load ptr, ptr %525, align 8
-  %527 = ptrtoint ptr %526 to i64
-  %528 = ptrtoint ptr %523 to i64
-  %529 = sub i64 %527, %528
-  call void @_ZdlPvm(ptr noundef nonnull %523, i64 noundef %529) #21
+522:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i
+  %523 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 48
+  %524 = load ptr, ptr %523, align 8
+  %525 = ptrtoint ptr %524 to i64
+  %526 = ptrtoint ptr %521 to i64
+  %527 = sub i64 %525, %526
+  call void @_ZdlPvm(ptr noundef nonnull %521, i64 noundef %527) #21
   br label %_ZSt8_DestroyIN5clang6driver11MultilibSet11FlagMatcherEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyIN5clang6driver11MultilibSet11FlagMatcherEEvPT_.exit.i.i.i.i.i: ; preds = %524, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i
+_ZSt8_DestroyIN5clang6driver11MultilibSet11FlagMatcherEEvPT_.exit.i.i.i.i.i: ; preds = %522, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.05.i.i.i.i.i) #17
-  %530 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 56
-  %.not.i.i.i.i.i19 = icmp eq ptr %530, %517
+  %528 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 56
+  %.not.i.i.i.i.i19 = icmp eq ptr %528, %515
   br i1 %.not.i.i.i.i.i19, label %_ZSt8_DestroyIPN5clang6driver11MultilibSet11FlagMatcherES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !70
 
 _ZSt8_DestroyIPN5clang6driver11MultilibSet11FlagMatcherES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN5clang6driver11MultilibSet11FlagMatcherEEvPT_.exit.i.i.i.i.i
@@ -2554,68 +2552,68 @@ _ZSt8_DestroyIPN5clang6driver11MultilibSet11FlagMatcherES3_EvT_S5_RSaIT0_E.exitt
   br label %_ZSt8_DestroyIPN5clang6driver11MultilibSet11FlagMatcherES3_EvT_S5_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN5clang6driver11MultilibSet11FlagMatcherES3_EvT_S5_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN5clang6driver11MultilibSet11FlagMatcherES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i, %_ZNSt6vectorIN5clang6driver8MultilibESaIS2_EED2Ev.exit
-  %531 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN5clang6driver11MultilibSet11FlagMatcherES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i ], [ %515, %_ZNSt6vectorIN5clang6driver8MultilibESaIS2_EED2Ev.exit ]
-  %.not.i.i.i.i20 = icmp eq ptr %531, null
-  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorIN5clang6driver11MultilibSet11FlagMatcherESaIS3_EED2Ev.exit.i, label %532
+  %529 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN5clang6driver11MultilibSet11FlagMatcherES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i ], [ %513, %_ZNSt6vectorIN5clang6driver8MultilibESaIS2_EED2Ev.exit ]
+  %.not.i.i.i.i20 = icmp eq ptr %529, null
+  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorIN5clang6driver11MultilibSet11FlagMatcherESaIS3_EED2Ev.exit.i, label %530
 
-532:                                              ; preds = %_ZSt8_DestroyIPN5clang6driver11MultilibSet11FlagMatcherES3_EvT_S5_RSaIT0_E.exit.i.i
-  %533 = getelementptr inbounds nuw i8, ptr %40, i64 80
-  %534 = load ptr, ptr %533, align 8
-  %535 = ptrtoint ptr %534 to i64
-  %536 = ptrtoint ptr %531 to i64
-  %537 = sub i64 %535, %536
-  call void @_ZdlPvm(ptr noundef nonnull %531, i64 noundef %537) #21
+530:                                              ; preds = %_ZSt8_DestroyIPN5clang6driver11MultilibSet11FlagMatcherES3_EvT_S5_RSaIT0_E.exit.i.i
+  %531 = getelementptr inbounds nuw i8, ptr %40, i64 80
+  %532 = load ptr, ptr %531, align 8
+  %533 = ptrtoint ptr %532 to i64
+  %534 = ptrtoint ptr %529 to i64
+  %535 = sub i64 %533, %534
+  call void @_ZdlPvm(ptr noundef nonnull %529, i64 noundef %535) #21
   br label %_ZNSt6vectorIN5clang6driver11MultilibSet11FlagMatcherESaIS3_EED2Ev.exit.i
 
-_ZNSt6vectorIN5clang6driver11MultilibSet11FlagMatcherESaIS3_EED2Ev.exit.i: ; preds = %532, %_ZSt8_DestroyIPN5clang6driver11MultilibSet11FlagMatcherES3_EvT_S5_RSaIT0_E.exit.i.i
-  %538 = load ptr, ptr %81, align 8
-  %539 = getelementptr inbounds nuw i8, ptr %40, i64 48
-  %540 = load ptr, ptr %539, align 8
-  %.not4.i.i.i.i1.i = icmp eq ptr %538, %540
+_ZNSt6vectorIN5clang6driver11MultilibSet11FlagMatcherESaIS3_EED2Ev.exit.i: ; preds = %530, %_ZSt8_DestroyIPN5clang6driver11MultilibSet11FlagMatcherES3_EvT_S5_RSaIT0_E.exit.i.i
+  %536 = load ptr, ptr %81, align 8
+  %537 = getelementptr inbounds nuw i8, ptr %40, i64 48
+  %538 = load ptr, ptr %537, align 8
+  %.not4.i.i.i.i1.i = icmp eq ptr %536, %538
   br i1 %.not4.i.i.i.i1.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i2.i
 
 .lr.ph.i.i.i.i2.i:                                ; preds = %_ZNSt6vectorIN5clang6driver11MultilibSet11FlagMatcherESaIS3_EED2Ev.exit.i, %_ZSt8_DestroyIN12_GLOBAL__N_121MultilibSerializationEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i3.i = phi ptr [ %555, %_ZSt8_DestroyIN12_GLOBAL__N_121MultilibSerializationEEvPT_.exit.i.i.i.i.i ], [ %538, %_ZNSt6vectorIN5clang6driver11MultilibSet11FlagMatcherESaIS3_EED2Ev.exit.i ]
-  %541 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i3.i, i64 88
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %541) #17
-  %542 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i3.i, i64 64
+  %.05.i.i.i.i3.i = phi ptr [ %553, %_ZSt8_DestroyIN12_GLOBAL__N_121MultilibSerializationEEvPT_.exit.i.i.i.i.i ], [ %536, %_ZNSt6vectorIN5clang6driver11MultilibSet11FlagMatcherESaIS3_EED2Ev.exit.i ]
+  %539 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i3.i, i64 88
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %539) #17
+  %540 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i3.i, i64 64
+  %541 = load ptr, ptr %540, align 8
+  %542 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i3.i, i64 72
   %543 = load ptr, ptr %542, align 8
-  %544 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i3.i, i64 72
-  %545 = load ptr, ptr %544, align 8
-  %.not4.i.i.i.i.i.i.i.i.i.i4.i = icmp eq ptr %543, %545
+  %.not4.i.i.i.i.i.i.i.i.i.i4.i = icmp eq ptr %541, %543
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i4.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i10.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i5.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i5.i:                    ; preds = %.lr.ph.i.i.i.i2.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i5.i
-  %.05.i.i.i.i.i.i.i.i.i.i6.i = phi ptr [ %546, %.lr.ph.i.i.i.i.i.i.i.i.i.i5.i ], [ %543, %.lr.ph.i.i.i.i2.i ]
+  %.05.i.i.i.i.i.i.i.i.i.i6.i = phi ptr [ %544, %.lr.ph.i.i.i.i.i.i.i.i.i.i5.i ], [ %541, %.lr.ph.i.i.i.i2.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i.i.i.i.i6.i) #17
-  %546 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i6.i, i64 32
-  %.not.i.i.i.i.i.i.i.i.i.i7.i = icmp eq ptr %546, %545
+  %544 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i6.i, i64 32
+  %.not.i.i.i.i.i.i.i.i.i.i7.i = icmp eq ptr %544, %543
   br i1 %.not.i.i.i.i.i.i.i.i.i.i7.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i8.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i5.i, !llvm.loop !55
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i8.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i5.i
-  %.pr.i.i.i.i.i.i.i9.i = load ptr, ptr %542, align 8
+  %.pr.i.i.i.i.i.i.i9.i = load ptr, ptr %540, align 8
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i10.i
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i10.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i8.i, %.lr.ph.i.i.i.i2.i
-  %547 = phi ptr [ %.pr.i.i.i.i.i.i.i9.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i8.i ], [ %543, %.lr.ph.i.i.i.i2.i ]
-  %.not.i.i.i.i.i.i.i.i.i11.i = icmp eq ptr %547, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i11.i, label %_ZSt8_DestroyIN12_GLOBAL__N_121MultilibSerializationEEvPT_.exit.i.i.i.i.i, label %548
+  %545 = phi ptr [ %.pr.i.i.i.i.i.i.i9.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i8.i ], [ %541, %.lr.ph.i.i.i.i2.i ]
+  %.not.i.i.i.i.i.i.i.i.i11.i = icmp eq ptr %545, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i11.i, label %_ZSt8_DestroyIN12_GLOBAL__N_121MultilibSerializationEEvPT_.exit.i.i.i.i.i, label %546
 
-548:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i10.i
-  %549 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i3.i, i64 80
-  %550 = load ptr, ptr %549, align 8
-  %551 = ptrtoint ptr %550 to i64
-  %552 = ptrtoint ptr %547 to i64
-  %553 = sub i64 %551, %552
-  call void @_ZdlPvm(ptr noundef nonnull %547, i64 noundef %553) #21
+546:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i10.i
+  %547 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i3.i, i64 80
+  %548 = load ptr, ptr %547, align 8
+  %549 = ptrtoint ptr %548 to i64
+  %550 = ptrtoint ptr %545 to i64
+  %551 = sub i64 %549, %550
+  call void @_ZdlPvm(ptr noundef nonnull %545, i64 noundef %551) #21
   br label %_ZSt8_DestroyIN12_GLOBAL__N_121MultilibSerializationEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyIN12_GLOBAL__N_121MultilibSerializationEEvPT_.exit.i.i.i.i.i: ; preds = %548, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i10.i
-  %554 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i3.i, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %554) #17
+_ZSt8_DestroyIN12_GLOBAL__N_121MultilibSerializationEEvPT_.exit.i.i.i.i.i: ; preds = %546, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i10.i
+  %552 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i3.i, i64 32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %552) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i.i3.i) #17
-  %555 = getelementptr inbounds i8, ptr %.05.i.i.i.i3.i, i64 120
-  %.not.i.i.i.i12.i = icmp eq ptr %555, %540
+  %553 = getelementptr inbounds i8, ptr %.05.i.i.i.i3.i, i64 120
+  %.not.i.i.i.i12.i = icmp eq ptr %553, %538
   br i1 %.not.i.i.i.i12.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i2.i, !llvm.loop !71
 
 _ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_121MultilibSerializationEEvPT_.exit.i.i.i.i.i
@@ -2623,31 +2621,31 @@ _ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.exitthr
   br label %_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %_ZNSt6vectorIN5clang6driver11MultilibSet11FlagMatcherESaIS3_EED2Ev.exit.i
-  %.val.i.i = phi ptr [ %.val.pr.i.i, %_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %538, %_ZNSt6vectorIN5clang6driver11MultilibSet11FlagMatcherESaIS3_EED2Ev.exit.i ]
+  %.val.i.i = phi ptr [ %.val.pr.i.i, %_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %536, %_ZNSt6vectorIN5clang6driver11MultilibSet11FlagMatcherESaIS3_EED2Ev.exit.i ]
   %.not.i.i.i13.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i13.i, label %_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EED2Ev.exit.i, label %556
+  br i1 %.not.i.i.i13.i, label %_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EED2Ev.exit.i, label %554
 
-556:                                              ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.exit.i.i
-  %557 = getelementptr inbounds i8, ptr %40, i64 56
-  %.val1.i.i = load ptr, ptr %557, align 8
-  %558 = ptrtoint ptr %.val1.i.i to i64
-  %559 = ptrtoint ptr %.val.i.i to i64
-  %560 = sub i64 %558, %559
-  call void @_ZdlPvm(ptr noundef nonnull %.val.i.i, i64 noundef %560) #21
+554:                                              ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.exit.i.i
+  %555 = getelementptr inbounds i8, ptr %40, i64 56
+  %.val1.i.i = load ptr, ptr %555, align 8
+  %556 = ptrtoint ptr %.val1.i.i to i64
+  %557 = ptrtoint ptr %.val.i.i to i64
+  %558 = sub i64 %556, %557
+  call void @_ZdlPvm(ptr noundef nonnull %.val.i.i, i64 noundef %558) #21
   br label %_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EED2Ev.exit.i
 
-_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EED2Ev.exit.i: ; preds = %556, %_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.exit.i.i
-  %561 = load ptr, ptr %263, align 8
-  %562 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %563 = load ptr, ptr %562, align 8
-  %.not4.i.i.i.i14.i = icmp eq ptr %561, %563
+_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EED2Ev.exit.i: ; preds = %554, %_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.exit.i.i
+  %559 = load ptr, ptr %263, align 8
+  %560 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  %561 = load ptr, ptr %560, align 8
+  %.not4.i.i.i.i14.i = icmp eq ptr %559, %561
   br i1 %.not4.i.i.i.i14.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i15.i
 
 .lr.ph.i.i.i.i15.i:                               ; preds = %_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EED2Ev.exit.i, %.lr.ph.i.i.i.i15.i
-  %.05.i.i.i.i16.i = phi ptr [ %564, %.lr.ph.i.i.i.i15.i ], [ %561, %_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EED2Ev.exit.i ]
+  %.05.i.i.i.i16.i = phi ptr [ %562, %.lr.ph.i.i.i.i15.i ], [ %559, %_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EED2Ev.exit.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %.05.i.i.i.i16.i) #17
-  %564 = getelementptr inbounds i8, ptr %.05.i.i.i.i16.i, i64 40
-  %.not.i.i.i.i17.i = icmp eq ptr %564, %563
+  %562 = getelementptr inbounds i8, ptr %.05.i.i.i.i16.i, i64 40
+  %.not.i.i.i.i17.i = icmp eq ptr %562, %561
   br i1 %.not.i.i.i.i17.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i15.i, !llvm.loop !72
 
 _ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %.lr.ph.i.i.i.i15.i
@@ -2655,20 +2653,20 @@ _ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.ex
   br label %_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EED2Ev.exit.i
-  %.val.i19.i = phi ptr [ %.val.pr.i18.i, %_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %561, %_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EED2Ev.exit.i ]
+  %.val.i19.i = phi ptr [ %.val.pr.i18.i, %_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %559, %_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EED2Ev.exit.i ]
   %.not.i.i.i20.i = icmp eq ptr %.val.i19.i, null
-  br i1 %.not.i.i.i20.i, label %_ZN12_GLOBAL__N_124MultilibSetSerializationD2Ev.exit, label %565
+  br i1 %.not.i.i.i20.i, label %_ZN12_GLOBAL__N_124MultilibSetSerializationD2Ev.exit, label %563
 
-565:                                              ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.exit.i.i
-  %566 = getelementptr inbounds i8, ptr %40, i64 32
-  %.val1.i21.i = load ptr, ptr %566, align 8
-  %567 = ptrtoint ptr %.val1.i21.i to i64
-  %568 = ptrtoint ptr %.val.i19.i to i64
-  %569 = sub i64 %567, %568
-  call void @_ZdlPvm(ptr noundef nonnull %.val.i19.i, i64 noundef %569) #21
+563:                                              ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.exit.i.i
+  %564 = getelementptr inbounds i8, ptr %40, i64 32
+  %.val1.i21.i = load ptr, ptr %564, align 8
+  %565 = ptrtoint ptr %.val1.i21.i to i64
+  %566 = ptrtoint ptr %.val.i19.i to i64
+  %567 = sub i64 %565, %566
+  call void @_ZdlPvm(ptr noundef nonnull %.val.i19.i, i64 noundef %567) #21
   br label %_ZN12_GLOBAL__N_124MultilibSetSerializationD2Ev.exit
 
-_ZN12_GLOBAL__N_124MultilibSetSerializationD2Ev.exit: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.exit.i.i, %565
+_ZN12_GLOBAL__N_124MultilibSetSerializationD2Ev.exit: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.exit.i.i, %563
   ret void
 }
 

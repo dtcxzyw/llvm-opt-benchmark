@@ -11805,10 +11805,10 @@ _ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit: ; preds = %1
   %137 = getelementptr inbounds i8, ptr %67, i64 40
   %138 = load ptr, ptr %137, align 8
   store i64 %.sroa.027.0.copyload, ptr %67, align 8
-  %.sroa.2198.0..sroa_idx = getelementptr inbounds i8, ptr %67, i64 8
-  store i64 %65, ptr %.sroa.2198.0..sroa_idx, align 8
-  %.sroa.3199.0..sroa_idx = getelementptr inbounds i8, ptr %67, i64 16
-  store ptr %138, ptr %.sroa.3199.0..sroa_idx, align 8
+  %.sroa.2200.0..sroa_idx = getelementptr inbounds i8, ptr %67, i64 8
+  store i64 %65, ptr %.sroa.2200.0..sroa_idx, align 8
+  %.sroa.3201.0..sroa_idx = getelementptr inbounds i8, ptr %67, i64 16
+  store ptr %138, ptr %.sroa.3201.0..sroa_idx, align 8
   store i64 %65, ptr %90, align 8
   store i64 %.sroa.043.0, ptr %91, align 8
   store ptr %89, ptr %137, align 8
@@ -11818,10 +11818,10 @@ _ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit: ; preds = %1
 
 140:                                              ; preds = %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit
   store i64 %65, ptr %67, align 8
-  %.sroa.2192.0..sroa_idx = getelementptr inbounds i8, ptr %67, i64 8
-  store i64 %.sroa.027.0.copyload, ptr %.sroa.2192.0..sroa_idx, align 8
-  %.sroa.3193.0..sroa_idx = getelementptr inbounds i8, ptr %67, i64 16
-  store ptr %89, ptr %.sroa.3193.0..sroa_idx, align 8
+  %.sroa.2194.0..sroa_idx = getelementptr inbounds i8, ptr %67, i64 8
+  store i64 %.sroa.027.0.copyload, ptr %.sroa.2194.0..sroa_idx, align 8
+  %.sroa.3195.0..sroa_idx = getelementptr inbounds i8, ptr %67, i64 16
+  store ptr %89, ptr %.sroa.3195.0..sroa_idx, align 8
   %141 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store i64 %65, ptr %141, align 8
   br label %.loopexit
@@ -11874,43 +11874,43 @@ _ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit: ; preds = %1
   br i1 %172, label %173, label %233
 
 173:                                              ; preds = %166
-  %.not.i.i.i.i.i177 = icmp eq ptr %.0155, %67
-  br i1 %.not.i.i.i.i.i177, label %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit178, label %174
+  %.not.i.i.i.i.i176 = icmp eq ptr %.0155, %67
+  br i1 %.not.i.i.i.i.i176, label %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit179, label %174
 
 174:                                              ; preds = %173
-  %175 = ptrtoint ptr %.0155 to i64
-  %176 = ptrtoint ptr %67 to i64
-  %177 = sub i64 %175, %176
-  %.neg.i.i.i.i.i176 = sdiv exact i64 %177, -24
-  %178 = getelementptr inbounds i8, ptr %.0155, i64 24
-  %179 = getelementptr inbounds %"struct.llvm::LiveRange::Segment", ptr %178, i64 %.neg.i.i.i.i.i176
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %179, ptr nonnull align 8 %67, i64 %177, i1 false)
-  br label %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit178
+  %175 = getelementptr inbounds i8, ptr %.0155, i64 24
+  %176 = ptrtoint ptr %.0155 to i64
+  %177 = ptrtoint ptr %67 to i64
+  %178 = sub i64 %176, %177
+  %.neg.i.i.i.i.i177 = sdiv exact i64 %178, -24
+  %179 = getelementptr inbounds %"struct.llvm::LiveRange::Segment", ptr %175, i64 %.neg.i.i.i.i.i177
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %179, ptr nonnull align 8 %67, i64 %178, i1 false)
+  br label %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit179
 
-_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit178: ; preds = %173, %174
+_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit179: ; preds = %173, %174
   store i64 %66, ptr %167, align 8
   %180 = getelementptr inbounds i8, ptr %67, i64 24
   %181 = getelementptr inbounds i8, ptr %67, i64 32
   %.sroa.010.0.copyload = load i64, ptr %181, align 8
   store i64 %66, ptr %180, align 8
   store i64 %.sroa.010.0.copyload, ptr %181, align 8
-  %.sroa.3187.0..sroa_idx = getelementptr inbounds i8, ptr %67, i64 40
-  store ptr %56, ptr %.sroa.3187.0..sroa_idx, align 8
+  %.sroa.3189.0..sroa_idx = getelementptr inbounds i8, ptr %67, i64 40
+  store ptr %56, ptr %.sroa.3189.0..sroa_idx, align 8
   %182 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i64 %65, ptr %182, align 8
   %183 = getelementptr inbounds i8, ptr %67, i64 48
-  %.not164222 = icmp ugt ptr %183, %.0155
-  br i1 %.not164222, label %._crit_edge, label %.lr.ph
+  %.not164224 = icmp ugt ptr %183, %.0155
+  br i1 %.not164224, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit178, %.lr.ph
-  %.0156223 = phi ptr [ %185, %.lr.ph ], [ %183, %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit178 ]
-  %184 = getelementptr inbounds nuw i8, ptr %.0156223, i64 16
+.lr.ph:                                           ; preds = %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit179, %.lr.ph
+  %.0156225 = phi ptr [ %185, %.lr.ph ], [ %183, %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit179 ]
+  %184 = getelementptr inbounds nuw i8, ptr %.0156225, i64 16
   store ptr %56, ptr %184, align 8
-  %185 = getelementptr inbounds i8, ptr %.0156223, i64 24
+  %185 = getelementptr inbounds i8, ptr %.0156225, i64 24
   %.not164 = icmp ugt ptr %185, %.0155
   br i1 %.not164, label %._crit_edge, label %.lr.ph, !llvm.loop !159
 
-._crit_edge:                                      ; preds = %.lr.ph, %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit178
+._crit_edge:                                      ; preds = %.lr.ph, %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit179
   %.sroa.04.0.copyload = load i64, ptr %60, align 8
   %186 = and i64 %.sroa.04.0.copyload, -8
   %187 = inttoptr i64 %186 to ptr
@@ -11925,16 +11925,16 @@ _ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit178: ; preds =
   %192 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %193 = load ptr, ptr %191, align 8
   %194 = load ptr, ptr %192, align 8
-  %.not221225 = icmp eq ptr %193, %194
-  br i1 %.not221225, label %.loopexit, label %.lr.ph227
+  %.not223227 = icmp eq ptr %193, %194
+  br i1 %.not223227, label %.loopexit, label %.lr.ph229
 
-.lr.ph227:                                        ; preds = %190
+.lr.ph229:                                        ; preds = %190
   %195 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %196
 
-196:                                              ; preds = %.lr.ph227, %_ZN4llvm27MIBundleOperandIteratorBaseINS_14MachineOperandEEppEv.exit
-  %197 = phi ptr [ %194, %.lr.ph227 ], [ %231, %_ZN4llvm27MIBundleOperandIteratorBaseINS_14MachineOperandEEppEv.exit ]
-  %198 = phi ptr [ %193, %.lr.ph227 ], [ %232, %_ZN4llvm27MIBundleOperandIteratorBaseINS_14MachineOperandEEppEv.exit ]
+196:                                              ; preds = %.lr.ph229, %_ZN4llvm27MIBundleOperandIteratorBaseINS_14MachineOperandEEppEv.exit
+  %197 = phi ptr [ %194, %.lr.ph229 ], [ %231, %_ZN4llvm27MIBundleOperandIteratorBaseINS_14MachineOperandEEppEv.exit ]
+  %198 = phi ptr [ %193, %.lr.ph229 ], [ %232, %_ZN4llvm27MIBundleOperandIteratorBaseINS_14MachineOperandEEppEv.exit ]
   %199 = load i32, ptr %198, align 8
   %200 = and i32 %199, 16777471
   %or.cond.not = icmp eq i32 %200, 16777216
@@ -11962,15 +11962,15 @@ _ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit178: ; preds =
   %210 = getelementptr inbounds nuw i8, ptr %.promoted2.i.i, i64 8
   %211 = load ptr, ptr %210, align 8
   %212 = icmp eq ptr %211, %208
-  br i1 %212, label %._crit_edge247, label %.lr.ph246
+  br i1 %212, label %._crit_edge249, label %.lr.ph248
 
 213:                                              ; preds = %223
   %214 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %215 = load ptr, ptr %214, align 8
   %216 = icmp eq ptr %215, %208
-  br i1 %216, label %._crit_edge247, label %.lr.ph246, !llvm.loop !154
+  br i1 %216, label %._crit_edge249, label %.lr.ph248, !llvm.loop !154
 
-.lr.ph246:                                        ; preds = %.lr.ph.i.i, %213
+.lr.ph248:                                        ; preds = %.lr.ph.i.i, %213
   %217 = phi ptr [ %215, %213 ], [ %211, %.lr.ph.i.i ]
   %218 = phi ptr [ %225, %213 ], [ %206, %.lr.ph.i.i ]
   %219 = phi ptr [ %229, %213 ], [ %204, %.lr.ph.i.i ]
@@ -11978,15 +11978,15 @@ _ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit178: ; preds =
   %221 = load i32, ptr %220, align 4
   %222 = and i32 %221, 4
   %.not.i.i = icmp eq i32 %222, 0
-  br i1 %.not.i.i, label %._crit_edge247, label %223
+  br i1 %.not.i.i, label %._crit_edge249, label %223
 
-._crit_edge247:                                   ; preds = %213, %.lr.ph246, %.lr.ph.i.i
-  %.lcssa242 = phi ptr [ %204, %.lr.ph.i.i ], [ %229, %213 ], [ %219, %.lr.ph246 ]
-  %.lcssa240 = phi ptr [ %206, %.lr.ph.i.i ], [ %225, %213 ], [ %218, %.lr.ph246 ]
+._crit_edge249:                                   ; preds = %213, %.lr.ph248, %.lr.ph.i.i
+  %.lcssa244 = phi ptr [ %204, %.lr.ph.i.i ], [ %229, %213 ], [ %219, %.lr.ph248 ]
+  %.lcssa242 = phi ptr [ %206, %.lr.ph.i.i ], [ %225, %213 ], [ %218, %.lr.ph248 ]
   store i64 %209, ptr %5, align 8
   br label %_ZN4llvm27MIBundleOperandIteratorBaseINS_14MachineOperandEEppEv.exit
 
-223:                                              ; preds = %.lr.ph246
+223:                                              ; preds = %.lr.ph248
   %224 = getelementptr inbounds nuw i8, ptr %217, i64 32
   %225 = load ptr, ptr %224, align 8
   store ptr %225, ptr %191, align 8
@@ -12002,27 +12002,27 @@ _ZN4llvm27MIBundleOperandIteratorBaseINS_14MachineOperandEEppEv.exit.loopexit: ;
   store ptr %217, ptr %5, align 8
   br label %_ZN4llvm27MIBundleOperandIteratorBaseINS_14MachineOperandEEppEv.exit
 
-_ZN4llvm27MIBundleOperandIteratorBaseINS_14MachineOperandEEppEv.exit: ; preds = %_ZN4llvm27MIBundleOperandIteratorBaseINS_14MachineOperandEEppEv.exit.loopexit, %203, %._crit_edge247
-  %231 = phi ptr [ %229, %_ZN4llvm27MIBundleOperandIteratorBaseINS_14MachineOperandEEppEv.exit.loopexit ], [ %204, %203 ], [ %.lcssa242, %._crit_edge247 ]
-  %232 = phi ptr [ %225, %_ZN4llvm27MIBundleOperandIteratorBaseINS_14MachineOperandEEppEv.exit.loopexit ], [ %206, %203 ], [ %.lcssa240, %._crit_edge247 ]
-  %.not221 = icmp eq ptr %232, %231
-  br i1 %.not221, label %.loopexit, label %196, !llvm.loop !160
+_ZN4llvm27MIBundleOperandIteratorBaseINS_14MachineOperandEEppEv.exit: ; preds = %_ZN4llvm27MIBundleOperandIteratorBaseINS_14MachineOperandEEppEv.exit.loopexit, %203, %._crit_edge249
+  %231 = phi ptr [ %229, %_ZN4llvm27MIBundleOperandIteratorBaseINS_14MachineOperandEEppEv.exit.loopexit ], [ %204, %203 ], [ %.lcssa244, %._crit_edge249 ]
+  %232 = phi ptr [ %225, %_ZN4llvm27MIBundleOperandIteratorBaseINS_14MachineOperandEEppEv.exit.loopexit ], [ %206, %203 ], [ %.lcssa242, %._crit_edge249 ]
+  %.not223 = icmp eq ptr %232, %231
+  br i1 %.not223, label %.loopexit, label %196, !llvm.loop !160
 
 233:                                              ; preds = %166, %156, %155
   %.not.i.i.i.i.i182 = icmp eq ptr %.0155, %67
-  br i1 %.not.i.i.i.i.i182, label %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit183, label %234
+  br i1 %.not.i.i.i.i.i182, label %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit185, label %234
 
 234:                                              ; preds = %233
-  %235 = ptrtoint ptr %.0155 to i64
-  %236 = ptrtoint ptr %67 to i64
-  %237 = sub i64 %235, %236
-  %.neg.i.i.i.i.i181 = sdiv exact i64 %237, -24
-  %238 = getelementptr inbounds i8, ptr %.0155, i64 24
-  %239 = getelementptr inbounds %"struct.llvm::LiveRange::Segment", ptr %238, i64 %.neg.i.i.i.i.i181
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %239, ptr nonnull align 8 %67, i64 %237, i1 false)
-  br label %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit183
+  %235 = getelementptr inbounds i8, ptr %.0155, i64 24
+  %236 = ptrtoint ptr %.0155 to i64
+  %237 = ptrtoint ptr %67 to i64
+  %238 = sub i64 %236, %237
+  %.neg.i.i.i.i.i183 = sdiv exact i64 %238, -24
+  %239 = getelementptr inbounds %"struct.llvm::LiveRange::Segment", ptr %235, i64 %.neg.i.i.i.i.i183
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %239, ptr nonnull align 8 %67, i64 %238, i1 false)
+  br label %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit185
 
-_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit183: ; preds = %233, %234
+_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit185: ; preds = %233, %234
   %240 = or disjoint i64 %63, 6
   store i64 %65, ptr %67, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %67, i64 8
@@ -12039,7 +12039,7 @@ _ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit183: ; preds =
   store i64 %65, ptr %242, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN4llvm27MIBundleOperandIteratorBaseINS_14MachineOperandEEppEv.exit, %190, %.critedge, %142, %154, %136, %140, %._crit_edge, %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit183, %71, %75, %29, %48, %25, %4, %13
+.loopexit:                                        ; preds = %_ZN4llvm27MIBundleOperandIteratorBaseINS_14MachineOperandEEppEv.exit, %190, %.critedge, %142, %154, %136, %140, %._crit_edge, %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit185, %71, %75, %29, %48, %25, %4, %13
   ret void
 }
 

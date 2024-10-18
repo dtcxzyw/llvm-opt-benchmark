@@ -1045,7 +1045,7 @@ define range(i32 -1, 1) i32 @H5B2__redistribute2(ptr noundef %0, i16 noundef zer
   br i1 %exitcond343.not, label %._crit_edge332, label %.lr.ph331
 
 ._crit_edge332:                                   ; preds = %.lr.ph331, %.preheader
-  %.0240.lcssa = phi i64 [ %127, %.preheader ], [ %148, %.lr.ph331 ]
+  %.0240.lcssa = phi i64 [ 0, %.preheader ], [ %148, %.lr.ph331 ]
   %149 = sub nsw i64 0, %.0240.lcssa
   %150 = load i16, ptr %.0247, align 2
   %151 = zext i16 %150 to i64
@@ -1210,7 +1210,7 @@ define range(i32 -1, 1) i32 @H5B2__redistribute2(ptr noundef %0, i16 noundef zer
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %246
-  %.0235.lcssa = phi i64 [ %185, %246 ], [ %258, %.lr.ph ]
+  %.0235.lcssa = phi i64 [ 0, %246 ], [ %258, %.lr.ph ]
   %259 = sub nsw i64 0, %.0235.lcssa
   %260 = getelementptr inbounds i8, ptr %0, i64 392
   %261 = load i8, ptr %260, align 8
@@ -2796,7 +2796,7 @@ define range(i32 -1, 1) i32 @H5B2__merge3(ptr noundef %0, i16 noundef zeroext %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %177
-  %.1261.lcssa = phi i64 [ %120, %177 ], [ %185, %.lr.ph ]
+  %.1261.lcssa = phi i64 [ 0, %177 ], [ %185, %.lr.ph ]
   %186 = getelementptr inbounds %struct.H5B2_node_ptr_t, ptr %.0262, i64 %120
   %187 = load i16, ptr %.0268, align 2
   %188 = zext i16 %187 to i32

@@ -35540,15 +35540,15 @@ invoke.cont11:                                    ; preds = %if.end.i.thread, %_
   %agg.result.promoted = phi ptr [ %call5.i.i.i.i24, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i ], [ null, %if.end.i ], [ null, %if.end.i.thread ]
   %_M_end_of_storage.i.i.promoted = phi ptr [ %add.ptr21.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i ], [ null, %if.end.i ], [ null, %if.end.i.thread ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %next_pos, i8 0, i64 24, i1 false)
-  %sub.ptr.lhs.cast.i26 = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i27 = ptrtoint ptr %0 to i64
-  %sub.ptr.sub.i28 = sub i64 %sub.ptr.lhs.cast.i26, %sub.ptr.rhs.cast.i27
-  %sub.ptr.div.i29 = sdiv exact i64 %sub.ptr.sub.i28, 40
   store i32 0, ptr %ref.tmp13, align 4
   %cmp.i35.not = icmp eq ptr %1, %0
   br i1 %cmp.i35.not, label %invoke.cont15, label %if.then.i38
 
 if.then.i38:                                      ; preds = %invoke.cont11
+  %sub.ptr.lhs.cast.i26 = ptrtoint ptr %1 to i64
+  %sub.ptr.rhs.cast.i27 = ptrtoint ptr %0 to i64
+  %sub.ptr.sub.i28 = sub i64 %sub.ptr.lhs.cast.i26, %sub.ptr.rhs.cast.i27
+  %sub.ptr.div.i29 = sdiv exact i64 %sub.ptr.sub.i28, 40
   invoke void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPjS1_EEmRKj(ptr noundef nonnull align 8 dereferenceable(24) %next_pos, ptr null, i64 noundef %sub.ptr.div.i29, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp13)
           to label %if.then.i38.invoke.cont15_crit_edge unwind label %lpad14.loopexit.split-lp
 
@@ -35562,7 +35562,7 @@ if.then.i38.invoke.cont15_crit_edge:              ; preds = %if.then.i38
   br label %invoke.cont15
 
 invoke.cont15:                                    ; preds = %invoke.cont11, %if.then.i38.invoke.cont15_crit_edge
-  %sub.ptr.div.i44.pre-phi = phi i64 [ %.pre144, %if.then.i38.invoke.cont15_crit_edge ], [ %sub.ptr.div.i29, %invoke.cont11 ]
+  %sub.ptr.div.i44.pre-phi = phi i64 [ %.pre144, %if.then.i38.invoke.cont15_crit_edge ], [ 0, %invoke.cont11 ]
   %6 = phi ptr [ %.pre137, %if.then.i38.invoke.cont15_crit_edge ], [ %0, %invoke.cont11 ]
   %7 = phi ptr [ %.pre, %if.then.i38.invoke.cont15_crit_edge ], [ %1, %invoke.cont11 ]
   %cmp117.not = icmp eq ptr %7, %6
@@ -44737,8 +44737,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T
   %sub.ptr.lhs.cast.i.i.i.i.i.i32.i = ptrtoint ptr %__i.sroa.0.013.i16.i to i64
   %sub.ptr.sub.i.i.i.i.i.i33.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i32.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i, 3
-  %.pre.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
-  %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds i64, ptr %add.ptr.i3.i31.i, i64 %.pre.i.i.i.i.i.i35.i
+  %idx.neg.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
+  %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds i64, ptr %add.ptr.i3.i31.i, i64 %idx.neg.i.i.i.i.i.i35.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
   br label %for.inc.i21.i
 
@@ -45552,8 +45552,8 @@ if.then.i.i.i.i.i:                                ; preds = %if.then11
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %1, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %1, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i, ptr align 4 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %invoke.cont20
 

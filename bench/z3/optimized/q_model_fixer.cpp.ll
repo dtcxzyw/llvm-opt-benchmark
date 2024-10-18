@@ -3264,8 +3264,8 @@ if.then3.i47.i.i.i:                               ; preds = %call.i.i.i29.i.i.i.
   %sub.ptr.lhs.cast.i.i.i.i.i.i49.i.i.i = ptrtoint ptr %__i.015.i23.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i50.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i49.i.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i.i.i.i.i51.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i50.i.i.i, 3
-  %.pre.i.i.i.i.i.i52.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i51.i.i.i
-  %add.ptr.i.i.i.i.i.i53.i.i.i = getelementptr inbounds ptr, ptr %add.ptr4.i48.i.i.i, i64 %.pre.i.i.i.i.i.i52.i.i.i
+  %idx.neg.i.i.i.i.i.i52.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i51.i.i.i
+  %add.ptr.i.i.i.i.i.i53.i.i.i = getelementptr inbounds ptr, ptr %add.ptr4.i48.i.i.i, i64 %idx.neg.i.i.i.i.i.i52.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i53.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %45, i64 %sub.ptr.sub.i.i.i.i.i.i50.i.i.i, i1 false)
   br label %for.inc.i35.i.i.i
 

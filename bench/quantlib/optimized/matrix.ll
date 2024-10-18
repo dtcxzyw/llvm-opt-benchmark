@@ -1655,7 +1655,7 @@ if.else43:                                        ; preds = %invoke.cont12.loope
   br label %invoke.cont73
 
 invoke.cont73:                                    ; preds = %for.body.i.i.i.i54, %invoke.cont35, %if.else43
-  %sub.i60.pre-phi = phi i64 [ %sub.i47, %invoke.cont35 ], [ %.pre, %if.else43 ], [ %sub.i47, %for.body.i.i.i.i54 ]
+  %sub.i60.pre-phi = phi i64 [ 0, %invoke.cont35 ], [ %.pre, %if.else43 ], [ %sub.i47, %for.body.i.i.i.i54 ]
   %add51.pre-phi = phi i64 [ %add32, %invoke.cont35 ], [ %add46, %if.else43 ], [ %add32, %for.body.i.i.i.i54 ]
   %20 = phi i64 [ %15, %invoke.cont35 ], [ %4, %if.else43 ], [ %15, %for.body.i.i.i.i54 ]
   %21 = phi i64 [ %16, %invoke.cont35 ], [ %5, %if.else43 ], [ %16, %for.body.i.i.i.i54 ]

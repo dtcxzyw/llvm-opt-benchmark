@@ -17758,7 +17758,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_2AA7RangeTyELb1EE9push_backES2_.exit: ; pre
   %20 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #32
   %21 = getelementptr inbounds %"struct.llvm::AA::RangeTy", ptr %19, i64 %20
   %22 = getelementptr inbounds i8, ptr %21, i64 -16
-  br label %56
+  br label %57
 
 23:                                               ; preds = %3
   %24 = load ptr, ptr %0, align 8
@@ -17796,24 +17796,24 @@ _ZN4llvm23SmallVectorTemplateBaseINS_2AA7RangeTyELb1EE28reserveForParamAndGetAdd
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPN4llvm2AA7RangeTyES3_ET0_T_S5_S4_.exit, label %47
 
 47:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_2AA7RangeTyELb1EE28reserveForParamAndGetAddressERS2_m.exit
-  %48 = ptrtoint ptr %44 to i64
-  %49 = ptrtoint ptr %34 to i64
-  %50 = sub i64 %48, %49
-  %51 = ashr exact i64 %50, 4
-  %.pre.i.i.i.i.i = sub nsw i64 0, %51
-  %52 = getelementptr inbounds %"struct.llvm::AA::RangeTy", ptr %45, i64 %46
-  %53 = getelementptr inbounds %"struct.llvm::AA::RangeTy", ptr %52, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %53, ptr nonnull align 8 %34, i64 %50, i1 false)
+  %48 = getelementptr inbounds %"struct.llvm::AA::RangeTy", ptr %45, i64 %46
+  %49 = ptrtoint ptr %44 to i64
+  %50 = ptrtoint ptr %34 to i64
+  %51 = sub i64 %49, %50
+  %52 = ashr exact i64 %51, 4
+  %53 = sub nsw i64 0, %52
+  %54 = getelementptr inbounds %"struct.llvm::AA::RangeTy", ptr %48, i64 %53
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %54, ptr nonnull align 8 %34, i64 %51, i1 false)
   br label %_ZSt13move_backwardIPN4llvm2AA7RangeTyES3_ET0_T_S5_S4_.exit
 
 _ZSt13move_backwardIPN4llvm2AA7RangeTyES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_2AA7RangeTyELb1EE28reserveForParamAndGetAddressERS2_m.exit, %47
-  %54 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #32
-  %55 = add i64 %54, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %55) #32
+  %55 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #32
+  %56 = add i64 %55, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %56) #32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  br label %56
+  br label %57
 
-56:                                               ; preds = %_ZSt13move_backwardIPN4llvm2AA7RangeTyES3_ET0_T_S5_S4_.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_2AA7RangeTyELb1EE9push_backES2_.exit
+57:                                               ; preds = %_ZSt13move_backwardIPN4llvm2AA7RangeTyES3_ET0_T_S5_S4_.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_2AA7RangeTyELb1EE9push_backES2_.exit
   %.0 = phi ptr [ %22, %_ZN4llvm23SmallVectorTemplateBaseINS_2AA7RangeTyELb1EE9push_backES2_.exit ], [ %34, %_ZSt13move_backwardIPN4llvm2AA7RangeTyES3_ET0_T_S5_S4_.exit ]
   ret ptr %.0
 }

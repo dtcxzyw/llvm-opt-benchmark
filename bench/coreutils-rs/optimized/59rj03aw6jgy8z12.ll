@@ -1227,7 +1227,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i: ; preds = %76
   br i1 %246, label %select.unfold.i, label %255
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17ha1ac468a60bcf6eeE.exit146.thread.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17ha1ac468a60bcf6eeE.exit.i", %.loopexit173.i, %.loopexit173.thread.i
-  %247 = phi i64 [ 0, %.loopexit173.thread.i ], [ %241, %.loopexit173.i ], [ %241, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17ha1ac468a60bcf6eeE.exit.i" ]
+  %247 = phi i64 [ 0, %.loopexit173.thread.i ], [ 0, %.loopexit173.i ], [ %241, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17ha1ac468a60bcf6eeE.exit.i" ]
   %248 = phi ptr [ %229, %.loopexit173.thread.i ], [ %240, %.loopexit173.i ], [ %240, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17ha1ac468a60bcf6eeE.exit.i" ]
   %249 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h3d638ab7ae1515cfE"(i64 noundef %247, i1 noundef zeroext false)
           to label %250 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !82

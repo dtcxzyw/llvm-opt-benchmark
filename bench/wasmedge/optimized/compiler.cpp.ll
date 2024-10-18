@@ -5928,32 +5928,32 @@ _ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit: ; pre
   %.pre8 = ptrtoint ptr %.pre to i64
   %.pre9 = ptrtoint ptr %.pre7 to i64
   %.pre11 = sub i64 %.pre8, %.pre9
+  %33 = ashr exact i64 %.pre11, 3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
-  %.pre-phi12 = phi i64 [ %.pre11, %._crit_edge.loopexit ], [ %19, %6 ]
-  %33 = phi ptr [ %.pre7, %._crit_edge.loopexit ], [ %16, %6 ]
-  %34 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %15, %6 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 144
-  %.val.i = load ptr, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 152
-  %.val2.i = load ptr, ptr %36, align 8
-  %37 = icmp eq ptr %.val.i, %.val2.i
-  %38 = getelementptr inbounds i8, ptr %0, i64 136
-  %39 = getelementptr inbounds i8, ptr %.val2.i, i64 -128
-  %.0.in.in.i = select i1 %37, ptr %38, ptr %39
+  %.pre-phi12 = phi i64 [ %33, %._crit_edge.loopexit ], [ 0, %6 ]
+  %34 = phi ptr [ %.pre7, %._crit_edge.loopexit ], [ %16, %6 ]
+  %35 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %15, %6 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 144
+  %.val.i = load ptr, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 152
+  %.val2.i = load ptr, ptr %37, align 8
+  %38 = icmp eq ptr %.val.i, %.val2.i
+  %39 = getelementptr inbounds i8, ptr %0, i64 136
+  %40 = getelementptr inbounds i8, ptr %.val2.i, i64 -128
+  %.0.in.in.i = select i1 %38, ptr %39, ptr %40
   %.0.in.i = load i8, ptr %.0.in.in.i, align 8
-  %40 = and i8 %.0.in.i, 1
-  %41 = getelementptr inbounds i8, ptr %0, i64 40
-  %42 = getelementptr inbounds i8, ptr %0, i64 48
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %41, align 8
-  %45 = ptrtoint ptr %43 to i64
+  %41 = and i8 %.0.in.i, 1
+  %42 = getelementptr inbounds i8, ptr %0, i64 40
+  %43 = getelementptr inbounds i8, ptr %0, i64 48
+  %44 = load ptr, ptr %43, align 8
+  %45 = load ptr, ptr %42, align 8
   %46 = ptrtoint ptr %44 to i64
-  %47 = sub i64 %45, %46
-  %48 = ashr exact i64 %47, 3
-  %49 = ashr exact i64 %.pre-phi12, 3
-  %50 = sub nsw i64 %48, %49
+  %47 = ptrtoint ptr %45 to i64
+  %48 = sub i64 %46, %47
+  %49 = ashr exact i64 %48, 3
+  %50 = sub nsw i64 %49, %.pre-phi12
   %.val6 = load i64, ptr %1, align 8
   %.val7 = load i64, ptr %2, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 160
@@ -5985,7 +5985,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit: ; pre
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store i64 %50, ptr %.val2.i, align 8
   %71 = getelementptr inbounds i8, ptr %.val2.i, i64 8
-  store i8 %40, ptr %71, align 8
+  store i8 %41, ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %.val2.i, i64 16
   store i64 %.0.val, ptr %72, align 8
   %73 = getelementptr inbounds i8, ptr %.val2.i, i64 24
@@ -5993,9 +5993,9 @@ _ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit: ; pre
   %74 = getelementptr inbounds i8, ptr %.val2.i, i64 32
   store i64 %.val7, ptr %74, align 8
   %75 = getelementptr inbounds i8, ptr %.val2.i, i64 40
-  store ptr %33, ptr %75, align 8
+  store ptr %34, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %.val2.i, i64 48
-  store ptr %34, ptr %76, align 8
+  store ptr %35, ptr %76, align 8
   %77 = getelementptr inbounds i8, ptr %.val2.i, i64 56
   store ptr %55, ptr %77, align 8
   %78 = getelementptr inbounds i8, ptr %.val2.i, i64 64
@@ -6016,9 +6016,9 @@ _ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit: ; pre
   store ptr %68, ptr %85, align 8
   %86 = getelementptr inbounds i8, ptr %.val2.i, i64 128
   store ptr %70, ptr %86, align 8
-  %87 = load ptr, ptr %36, align 8
+  %87 = load ptr, ptr %37, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 136
-  store ptr %88, ptr %36, align 8
+  store ptr %88, ptr %37, align 8
   br label %_ZNSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE12emplace_backIJmRKbRN8WasmEdge4LLVM10BasicBlockESB_SB_S_INS9_5ValueESaISC_EESt4pairIS_INS8_7ValTypeESaISG_EESI_ES_ISt5tupleIJSE_SA_EESaISL_EEEEERS2_DpOT_.exit
 
 89:                                               ; preds = %._crit_edge
@@ -6034,7 +6034,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit: ; pre
 
 _ZNKSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %89
   %95 = sdiv exact i64 %92, 136
-  %.sroa.speculated.i.i.i = select i1 %37, i64 1, i64 %95
+  %.sroa.speculated.i.i.i = select i1 %38, i64 1, i64 %95
   %96 = add nsw i64 %.sroa.speculated.i.i.i, %95
   %97 = icmp ult i64 %96, %95
   %98 = call i64 @llvm.umin.i64(i64 %96, i64 67818912035696880)
@@ -6067,7 +6067,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE12_M_check_lenEm
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store i64 %50, ptr %102, align 8
   %120 = getelementptr inbounds i8, ptr %102, i64 8
-  store i8 %40, ptr %120, align 8
+  store i8 %41, ptr %120, align 8
   %121 = getelementptr inbounds i8, ptr %102, i64 16
   store i64 %.0.val, ptr %121, align 8
   %122 = getelementptr inbounds i8, ptr %102, i64 24
@@ -6075,9 +6075,9 @@ _ZNKSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE12_M_check_lenEm
   %123 = getelementptr inbounds i8, ptr %102, i64 32
   store i64 %.val7, ptr %123, align 8
   %124 = getelementptr inbounds i8, ptr %102, i64 40
-  store ptr %33, ptr %124, align 8
+  store ptr %34, ptr %124, align 8
   %125 = getelementptr inbounds i8, ptr %102, i64 48
-  store ptr %34, ptr %125, align 8
+  store ptr %35, ptr %125, align 8
   %126 = getelementptr inbounds i8, ptr %102, i64 56
   store ptr %104, ptr %126, align 8
   %127 = getelementptr inbounds i8, ptr %102, i64 64
@@ -6098,7 +6098,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE12_M_check_lenEm
   store ptr %117, ptr %134, align 8
   %135 = getelementptr inbounds i8, ptr %102, i64 128
   store ptr %119, ptr %135, align 8
-  br i1 %37, label %_ZNSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i, label %.lr.ph.i.i.i.i.i
+  br i1 %38, label %_ZNSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i
   %.03.i.i.i.i.i = phi ptr [ %182, %.lr.ph.i.i.i.i.i ], [ %101, %_ZNKSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
@@ -6193,8 +6193,8 @@ _ZNSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE11_S_relocateEPS2
   br label %_ZNSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE17_M_realloc_insertIJmRKbRN8WasmEdge4LLVM10BasicBlockESB_SB_S_INS9_5ValueESaISC_EESt4pairIS_INS8_7ValTypeESaISG_EESI_ES_ISt5tupleIJSE_SA_EESaISL_EEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE17_M_realloc_insertIJmRKbRN8WasmEdge4LLVM10BasicBlockESB_SB_S_INS9_5ValueESaISC_EESt4pairIS_INS8_7ValTypeESaISG_EESI_ES_ISt5tupleIJSE_SA_EESaISL_EEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %184, %_ZNSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i
-  store ptr %101, ptr %35, align 8
-  store ptr %183, ptr %36, align 8
+  store ptr %101, ptr %36, align 8
+  store ptr %183, ptr %37, align 8
   %188 = getelementptr inbounds %"struct.(anonymous namespace)::FunctionCompiler::Control", ptr %101, i64 %99
   store ptr %188, ptr %51, align 8
   br label %_ZNSt6vectorIN12_GLOBAL__N_116FunctionCompiler7ControlESaIS2_EE12emplace_backIJmRKbRN8WasmEdge4LLVM10BasicBlockESB_SB_S_INS9_5ValueESaISC_EESt4pairIS_INS8_7ValTypeESaISG_EESI_ES_ISt5tupleIJSE_SA_EESaISL_EEEEERS2_DpOT_.exit

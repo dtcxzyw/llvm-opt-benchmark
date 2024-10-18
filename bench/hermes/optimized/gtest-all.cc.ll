@@ -7564,10 +7564,6 @@ if.then.i.i.i137:                                 ; preds = %lpad16.body
 for.cond40.preheader:                             ; preds = %for.body30, %for.cond26.preheader
   %25 = load ptr, ptr %_M_finish.i, align 8
   %26 = load ptr, ptr %left, align 8
-  %sub.ptr.lhs.cast.i150249 = ptrtoint ptr %25 to i64
-  %sub.ptr.rhs.cast.i151250 = ptrtoint ptr %26 to i64
-  %sub.ptr.sub.i152251 = sub i64 %sub.ptr.lhs.cast.i150249, %sub.ptr.rhs.cast.i151250
-  %sub.ptr.div.i153252 = ashr exact i64 %sub.ptr.sub.i152251, 3
   %cmp42253.not = icmp eq ptr %25, %26
   %.pre269 = load ptr, ptr %_M_finish.i65, align 8
   %.pre = load ptr, ptr %right, align 8
@@ -7702,7 +7698,7 @@ for.inc111:                                       ; preds = %for.cond45.preheade
 for.end113:                                       ; preds = %for.inc111, %for.cond40.preheader
   %53 = phi ptr [ %.pre, %for.cond40.preheader ], [ %51, %for.inc111 ]
   %54 = phi ptr [ %.pre269, %for.cond40.preheader ], [ %52, %for.inc111 ]
-  %sub.ptr.div.i153.lcssa = phi i64 [ %sub.ptr.div.i153252, %for.cond40.preheader ], [ %sub.ptr.div.i153, %for.inc111 ]
+  %sub.ptr.div.i153.lcssa = phi i64 [ 0, %for.cond40.preheader ], [ %sub.ptr.div.i153, %for.inc111 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %cmp119257 = icmp ne i64 %sub.ptr.div.i153.lcssa, 0
   %cmp120258 = icmp ne ptr %54, %53
@@ -33829,8 +33825,8 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.else
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr9.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.lhs.cast.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 3
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %.pre.i.i.i.i.i.i
+  %idx.neg.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %idx.neg.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i, ptr align 8 %add.ptr.i, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   br label %invoke.cont
 
@@ -51250,8 +51246,8 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.else
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr9.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.lhs.cast.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 3
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %6, i64 %.pre.i.i.i.i.i.i
+  %idx.neg.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %6, i64 %idx.neg.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i, ptr align 8 %add.ptr.i, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIPcSaIS0_EE13_M_insert_auxIS0_EEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEOT_.exit
 

@@ -1751,15 +1751,11 @@ _ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EE5clearEv.exit._crit_edge: ; pr
 
 .preheader:                                       ; preds = %144
   %.not278 = icmp eq ptr %.sroa.9.2, %.sroa.098.4
-  br i1 %.not278, label %._crit_edge, label %.lr.ph263.preheader
+  br i1 %.not278, label %._crit_edge, label %.lr.ph263
 
-.lr.ph263.preheader:                              ; preds = %.preheader
-  %umax = call i64 @llvm.umax.i64(i64 %152, i64 1)
-  br label %.lr.ph263
-
-.lr.ph263:                                        ; preds = %.lr.ph263.preheader, %_ZN5vcpkg11CacheStatus16mark_unavailableEPKNS_19IReadBinaryProviderE.exit
-  %.022262 = phi i64 [ %246, %_ZN5vcpkg11CacheStatus16mark_unavailableEPKNS_19IReadBinaryProviderE.exit ], [ 0, %.lr.ph263.preheader ]
-  %.023261 = phi i64 [ %.1, %_ZN5vcpkg11CacheStatus16mark_unavailableEPKNS_19IReadBinaryProviderE.exit ], [ 0, %.lr.ph263.preheader ]
+.lr.ph263:                                        ; preds = %.preheader, %_ZN5vcpkg11CacheStatus16mark_unavailableEPKNS_19IReadBinaryProviderE.exit
+  %.022262 = phi i64 [ %246, %_ZN5vcpkg11CacheStatus16mark_unavailableEPKNS_19IReadBinaryProviderE.exit ], [ 0, %.preheader ]
+  %.023261 = phi i64 [ %.1, %_ZN5vcpkg11CacheStatus16mark_unavailableEPKNS_19IReadBinaryProviderE.exit ], [ 0, %.preheader ]
   %156 = getelementptr inbounds i8, ptr %.sroa.098.4, i64 %.022262
   %157 = load i8, ptr %156, align 1
   %158 = icmp eq i8 %157, 0
@@ -1991,7 +1987,7 @@ _ZN5vcpkg11CacheStatus13mark_restoredEv.exit:     ; preds = %231, %_ZNSt6vectorI
 _ZN5vcpkg11CacheStatus16mark_unavailableEPKNS_19IReadBinaryProviderE.exit: ; preds = %_ZNSt6vectorIPKN5vcpkg19IReadBinaryProviderESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %209, %_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i, %_ZN5vcpkg11CacheStatus13mark_restoredEv.exit
   %.1 = phi i64 [ %245, %_ZN5vcpkg11CacheStatus13mark_restoredEv.exit ], [ %.023261, %_ZN5vcpkg4Util7Vectors8containsISt6vectorIPKNS_19IReadBinaryProviderESaIS6_EES6_EEbRKT_RKT0_.exit.i ], [ %.023261, %209 ], [ %.023261, %_ZNSt6vectorIPKN5vcpkg19IReadBinaryProviderESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ]
   %246 = add nuw i64 %.022262, 1
-  %exitcond318.not = icmp eq i64 %246, %umax
+  %exitcond318.not = icmp eq i64 %246, %152
   br i1 %exitcond318.not, label %._crit_edge, label %.lr.ph263, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %_ZN5vcpkg11CacheStatus16mark_unavailableEPKNS_19IReadBinaryProviderE.exit, %.preheader

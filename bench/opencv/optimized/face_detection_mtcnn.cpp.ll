@@ -10268,7 +10268,7 @@ _ZNSt16allocator_traitsISaISt4pairIN2cv5Rect_IiEESt6vectorINS1_6Point_IiEESaIS6_
           to label %.noexc966 unwind label %.loopexit1395
 
 .noexc966:                                        ; preds = %3200, %_ZNSt16allocator_traitsISaISt4pairIN2cv5Rect_IiEESt6vectorINS1_6Point_IiEESaIS6_EEEEE8allocateERSA_m.exit.i.i.i.i, %._crit_edge1710
-  %3304 = phi i64 [ %3300, %._crit_edge1710 ], [ %3300, %_ZNSt16allocator_traitsISaISt4pairIN2cv5Rect_IiEESt6vectorINS1_6Point_IiEESaIS6_EEEEE8allocateERSA_m.exit.i.i.i.i ], [ 0, %3200 ]
+  %3304 = phi i64 [ 0, %._crit_edge1710 ], [ %3300, %_ZNSt16allocator_traitsISaISt4pairIN2cv5Rect_IiEESt6vectorINS1_6Point_IiEESaIS6_EEEEE8allocateERSA_m.exit.i.i.i.i ], [ 0, %3200 ]
   %3305 = phi ptr [ %.pre1847, %._crit_edge1710 ], [ %.pre1847, %_ZNSt16allocator_traitsISaISt4pairIN2cv5Rect_IiEESt6vectorINS1_6Point_IiEESaIS6_EEEEE8allocateERSA_m.exit.i.i.i.i ], [ null, %3200 ]
   %3306 = phi ptr [ %.pre1848, %._crit_edge1710 ], [ %.pre1848, %_ZNSt16allocator_traitsISaISt4pairIN2cv5Rect_IiEESt6vectorINS1_6Point_IiEESaIS6_EEEEE8allocateERSA_m.exit.i.i.i.i ], [ null, %3200 ]
   %3307 = phi ptr [ null, %._crit_edge1710 ], [ %3303, %_ZNSt16allocator_traitsISaISt4pairIN2cv5Rect_IiEESt6vectorINS1_6Point_IiEESaIS6_EEEEE8allocateERSA_m.exit.i.i.i.i ], [ null, %3200 ]
@@ -41734,7 +41734,7 @@ _ZNSt12_Vector_baseIN6custom12_GLOBAL__N_14FaceESaIS2_EE13_M_deallocateEPS2_m.ex
   br label %_ZSt4copyIPN6custom12_GLOBAL__N_14FaceES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPN6custom12_GLOBAL__N_14FaceES3_ET0_T_S5_S4_.exit: ; preds = %27, %28
-  %.pre-phi48 = phi i64 [ %24, %27 ], [ %.pre47, %28 ]
+  %.pre-phi48 = phi i64 [ 0, %27 ], [ %.pre47, %28 ]
   %29 = phi ptr [ %.val31, %27 ], [ %.pre43, %28 ]
   %.val25 = phi ptr [ %.val29, %27 ], [ %.val25.pre, %28 ]
   %30 = phi ptr [ %.val30, %27 ], [ %.pre, %28 ]

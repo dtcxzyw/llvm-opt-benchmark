@@ -42539,8 +42539,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit405:           ; preds = %356, %360
   br label %.lr.ph532
 
 .preheader520:                                    ; preds = %.lr.ph532, %_ZNK4llvm3EVT13getSizeInBitsEv.exit405
-  %.0294.lcssa = phi i32 [ 0, %_ZNK4llvm3EVT13getSizeInBitsEv.exit405 ], [ %366, %.lr.ph532 ]
-  %.not299534 = icmp eq i32 %.0294.lcssa, %364
+  %.not299534 = icmp eq i32 %366, %364
   br i1 %.not299534, label %._crit_edge537, label %.lr.ph536
 
 .lr.ph532:                                        ; preds = %.lr.ph532.preheader, %.lr.ph532
@@ -42558,7 +42557,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit405:           ; preds = %356, %360
   br i1 %.not298, label %.preheader520, label %.lr.ph532, !llvm.loop !232
 
 .lr.ph536:                                        ; preds = %.preheader520, %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit407
-  %.1295535 = phi i32 [ %382, %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit407 ], [ %.0294.lcssa, %.preheader520 ]
+  %.1295535 = phi i32 [ %382, %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit407 ], [ %366, %.preheader520 ]
   %375 = load ptr, ptr %33, align 8
   %.sroa.053.0.copyload = load i16, ptr %25, align 8
   %.sroa.255.0.copyload = load ptr, ptr %297, align 8
@@ -42720,8 +42719,7 @@ _ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit428: ; preds = %_ZNK4llvm3EVT13getS
   br i1 %.not296546, label %.preheader, label %.lr.ph548
 
 .preheader:                                       ; preds = %.lr.ph548, %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit428
-  %.0288.lcssa = phi i32 [ 0, %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit428 ], [ %407, %.lr.ph548 ]
-  %.not297550 = icmp eq i32 %.0288.lcssa, %429
+  %.not297550 = icmp eq i32 %407, %429
   br i1 %.not297550, label %._crit_edge553, label %.lr.ph552
 
 .lr.ph548:                                        ; preds = %_ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit428, %.lr.ph548
@@ -42739,7 +42737,7 @@ _ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit428: ; preds = %_ZNK4llvm3EVT13getS
   br i1 %.not296, label %.preheader, label %.lr.ph548, !llvm.loop !235
 
 .lr.ph552:                                        ; preds = %.preheader, %.lr.ph552
-  %.1551 = phi i32 [ %446, %.lr.ph552 ], [ %.0288.lcssa, %.preheader ]
+  %.1551 = phi i32 [ %446, %.lr.ph552 ], [ %407, %.preheader ]
   %443 = zext i32 %.1551 to i64
   %444 = load ptr, ptr %30, align 8
   %445 = getelementptr inbounds %"class.llvm::SDValue", ptr %444, i64 %443

@@ -4691,7 +4691,6 @@ define internal fastcc void @rollback_ensure_stack(ptr noundef readonly %0, ptr 
   br i1 %25, label %.preheader59, label %.lr.ph80.split
 
 .preheader59:                                     ; preds = %39, %.lr.ph80, %._crit_edge
-  %.045.lcssa = phi i64 [ 0, %._crit_edge ], [ %21, %.lr.ph80 ], [ %21, %39 ]
   %26 = icmp ugt i64 %.043.lcssa, %.041.lcssa
   br i1 %26, label %.lr.ph84, label %.preheader
 
@@ -4736,11 +4735,11 @@ lookup_rollback_func.exit:                        ; preds = %32
   br i1 %exitcond.not, label %.preheader59, label %.lr.ph80.split, !llvm.loop !28
 
 .preheader:                                       ; preds = %.lr.ph84, %.preheader59
-  %.not89 = icmp eq i64 %.045.lcssa, 0
+  %.not89 = icmp eq i64 %.042.lcssa, %.041.lcssa
   br i1 %.not89, label %._crit_edge87, label %.lr.ph86
 
 .lr.ph86:                                         ; preds = %.preheader
-  %42 = getelementptr %struct.rb_ensure_entry, ptr %1, i64 %.045.lcssa
+  %42 = getelementptr %struct.rb_ensure_entry, ptr %1, i64 %21
   br label %51
 
 .lr.ph84:                                         ; preds = %.preheader59, %.lr.ph84
@@ -4794,7 +4793,7 @@ lookup_rollback_func.exit56:                      ; preds = %59
 
 69:                                               ; preds = %lookup_rollback_func.exit56.thread, %lookup_rollback_func.exit56, %64
   %70 = add nuw i64 %.04485, 1
-  %exitcond94.not = icmp eq i64 %70, %.045.lcssa
+  %exitcond94.not = icmp eq i64 %70, %21
   br i1 %exitcond94.not, label %._crit_edge87, label %51, !llvm.loop !31
 
 ._crit_edge87:                                    ; preds = %69, %.preheader

@@ -4107,7 +4107,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN4ncnn3NetaSERK
 define hidden noundef i32 @_ZN4ncnn3Net21register_custom_layerEPKcPFPNS_5LayerEPvEPFvS4_S5_ES5_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
   %6 = tail call noundef i32 @_ZN4ncnn14layer_to_indexEPKc(ptr noundef %1)
   %.not = icmp eq i32 %6, -1
-  br i1 %.not, label %65, label %7
+  br i1 %.not, label %68, label %7
 
 7:                                                ; preds = %5
   %8 = load ptr, ptr @stderr, align 8
@@ -4125,7 +4125,7 @@ define hidden noundef i32 @_ZN4ncnn3Net21register_custom_layerEPKcPFPNS_5LayerEP
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 5
   %.not88 = icmp eq ptr %15, %16
-  br i1 %.not88, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not88, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %7
   %umax = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
@@ -4165,13 +4165,19 @@ define hidden noundef i32 @_ZN4ncnn3Net21register_custom_layerEPKcPFPNS_5LayerEP
   %exitcond.not = icmp eq i64 %41, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
-._crit_edge:                                      ; preds = %40, %7
+._crit_edge:                                      ; preds = %40
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 192
   %43 = load ptr, ptr %42, align 8
   %.not.i = icmp eq ptr %15, %43
-  br i1 %.not.i, label %47, label %44
+  br i1 %.not.i, label %49, label %46
 
-44:                                               ; preds = %._crit_edge
+._crit_edge.thread:                               ; preds = %7
+  %44 = getelementptr inbounds nuw i8, ptr %12, i64 192
+  %45 = load ptr, ptr %44, align 8
+  %.not.i90 = icmp eq ptr %15, %45
+  br i1 %.not.i90, label %_ZNKSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i, label %46
+
+46:                                               ; preds = %._crit_edge.thread, %._crit_edge
   store i32 %6, ptr %15, align 8
   %.sroa.354.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %2, ptr %.sroa.354.0..sroa_idx, align 8
@@ -4179,190 +4185,191 @@ define hidden noundef i32 @_ZN4ncnn3Net21register_custom_layerEPKcPFPNS_5LayerEP
   store ptr %3, ptr %.sroa.457.0..sroa_idx, align 8
   %.sroa.560.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 24
   store ptr %4, ptr %.sroa.560.0..sroa_idx, align 8
-  %45 = load ptr, ptr %14, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 32
-  store ptr %46, ptr %14, align 8
+  %47 = load ptr, ptr %14, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr %48, ptr %14, align 8
   br label %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE9push_backERKS1_.exit
 
-47:                                               ; preds = %._crit_edge
-  %48 = icmp eq i64 %19, 9223372036854775776
-  br i1 %48, label %49, label %_ZNKSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+49:                                               ; preds = %._crit_edge
+  %50 = icmp eq i64 %19, 9223372036854775776
+  br i1 %50, label %51, label %_ZNKSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
-49:                                               ; preds = %47
+51:                                               ; preds = %49
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.49) #26
   unreachable
 
-_ZNKSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %47
+_ZNKSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %._crit_edge.thread, %49
+  %52 = phi ptr [ %42, %49 ], [ %44, %._crit_edge.thread ]
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
-  %50 = add nsw i64 %.sroa.speculated.i.i.i, %20
-  %51 = icmp ult i64 %50, %20
-  %52 = tail call i64 @llvm.umin.i64(i64 %50, i64 288230376151711743)
-  %53 = select i1 %51, i64 288230376151711743, i64 %52
-  %.not.i.i.i = icmp eq i64 %53, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_M_allocateEm.exit.i.i, label %54
+  %53 = add nsw i64 %.sroa.speculated.i.i.i, %20
+  %54 = icmp ult i64 %53, %20
+  %55 = tail call i64 @llvm.umin.i64(i64 %53, i64 288230376151711743)
+  %56 = select i1 %54, i64 288230376151711743, i64 %55
+  %.not.i.i.i = icmp eq i64 %56, 0
+  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_M_allocateEm.exit.i.i, label %57
 
-54:                                               ; preds = %_ZNKSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %55 = shl nuw nsw i64 %53, 5
-  %56 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %55) #27
+57:                                               ; preds = %_ZNKSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  %58 = shl nuw nsw i64 %56, 5
+  %59 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %58) #27
   br label %_ZNSt12_Vector_baseIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %54, %_ZNKSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %57 = phi ptr [ %56, %54 ], [ null, %_ZNKSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
-  %58 = getelementptr inbounds %"struct.ncnn::overwrite_builtin_layer_registry_entry", ptr %57, i64 %20
-  store i32 %6, ptr %58, align 8
-  %.sroa.354.0..sroa_idx55 = getelementptr inbounds i8, ptr %58, i64 8
+_ZNSt12_Vector_baseIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %57, %_ZNKSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  %60 = phi ptr [ %59, %57 ], [ null, %_ZNKSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %61 = getelementptr inbounds %"struct.ncnn::overwrite_builtin_layer_registry_entry", ptr %60, i64 %20
+  store i32 %6, ptr %61, align 8
+  %.sroa.354.0..sroa_idx55 = getelementptr inbounds i8, ptr %61, i64 8
   store ptr %2, ptr %.sroa.354.0..sroa_idx55, align 8
-  %.sroa.457.0..sroa_idx58 = getelementptr inbounds i8, ptr %58, i64 16
+  %.sroa.457.0..sroa_idx58 = getelementptr inbounds i8, ptr %61, i64 16
   store ptr %3, ptr %.sroa.457.0..sroa_idx58, align 8
-  %.sroa.560.0..sroa_idx61 = getelementptr inbounds i8, ptr %58, i64 24
+  %.sroa.560.0..sroa_idx61 = getelementptr inbounds i8, ptr %61, i64 24
   store ptr %4, ptr %.sroa.560.0..sroa_idx61, align 8
-  %59 = icmp sgt i64 %19, 0
-  br i1 %59, label %60, label %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+  %62 = icmp sgt i64 %19, 0
+  br i1 %62, label %63, label %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
 
-60:                                               ; preds = %_ZNSt12_Vector_baseIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %57, ptr align 8 %16, i64 %19, i1 false)
+63:                                               ; preds = %_ZNSt12_Vector_baseIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_M_allocateEm.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %60, ptr align 8 %16, i64 %19, i1 false)
   br label %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
 
-_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %60, %_ZNSt12_Vector_baseIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_M_allocateEm.exit.i.i
-  %61 = getelementptr inbounds i8, ptr %57, i64 %19
-  %62 = getelementptr inbounds i8, ptr %61, i64 32
+_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %63, %_ZNSt12_Vector_baseIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_M_allocateEm.exit.i.i
+  %64 = getelementptr inbounds i8, ptr %60, i64 %19
+  %65 = getelementptr inbounds i8, ptr %64, i64 32
   %.not.i17.i.i = icmp eq ptr %16, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %63
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %66
 
-63:                                               ; preds = %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+66:                                               ; preds = %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %19) #28
   br label %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
-_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %63, %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  store ptr %57, ptr %13, align 8
-  store ptr %62, ptr %14, align 8
-  %64 = getelementptr inbounds %"struct.ncnn::overwrite_builtin_layer_registry_entry", ptr %57, i64 %53
-  store ptr %64, ptr %42, align 8
+_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %66, %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+  store ptr %60, ptr %13, align 8
+  store ptr %65, ptr %14, align 8
+  %67 = getelementptr inbounds %"struct.ncnn::overwrite_builtin_layer_registry_entry", ptr %60, i64 %56
+  store ptr %67, ptr %52, align 8
   br label %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE9push_backERKS1_.exit
 
-65:                                               ; preds = %5
-  %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 16
-  %68 = load ptr, ptr %67, align 8
-  %69 = tail call noundef i32 %68(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1)
-  %70 = icmp eq i32 %69, -1
-  br i1 %70, label %71, label %105
+68:                                               ; preds = %5
+  %69 = load ptr, ptr %0, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 16
+  %71 = load ptr, ptr %70, align 8
+  %72 = tail call noundef i32 %71(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1)
+  %73 = icmp eq i32 %72, -1
+  br i1 %73, label %74, label %108
 
-71:                                               ; preds = %65
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 152
-  %75 = getelementptr inbounds nuw i8, ptr %73, i64 160
+74:                                               ; preds = %68
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %73, i64 168
-  %78 = load ptr, ptr %77, align 8
-  %.not.i38 = icmp eq ptr %76, %78
-  br i1 %.not.i38, label %82, label %79
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 152
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 160
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %76, i64 168
+  %81 = load ptr, ptr %80, align 8
+  %.not.i38 = icmp eq ptr %79, %81
+  br i1 %.not.i38, label %85, label %82
 
-79:                                               ; preds = %71
-  store ptr %1, ptr %76, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %76, i64 8
+82:                                               ; preds = %74
+  store ptr %1, ptr %79, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %79, i64 8
   store ptr %2, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %76, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %79, i64 16
   store ptr %3, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %76, i64 24
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %79, i64 24
   store ptr %4, ptr %.sroa.5.0..sroa_idx, align 8
-  %80 = load ptr, ptr %75, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 32
-  store ptr %81, ptr %75, align 8
+  %83 = load ptr, ptr %78, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 32
+  store ptr %84, ptr %78, align 8
   br label %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE9push_backERKS1_.exit
 
-82:                                               ; preds = %71
-  %83 = load ptr, ptr %74, align 8
-  %84 = ptrtoint ptr %76 to i64
-  %85 = ptrtoint ptr %83 to i64
-  %86 = sub i64 %84, %85
-  %87 = icmp eq i64 %86, 9223372036854775776
-  br i1 %87, label %88, label %_ZNKSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+85:                                               ; preds = %74
+  %86 = load ptr, ptr %77, align 8
+  %87 = ptrtoint ptr %79 to i64
+  %88 = ptrtoint ptr %86 to i64
+  %89 = sub i64 %87, %88
+  %90 = icmp eq i64 %89, 9223372036854775776
+  br i1 %90, label %91, label %_ZNKSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
-88:                                               ; preds = %82
+91:                                               ; preds = %85
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.49) #26
   unreachable
 
-_ZNKSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %82
-  %89 = ashr exact i64 %86, 5
-  %.sroa.speculated.i.i.i39 = tail call i64 @llvm.umax.i64(i64 %89, i64 1)
-  %90 = add nsw i64 %.sroa.speculated.i.i.i39, %89
-  %91 = icmp ult i64 %90, %89
-  %92 = tail call i64 @llvm.umin.i64(i64 %90, i64 288230376151711743)
-  %93 = select i1 %91, i64 288230376151711743, i64 %92
-  %.not.i.i.i40 = icmp eq i64 %93, 0
-  br i1 %.not.i.i.i40, label %_ZNSt12_Vector_baseIN4ncnn27custom_layer_registry_entryESaIS1_EE11_M_allocateEm.exit.i.i, label %94
+_ZNKSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %85
+  %92 = ashr exact i64 %89, 5
+  %.sroa.speculated.i.i.i39 = tail call i64 @llvm.umax.i64(i64 %92, i64 1)
+  %93 = add nsw i64 %.sroa.speculated.i.i.i39, %92
+  %94 = icmp ult i64 %93, %92
+  %95 = tail call i64 @llvm.umin.i64(i64 %93, i64 288230376151711743)
+  %96 = select i1 %94, i64 288230376151711743, i64 %95
+  %.not.i.i.i40 = icmp eq i64 %96, 0
+  br i1 %.not.i.i.i40, label %_ZNSt12_Vector_baseIN4ncnn27custom_layer_registry_entryESaIS1_EE11_M_allocateEm.exit.i.i, label %97
 
-94:                                               ; preds = %_ZNKSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %95 = shl nuw nsw i64 %93, 5
-  %96 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %95) #27
+97:                                               ; preds = %_ZNKSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  %98 = shl nuw nsw i64 %96, 5
+  %99 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %98) #27
   br label %_ZNSt12_Vector_baseIN4ncnn27custom_layer_registry_entryESaIS1_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseIN4ncnn27custom_layer_registry_entryESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %94, %_ZNKSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %97 = phi ptr [ %96, %94 ], [ null, %_ZNKSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
-  %98 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %97, i64 %89
-  store ptr %1, ptr %98, align 8
-  %.sroa.3.0..sroa_idx43 = getelementptr inbounds i8, ptr %98, i64 8
+_ZNSt12_Vector_baseIN4ncnn27custom_layer_registry_entryESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %97, %_ZNKSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  %100 = phi ptr [ %99, %97 ], [ null, %_ZNKSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %101 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %100, i64 %92
+  store ptr %1, ptr %101, align 8
+  %.sroa.3.0..sroa_idx43 = getelementptr inbounds i8, ptr %101, i64 8
   store ptr %2, ptr %.sroa.3.0..sroa_idx43, align 8
-  %.sroa.4.0..sroa_idx45 = getelementptr inbounds i8, ptr %98, i64 16
+  %.sroa.4.0..sroa_idx45 = getelementptr inbounds i8, ptr %101, i64 16
   store ptr %3, ptr %.sroa.4.0..sroa_idx45, align 8
-  %.sroa.5.0..sroa_idx47 = getelementptr inbounds i8, ptr %98, i64 24
+  %.sroa.5.0..sroa_idx47 = getelementptr inbounds i8, ptr %101, i64 24
   store ptr %4, ptr %.sroa.5.0..sroa_idx47, align 8
-  %99 = icmp sgt i64 %86, 0
-  br i1 %99, label %100, label %_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+  %102 = icmp sgt i64 %89, 0
+  br i1 %102, label %103, label %_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
 
-100:                                              ; preds = %_ZNSt12_Vector_baseIN4ncnn27custom_layer_registry_entryESaIS1_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %97, ptr align 8 %83, i64 %86, i1 false)
+103:                                              ; preds = %_ZNSt12_Vector_baseIN4ncnn27custom_layer_registry_entryESaIS1_EE11_M_allocateEm.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %100, ptr align 8 %86, i64 %89, i1 false)
   br label %_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
 
-_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %100, %_ZNSt12_Vector_baseIN4ncnn27custom_layer_registry_entryESaIS1_EE11_M_allocateEm.exit.i.i
-  %101 = getelementptr inbounds i8, ptr %97, i64 %86
-  %102 = getelementptr inbounds i8, ptr %101, i64 32
-  %.not.i17.i.i41 = icmp eq ptr %83, null
-  br i1 %.not.i17.i.i41, label %_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %103
+_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %103, %_ZNSt12_Vector_baseIN4ncnn27custom_layer_registry_entryESaIS1_EE11_M_allocateEm.exit.i.i
+  %104 = getelementptr inbounds i8, ptr %100, i64 %89
+  %105 = getelementptr inbounds i8, ptr %104, i64 32
+  %.not.i17.i.i41 = icmp eq ptr %86, null
+  br i1 %.not.i17.i.i41, label %_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %106
 
-103:                                              ; preds = %_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %86) #28
+106:                                              ; preds = %_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %86, i64 noundef %89) #28
   br label %_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
-_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %103, %_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  store ptr %97, ptr %74, align 8
-  store ptr %102, ptr %75, align 8
-  %104 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %97, i64 %93
-  store ptr %104, ptr %77, align 8
+_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %106, %_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+  store ptr %100, ptr %77, align 8
+  store ptr %105, ptr %78, align 8
+  %107 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %100, i64 %96
+  store ptr %107, ptr %80, align 8
   br label %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE9push_backERKS1_.exit
 
-105:                                              ; preds = %65
-  %106 = load ptr, ptr @stderr, align 8
-  %107 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef nonnull @.str.3, ptr noundef %1) #30
-  %108 = load ptr, ptr @stderr, align 8
-  %fputc = tail call i32 @fputc(i32 10, ptr %108)
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 152
-  %112 = sext i32 %69 to i64
-  %113 = load ptr, ptr %111, align 8
-  %114 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %113, i64 %112
-  store ptr %1, ptr %114, align 8
-  %115 = load ptr, ptr %109, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 152
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %117, i64 %112, i32 1
-  store ptr %2, ptr %118, align 8
-  %119 = load ptr, ptr %109, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 152
-  %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %121, i64 %112, i32 2
-  store ptr %3, ptr %122, align 8
-  %123 = load ptr, ptr %109, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 152
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %125, i64 %112, i32 3
-  store ptr %4, ptr %126, align 8
+108:                                              ; preds = %68
+  %109 = load ptr, ptr @stderr, align 8
+  %110 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef nonnull @.str.3, ptr noundef %1) #30
+  %111 = load ptr, ptr @stderr, align 8
+  %fputc = tail call i32 @fputc(i32 10, ptr %111)
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 152
+  %115 = sext i32 %72 to i64
+  %116 = load ptr, ptr %114, align 8
+  %117 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %116, i64 %115
+  store ptr %1, ptr %117, align 8
+  %118 = load ptr, ptr %112, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 152
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %120, i64 %115, i32 1
+  store ptr %2, ptr %121, align 8
+  %122 = load ptr, ptr %112, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 152
+  %124 = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %124, i64 %115, i32 2
+  store ptr %3, ptr %125, align 8
+  %126 = load ptr, ptr %112, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 152
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %128, i64 %115, i32 3
+  store ptr %4, ptr %129, align 8
   br label %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE9push_backERKS1_.exit
 
-_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %79, %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %44, %105, %24
+_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %82, %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %46, %108, %24
   ret i32 0
 }
 
@@ -4376,7 +4383,7 @@ define hidden noundef i32 @_ZN4ncnn3Net21register_custom_layerEiPFPNS_5LayerEPvE
   %6 = alloca %"struct.ncnn::custom_layer_registry_entry", align 8
   %7 = and i32 %1, -257
   %8 = icmp eq i32 %1, %7
-  br i1 %8, label %9, label %67
+  br i1 %8, label %9, label %70
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr @stderr, align 8
@@ -4394,7 +4401,7 @@ define hidden noundef i32 @_ZN4ncnn3Net21register_custom_layerEiPFPNS_5LayerEPvE
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 5
   %.not71 = icmp eq ptr %17, %18
-  br i1 %.not71, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not71, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %9
   %umax = tail call i64 @llvm.umax.i64(i64 %22, i64 1)
@@ -4434,13 +4441,19 @@ define hidden noundef i32 @_ZN4ncnn3Net21register_custom_layerEiPFPNS_5LayerEPvE
   %exitcond.not = icmp eq i64 %43, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
-._crit_edge:                                      ; preds = %42, %9
+._crit_edge:                                      ; preds = %42
   %44 = getelementptr inbounds nuw i8, ptr %14, i64 192
   %45 = load ptr, ptr %44, align 8
   %.not.i = icmp eq ptr %17, %45
-  br i1 %.not.i, label %49, label %46
+  br i1 %.not.i, label %51, label %48
 
-46:                                               ; preds = %._crit_edge
+._crit_edge.thread:                               ; preds = %9
+  %46 = getelementptr inbounds nuw i8, ptr %14, i64 192
+  %47 = load ptr, ptr %46, align 8
+  %.not.i74 = icmp eq ptr %17, %47
+  br i1 %.not.i74, label %_ZNKSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i, label %48
+
+48:                                               ; preds = %._crit_edge.thread, %._crit_edge
   store i32 %1, ptr %17, align 8
   %.sroa.339.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %2, ptr %.sroa.339.0..sroa_idx, align 8
@@ -4448,144 +4461,145 @@ define hidden noundef i32 @_ZN4ncnn3Net21register_custom_layerEiPFPNS_5LayerEPvE
   store ptr %3, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 24
   store ptr %4, ptr %.sroa.5.0..sroa_idx, align 8
-  %47 = load ptr, ptr %16, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 32
-  store ptr %48, ptr %16, align 8
+  %49 = load ptr, ptr %16, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 32
+  store ptr %50, ptr %16, align 8
   br label %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE9push_backERKS1_.exit
 
-49:                                               ; preds = %._crit_edge
-  %50 = icmp eq i64 %21, 9223372036854775776
-  br i1 %50, label %51, label %_ZNKSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+51:                                               ; preds = %._crit_edge
+  %52 = icmp eq i64 %21, 9223372036854775776
+  br i1 %52, label %53, label %_ZNKSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
-51:                                               ; preds = %49
+53:                                               ; preds = %51
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.49) #26
   unreachable
 
-_ZNKSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %49
+_ZNKSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %._crit_edge.thread, %51
+  %54 = phi ptr [ %44, %51 ], [ %46, %._crit_edge.thread ]
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %22, i64 1)
-  %52 = add nsw i64 %.sroa.speculated.i.i.i, %22
-  %53 = icmp ult i64 %52, %22
-  %54 = tail call i64 @llvm.umin.i64(i64 %52, i64 288230376151711743)
-  %55 = select i1 %53, i64 288230376151711743, i64 %54
-  %.not.i.i.i = icmp eq i64 %55, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_M_allocateEm.exit.i.i, label %56
+  %55 = add nsw i64 %.sroa.speculated.i.i.i, %22
+  %56 = icmp ult i64 %55, %22
+  %57 = tail call i64 @llvm.umin.i64(i64 %55, i64 288230376151711743)
+  %58 = select i1 %56, i64 288230376151711743, i64 %57
+  %.not.i.i.i = icmp eq i64 %58, 0
+  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_M_allocateEm.exit.i.i, label %59
 
-56:                                               ; preds = %_ZNKSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %57 = shl nuw nsw i64 %55, 5
-  %58 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %57) #27
+59:                                               ; preds = %_ZNKSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  %60 = shl nuw nsw i64 %58, 5
+  %61 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %60) #27
   br label %_ZNSt12_Vector_baseIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %56, %_ZNKSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %59 = phi ptr [ %58, %56 ], [ null, %_ZNKSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
-  %60 = getelementptr inbounds %"struct.ncnn::overwrite_builtin_layer_registry_entry", ptr %59, i64 %22
-  store i32 %1, ptr %60, align 8
-  %.sroa.339.0..sroa_idx40 = getelementptr inbounds i8, ptr %60, i64 8
+_ZNSt12_Vector_baseIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %59, %_ZNKSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  %62 = phi ptr [ %61, %59 ], [ null, %_ZNKSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %63 = getelementptr inbounds %"struct.ncnn::overwrite_builtin_layer_registry_entry", ptr %62, i64 %22
+  store i32 %1, ptr %63, align 8
+  %.sroa.339.0..sroa_idx40 = getelementptr inbounds i8, ptr %63, i64 8
   store ptr %2, ptr %.sroa.339.0..sroa_idx40, align 8
-  %.sroa.4.0..sroa_idx42 = getelementptr inbounds i8, ptr %60, i64 16
+  %.sroa.4.0..sroa_idx42 = getelementptr inbounds i8, ptr %63, i64 16
   store ptr %3, ptr %.sroa.4.0..sroa_idx42, align 8
-  %.sroa.5.0..sroa_idx44 = getelementptr inbounds i8, ptr %60, i64 24
+  %.sroa.5.0..sroa_idx44 = getelementptr inbounds i8, ptr %63, i64 24
   store ptr %4, ptr %.sroa.5.0..sroa_idx44, align 8
-  %61 = icmp sgt i64 %21, 0
-  br i1 %61, label %62, label %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+  %64 = icmp sgt i64 %21, 0
+  br i1 %64, label %65, label %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
 
-62:                                               ; preds = %_ZNSt12_Vector_baseIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %59, ptr align 8 %18, i64 %21, i1 false)
+65:                                               ; preds = %_ZNSt12_Vector_baseIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_M_allocateEm.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %62, ptr align 8 %18, i64 %21, i1 false)
   br label %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
 
-_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %62, %_ZNSt12_Vector_baseIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_M_allocateEm.exit.i.i
-  %63 = getelementptr inbounds i8, ptr %59, i64 %21
-  %64 = getelementptr inbounds i8, ptr %63, i64 32
+_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %65, %_ZNSt12_Vector_baseIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_M_allocateEm.exit.i.i
+  %66 = getelementptr inbounds i8, ptr %62, i64 %21
+  %67 = getelementptr inbounds i8, ptr %66, i64 32
   %.not.i17.i.i = icmp eq ptr %18, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %65
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %68
 
-65:                                               ; preds = %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+68:                                               ; preds = %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %21) #28
   br label %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
-_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %65, %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  store ptr %59, ptr %15, align 8
-  store ptr %64, ptr %16, align 8
-  %66 = getelementptr inbounds %"struct.ncnn::overwrite_builtin_layer_registry_entry", ptr %59, i64 %55
-  store ptr %66, ptr %44, align 8
+_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %68, %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+  store ptr %62, ptr %15, align 8
+  store ptr %67, ptr %16, align 8
+  %69 = getelementptr inbounds %"struct.ncnn::overwrite_builtin_layer_registry_entry", ptr %62, i64 %58
+  store ptr %69, ptr %54, align 8
   br label %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE9push_backERKS1_.exit
 
-67:                                               ; preds = %5
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 152
-  %71 = getelementptr inbounds nuw i8, ptr %69, i64 160
+70:                                               ; preds = %5
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %72 = load ptr, ptr %71, align 8
-  %73 = load ptr, ptr %70, align 8
-  %74 = ptrtoint ptr %72 to i64
-  %75 = ptrtoint ptr %73 to i64
-  %76 = sub i64 %74, %75
-  %77 = ashr exact i64 %76, 5
-  %78 = trunc i64 %77 to i32
-  %.not = icmp slt i32 %7, %78
-  br i1 %.not, label %_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE6resizeEmRKS1_.exit, label %79
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 152
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 160
+  %75 = load ptr, ptr %74, align 8
+  %76 = load ptr, ptr %73, align 8
+  %77 = ptrtoint ptr %75 to i64
+  %78 = ptrtoint ptr %76 to i64
+  %79 = sub i64 %77, %78
+  %80 = ashr exact i64 %79, 5
+  %81 = trunc i64 %80 to i32
+  %.not = icmp slt i32 %7, %81
+  br i1 %.not, label %_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE6resizeEmRKS1_.exit, label %82
 
-79:                                               ; preds = %67
+82:                                               ; preds = %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) @__const._ZN4ncnn3Net21register_custom_layerEiPFPNS_5LayerEPvEPFvS2_S3_ES3_.dummy, i64 32, i1 false)
-  %80 = add nuw nsw i32 %7, 1
-  %81 = sext i32 %80 to i64
-  %82 = icmp ult i64 %77, %81
-  br i1 %82, label %83, label %85
+  %83 = add nuw nsw i32 %7, 1
+  %84 = sext i32 %83 to i64
+  %85 = icmp ult i64 %80, %84
+  br i1 %85, label %86, label %88
 
-83:                                               ; preds = %79
-  %84 = sub nuw nsw i64 %81, %77
-  call void @_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %72, i64 noundef %84, ptr noundef nonnull align 8 dereferenceable(32) %6)
+86:                                               ; preds = %82
+  %87 = sub nuw nsw i64 %84, %80
+  call void @_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %73, ptr %75, i64 noundef %87, ptr noundef nonnull align 8 dereferenceable(32) %6)
   br label %_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE6resizeEmRKS1_.exit
 
-85:                                               ; preds = %79
-  %86 = icmp ugt i64 %77, %81
-  br i1 %86, label %87, label %_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE6resizeEmRKS1_.exit
+88:                                               ; preds = %82
+  %89 = icmp ugt i64 %80, %84
+  br i1 %89, label %90, label %_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE6resizeEmRKS1_.exit
 
-87:                                               ; preds = %85
-  %88 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %73, i64 %81
-  %.not.i.i = icmp eq ptr %72, %88
-  br i1 %.not.i.i, label %_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE6resizeEmRKS1_.exit, label %89
+90:                                               ; preds = %88
+  %91 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %76, i64 %84
+  %.not.i.i = icmp eq ptr %75, %91
+  br i1 %.not.i.i, label %_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE6resizeEmRKS1_.exit, label %92
 
-89:                                               ; preds = %87
-  store ptr %88, ptr %71, align 8
+92:                                               ; preds = %90
+  store ptr %91, ptr %74, align 8
   br label %_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE6resizeEmRKS1_.exit
 
-_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE6resizeEmRKS1_.exit: ; preds = %89, %87, %85, %83, %67
-  %90 = load ptr, ptr %68, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 152
-  %92 = sext i32 %7 to i64
-  %93 = load ptr, ptr %91, align 8
-  %94 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %93, i64 %92, i32 1
-  %95 = load ptr, ptr %94, align 8
-  %.not33 = icmp eq ptr %95, null
-  br i1 %.not33, label %100, label %96
+_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE6resizeEmRKS1_.exit: ; preds = %92, %90, %88, %86, %70
+  %93 = load ptr, ptr %71, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 152
+  %95 = sext i32 %7 to i64
+  %96 = load ptr, ptr %94, align 8
+  %97 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %96, i64 %95, i32 1
+  %98 = load ptr, ptr %97, align 8
+  %.not33 = icmp eq ptr %98, null
+  br i1 %.not33, label %103, label %99
 
-96:                                               ; preds = %_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE6resizeEmRKS1_.exit
-  %97 = load ptr, ptr @stderr, align 8
-  %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str.6, i32 noundef %7) #30
-  %99 = load ptr, ptr @stderr, align 8
-  %fputc = call i32 @fputc(i32 10, ptr %99)
-  %.pre = load ptr, ptr %68, align 8
+99:                                               ; preds = %_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE6resizeEmRKS1_.exit
+  %100 = load ptr, ptr @stderr, align 8
+  %101 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.6, i32 noundef %7) #30
+  %102 = load ptr, ptr @stderr, align 8
+  %fputc = call i32 @fputc(i32 10, ptr %102)
+  %.pre = load ptr, ptr %71, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 152
   %.pre73 = load ptr, ptr %.phi.trans.insert, align 8
-  br label %100
+  br label %103
 
-100:                                              ; preds = %96, %_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE6resizeEmRKS1_.exit
-  %101 = phi ptr [ %.pre73, %96 ], [ %93, %_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE6resizeEmRKS1_.exit ]
-  %102 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %101, i64 %92, i32 1
-  store ptr %2, ptr %102, align 8
-  %103 = load ptr, ptr %68, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 152
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %105, i64 %92, i32 2
-  store ptr %3, ptr %106, align 8
-  %107 = load ptr, ptr %68, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 152
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %109, i64 %92, i32 3
-  store ptr %4, ptr %110, align 8
+103:                                              ; preds = %99, %_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE6resizeEmRKS1_.exit
+  %104 = phi ptr [ %.pre73, %99 ], [ %96, %_ZNSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE6resizeEmRKS1_.exit ]
+  %105 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %104, i64 %95, i32 1
+  store ptr %2, ptr %105, align 8
+  %106 = load ptr, ptr %71, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 152
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %108, i64 %95, i32 2
+  store ptr %3, ptr %109, align 8
+  %110 = load ptr, ptr %71, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 152
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %112, i64 %95, i32 3
+  store ptr %4, ptr %113, align 8
   br label %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE9push_backERKS1_.exit
 
-_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %46, %100, %26
+_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIN4ncnn38overwrite_builtin_layer_registry_entryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %48, %103, %26
   ret i32 0
 }
 
@@ -6439,7 +6453,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %_ZNSt6vectorIiSa
   br label %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPiS0_ET0_T_S2_S1_.exit:                 ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]
@@ -10947,7 +10961,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN4ncnn27custom_layer_registry_entr
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 5
   %.not65 = icmp ult i64 %13, %2
-  br i1 %.not65, label %41, label %14
+  br i1 %.not65, label %42, label %14
 
 14:                                               ; preds = %5
   %.sroa.1.8.copyload = load i8, ptr %3, align 8
@@ -10957,7 +10971,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN4ncnn27custom_layer_registry_entr
   %16 = sub i64 %11, %15
   %17 = ashr exact i64 %16, 5
   %18 = icmp ugt i64 %17, %2
-  br i1 %18, label %_ZSt22__uninitialized_move_aIPN4ncnn27custom_layer_registry_entryES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %30
+  br i1 %18, label %_ZSt22__uninitialized_move_aIPN4ncnn27custom_layer_registry_entryES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %31
 
 _ZSt22__uninitialized_move_aIPN4ncnn27custom_layer_registry_entryES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %14
   %19 = sub i64 0, %2
@@ -10974,143 +10988,143 @@ _ZSt22__uninitialized_move_aIPN4ncnn27custom_layer_registry_entryES2_SaIS1_EET0_
   %24 = ptrtoint ptr %20 to i64
   %25 = sub i64 %24, %15
   %26 = ashr exact i64 %25, 5
-  %.pre.i.i.i.i.i = sub nsw i64 0, %26
-  %27 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %9, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %27, ptr align 8 %1, i64 %25, i1 false)
+  %27 = sub nsw i64 0, %26
+  %28 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %9, i64 %27
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %28, ptr align 8 %1, i64 %25, i1 false)
   br label %_ZSt13move_backwardIPN4ncnn27custom_layer_registry_entryES2_ET0_T_S4_S3_.exit
 
 _ZSt13move_backwardIPN4ncnn27custom_layer_registry_entryES2_ET0_T_S4_S3_.exit: ; preds = %23, %_ZSt22__uninitialized_move_aIPN4ncnn27custom_layer_registry_entryES2_SaIS1_EET0_T_S5_S4_RT1_.exit
-  %28 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %1, i64 %2
+  %29 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %1, i64 %2
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt13move_backwardIPN4ncnn27custom_layer_registry_entryES2_ET0_T_S4_S3_.exit, %.lr.ph.i.i.i
-  %.06.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i ], [ %1, %_ZSt13move_backwardIPN4ncnn27custom_layer_registry_entryES2_ET0_T_S4_S3_.exit ]
+  %.06.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i ], [ %1, %_ZSt13move_backwardIPN4ncnn27custom_layer_registry_entryES2_ET0_T_S4_S3_.exit ]
   store i8 %.sroa.1.8.copyload, ptr %.06.i.i.i, align 8
   %.sroa.6.8..06.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %.06.i.i.i, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.8..06.i.i.i.sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, i64 31, i1 false)
-  %29 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 32
-  %.not.i.i.i = icmp eq ptr %29, %28
+  %30 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 32
+  %.not.i.i.i = icmp eq ptr %30, %29
   br i1 %.not.i.i.i, label %_ZSt4fillIPN4ncnn27custom_layer_registry_entryES1_EvT_S3_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !52
 
-30:                                               ; preds = %14
-  %31 = icmp eq i64 %2, %17
-  br i1 %31, label %_ZSt24__uninitialized_fill_n_aIPN4ncnn27custom_layer_registry_entryEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit, label %32
+31:                                               ; preds = %14
+  %32 = icmp eq i64 %2, %17
+  br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPN4ncnn27custom_layer_registry_entryEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit, label %33
 
-32:                                               ; preds = %30
-  %33 = sub nuw i64 %2, %17
-  %34 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %9, i64 %33
+33:                                               ; preds = %31
+  %34 = sub nuw i64 %2, %17
+  %35 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %9, i64 %34
   br label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %32
-  %.06.i.i.i.i.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i.i.i.i.i ], [ %9, %32 ]
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %33
+  %.06.i.i.i.i.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i.i.i.i ], [ %9, %33 ]
   store i8 %.sroa.1.8.copyload, ptr %.06.i.i.i.i.i.i.i, align 8
   %.sroa.6.8..06.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.8..06.i.i.i.i.i.i.i.sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, i64 31, i1 false)
-  %35 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i, i64 32
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %35, %34
+  %36 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i, i64 32
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %36, %35
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN4ncnn27custom_layer_registry_entryEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !52
 
-_ZSt24__uninitialized_fill_n_aIPN4ncnn27custom_layer_registry_entryEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %30
-  %36 = phi ptr [ %9, %30 ], [ %34, %.lr.ph.i.i.i.i.i.i.i ]
-  store ptr %36, ptr %8, align 8
+_ZSt24__uninitialized_fill_n_aIPN4ncnn27custom_layer_registry_entryEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %31
+  %37 = phi ptr [ %9, %31 ], [ %35, %.lr.ph.i.i.i.i.i.i.i ]
+  store ptr %37, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i68 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i68, label %_ZSt22__uninitialized_move_aIPN4ncnn27custom_layer_registry_entryES2_SaIS1_EET0_T_S5_S4_RT1_.exit69.thread, label %_ZSt22__uninitialized_move_aIPN4ncnn27custom_layer_registry_entryES2_SaIS1_EET0_T_S5_S4_RT1_.exit69
 
 _ZSt22__uninitialized_move_aIPN4ncnn27custom_layer_registry_entryES2_SaIS1_EET0_T_S5_S4_RT1_.exit69.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPN4ncnn27custom_layer_registry_entryEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit
-  %37 = getelementptr inbounds i8, ptr %36, i64 %16
-  store ptr %37, ptr %8, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 %16
+  store ptr %38, ptr %8, align 8
   br label %_ZSt4fillIPN4ncnn27custom_layer_registry_entryES1_EvT_S3_RKT0_.exit
 
 _ZSt22__uninitialized_move_aIPN4ncnn27custom_layer_registry_entryES2_SaIS1_EET0_T_S5_S4_RT1_.exit69: ; preds = %_ZSt24__uninitialized_fill_n_aIPN4ncnn27custom_layer_registry_entryEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %36, ptr align 8 %1, i64 %16, i1 false)
-  %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 %16
-  store ptr %39, ptr %8, align 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %37, ptr align 8 %1, i64 %16, i1 false)
+  %39 = load ptr, ptr %8, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 %16
+  store ptr %40, ptr %8, align 8
   br label %.lr.ph.i.i.i71
 
 .lr.ph.i.i.i71:                                   ; preds = %_ZSt22__uninitialized_move_aIPN4ncnn27custom_layer_registry_entryES2_SaIS1_EET0_T_S5_S4_RT1_.exit69, %.lr.ph.i.i.i71
-  %.06.i.i.i72 = phi ptr [ %40, %.lr.ph.i.i.i71 ], [ %1, %_ZSt22__uninitialized_move_aIPN4ncnn27custom_layer_registry_entryES2_SaIS1_EET0_T_S5_S4_RT1_.exit69 ]
+  %.06.i.i.i72 = phi ptr [ %41, %.lr.ph.i.i.i71 ], [ %1, %_ZSt22__uninitialized_move_aIPN4ncnn27custom_layer_registry_entryES2_SaIS1_EET0_T_S5_S4_RT1_.exit69 ]
   store i8 %.sroa.1.8.copyload, ptr %.06.i.i.i72, align 8
   %.sroa.6.8..06.i.i.i72.sroa_idx = getelementptr inbounds i8, ptr %.06.i.i.i72, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.8..06.i.i.i72.sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, i64 31, i1 false)
-  %40 = getelementptr inbounds i8, ptr %.06.i.i.i72, i64 32
-  %.not.i.i.i73 = icmp eq ptr %40, %9
+  %41 = getelementptr inbounds i8, ptr %.06.i.i.i72, i64 32
+  %.not.i.i.i73 = icmp eq ptr %41, %9
   br i1 %.not.i.i.i73, label %_ZSt4fillIPN4ncnn27custom_layer_registry_entryES1_EvT_S3_RKT0_.exit, label %.lr.ph.i.i.i71, !llvm.loop !52
 
-41:                                               ; preds = %5
-  %42 = load ptr, ptr %0, align 8
-  %43 = ptrtoint ptr %42 to i64
-  %44 = sub i64 %11, %43
-  %45 = ashr exact i64 %44, 5
-  %46 = sub nsw i64 288230376151711743, %45
-  %47 = icmp ult i64 %46, %2
-  br i1 %47, label %48, label %_ZNKSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit
+42:                                               ; preds = %5
+  %43 = load ptr, ptr %0, align 8
+  %44 = ptrtoint ptr %43 to i64
+  %45 = sub i64 %11, %44
+  %46 = ashr exact i64 %45, 5
+  %47 = sub nsw i64 288230376151711743, %46
+  %48 = icmp ult i64 %47, %2
+  br i1 %48, label %49, label %_ZNKSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit
 
-48:                                               ; preds = %41
+49:                                               ; preds = %42
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.50) #26
   unreachable
 
-_ZNKSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %41
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %45, i64 %2)
-  %49 = add nsw i64 %.sroa.speculated.i, %45
-  %50 = icmp ult i64 %49, %45
-  %51 = tail call i64 @llvm.umin.i64(i64 %49, i64 288230376151711743)
-  %52 = select i1 %50, i64 288230376151711743, i64 %51
-  %53 = ptrtoint ptr %1 to i64
-  %54 = sub i64 %53, %43
-  %.not.i = icmp eq i64 %52, 0
-  br i1 %.not.i, label %58, label %55
+_ZNKSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %42
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %46, i64 %2)
+  %50 = add nsw i64 %.sroa.speculated.i, %46
+  %51 = icmp ult i64 %50, %46
+  %52 = tail call i64 @llvm.umin.i64(i64 %50, i64 288230376151711743)
+  %53 = select i1 %51, i64 288230376151711743, i64 %52
+  %54 = ptrtoint ptr %1 to i64
+  %55 = sub i64 %54, %44
+  %.not.i = icmp eq i64 %53, 0
+  br i1 %.not.i, label %59, label %56
 
-55:                                               ; preds = %_ZNKSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit
-  %56 = shl nuw nsw i64 %52, 5
-  %57 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %56) #27
-  br label %58
+56:                                               ; preds = %_ZNKSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit
+  %57 = shl nuw nsw i64 %53, 5
+  %58 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %57) #27
+  br label %59
 
-58:                                               ; preds = %55, %_ZNKSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit
-  %59 = phi ptr [ %57, %55 ], [ null, %_ZNKSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %60 = getelementptr inbounds i8, ptr %59, i64 %54
-  %61 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %60, i64 %2
+59:                                               ; preds = %56, %_ZNKSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit
+  %60 = phi ptr [ %58, %56 ], [ null, %_ZNKSt6vectorIN4ncnn27custom_layer_registry_entryESaIS1_EE12_M_check_lenEmPKc.exit ]
+  %61 = getelementptr inbounds i8, ptr %60, i64 %55
+  %62 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %61, i64 %2
   br label %.lr.ph.i.i.i.i.i.i.i75
 
-.lr.ph.i.i.i.i.i.i.i75:                           ; preds = %.lr.ph.i.i.i.i.i.i.i75, %58
-  %.06.i.i.i.i.i.i.i76 = phi ptr [ %62, %.lr.ph.i.i.i.i.i.i.i75 ], [ %60, %58 ]
+.lr.ph.i.i.i.i.i.i.i75:                           ; preds = %.lr.ph.i.i.i.i.i.i.i75, %59
+  %.06.i.i.i.i.i.i.i76 = phi ptr [ %63, %.lr.ph.i.i.i.i.i.i.i75 ], [ %61, %59 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.06.i.i.i.i.i.i.i76, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  %62 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i76, i64 32
-  %.not.i.i.i.i.i.i.i77 = icmp eq ptr %62, %61
+  %63 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i76, i64 32
+  %.not.i.i.i.i.i.i.i77 = icmp eq ptr %63, %62
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPN4ncnn27custom_layer_registry_entryEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !52
 
 _ZSt24__uninitialized_fill_n_aIPN4ncnn27custom_layer_registry_entryEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %42
-  br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4ncnn27custom_layer_registry_entryES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %63
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
+  br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4ncnn27custom_layer_registry_entryES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %64
 
-63:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPN4ncnn27custom_layer_registry_entryEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit79
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %59, ptr align 8 %42, i64 %54, i1 false)
+64:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPN4ncnn27custom_layer_registry_entryEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit79
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %60, ptr align 8 %43, i64 %55, i1 false)
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPN4ncnn27custom_layer_registry_entryES2_SaIS1_EET0_T_S5_S4_RT1_.exit
 
-_ZSt34__uninitialized_move_if_noexcept_aIPN4ncnn27custom_layer_registry_entryES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %63, %_ZSt24__uninitialized_fill_n_aIPN4ncnn27custom_layer_registry_entryEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit79
-  %64 = sub i64 %11, %53
+_ZSt34__uninitialized_move_if_noexcept_aIPN4ncnn27custom_layer_registry_entryES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %64, %_ZSt24__uninitialized_fill_n_aIPN4ncnn27custom_layer_registry_entryEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit79
+  %65 = sub i64 %11, %54
   %.not.i.i.i.i.i.i.i.i.i81 = icmp eq ptr %9, %1
-  br i1 %.not.i.i.i.i.i.i.i.i.i81, label %66, label %65
+  br i1 %.not.i.i.i.i.i.i.i.i.i81, label %67, label %66
 
-65:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4ncnn27custom_layer_registry_entryES2_SaIS1_EET0_T_S5_S4_RT1_.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %61, ptr align 8 %1, i64 %64, i1 false)
-  br label %66
+66:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4ncnn27custom_layer_registry_entryES2_SaIS1_EET0_T_S5_S4_RT1_.exit
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %62, ptr align 8 %1, i64 %65, i1 false)
+  br label %67
 
-66:                                               ; preds = %65, %_ZSt34__uninitialized_move_if_noexcept_aIPN4ncnn27custom_layer_registry_entryES2_SaIS1_EET0_T_S5_S4_RT1_.exit
-  %67 = getelementptr inbounds i8, ptr %61, i64 %64
-  %.not.i83 = icmp eq ptr %42, null
-  br i1 %.not.i83, label %_ZNSt12_Vector_baseIN4ncnn27custom_layer_registry_entryESaIS1_EE13_M_deallocateEPS1_m.exit, label %68
+67:                                               ; preds = %66, %_ZSt34__uninitialized_move_if_noexcept_aIPN4ncnn27custom_layer_registry_entryES2_SaIS1_EET0_T_S5_S4_RT1_.exit
+  %68 = getelementptr inbounds i8, ptr %62, i64 %65
+  %.not.i83 = icmp eq ptr %43, null
+  br i1 %.not.i83, label %_ZNSt12_Vector_baseIN4ncnn27custom_layer_registry_entryESaIS1_EE13_M_deallocateEPS1_m.exit, label %69
 
-68:                                               ; preds = %66
-  %69 = sub i64 %10, %43
-  tail call void @_ZdlPvm(ptr noundef nonnull %42, i64 noundef %69) #28
+69:                                               ; preds = %67
+  %70 = sub i64 %10, %44
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %70) #28
   br label %_ZNSt12_Vector_baseIN4ncnn27custom_layer_registry_entryESaIS1_EE13_M_deallocateEPS1_m.exit
 
-_ZNSt12_Vector_baseIN4ncnn27custom_layer_registry_entryESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %66, %68
-  store ptr %59, ptr %0, align 8
-  store ptr %67, ptr %8, align 8
-  %70 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %59, i64 %52
-  store ptr %70, ptr %6, align 8
+_ZNSt12_Vector_baseIN4ncnn27custom_layer_registry_entryESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %67, %69
+  store ptr %60, ptr %0, align 8
+  store ptr %68, ptr %8, align 8
+  %71 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %60, i64 %53
+  store ptr %71, ptr %6, align 8
   br label %_ZSt4fillIPN4ncnn27custom_layer_registry_entryES1_EvT_S3_RKT0_.exit
 
 _ZSt4fillIPN4ncnn27custom_layer_registry_entryES1_EvT_S3_RKT0_.exit: ; preds = %.lr.ph.i.i.i71, %.lr.ph.i.i.i, %_ZSt22__uninitialized_move_aIPN4ncnn27custom_layer_registry_entryES2_SaIS1_EET0_T_S5_S4_RT1_.exit69.thread, %_ZNSt12_Vector_baseIN4ncnn27custom_layer_registry_entryESaIS1_EE13_M_deallocateEPS1_m.exit, %4

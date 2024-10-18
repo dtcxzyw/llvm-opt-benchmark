@@ -42004,15 +42004,11 @@ for.body12:                                       ; preds = %for.cond.cleanup, %
   store i64 %call13, ptr %arrayidx, align 8, !tbaa !155
   %7 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !91
   %8 = load ptr, ptr %args, align 8, !tbaa !92
-  %sub.ptr.lhs.cast.i.i5978 = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast.i.i6079 = ptrtoint ptr %8 to i64
-  %sub.ptr.sub.i.i6180 = sub i64 %sub.ptr.lhs.cast.i.i5978, %sub.ptr.rhs.cast.i.i6079
-  %sub.ptr.div.i.i6281 = sdiv exact i64 %sub.ptr.sub.i.i6180, 104
   %cmp1682.not = icmp eq ptr %7, %8
   br i1 %cmp1682.not, label %for.cond.cleanup17, label %for.body18
 
 for.cond.cleanup17:                               ; preds = %invoke.cont20, %for.body12
-  %sub.ptr.div.i.i62.lcssa = phi i64 [ %sub.ptr.div.i.i6281, %for.body12 ], [ %sub.ptr.div.i.i62, %invoke.cont20 ]
+  %sub.ptr.div.i.i62.lcssa = phi i64 [ 0, %for.body12 ], [ %sub.ptr.div.i.i62, %invoke.cont20 ]
   %length = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i64 %sub.ptr.div.i.i62.lcssa, ptr %length, align 8, !tbaa !27
   %inc28 = add nuw i64 %i7.085, 1
@@ -43673,7 +43669,12 @@ for.body13:                                       ; preds = %for.inc29, %for.bod
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 104
   %cmp14.i = icmp eq ptr %12, %13
-  br i1 %cmp14.i, label %if.else, label %for.body.lr.ph.i
+  br i1 %cmp14.i, label %if.else.thread, label %for.body.lr.ph.i
+
+if.else.thread:                                   ; preds = %for.body13
+  %arrayidx209 = getelementptr inbounds %"struct.duckdb::list_entry_t", ptr %9, i64 %i9.0182
+  store i64 %total_size.0181, ptr %arrayidx209, align 8, !tbaa !155
+  br label %if.else.i.i.i
 
 for.body.lr.ph.i:                                 ; preds = %for.body13
   %umax.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
@@ -43756,13 +43757,14 @@ lpad14:                                           ; preds = %_ZN6duckdb15RangeIn
           cleanup
   br label %ehcleanup84
 
-if.else:                                          ; preds = %invoke.cont15, %for.body13
+if.else:                                          ; preds = %invoke.cont15
   %arrayidx20 = getelementptr inbounds %"struct.duckdb::list_entry_t", ptr %9, i64 %i9.0182
   store i64 %total_size.0181, ptr %arrayidx20, align 8, !tbaa !155
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 104
   br i1 %cmp.i.i.i, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit.i.i, label %if.else.i.i.i
 
-if.else.i.i.i:                                    ; preds = %if.else
+if.else.i.i.i:                                    ; preds = %if.else.thread, %if.else
+  %arrayidx2011 = phi ptr [ %arrayidx209, %if.else.thread ], [ %arrayidx20, %if.else ]
   %24 = load ptr, ptr %data3.i.i.i, align 8, !tbaa !114
   %25 = load ptr, ptr %vdata.i, align 8, !tbaa !112
   %26 = load ptr, ptr %25, align 8, !tbaa !38
@@ -43782,6 +43784,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i.i: ; preds = %cond.true.i.i.i.
   br label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit.i.i
 
 _ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit.i.i: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i.i, %if.else
+  %arrayidx2012 = phi ptr [ %arrayidx2011, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i.i ], [ %arrayidx20, %if.else ]
   %retval.0.i.i.i = phi i64 [ %28, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i.i ], [ 0, %if.else ]
   %cmp.i10.i.i = icmp ne i64 %sub.ptr.sub.i.i.i, 104
   %conv.i.i.i = zext i1 %cmp.i10.i.i to i64
@@ -43831,7 +43834,7 @@ _ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE13GetListValuesEmRlS3_S3_
           to label %invoke.cont22 unwind label %lpad14
 
 invoke.cont22:                                    ; preds = %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE13GetListValuesEmRlS3_S3_.exit.i
-  %length25 = getelementptr inbounds i8, ptr %arrayidx20, i64 8
+  %length25 = getelementptr inbounds i8, ptr %arrayidx2012, i64 8
   store i64 %call.i135, ptr %length25, align 8, !tbaa !27
   %add = add i64 %call.i135, %total_size.0181
   br label %for.inc29
@@ -45825,7 +45828,12 @@ for.body13:                                       ; preds = %for.inc29, %for.bod
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 104
   %cmp14.i = icmp eq ptr %12, %13
-  br i1 %cmp14.i, label %if.else, label %for.body.lr.ph.i
+  br i1 %cmp14.i, label %if.else.thread, label %for.body.lr.ph.i
+
+if.else.thread:                                   ; preds = %for.body13
+  %arrayidx209 = getelementptr inbounds %"struct.duckdb::list_entry_t", ptr %9, i64 %i9.0176
+  store i64 %total_size.0175, ptr %arrayidx209, align 8, !tbaa !155
+  br label %if.else.i.i.i
 
 for.body.lr.ph.i:                                 ; preds = %for.body13
   %umax.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
@@ -45908,13 +45916,14 @@ lpad14:                                           ; preds = %_ZN6duckdb15RangeIn
           cleanup
   br label %ehcleanup80
 
-if.else:                                          ; preds = %invoke.cont15, %for.body13
+if.else:                                          ; preds = %invoke.cont15
   %arrayidx20 = getelementptr inbounds %"struct.duckdb::list_entry_t", ptr %9, i64 %i9.0176
   store i64 %total_size.0175, ptr %arrayidx20, align 8, !tbaa !155
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 104
   br i1 %cmp.i.i.i, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit.i.i, label %if.else.i.i.i
 
-if.else.i.i.i:                                    ; preds = %if.else
+if.else.i.i.i:                                    ; preds = %if.else.thread, %if.else
+  %arrayidx2011 = phi ptr [ %arrayidx209, %if.else.thread ], [ %arrayidx20, %if.else ]
   %24 = load ptr, ptr %data3.i.i.i, align 8, !tbaa !114
   %25 = load ptr, ptr %vdata.i, align 8, !tbaa !112
   %26 = load ptr, ptr %25, align 8, !tbaa !38
@@ -45934,6 +45943,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i.i: ; preds = %cond.true.i.i.i.
   br label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit.i.i
 
 _ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit.i.i: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i.i, %if.else
+  %arrayidx2012 = phi ptr [ %arrayidx2011, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i.i ], [ %arrayidx20, %if.else ]
   %retval.0.i.i.i = phi i64 [ %28, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i.i ], [ 0, %if.else ]
   %cmp.i10.i.i = icmp ne i64 %sub.ptr.sub.i.i.i, 104
   %conv.i.i.i = zext i1 %cmp.i10.i.i to i64
@@ -45983,7 +45993,7 @@ _ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE13GetListValuesEmRlS3_S3_
           to label %invoke.cont22 unwind label %lpad14
 
 invoke.cont22:                                    ; preds = %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE13GetListValuesEmRlS3_S3_.exit.i
-  %length25 = getelementptr inbounds i8, ptr %arrayidx20, i64 8
+  %length25 = getelementptr inbounds i8, ptr %arrayidx2012, i64 8
   store i64 %call.i129, ptr %length25, align 8, !tbaa !27
   %add = add i64 %call.i129, %total_size.0175
   br label %for.inc29

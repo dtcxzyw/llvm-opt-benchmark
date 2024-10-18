@@ -2115,7 +2115,7 @@ _ZNSt12_Vector_baseISt8optionalIN4llvm9StringRefEESaIS3_EE13_M_deallocateEPS3_m.
   %.sink.i.i25.i.idx.fr = freeze i64 %146
   %147 = sdiv exact i64 %.sink.i.i25.i.idx.fr, 24
   %.not.i28 = icmp ult i64 %147, 3
-  br i1 %.not.i28, label %151, label %148
+  br i1 %.not.i28, label %_ZSt7advanceIPKSt8optionalIN4llvm9StringRefEEmEvRT_T0_.exit.i, label %148
 
 148:                                              ; preds = %142
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %132, ptr noundef nonnull align 8 dereferenceable(72) @constinit, i64 72, i1 false)
@@ -2128,38 +2128,35 @@ _ZNSt12_Vector_baseISt8optionalIN4llvm9StringRefEESaIS3_EE13_M_deallocateEPS3_m.
   store ptr %149, ptr %143, align 8
   br label %_ZNSt6vectorISt8optionalIN4llvm9StringRefEESaIS3_EE13_M_assign_auxIPKS3_EEvT_S9_St20forward_iterator_tag.exit
 
-151:                                              ; preds = %142
-  %.not.i.i.i.i.i17.i.not = icmp eq ptr %144, %132
-  br i1 %.not.i.i.i.i.i17.i.not, label %_ZSt4copyIPKSt8optionalIN4llvm9StringRefEEPS3_ET0_T_S8_S7_.exit18.i, label %_ZSt7advanceIPKSt8optionalIN4llvm9StringRefEEmEvRT_T0_.exit.thread.i
+_ZSt7advanceIPKSt8optionalIN4llvm9StringRefEEmEvRT_T0_.exit.i: ; preds = %142
+  %.not.i.i.i.i.i17.i = icmp eq ptr %144, %132
+  br i1 %.not.i.i.i.i.i17.i, label %.lr.ph.i.i.i.i.i29.preheader, label %_ZSt4copyIPKSt8optionalIN4llvm9StringRefEEPS3_ET0_T_S8_S7_.exit18.i
 
-_ZSt7advanceIPKSt8optionalIN4llvm9StringRefEEmEvRT_T0_.exit.thread.i: ; preds = %151
+_ZSt4copyIPKSt8optionalIN4llvm9StringRefEEPS3_ET0_T_S8_S7_.exit18.i: ; preds = %_ZSt7advanceIPKSt8optionalIN4llvm9StringRefEEmEvRT_T0_.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %132, ptr noundef nonnull align 8 dereferenceable(1) @constinit, i64 %.sink.i.i25.i.idx.fr, i1 false)
   %.pre27.i = load ptr, ptr %143, align 8
-  br label %_ZSt4copyIPKSt8optionalIN4llvm9StringRefEEPS3_ET0_T_S8_S7_.exit18.i
-
-_ZSt4copyIPKSt8optionalIN4llvm9StringRefEEPS3_ET0_T_S8_S7_.exit18.i: ; preds = %151, %_ZSt7advanceIPKSt8optionalIN4llvm9StringRefEEmEvRT_T0_.exit.thread.i
-  %152 = phi ptr [ %.pre27.i, %_ZSt7advanceIPKSt8optionalIN4llvm9StringRefEEmEvRT_T0_.exit.thread.i ], [ %144, %151 ]
   %.not9.i.i.i.i.i = icmp eq i64 %.sink.i.i25.i.idx.fr, 72
   br i1 %.not9.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKSt8optionalIN4llvm9StringRefEEPS3_S3_ET0_T_S8_S7_RSaIT1_E.exit.i, label %.lr.ph.i.i.i.i.i29.preheader
 
-.lr.ph.i.i.i.i.i29.preheader:                     ; preds = %_ZSt4copyIPKSt8optionalIN4llvm9StringRefEEPS3_ET0_T_S8_S7_.exit18.i
+.lr.ph.i.i.i.i.i29.preheader:                     ; preds = %_ZSt7advanceIPKSt8optionalIN4llvm9StringRefEEmEvRT_T0_.exit.i, %_ZSt4copyIPKSt8optionalIN4llvm9StringRefEEPS3_ET0_T_S8_S7_.exit18.i
+  %151 = phi ptr [ %.pre27.i, %_ZSt4copyIPKSt8optionalIN4llvm9StringRefEEPS3_ET0_T_S8_S7_.exit18.i ], [ %144, %_ZSt7advanceIPKSt8optionalIN4llvm9StringRefEEmEvRT_T0_.exit.i ]
   %scevgep = getelementptr i8, ptr @constinit, i64 %.sink.i.i25.i.idx.fr
-  %153 = sub i64 48, %.sink.i.i25.i.idx.fr
-  %154 = urem i64 %153, 24
-  %155 = sub nuw i64 %153, %154
-  %156 = add i64 %155, 24
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %152, ptr align 8 %scevgep, i64 %156, i1 false)
-  %scevgep48 = getelementptr i8, ptr %152, i64 %156
+  %152 = sub i64 48, %.sink.i.i25.i.idx.fr
+  %153 = urem i64 %152, 24
+  %154 = sub nuw i64 %152, %153
+  %155 = add i64 %154, 24
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %151, ptr align 8 %scevgep, i64 %155, i1 false)
+  %scevgep48 = getelementptr i8, ptr %151, i64 %155
   br label %_ZSt22__uninitialized_copy_aIPKSt8optionalIN4llvm9StringRefEEPS3_S3_ET0_T_S8_S7_RSaIT1_E.exit.i
 
 _ZSt22__uninitialized_copy_aIPKSt8optionalIN4llvm9StringRefEEPS3_S3_ET0_T_S8_S7_RSaIT1_E.exit.i: ; preds = %.lr.ph.i.i.i.i.i29.preheader, %_ZSt4copyIPKSt8optionalIN4llvm9StringRefEEPS3_ET0_T_S8_S7_.exit18.i
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %152, %_ZSt4copyIPKSt8optionalIN4llvm9StringRefEEPS3_ET0_T_S8_S7_.exit18.i ], [ %scevgep48, %.lr.ph.i.i.i.i.i29.preheader ]
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %.pre27.i, %_ZSt4copyIPKSt8optionalIN4llvm9StringRefEEPS3_ET0_T_S8_S7_.exit18.i ], [ %scevgep48, %.lr.ph.i.i.i.i.i29.preheader ]
   store ptr %.0.lcssa.i.i.i.i.i, ptr %143, align 8
   br label %_ZNSt6vectorISt8optionalIN4llvm9StringRefEESaIS3_EE13_M_assign_auxIPKS3_EEvT_S9_St20forward_iterator_tag.exit
 
 _ZNSt6vectorISt8optionalIN4llvm9StringRefEESaIS3_EE13_M_assign_auxIPKS3_EEvT_S9_St20forward_iterator_tag.exit: ; preds = %_ZNSt12_Vector_baseISt8optionalIN4llvm9StringRefEESaIS3_EE13_M_deallocateEPS3_m.exit.i, %148, %150, %_ZSt22__uninitialized_copy_aIPKSt8optionalIN4llvm9StringRefEEPS3_S3_ET0_T_S8_S7_RSaIT1_E.exit.i
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 522
-  store i8 1, ptr %157, align 2
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 522
+  store i8 1, ptr %156, align 2
   ret void
 }
 

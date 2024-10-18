@@ -22638,8 +22638,8 @@ if.then3.i38:                                     ; preds = %for.body.i21
   %sub.ptr.lhs.cast.i.i.i.i.i.i40 = ptrtoint ptr %__i.015.i22 to i64
   %sub.ptr.sub.i.i.i.i.i.i41 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i40, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i.i42 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i41, 3
-  %.pre.i.i.i.i.i.i43 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i42
-  %add.ptr.i.i.i.i.i.i44 = getelementptr inbounds ptr, ptr %add.ptr4.i39, i64 %.pre.i.i.i.i.i.i43
+  %idx.neg.i.i.i.i.i.i43 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i42
+  %add.ptr.i.i.i.i.i.i44 = getelementptr inbounds ptr, ptr %add.ptr4.i39, i64 %idx.neg.i.i.i.i.i.i43
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i44, ptr noundef nonnull align 8 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i41, i1 false)
   store ptr %13, ptr %__first, align 8
   br label %for.inc.i30
@@ -23410,8 +23410,8 @@ if.then3.i38:                                     ; preds = %for.body.i21
   %sub.ptr.lhs.cast.i.i.i.i.i.i40 = ptrtoint ptr %__i.015.i22 to i64
   %sub.ptr.sub.i.i.i.i.i.i41 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i40, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i.i42 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i41, 3
-  %.pre.i.i.i.i.i.i43 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i42
-  %add.ptr.i.i.i.i.i.i44 = getelementptr inbounds ptr, ptr %add.ptr4.i39, i64 %.pre.i.i.i.i.i.i43
+  %idx.neg.i.i.i.i.i.i43 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i42
+  %add.ptr.i.i.i.i.i.i44 = getelementptr inbounds ptr, ptr %add.ptr4.i39, i64 %idx.neg.i.i.i.i.i.i43
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i44, ptr noundef nonnull align 8 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i41, i1 false)
   store ptr %13, ptr %__first, align 8
   br label %for.inc.i30
@@ -24190,8 +24190,8 @@ if.then2.i44:                                     ; preds = %for.body.i26
   %sub.ptr.lhs.cast.i.i.i.i.i.i46 = ptrtoint ptr %__i.015.i27 to i64
   %sub.ptr.sub.i.i.i.i.i.i47 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i46, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i.i48 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i47, 3
-  %.pre.i.i.i.i.i.i49 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i48
-  %add.ptr.i.i.i.i.i.i50 = getelementptr inbounds ptr, ptr %add.ptr3.i45, i64 %.pre.i.i.i.i.i.i49
+  %idx.neg.i.i.i.i.i.i49 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i48
+  %add.ptr.i.i.i.i.i.i50 = getelementptr inbounds ptr, ptr %add.ptr3.i45, i64 %idx.neg.i.i.i.i.i.i49
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i50, ptr noundef nonnull align 8 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i47, i1 false)
   store ptr %18, ptr %__first, align 8
   br label %for.inc.i36

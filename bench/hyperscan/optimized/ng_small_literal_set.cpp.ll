@@ -417,7 +417,7 @@ _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i.i.i.us.invoke.cont.
   br label %invoke.cont.i.i.i.i.us.i
 
 invoke.cont.i.i.i.i.us.i:                         ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i.i.i.us.invoke.cont.i.i.i.i.us_crit_edge.i, %.noexc103.us.i
-  %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i.i.us.pre-phi.i = phi i64 [ %.pre322.i, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i.i.i.us.invoke.cont.i.i.i.i.us_crit_edge.i ], [ %sub.ptr.sub.i.i.i.i.i.us.i, %.noexc103.us.i ]
+  %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i.i.us.pre-phi.i = phi i64 [ %.pre322.i, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i.i.i.us.invoke.cont.i.i.i.i.us_crit_edge.i ], [ 0, %.noexc103.us.i ]
   %26 = phi ptr [ %.pre319.i, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i.i.i.us.invoke.cont.i.i.i.i.us_crit_edge.i ], [ %24, %.noexc103.us.i ]
   %27 = phi ptr [ %.pre.i, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i.i.i.us.invoke.cont.i.i.i.i.us_crit_edge.i ], [ %25, %.noexc103.us.i ]
   %cond.i.i.i.i.i.i.i.us.i = phi ptr [ %call5.i.i.i.i2.i6.i.i2.i.i.us.i, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i.i.i.us.invoke.cont.i.i.i.i.us_crit_edge.i ], [ null, %.noexc103.us.i ]
@@ -1357,7 +1357,7 @@ if.then.i.i.i.i.i35.i.i:                          ; preds = %if.else49.i.i
   br label %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i.i
 
 _ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i.i:             ; preds = %if.then.i.i.i.i.i35.i.i, %if.else49.i.i
-  %sub.ptr.sub.i40.pre-phi.i.i = phi i64 [ %sub.ptr.sub.i22.i.i, %if.else49.i.i ], [ %.pre47.i.i, %if.then.i.i.i.i.i35.i.i ]
+  %sub.ptr.sub.i40.pre-phi.i.i = phi i64 [ 0, %if.else49.i.i ], [ %.pre47.i.i, %if.then.i.i.i.i.i35.i.i ]
   %153 = phi ptr [ %148, %if.else49.i.i ], [ %.pre44.i.i, %if.then.i.i.i.i.i35.i.i ]
   %154 = phi ptr [ %152, %if.else49.i.i ], [ %.pre42.i.i, %if.then.i.i.i.i.i35.i.i ]
   %155 = phi ptr [ %149, %if.else49.i.i ], [ %.pre.i.i, %if.then.i.i.i.i.i35.i.i ]

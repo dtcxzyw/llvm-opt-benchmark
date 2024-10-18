@@ -643,15 +643,11 @@ for.cond.preheader:                               ; preds = %invoke.cont
   %_M_finish.i.i = getelementptr inbounds i8, ptr %args, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !50
   %1 = load ptr, ptr %args, align 8, !tbaa !52
-  %sub.ptr.lhs.cast.i.i100 = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i101 = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i.i102 = sub i64 %sub.ptr.lhs.cast.i.i100, %sub.ptr.rhs.cast.i.i101
-  %sub.ptr.div.i.i103 = sdiv exact i64 %sub.ptr.sub.i.i102, 104
   %cmp104.not = icmp eq ptr %0, %1
   br i1 %cmp104.not, label %for.cond.cleanup, label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.inc, %for.cond.preheader
-  %sub.ptr.div.i.i.lcssa = phi i64 [ %sub.ptr.div.i.i103, %for.cond.preheader ], [ %sub.ptr.div.i.i, %for.inc ]
+  %sub.ptr.div.i.i.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %sub.ptr.div.i.i, %for.inc ]
   %count.i = getelementptr inbounds i8, ptr %args, i64 24
   %2 = load i64, ptr %count.i, align 8, !tbaa !53
   %call20 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb11ArrayVector8GetEntryERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %result)
@@ -715,7 +711,7 @@ lpad23:                                           ; preds = %if.then22
 if.end27:                                         ; preds = %if.then22, %invoke.cont19
   %cmp30108.not = icmp eq i64 %2, 0
   %cmp34106.not = icmp eq i64 %sub.ptr.div.i.i.lcssa, 0
-  %or.cond = select i1 %cmp30108.not, i1 true, i1 %cmp34106.not
+  %or.cond = or i1 %cmp34106.not, %cmp30108.not
   br i1 %or.cond, label %for.cond.cleanup31, label %for.cond33.preheader.us
 
 for.cond33.preheader.us:                          ; preds = %if.end27, %for.cond33.for.cond.cleanup35_crit_edge.us

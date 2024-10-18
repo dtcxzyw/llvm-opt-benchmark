@@ -1047,8 +1047,8 @@ if.then2.i40:                                     ; preds = %for.body.i21
   %sub.ptr.lhs.cast.i.i.i.i.i.i42 = ptrtoint ptr %__i.015.i22 to i64
   %sub.ptr.sub.i.i.i.i.i.i43 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i42, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i.i44 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i43, 3
-  %.pre.i.i.i.i.i.i45 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i44
-  %add.ptr.i.i.i.i.i.i46 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %add.ptr3.i41, i64 %.pre.i.i.i.i.i.i45
+  %idx.neg.i.i.i.i.i.i45 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i44
+  %add.ptr.i.i.i.i.i.i46 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %add.ptr3.i41, i64 %idx.neg.i.i.i.i.i.i45
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i46, ptr noundef nonnull align 4 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i43, i1 false)
   store i64 %15, ptr %__first, align 4
   br label %for.inc.i32

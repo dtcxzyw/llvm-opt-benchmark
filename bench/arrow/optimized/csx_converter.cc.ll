@@ -910,17 +910,18 @@ if.then25.i.i:                                    ; preds = %if.else.i.i
 
 _ZSt7advanceIPKlmEvRT_T0_.exit.i.i:               ; preds = %if.else.i.i
   %tobool.not.i.i.i.i.i28.i.i = icmp eq ptr %coords.sroa.9.1372.i, %coords.sroa.0.2374.i
-  br i1 %tobool.not.i.i.i.i.i28.i.i, label %_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i.i, label %if.then.i.i.i.i.i29.i.i
+  br i1 %tobool.not.i.i.i.i.i28.i.i, label %if.then.i.i.i.i.i.i.i.i.i279.i, label %_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i.i
 
-if.then.i.i.i.i.i29.i.i:                          ; preds = %_ZSt7advanceIPKlmEvRT_T0_.exit.i.i
+_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i.i:           ; preds = %_ZSt7advanceIPKlmEvRT_T0_.exit.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %coords.sroa.0.2374.i, ptr noundef nonnull align 8 dereferenceable(1) %ref.tmp151.i, i64 %sub.ptr.sub.i16.i.i, i1 false)
-  br label %_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i.i
+  %gepdiff439.i = sub nuw nsw i64 16, %sub.ptr.sub.i16.i.i
+  br label %if.then.i.i.i.i.i.i.i.i.i279.i
 
-_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i.i:           ; preds = %if.then.i.i.i.i.i29.i.i, %_ZSt7advanceIPKlmEvRT_T0_.exit.i.i
-  %gepdiff150 = sub nuw nsw i64 16, %sub.ptr.sub.i16.i.i
+if.then.i.i.i.i.i.i.i.i.i279.i:                   ; preds = %_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i.i, %_ZSt7advanceIPKlmEvRT_T0_.exit.i.i
+  %sub.ptr.sub.i.i.i.i.i.i.i.i.i410.i = phi i64 [ %gepdiff439.i, %_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i.i ], [ 16, %_ZSt7advanceIPKlmEvRT_T0_.exit.i.i ]
   %incdec.ptr4.sink.i.i45.i.ptr.i = getelementptr inbounds i8, ptr %ref.tmp151.i, i64 %sub.ptr.sub.i16.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %coords.sroa.9.1372.i, ptr nonnull align 8 %incdec.ptr4.sink.i.i45.i.ptr.i, i64 %gepdiff150, i1 false)
-  %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %coords.sroa.9.1372.i, i64 %gepdiff150
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %coords.sroa.9.1372.i, ptr nonnull align 8 %incdec.ptr4.sink.i.i45.i.ptr.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i410.i, i1 false)
+  %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %coords.sroa.9.1372.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i410.i
   br label %if.end164.i
 
 lpad131.i:                                        ; preds = %invoke.cont130.i
@@ -991,23 +992,24 @@ if.then25.i299.i:                                 ; preds = %if.else.i293.i
 
 _ZSt7advanceIPKlmEvRT_T0_.exit.i308.i:            ; preds = %if.else.i293.i
   %tobool.not.i.i.i.i.i28.i311.i = icmp eq ptr %coords.sroa.9.1372.i, %coords.sroa.0.2374.i
-  br i1 %tobool.not.i.i.i.i.i28.i311.i, label %_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i316.i, label %if.then.i.i.i.i.i29.i312.i
+  br i1 %tobool.not.i.i.i.i.i28.i311.i, label %if.then.i.i.i.i.i.i.i.i.i321.i, label %_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i316.i
 
-if.then.i.i.i.i.i29.i312.i:                       ; preds = %_ZSt7advanceIPKlmEvRT_T0_.exit.i308.i
+_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i316.i:        ; preds = %_ZSt7advanceIPKlmEvRT_T0_.exit.i308.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %coords.sroa.0.2374.i, ptr noundef nonnull align 8 dereferenceable(1) %ref.tmp156.i, i64 %sub.ptr.sub.i16.i296.i, i1 false)
-  br label %_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i316.i
+  %gepdiff.i = sub nuw nsw i64 16, %sub.ptr.sub.i16.i296.i
+  br label %if.then.i.i.i.i.i.i.i.i.i321.i
 
-_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i316.i:        ; preds = %if.then.i.i.i.i.i29.i312.i, %_ZSt7advanceIPKlmEvRT_T0_.exit.i308.i
-  %gepdiff = sub nuw nsw i64 16, %sub.ptr.sub.i16.i296.i
+if.then.i.i.i.i.i.i.i.i.i321.i:                   ; preds = %_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i316.i, %_ZSt7advanceIPKlmEvRT_T0_.exit.i308.i
+  %sub.ptr.sub.i.i.i.i.i.i.i.i.i319422.i = phi i64 [ %gepdiff.i, %_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i316.i ], [ 16, %_ZSt7advanceIPKlmEvRT_T0_.exit.i308.i ]
   %incdec.ptr4.sink.i.i45.i318.ptr.i = getelementptr inbounds i8, ptr %ref.tmp156.i, i64 %sub.ptr.sub.i16.i296.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %coords.sroa.9.1372.i, ptr nonnull align 8 %incdec.ptr4.sink.i.i45.i318.ptr.i, i64 %gepdiff, i1 false)
-  %add.ptr.i.i.i.i.i.i.i.i.i323.i = getelementptr inbounds i8, ptr %coords.sroa.9.1372.i, i64 %gepdiff
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %coords.sroa.9.1372.i, ptr nonnull align 8 %incdec.ptr4.sink.i.i45.i318.ptr.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i319422.i, i1 false)
+  %add.ptr.i.i.i.i.i.i.i.i.i323.i = getelementptr inbounds i8, ptr %coords.sroa.9.1372.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i319422.i
   br label %if.end164.i
 
-if.end164.i:                                      ; preds = %_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i316.i, %if.then25.i299.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i333.i, %_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i.i, %if.then25.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i.i
-  %coords.sroa.9.2.i = phi ptr [ %add.ptr.i282.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i, %_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i.i ], [ %add.ptr.i334.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i333.i ], [ %add.ptr.i.i.i.i.i.i.i.i.i323.i, %_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i316.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.then25.i.i ], [ %add.ptr.i.i.i.i.i.i302.i, %if.then25.i299.i ]
-  %coords.sroa.23.2.i = phi ptr [ %add.ptr.i282.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i.i ], [ %coords.sroa.23.1373.i, %_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i.i ], [ %add.ptr.i334.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i333.i ], [ %coords.sroa.23.1373.i, %_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i316.i ], [ %coords.sroa.23.1373.i, %if.then25.i.i ], [ %coords.sroa.23.1373.i, %if.then25.i299.i ]
-  %coords.sroa.0.3.i = phi ptr [ %call5.i.i.i.i.i283.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i.i ], [ %coords.sroa.0.2374.i, %_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i.i ], [ %call5.i.i.i.i.i336.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i333.i ], [ %coords.sroa.0.2374.i, %_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i316.i ], [ %coords.sroa.0.2374.i, %if.then25.i.i ], [ %coords.sroa.0.2374.i, %if.then25.i299.i ]
+if.end164.i:                                      ; preds = %if.then.i.i.i.i.i.i.i.i.i321.i, %if.then25.i299.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i333.i, %if.then.i.i.i.i.i.i.i.i.i279.i, %if.then25.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i.i
+  %coords.sroa.9.2.i = phi ptr [ %add.ptr.i282.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i279.i ], [ %add.ptr.i334.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i333.i ], [ %add.ptr.i.i.i.i.i.i.i.i.i323.i, %if.then.i.i.i.i.i.i.i.i.i321.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.then25.i.i ], [ %add.ptr.i.i.i.i.i.i302.i, %if.then25.i299.i ]
+  %coords.sroa.23.2.i = phi ptr [ %add.ptr.i282.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i.i ], [ %coords.sroa.23.1373.i, %if.then.i.i.i.i.i.i.i.i.i279.i ], [ %add.ptr.i334.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i333.i ], [ %coords.sroa.23.1373.i, %if.then.i.i.i.i.i.i.i.i.i321.i ], [ %coords.sroa.23.1373.i, %if.then25.i.i ], [ %coords.sroa.23.1373.i, %if.then25.i299.i ]
+  %coords.sroa.0.3.i = phi ptr [ %call5.i.i.i.i.i283.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i.i ], [ %coords.sroa.0.2374.i, %if.then.i.i.i.i.i.i.i.i.i279.i ], [ %call5.i.i.i.i.i336.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i333.i ], [ %coords.sroa.0.2374.i, %if.then.i.i.i.i.i.i.i.i.i321.i ], [ %coords.sroa.0.2374.i, %if.then25.i.i ], [ %coords.sroa.0.2374.i, %if.then25.i299.i ]
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %coords.sroa.9.2.i to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %coords.sroa.0.3.i to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i

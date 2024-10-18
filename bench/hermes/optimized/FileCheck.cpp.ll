@@ -2556,13 +2556,11 @@ for.end:                                          ; preds = %_ZNSt10unique_ptrIN
   br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EEC2EmRKS2_.exit.i.thread, label %cond.true.i.i.i.i
 
 _ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EEC2EmRKS2_.exit.i.thread: ; preds = %for.end.thread, %for.end
-  %sub.ptr.sub.i.i84609 = phi i64 [ 0, %for.end.thread ], [ %sub.ptr.sub.i.i84, %for.end ]
   %_M_finish.i.i81608 = phi ptr [ %_M_finish.i.i81602, %for.end.thread ], [ %_M_finish.i.i81, %for.end ]
   %_M_finish.i.i.i86564 = getelementptr inbounds i8, ptr %DagNotMatches, i64 8
-  %add.ptr.i.i.i565 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i84609
   %_M_end_of_storage.i.i.i87566 = getelementptr inbounds i8, ptr %DagNotMatches, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %DagNotMatches, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i565, ptr %_M_end_of_storage.i.i.i87566, align 8
+  store ptr null, ptr %_M_end_of_storage.i.i.i87566, align 8
   br label %_ZNSt6vectorIN4llvh16FileCheckPatternESaIS1_EEC2ERKS3_.exit
 
 cond.true.i.i.i.i:                                ; preds = %for.end

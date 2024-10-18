@@ -1636,7 +1636,7 @@ flush_bits.exit.thread:                           ; preds = %46, %48, %32
 
 56:                                               ; preds = %flush_bits.exit.thread, %51
   %.sroa.0.229 = phi ptr [ %.sroa.0.2.ph, %flush_bits.exit.thread ], [ %35, %51 ]
-  %.sroa.9.228 = phi i64 [ %.sroa.9.2.ph, %flush_bits.exit.thread ], [ %37, %51 ]
+  %.sroa.9.228 = phi i64 [ %.sroa.9.2.ph, %flush_bits.exit.thread ], [ 0, %51 ]
   %57 = load ptr, ptr %5, align 8
   store ptr %.sroa.0.229, ptr %57, align 8
   %58 = load ptr, ptr %5, align 8

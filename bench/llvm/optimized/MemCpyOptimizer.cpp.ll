@@ -11720,7 +11720,7 @@ _ZN4llvm15SmallVectorImplIPNS_4UserEE7reserveEm.exit: ; preds = %_ZSt8distanceIN
   %30 = load ptr, ptr %0, align 8
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   %32 = getelementptr inbounds ptr, ptr %30, i64 %31
-  br i1 %.not, label %69, label %33
+  br i1 %.not, label %70, label %33
 
 33:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_4UserEE7reserveEm.exit
   %34 = load ptr, ptr %0, align 8
@@ -11769,74 +11769,74 @@ _ZN4llvm15SmallVectorImplIPNS_4UserEE6appendISt13move_iteratorIPS2_EvEEvT_S8_.ex
   %60 = ptrtoint ptr %58 to i64
   %61 = sub i64 %60, %28
   %62 = ashr exact i64 %61, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %62
-  %63 = getelementptr inbounds ptr, ptr %32, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %63, ptr align 8 %26, i64 %61, i1 false)
+  %63 = sub nsw i64 0, %62
+  %64 = getelementptr inbounds ptr, ptr %32, i64 %63
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %64, ptr align 8 %26, i64 %61, i1 false)
   br label %_ZSt13move_backwardIPPN4llvm4UserES3_ET0_T_S5_S4_.exit
 
 _ZSt13move_backwardIPPN4llvm4UserES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm15SmallVectorImplIPNS_4UserEE6appendISt13move_iteratorIPS2_EvEEvT_S8_.exit, %59
   br i1 %.not4.i.i, label %_ZSt4copyIN4llvm5Value18user_iterator_implINS0_4UserEEEPPS3_ET0_T_S8_S7_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZSt13move_backwardIPPN4llvm4UserES3_ET0_T_S5_S4_.exit, %.lr.ph.i.i.i.i.i
-  %.08.i.i.i.i.i = phi ptr [ %66, %.lr.ph.i.i.i.i.i ], [ %26, %_ZSt13move_backwardIPPN4llvm4UserES3_ET0_T_S5_S4_.exit ]
-  %.sroa.03.07.i.i.i.i.i = phi ptr [ %68, %.lr.ph.i.i.i.i.i ], [ %2, %_ZSt13move_backwardIPPN4llvm4UserES3_ET0_T_S5_S4_.exit ]
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i.i, i64 24
-  %65 = load ptr, ptr %64, align 8
-  store ptr %65, ptr %.08.i.i.i.i.i, align 8
-  %66 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i, i64 8
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i.i, i64 8
-  %68 = load ptr, ptr %67, align 8
-  %.not.i.i.i.i.i42 = icmp eq ptr %68, %3
+  %.08.i.i.i.i.i = phi ptr [ %67, %.lr.ph.i.i.i.i.i ], [ %26, %_ZSt13move_backwardIPPN4llvm4UserES3_ET0_T_S5_S4_.exit ]
+  %.sroa.03.07.i.i.i.i.i = phi ptr [ %69, %.lr.ph.i.i.i.i.i ], [ %2, %_ZSt13move_backwardIPPN4llvm4UserES3_ET0_T_S5_S4_.exit ]
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i.i, i64 24
+  %66 = load ptr, ptr %65, align 8
+  store ptr %66, ptr %.08.i.i.i.i.i, align 8
+  %67 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i.i, i64 8
+  %69 = load ptr, ptr %68, align 8
+  %.not.i.i.i.i.i42 = icmp eq ptr %69, %3
   br i1 %.not.i.i.i.i.i42, label %_ZSt4copyIN4llvm5Value18user_iterator_implINS0_4UserEEEPPS3_ET0_T_S8_S7_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !93
 
-69:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_4UserEE7reserveEm.exit
-  %70 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %71 = add i64 %70, %.0.lcssa.i.i
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %71) #18
-  %72 = load ptr, ptr %0, align 8
-  %73 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+70:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_4UserEE7reserveEm.exit
+  %71 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  %72 = add i64 %71, %.0.lcssa.i.i
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %72) #18
+  %73 = load ptr, ptr %0, align 8
+  %74 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   %.not.i.i43 = icmp eq ptr %26, %32
   br i1 %.not.i.i43, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %69
-  %74 = ptrtoint ptr %32 to i64
-  %75 = sub i64 %74, %28
-  %76 = ashr exact i64 %75, 3
-  %77 = getelementptr inbounds ptr, ptr %72, i64 %73
-  %78 = sub nsw i64 0, %76
-  %79 = getelementptr inbounds ptr, ptr %77, i64 %78
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %79, ptr align 8 %26, i64 %75, i1 false)
+.lr.ph.preheader:                                 ; preds = %70
+  %75 = ptrtoint ptr %32 to i64
+  %76 = sub i64 %75, %28
+  %77 = ashr exact i64 %76, 3
+  %78 = getelementptr inbounds ptr, ptr %73, i64 %74
+  %79 = sub nsw i64 0, %77
+  %80 = getelementptr inbounds ptr, ptr %78, i64 %79
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr align 8 %26, i64 %76, i1 false)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.03851 = phi ptr [ %82, %.lr.ph ], [ %26, %.lr.ph.preheader ]
-  %.03950 = phi i64 [ %85, %.lr.ph ], [ %76, %.lr.ph.preheader ]
-  %.sroa.045.049 = phi ptr [ %84, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.045.049, i64 24
-  %81 = load ptr, ptr %80, align 8
-  store ptr %81, ptr %.03851, align 8
-  %82 = getelementptr inbounds i8, ptr %.03851, i64 8
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.045.049, i64 8
-  %84 = load ptr, ptr %83, align 8
-  %85 = add i64 %.03950, -1
-  %.not41 = icmp eq i64 %85, 0
+  %.03851 = phi ptr [ %83, %.lr.ph ], [ %26, %.lr.ph.preheader ]
+  %.03950 = phi i64 [ %86, %.lr.ph ], [ %77, %.lr.ph.preheader ]
+  %.sroa.045.049 = phi ptr [ %85, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.045.049, i64 24
+  %82 = load ptr, ptr %81, align 8
+  store ptr %82, ptr %.03851, align 8
+  %83 = getelementptr inbounds i8, ptr %.03851, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.045.049, i64 8
+  %85 = load ptr, ptr %84, align 8
+  %86 = add i64 %.03950, -1
+  %.not41 = icmp eq i64 %86, 0
   br i1 %.not41, label %._crit_edge, label %.lr.ph, !llvm.loop !94
 
-._crit_edge:                                      ; preds = %.lr.ph, %69
-  %.sroa.045.0.lcssa = phi ptr [ %2, %69 ], [ %84, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %70
+  %.sroa.045.0.lcssa = phi ptr [ %2, %70 ], [ %85, %.lr.ph ]
   %.not6.i.i.i.i.i.i.i.i = icmp eq ptr %.sroa.045.0.lcssa, %3
   br i1 %.not6.i.i.i.i.i.i.i.i, label %_ZSt4copyIN4llvm5Value18user_iterator_implINS0_4UserEEEPPS3_ET0_T_S8_S7_.exit, label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %._crit_edge, %.lr.ph.i.i.i.i.i.i.i.i
-  %.08.i.i.i.i.i.i.i.i = phi ptr [ %88, %.lr.ph.i.i.i.i.i.i.i.i ], [ %32, %._crit_edge ]
-  %.sroa.03.07.i.i.i.i.i.i.i.i = phi ptr [ %90, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.sroa.045.0.lcssa, %._crit_edge ]
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i.i.i.i.i, i64 24
-  %87 = load ptr, ptr %86, align 8
-  store ptr %87, ptr %.08.i.i.i.i.i.i.i.i, align 8
-  %88 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i.i.i.i, i64 8
-  %89 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i.i.i.i.i, i64 8
-  %90 = load ptr, ptr %89, align 8
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %90, %3
+  %.08.i.i.i.i.i.i.i.i = phi ptr [ %89, %.lr.ph.i.i.i.i.i.i.i.i ], [ %32, %._crit_edge ]
+  %.sroa.03.07.i.i.i.i.i.i.i.i = phi ptr [ %91, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.sroa.045.0.lcssa, %._crit_edge ]
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i.i.i.i.i, i64 24
+  %88 = load ptr, ptr %87, align 8
+  store ptr %88, ptr %.08.i.i.i.i.i.i.i.i, align 8
+  %89 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i.i.i.i, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i.i.i.i.i, i64 8
+  %91 = load ptr, ptr %90, align 8
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %91, %3
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt4copyIN4llvm5Value18user_iterator_implINS0_4UserEEEPPS3_ET0_T_S8_S7_.exit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !93
 
 _ZSt4copyIN4llvm5Value18user_iterator_implINS0_4UserEEEPPS3_ET0_T_S8_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i, %._crit_edge, %_ZSt13move_backwardIPPN4llvm4UserES3_ET0_T_S5_S4_.exit, %12

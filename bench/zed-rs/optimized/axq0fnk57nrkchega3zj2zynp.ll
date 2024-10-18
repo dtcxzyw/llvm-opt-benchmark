@@ -41904,7 +41904,7 @@ default.unreachable:                              ; preds = %.noexc
 
 .loopexit34:                                      ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.llvm.18213787563095886395.exit.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.llvm.18213787563095886395.exit.thread.i", %.noexc18, %.critedge.backedge.i, %.loopexit43.thread, %.loopexit43
   %72 = phi ptr [ %27, %.loopexit43 ], [ %22, %.loopexit43.thread ], [ %27, %.critedge.backedge.i ], [ %27, %.noexc18 ], [ %27, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.llvm.18213787563095886395.exit.thread.i" ], [ %27, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.llvm.18213787563095886395.exit.i" ]
-  %73 = phi i64 [ %26, %.loopexit43 ], [ 0, %.loopexit43.thread ], [ %26, %.critedge.backedge.i ], [ %26, %.noexc18 ], [ %26, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.llvm.18213787563095886395.exit.thread.i" ], [ %26, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.llvm.18213787563095886395.exit.i" ]
+  %73 = phi i64 [ 0, %.loopexit43 ], [ 0, %.loopexit43.thread ], [ %26, %.critedge.backedge.i ], [ %26, %.noexc18 ], [ %26, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.llvm.18213787563095886395.exit.thread.i" ], [ %26, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.llvm.18213787563095886395.exit.i" ]
   %74 = phi i1 [ false, %.loopexit43 ], [ false, %.loopexit43.thread ], [ false, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.llvm.18213787563095886395.exit.i" ], [ true, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.llvm.18213787563095886395.exit.thread.i" ], [ true, %.noexc18 ], [ false, %.critedge.backedge.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   %75 = getelementptr inbounds i8, ptr %1, i64 8
@@ -42076,22 +42076,22 @@ default.unreachable:                              ; preds = %.noexc
 131:                                              ; preds = %127
   %132 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %128, i64 %129
   %133 = getelementptr inbounds i8, ptr %132, i64 -64
-  %134 = ptrtoint ptr %133 to i64
-  %135 = ptrtoint ptr %128 to i64
-  %136 = sub nuw i64 %134, %135
-  %137 = lshr exact i64 %136, 6
-  %138 = icmp eq ptr %128, %133
-  br i1 %138, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h7a4000cb9b54e9a4E.exit.thread, label %.lr.ph.i.i.i.i.i.preheader
+  %134 = icmp eq ptr %128, %133
+  br i1 %134, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h7a4000cb9b54e9a4E.exit.thread, label %.lr.ph.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %131
-  %139 = getelementptr inbounds i8, ptr %132, i64 -8
-  %140 = load double, ptr %139, align 8, !alias.scope !7603, !noalias !7608, !noundef !4
+  %135 = getelementptr inbounds i8, ptr %132, i64 -8
+  %136 = load double, ptr %135, align 8, !alias.scope !7603, !noalias !7608, !noundef !4
+  %137 = ptrtoint ptr %133 to i64
+  %138 = ptrtoint ptr %128 to i64
+  %139 = sub nuw i64 %137, %138
+  %140 = lshr exact i64 %139, 6
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
-  %.sroa.013.0.i = phi double [ %.sroa.013.0.copyload14.sroa.speculated.i, %.lr.ph.i.i.i.i.i ], [ %140, %.lr.ph.i.i.i.i.i.preheader ]
-  %.sroa.616.0.i = phi i64 [ %.sroa.616.0.copyload17.sroa.speculated.i, %.lr.ph.i.i.i.i.i ], [ %137, %.lr.ph.i.i.i.i.i.preheader ]
-  %.sroa.04.09.i.i.i.i.i = phi i64 [ %142, %.lr.ph.i.i.i.i.i ], [ %137, %.lr.ph.i.i.i.i.i.preheader ]
+  %.sroa.013.0.i = phi double [ %.sroa.013.0.copyload14.sroa.speculated.i, %.lr.ph.i.i.i.i.i ], [ %136, %.lr.ph.i.i.i.i.i.preheader ]
+  %.sroa.616.0.i = phi i64 [ %.sroa.616.0.copyload17.sroa.speculated.i, %.lr.ph.i.i.i.i.i ], [ %140, %.lr.ph.i.i.i.i.i.preheader ]
+  %.sroa.04.09.i.i.i.i.i = phi i64 [ %142, %.lr.ph.i.i.i.i.i ], [ %140, %.lr.ph.i.i.i.i.i.preheader ]
   %.sroa.2.08.i.i.i.i.i = phi ptr [ %141, %.lr.ph.i.i.i.i.i ], [ %133, %.lr.ph.i.i.i.i.i.preheader ]
   %141 = getelementptr inbounds i8, ptr %.sroa.2.08.i.i.i.i.i, i64 -64
   %142 = add nsw i64 %.sroa.04.09.i.i.i.i.i, -1
@@ -42110,7 +42110,7 @@ default.unreachable:                              ; preds = %.noexc
   br i1 %150, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h7a4000cb9b54e9a4E.exit.thread, label %.lr.ph.i.i.i.i.i
 
 _ZN4core4iter6traits8iterator8Iterator6reduce17h7a4000cb9b54e9a4E.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %131, %127
-  %.sroa.012.0 = phi i64 [ 0, %127 ], [ %137, %131 ], [ %.sroa.616.0.copyload17.sroa.speculated.i, %.lr.ph.i.i.i.i.i ]
+  %.sroa.012.0 = phi i64 [ 0, %127 ], [ 0, %131 ], [ %.sroa.616.0.copyload17.sroa.speculated.i, %.lr.ph.i.i.i.i.i ]
   %151 = getelementptr inbounds i8, ptr %1, i64 80
   store i64 %.sroa.012.0, ptr %151, align 8
   br label %125

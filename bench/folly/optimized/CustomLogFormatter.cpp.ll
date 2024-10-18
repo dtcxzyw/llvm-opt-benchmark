@@ -478,7 +478,7 @@ if.end.i.i.i:                                     ; preds = %if.then16
   br label %_ZN12_GLOBAL__N_116getBaseNameNoExtEN5folly5RangeIPKcEE.exit
 
 _ZN12_GLOBAL__N_116getBaseNameNoExtEN5folly5RangeIPKcEE.exit: ; preds = %if.end.i.i.i, %if.then16
-  %extPos.0.i = phi i64 [ %.pre11.i, %if.then16 ], [ %spec.select.i, %if.end.i.i.i ]
+  %extPos.0.i = phi i64 [ 0, %if.then16 ], [ %spec.select.i, %if.end.i.i.i ]
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %.pre11.i, i64 %extPos.0.i)
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 %.sroa.speculated.i.i
   store ptr %1, ptr %baseNameNoExt, align 8, !tbaa !22

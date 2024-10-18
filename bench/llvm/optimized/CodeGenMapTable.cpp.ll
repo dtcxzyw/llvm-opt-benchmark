@@ -795,7 +795,7 @@ _ZNSt16allocator_traitsISaIPN4llvm4InitEEE8allocateERS3_m.exit.i.i.i.i.i: ; pred
   br label %_ZNSt12_Vector_baseIPN4llvm4InitESaIS2_EEC2EmRKS3_.exit.i.i
 
 _ZNSt12_Vector_baseIPN4llvm4InitESaIS2_EEC2EmRKS3_.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIPN4llvm4InitEEE8allocateERS3_m.exit.i.i.i.i.i, %.lr.ph168.i
-  %.pre-phi205.i = phi i64 [ %.pre204.i, %_ZNSt16allocator_traitsISaIPN4llvm4InitEEE8allocateERS3_m.exit.i.i.i.i.i ], [ %286, %.lr.ph168.i ]
+  %.pre-phi205.i = phi i64 [ %.pre204.i, %_ZNSt16allocator_traitsISaIPN4llvm4InitEEE8allocateERS3_m.exit.i.i.i.i.i ], [ 0, %.lr.ph168.i ]
   %291 = phi ptr [ %.pre200.i, %_ZNSt16allocator_traitsISaIPN4llvm4InitEEE8allocateERS3_m.exit.i.i.i.i.i ], [ %282, %.lr.ph168.i ]
   %292 = phi ptr [ %.pre199.i, %_ZNSt16allocator_traitsISaIPN4llvm4InitEEE8allocateERS3_m.exit.i.i.i.i.i ], [ %283, %.lr.ph168.i ]
   %293 = phi ptr [ %290, %_ZNSt16allocator_traitsISaIPN4llvm4InitEEE8allocateERS3_m.exit.i.i.i.i.i ], [ null, %.lr.ph168.i ]
@@ -2841,7 +2841,7 @@ _ZNSt12_Vector_baseIPN4llvm6RecordESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds
   br label %_ZSt4copyIPPN4llvm6RecordES3_ET0_T_S5_S4_.exit.i
 
 _ZSt4copyIPPN4llvm6RecordES3_ET0_T_S5_S4_.exit.i: ; preds = %1135, %1134
-  %.pre-phi33.i = phi i64 [ %1131, %1134 ], [ %.pre32.i, %1135 ]
+  %.pre-phi33.i = phi i64 [ 0, %1134 ], [ %.pre32.i, %1135 ]
   %1136 = phi ptr [ %1129, %1134 ], [ %.pre26.i, %1135 ]
   %1137 = getelementptr inbounds i8, ptr %.sroa.0376.2, i64 %.pre-phi33.i
   %.not.i.i.i.i.i.i.i.i.i144 = icmp eq ptr %.0.i.i.i.i.i.i, %1137

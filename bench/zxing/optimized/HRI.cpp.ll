@@ -143,7 +143,7 @@ define void @_ZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traits
 
 70:                                               ; preds = %62
   %71 = icmp eq i64 %.sroa.0.0, %58
-  br i1 %71, label %81, label %72
+  br i1 %71, label %82, label %72
 
 72:                                               ; preds = %70
   %73 = call ptr @memchr(ptr noundef %63, i32 noundef 29, i64 noundef %64) #12
@@ -154,11 +154,11 @@ define void @_ZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traits
   %78 = icmp eq i64 %77, -1
   %79 = select i1 %74, i1 true, i1 %78
   %80 = select i1 %79, i64 %64, i64 %77
-  br label %81
+  %81 = trunc i64 %80 to i32
+  br label %82
 
-81:                                               ; preds = %72, %70
-  %82 = phi i64 [ %64, %70 ], [ %80, %72 ]
-  %83 = trunc i64 %82 to i32
+82:                                               ; preds = %72, %70
+  %83 = phi i32 [ 0, %70 ], [ %81, %72 ]
   %84 = call i32 @llvm.smin.i32(i32 %68, i32 %83)
   br label %87
 
@@ -167,8 +167,8 @@ define void @_ZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traits
           cleanup
   br label %115
 
-87:                                               ; preds = %81, %62
-  %88 = phi i32 [ %84, %81 ], [ %68, %62 ]
+87:                                               ; preds = %82, %62
+  %88 = phi i32 [ %84, %82 ], [ %68, %62 ]
   %89 = icmp eq i32 %88, 0
   %90 = trunc i64 %64 to i32
   %91 = icmp sgt i32 %88, %90

@@ -33425,7 +33425,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit: ; preds = %cond.
   %add.ptr49 = getelementptr inbounds i8, ptr %p, i64 %sub.ptr.sub5
   %reass.sub = sub i64 %sub.ptr.sub32, %sub.ptr.sub5
   %add50 = add i64 %reass.sub, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr49, ptr align 1 %p, i64 %add50, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr49, ptr noundef nonnull align 1 dereferenceable(1) %p, i64 %add50, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %p, ptr align 1 %pBegin, i64 %sub.ptr.sub5, i1 false)
   br label %if.end102
 
@@ -35074,7 +35074,7 @@ _ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9all
   %add.ptr49 = getelementptr inbounds i8, ptr %p, i64 %sub.ptr.sub5
   %reass.sub = sub i64 %sub.ptr.sub32, %sub.ptr.sub5
   %add50 = add i64 %reass.sub, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr49, ptr align 1 %p, i64 %add50, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr49, ptr noundef nonnull align 1 dereferenceable(1) %p, i64 %add50, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %p, ptr align 1 %pBegin, i64 %sub.ptr.sub5, i1 false)
   br label %if.end102
 

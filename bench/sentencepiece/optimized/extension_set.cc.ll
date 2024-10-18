@@ -10443,7 +10443,7 @@ _ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pa
   %.sroa.09.0.i.i = phi ptr [ %28, %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE10_M_insert_IS7_NSD_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS7_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit.i.i ], [ %.sroa.05.0.i.i.i, %19 ]
   %.sroa.3.0.i.i = phi i8 [ 1, %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE10_M_insert_IS7_NSD_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS7_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit.i.i ], [ 0, %19 ]
   %33 = getelementptr inbounds i8, ptr %.sroa.09.0.i.i, i64 40
-  br label %70
+  br label %71
 
 34:                                               ; preds = %2
   %35 = getelementptr inbounds i8, ptr %0, i64 10
@@ -10451,8 +10451,8 @@ _ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pa
   %37 = zext i16 %36 to i64
   %38 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %7, i64 %37
   %39 = ptrtoint ptr %38 to i64
-  %.not28 = icmp eq i16 %36, 0
-  br i1 %.not28, label %_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit, label %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i
+  %.not26 = icmp eq i16 %36, 0
+  br i1 %.not26, label %_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit, label %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i
 
 _ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i: ; preds = %34, %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i
   %.017.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i ], [ %7, %34 ]
@@ -10481,47 +10481,47 @@ _ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15Firs
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 8
-  br label %70
+  br label %71
 
 53:                                               ; preds = %_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit
   %54 = icmp ult i16 %36, %4
-  br i1 %54, label %_ZSt13copy_backwardIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit, label %65
+  br i1 %54, label %_ZSt13copy_backwardIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit, label %66
 
 .thread:                                          ; preds = %48
   %55 = icmp ult i16 %36, %4
-  br i1 %55, label %56, label %65
+  br i1 %55, label %56, label %66
 
 56:                                               ; preds = %.thread
   %57 = getelementptr inbounds i8, ptr %38, i64 32
   %58 = ptrtoint ptr %.0.lcssa.i.i to i64
   %59 = sub i64 %39, %58
   %60 = ashr exact i64 %59, 5
-  %.pre.i.i.i.i.i26 = sub nsw i64 0, %60
-  %61 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %57, i64 %.pre.i.i.i.i.i26
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %61, ptr nonnull align 8 %.0.lcssa.i.i, i64 %59, i1 false)
+  %61 = sub nsw i64 0, %60
+  %62 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %57, i64 %61
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %62, ptr nonnull align 8 %.0.lcssa.i.i, i64 %59, i1 false)
   %.pre = load i16, ptr %35, align 2
   br label %_ZSt13copy_backwardIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit
 
 _ZSt13copy_backwardIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit: ; preds = %53, %56
-  %62 = phi i16 [ %36, %53 ], [ %.pre, %56 ]
-  %63 = add i16 %62, 1
-  store i16 %63, ptr %35, align 2
+  %63 = phi i16 [ %36, %53 ], [ %.pre, %56 ]
+  %64 = add i16 %63, 1
+  store i16 %64, ptr %35, align 2
   store i32 %1, ptr %.0.lcssa.i.i, align 8
-  %64 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
-  br label %70
+  %65 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 24, i1 false)
+  br label %71
 
-65:                                               ; preds = %.thread, %53
-  %66 = add nuw nsw i64 %37, 1
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet12GrowCapacityEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %66)
-  %67 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
-  %68 = extractvalue { ptr, i8 } %67, 0
-  %69 = extractvalue { ptr, i8 } %67, 1
-  br label %70
+66:                                               ; preds = %.thread, %53
+  %67 = add nuw nsw i64 %37, 1
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet12GrowCapacityEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %67)
+  %68 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  %69 = extractvalue { ptr, i8 } %68, 0
+  %70 = extractvalue { ptr, i8 } %68, 1
+  br label %71
 
-70:                                               ; preds = %65, %_ZSt13copy_backwardIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit, %51, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE6insertEOS9_.exit
-  %.sroa.023.0 = phi ptr [ %33, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE6insertEOS9_.exit ], [ %64, %_ZSt13copy_backwardIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit ], [ %68, %65 ], [ %52, %51 ]
-  %.sroa.524.0 = phi i8 [ %.sroa.3.0.i.i, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE6insertEOS9_.exit ], [ 1, %_ZSt13copy_backwardIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit ], [ %69, %65 ], [ 0, %51 ]
+71:                                               ; preds = %66, %_ZSt13copy_backwardIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit, %51, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE6insertEOS9_.exit
+  %.sroa.023.0 = phi ptr [ %33, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE6insertEOS9_.exit ], [ %65, %_ZSt13copy_backwardIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit ], [ %69, %66 ], [ %52, %51 ]
+  %.sroa.524.0 = phi i8 [ %.sroa.3.0.i.i, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE6insertEOS9_.exit ], [ 1, %_ZSt13copy_backwardIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit ], [ %70, %66 ], [ 0, %51 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.023.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.524.0, 1
   ret { ptr, i8 } %.fca.1.insert

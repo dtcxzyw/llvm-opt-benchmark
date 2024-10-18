@@ -8474,12 +8474,12 @@ if.end15.thread:                                  ; preds = %land.lhs.true
 
 if.then.i.i.i.i.i:                                ; preds = %if.end15.thread
   %add.ptr25 = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
-  %sub.ptr.rhs.cast.i.i.i.i.i26 = ptrtoint ptr %__first.addr.0.lcssa.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i27 = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i26
-  %sub.ptr.div.i.i.i.i.i28 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i27, 5
-  %.pre.i.i.i.i.i29 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i28
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %add.ptr25, i64 %.pre.i.i.i.i.i29
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i, ptr nonnull align 8 %__first.addr.0.lcssa.i.i, i64 %sub.ptr.sub.i.i.i.i.i27, i1 false)
+  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %__first.addr.0.lcssa.i.i to i64
+  %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
+  %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 5
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %add.ptr25, i64 %idx.neg.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i, ptr nonnull align 8 %__first.addr.0.lcssa.i.i, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   %.pre = load i16, ptr %flat_size_.i, align 2
   br label %_ZSt13copy_backwardIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit
 

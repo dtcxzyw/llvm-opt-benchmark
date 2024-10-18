@@ -20340,7 +20340,7 @@ define internal fastcc void @_ZNSt5dequeIN32pxrInternal_v0_24__pxrReserved__12_G
   %10 = ashr exact i64 %9, 3
   %11 = sub i64 %3, %10
   %12 = icmp ult i64 %11, 2
-  br i1 %12, label %13, label %66
+  br i1 %12, label %13, label %67
 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -20352,7 +20352,7 @@ define internal fastcc void @_ZNSt5dequeIN32pxrInternal_v0_24__pxrReserved__12_G
   %20 = add nsw i64 %18, 2
   %21 = shl nsw i64 %20, 1
   %22 = icmp ugt i64 %3, %21
-  br i1 %22, label %23, label %40
+  br i1 %22, label %23, label %41
 
 23:                                               ; preds = %13
   %24 = sub i64 %3, %20
@@ -20376,78 +20376,78 @@ define internal fastcc void @_ZNSt5dequeIN32pxrInternal_v0_24__pxrReserved__12_G
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt5dequeIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryESaIS2_EE17_M_reallocate_mapEmb.exit, label %34
 
 34:                                               ; preds = %33
-  %35 = ptrtoint ptr %28 to i64
-  %36 = sub i64 %35, %16
-  %37 = ashr exact i64 %36, 3
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %37
-  %38 = getelementptr inbounds ptr, ptr %26, i64 %19
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %39, ptr align 8 %15, i64 %36, i1 false)
+  %35 = getelementptr inbounds ptr, ptr %26, i64 %19
+  %36 = ptrtoint ptr %28 to i64
+  %37 = sub i64 %36, %16
+  %38 = ashr exact i64 %37, 3
+  %39 = sub nsw i64 0, %38
+  %40 = getelementptr inbounds ptr, ptr %35, i64 %39
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %40, ptr align 8 %15, i64 %37, i1 false)
   br label %_ZNSt5dequeIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryESaIS2_EE17_M_reallocate_mapEmb.exit
 
-40:                                               ; preds = %13
+41:                                               ; preds = %13
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %3, i64 1)
-  %41 = add i64 %.sroa.speculated.i, %3
-  %42 = add i64 %41, 2
-  %43 = icmp ugt i64 %42, 1152921504606846975
-  br i1 %43, label %44, label %_ZNSt11_Deque_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryESaIS2_EE15_M_allocate_mapEm.exit.i
+  %42 = add i64 %.sroa.speculated.i, %3
+  %43 = add i64 %42, 2
+  %44 = icmp ugt i64 %43, 1152921504606846975
+  br i1 %44, label %45, label %_ZNSt11_Deque_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryESaIS2_EE15_M_allocate_mapEm.exit.i
 
-44:                                               ; preds = %40
-  %45 = icmp ugt i64 %42, 2305843009213693951
-  br i1 %45, label %.noexc.i.i, label %.noexc3.i.i
+45:                                               ; preds = %41
+  %46 = icmp ugt i64 %43, 2305843009213693951
+  br i1 %46, label %.noexc.i.i, label %.noexc3.i.i
 
-.noexc.i.i:                                       ; preds = %44
+.noexc.i.i:                                       ; preds = %45
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #20
   unreachable
 
-.noexc3.i.i:                                      ; preds = %44
+.noexc3.i.i:                                      ; preds = %45
   tail call void @_ZSt17__throw_bad_allocv() #20
   unreachable
 
-_ZNSt11_Deque_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryESaIS2_EE15_M_allocate_mapEm.exit.i: ; preds = %40
-  %46 = shl nuw nsw i64 %42, 3
-  %47 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %46) #21
-  %48 = sub nsw i64 %41, %18
-  %49 = lshr i64 %48, 1
-  %50 = getelementptr inbounds ptr, ptr %47, i64 %49
-  %51 = getelementptr inbounds i8, ptr %5, i64 8
-  %.not.i.i.i.i.i25.i = icmp eq ptr %51, %15
-  br i1 %.not.i.i.i.i.i25.i, label %_ZSt4copyIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryES4_ET0_T_S6_S5_.exit26.i, label %52
+_ZNSt11_Deque_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryESaIS2_EE15_M_allocate_mapEm.exit.i: ; preds = %41
+  %47 = shl nuw nsw i64 %43, 3
+  %48 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #21
+  %49 = sub nsw i64 %42, %18
+  %50 = lshr i64 %49, 1
+  %51 = getelementptr inbounds ptr, ptr %48, i64 %50
+  %52 = getelementptr inbounds i8, ptr %5, i64 8
+  %.not.i.i.i.i.i25.i = icmp eq ptr %52, %15
+  br i1 %.not.i.i.i.i.i25.i, label %_ZSt4copyIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryES4_ET0_T_S6_S5_.exit26.i, label %53
 
-52:                                               ; preds = %_ZNSt11_Deque_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryESaIS2_EE15_M_allocate_mapEm.exit.i
-  %53 = ptrtoint ptr %51 to i64
-  %54 = sub i64 %53, %16
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %50, ptr align 8 %15, i64 %54, i1 false)
+53:                                               ; preds = %_ZNSt11_Deque_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryESaIS2_EE15_M_allocate_mapEm.exit.i
+  %54 = ptrtoint ptr %52 to i64
+  %55 = sub i64 %54, %16
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %51, ptr align 8 %15, i64 %55, i1 false)
   br label %_ZSt4copyIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryES4_ET0_T_S6_S5_.exit26.i
 
-_ZSt4copyIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryES4_ET0_T_S6_S5_.exit26.i: ; preds = %52, %_ZNSt11_Deque_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryESaIS2_EE15_M_allocate_mapEm.exit.i
-  %55 = shl i64 %3, 3
-  tail call void @_ZdlPvm(ptr noundef %6, i64 noundef %55) #23
-  store ptr %47, ptr %0, align 8
-  store i64 %42, ptr %2, align 8
+_ZSt4copyIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryES4_ET0_T_S6_S5_.exit26.i: ; preds = %53, %_ZNSt11_Deque_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryESaIS2_EE15_M_allocate_mapEm.exit.i
+  %56 = shl i64 %3, 3
+  tail call void @_ZdlPvm(ptr noundef %6, i64 noundef %56) #23
+  store ptr %48, ptr %0, align 8
+  store i64 %43, ptr %2, align 8
   br label %_ZNSt5dequeIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryESaIS2_EE17_M_reallocate_mapEmb.exit
 
 _ZNSt5dequeIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryESaIS2_EE17_M_reallocate_mapEmb.exit: ; preds = %29, %30, %33, %34, %_ZSt4copyIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryES4_ET0_T_S6_S5_.exit26.i
-  %.0.i = phi ptr [ %50, %_ZSt4copyIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryES4_ET0_T_S6_S5_.exit26.i ], [ %26, %29 ], [ %26, %30 ], [ %26, %33 ], [ %26, %34 ]
+  %.0.i = phi ptr [ %51, %_ZSt4copyIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryES4_ET0_T_S6_S5_.exit26.i ], [ %26, %29 ], [ %26, %30 ], [ %26, %33 ], [ %26, %34 ]
   store ptr %.0.i, ptr %14, align 8
-  %56 = load ptr, ptr %.0.i, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %56, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %56, i64 512
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %58, ptr %59, align 8
-  %60 = getelementptr inbounds ptr, ptr %.0.i, i64 %19
-  %61 = getelementptr inbounds i8, ptr %60, i64 -8
-  store ptr %61, ptr %4, align 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %62, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %62, i64 512
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %64, ptr %65, align 8
-  br label %66
+  %57 = load ptr, ptr %.0.i, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %57, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %57, i64 512
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %59, ptr %60, align 8
+  %61 = getelementptr inbounds ptr, ptr %.0.i, i64 %19
+  %62 = getelementptr inbounds i8, ptr %61, i64 -8
+  store ptr %62, ptr %4, align 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %63, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %63, i64 512
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %65, ptr %66, align 8
+  br label %67
 
-66:                                               ; preds = %_ZNSt5dequeIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryESaIS2_EE17_M_reallocate_mapEmb.exit, %1
+67:                                               ; preds = %_ZNSt5dequeIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryESaIS2_EE17_M_reallocate_mapEmb.exit, %1
   ret void
 }
 

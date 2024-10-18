@@ -3817,7 +3817,6 @@ if.then24.us:                                     ; preds = %if.end22.us
   br label %if.end26.us
 
 if.end26.us:                                      ; preds = %if.then24.us, %if.end22.us
-  %sub27.us = sub i64 %dataSize.addr.0.us, %.sroa.speculated.us
   %cmp28.not.us = icmp ugt i64 %dataSize.addr.0.us, %sub.us
   br i1 %cmp28.not.us, label %if.end31.us, label %if.then29.us
 
@@ -3827,12 +3826,13 @@ if.then29.us:                                     ; preds = %if.end26.us
   br label %cleanup.us
 
 if.end31.us:                                      ; preds = %if.end26.us
+  %sub27.us = sub i64 %dataSize.addr.0.us, %.sroa.speculated.us
   %add.ptr32.us = getelementptr inbounds i8, ptr %data.addr.0.us, i64 %.sroa.speculated.us
   %inc.us = add i64 %blockIndex.0.us, 1
   br label %cleanup.us
 
 cleanup.us:                                       ; preds = %if.then21.us, %if.end31.us, %if.then29.us
-  %dataSize.addr.1.us = phi i64 [ %sub27.us, %if.then29.us ], [ %sub27.us, %if.end31.us ], [ %dataSize.addr.0.us, %if.then21.us ]
+  %dataSize.addr.1.us = phi i64 [ 0, %if.then29.us ], [ %sub27.us, %if.end31.us ], [ %dataSize.addr.0.us, %if.then21.us ]
   %blockIndex.1.us = phi i64 [ %blockIndex.0.us, %if.then29.us ], [ %inc.us, %if.end31.us ], [ %blockIndex.0.us, %if.then21.us ]
   %blockOffset.1.us = phi i64 [ %blockOffset.0.us, %if.then29.us ], [ 0, %if.end31.us ], [ %blockOffset.0.us, %if.then21.us ]
   %data.addr.1.us = phi ptr [ %data.addr.0.us, %if.then29.us ], [ %add.ptr32.us, %if.end31.us ], [ %data.addr.0.us, %if.then21.us ]
@@ -3951,7 +3951,6 @@ if.then24:                                        ; preds = %if.end22
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then24, %if.end22
-  %sub27 = sub i64 %dataSize.addr.0, %.sroa.speculated
   %cmp28.not = icmp ugt i64 %dataSize.addr.0, %sub
   br i1 %cmp28.not, label %if.end31, label %if.then29
 
@@ -3961,12 +3960,13 @@ if.then29:                                        ; preds = %if.end26
   br label %cleanup
 
 if.end31:                                         ; preds = %if.end26
+  %sub27 = sub i64 %dataSize.addr.0, %.sroa.speculated
   %add.ptr32 = getelementptr inbounds i8, ptr %data.addr.0, i64 %.sroa.speculated
   %inc = add i64 %blockIndex.0, 1
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then21, %if.then29, %if.end31
-  %dataSize.addr.1 = phi i64 [ %sub27, %if.then29 ], [ %sub27, %if.end31 ], [ %dataSize.addr.0, %if.then21 ]
+  %dataSize.addr.1 = phi i64 [ 0, %if.then29 ], [ %sub27, %if.end31 ], [ %dataSize.addr.0, %if.then21 ]
   %blockIndex.1 = phi i64 [ %blockIndex.0, %if.then29 ], [ %inc, %if.end31 ], [ %blockIndex.0, %if.then21 ]
   %blockOffset.1 = phi i64 [ %blockOffset.0, %if.then29 ], [ 0, %if.end31 ], [ %blockOffset.0, %if.then21 ]
   %data.addr.1 = phi ptr [ %data.addr.0, %if.then29 ], [ %add.ptr32, %if.end31 ], [ %data.addr.0, %if.then21 ]
@@ -4107,7 +4107,6 @@ if.then24.us:                                     ; preds = %if.end22.us
   br label %if.end34.us
 
 if.end34.us:                                      ; preds = %if.then24.us, %if.end22.us
-  %sub35.us = sub nuw i64 %dataSize.addr.0.us, %.sroa.speculated.us
   %cmp36.not.us = icmp ugt i64 %dataSize.addr.0.us, %sub.us
   br i1 %cmp36.not.us, label %if.end39.us, label %if.then37.us
 
@@ -4117,12 +4116,13 @@ if.then37.us:                                     ; preds = %if.end34.us
   br label %cleanup.us
 
 if.end39.us:                                      ; preds = %if.end34.us
+  %sub35.us = sub nuw i64 %dataSize.addr.0.us, %.sroa.speculated.us
   %add.ptr40.us = getelementptr inbounds i8, ptr %data.addr.0.us, i64 %.sroa.speculated.us
   %inc.us = add i64 %blockIndex.0.us, 1
   br label %cleanup.us
 
 cleanup.us:                                       ; preds = %if.then21.us, %if.end39.us, %if.then37.us
-  %dataSize.addr.1.us = phi i64 [ %sub35.us, %if.then37.us ], [ %sub35.us, %if.end39.us ], [ %dataSize.addr.0.us, %if.then21.us ]
+  %dataSize.addr.1.us = phi i64 [ 0, %if.then37.us ], [ %sub35.us, %if.end39.us ], [ %dataSize.addr.0.us, %if.then21.us ]
   %blockIndex.1.us = phi i64 [ %blockIndex.0.us, %if.then37.us ], [ %inc.us, %if.end39.us ], [ %blockIndex.0.us, %if.then21.us ]
   %blockOffset.1.us = phi i64 [ %blockOffset.0.us, %if.then37.us ], [ 0, %if.end39.us ], [ %blockOffset.0.us, %if.then21.us ]
   %data.addr.1.us = phi ptr [ %data.addr.0.us, %if.then37.us ], [ %add.ptr40.us, %if.end39.us ], [ %data.addr.0.us, %if.then21.us ]
@@ -4226,7 +4226,6 @@ if.then24:                                        ; preds = %if.end22
   br label %if.end34
 
 if.end34:                                         ; preds = %if.end22, %if.then24
-  %sub35 = sub nuw i64 %dataSize.addr.0, %.sroa.speculated
   %cmp36.not = icmp ugt i64 %dataSize.addr.0, %sub
   br i1 %cmp36.not, label %if.end39, label %if.then37
 
@@ -4236,12 +4235,13 @@ if.then37:                                        ; preds = %if.end34
   br label %cleanup
 
 if.end39:                                         ; preds = %if.end34
+  %sub35 = sub nuw i64 %dataSize.addr.0, %.sroa.speculated
   %add.ptr40 = getelementptr inbounds i8, ptr %data.addr.0, i64 %.sroa.speculated
   %inc = add i64 %blockIndex.0, 1
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then21, %if.then37, %if.end39
-  %dataSize.addr.1 = phi i64 [ %sub35, %if.then37 ], [ %sub35, %if.end39 ], [ %dataSize.addr.0, %if.then21 ]
+  %dataSize.addr.1 = phi i64 [ 0, %if.then37 ], [ %sub35, %if.end39 ], [ %dataSize.addr.0, %if.then21 ]
   %blockIndex.1 = phi i64 [ %blockIndex.0, %if.then37 ], [ %inc, %if.end39 ], [ %blockIndex.0, %if.then21 ]
   %blockOffset.1 = phi i64 [ %blockOffset.0, %if.then37 ], [ 0, %if.end39 ], [ %blockOffset.0, %if.then21 ]
   %data.addr.1 = phi ptr [ %data.addr.0, %if.then37 ], [ %add.ptr40, %if.end39 ], [ %data.addr.0, %if.then21 ]

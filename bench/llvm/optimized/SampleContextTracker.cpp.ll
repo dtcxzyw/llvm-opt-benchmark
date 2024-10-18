@@ -556,8 +556,8 @@ _ZNSt3mapImN4llvm15ContextTrieNodeESt4lessImESaISt4pairIKmS1_EEE11lower_boundERS
   %.sroa.27.6 = phi ptr [ %.sroa.27.3, %101 ], [ %.sroa.27.4, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
   %.sroa.22.5 = phi ptr [ %.sroa.22.2, %101 ], [ %.sroa.22.3, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
   %.sroa.18.5 = phi ptr [ %.sroa.18.2, %101 ], [ %.sroa.18.3, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
-  %.lcssa55 = phi ptr [ %.sroa.0.0, %101 ], [ %190, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
-  %.lcssa51 = phi i64 [ %.sroa.7.0, %101 ], [ %191, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
+  %.lcssa55 = phi ptr [ %.sroa.0.0, %101 ], [ %191, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
+  %.lcssa51 = phi i64 [ %.sroa.7.0, %101 ], [ %192, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
   %83 = icmp eq ptr %.sroa.33.2, %storemerge.i.i
   br i1 %83, label %._crit_edge, label %84, !llvm.loop !8
 
@@ -629,9 +629,9 @@ _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit: ; preds =
   %.sroa.27.2 = phi ptr [ %.sroa.27.3, %.lr.ph.preheader ], [ %.sroa.27.4, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
   %.sroa.22.1 = phi ptr [ %.sroa.22.2, %.lr.ph.preheader ], [ %.sroa.22.3, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
   %.sroa.18.1 = phi ptr [ %.sroa.18.2, %.lr.ph.preheader ], [ %.sroa.18.3, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
-  %.sroa.047.059 = phi ptr [ %103, %.lr.ph.preheader ], [ %192, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
-  %106 = phi i64 [ %.sroa.7.0, %.lr.ph.preheader ], [ %191, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
-  %107 = phi ptr [ %.sroa.0.0, %.lr.ph.preheader ], [ %190, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
+  %.sroa.047.059 = phi ptr [ %103, %.lr.ph.preheader ], [ %193, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
+  %106 = phi i64 [ %.sroa.7.0, %.lr.ph.preheader ], [ %192, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
+  %107 = phi ptr [ %.sroa.0.0, %.lr.ph.preheader ], [ %191, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
   %108 = getelementptr inbounds nuw i8, ptr %.sroa.047.059, i64 40
   %109 = getelementptr inbounds nuw i8, ptr %.sroa.047.059, i64 88
   store ptr %86, ptr %109, align 8
@@ -680,7 +680,7 @@ _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit: ; preds =
   %139 = add nsw i64 %117, 2
   %140 = shl nsw i64 %139, 1
   %141 = icmp ugt i64 %106, %140
-  br i1 %141, label %142, label %159
+  br i1 %141, label %142, label %160
 
 142:                                              ; preds = %137
   %143 = sub i64 %106, %139
@@ -704,111 +704,111 @@ _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit: ; preds =
   br i1 %.not.i.i.i.i.i.i45, label %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit, label %153
 
 153:                                              ; preds = %152
-  %154 = ptrtoint ptr %147 to i64
-  %155 = sub i64 %154, %115
-  %156 = ashr exact i64 %155, 3
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %156
-  %157 = getelementptr inbounds ptr, ptr %145, i64 %138
-  %158 = getelementptr inbounds ptr, ptr %157, i64 %.pre.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %158, ptr align 8 %.sroa.27.2, i64 %155, i1 false)
+  %154 = getelementptr inbounds ptr, ptr %145, i64 %138
+  %155 = ptrtoint ptr %147 to i64
+  %156 = sub i64 %155, %115
+  %157 = ashr exact i64 %156, 3
+  %158 = sub nsw i64 0, %157
+  %159 = getelementptr inbounds ptr, ptr %154, i64 %158
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %159, ptr align 8 %.sroa.27.2, i64 %156, i1 false)
   br label %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit
 
-159:                                              ; preds = %137
+160:                                              ; preds = %137
   %.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %106, i64 1)
-  %160 = add i64 %106, 2
-  %161 = add i64 %160, %.sroa.speculated.i
-  %162 = icmp ugt i64 %161, 1152921504606846975
-  br i1 %162, label %163, label %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i
+  %161 = add i64 %106, 2
+  %162 = add i64 %161, %.sroa.speculated.i
+  %163 = icmp ugt i64 %162, 1152921504606846975
+  br i1 %163, label %164, label %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i
 
-163:                                              ; preds = %159
-  %164 = icmp ugt i64 %161, 2305843009213693951
-  br i1 %164, label %165, label %166
+164:                                              ; preds = %160
+  %165 = icmp ugt i64 %162, 2305843009213693951
+  br i1 %165, label %166, label %167
 
-165:                                              ; preds = %163
+166:                                              ; preds = %164
   call void @_ZSt28__throw_bad_array_new_lengthv() #25
   unreachable
 
-166:                                              ; preds = %163
+167:                                              ; preds = %164
   call void @_ZSt17__throw_bad_allocv() #25
   unreachable
 
-_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i: ; preds = %159
-  %167 = shl nuw nsw i64 %161, 3
-  %168 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %167) #23
-  %169 = sub nsw i64 %161, %139
-  %170 = lshr i64 %169, 1
-  %171 = getelementptr inbounds ptr, ptr %168, i64 %170
-  %172 = getelementptr inbounds i8, ptr %.sroa.48.2, i64 8
-  %.not.i.i.i.i.i25.i = icmp eq ptr %172, %.sroa.27.2
-  br i1 %.not.i.i.i.i.i25.i, label %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i, label %173
+_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i: ; preds = %160
+  %168 = shl nuw nsw i64 %162, 3
+  %169 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %168) #23
+  %170 = sub nsw i64 %162, %139
+  %171 = lshr i64 %170, 1
+  %172 = getelementptr inbounds ptr, ptr %169, i64 %171
+  %173 = getelementptr inbounds i8, ptr %.sroa.48.2, i64 8
+  %.not.i.i.i.i.i25.i = icmp eq ptr %173, %.sroa.27.2
+  br i1 %.not.i.i.i.i.i25.i, label %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i, label %174
 
-173:                                              ; preds = %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i
-  %174 = ptrtoint ptr %172 to i64
-  %175 = sub i64 %174, %115
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %171, ptr align 8 %.sroa.27.2, i64 %175, i1 false)
+174:                                              ; preds = %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i
+  %175 = ptrtoint ptr %173 to i64
+  %176 = sub i64 %175, %115
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %172, ptr align 8 %.sroa.27.2, i64 %176, i1 false)
   br label %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i
 
-_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i: ; preds = %173, %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i
-  %176 = shl i64 %106, 3
-  call void @_ZdlPvm(ptr noundef %107, i64 noundef %176) #24
+_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i: ; preds = %174, %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i
+  %177 = shl i64 %106, 3
+  call void @_ZdlPvm(ptr noundef %107, i64 noundef %177) #24
   br label %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit
 
 _ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit: ; preds = %148, %149, %152, %153, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i
-  %177 = phi ptr [ %168, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i ], [ %107, %148 ], [ %107, %149 ], [ %107, %152 ], [ %107, %153 ]
-  %178 = phi i64 [ %161, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i ], [ %106, %148 ], [ %106, %149 ], [ %106, %152 ], [ %106, %153 ]
-  %.0.i = phi ptr [ %171, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i ], [ %145, %148 ], [ %145, %149 ], [ %145, %152 ], [ %145, %153 ]
-  %179 = load ptr, ptr %.0.i, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 512
-  %181 = getelementptr inbounds ptr, ptr %.0.i, i64 %138
-  %182 = getelementptr inbounds i8, ptr %181, i64 -8
+  %178 = phi ptr [ %169, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i ], [ %107, %148 ], [ %107, %149 ], [ %107, %152 ], [ %107, %153 ]
+  %179 = phi i64 [ %162, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i ], [ %106, %148 ], [ %106, %149 ], [ %106, %152 ], [ %106, %153 ]
+  %.0.i = phi ptr [ %172, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i ], [ %145, %148 ], [ %145, %149 ], [ %145, %152 ], [ %145, %153 ]
+  %180 = load ptr, ptr %.0.i, align 8
+  %181 = getelementptr inbounds i8, ptr %180, i64 512
+  %182 = getelementptr inbounds ptr, ptr %.0.i, i64 %138
+  %183 = getelementptr inbounds i8, ptr %182, i64 -8
   br label %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit
 
 _ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit: ; preds = %131, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit
-  %.sroa.48.4 = phi ptr [ %182, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.48.2, %131 ]
+  %.sroa.48.4 = phi ptr [ %183, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.48.2, %131 ]
   %.sroa.27.5 = phi ptr [ %.0.i, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.27.2, %131 ]
-  %.sroa.22.4 = phi ptr [ %180, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.22.1, %131 ]
-  %.sroa.18.4 = phi ptr [ %179, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.18.1, %131 ]
-  %183 = phi ptr [ %177, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %107, %131 ]
-  %184 = phi i64 [ %178, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %106, %131 ]
-  %185 = call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #23
-  %186 = getelementptr inbounds i8, ptr %.sroa.48.4, i64 8
-  store ptr %185, ptr %186, align 8
-  store ptr %108, ptr %.sroa.33.1, align 8
+  %.sroa.22.4 = phi ptr [ %181, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.22.1, %131 ]
+  %.sroa.18.4 = phi ptr [ %180, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.18.1, %131 ]
+  %184 = phi ptr [ %178, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %107, %131 ]
+  %185 = phi i64 [ %179, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %106, %131 ]
+  %186 = call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #23
   %187 = getelementptr inbounds i8, ptr %.sroa.48.4, i64 8
-  %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 512
+  store ptr %186, ptr %187, align 8
+  store ptr %108, ptr %.sroa.33.1, align 8
+  %188 = getelementptr inbounds i8, ptr %.sroa.48.4, i64 8
+  %189 = load ptr, ptr %188, align 8
+  %190 = getelementptr inbounds i8, ptr %189, i64 512
   br label %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit
 
 _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit: ; preds = %111, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit
-  %.sroa.48.3 = phi ptr [ %187, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %.sroa.48.2, %111 ]
-  %.sroa.44.2 = phi ptr [ %189, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %.sroa.44.1, %111 ]
-  %.sroa.40.2 = phi ptr [ %188, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %.sroa.40.1, %111 ]
+  %.sroa.48.3 = phi ptr [ %188, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %.sroa.48.2, %111 ]
+  %.sroa.44.2 = phi ptr [ %190, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %.sroa.44.1, %111 ]
+  %.sroa.40.2 = phi ptr [ %189, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %.sroa.40.1, %111 ]
   %.sroa.27.4 = phi ptr [ %.sroa.27.5, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %.sroa.27.2, %111 ]
   %.sroa.22.3 = phi ptr [ %.sroa.22.4, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %.sroa.22.1, %111 ]
   %.sroa.18.3 = phi ptr [ %.sroa.18.4, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %.sroa.18.1, %111 ]
-  %190 = phi ptr [ %183, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %107, %111 ]
-  %191 = phi i64 [ %184, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %106, %111 ]
-  %storemerge = phi ptr [ %188, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %112, %111 ]
-  %192 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.047.059) #21
-  %.not50 = icmp eq ptr %192, %104
+  %191 = phi ptr [ %184, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %107, %111 ]
+  %192 = phi i64 [ %185, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %106, %111 ]
+  %storemerge = phi ptr [ %189, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %112, %111 ]
+  %193 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.047.059) #21
+  %.not50 = icmp eq ptr %193, %104
   br i1 %.not50, label %.loopexit, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %193 = getelementptr inbounds i8, ptr %.sroa.48.5, i64 8
-  %194 = icmp ult ptr %.sroa.27.6, %193
-  br i1 %194, label %.lr.ph.i.i.i.i43, label %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEED2Ev.exit
+  %194 = getelementptr inbounds i8, ptr %.sroa.48.5, i64 8
+  %195 = icmp ult ptr %.sroa.27.6, %194
+  br i1 %195, label %.lr.ph.i.i.i.i43, label %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEED2Ev.exit
 
 .lr.ph.i.i.i.i43:                                 ; preds = %._crit_edge, %.lr.ph.i.i.i.i43
-  %.06.i.i.i.i = phi ptr [ %196, %.lr.ph.i.i.i.i43 ], [ %.sroa.27.6, %._crit_edge ]
-  %195 = load ptr, ptr %.06.i.i.i.i, align 8
-  call void @_ZdlPvm(ptr noundef %195, i64 noundef 512) #24
-  %196 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 8
-  %197 = icmp ult ptr %.06.i.i.i.i, %.sroa.48.5
-  br i1 %197, label %.lr.ph.i.i.i.i43, label %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEED2Ev.exit, !llvm.loop !9
+  %.06.i.i.i.i = phi ptr [ %197, %.lr.ph.i.i.i.i43 ], [ %.sroa.27.6, %._crit_edge ]
+  %196 = load ptr, ptr %.06.i.i.i.i, align 8
+  call void @_ZdlPvm(ptr noundef %196, i64 noundef 512) #24
+  %197 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 8
+  %198 = icmp ult ptr %.06.i.i.i.i, %.sroa.48.5
+  br i1 %198, label %.lr.ph.i.i.i.i43, label %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEED2Ev.exit, !llvm.loop !9
 
 _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEED2Ev.exit: ; preds = %.lr.ph.i.i.i.i43, %._crit_edge
-  %198 = shl i64 %.lcssa51, 3
-  call void @_ZdlPvm(ptr noundef %.lcssa55, i64 noundef %198) #24
+  %199 = shl i64 %.lcssa51, 3
+  call void @_ZdlPvm(ptr noundef %.lcssa55, i64 noundef %199) #24
   ret ptr %74
 }
 
@@ -1287,8 +1287,8 @@ define dso_local void @_ZN4llvm15ContextTrieNode8dumpTreeEv(ptr noundef nonnull 
   %.sroa.26.6 = phi ptr [ %.sroa.26.3, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit ], [ %.sroa.26.4, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
   %.sroa.21.5 = phi ptr [ %.sroa.21.2, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit ], [ %.sroa.21.3, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
   %.sroa.17.5 = phi ptr [ %.sroa.17.2, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit ], [ %.sroa.17.3, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
-  %.lcssa16 = phi ptr [ %.lcssa162324, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit ], [ %117, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
-  %.lcssa12 = phi i64 [ %.sroa.7.0, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit ], [ %118, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
+  %.lcssa16 = phi ptr [ %.lcssa162324, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit ], [ %118, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
+  %.lcssa12 = phi i64 [ %.sroa.7.0, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit ], [ %119, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
   %20 = icmp eq ptr %.sroa.32.2, %storemerge.i.i
   br i1 %20, label %._crit_edge, label %.lr.ph25, !llvm.loop !10
 
@@ -1343,9 +1343,9 @@ _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit: ; preds =
   %.sroa.26.2 = phi ptr [ %.sroa.26.3, %.lr.ph.preheader ], [ %.sroa.26.4, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
   %.sroa.21.1 = phi ptr [ %.sroa.21.2, %.lr.ph.preheader ], [ %.sroa.21.3, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
   %.sroa.17.1 = phi ptr [ %.sroa.17.2, %.lr.ph.preheader ], [ %.sroa.17.3, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
-  %.sroa.09.020 = phi ptr [ %31, %.lr.ph.preheader ], [ %119, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
-  %34 = phi i64 [ %.sroa.7.0, %.lr.ph.preheader ], [ %118, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
-  %35 = phi ptr [ %.lcssa162324, %.lr.ph.preheader ], [ %117, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
+  %.sroa.09.020 = phi ptr [ %31, %.lr.ph.preheader ], [ %120, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
+  %34 = phi i64 [ %.sroa.7.0, %.lr.ph.preheader ], [ %119, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
+  %35 = phi ptr [ %.lcssa162324, %.lr.ph.preheader ], [ %118, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit ]
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.09.020, i64 40
   %37 = getelementptr inbounds i8, ptr %.sroa.43.1, i64 -8
   %.not.i.i6 = icmp eq ptr %.sroa.32.1, %37
@@ -1392,7 +1392,7 @@ _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit: ; preds =
   %66 = add nsw i64 %44, 2
   %67 = shl nsw i64 %66, 1
   %68 = icmp ugt i64 %34, %67
-  br i1 %68, label %69, label %86
+  br i1 %68, label %69, label %87
 
 69:                                               ; preds = %64
   %70 = sub i64 %34, %66
@@ -1416,111 +1416,111 @@ _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit: ; preds =
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit, label %80
 
 80:                                               ; preds = %79
-  %81 = ptrtoint ptr %74 to i64
-  %82 = sub i64 %81, %42
-  %83 = ashr exact i64 %82, 3
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %83
-  %84 = getelementptr inbounds ptr, ptr %72, i64 %65
-  %85 = getelementptr inbounds ptr, ptr %84, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %85, ptr align 8 %.sroa.26.2, i64 %82, i1 false)
+  %81 = getelementptr inbounds ptr, ptr %72, i64 %65
+  %82 = ptrtoint ptr %74 to i64
+  %83 = sub i64 %82, %42
+  %84 = ashr exact i64 %83, 3
+  %85 = sub nsw i64 0, %84
+  %86 = getelementptr inbounds ptr, ptr %81, i64 %85
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %86, ptr align 8 %.sroa.26.2, i64 %83, i1 false)
   br label %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit
 
-86:                                               ; preds = %64
+87:                                               ; preds = %64
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %34, i64 1)
-  %87 = add i64 %34, 2
-  %88 = add i64 %87, %.sroa.speculated.i
-  %89 = icmp ugt i64 %88, 1152921504606846975
-  br i1 %89, label %90, label %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i
+  %88 = add i64 %34, 2
+  %89 = add i64 %88, %.sroa.speculated.i
+  %90 = icmp ugt i64 %89, 1152921504606846975
+  br i1 %90, label %91, label %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i
 
-90:                                               ; preds = %86
-  %91 = icmp ugt i64 %88, 2305843009213693951
-  br i1 %91, label %92, label %93
+91:                                               ; preds = %87
+  %92 = icmp ugt i64 %89, 2305843009213693951
+  br i1 %92, label %93, label %94
 
-92:                                               ; preds = %90
+93:                                               ; preds = %91
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #25
   unreachable
 
-93:                                               ; preds = %90
+94:                                               ; preds = %91
   tail call void @_ZSt17__throw_bad_allocv() #25
   unreachable
 
-_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i: ; preds = %86
-  %94 = shl nuw nsw i64 %88, 3
-  %95 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %94) #23
-  %96 = sub nsw i64 %88, %66
-  %97 = lshr i64 %96, 1
-  %98 = getelementptr inbounds ptr, ptr %95, i64 %97
-  %99 = getelementptr inbounds i8, ptr %.sroa.47.2, i64 8
-  %.not.i.i.i.i.i25.i = icmp eq ptr %99, %.sroa.26.2
-  br i1 %.not.i.i.i.i.i25.i, label %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i, label %100
+_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i: ; preds = %87
+  %95 = shl nuw nsw i64 %89, 3
+  %96 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %95) #23
+  %97 = sub nsw i64 %89, %66
+  %98 = lshr i64 %97, 1
+  %99 = getelementptr inbounds ptr, ptr %96, i64 %98
+  %100 = getelementptr inbounds i8, ptr %.sroa.47.2, i64 8
+  %.not.i.i.i.i.i25.i = icmp eq ptr %100, %.sroa.26.2
+  br i1 %.not.i.i.i.i.i25.i, label %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i, label %101
 
-100:                                              ; preds = %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i
-  %101 = ptrtoint ptr %99 to i64
-  %102 = sub i64 %101, %42
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %98, ptr align 8 %.sroa.26.2, i64 %102, i1 false)
+101:                                              ; preds = %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i
+  %102 = ptrtoint ptr %100 to i64
+  %103 = sub i64 %102, %42
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %99, ptr align 8 %.sroa.26.2, i64 %103, i1 false)
   br label %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i
 
-_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i: ; preds = %100, %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i
-  %103 = shl i64 %34, 3
-  tail call void @_ZdlPvm(ptr noundef %35, i64 noundef %103) #24
+_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i: ; preds = %101, %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i
+  %104 = shl i64 %34, 3
+  tail call void @_ZdlPvm(ptr noundef %35, i64 noundef %104) #24
   br label %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit
 
 _ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit: ; preds = %75, %76, %79, %80, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i
-  %104 = phi ptr [ %95, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i ], [ %35, %75 ], [ %35, %76 ], [ %35, %79 ], [ %35, %80 ]
-  %105 = phi i64 [ %88, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i ], [ %34, %75 ], [ %34, %76 ], [ %34, %79 ], [ %34, %80 ]
-  %.0.i = phi ptr [ %98, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i ], [ %72, %75 ], [ %72, %76 ], [ %72, %79 ], [ %72, %80 ]
-  %106 = load ptr, ptr %.0.i, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 512
-  %108 = getelementptr inbounds ptr, ptr %.0.i, i64 %65
-  %109 = getelementptr inbounds i8, ptr %108, i64 -8
+  %105 = phi ptr [ %96, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i ], [ %35, %75 ], [ %35, %76 ], [ %35, %79 ], [ %35, %80 ]
+  %106 = phi i64 [ %89, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i ], [ %34, %75 ], [ %34, %76 ], [ %34, %79 ], [ %34, %80 ]
+  %.0.i = phi ptr [ %99, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i ], [ %72, %75 ], [ %72, %76 ], [ %72, %79 ], [ %72, %80 ]
+  %107 = load ptr, ptr %.0.i, align 8
+  %108 = getelementptr inbounds i8, ptr %107, i64 512
+  %109 = getelementptr inbounds ptr, ptr %.0.i, i64 %65
+  %110 = getelementptr inbounds i8, ptr %109, i64 -8
   br label %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit
 
 _ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit: ; preds = %58, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit
-  %.sroa.47.4 = phi ptr [ %109, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.47.2, %58 ]
+  %.sroa.47.4 = phi ptr [ %110, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.47.2, %58 ]
   %.sroa.26.5 = phi ptr [ %.0.i, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.26.2, %58 ]
-  %.sroa.21.4 = phi ptr [ %107, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.21.1, %58 ]
-  %.sroa.17.4 = phi ptr [ %106, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.17.1, %58 ]
-  %110 = phi ptr [ %104, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %35, %58 ]
-  %111 = phi i64 [ %105, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %34, %58 ]
-  %112 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #23
-  %113 = getelementptr inbounds i8, ptr %.sroa.47.4, i64 8
-  store ptr %112, ptr %113, align 8
-  store ptr %36, ptr %.sroa.32.1, align 8
+  %.sroa.21.4 = phi ptr [ %108, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.21.1, %58 ]
+  %.sroa.17.4 = phi ptr [ %107, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.17.1, %58 ]
+  %111 = phi ptr [ %105, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %35, %58 ]
+  %112 = phi i64 [ %106, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %34, %58 ]
+  %113 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #23
   %114 = getelementptr inbounds i8, ptr %.sroa.47.4, i64 8
-  %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 512
+  store ptr %113, ptr %114, align 8
+  store ptr %36, ptr %.sroa.32.1, align 8
+  %115 = getelementptr inbounds i8, ptr %.sroa.47.4, i64 8
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr inbounds i8, ptr %116, i64 512
   br label %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit
 
 _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushERKS2_.exit: ; preds = %38, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit
-  %.sroa.47.3 = phi ptr [ %114, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %.sroa.47.2, %38 ]
-  %.sroa.43.2 = phi ptr [ %116, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %.sroa.43.1, %38 ]
-  %.sroa.39.2 = phi ptr [ %115, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %.sroa.39.1, %38 ]
+  %.sroa.47.3 = phi ptr [ %115, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %.sroa.47.2, %38 ]
+  %.sroa.43.2 = phi ptr [ %117, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %.sroa.43.1, %38 ]
+  %.sroa.39.2 = phi ptr [ %116, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %.sroa.39.1, %38 ]
   %.sroa.26.4 = phi ptr [ %.sroa.26.5, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %.sroa.26.2, %38 ]
   %.sroa.21.3 = phi ptr [ %.sroa.21.4, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %.sroa.21.1, %38 ]
   %.sroa.17.3 = phi ptr [ %.sroa.17.4, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %.sroa.17.1, %38 ]
-  %117 = phi ptr [ %110, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %35, %38 ]
-  %118 = phi i64 [ %111, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %34, %38 ]
-  %storemerge = phi ptr [ %115, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %39, %38 ]
-  %119 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.09.020) #21
-  %.not = icmp eq ptr %119, %32
+  %118 = phi ptr [ %111, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %35, %38 ]
+  %119 = phi i64 [ %112, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %34, %38 ]
+  %storemerge = phi ptr [ %116, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit ], [ %39, %38 ]
+  %120 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.09.020) #21
+  %.not = icmp eq ptr %120, %32
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %120 = getelementptr inbounds i8, ptr %.sroa.47.5, i64 8
-  %121 = icmp ult ptr %.sroa.26.6, %120
-  br i1 %121, label %.lr.ph.i.i.i.i, label %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEED2Ev.exit
+  %121 = getelementptr inbounds i8, ptr %.sroa.47.5, i64 8
+  %122 = icmp ult ptr %.sroa.26.6, %121
+  br i1 %122, label %.lr.ph.i.i.i.i, label %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEED2Ev.exit
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge, %.lr.ph.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %123, %.lr.ph.i.i.i.i ], [ %.sroa.26.6, %._crit_edge ]
-  %122 = load ptr, ptr %.06.i.i.i.i, align 8
-  tail call void @_ZdlPvm(ptr noundef %122, i64 noundef 512) #24
-  %123 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 8
-  %124 = icmp ult ptr %.06.i.i.i.i, %.sroa.47.5
-  br i1 %124, label %.lr.ph.i.i.i.i, label %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEED2Ev.exit, !llvm.loop !9
+  %.06.i.i.i.i = phi ptr [ %124, %.lr.ph.i.i.i.i ], [ %.sroa.26.6, %._crit_edge ]
+  %123 = load ptr, ptr %.06.i.i.i.i, align 8
+  tail call void @_ZdlPvm(ptr noundef %123, i64 noundef 512) #24
+  %124 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 8
+  %125 = icmp ult ptr %.06.i.i.i.i, %.sroa.47.5
+  br i1 %125, label %.lr.ph.i.i.i.i, label %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEED2Ev.exit, !llvm.loop !9
 
 _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEED2Ev.exit: ; preds = %.lr.ph.i.i.i.i, %._crit_edge
-  %125 = shl i64 %.lcssa12, 3
-  tail call void @_ZdlPvm(ptr noundef %.lcssa16, i64 noundef %125) #24
+  %126 = shl i64 %.lcssa12, 3
+  tail call void @_ZdlPvm(ptr noundef %.lcssa16, i64 noundef %126) #24
   ret void
 }
 
@@ -2112,7 +2112,7 @@ _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit.i: ; preds
   %.sroa.42.1 = phi ptr [ %.sroa.42.2, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit.i ], [ %.sroa.42.063, %.lr.ph.i.preheader ]
   %.sroa.46.1 = phi ptr [ %.sroa.46.2, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit.i ], [ %.sroa.46.064, %.lr.ph.i.preheader ]
   %.sroa.50.1 = phi ptr [ %.sroa.50.2, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit.i ], [ %.sroa.50.065, %.lr.ph.i.preheader ]
-  %.sroa.05.09.i = phi ptr [ %161, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit.i ], [ %82, %.lr.ph.i.preheader ]
+  %.sroa.05.09.i = phi ptr [ %162, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit.i ], [ %82, %.lr.ph.i.preheader ]
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i, i64 40
   %86 = getelementptr inbounds i8, ptr %.sroa.46.1, i64 -8
   %.not.i.i.i.i16 = icmp eq ptr %.sroa.34.1, %86
@@ -2159,7 +2159,7 @@ _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit.i: ; preds
   %115 = add nsw i64 %93, 2
   %116 = shl nsw i64 %115, 1
   %117 = icmp ugt i64 %.sroa.725.1, %116
-  br i1 %117, label %118, label %135
+  br i1 %117, label %118, label %136
 
 118:                                              ; preds = %113
   %119 = sub i64 %.sroa.725.1, %115
@@ -2183,78 +2183,78 @@ _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit.i: ; preds
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit, label %129
 
 129:                                              ; preds = %128
-  %130 = ptrtoint ptr %123 to i64
-  %131 = sub i64 %130, %91
-  %132 = ashr exact i64 %131, 3
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %132
-  %133 = getelementptr inbounds ptr, ptr %121, i64 %114
-  %134 = getelementptr inbounds ptr, ptr %133, i64 %.pre.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %134, ptr align 8 %.sroa.27.2, i64 %131, i1 false)
+  %130 = getelementptr inbounds ptr, ptr %121, i64 %114
+  %131 = ptrtoint ptr %123 to i64
+  %132 = sub i64 %131, %91
+  %133 = ashr exact i64 %132, 3
+  %134 = sub nsw i64 0, %133
+  %135 = getelementptr inbounds ptr, ptr %130, i64 %134
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %135, ptr align 8 %.sroa.27.2, i64 %132, i1 false)
   br label %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit
 
-135:                                              ; preds = %113
+136:                                              ; preds = %113
   %.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %.sroa.725.1, i64 1)
-  %136 = add i64 %.sroa.725.1, 2
-  %137 = add i64 %136, %.sroa.speculated.i
-  %138 = icmp ugt i64 %137, 1152921504606846975
-  br i1 %138, label %139, label %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i
+  %137 = add i64 %.sroa.725.1, 2
+  %138 = add i64 %137, %.sroa.speculated.i
+  %139 = icmp ugt i64 %138, 1152921504606846975
+  br i1 %139, label %140, label %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i
 
-139:                                              ; preds = %135
-  %140 = icmp ugt i64 %137, 2305843009213693951
-  br i1 %140, label %141, label %142
+140:                                              ; preds = %136
+  %141 = icmp ugt i64 %138, 2305843009213693951
+  br i1 %141, label %142, label %143
 
-141:                                              ; preds = %139
+142:                                              ; preds = %140
   call void @_ZSt28__throw_bad_array_new_lengthv() #25
   unreachable
 
-142:                                              ; preds = %139
+143:                                              ; preds = %140
   call void @_ZSt17__throw_bad_allocv() #25
   unreachable
 
-_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i: ; preds = %135
-  %143 = shl nuw nsw i64 %137, 3
-  %144 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %143) #23
-  %145 = sub nsw i64 %137, %115
-  %146 = lshr i64 %145, 1
-  %147 = getelementptr inbounds ptr, ptr %144, i64 %146
-  %148 = getelementptr inbounds i8, ptr %.sroa.50.1, i64 8
-  %.not.i.i.i.i.i25.i = icmp eq ptr %148, %.sroa.27.2
-  br i1 %.not.i.i.i.i.i25.i, label %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i, label %149
+_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i: ; preds = %136
+  %144 = shl nuw nsw i64 %138, 3
+  %145 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %144) #23
+  %146 = sub nsw i64 %138, %115
+  %147 = lshr i64 %146, 1
+  %148 = getelementptr inbounds ptr, ptr %145, i64 %147
+  %149 = getelementptr inbounds i8, ptr %.sroa.50.1, i64 8
+  %.not.i.i.i.i.i25.i = icmp eq ptr %149, %.sroa.27.2
+  br i1 %.not.i.i.i.i.i25.i, label %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i, label %150
 
-149:                                              ; preds = %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i
-  %150 = ptrtoint ptr %148 to i64
-  %151 = sub i64 %150, %91
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %147, ptr align 8 %.sroa.27.2, i64 %151, i1 false)
+150:                                              ; preds = %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i
+  %151 = ptrtoint ptr %149 to i64
+  %152 = sub i64 %151, %91
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %148, ptr align 8 %.sroa.27.2, i64 %152, i1 false)
   br label %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i
 
-_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i: ; preds = %149, %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i
-  %152 = shl i64 %.sroa.725.1, 3
-  call void @_ZdlPvm(ptr noundef %.sroa.021.1, i64 noundef %152) #24
+_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i: ; preds = %150, %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i
+  %153 = shl i64 %.sroa.725.1, 3
+  call void @_ZdlPvm(ptr noundef %.sroa.021.1, i64 noundef %153) #24
   br label %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit
 
 _ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit: ; preds = %124, %125, %128, %129, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i
-  %.sroa.021.5 = phi ptr [ %.sroa.021.1, %124 ], [ %.sroa.021.1, %125 ], [ %.sroa.021.1, %128 ], [ %.sroa.021.1, %129 ], [ %144, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i ]
-  %.sroa.725.5 = phi i64 [ %.sroa.725.1, %124 ], [ %.sroa.725.1, %125 ], [ %.sroa.725.1, %128 ], [ %.sroa.725.1, %129 ], [ %137, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i ]
-  %.0.i = phi ptr [ %121, %124 ], [ %121, %125 ], [ %121, %128 ], [ %121, %129 ], [ %147, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i ]
-  %153 = load ptr, ptr %.0.i, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 512
-  %155 = getelementptr inbounds ptr, ptr %.0.i, i64 %114
-  %156 = getelementptr inbounds i8, ptr %155, i64 -8
+  %.sroa.021.5 = phi ptr [ %.sroa.021.1, %124 ], [ %.sroa.021.1, %125 ], [ %.sroa.021.1, %128 ], [ %.sroa.021.1, %129 ], [ %145, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i ]
+  %.sroa.725.5 = phi i64 [ %.sroa.725.1, %124 ], [ %.sroa.725.1, %125 ], [ %.sroa.725.1, %128 ], [ %.sroa.725.1, %129 ], [ %138, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i ]
+  %.0.i = phi ptr [ %121, %124 ], [ %121, %125 ], [ %121, %128 ], [ %121, %129 ], [ %148, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i ]
+  %154 = load ptr, ptr %.0.i, align 8
+  %155 = getelementptr inbounds i8, ptr %154, i64 512
+  %156 = getelementptr inbounds ptr, ptr %.0.i, i64 %114
+  %157 = getelementptr inbounds i8, ptr %156, i64 -8
   br label %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit
 
 _ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit: ; preds = %107, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit
   %.sroa.021.4 = phi ptr [ %.sroa.021.5, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.021.1, %107 ]
   %.sroa.725.4 = phi i64 [ %.sroa.725.5, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.725.1, %107 ]
-  %.sroa.18.5 = phi ptr [ %153, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.18.2, %107 ]
-  %.sroa.22.5 = phi ptr [ %154, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.22.2, %107 ]
+  %.sroa.18.5 = phi ptr [ %154, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.18.2, %107 ]
+  %.sroa.22.5 = phi ptr [ %155, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.22.2, %107 ]
   %.sroa.27.5 = phi ptr [ %.0.i, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.27.2, %107 ]
-  %.sroa.50.4 = phi ptr [ %156, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.50.1, %107 ]
-  %157 = call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #23
-  %158 = getelementptr inbounds i8, ptr %.sroa.50.4, i64 8
-  store ptr %157, ptr %158, align 8
+  %.sroa.50.4 = phi ptr [ %157, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.50.1, %107 ]
+  %158 = call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #23
+  %159 = getelementptr inbounds i8, ptr %.sroa.50.4, i64 8
+  store ptr %158, ptr %159, align 8
   store ptr %85, ptr %.sroa.34.1, align 8
-  %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 512
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds i8, ptr %160, i64 512
   br label %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit.i
 
 _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit.i: ; preds = %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit, %87
@@ -2263,12 +2263,12 @@ _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit.i: ; p
   %.sroa.18.3 = phi ptr [ %.sroa.18.5, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit ], [ %.sroa.18.2, %87 ]
   %.sroa.22.3 = phi ptr [ %.sroa.22.5, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit ], [ %.sroa.22.2, %87 ]
   %.sroa.27.3 = phi ptr [ %.sroa.27.5, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit ], [ %.sroa.27.2, %87 ]
-  %.sroa.34.2 = phi ptr [ %159, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit ], [ %88, %87 ]
-  %.sroa.42.2 = phi ptr [ %159, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit ], [ %.sroa.42.1, %87 ]
-  %.sroa.46.2 = phi ptr [ %160, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit ], [ %.sroa.46.1, %87 ]
-  %.sroa.50.2 = phi ptr [ %158, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit ], [ %.sroa.50.1, %87 ]
-  %161 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.05.09.i) #21
-  %.not.i17 = icmp eq ptr %161, %83
+  %.sroa.34.2 = phi ptr [ %160, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit ], [ %88, %87 ]
+  %.sroa.42.2 = phi ptr [ %160, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit ], [ %.sroa.42.1, %87 ]
+  %.sroa.46.2 = phi ptr [ %161, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit ], [ %.sroa.46.1, %87 ]
+  %.sroa.50.2 = phi ptr [ %159, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit ], [ %.sroa.50.1, %87 ]
+  %162 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.05.09.i) #21
+  %.not.i17 = icmp eq ptr %162, %83
   br i1 %.not.i17, label %_ZN4llvm20SampleContextTracker8IteratorppEv.exit, label %.lr.ph.i
 
 _ZN4llvm20SampleContextTracker8IteratorppEv.exit: ; preds = %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit.i, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit.i
@@ -4578,7 +4578,7 @@ _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit.i: ; preds
   %.sroa.42.1 = phi ptr [ %.sroa.42.2, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit.i ], [ %.sroa.42.055, %.lr.ph.i.preheader ]
   %.sroa.46.1 = phi ptr [ %.sroa.46.2, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit.i ], [ %.sroa.46.056, %.lr.ph.i.preheader ]
   %.sroa.50.1 = phi ptr [ %.sroa.50.2, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit.i ], [ %.sroa.50.057, %.lr.ph.i.preheader ]
-  %.sroa.05.09.i = phi ptr [ %117, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit.i ], [ %38, %.lr.ph.i.preheader ]
+  %.sroa.05.09.i = phi ptr [ %118, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit.i ], [ %38, %.lr.ph.i.preheader ]
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i, i64 40
   %42 = getelementptr inbounds i8, ptr %.sroa.46.1, i64 -8
   %.not.i.i.i.i17 = icmp eq ptr %.sroa.34.1, %42
@@ -4625,7 +4625,7 @@ _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit.i: ; preds
   %71 = add nsw i64 %49, 2
   %72 = shl nsw i64 %71, 1
   %73 = icmp ugt i64 %.sroa.722.1, %72
-  br i1 %73, label %74, label %91
+  br i1 %73, label %74, label %92
 
 74:                                               ; preds = %69
   %75 = sub i64 %.sroa.722.1, %71
@@ -4649,78 +4649,78 @@ _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit.i: ; preds
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit, label %85
 
 85:                                               ; preds = %84
-  %86 = ptrtoint ptr %79 to i64
-  %87 = sub i64 %86, %47
-  %88 = ashr exact i64 %87, 3
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %88
-  %89 = getelementptr inbounds ptr, ptr %77, i64 %70
-  %90 = getelementptr inbounds ptr, ptr %89, i64 %.pre.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %90, ptr align 8 %.sroa.27.2, i64 %87, i1 false)
+  %86 = getelementptr inbounds ptr, ptr %77, i64 %70
+  %87 = ptrtoint ptr %79 to i64
+  %88 = sub i64 %87, %47
+  %89 = ashr exact i64 %88, 3
+  %90 = sub nsw i64 0, %89
+  %91 = getelementptr inbounds ptr, ptr %86, i64 %90
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %91, ptr align 8 %.sroa.27.2, i64 %88, i1 false)
   br label %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit
 
-91:                                               ; preds = %69
+92:                                               ; preds = %69
   %.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %.sroa.722.1, i64 1)
-  %92 = add i64 %.sroa.722.1, 2
-  %93 = add i64 %92, %.sroa.speculated.i
-  %94 = icmp ugt i64 %93, 1152921504606846975
-  br i1 %94, label %95, label %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i
+  %93 = add i64 %.sroa.722.1, 2
+  %94 = add i64 %93, %.sroa.speculated.i
+  %95 = icmp ugt i64 %94, 1152921504606846975
+  br i1 %95, label %96, label %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i
 
-95:                                               ; preds = %91
-  %96 = icmp ugt i64 %93, 2305843009213693951
-  br i1 %96, label %97, label %98
+96:                                               ; preds = %92
+  %97 = icmp ugt i64 %94, 2305843009213693951
+  br i1 %97, label %98, label %99
 
-97:                                               ; preds = %95
+98:                                               ; preds = %96
   call void @_ZSt28__throw_bad_array_new_lengthv() #25
   unreachable
 
-98:                                               ; preds = %95
+99:                                               ; preds = %96
   call void @_ZSt17__throw_bad_allocv() #25
   unreachable
 
-_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i: ; preds = %91
-  %99 = shl nuw nsw i64 %93, 3
-  %100 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %99) #23
-  %101 = sub nsw i64 %93, %71
-  %102 = lshr i64 %101, 1
-  %103 = getelementptr inbounds ptr, ptr %100, i64 %102
-  %104 = getelementptr inbounds i8, ptr %.sroa.50.1, i64 8
-  %.not.i.i.i.i.i25.i = icmp eq ptr %104, %.sroa.27.2
-  br i1 %.not.i.i.i.i.i25.i, label %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i, label %105
+_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i: ; preds = %92
+  %100 = shl nuw nsw i64 %94, 3
+  %101 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %100) #23
+  %102 = sub nsw i64 %94, %71
+  %103 = lshr i64 %102, 1
+  %104 = getelementptr inbounds ptr, ptr %101, i64 %103
+  %105 = getelementptr inbounds i8, ptr %.sroa.50.1, i64 8
+  %.not.i.i.i.i.i25.i = icmp eq ptr %105, %.sroa.27.2
+  br i1 %.not.i.i.i.i.i25.i, label %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i, label %106
 
-105:                                              ; preds = %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i
-  %106 = ptrtoint ptr %104 to i64
-  %107 = sub i64 %106, %47
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %103, ptr align 8 %.sroa.27.2, i64 %107, i1 false)
+106:                                              ; preds = %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i
+  %107 = ptrtoint ptr %105 to i64
+  %108 = sub i64 %107, %47
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %104, ptr align 8 %.sroa.27.2, i64 %108, i1 false)
   br label %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i
 
-_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i: ; preds = %105, %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i
-  %108 = shl i64 %.sroa.722.1, 3
-  call void @_ZdlPvm(ptr noundef %.sroa.018.1, i64 noundef %108) #24
+_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i: ; preds = %106, %_ZNSt11_Deque_baseIPN4llvm15ContextTrieNodeESaIS2_EE15_M_allocate_mapEm.exit.i
+  %109 = shl i64 %.sroa.722.1, 3
+  call void @_ZdlPvm(ptr noundef %.sroa.018.1, i64 noundef %109) #24
   br label %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit
 
 _ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit: ; preds = %80, %81, %84, %85, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i
-  %.sroa.018.5 = phi ptr [ %.sroa.018.1, %80 ], [ %.sroa.018.1, %81 ], [ %.sroa.018.1, %84 ], [ %.sroa.018.1, %85 ], [ %100, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i ]
-  %.sroa.722.5 = phi i64 [ %.sroa.722.1, %80 ], [ %.sroa.722.1, %81 ], [ %.sroa.722.1, %84 ], [ %.sroa.722.1, %85 ], [ %93, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i ]
-  %.0.i = phi ptr [ %77, %80 ], [ %77, %81 ], [ %77, %84 ], [ %77, %85 ], [ %103, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i ]
-  %109 = load ptr, ptr %.0.i, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 512
-  %111 = getelementptr inbounds ptr, ptr %.0.i, i64 %70
-  %112 = getelementptr inbounds i8, ptr %111, i64 -8
+  %.sroa.018.5 = phi ptr [ %.sroa.018.1, %80 ], [ %.sroa.018.1, %81 ], [ %.sroa.018.1, %84 ], [ %.sroa.018.1, %85 ], [ %101, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i ]
+  %.sroa.722.5 = phi i64 [ %.sroa.722.1, %80 ], [ %.sroa.722.1, %81 ], [ %.sroa.722.1, %84 ], [ %.sroa.722.1, %85 ], [ %94, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i ]
+  %.0.i = phi ptr [ %77, %80 ], [ %77, %81 ], [ %77, %84 ], [ %77, %85 ], [ %104, %_ZSt4copyIPPPN4llvm15ContextTrieNodeES4_ET0_T_S6_S5_.exit26.i ]
+  %110 = load ptr, ptr %.0.i, align 8
+  %111 = getelementptr inbounds i8, ptr %110, i64 512
+  %112 = getelementptr inbounds ptr, ptr %.0.i, i64 %70
+  %113 = getelementptr inbounds i8, ptr %112, i64 -8
   br label %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit
 
 _ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit: ; preds = %63, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit
   %.sroa.018.4 = phi ptr [ %.sroa.018.5, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.018.1, %63 ]
   %.sroa.722.4 = phi i64 [ %.sroa.722.5, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.722.1, %63 ]
-  %.sroa.18.5 = phi ptr [ %109, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.18.2, %63 ]
-  %.sroa.22.5 = phi ptr [ %110, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.22.2, %63 ]
+  %.sroa.18.5 = phi ptr [ %110, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.18.2, %63 ]
+  %.sroa.22.5 = phi ptr [ %111, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.22.2, %63 ]
   %.sroa.27.5 = phi ptr [ %.0.i, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.27.2, %63 ]
-  %.sroa.50.4 = phi ptr [ %112, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.50.1, %63 ]
-  %113 = call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #23
-  %114 = getelementptr inbounds i8, ptr %.sroa.50.4, i64 8
-  store ptr %113, ptr %114, align 8
+  %.sroa.50.4 = phi ptr [ %113, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE17_M_reallocate_mapEmb.exit ], [ %.sroa.50.1, %63 ]
+  %114 = call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #23
+  %115 = getelementptr inbounds i8, ptr %.sroa.50.4, i64 8
+  store ptr %114, ptr %115, align 8
   store ptr %41, ptr %.sroa.34.1, align 8
-  %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 512
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr inbounds i8, ptr %116, i64 512
   br label %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit.i
 
 _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit.i: ; preds = %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit, %43
@@ -4729,12 +4729,12 @@ _ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit.i: ; p
   %.sroa.18.3 = phi ptr [ %.sroa.18.5, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit ], [ %.sroa.18.2, %43 ]
   %.sroa.22.3 = phi ptr [ %.sroa.22.5, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit ], [ %.sroa.22.2, %43 ]
   %.sroa.27.3 = phi ptr [ %.sroa.27.5, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit ], [ %.sroa.27.2, %43 ]
-  %.sroa.34.2 = phi ptr [ %115, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit ], [ %44, %43 ]
-  %.sroa.42.2 = phi ptr [ %115, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit ], [ %.sroa.42.1, %43 ]
-  %.sroa.46.2 = phi ptr [ %116, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit ], [ %.sroa.46.1, %43 ]
-  %.sroa.50.2 = phi ptr [ %114, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit ], [ %.sroa.50.1, %43 ]
-  %117 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.05.09.i) #21
-  %.not.i = icmp eq ptr %117, %39
+  %.sroa.34.2 = phi ptr [ %116, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit ], [ %44, %43 ]
+  %.sroa.42.2 = phi ptr [ %116, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit ], [ %.sroa.42.1, %43 ]
+  %.sroa.46.2 = phi ptr [ %117, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit ], [ %.sroa.46.1, %43 ]
+  %.sroa.50.2 = phi ptr [ %115, %_ZNSt5dequeIPN4llvm15ContextTrieNodeESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_.exit ], [ %.sroa.50.1, %43 ]
+  %118 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.05.09.i) #21
+  %.not.i = icmp eq ptr %118, %39
   br i1 %.not.i, label %_ZN4llvm20SampleContextTracker8IteratorppEv.exit, label %.lr.ph.i
 
 _ZN4llvm20SampleContextTracker8IteratorppEv.exit: ; preds = %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit.i, %_ZNSt5queueIPN4llvm15ContextTrieNodeESt5dequeIS2_SaIS2_EEE3popEv.exit.i
@@ -7955,7 +7955,7 @@ _ZSt4moveIPcS0_ET0_T_S2_S1_.exit:                 ; preds = %27, %30
 45:                                               ; preds = %22
   %46 = icmp eq i64 %23, 1
   %47 = getelementptr inbounds i8, ptr %.053, i64 %.076
-  br i1 %46, label %48, label %56
+  br i1 %46, label %48, label %57
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds i8, ptr %47, i64 -1
@@ -7967,44 +7967,44 @@ _ZSt4moveIPcS0_ET0_T_S2_S1_.exit:                 ; preds = %27, %30
   %52 = ptrtoint ptr %49 to i64
   %53 = ptrtoint ptr %.053 to i64
   %54 = sub i64 %52, %53
-  %.pre.i.i.i.i.i = sub i64 0, %54
-  %55 = getelementptr inbounds i8, ptr %47, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %55, ptr nonnull align 1 %.053, i64 %54, i1 false)
+  %55 = sub i64 0, %54
+  %56 = getelementptr inbounds i8, ptr %47, i64 %55
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %56, ptr nonnull align 1 %.053, i64 %54, i1 false)
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit
 
 _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %48, %51
   store i8 %50, ptr %.053, align 1
   br label %_ZSt11swap_rangesIPcS0_ET0_T_S2_S1_.exit
 
-56:                                               ; preds = %45
-  %57 = sub i64 0, %23
-  %58 = getelementptr inbounds i8, ptr %47, i64 %57
-  %59 = icmp sgt i64 %.074, 0
-  br i1 %59, label %.lr.ph, label %._crit_edge
+57:                                               ; preds = %45
+  %58 = sub i64 0, %23
+  %59 = getelementptr inbounds i8, ptr %47, i64 %58
+  %60 = icmp sgt i64 %.074, 0
+  br i1 %60, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %56, %.lr.ph
-  %.085 = phi i64 [ %64, %.lr.ph ], [ 0, %56 ]
-  %.04984 = phi ptr [ %61, %.lr.ph ], [ %47, %56 ]
-  %.383 = phi ptr [ %60, %.lr.ph ], [ %58, %56 ]
-  %60 = getelementptr inbounds i8, ptr %.383, i64 -1
-  %61 = getelementptr inbounds i8, ptr %.04984, i64 -1
-  %62 = load i8, ptr %60, align 1
+.lr.ph:                                           ; preds = %57, %.lr.ph
+  %.085 = phi i64 [ %65, %.lr.ph ], [ 0, %57 ]
+  %.04984 = phi ptr [ %62, %.lr.ph ], [ %47, %57 ]
+  %.383 = phi ptr [ %61, %.lr.ph ], [ %59, %57 ]
+  %61 = getelementptr inbounds i8, ptr %.383, i64 -1
+  %62 = getelementptr inbounds i8, ptr %.04984, i64 -1
   %63 = load i8, ptr %61, align 1
-  store i8 %63, ptr %60, align 1
-  store i8 %62, ptr %61, align 1
-  %64 = add nuw nsw i64 %.085, 1
-  %exitcond.not = icmp eq i64 %64, %.074
+  %64 = load i8, ptr %62, align 1
+  store i8 %64, ptr %61, align 1
+  store i8 %63, ptr %62, align 1
+  %65 = add nuw nsw i64 %.085, 1
+  %exitcond.not = icmp eq i64 %65, %.074
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
 
-._crit_edge:                                      ; preds = %.lr.ph, %56
-  %.3.lcssa = phi ptr [ %58, %56 ], [ %.053, %.lr.ph ]
-  %65 = srem i64 %.076, %23
-  %66 = icmp eq i64 %65, 0
-  br i1 %66, label %_ZSt11swap_rangesIPcS0_ET0_T_S2_S1_.exit, label %.backedge
+._crit_edge:                                      ; preds = %.lr.ph, %57
+  %.3.lcssa = phi ptr [ %59, %57 ], [ %.053, %.lr.ph ]
+  %66 = srem i64 %.076, %23
+  %67 = icmp eq i64 %66, 0
+  br i1 %67, label %_ZSt11swap_rangesIPcS0_ET0_T_S2_S1_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %43
   %.076.be = phi i64 [ %.074, %43 ], [ %23, %._crit_edge ]
-  %.074.be = phi i64 [ %44, %43 ], [ %65, %._crit_edge ]
+  %.074.be = phi i64 [ %44, %43 ], [ %66, %._crit_edge ]
   %.053.be = phi ptr [ %.1.lcssa, %43 ], [ %.3.lcssa, %._crit_edge ]
   br label %22, !llvm.loop !69
 

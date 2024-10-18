@@ -4388,7 +4388,7 @@ _ZNSt12_Vector_baseIN5nblib23TwoParameterInteractionINS0_25HarmonicBondTypeParam
   br label %_ZSt4copyIPN5nblib23TwoParameterInteractionINS0_25HarmonicBondTypeParameterEEES4_ET0_T_S6_S5_.exit
 
 _ZSt4copyIPN5nblib23TwoParameterInteractionINS0_25HarmonicBondTypeParameterEEES4_ET0_T_S6_S5_.exit: ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]
@@ -4501,7 +4501,7 @@ _ZNSt12_Vector_baseIN5nblib11G96BondTypeESaIS1_EE13_M_deallocateEPS1_m.exit: ; p
   br label %_ZSt4copyIPN5nblib11G96BondTypeES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPN5nblib11G96BondTypeES2_ET0_T_S4_S3_.exit: ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]
@@ -4612,7 +4612,7 @@ _ZNSt12_Vector_baseIN5nblib13CubicBondTypeESaIS1_EE13_M_deallocateEPS1_m.exit: ;
   br label %_ZSt4copyIPN5nblib13CubicBondTypeES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPN5nblib13CubicBondTypeES2_ET0_T_S4_S3_.exit: ; preds = %32, %33
-  %.pre-phi33 = phi i64 [ %29, %32 ], [ %.pre32, %33 ]
+  %.pre-phi33 = phi i64 [ 0, %32 ], [ %.pre32, %33 ]
   %34 = phi ptr [ %5, %32 ], [ %.pre28, %33 ]
   %35 = phi ptr [ %27, %32 ], [ %.pre26, %33 ]
   %36 = phi ptr [ %6, %32 ], [ %.pre, %33 ]
@@ -4723,7 +4723,7 @@ _ZNSt12_Vector_baseIN5nblib13MorseBondTypeESaIS1_EE13_M_deallocateEPS1_m.exit: ;
   br label %_ZSt4copyIPN5nblib13MorseBondTypeES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPN5nblib13MorseBondTypeES2_ET0_T_S4_S3_.exit: ; preds = %32, %33
-  %.pre-phi33 = phi i64 [ %29, %32 ], [ %.pre32, %33 ]
+  %.pre-phi33 = phi i64 [ 0, %32 ], [ %.pre32, %33 ]
   %34 = phi ptr [ %5, %32 ], [ %.pre28, %33 ]
   %35 = phi ptr [ %27, %32 ], [ %.pre26, %33 ]
   %36 = phi ptr [ %6, %32 ], [ %.pre, %33 ]
@@ -4833,7 +4833,7 @@ _ZNSt12_Vector_baseIN5nblib23TwoParameterInteractionINS0_21FENEBondTypeParameter
   br label %_ZSt4copyIPN5nblib23TwoParameterInteractionINS0_21FENEBondTypeParameterEEES4_ET0_T_S6_S5_.exit
 
 _ZSt4copyIPN5nblib23TwoParameterInteractionINS0_21FENEBondTypeParameterEEES4_ET0_T_S6_S5_.exit: ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]
@@ -4943,7 +4943,7 @@ _ZNSt12_Vector_baseIN5nblib23TwoParameterInteractionINS0_38HalfAttractiveQuartic
   br label %_ZSt4copyIPN5nblib23TwoParameterInteractionINS0_38HalfAttractiveQuarticBondTypeParameterEEES4_ET0_T_S6_S5_.exit
 
 _ZSt4copyIPN5nblib23TwoParameterInteractionINS0_38HalfAttractiveQuarticBondTypeParameterEEES4_ET0_T_S6_S5_.exit: ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]
@@ -5057,7 +5057,7 @@ _ZNSt12_Vector_baseIN5nblib10PairLJTypeESaIS1_EE13_M_deallocateEPS1_m.exit: ; pr
   br label %_ZSt4copyIPN5nblib10PairLJTypeES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPN5nblib10PairLJTypeES2_ET0_T_S4_S3_.exit: ; preds = %34, %35
-  %.pre-phi33 = phi i64 [ %31, %34 ], [ %.pre32, %35 ]
+  %.pre-phi33 = phi i64 [ 0, %34 ], [ %.pre32, %35 ]
   %36 = phi ptr [ %5, %34 ], [ %.pre28, %35 ]
   %37 = phi ptr [ %29, %34 ], [ %.pre26, %35 ]
   %38 = phi ptr [ %6, %34 ], [ %.pre, %35 ]
@@ -5170,7 +5170,7 @@ _ZNSt12_Vector_baseIN5nblib20AngleInteractionTypeINS0_22HarmonicAngleParameterEE
   br label %_ZSt4copyIPN5nblib20AngleInteractionTypeINS0_22HarmonicAngleParameterEEES4_ET0_T_S6_S5_.exit
 
 _ZSt4copyIPN5nblib20AngleInteractionTypeINS0_22HarmonicAngleParameterEEES4_ET0_T_S6_S5_.exit: ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]
@@ -5280,7 +5280,7 @@ _ZNSt12_Vector_baseIN5nblib16CosineParamAngleINS0_17G96AngleParameterEEESaIS3_EE
   br label %_ZSt4copyIPN5nblib16CosineParamAngleINS0_17G96AngleParameterEEES4_ET0_T_S6_S5_.exit
 
 _ZSt4copyIPN5nblib16CosineParamAngleINS0_17G96AngleParameterEEES4_ET0_T_S6_S5_.exit: ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]
@@ -5397,7 +5397,7 @@ _ZNSt12_Vector_baseIN5nblib12QuarticAngleESaIS1_EE13_M_deallocateEPS1_m.exit: ; 
   br label %_ZSt4copyIPN5nblib12QuarticAngleES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPN5nblib12QuarticAngleES2_ET0_T_S4_S3_.exit: ; preds = %36, %37
-  %.pre-phi34 = phi i64 [ %33, %36 ], [ %.pre33, %37 ]
+  %.pre-phi34 = phi i64 [ 0, %36 ], [ %.pre33, %37 ]
   %38 = phi ptr [ %5, %36 ], [ %.pre29, %37 ]
   %39 = phi ptr [ %31, %36 ], [ %.pre27, %37 ]
   %40 = phi ptr [ %6, %36 ], [ %.pre, %37 ]
@@ -5509,7 +5509,7 @@ _ZNSt12_Vector_baseIN5nblib16CosineParamAngleINS0_24RestrictedAngleParameterEEES
   br label %_ZSt4copyIPN5nblib16CosineParamAngleINS0_24RestrictedAngleParameterEEES4_ET0_T_S6_S5_.exit
 
 _ZSt4copyIPN5nblib16CosineParamAngleINS0_24RestrictedAngleParameterEEES4_ET0_T_S6_S5_.exit: ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]
@@ -5620,7 +5620,7 @@ _ZNSt12_Vector_baseIN5nblib13CrossBondBondESaIS1_EE13_M_deallocateEPS1_m.exit: ;
   br label %_ZSt4copyIPN5nblib13CrossBondBondES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPN5nblib13CrossBondBondES2_ET0_T_S4_S3_.exit: ; preds = %32, %33
-  %.pre-phi33 = phi i64 [ %29, %32 ], [ %.pre32, %33 ]
+  %.pre-phi33 = phi i64 [ 0, %32 ], [ %.pre32, %33 ]
   %34 = phi ptr [ %5, %32 ], [ %.pre28, %33 ]
   %35 = phi ptr [ %27, %32 ], [ %.pre26, %33 ]
   %36 = phi ptr [ %6, %32 ], [ %.pre, %33 ]
@@ -5730,7 +5730,7 @@ _ZNSt12_Vector_baseIN5nblib14CrossBondAngleESaIS1_EE13_M_deallocateEPS1_m.exit: 
   br label %_ZSt4copyIPN5nblib14CrossBondAngleES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPN5nblib14CrossBondAngleES2_ET0_T_S4_S3_.exit: ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]
@@ -5840,7 +5840,7 @@ _ZNSt12_Vector_baseIN5nblib23TwoParameterInteractionINS0_20LinearAngleParameterE
   br label %_ZSt4copyIPN5nblib23TwoParameterInteractionINS0_20LinearAngleParameterEEES4_ET0_T_S6_S5_.exit
 
 _ZSt4copyIPN5nblib23TwoParameterInteractionINS0_20LinearAngleParameterEEES4_ET0_T_S6_S5_.exit: ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]
@@ -5951,7 +5951,7 @@ _ZNSt12_Vector_baseIN5nblib14ProperDihedralESaIS1_EE13_M_deallocateEPS1_m.exit: 
   br label %_ZSt4copyIPN5nblib14ProperDihedralES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPN5nblib14ProperDihedralES2_ET0_T_S4_S3_.exit: ; preds = %32, %33
-  %.pre-phi33 = phi i64 [ %29, %32 ], [ %.pre32, %33 ]
+  %.pre-phi33 = phi i64 [ 0, %32 ], [ %.pre32, %33 ]
   %34 = phi ptr [ %5, %32 ], [ %.pre28, %33 ]
   %35 = phi ptr [ %27, %32 ], [ %.pre26, %33 ]
   %36 = phi ptr [ %6, %32 ], [ %.pre, %33 ]
@@ -6061,7 +6061,7 @@ _ZNSt12_Vector_baseIN5nblib16ImproperDihedralESaIS1_EE13_M_deallocateEPS1_m.exit
   br label %_ZSt4copyIPN5nblib16ImproperDihedralES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPN5nblib16ImproperDihedralES2_ET0_T_S4_S3_.exit: ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]
@@ -6172,7 +6172,7 @@ _ZNSt12_Vector_baseIN5nblib24RyckaertBellemanDihedralESaIS1_EE13_M_deallocateEPS
   br label %_ZSt4copyIPN5nblib24RyckaertBellemanDihedralES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPN5nblib24RyckaertBellemanDihedralES2_ET0_T_S4_S3_.exit: ; preds = %32, %33
-  %.pre-phi33 = phi i64 [ %29, %32 ], [ %.pre32, %33 ]
+  %.pre-phi33 = phi i64 [ 0, %32 ], [ %.pre32, %33 ]
   %34 = phi ptr [ %5, %32 ], [ %.pre28, %33 ]
   %35 = phi ptr [ %27, %32 ], [ %.pre26, %33 ]
   %36 = phi ptr [ %6, %32 ], [ %.pre, %33 ]
@@ -6286,7 +6286,7 @@ _ZNSt12_Vector_baseIN5nblib14Default5CenterESaIS1_EE13_M_deallocateEPS1_m.exit: 
   br label %_ZSt4copyIPN5nblib14Default5CenterES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPN5nblib14Default5CenterES2_ET0_T_S4_S3_.exit: ; preds = %34, %35
-  %.pre-phi33 = phi i64 [ %31, %34 ], [ %.pre32, %35 ]
+  %.pre-phi33 = phi i64 [ 0, %34 ], [ %.pre32, %35 ]
   %36 = phi ptr [ %5, %34 ], [ %.pre28, %35 ]
   %37 = phi ptr [ %29, %34 ], [ %.pre26, %35 ]
   %38 = phi ptr [ %6, %34 ], [ %.pre, %35 ]

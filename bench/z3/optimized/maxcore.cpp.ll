@@ -18876,8 +18876,8 @@ if.then3.i38:                                     ; preds = %for.body.i21
   %sub.ptr.lhs.cast.i.i.i.i.i.i40 = ptrtoint ptr %__i.015.i22 to i64
   %sub.ptr.sub.i.i.i.i.i.i41 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i40, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i.i42 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i41, 3
-  %.pre.i.i.i.i.i.i43 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i42
-  %add.ptr.i.i.i.i.i.i44 = getelementptr inbounds ptr, ptr %add.ptr4.i39, i64 %.pre.i.i.i.i.i.i43
+  %idx.neg.i.i.i.i.i.i43 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i42
+  %add.ptr.i.i.i.i.i.i44 = getelementptr inbounds ptr, ptr %add.ptr4.i39, i64 %idx.neg.i.i.i.i.i.i43
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i44, ptr noundef nonnull align 8 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i41, i1 false)
   store ptr %13, ptr %__first, align 8
   br label %for.inc.i30

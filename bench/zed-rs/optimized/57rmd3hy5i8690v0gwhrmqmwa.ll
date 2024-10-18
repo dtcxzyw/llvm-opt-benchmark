@@ -24788,7 +24788,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h5cedb8ea050f7874E.exit: ; preds
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %11, ptr noundef nonnull align 8 dereferenceable(80) %155, i64 80, i1 false)
   br i1 %14, label %.thread, label %156
 
-_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h43370cf72c840bc9E.exit: ; preds = %106, %.outer._crit_edge, %136
+_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h43370cf72c840bc9E.exit: ; preds = %.outer._crit_edge.thread, %106, %.outer._crit_edge, %136
   ret void
 
 156:                                              ; preds = %_ZN4core5slice4sort6shared5pivot12choose_pivot17h5cedb8ea050f7874E.exit
@@ -24942,7 +24942,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h43370cf7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.ph92, ptr nonnull align 8 %2, i64 %212, i1 false), !alias.scope !5468
   %213 = sub i64 %.sroa.12.085, %.sroa.11.1.lcssa.i43
   %.not.i46 = icmp eq i64 %.sroa.12.085, %.sroa.11.1.lcssa.i43
-  br i1 %.not.i46, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17h28492c2611aa3ec3E.exit, label %.lr.ph18.i47
+  br i1 %.not.i46, label %.outer._crit_edge.thread, label %.lr.ph18.i47
 
 .lr.ph18.i47:                                     ; preds = %211
   %214 = getelementptr { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { ptr, i64 } }, {}, {} }, { i64, i64 }, i64, float, [1 x i32] }, ptr %.sroa.0.0.ph92, i64 %.sroa.11.1.lcssa.i43
@@ -24958,9 +24958,13 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h43370cf7
   %exitcond.not.i49 = icmp eq i64 %216, %213
   br i1 %exitcond.not.i49, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17h28492c2611aa3ec3E.exit, label %215
 
-_ZN4core5slice4sort6stable9quicksort16stable_partition17h28492c2611aa3ec3E.exit: ; preds = %215, %211
+_ZN4core5slice4sort6stable9quicksort16stable_partition17h28492c2611aa3ec3E.exit: ; preds = %215
   %220 = icmp ugt i64 %.sroa.11.1.lcssa.i43, %.sroa.12.085
   br i1 %220, label %221, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7767791c70065284E.exit"
+
+.outer._crit_edge.thread:                         ; preds = %211
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11)
+  br label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h43370cf72c840bc9E.exit
 
 221:                                              ; preds = %_ZN4core5slice4sort6stable9quicksort16stable_partition17h28492c2611aa3ec3E.exit
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %.sroa.11.1.lcssa.i43, i64 noundef %.sroa.12.085, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.27f304c4dfc853823e99c86d006a6d31.56) #43, !noalias !5475
@@ -25346,7 +25350,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h1fc5ce52ae9d8317E.exit: ; preds
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %168, i64 24, i1 false)
   br i1 %14, label %.thread, label %169
 
-_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h619d88ae14ad86b0E.exit: ; preds = %122, %.outer._crit_edge, %149
+_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h619d88ae14ad86b0E.exit: ; preds = %.outer._crit_edge.thread, %122, %.outer._crit_edge, %149
   ret void
 
 169:                                              ; preds = %_ZN4core5slice4sort6shared5pivot12choose_pivot17h1fc5ce52ae9d8317E.exit
@@ -25501,7 +25505,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h619d88ae
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.ph91, ptr nonnull align 8 %2, i64 %226, i1 false), !alias.scope !5528
   %227 = sub i64 %.sroa.12.084, %.sroa.11.1.lcssa.i42
   %.not.i45 = icmp eq i64 %.sroa.12.084, %.sroa.11.1.lcssa.i42
-  br i1 %.not.i45, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17h28eb7a5824203e5bE.exit, label %.lr.ph18.i46
+  br i1 %.not.i45, label %.outer._crit_edge.thread, label %.lr.ph18.i46
 
 .lr.ph18.i46:                                     ; preds = %225
   %228 = getelementptr { { ptr, i64 }, i64 }, ptr %.sroa.0.0.ph91, i64 %.sroa.11.1.lcssa.i42
@@ -25517,9 +25521,13 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h619d88ae
   %exitcond.not.i48 = icmp eq i64 %230, %227
   br i1 %exitcond.not.i48, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17h28eb7a5824203e5bE.exit, label %229
 
-_ZN4core5slice4sort6stable9quicksort16stable_partition17h28eb7a5824203e5bE.exit: ; preds = %229, %225
+_ZN4core5slice4sort6stable9quicksort16stable_partition17h28eb7a5824203e5bE.exit: ; preds = %229
   %234 = icmp ugt i64 %.sroa.11.1.lcssa.i42, %.sroa.12.084
   br i1 %234, label %235, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd1aa299f97f89e08E.exit"
+
+.outer._crit_edge.thread:                         ; preds = %225
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  br label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h619d88ae14ad86b0E.exit
 
 235:                                              ; preds = %_ZN4core5slice4sort6stable9quicksort16stable_partition17h28eb7a5824203e5bE.exit
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %.sroa.11.1.lcssa.i42, i64 noundef %.sroa.12.084, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.27f304c4dfc853823e99c86d006a6d31.56) #43, !noalias !5535
@@ -25922,7 +25930,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17hbe9b8543e8d023bcE.exit: ; preds
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %177, i64 16, i1 false)
   br i1 %14, label %.thread, label %178
 
-_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h928937a474e95bfeE.exit: ; preds = %129, %.outer._crit_edge, %158
+_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h928937a474e95bfeE.exit: ; preds = %.outer._crit_edge.thread, %129, %.outer._crit_edge, %158
   ret void
 
 178:                                              ; preds = %_ZN4core5slice4sort6shared5pivot12choose_pivot17hbe9b8543e8d023bcE.exit
@@ -26197,7 +26205,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h928937a4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.ph117, ptr nonnull align 8 %2, i64 %299, i1 false), !alias.scope !5600
   %300 = sub i64 %.sroa.12.0110, %.sroa.27.2.lcssa.i46
   %.not.i49 = icmp eq i64 %.sroa.12.0110, %.sroa.27.2.lcssa.i46
-  br i1 %.not.i49, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17hb48371cd84b1bed9E.exit, label %.lr.ph47.i50
+  br i1 %.not.i49, label %.outer._crit_edge.thread, label %.lr.ph47.i50
 
 .lr.ph47.i50:                                     ; preds = %298
   %301 = getelementptr { { i8, [1 x i8] }, [6 x i8], i64 }, ptr %.sroa.0.0.ph117, i64 %.sroa.27.2.lcssa.i46
@@ -26213,9 +26221,13 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h928937a4
   %exitcond.not.i52 = icmp eq i64 %303, %300
   br i1 %exitcond.not.i52, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17hb48371cd84b1bed9E.exit, label %302
 
-_ZN4core5slice4sort6stable9quicksort16stable_partition17hb48371cd84b1bed9E.exit: ; preds = %302, %298
+_ZN4core5slice4sort6stable9quicksort16stable_partition17hb48371cd84b1bed9E.exit: ; preds = %302
   %307 = icmp ugt i64 %.sroa.27.2.lcssa.i46, %.sroa.12.0110
   br i1 %307, label %308, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd976875f0e7871dfE.exit"
+
+.outer._crit_edge.thread:                         ; preds = %298
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  br label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h928937a474e95bfeE.exit
 
 308:                                              ; preds = %_ZN4core5slice4sort6stable9quicksort16stable_partition17hb48371cd84b1bed9E.exit
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %.sroa.27.2.lcssa.i46, i64 noundef %.sroa.12.0110, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.27f304c4dfc853823e99c86d006a6d31.56) #43, !noalias !5619
@@ -26993,7 +27005,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17hdf86774e14a32006E.exit: ; preds
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %26, ptr noundef nonnull align 8 dereferenceable(88) %265, i64 88, i1 false)
   br i1 %45, label %.thread, label %270
 
-_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h44b4ae6b5a766e7eE.exit: ; preds = %161, %.outer._crit_edge, %179
+_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h44b4ae6b5a766e7eE.exit: ; preds = %.outer._crit_edge.thread, %161, %.outer._crit_edge, %179
   ret void
 
 266:                                              ; preds = %292, %289, %288, %285
@@ -27441,7 +27453,7 @@ _ZN9assistant8workflow18WorkflowSuggestion5range17h24d9d8a0276c6917E.exit.i.i.i.
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.ph142, ptr nonnull align 8 %2, i64 %404, i1 false), !alias.scope !6040
   %405 = sub i64 %.sroa.12.0135, %.sroa.11.1.lcssa.i47
   %.not.i50 = icmp eq i64 %.sroa.12.0135, %.sroa.11.1.lcssa.i47
-  br i1 %.not.i50, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17h3c59638d9f60e31cE.exit, label %.lr.ph24.i51
+  br i1 %.not.i50, label %.outer._crit_edge.thread, label %.lr.ph24.i51
 
 .lr.ph24.i51:                                     ; preds = %403
   %406 = getelementptr { i64, [10 x i64] }, ptr %.sroa.0.0.ph142, i64 %.sroa.11.1.lcssa.i47
@@ -27457,9 +27469,13 @@ _ZN9assistant8workflow18WorkflowSuggestion5range17h24d9d8a0276c6917E.exit.i.i.i.
   %exitcond.not.i53 = icmp eq i64 %408, %405
   br i1 %exitcond.not.i53, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17h3c59638d9f60e31cE.exit, label %407
 
-_ZN4core5slice4sort6stable9quicksort16stable_partition17h3c59638d9f60e31cE.exit: ; preds = %407, %403
+_ZN4core5slice4sort6stable9quicksort16stable_partition17h3c59638d9f60e31cE.exit: ; preds = %407
   %412 = icmp ugt i64 %.sroa.11.1.lcssa.i47, %.sroa.12.0135
   br i1 %412, label %413, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hcb22c64f89acd93fE.exit"
+
+.outer._crit_edge.thread:                         ; preds = %403
+  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %26)
+  br label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h44b4ae6b5a766e7eE.exit
 
 413:                                              ; preds = %_ZN4core5slice4sort6stable9quicksort16stable_partition17h3c59638d9f60e31cE.exit
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %.sroa.11.1.lcssa.i47, i64 noundef %.sroa.12.0135, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.27f304c4dfc853823e99c86d006a6d31.56) #43, !noalias !6047
@@ -28205,7 +28221,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h05f023ec5c02dc4cE.exit: ; preds
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %30, ptr noundef nonnull align 8 dereferenceable(136) %292, i64 136, i1 false)
   br i1 %73, label %.thread, label %295
 
-_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h499ffa7b101441a9E.exit: ; preds = %188, %.outer._crit_edge, %245
+_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h499ffa7b101441a9E.exit: ; preds = %.outer._crit_edge.thread, %188, %.outer._crit_edge, %245
   ret void
 
 293:                                              ; preds = %295
@@ -28377,7 +28393,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h499ffa7b
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.ph102, ptr nonnull align 8 %2, i64 %352, i1 false), !alias.scope !6264
   %353 = sub i64 %.sroa.12.095, %.sroa.11.1.lcssa.i
   %.not.i = icmp eq i64 %.sroa.12.095, %.sroa.11.1.lcssa.i
-  br i1 %.not.i, label %.loopexit152, label %.lr.ph24.i
+  br i1 %.not.i, label %.loopexit155, label %.lr.ph24.i
 
 .lr.ph24.i:                                       ; preds = %351
   %354 = getelementptr { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, { { i32, i32 }, { i32, i32 } }, { i32, [4 x i32] }, { i32, [4 x i32] } }, ptr %.sroa.0.0.ph102, i64 %.sroa.11.1.lcssa.i
@@ -28391,17 +28407,17 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h499ffa7b
   %359 = getelementptr { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, { { i32, i32 }, { i32, i32 } }, { i32, [4 x i32] }, { i32, [4 x i32] } }, ptr %354, i64 %.sroa.04.022.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %359, ptr noundef nonnull align 8 dereferenceable(136) %358, i64 136, i1 false), !alias.scope !6264
   %exitcond.not.i32 = icmp eq i64 %356, %353
-  br i1 %exitcond.not.i32, label %.loopexit152, label %355
+  br i1 %exitcond.not.i32, label %.loopexit155, label %355
 
-.loopexit152:                                     ; preds = %355, %351
+.loopexit155:                                     ; preds = %355, %351
   %360 = icmp eq i64 %.sroa.11.1.lcssa.i, 0
   br i1 %360, label %.loopexit, label %361
 
-361:                                              ; preds = %.loopexit152
+361:                                              ; preds = %.loopexit155
   %.not = icmp ugt i64 %.sroa.11.1.lcssa.i, %.sroa.12.095
   br i1 %.not, label %418, label %423
 
-.loopexit:                                        ; preds = %293, %.loopexit152, %.thread58
+.loopexit:                                        ; preds = %293, %.loopexit155, %.thread58
   call void @llvm.experimental.noalias.scope.decl(metadata !6271)
   call void @llvm.experimental.noalias.scope.decl(metadata !6274)
   %362 = icmp ult i64 %3, %.sroa.12.095
@@ -28521,7 +28537,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h499ffa7b
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.ph102, ptr nonnull align 8 %2, i64 %406, i1 false), !alias.scope !6304
   %407 = sub i64 %.sroa.12.095, %.sroa.11.1.lcssa.i40
   %.not.i43 = icmp eq i64 %.sroa.12.095, %.sroa.11.1.lcssa.i40
-  br i1 %.not.i43, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17h565b3f1f1582c168E.exit, label %.lr.ph24.i44
+  br i1 %.not.i43, label %.outer._crit_edge.thread, label %.lr.ph24.i44
 
 .lr.ph24.i44:                                     ; preds = %405
   %408 = getelementptr { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, { { i32, i32 }, { i32, i32 } }, { i32, [4 x i32] }, { i32, [4 x i32] } }, ptr %.sroa.0.0.ph102, i64 %.sroa.11.1.lcssa.i40
@@ -28537,9 +28553,13 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h499ffa7b
   %exitcond.not.i46 = icmp eq i64 %410, %407
   br i1 %exitcond.not.i46, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17h565b3f1f1582c168E.exit, label %409
 
-_ZN4core5slice4sort6stable9quicksort16stable_partition17h565b3f1f1582c168E.exit: ; preds = %409, %405
+_ZN4core5slice4sort6stable9quicksort16stable_partition17h565b3f1f1582c168E.exit: ; preds = %409
   %414 = icmp ugt i64 %.sroa.11.1.lcssa.i40, %.sroa.12.095
   br i1 %414, label %415, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h88b5ce60a1e7be90E.exit"
+
+.outer._crit_edge.thread:                         ; preds = %405
+  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %30)
+  br label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h499ffa7b101441a9E.exit
 
 415:                                              ; preds = %_ZN4core5slice4sort6stable9quicksort16stable_partition17h565b3f1f1582c168E.exit
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %.sroa.11.1.lcssa.i40, i64 noundef %.sroa.12.095, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.27f304c4dfc853823e99c86d006a6d31.56) #43, !noalias !6311
@@ -28899,7 +28919,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17hda2082c536f41952E.exit: ; preds
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %151, i64 48, i1 false)
   br i1 %15, label %.thread, label %152
 
-_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc2408c7bd46f8049E.exit: ; preds = %76, %.outer._crit_edge, %117
+_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc2408c7bd46f8049E.exit: ; preds = %.outer._crit_edge.thread, %76, %.outer._crit_edge, %117
   ret void
 
 152:                                              ; preds = %_ZN4core5slice4sort6shared5pivot12choose_pivot17hda2082c536f41952E.exit
@@ -29083,7 +29103,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc2408c7b
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.ph99, ptr nonnull align 8 %2, i64 %226, i1 false), !alias.scope !6406
   %227 = sub i64 %.sroa.12.092, %.sroa.11.1.lcssa.i46
   %.not.i49 = icmp eq i64 %.sroa.12.092, %.sroa.11.1.lcssa.i46
-  br i1 %.not.i49, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17haeb8f2408a904abcE.exit, label %.lr.ph18.i50
+  br i1 %.not.i49, label %.outer._crit_edge.thread, label %.lr.ph18.i50
 
 .lr.ph18.i50:                                     ; preds = %225
   %228 = getelementptr { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.0.ph99, i64 %.sroa.11.1.lcssa.i46
@@ -29099,9 +29119,13 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc2408c7b
   %exitcond.not.i52 = icmp eq i64 %230, %227
   br i1 %exitcond.not.i52, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17haeb8f2408a904abcE.exit, label %229
 
-_ZN4core5slice4sort6stable9quicksort16stable_partition17haeb8f2408a904abcE.exit: ; preds = %229, %225
+_ZN4core5slice4sort6stable9quicksort16stable_partition17haeb8f2408a904abcE.exit: ; preds = %229
   %234 = icmp ugt i64 %.sroa.11.1.lcssa.i46, %.sroa.12.092
   br i1 %234, label %235, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha0bb8d7a0f508a78E.exit"
+
+.outer._crit_edge.thread:                         ; preds = %225
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
+  br label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc2408c7bd46f8049E.exit
 
 235:                                              ; preds = %_ZN4core5slice4sort6stable9quicksort16stable_partition17haeb8f2408a904abcE.exit
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %.sroa.11.1.lcssa.i46, i64 noundef %.sroa.12.092, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.27f304c4dfc853823e99c86d006a6d31.56) #43, !noalias !6413
@@ -29574,7 +29598,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h86d7665400f6a248E.exit: ; preds
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %31, ptr noundef nonnull align 8 dereferenceable(104) %199, i64 104, i1 false)
   br i1 %46, label %.thread, label %200
 
-_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h8932062842f335a9E.exit: ; preds = %115, %.outer._crit_edge, %159
+_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h8932062842f335a9E.exit: ; preds = %.outer._crit_edge.thread, %115, %.outer._crit_edge, %159
   ret void
 
 200:                                              ; preds = %_ZN4core5slice4sort6shared5pivot12choose_pivot17h86d7665400f6a248E.exit
@@ -29765,7 +29789,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h89320628
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.ph87, ptr nonnull align 8 %2, i64 %273, i1 false), !alias.scope !6521
   %274 = sub i64 %.sroa.12.080, %.sroa.11.1.lcssa.i38
   %.not.i41 = icmp eq i64 %.sroa.12.080, %.sroa.11.1.lcssa.i38
-  br i1 %.not.i41, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17h266e53207f848a60E.exit, label %.lr.ph18.i42
+  br i1 %.not.i41, label %.outer._crit_edge.thread, label %.lr.ph18.i42
 
 .lr.ph18.i42:                                     ; preds = %272
   %275 = getelementptr { i64, [12 x i64] }, ptr %.sroa.0.0.ph87, i64 %.sroa.11.1.lcssa.i38
@@ -29781,9 +29805,13 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h89320628
   %exitcond.not.i44 = icmp eq i64 %277, %274
   br i1 %exitcond.not.i44, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17h266e53207f848a60E.exit, label %276
 
-_ZN4core5slice4sort6stable9quicksort16stable_partition17h266e53207f848a60E.exit: ; preds = %276, %272
+_ZN4core5slice4sort6stable9quicksort16stable_partition17h266e53207f848a60E.exit: ; preds = %276
   %281 = icmp ugt i64 %.sroa.11.1.lcssa.i38, %.sroa.12.080
   br i1 %281, label %282, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h06dee89666e763b5E.exit"
+
+.outer._crit_edge.thread:                         ; preds = %272
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %31)
+  br label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h8932062842f335a9E.exit
 
 282:                                              ; preds = %_ZN4core5slice4sort6stable9quicksort16stable_partition17h266e53207f848a60E.exit
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %.sroa.11.1.lcssa.i38, i64 noundef %.sroa.12.080, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.27f304c4dfc853823e99c86d006a6d31.56) #43, !noalias !6528
@@ -30194,7 +30222,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17hde53d6b0fb90950eE.exit: ; preds
   store i64 %182, ptr %12, align 8
   br i1 %15, label %.thread, label %183
 
-_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h7a25ffefef6bf32fE.exit: ; preds = %130, %.outer._crit_edge, %160
+_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h7a25ffefef6bf32fE.exit: ; preds = %.outer._crit_edge.thread, %130, %.outer._crit_edge, %160
   ret void
 
 183:                                              ; preds = %_ZN4core5slice4sort6shared5pivot12choose_pivot17hde53d6b0fb90950eE.exit
@@ -30467,7 +30495,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h7a25ffef
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.ph117, ptr nonnull align 8 %2, i64 %303, i1 false), !alias.scope !6593
   %304 = sub i64 %.sroa.12.0110, %.sroa.27.2.lcssa.i46
   %.not.i49 = icmp eq i64 %.sroa.12.0110, %.sroa.27.2.lcssa.i46
-  br i1 %.not.i49, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17haed101ed05c36b81E.exit, label %.lr.ph47.i50
+  br i1 %.not.i49, label %.outer._crit_edge.thread, label %.lr.ph47.i50
 
 .lr.ph47.i50:                                     ; preds = %302
   %305 = getelementptr { ptr, i64 }, ptr %.sroa.0.0.ph117, i64 %.sroa.27.2.lcssa.i46
@@ -30483,9 +30511,13 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h7a25ffef
   %exitcond.not.i52 = icmp eq i64 %307, %304
   br i1 %exitcond.not.i52, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17haed101ed05c36b81E.exit, label %306
 
-_ZN4core5slice4sort6stable9quicksort16stable_partition17haed101ed05c36b81E.exit: ; preds = %306, %302
+_ZN4core5slice4sort6stable9quicksort16stable_partition17haed101ed05c36b81E.exit: ; preds = %306
   %311 = icmp ugt i64 %.sroa.27.2.lcssa.i46, %.sroa.12.0110
   br i1 %311, label %312, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h67a14683452292f4E.exit"
+
+.outer._crit_edge.thread:                         ; preds = %302
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  br label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h7a25ffefef6bf32fE.exit
 
 312:                                              ; preds = %_ZN4core5slice4sort6stable9quicksort16stable_partition17haed101ed05c36b81E.exit
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %.sroa.27.2.lcssa.i46, i64 noundef %.sroa.12.0110, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.27f304c4dfc853823e99c86d006a6d31.56) #43, !noalias !6612
@@ -30874,7 +30906,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h93353e41e82ab6cfE.exit: ; preds
   store i64 %160, ptr %12, align 8
   br i1 %14, label %.thread, label %161
 
-_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h94ad79fda4ee60eeE.exit: ; preds = %110, %.outer._crit_edge, %140
+_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h94ad79fda4ee60eeE.exit: ; preds = %.outer._crit_edge.thread, %110, %.outer._crit_edge, %140
   ret void
 
 161:                                              ; preds = %_ZN4core5slice4sort6shared5pivot12choose_pivot17h93353e41e82ab6cfE.exit
@@ -31135,7 +31167,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h94ad79fd
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.ph117, ptr nonnull align 8 %2, i64 %269, i1 false), !alias.scope !6694
   %270 = sub i64 %.sroa.12.0110, %.sroa.27.2.lcssa.i46
   %.not.i49 = icmp eq i64 %.sroa.12.0110, %.sroa.27.2.lcssa.i46
-  br i1 %.not.i49, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17hbe21731b4e5403ddE.exit, label %.lr.ph47.i50
+  br i1 %.not.i49, label %.outer._crit_edge.thread, label %.lr.ph47.i50
 
 .lr.ph47.i50:                                     ; preds = %268
   %271 = getelementptr { i64, i64 }, ptr %.sroa.0.0.ph117, i64 %.sroa.27.2.lcssa.i46
@@ -31151,9 +31183,13 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h94ad79fd
   %exitcond.not.i52 = icmp eq i64 %273, %270
   br i1 %exitcond.not.i52, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17hbe21731b4e5403ddE.exit, label %272
 
-_ZN4core5slice4sort6stable9quicksort16stable_partition17hbe21731b4e5403ddE.exit: ; preds = %272, %268
+_ZN4core5slice4sort6stable9quicksort16stable_partition17hbe21731b4e5403ddE.exit: ; preds = %272
   %277 = icmp ugt i64 %.sroa.27.2.lcssa.i46, %.sroa.12.0110
   br i1 %277, label %278, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h050383fe8bd1a302E.exit"
+
+.outer._crit_edge.thread:                         ; preds = %268
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  br label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h94ad79fda4ee60eeE.exit
 
 278:                                              ; preds = %_ZN4core5slice4sort6stable9quicksort16stable_partition17hbe21731b4e5403ddE.exit
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %.sroa.27.2.lcssa.i46, i64 noundef %.sroa.12.0110, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.27f304c4dfc853823e99c86d006a6d31.56) #43, !noalias !6713
@@ -31638,7 +31674,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h6914ac3852717effE.exit: ; preds
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %10, ptr noundef nonnull align 8 dereferenceable(192) %202, i64 192, i1 false)
   br i1 %15, label %.thread, label %203
 
-_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17ha6140a3c76a8839bE.exit: ; preds = %148, %.outer._crit_edge, %181
+_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17ha6140a3c76a8839bE.exit: ; preds = %.outer._crit_edge.thread, %148, %.outer._crit_edge, %181
   ret void
 
 203:                                              ; preds = %_ZN4core5slice4sort6shared5pivot12choose_pivot17h6914ac3852717effE.exit
@@ -31810,7 +31846,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17ha6140a3c
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.ph102, ptr nonnull align 8 %2, i64 %265, i1 false), !alias.scope !6811
   %266 = sub i64 %.sroa.12.095, %.sroa.11.1.lcssa.i49
   %.not.i52 = icmp eq i64 %.sroa.12.095, %.sroa.11.1.lcssa.i49
-  br i1 %.not.i52, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17ha55437ba3e4a5be5E.exit, label %.lr.ph18.i53
+  br i1 %.not.i52, label %.outer._crit_edge.thread, label %.lr.ph18.i53
 
 .lr.ph18.i53:                                     ; preds = %264
   %267 = getelementptr { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { [50 x i8], i8, [5 x i8] }, { i64, i64 }, { i64, i64 }, { { i32, i16, [1 x i16] } }, i8, [7 x i8] }, ptr %.sroa.0.0.ph102, i64 %.sroa.11.1.lcssa.i49
@@ -31826,9 +31862,13 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17ha6140a3c
   %exitcond.not.i55 = icmp eq i64 %269, %266
   br i1 %exitcond.not.i55, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17ha55437ba3e4a5be5E.exit, label %268
 
-_ZN4core5slice4sort6stable9quicksort16stable_partition17ha55437ba3e4a5be5E.exit: ; preds = %268, %264
+_ZN4core5slice4sort6stable9quicksort16stable_partition17ha55437ba3e4a5be5E.exit: ; preds = %268
   %273 = icmp ugt i64 %.sroa.11.1.lcssa.i49, %.sroa.12.095
   br i1 %273, label %274, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9671f6afd4c48424E.exit"
+
+.outer._crit_edge.thread:                         ; preds = %264
+  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %10)
+  br label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17ha6140a3c76a8839bE.exit
 
 274:                                              ; preds = %_ZN4core5slice4sort6stable9quicksort16stable_partition17ha55437ba3e4a5be5E.exit
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %.sroa.11.1.lcssa.i49, i64 noundef %.sroa.12.095, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.27f304c4dfc853823e99c86d006a6d31.56) #43, !noalias !6818
@@ -32238,7 +32278,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h571dadde18805dbcE.exit: ; preds
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %187, i64 56, i1 false)
   br i1 %14, label %.thread, label %188
 
-_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h38a1230fe4c6b9cbE.exit: ; preds = %134, %.outer._crit_edge, %165
+_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h38a1230fe4c6b9cbE.exit: ; preds = %.outer._crit_edge.thread, %134, %.outer._crit_edge, %165
   ret void
 
 188:                                              ; preds = %_ZN4core5slice4sort6shared5pivot12choose_pivot17h571dadde18805dbcE.exit
@@ -32396,7 +32436,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h38a1230f
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.ph91, ptr nonnull align 8 %2, i64 %248, i1 false), !alias.scope !6871
   %249 = sub i64 %.sroa.12.084, %.sroa.11.1.lcssa.i42
   %.not.i45 = icmp eq i64 %.sroa.12.084, %.sroa.11.1.lcssa.i42
-  br i1 %.not.i45, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17hcdafa29bc405275bE.exit, label %.lr.ph18.i46
+  br i1 %.not.i45, label %.outer._crit_edge.thread, label %.lr.ph18.i46
 
 .lr.ph18.i46:                                     ; preds = %247
   %250 = getelementptr { { i64, [2 x i64] }, { { i32, { i32, i32 } }, {} }, { i8, [16 x i8] }, i8, [2 x i8] }, ptr %.sroa.0.0.ph91, i64 %.sroa.11.1.lcssa.i42
@@ -32412,9 +32452,13 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h38a1230f
   %exitcond.not.i48 = icmp eq i64 %252, %249
   br i1 %exitcond.not.i48, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17hcdafa29bc405275bE.exit, label %251
 
-_ZN4core5slice4sort6stable9quicksort16stable_partition17hcdafa29bc405275bE.exit: ; preds = %251, %247
+_ZN4core5slice4sort6stable9quicksort16stable_partition17hcdafa29bc405275bE.exit: ; preds = %251
   %256 = icmp ugt i64 %.sroa.11.1.lcssa.i42, %.sroa.12.084
   br i1 %256, label %257, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0dddedd242ab67f1E.exit"
+
+.outer._crit_edge.thread:                         ; preds = %247
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
+  br label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h38a1230fe4c6b9cbE.exit
 
 257:                                              ; preds = %_ZN4core5slice4sort6stable9quicksort16stable_partition17hcdafa29bc405275bE.exit
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %.sroa.11.1.lcssa.i42, i64 noundef %.sroa.12.084, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.27f304c4dfc853823e99c86d006a6d31.56) #43, !noalias !6878
@@ -32791,7 +32835,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h18ba6b4daa95a4d4E.exit: ; preds
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %11, ptr noundef nonnull align 8 dereferenceable(168) %146, i64 168, i1 false)
   br i1 %15, label %.thread, label %147
 
-_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hb3f6d4a4d4d14250E.exit: ; preds = %79, %.outer._crit_edge, %116
+_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hb3f6d4a4d4d14250E.exit: ; preds = %.outer._crit_edge.thread, %79, %.outer._crit_edge, %116
   ret void
 
 147:                                              ; preds = %_ZN4core5slice4sort6shared5pivot12choose_pivot17h18ba6b4daa95a4d4E.exit
@@ -32962,7 +33006,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hb3f6d4a4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.ph93, ptr nonnull align 8 %2, i64 %215, i1 false), !alias.scope !7013
   %216 = sub i64 %.sroa.12.086, %.sroa.11.1.lcssa.i42
   %.not.i45 = icmp eq i64 %.sroa.12.086, %.sroa.11.1.lcssa.i42
-  br i1 %.not.i45, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17h2c34a99bbb77c406E.exit, label %.lr.ph18.i46
+  br i1 %.not.i45, label %.outer._crit_edge.thread, label %.lr.ph18.i46
 
 .lr.ph18.i46:                                     ; preds = %214
   %217 = getelementptr { { { i64, [2 x i64] } }, { i64, [8 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i8, [7 x i8] }, ptr %.sroa.0.0.ph93, i64 %.sroa.11.1.lcssa.i42
@@ -32978,9 +33022,13 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hb3f6d4a4
   %exitcond.not.i48 = icmp eq i64 %219, %216
   br i1 %exitcond.not.i48, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17h2c34a99bbb77c406E.exit, label %218
 
-_ZN4core5slice4sort6stable9quicksort16stable_partition17h2c34a99bbb77c406E.exit: ; preds = %218, %214
+_ZN4core5slice4sort6stable9quicksort16stable_partition17h2c34a99bbb77c406E.exit: ; preds = %218
   %223 = icmp ugt i64 %.sroa.11.1.lcssa.i42, %.sroa.12.086
   br i1 %223, label %224, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h14149d492c197430E.exit"
+
+.outer._crit_edge.thread:                         ; preds = %214
+  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %11)
+  br label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hb3f6d4a4d4d14250E.exit
 
 224:                                              ; preds = %_ZN4core5slice4sort6stable9quicksort16stable_partition17h2c34a99bbb77c406E.exit
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %.sroa.11.1.lcssa.i42, i64 noundef %.sroa.12.086, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.27f304c4dfc853823e99c86d006a6d31.56) #43, !noalias !7020
@@ -33357,7 +33405,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h2f8846024c044e58E.exit: ; preds
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %11, ptr noundef nonnull align 8 dereferenceable(168) %146, i64 168, i1 false)
   br i1 %15, label %.thread, label %147
 
-_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h77d94a85c9efc4faE.exit: ; preds = %79, %.outer._crit_edge, %116
+_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h77d94a85c9efc4faE.exit: ; preds = %.outer._crit_edge.thread, %79, %.outer._crit_edge, %116
   ret void
 
 147:                                              ; preds = %_ZN4core5slice4sort6shared5pivot12choose_pivot17h2f8846024c044e58E.exit
@@ -33528,7 +33576,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h77d94a85
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.ph93, ptr nonnull align 8 %2, i64 %215, i1 false), !alias.scope !7155
   %216 = sub i64 %.sroa.12.086, %.sroa.11.1.lcssa.i42
   %.not.i45 = icmp eq i64 %.sroa.12.086, %.sroa.11.1.lcssa.i42
-  br i1 %.not.i45, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17h5dd5843ad7f56ee7E.exit, label %.lr.ph18.i46
+  br i1 %.not.i45, label %.outer._crit_edge.thread, label %.lr.ph18.i46
 
 .lr.ph18.i46:                                     ; preds = %214
   %217 = getelementptr { { { i64, [2 x i64] } }, { i64, [8 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i8, [7 x i8] }, ptr %.sroa.0.0.ph93, i64 %.sroa.11.1.lcssa.i42
@@ -33544,9 +33592,13 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h77d94a85
   %exitcond.not.i48 = icmp eq i64 %219, %216
   br i1 %exitcond.not.i48, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17h5dd5843ad7f56ee7E.exit, label %218
 
-_ZN4core5slice4sort6stable9quicksort16stable_partition17h5dd5843ad7f56ee7E.exit: ; preds = %218, %214
+_ZN4core5slice4sort6stable9quicksort16stable_partition17h5dd5843ad7f56ee7E.exit: ; preds = %218
   %223 = icmp ugt i64 %.sroa.11.1.lcssa.i42, %.sroa.12.086
   br i1 %223, label %224, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h14149d492c197430E.exit"
+
+.outer._crit_edge.thread:                         ; preds = %214
+  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %11)
+  br label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h77d94a85c9efc4faE.exit
 
 224:                                              ; preds = %_ZN4core5slice4sort6stable9quicksort16stable_partition17h5dd5843ad7f56ee7E.exit
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %.sroa.11.1.lcssa.i42, i64 noundef %.sroa.12.086, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.27f304c4dfc853823e99c86d006a6d31.56) #43, !noalias !7162
@@ -33906,7 +33958,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h3228917d0d1bf398E.exit: ; preds
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %151, i64 48, i1 false)
   br i1 %15, label %.thread, label %152
 
-_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h033a166574eeee2cE.exit: ; preds = %76, %.outer._crit_edge, %117
+_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h033a166574eeee2cE.exit: ; preds = %.outer._crit_edge.thread, %76, %.outer._crit_edge, %117
   ret void
 
 152:                                              ; preds = %_ZN4core5slice4sort6shared5pivot12choose_pivot17h3228917d0d1bf398E.exit
@@ -34090,7 +34142,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h033a1665
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.ph99, ptr nonnull align 8 %2, i64 %226, i1 false), !alias.scope !7257
   %227 = sub i64 %.sroa.12.092, %.sroa.11.1.lcssa.i46
   %.not.i49 = icmp eq i64 %.sroa.12.092, %.sroa.11.1.lcssa.i46
-  br i1 %.not.i49, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17h193959e80c8e8ed6E.exit, label %.lr.ph18.i50
+  br i1 %.not.i49, label %.outer._crit_edge.thread, label %.lr.ph18.i50
 
 .lr.ph18.i50:                                     ; preds = %225
   %228 = getelementptr { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.0.ph99, i64 %.sroa.11.1.lcssa.i46
@@ -34106,9 +34158,13 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h033a1665
   %exitcond.not.i52 = icmp eq i64 %230, %227
   br i1 %exitcond.not.i52, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17h193959e80c8e8ed6E.exit, label %229
 
-_ZN4core5slice4sort6stable9quicksort16stable_partition17h193959e80c8e8ed6E.exit: ; preds = %229, %225
+_ZN4core5slice4sort6stable9quicksort16stable_partition17h193959e80c8e8ed6E.exit: ; preds = %229
   %234 = icmp ugt i64 %.sroa.11.1.lcssa.i46, %.sroa.12.092
   br i1 %234, label %235, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha0bb8d7a0f508a78E.exit"
+
+.outer._crit_edge.thread:                         ; preds = %225
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
+  br label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h033a166574eeee2cE.exit
 
 235:                                              ; preds = %_ZN4core5slice4sort6stable9quicksort16stable_partition17h193959e80c8e8ed6E.exit
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %.sroa.11.1.lcssa.i46, i64 noundef %.sroa.12.092, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.27f304c4dfc853823e99c86d006a6d31.56) #43, !noalias !7264
@@ -34485,7 +34541,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h6630c2fed9f4317aE.exit: ; preds
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %11, ptr noundef nonnull align 8 dereferenceable(168) %146, i64 168, i1 false)
   br i1 %15, label %.thread, label %147
 
-_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h879ed1ed20c897a1E.exit: ; preds = %79, %.outer._crit_edge, %116
+_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h879ed1ed20c897a1E.exit: ; preds = %.outer._crit_edge.thread, %79, %.outer._crit_edge, %116
   ret void
 
 147:                                              ; preds = %_ZN4core5slice4sort6shared5pivot12choose_pivot17h6630c2fed9f4317aE.exit
@@ -34656,7 +34712,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h879ed1ed
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.ph93, ptr nonnull align 8 %2, i64 %215, i1 false), !alias.scope !7399
   %216 = sub i64 %.sroa.12.086, %.sroa.11.1.lcssa.i42
   %.not.i45 = icmp eq i64 %.sroa.12.086, %.sroa.11.1.lcssa.i42
-  br i1 %.not.i45, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17h0c489151e8cab1d0E.exit, label %.lr.ph18.i46
+  br i1 %.not.i45, label %.outer._crit_edge.thread, label %.lr.ph18.i46
 
 .lr.ph18.i46:                                     ; preds = %214
   %217 = getelementptr { { { i64, [2 x i64] } }, { i64, [8 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i8, [7 x i8] }, ptr %.sroa.0.0.ph93, i64 %.sroa.11.1.lcssa.i42
@@ -34672,9 +34728,13 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h879ed1ed
   %exitcond.not.i48 = icmp eq i64 %219, %216
   br i1 %exitcond.not.i48, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17h0c489151e8cab1d0E.exit, label %218
 
-_ZN4core5slice4sort6stable9quicksort16stable_partition17h0c489151e8cab1d0E.exit: ; preds = %218, %214
+_ZN4core5slice4sort6stable9quicksort16stable_partition17h0c489151e8cab1d0E.exit: ; preds = %218
   %223 = icmp ugt i64 %.sroa.11.1.lcssa.i42, %.sroa.12.086
   br i1 %223, label %224, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h14149d492c197430E.exit"
+
+.outer._crit_edge.thread:                         ; preds = %214
+  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %11)
+  br label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h879ed1ed20c897a1E.exit
 
 224:                                              ; preds = %_ZN4core5slice4sort6stable9quicksort16stable_partition17h0c489151e8cab1d0E.exit
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %.sroa.11.1.lcssa.i42, i64 noundef %.sroa.12.086, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.27f304c4dfc853823e99c86d006a6d31.56) #43, !noalias !7406
@@ -35034,7 +35094,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h3fd29eae2d746f59E.exit: ; preds
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %151, i64 48, i1 false)
   br i1 %15, label %.thread, label %152
 
-_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h316a16a04e8dba71E.exit: ; preds = %76, %.outer._crit_edge, %117
+_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h316a16a04e8dba71E.exit: ; preds = %.outer._crit_edge.thread, %76, %.outer._crit_edge, %117
   ret void
 
 152:                                              ; preds = %_ZN4core5slice4sort6shared5pivot12choose_pivot17h3fd29eae2d746f59E.exit
@@ -35218,7 +35278,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h316a16a0
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.ph99, ptr nonnull align 8 %2, i64 %226, i1 false), !alias.scope !7501
   %227 = sub i64 %.sroa.12.092, %.sroa.11.1.lcssa.i46
   %.not.i49 = icmp eq i64 %.sroa.12.092, %.sroa.11.1.lcssa.i46
-  br i1 %.not.i49, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17hd7a403840968e931E.exit, label %.lr.ph18.i50
+  br i1 %.not.i49, label %.outer._crit_edge.thread, label %.lr.ph18.i50
 
 .lr.ph18.i50:                                     ; preds = %225
   %228 = getelementptr { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.0.ph99, i64 %.sroa.11.1.lcssa.i46
@@ -35234,9 +35294,13 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h316a16a0
   %exitcond.not.i52 = icmp eq i64 %230, %227
   br i1 %exitcond.not.i52, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17hd7a403840968e931E.exit, label %229
 
-_ZN4core5slice4sort6stable9quicksort16stable_partition17hd7a403840968e931E.exit: ; preds = %229, %225
+_ZN4core5slice4sort6stable9quicksort16stable_partition17hd7a403840968e931E.exit: ; preds = %229
   %234 = icmp ugt i64 %.sroa.11.1.lcssa.i46, %.sroa.12.092
   br i1 %234, label %235, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha0bb8d7a0f508a78E.exit"
+
+.outer._crit_edge.thread:                         ; preds = %225
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
+  br label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h316a16a04e8dba71E.exit
 
 235:                                              ; preds = %_ZN4core5slice4sort6stable9quicksort16stable_partition17hd7a403840968e931E.exit
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %.sroa.11.1.lcssa.i46, i64 noundef %.sroa.12.092, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.27f304c4dfc853823e99c86d006a6d31.56) #43, !noalias !7508
@@ -35599,7 +35663,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h3b95b620b9cba40eE.exit: ; preds
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %148, i64 48, i1 false)
   br i1 %15, label %.thread, label %149
 
-_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h1cdbf8e5f43aefb0E.exit: ; preds = %77, %.outer._crit_edge, %116
+_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h1cdbf8e5f43aefb0E.exit: ; preds = %.outer._crit_edge.thread, %77, %.outer._crit_edge, %116
   ret void
 
 149:                                              ; preds = %_ZN4core5slice4sort6shared5pivot12choose_pivot17h3b95b620b9cba40eE.exit
@@ -35783,7 +35847,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h1cdbf8e5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.ph101, ptr nonnull align 8 %2, i64 %221, i1 false), !alias.scope !7603
   %222 = sub i64 %.sroa.12.094, %.sroa.11.1.lcssa.i47
   %.not.i50 = icmp eq i64 %.sroa.12.094, %.sroa.11.1.lcssa.i47
-  br i1 %.not.i50, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17habfb51283b74195dE.exit, label %.lr.ph18.i51
+  br i1 %.not.i50, label %.outer._crit_edge.thread, label %.lr.ph18.i51
 
 .lr.ph18.i51:                                     ; preds = %220
   %223 = getelementptr { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %.sroa.0.0.ph101, i64 %.sroa.11.1.lcssa.i47
@@ -35799,9 +35863,13 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h1cdbf8e5
   %exitcond.not.i53 = icmp eq i64 %225, %222
   br i1 %exitcond.not.i53, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17habfb51283b74195dE.exit, label %224
 
-_ZN4core5slice4sort6stable9quicksort16stable_partition17habfb51283b74195dE.exit: ; preds = %224, %220
+_ZN4core5slice4sort6stable9quicksort16stable_partition17habfb51283b74195dE.exit: ; preds = %224
   %229 = icmp ugt i64 %.sroa.11.1.lcssa.i47, %.sroa.12.094
   br i1 %229, label %230, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9092ccda9003cda2E.exit"
+
+.outer._crit_edge.thread:                         ; preds = %220
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
+  br label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h1cdbf8e5f43aefb0E.exit
 
 230:                                              ; preds = %_ZN4core5slice4sort6stable9quicksort16stable_partition17habfb51283b74195dE.exit
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %.sroa.11.1.lcssa.i47, i64 noundef %.sroa.12.094, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.27f304c4dfc853823e99c86d006a6d31.56) #43, !noalias !7610
@@ -36274,7 +36342,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h6645eb18a7d811eeE.exit: ; preds
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %31, ptr noundef nonnull align 8 dereferenceable(104) %199, i64 104, i1 false)
   br i1 %46, label %.thread, label %200
 
-_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h84c15f65b9276b2aE.exit: ; preds = %115, %.outer._crit_edge, %159
+_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h84c15f65b9276b2aE.exit: ; preds = %.outer._crit_edge.thread, %115, %.outer._crit_edge, %159
   ret void
 
 200:                                              ; preds = %_ZN4core5slice4sort6shared5pivot12choose_pivot17h6645eb18a7d811eeE.exit
@@ -36465,7 +36533,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h84c15f65
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.ph87, ptr nonnull align 8 %2, i64 %273, i1 false), !alias.scope !7718
   %274 = sub i64 %.sroa.12.080, %.sroa.11.1.lcssa.i38
   %.not.i41 = icmp eq i64 %.sroa.12.080, %.sroa.11.1.lcssa.i38
-  br i1 %.not.i41, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17h7bc92218c5efe717E.exit, label %.lr.ph18.i42
+  br i1 %.not.i41, label %.outer._crit_edge.thread, label %.lr.ph18.i42
 
 .lr.ph18.i42:                                     ; preds = %272
   %275 = getelementptr { i64, [12 x i64] }, ptr %.sroa.0.0.ph87, i64 %.sroa.11.1.lcssa.i38
@@ -36481,9 +36549,13 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h84c15f65
   %exitcond.not.i44 = icmp eq i64 %277, %274
   br i1 %exitcond.not.i44, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17h7bc92218c5efe717E.exit, label %276
 
-_ZN4core5slice4sort6stable9quicksort16stable_partition17h7bc92218c5efe717E.exit: ; preds = %276, %272
+_ZN4core5slice4sort6stable9quicksort16stable_partition17h7bc92218c5efe717E.exit: ; preds = %276
   %281 = icmp ugt i64 %.sroa.11.1.lcssa.i38, %.sroa.12.080
   br i1 %281, label %282, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7022fddd1007cad6E.exit"
+
+.outer._crit_edge.thread:                         ; preds = %272
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %31)
+  br label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h84c15f65b9276b2aE.exit
 
 282:                                              ; preds = %_ZN4core5slice4sort6stable9quicksort16stable_partition17h7bc92218c5efe717E.exit
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %.sroa.11.1.lcssa.i38, i64 noundef %.sroa.12.080, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.27f304c4dfc853823e99c86d006a6d31.56) #43, !noalias !7725
@@ -36869,7 +36941,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17h3b073360af9d3b7eE.exit: ; preds
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %10, ptr noundef nonnull align 8 dereferenceable(392) %168, i64 392, i1 false)
   br i1 %14, label %.thread, label %169
 
-_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h31b493b3f2c4cc77E.exit: ; preds = %122, %.outer._crit_edge, %149
+_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h31b493b3f2c4cc77E.exit: ; preds = %.outer._crit_edge.thread, %122, %.outer._crit_edge, %149
   ret void
 
 169:                                              ; preds = %_ZN4core5slice4sort6shared5pivot12choose_pivot17h3b073360af9d3b7eE.exit
@@ -37024,7 +37096,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h31b493b3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.ph91, ptr nonnull align 8 %2, i64 %226, i1 false), !alias.scope !7778
   %227 = sub i64 %.sroa.12.084, %.sroa.11.1.lcssa.i42
   %.not.i45 = icmp eq i64 %.sroa.12.084, %.sroa.11.1.lcssa.i42
-  br i1 %.not.i45, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17hd25ebafb222f9be9E.exit, label %.lr.ph18.i46
+  br i1 %.not.i45, label %.outer._crit_edge.thread, label %.lr.ph18.i46
 
 .lr.ph18.i46:                                     ; preds = %225
   %228 = getelementptr { { { { i64, [6 x i64] }, ptr }, { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, { ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i64 }, ptr, { ptr, [1 x i64] }, { { [4 x i64] }, i64 }, ptr, i64 }, { i64, [2 x i64] }, i64 }, ptr %.sroa.0.0.ph91, i64 %.sroa.11.1.lcssa.i42
@@ -37040,9 +37112,13 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h31b493b3
   %exitcond.not.i48 = icmp eq i64 %230, %227
   br i1 %exitcond.not.i48, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17hd25ebafb222f9be9E.exit, label %229
 
-_ZN4core5slice4sort6stable9quicksort16stable_partition17hd25ebafb222f9be9E.exit: ; preds = %229, %225
+_ZN4core5slice4sort6stable9quicksort16stable_partition17hd25ebafb222f9be9E.exit: ; preds = %229
   %234 = icmp ugt i64 %.sroa.11.1.lcssa.i42, %.sroa.12.084
   br i1 %234, label %235, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he92887658ff50e8eE.exit"
+
+.outer._crit_edge.thread:                         ; preds = %225
+  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %10)
+  br label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h31b493b3f2c4cc77E.exit
 
 235:                                              ; preds = %_ZN4core5slice4sort6stable9quicksort16stable_partition17hd25ebafb222f9be9E.exit
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %.sroa.11.1.lcssa.i42, i64 noundef %.sroa.12.084, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.27f304c4dfc853823e99c86d006a6d31.56) #43, !noalias !7785

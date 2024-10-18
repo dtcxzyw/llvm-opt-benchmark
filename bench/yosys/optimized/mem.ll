@@ -4806,7 +4806,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; 
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i: ; preds = %1728, %1727
-  %.pre-phi33.i = phi i64 [ %1724, %1727 ], [ %.pre32.i, %1728 ]
+  %.pre-phi33.i = phi i64 [ 0, %1727 ], [ %.pre32.i, %1728 ]
   %1729 = phi ptr [ %1701, %1727 ], [ %.pre28.i, %1728 ]
   %1730 = phi ptr [ %1722, %1727 ], [ %.pre26.i, %1728 ]
   %1731 = phi ptr [ %1702, %1727 ], [ %.pre.i, %1728 ]
@@ -4926,7 +4926,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i1843
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1836
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1836: ; preds = %1774, %1773
-  %.pre-phi33.i1837 = phi i64 [ %1770, %1773 ], [ %.pre32.i1835, %1774 ]
+  %.pre-phi33.i1837 = phi i64 [ 0, %1773 ], [ %.pre32.i1835, %1774 ]
   %1775 = phi ptr [ %1747, %1773 ], [ %.pre28.i1832, %1774 ]
   %1776 = phi ptr [ %1768, %1773 ], [ %.pre26.i1830, %1774 ]
   %1777 = phi ptr [ %1748, %1773 ], [ %.pre.i1829, %1774 ]
@@ -5046,7 +5046,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i1865
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1858
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1858: ; preds = %1820, %1819
-  %.pre-phi33.i1859 = phi i64 [ %1816, %1819 ], [ %.pre32.i1857, %1820 ]
+  %.pre-phi33.i1859 = phi i64 [ 0, %1819 ], [ %.pre32.i1857, %1820 ]
   %1821 = phi ptr [ %1793, %1819 ], [ %.pre28.i1854, %1820 ]
   %1822 = phi ptr [ %1814, %1819 ], [ %.pre26.i1852, %1820 ]
   %1823 = phi ptr [ %1794, %1819 ], [ %.pre.i1851, %1820 ]
@@ -5166,7 +5166,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i1887
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1880
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1880: ; preds = %1866, %1865
-  %.pre-phi33.i1881 = phi i64 [ %1862, %1865 ], [ %.pre32.i1879, %1866 ]
+  %.pre-phi33.i1881 = phi i64 [ 0, %1865 ], [ %.pre32.i1879, %1866 ]
   %1867 = phi ptr [ %1839, %1865 ], [ %.pre28.i1876, %1866 ]
   %1868 = phi ptr [ %1860, %1865 ], [ %.pre26.i1874, %1866 ]
   %1869 = phi ptr [ %1840, %1865 ], [ %.pre.i1873, %1866 ]
@@ -5286,7 +5286,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i1909
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1902
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1902: ; preds = %1912, %1911
-  %.pre-phi33.i1903 = phi i64 [ %1908, %1911 ], [ %.pre32.i1901, %1912 ]
+  %.pre-phi33.i1903 = phi i64 [ 0, %1911 ], [ %.pre32.i1901, %1912 ]
   %1913 = phi ptr [ %1885, %1911 ], [ %.pre28.i1898, %1912 ]
   %1914 = phi ptr [ %1906, %1911 ], [ %.pre26.i1896, %1912 ]
   %1915 = phi ptr [ %1886, %1911 ], [ %.pre.i1895, %1912 ]
@@ -5406,7 +5406,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i1931
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1924
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1924: ; preds = %1958, %1957
-  %.pre-phi33.i1925 = phi i64 [ %1954, %1957 ], [ %.pre32.i1923, %1958 ]
+  %.pre-phi33.i1925 = phi i64 [ 0, %1957 ], [ %.pre32.i1923, %1958 ]
   %1959 = phi ptr [ %1931, %1957 ], [ %.pre28.i1920, %1958 ]
   %1960 = phi ptr [ %1952, %1957 ], [ %.pre26.i1918, %1958 ]
   %1961 = phi ptr [ %1932, %1957 ], [ %.pre.i1917, %1958 ]
@@ -5526,7 +5526,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i1953
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1946
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1946: ; preds = %2004, %2003
-  %.pre-phi33.i1947 = phi i64 [ %2000, %2003 ], [ %.pre32.i1945, %2004 ]
+  %.pre-phi33.i1947 = phi i64 [ 0, %2003 ], [ %.pre32.i1945, %2004 ]
   %2005 = phi ptr [ %1977, %2003 ], [ %.pre28.i1942, %2004 ]
   %2006 = phi ptr [ %1998, %2003 ], [ %.pre26.i1940, %2004 ]
   %2007 = phi ptr [ %1978, %2003 ], [ %.pre.i1939, %2004 ]
@@ -5735,7 +5735,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i1975
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1968
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1968: ; preds = %2086, %2085
-  %.pre-phi33.i1969 = phi i64 [ %2082, %2085 ], [ %.pre32.i1967, %2086 ]
+  %.pre-phi33.i1969 = phi i64 [ 0, %2085 ], [ %.pre32.i1967, %2086 ]
   %2087 = phi ptr [ %2059, %2085 ], [ %.pre28.i1964, %2086 ]
   %2088 = phi ptr [ %2080, %2085 ], [ %.pre26.i1962, %2086 ]
   %2089 = phi ptr [ %2060, %2085 ], [ %.pre.i1961, %2086 ]
@@ -5855,7 +5855,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i1997
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1990
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1990: ; preds = %2132, %2131
-  %.pre-phi33.i1991 = phi i64 [ %2128, %2131 ], [ %.pre32.i1989, %2132 ]
+  %.pre-phi33.i1991 = phi i64 [ 0, %2131 ], [ %.pre32.i1989, %2132 ]
   %2133 = phi ptr [ %2105, %2131 ], [ %.pre28.i1986, %2132 ]
   %2134 = phi ptr [ %2126, %2131 ], [ %.pre26.i1984, %2132 ]
   %2135 = phi ptr [ %2106, %2131 ], [ %.pre.i1983, %2132 ]
@@ -7896,7 +7896,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i2070
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i2063
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i2063: ; preds = %2954, %2953
-  %.pre-phi33.i2064 = phi i64 [ %2950, %2953 ], [ %.pre32.i2062, %2954 ]
+  %.pre-phi33.i2064 = phi i64 [ 0, %2953 ], [ %.pre32.i2062, %2954 ]
   %2955 = phi ptr [ %2927, %2953 ], [ %.pre28.i2059, %2954 ]
   %2956 = phi ptr [ %2948, %2953 ], [ %.pre26.i2057, %2954 ]
   %2957 = phi ptr [ %2928, %2953 ], [ %.pre.i2056, %2954 ]
@@ -8016,7 +8016,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i2092
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i2085
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i2085: ; preds = %3000, %2999
-  %.pre-phi33.i2086 = phi i64 [ %2996, %2999 ], [ %.pre32.i2084, %3000 ]
+  %.pre-phi33.i2086 = phi i64 [ 0, %2999 ], [ %.pre32.i2084, %3000 ]
   %3001 = phi ptr [ %2973, %2999 ], [ %.pre28.i2081, %3000 ]
   %3002 = phi ptr [ %2994, %2999 ], [ %.pre26.i2079, %3000 ]
   %3003 = phi ptr [ %2974, %2999 ], [ %.pre.i2078, %3000 ]
@@ -8136,7 +8136,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i2114
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i2107
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i2107: ; preds = %3046, %3045
-  %.pre-phi33.i2108 = phi i64 [ %3042, %3045 ], [ %.pre32.i2106, %3046 ]
+  %.pre-phi33.i2108 = phi i64 [ 0, %3045 ], [ %.pre32.i2106, %3046 ]
   %3047 = phi ptr [ %3019, %3045 ], [ %.pre28.i2103, %3046 ]
   %3048 = phi ptr [ %3040, %3045 ], [ %.pre26.i2101, %3046 ]
   %3049 = phi ptr [ %3020, %3045 ], [ %.pre.i2100, %3046 ]
@@ -8256,7 +8256,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i2136
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i2129
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i2129: ; preds = %3092, %3091
-  %.pre-phi33.i2130 = phi i64 [ %3088, %3091 ], [ %.pre32.i2128, %3092 ]
+  %.pre-phi33.i2130 = phi i64 [ 0, %3091 ], [ %.pre32.i2128, %3092 ]
   %3093 = phi ptr [ %3065, %3091 ], [ %.pre28.i2125, %3092 ]
   %3094 = phi ptr [ %3086, %3091 ], [ %.pre26.i2123, %3092 ]
   %3095 = phi ptr [ %3066, %3091 ], [ %.pre.i2122, %3092 ]
@@ -15790,7 +15790,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; 
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i: ; preds = %357, %356
-  %.pre-phi33.i = phi i64 [ %353, %356 ], [ %.pre32.i, %357 ]
+  %.pre-phi33.i = phi i64 [ 0, %356 ], [ %.pre32.i, %357 ]
   %358 = phi ptr [ %332, %356 ], [ %.pre28.i, %357 ]
   %359 = phi ptr [ %351, %356 ], [ %.pre26.i, %357 ]
   %360 = phi ptr [ %333, %356 ], [ %.pre.i, %357 ]
@@ -15901,7 +15901,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i153:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i146
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i146: ; preds = %397, %396
-  %.pre-phi33.i147 = phi i64 [ %393, %396 ], [ %.pre32.i145, %397 ]
+  %.pre-phi33.i147 = phi i64 [ 0, %396 ], [ %.pre32.i145, %397 ]
   %398 = phi ptr [ %372, %396 ], [ %.pre28.i142, %397 ]
   %399 = phi ptr [ %391, %396 ], [ %.pre26.i140, %397 ]
   %400 = phi ptr [ %373, %396 ], [ %.pre.i139, %397 ]
@@ -16008,7 +16008,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i175:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i168
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i168: ; preds = %437, %436
-  %.pre-phi33.i169 = phi i64 [ %433, %436 ], [ %.pre32.i167, %437 ]
+  %.pre-phi33.i169 = phi i64 [ 0, %436 ], [ %.pre32.i167, %437 ]
   %438 = phi ptr [ %412, %436 ], [ %.pre28.i164, %437 ]
   %439 = phi ptr [ %431, %436 ], [ %.pre26.i162, %437 ]
   %440 = phi ptr [ %413, %436 ], [ %.pre.i161, %437 ]
@@ -18239,7 +18239,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; 
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i: ; preds = %345, %344
-  %.pre-phi33.i = phi i64 [ %341, %344 ], [ %.pre32.i, %345 ]
+  %.pre-phi33.i = phi i64 [ 0, %344 ], [ %.pre32.i, %345 ]
   %346 = phi ptr [ %320, %344 ], [ %.pre28.i, %345 ]
   %347 = phi ptr [ %339, %344 ], [ %.pre26.i, %345 ]
   %348 = phi ptr [ %321, %344 ], [ %.pre.i, %345 ]
@@ -18357,7 +18357,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i589:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i582
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i582: ; preds = %389, %388
-  %.pre-phi33.i583 = phi i64 [ %385, %388 ], [ %.pre32.i581, %389 ]
+  %.pre-phi33.i583 = phi i64 [ 0, %388 ], [ %.pre32.i581, %389 ]
   %390 = phi ptr [ %364, %388 ], [ %.pre28.i578, %389 ]
   %391 = phi ptr [ %383, %388 ], [ %.pre26.i576, %389 ]
   %392 = phi ptr [ %365, %388 ], [ %.pre.i575, %389 ]
@@ -18475,7 +18475,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i611:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i604
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i604: ; preds = %433, %432
-  %.pre-phi33.i605 = phi i64 [ %429, %432 ], [ %.pre32.i603, %433 ]
+  %.pre-phi33.i605 = phi i64 [ 0, %432 ], [ %.pre32.i603, %433 ]
   %434 = phi ptr [ %408, %432 ], [ %.pre28.i600, %433 ]
   %435 = phi ptr [ %427, %432 ], [ %.pre26.i598, %433 ]
   %436 = phi ptr [ %409, %432 ], [ %.pre.i597, %433 ]
@@ -19068,7 +19068,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i633:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i626
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i626: ; preds = %585, %584
-  %.pre-phi33.i627 = phi i64 [ %581, %584 ], [ %.pre32.i625, %585 ]
+  %.pre-phi33.i627 = phi i64 [ 0, %584 ], [ %.pre32.i625, %585 ]
   %586 = phi ptr [ %561, %584 ], [ %.pre28.i622, %585 ]
   %587 = phi ptr [ %579, %584 ], [ %.pre26.i620, %585 ]
   %588 = phi ptr [ %562, %584 ], [ %.pre.i619, %585 ]
@@ -19176,7 +19176,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i656:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i649
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i649: ; preds = %626, %625
-  %.pre-phi33.i650 = phi i64 [ %622, %625 ], [ %.pre32.i648, %626 ]
+  %.pre-phi33.i650 = phi i64 [ 0, %625 ], [ %.pre32.i648, %626 ]
   %627 = phi ptr [ %602, %625 ], [ %.pre28.i645, %626 ]
   %628 = phi ptr [ %620, %625 ], [ %.pre26.i643, %626 ]
   %629 = phi ptr [ %603, %625 ], [ %.pre.i642, %626 ]
@@ -19284,7 +19284,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i679:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i672
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i672: ; preds = %667, %666
-  %.pre-phi33.i673 = phi i64 [ %663, %666 ], [ %.pre32.i671, %667 ]
+  %.pre-phi33.i673 = phi i64 [ 0, %666 ], [ %.pre32.i671, %667 ]
   %668 = phi ptr [ %643, %666 ], [ %.pre28.i668, %667 ]
   %669 = phi ptr [ %661, %666 ], [ %.pre26.i666, %667 ]
   %670 = phi ptr [ %644, %666 ], [ %.pre.i665, %667 ]
@@ -20366,7 +20366,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i.
   br label %.noexc361
 
 .noexc361:                                        ; preds = %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i..noexc361_crit_edge, %1176
-  %.pre-phi1237 = phi i64 [ %.pre1236, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i..noexc361_crit_edge ], [ %1183, %1176 ]
+  %.pre-phi1237 = phi i64 [ %.pre1236, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i..noexc361_crit_edge ], [ 0, %1176 ]
   %1187 = phi ptr [ %.pre1208, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i..noexc361_crit_edge ], [ %1179, %1176 ]
   %1188 = phi ptr [ %.pre1207, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i..noexc361_crit_edge ], [ %1180, %1176 ]
   %1189 = phi ptr [ %1186, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i..noexc361_crit_edge ], [ null, %1176 ]
@@ -20876,7 +20876,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i702:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i695
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i695: ; preds = %1408, %1407
-  %.pre-phi33.i696 = phi i64 [ %1404, %1407 ], [ %.pre32.i694, %1408 ]
+  %.pre-phi33.i696 = phi i64 [ 0, %1407 ], [ %.pre32.i694, %1408 ]
   %1409 = phi ptr [ %1383, %1407 ], [ %.pre28.i691, %1408 ]
   %1410 = phi ptr [ %1402, %1407 ], [ %.pre26.i689, %1408 ]
   %1411 = phi ptr [ %1384, %1407 ], [ %.pre.i688, %1408 ]
@@ -20991,7 +20991,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i725:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i718
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i718: ; preds = %1449, %1448
-  %.pre-phi33.i719 = phi i64 [ %1445, %1448 ], [ %.pre32.i717, %1449 ]
+  %.pre-phi33.i719 = phi i64 [ 0, %1448 ], [ %.pre32.i717, %1449 ]
   %1450 = phi ptr [ %1424, %1448 ], [ %.pre28.i714, %1449 ]
   %1451 = phi ptr [ %1443, %1448 ], [ %.pre26.i712, %1449 ]
   %1452 = phi ptr [ %1425, %1448 ], [ %.pre.i711, %1449 ]
@@ -21263,7 +21263,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i748:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i741
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i741: ; preds = %1544, %1543
-  %.pre-phi33.i742 = phi i64 [ %1540, %1543 ], [ %.pre32.i740, %1544 ]
+  %.pre-phi33.i742 = phi i64 [ 0, %1543 ], [ %.pre32.i740, %1544 ]
   %1545 = phi ptr [ %1519, %1543 ], [ %.pre28.i737, %1544 ]
   %1546 = phi ptr [ %1538, %1543 ], [ %.pre26.i735, %1544 ]
   %1547 = phi ptr [ %1520, %1543 ], [ %.pre.i734, %1544 ]
@@ -21445,7 +21445,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i771:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i764
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i764: ; preds = %1599, %1598
-  %.pre-phi33.i765 = phi i64 [ %1595, %1598 ], [ %.pre32.i763, %1599 ]
+  %.pre-phi33.i765 = phi i64 [ 0, %1598 ], [ %.pre32.i763, %1599 ]
   %1600 = phi ptr [ %1574, %1598 ], [ %.pre28.i760, %1599 ]
   %1601 = phi ptr [ %1593, %1598 ], [ %.pre26.i758, %1599 ]
   %1602 = phi ptr [ %1575, %1598 ], [ %.pre.i757, %1599 ]
@@ -22155,7 +22155,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i5
   br label %.noexc520
 
 .noexc520:                                        ; preds = %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i516..noexc520_crit_edge, %1876
-  %.pre-phi1225 = phi i64 [ %.pre1224, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i516..noexc520_crit_edge ], [ %1883, %1876 ]
+  %.pre-phi1225 = phi i64 [ %.pre1224, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i516..noexc520_crit_edge ], [ 0, %1876 ]
   %1887 = phi ptr [ %.pre1218, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i516..noexc520_crit_edge ], [ %1879, %1876 ]
   %1888 = phi ptr [ %.pre1217, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i516..noexc520_crit_edge ], [ %1880, %1876 ]
   %1889 = phi ptr [ %1886, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i516..noexc520_crit_edge ], [ null, %1876 ]
@@ -22207,7 +22207,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i5
   br label %.noexc527
 
 .noexc527:                                        ; preds = %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i523..noexc527_crit_edge, %1895
-  %.pre-phi1231 = phi i64 [ %.pre1230, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i523..noexc527_crit_edge ], [ %1902, %1895 ]
+  %.pre-phi1231 = phi i64 [ %.pre1230, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i523..noexc527_crit_edge ], [ 0, %1895 ]
   %1906 = phi ptr [ %.pre1220, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i523..noexc527_crit_edge ], [ %1898, %1895 ]
   %1907 = phi ptr [ %.pre1219, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i523..noexc527_crit_edge ], [ %1899, %1895 ]
   %1908 = phi ptr [ %1905, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i523..noexc527_crit_edge ], [ null, %1895 ]
@@ -23311,7 +23311,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; 
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i: ; preds = %276, %275
-  %.pre-phi33.i = phi i64 [ %272, %275 ], [ %.pre32.i, %276 ]
+  %.pre-phi33.i = phi i64 [ 0, %275 ], [ %.pre32.i, %276 ]
   %277 = phi ptr [ %251, %275 ], [ %.pre28.i, %276 ]
   %278 = phi ptr [ %270, %275 ], [ %.pre26.i, %276 ]
   %279 = phi ptr [ %252, %275 ], [ %.pre.i, %276 ]
@@ -23430,7 +23430,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i693:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i686
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i686: ; preds = %321, %320
-  %.pre-phi33.i687 = phi i64 [ %317, %320 ], [ %.pre32.i685, %321 ]
+  %.pre-phi33.i687 = phi i64 [ 0, %320 ], [ %.pre32.i685, %321 ]
   %322 = phi ptr [ %296, %320 ], [ %.pre28.i682, %321 ]
   %323 = phi ptr [ %315, %320 ], [ %.pre26.i680, %321 ]
   %324 = phi ptr [ %297, %320 ], [ %.pre.i679, %321 ]
@@ -23546,7 +23546,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i715:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i708
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i708: ; preds = %363, %362
-  %.pre-phi33.i709 = phi i64 [ %359, %362 ], [ %.pre32.i707, %363 ]
+  %.pre-phi33.i709 = phi i64 [ 0, %362 ], [ %.pre32.i707, %363 ]
   %364 = phi ptr [ %338, %362 ], [ %.pre28.i704, %363 ]
   %365 = phi ptr [ %357, %362 ], [ %.pre26.i702, %363 ]
   %366 = phi ptr [ %339, %362 ], [ %.pre.i701, %363 ]
@@ -24741,7 +24741,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i737:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i730
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i730: ; preds = %864, %863
-  %.pre-phi33.i731 = phi i64 [ %860, %863 ], [ %.pre32.i729, %864 ]
+  %.pre-phi33.i731 = phi i64 [ 0, %863 ], [ %.pre32.i729, %864 ]
   %865 = phi ptr [ %839, %863 ], [ %.pre28.i726, %864 ]
   %866 = phi ptr [ %858, %863 ], [ %.pre26.i724, %864 ]
   %867 = phi ptr [ %840, %863 ], [ %.pre.i723, %864 ]
@@ -24859,7 +24859,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i759:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i752
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i752: ; preds = %908, %907
-  %.pre-phi33.i753 = phi i64 [ %904, %907 ], [ %.pre32.i751, %908 ]
+  %.pre-phi33.i753 = phi i64 [ 0, %907 ], [ %.pre32.i751, %908 ]
   %909 = phi ptr [ %883, %907 ], [ %.pre28.i748, %908 ]
   %910 = phi ptr [ %902, %907 ], [ %.pre26.i746, %908 ]
   %911 = phi ptr [ %884, %907 ], [ %.pre.i745, %908 ]
@@ -24977,7 +24977,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i781:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i774
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i774: ; preds = %952, %951
-  %.pre-phi33.i775 = phi i64 [ %948, %951 ], [ %.pre32.i773, %952 ]
+  %.pre-phi33.i775 = phi i64 [ 0, %951 ], [ %.pre32.i773, %952 ]
   %953 = phi ptr [ %927, %951 ], [ %.pre28.i770, %952 ]
   %954 = phi ptr [ %946, %951 ], [ %.pre26.i768, %952 ]
   %955 = phi ptr [ %928, %951 ], [ %.pre.i767, %952 ]
@@ -25406,7 +25406,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i803:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i796
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i796: ; preds = %1073, %1072
-  %.pre-phi33.i797 = phi i64 [ %1069, %1072 ], [ %.pre32.i795, %1073 ]
+  %.pre-phi33.i797 = phi i64 [ 0, %1072 ], [ %.pre32.i795, %1073 ]
   %1074 = phi ptr [ %1048, %1072 ], [ %.pre28.i792, %1073 ]
   %1075 = phi ptr [ %1067, %1072 ], [ %.pre26.i790, %1073 ]
   %1076 = phi ptr [ %1049, %1072 ], [ %.pre.i789, %1073 ]
@@ -25528,7 +25528,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i825:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i818
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i818: ; preds = %1119, %1118
-  %.pre-phi33.i819 = phi i64 [ %1115, %1118 ], [ %.pre32.i817, %1119 ]
+  %.pre-phi33.i819 = phi i64 [ 0, %1118 ], [ %.pre32.i817, %1119 ]
   %1120 = phi ptr [ %1094, %1118 ], [ %.pre28.i814, %1119 ]
   %1121 = phi ptr [ %1113, %1118 ], [ %.pre26.i812, %1119 ]
   %1122 = phi ptr [ %1095, %1118 ], [ %.pre.i811, %1119 ]
@@ -25650,7 +25650,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i847:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i840
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i840: ; preds = %1165, %1164
-  %.pre-phi33.i841 = phi i64 [ %1161, %1164 ], [ %.pre32.i839, %1165 ]
+  %.pre-phi33.i841 = phi i64 [ 0, %1164 ], [ %.pre32.i839, %1165 ]
   %1166 = phi ptr [ %1140, %1164 ], [ %.pre28.i836, %1165 ]
   %1167 = phi ptr [ %1159, %1164 ], [ %.pre26.i834, %1165 ]
   %1168 = phi ptr [ %1141, %1164 ], [ %.pre.i833, %1165 ]
@@ -31053,7 +31053,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; 
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i: ; preds = %1246, %1245
-  %.pre-phi33.i = phi i64 [ %1242, %1245 ], [ %.pre32.i, %1246 ]
+  %.pre-phi33.i = phi i64 [ 0, %1245 ], [ %.pre32.i, %1246 ]
   %1247 = phi ptr [ %1220, %1245 ], [ %.pre28.i, %1246 ]
   %1248 = phi ptr [ %1240, %1245 ], [ %.pre26.i, %1246 ]
   %1249 = phi ptr [ %1221, %1245 ], [ %.pre.i, %1246 ]
@@ -31245,7 +31245,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i959:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i952
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i952: ; preds = %1319, %1318
-  %.pre-phi33.i953 = phi i64 [ %1315, %1318 ], [ %.pre32.i951, %1319 ]
+  %.pre-phi33.i953 = phi i64 [ 0, %1318 ], [ %.pre32.i951, %1319 ]
   %1320 = phi ptr [ %1293, %1318 ], [ %.pre28.i948, %1319 ]
   %1321 = phi ptr [ %1313, %1318 ], [ %.pre26.i946, %1319 ]
   %1322 = phi ptr [ %1294, %1318 ], [ %.pre.i945, %1319 ]
@@ -31406,7 +31406,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i982:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i975
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i975: ; preds = %1387, %1386
-  %.pre-phi33.i976 = phi i64 [ %1383, %1386 ], [ %.pre32.i974, %1387 ]
+  %.pre-phi33.i976 = phi i64 [ 0, %1386 ], [ %.pre32.i974, %1387 ]
   %1388 = phi ptr [ %1361, %1386 ], [ %.pre28.i971, %1387 ]
   %1389 = phi ptr [ %1381, %1386 ], [ %.pre26.i969, %1387 ]
   %1390 = phi ptr [ %1362, %1386 ], [ %.pre.i968, %1387 ]
@@ -33512,7 +33512,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; 
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i: ; preds = %281, %280
-  %.pre-phi33.i = phi i64 [ %277, %280 ], [ %.pre32.i, %281 ]
+  %.pre-phi33.i = phi i64 [ 0, %280 ], [ %.pre32.i, %281 ]
   %282 = phi ptr [ %256, %280 ], [ %.pre28.i, %281 ]
   %283 = phi ptr [ %275, %280 ], [ %.pre26.i, %281 ]
   %284 = phi ptr [ %257, %280 ], [ %.pre.i, %281 ]
@@ -33630,7 +33630,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i267:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i260
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i260: ; preds = %325, %324
-  %.pre-phi33.i261 = phi i64 [ %321, %324 ], [ %.pre32.i259, %325 ]
+  %.pre-phi33.i261 = phi i64 [ 0, %324 ], [ %.pre32.i259, %325 ]
   %326 = phi ptr [ %300, %324 ], [ %.pre28.i256, %325 ]
   %327 = phi ptr [ %319, %324 ], [ %.pre26.i254, %325 ]
   %328 = phi ptr [ %301, %324 ], [ %.pre.i253, %325 ]
@@ -33748,7 +33748,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i289:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i282
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i282: ; preds = %369, %368
-  %.pre-phi33.i283 = phi i64 [ %365, %368 ], [ %.pre32.i281, %369 ]
+  %.pre-phi33.i283 = phi i64 [ 0, %368 ], [ %.pre32.i281, %369 ]
   %370 = phi ptr [ %344, %368 ], [ %.pre28.i278, %369 ]
   %371 = phi ptr [ %363, %368 ], [ %.pre26.i276, %369 ]
   %372 = phi ptr [ %345, %368 ], [ %.pre.i275, %369 ]
@@ -41708,7 +41708,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; 
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i: ; preds = %1047, %1046
-  %.pre-phi33.i = phi i64 [ %1043, %1046 ], [ %.pre32.i, %1047 ]
+  %.pre-phi33.i = phi i64 [ 0, %1046 ], [ %.pre32.i, %1047 ]
   %1048 = phi ptr [ %1022, %1046 ], [ %.pre28.i, %1047 ]
   %1049 = phi ptr [ %1041, %1046 ], [ %.pre26.i, %1047 ]
   %1050 = phi ptr [ %1023, %1046 ], [ %.pre.i, %1047 ]
@@ -41916,7 +41916,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i724:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i717
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i717: ; preds = %1109, %1108
-  %.pre-phi33.i718 = phi i64 [ %1105, %1108 ], [ %.pre32.i716, %1109 ]
+  %.pre-phi33.i718 = phi i64 [ 0, %1108 ], [ %.pre32.i716, %1109 ]
   %1110 = phi ptr [ %1084, %1108 ], [ %.pre28.i713, %1109 ]
   %1111 = phi ptr [ %1103, %1108 ], [ %.pre26.i711, %1109 ]
   %1112 = phi ptr [ %1085, %1108 ], [ %.pre.i710, %1109 ]
@@ -42071,7 +42071,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i746:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i739
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i739: ; preds = %1161, %1160
-  %.pre-phi33.i740 = phi i64 [ %1157, %1160 ], [ %.pre32.i738, %1161 ]
+  %.pre-phi33.i740 = phi i64 [ 0, %1160 ], [ %.pre32.i738, %1161 ]
   %1162 = phi ptr [ %1136, %1160 ], [ %.pre28.i735, %1161 ]
   %1163 = phi ptr [ %1155, %1160 ], [ %.pre26.i733, %1161 ]
   %1164 = phi ptr [ %1137, %1160 ], [ %.pre.i732, %1161 ]
@@ -42203,7 +42203,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i768:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i761
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i761: ; preds = %1205, %1204
-  %.pre-phi33.i762 = phi i64 [ %1201, %1204 ], [ %.pre32.i760, %1205 ]
+  %.pre-phi33.i762 = phi i64 [ 0, %1204 ], [ %.pre32.i760, %1205 ]
   %1206 = phi ptr [ %1180, %1204 ], [ %.pre28.i757, %1205 ]
   %1207 = phi ptr [ %1199, %1204 ], [ %.pre26.i755, %1205 ]
   %1208 = phi ptr [ %1181, %1204 ], [ %.pre.i754, %1205 ]
@@ -45658,7 +45658,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; 
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i: ; preds = %367, %366
-  %.pre-phi33.i = phi i64 [ %363, %366 ], [ %.pre32.i, %367 ]
+  %.pre-phi33.i = phi i64 [ 0, %366 ], [ %.pre32.i, %367 ]
   %368 = phi ptr [ %340, %366 ], [ %.pre28.i, %367 ]
   %369 = phi ptr [ %361, %366 ], [ %.pre26.i, %367 ]
   %370 = phi ptr [ %341, %366 ], [ %.pre.i, %367 ]
@@ -45772,7 +45772,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i378:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i371
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i371: ; preds = %413, %412
-  %.pre-phi33.i372 = phi i64 [ %409, %412 ], [ %.pre32.i370, %413 ]
+  %.pre-phi33.i372 = phi i64 [ 0, %412 ], [ %.pre32.i370, %413 ]
   %414 = phi ptr [ %387, %412 ], [ %.pre28.i367, %413 ]
   %415 = phi ptr [ %407, %412 ], [ %.pre26.i365, %413 ]
   %416 = phi ptr [ %388, %412 ], [ %.pre.i364, %413 ]
@@ -46096,7 +46096,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i401:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i394
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i394: ; preds = %524, %523
-  %.pre-phi33.i395 = phi i64 [ %520, %523 ], [ %.pre32.i393, %524 ]
+  %.pre-phi33.i395 = phi i64 [ 0, %523 ], [ %.pre32.i393, %524 ]
   %525 = phi ptr [ %497, %523 ], [ %.pre28.i390, %524 ]
   %526 = phi ptr [ %518, %523 ], [ %.pre26.i388, %524 ]
   %527 = phi ptr [ %498, %523 ], [ %.pre.i387, %524 ]
@@ -46218,7 +46218,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i424:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i417
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i417: ; preds = %573, %572
-  %.pre-phi33.i418 = phi i64 [ %569, %572 ], [ %.pre32.i416, %573 ]
+  %.pre-phi33.i418 = phi i64 [ 0, %572 ], [ %.pre32.i416, %573 ]
   %574 = phi ptr [ %546, %572 ], [ %.pre28.i413, %573 ]
   %575 = phi ptr [ %567, %572 ], [ %.pre26.i411, %573 ]
   %576 = phi ptr [ %547, %572 ], [ %.pre.i410, %573 ]
@@ -46422,7 +46422,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i447:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i440
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i440: ; preds = %645, %644
-  %.pre-phi33.i441 = phi i64 [ %641, %644 ], [ %.pre32.i439, %645 ]
+  %.pre-phi33.i441 = phi i64 [ 0, %644 ], [ %.pre32.i439, %645 ]
   %646 = phi ptr [ %618, %644 ], [ %.pre28.i436, %645 ]
   %647 = phi ptr [ %639, %644 ], [ %.pre26.i434, %645 ]
   %648 = phi ptr [ %619, %644 ], [ %.pre.i433, %645 ]
@@ -46554,7 +46554,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i470:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i463
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i463: ; preds = %700, %699
-  %.pre-phi33.i464 = phi i64 [ %696, %699 ], [ %.pre32.i462, %700 ]
+  %.pre-phi33.i464 = phi i64 [ 0, %699 ], [ %.pre32.i462, %700 ]
   %701 = phi ptr [ %674, %699 ], [ %.pre28.i459, %700 ]
   %702 = phi ptr [ %694, %699 ], [ %.pre26.i457, %700 ]
   %703 = phi ptr [ %675, %699 ], [ %.pre.i456, %700 ]
@@ -46870,7 +46870,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i493:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i486
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i486: ; preds = %809, %808
-  %.pre-phi33.i487 = phi i64 [ %805, %808 ], [ %.pre32.i485, %809 ]
+  %.pre-phi33.i487 = phi i64 [ 0, %808 ], [ %.pre32.i485, %809 ]
   %810 = phi ptr [ %782, %808 ], [ %.pre28.i482, %809 ]
   %811 = phi ptr [ %803, %808 ], [ %.pre26.i480, %809 ]
   %812 = phi ptr [ %783, %808 ], [ %.pre.i479, %809 ]
@@ -47012,7 +47012,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i516:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i509
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i509: ; preds = %866, %865
-  %.pre-phi33.i510 = phi i64 [ %862, %865 ], [ %.pre32.i508, %866 ]
+  %.pre-phi33.i510 = phi i64 [ 0, %865 ], [ %.pre32.i508, %866 ]
   %867 = phi ptr [ %840, %865 ], [ %.pre28.i505, %866 ]
   %868 = phi ptr [ %860, %865 ], [ %.pre26.i503, %866 ]
   %869 = phi ptr [ %841, %865 ], [ %.pre.i502, %866 ]
@@ -48777,7 +48777,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; 
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i: ; preds = %341, %340
-  %.pre-phi33.i = phi i64 [ %337, %340 ], [ %.pre32.i, %341 ]
+  %.pre-phi33.i = phi i64 [ 0, %340 ], [ %.pre32.i, %341 ]
   %342 = phi ptr [ %314, %340 ], [ %.pre28.i, %341 ]
   %343 = phi ptr [ %335, %340 ], [ %.pre26.i, %341 ]
   %344 = phi ptr [ %315, %340 ], [ %.pre.i, %341 ]
@@ -49193,7 +49193,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i935:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i928
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i928: ; preds = %489, %488
-  %.pre-phi33.i929 = phi i64 [ %485, %488 ], [ %.pre32.i927, %489 ]
+  %.pre-phi33.i929 = phi i64 [ 0, %488 ], [ %.pre32.i927, %489 ]
   %490 = phi ptr [ %462, %488 ], [ %.pre28.i924, %489 ]
   %491 = phi ptr [ %483, %488 ], [ %.pre26.i922, %489 ]
   %492 = phi ptr [ %463, %488 ], [ %.pre.i921, %489 ]
@@ -49435,7 +49435,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i956:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i949
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i949: ; preds = %575, %574
-  %.pre-phi33.i950 = phi i64 [ %571, %574 ], [ %.pre32.i948, %575 ]
+  %.pre-phi33.i950 = phi i64 [ 0, %574 ], [ %.pre32.i948, %575 ]
   %576 = phi ptr [ %548, %574 ], [ %.pre28.i945, %575 ]
   %577 = phi ptr [ %569, %574 ], [ %.pre26.i943, %575 ]
   %578 = phi ptr [ %549, %574 ], [ %.pre.i942, %575 ]
@@ -49656,7 +49656,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i977:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i970
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i970: ; preds = %657, %656
-  %.pre-phi33.i971 = phi i64 [ %653, %656 ], [ %.pre32.i969, %657 ]
+  %.pre-phi33.i971 = phi i64 [ 0, %656 ], [ %.pre32.i969, %657 ]
   %658 = phi ptr [ %630, %656 ], [ %.pre28.i966, %657 ]
   %659 = phi ptr [ %651, %656 ], [ %.pre26.i964, %657 ]
   %660 = phi ptr [ %631, %656 ], [ %.pre.i963, %657 ]
@@ -49899,7 +49899,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i998:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i991
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i991: ; preds = %744, %743
-  %.pre-phi33.i992 = phi i64 [ %740, %743 ], [ %.pre32.i990, %744 ]
+  %.pre-phi33.i992 = phi i64 [ 0, %743 ], [ %.pre32.i990, %744 ]
   %745 = phi ptr [ %717, %743 ], [ %.pre28.i987, %744 ]
   %746 = phi ptr [ %738, %743 ], [ %.pre26.i985, %744 ]
   %747 = phi ptr [ %718, %743 ], [ %.pre.i984, %744 ]
@@ -51002,7 +51002,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i1019
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1012
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1012: ; preds = %1133, %1132
-  %.pre-phi33.i1013 = phi i64 [ %1129, %1132 ], [ %.pre32.i1011, %1133 ]
+  %.pre-phi33.i1013 = phi i64 [ 0, %1132 ], [ %.pre32.i1011, %1133 ]
   %1134 = phi ptr [ %1106, %1132 ], [ %.pre28.i1008, %1133 ]
   %1135 = phi ptr [ %1127, %1132 ], [ %.pre26.i1006, %1133 ]
   %1136 = phi ptr [ %1107, %1132 ], [ %.pre.i1005, %1133 ]
@@ -51242,7 +51242,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i1040
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1033
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1033: ; preds = %1218, %1217
-  %.pre-phi33.i1034 = phi i64 [ %1214, %1217 ], [ %.pre32.i1032, %1218 ]
+  %.pre-phi33.i1034 = phi i64 [ 0, %1217 ], [ %.pre32.i1032, %1218 ]
   %1219 = phi ptr [ %1191, %1217 ], [ %.pre28.i1029, %1218 ]
   %1220 = phi ptr [ %1212, %1217 ], [ %.pre26.i1027, %1218 ]
   %1221 = phi ptr [ %1192, %1217 ], [ %.pre.i1026, %1218 ]
@@ -51483,7 +51483,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i1061
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1054
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1054: ; preds = %1310, %1309
-  %.pre-phi33.i1055 = phi i64 [ %1306, %1309 ], [ %.pre32.i1053, %1310 ]
+  %.pre-phi33.i1055 = phi i64 [ 0, %1309 ], [ %.pre32.i1053, %1310 ]
   %1311 = phi ptr [ %1283, %1309 ], [ %.pre28.i1050, %1310 ]
   %1312 = phi ptr [ %1304, %1309 ], [ %.pre26.i1048, %1310 ]
   %1313 = phi ptr [ %1284, %1309 ], [ %.pre.i1047, %1310 ]
@@ -51693,7 +51693,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i1082
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1075
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1075: ; preds = %1390, %1389
-  %.pre-phi33.i1076 = phi i64 [ %1386, %1389 ], [ %.pre32.i1074, %1390 ]
+  %.pre-phi33.i1076 = phi i64 [ 0, %1389 ], [ %.pre32.i1074, %1390 ]
   %1391 = phi ptr [ %1363, %1389 ], [ %.pre28.i1071, %1390 ]
   %1392 = phi ptr [ %1384, %1389 ], [ %.pre26.i1069, %1390 ]
   %1393 = phi ptr [ %1364, %1389 ], [ %.pre.i1068, %1390 ]
@@ -51947,7 +51947,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i1103
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1096
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1096: ; preds = %1481, %1480
-  %.pre-phi33.i1097 = phi i64 [ %1477, %1480 ], [ %.pre32.i1095, %1481 ]
+  %.pre-phi33.i1097 = phi i64 [ 0, %1480 ], [ %.pre32.i1095, %1481 ]
   %1482 = phi ptr [ %1454, %1480 ], [ %.pre28.i1092, %1481 ]
   %1483 = phi ptr [ %1475, %1480 ], [ %.pre26.i1090, %1481 ]
   %1484 = phi ptr [ %1455, %1480 ], [ %.pre.i1089, %1481 ]
@@ -53127,7 +53127,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i1124
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1117
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1117: ; preds = %1891, %1890
-  %.pre-phi33.i1118 = phi i64 [ %1887, %1890 ], [ %.pre32.i1116, %1891 ]
+  %.pre-phi33.i1118 = phi i64 [ 0, %1890 ], [ %.pre32.i1116, %1891 ]
   %1892 = phi ptr [ %1864, %1890 ], [ %.pre28.i1113, %1891 ]
   %1893 = phi ptr [ %1885, %1890 ], [ %.pre26.i1111, %1891 ]
   %1894 = phi ptr [ %1865, %1890 ], [ %.pre.i1110, %1891 ]
@@ -53367,7 +53367,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i1145
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1138
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1138: ; preds = %1976, %1975
-  %.pre-phi33.i1139 = phi i64 [ %1972, %1975 ], [ %.pre32.i1137, %1976 ]
+  %.pre-phi33.i1139 = phi i64 [ 0, %1975 ], [ %.pre32.i1137, %1976 ]
   %1977 = phi ptr [ %1949, %1975 ], [ %.pre28.i1134, %1976 ]
   %1978 = phi ptr [ %1970, %1975 ], [ %.pre26.i1132, %1976 ]
   %1979 = phi ptr [ %1950, %1975 ], [ %.pre.i1131, %1976 ]
@@ -53609,7 +53609,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i1166
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1159
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1159: ; preds = %2069, %2068
-  %.pre-phi33.i1160 = phi i64 [ %2065, %2068 ], [ %.pre32.i1158, %2069 ]
+  %.pre-phi33.i1160 = phi i64 [ 0, %2068 ], [ %.pre32.i1158, %2069 ]
   %2070 = phi ptr [ %2042, %2068 ], [ %.pre28.i1155, %2069 ]
   %2071 = phi ptr [ %2063, %2068 ], [ %.pre26.i1153, %2069 ]
   %2072 = phi ptr [ %2043, %2068 ], [ %.pre.i1152, %2069 ]
@@ -53806,7 +53806,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i1187
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1180
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i1180: ; preds = %2142, %2141
-  %.pre-phi33.i1181 = phi i64 [ %2138, %2141 ], [ %.pre32.i1179, %2142 ]
+  %.pre-phi33.i1181 = phi i64 [ 0, %2141 ], [ %.pre32.i1179, %2142 ]
   %2143 = phi ptr [ %2115, %2141 ], [ %.pre28.i1176, %2142 ]
   %2144 = phi ptr [ %2136, %2141 ], [ %.pre26.i1174, %2142 ]
   %2145 = phi ptr [ %2116, %2141 ], [ %.pre.i1173, %2142 ]
@@ -56021,7 +56021,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; 
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i: ; preds = %545, %544
-  %.pre-phi33.i = phi i64 [ %541, %544 ], [ %.pre32.i, %545 ]
+  %.pre-phi33.i = phi i64 [ 0, %544 ], [ %.pre32.i, %545 ]
   %546 = phi ptr [ %520, %544 ], [ %.pre28.i, %545 ]
   %547 = phi ptr [ %539, %544 ], [ %.pre26.i, %545 ]
   %548 = phi ptr [ %521, %544 ], [ %.pre.i, %545 ]
@@ -56266,7 +56266,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i323:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i316
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i316: ; preds = %622, %621
-  %.pre-phi33.i317 = phi i64 [ %618, %621 ], [ %.pre32.i315, %622 ]
+  %.pre-phi33.i317 = phi i64 [ 0, %621 ], [ %.pre32.i315, %622 ]
   %623 = phi ptr [ %597, %621 ], [ %.pre28.i312, %622 ]
   %624 = phi ptr [ %616, %621 ], [ %.pre26.i310, %622 ]
   %625 = phi ptr [ %598, %621 ], [ %.pre.i309, %622 ]
@@ -56515,7 +56515,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i345:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i338
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i338: ; preds = %701, %700
-  %.pre-phi33.i339 = phi i64 [ %697, %700 ], [ %.pre32.i337, %701 ]
+  %.pre-phi33.i339 = phi i64 [ 0, %700 ], [ %.pre32.i337, %701 ]
   %702 = phi ptr [ %676, %700 ], [ %.pre28.i334, %701 ]
   %703 = phi ptr [ %695, %700 ], [ %.pre26.i332, %701 ]
   %704 = phi ptr [ %677, %700 ], [ %.pre.i331, %701 ]
@@ -56886,7 +56886,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i367:
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i360
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i360: ; preds = %810, %809
-  %.pre-phi33.i361 = phi i64 [ %806, %809 ], [ %.pre32.i359, %810 ]
+  %.pre-phi33.i361 = phi i64 [ 0, %809 ], [ %.pre32.i359, %810 ]
   %811 = phi ptr [ %785, %809 ], [ %.pre28.i356, %810 ]
   %812 = phi ptr [ %804, %809 ], [ %.pre26.i354, %810 ]
   %813 = phi ptr [ %786, %809 ], [ %.pre.i353, %810 ]
@@ -58881,7 +58881,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__no
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 2
   %.not65 = icmp ult i64 %13, %2
-  br i1 %.not65, label %42, label %14
+  br i1 %.not65, label %43, label %14
 
 14:                                               ; preds = %5
   %15 = load i32, ptr %3, align 4
@@ -58889,7 +58889,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__no
   %17 = sub i64 %11, %16
   %18 = ashr exact i64 %17, 2
   %19 = icmp ugt i64 %18, %2
-  br i1 %19, label %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit, label %31
+  br i1 %19, label %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit, label %32
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %14
   %20 = sub i64 0, %2
@@ -58906,137 +58906,137 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %14
   %25 = ptrtoint ptr %21 to i64
   %26 = sub i64 %25, %16
   %27 = ashr exact i64 %26, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %27
-  %28 = getelementptr inbounds i32, ptr %9, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %28, ptr align 4 %1, i64 %26, i1 false)
+  %28 = sub nsw i64 0, %27
+  %29 = getelementptr inbounds i32, ptr %9, i64 %28
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %29, ptr align 4 %1, i64 %26, i1 false)
   br label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit
-  %29 = getelementptr inbounds i32, ptr %1, i64 %2
+  %30 = getelementptr inbounds i32, ptr %1, i64 %2
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit, %.lr.ph.i.i.i
-  %.06.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i ], [ %1, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit ]
+  %.06.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i ], [ %1, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit ]
   store i32 %15, ptr %.06.i.i.i, align 4
-  %30 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 4
-  %.not.i.i.i = icmp eq ptr %30, %29
+  %31 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 4
+  %.not.i.i.i = icmp eq ptr %31, %30
   br i1 %.not.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !263
 
-31:                                               ; preds = %14
-  %32 = icmp eq i64 %2, %18
-  br i1 %32, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %33
+32:                                               ; preds = %14
+  %33 = icmp eq i64 %2, %18
+  br i1 %33, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %34
 
-33:                                               ; preds = %31
-  %34 = sub nuw i64 %2, %18
-  %35 = getelementptr inbounds i32, ptr %9, i64 %34
+34:                                               ; preds = %32
+  %35 = sub nuw i64 %2, %18
+  %36 = getelementptr inbounds i32, ptr %9, i64 %35
   br label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %33
-  %.06.i.i.i.i.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i.i.i.i ], [ %9, %33 ]
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %34
+  %.06.i.i.i.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i.i.i.i ], [ %9, %34 ]
   store i32 %15, ptr %.06.i.i.i.i.i.i.i, align 4
-  %36 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i, i64 4
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %36, %35
+  %37 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i, i64 4
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %37, %36
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !263
 
-_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %31
-  %37 = phi ptr [ %9, %31 ], [ %35, %.lr.ph.i.i.i.i.i.i.i ]
-  store ptr %37, ptr %8, align 8
+_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %32
+  %38 = phi ptr [ %9, %32 ], [ %36, %.lr.ph.i.i.i.i.i.i.i ]
+  store ptr %38, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i68 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i68, label %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread, label %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit
-  %38 = getelementptr inbounds i8, ptr %37, i64 %17
-  store ptr %38, ptr %8, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 %17
+  store ptr %39, ptr %8, align 8
   br label %_ZSt4fillIPiiEvT_S1_RKT0_.exit
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69: ; preds = %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %37, ptr align 4 %1, i64 %17, i1 false)
-  %39 = load ptr, ptr %8, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 %17
-  store ptr %40, ptr %8, align 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %38, ptr align 4 %1, i64 %17, i1 false)
+  %40 = load ptr, ptr %8, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 %17
+  store ptr %41, ptr %8, align 8
   br label %.lr.ph.i.i.i71
 
 .lr.ph.i.i.i71:                                   ; preds = %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69, %.lr.ph.i.i.i71
-  %.06.i.i.i72 = phi ptr [ %41, %.lr.ph.i.i.i71 ], [ %1, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69 ]
+  %.06.i.i.i72 = phi ptr [ %42, %.lr.ph.i.i.i71 ], [ %1, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69 ]
   store i32 %15, ptr %.06.i.i.i72, align 4
-  %41 = getelementptr inbounds i8, ptr %.06.i.i.i72, i64 4
-  %.not.i.i.i73 = icmp eq ptr %41, %9
+  %42 = getelementptr inbounds i8, ptr %.06.i.i.i72, i64 4
+  %.not.i.i.i73 = icmp eq ptr %42, %9
   br i1 %.not.i.i.i73, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i71, !llvm.loop !263
 
-42:                                               ; preds = %5
-  %43 = load ptr, ptr %0, align 8
-  %44 = ptrtoint ptr %43 to i64
-  %45 = sub i64 %11, %44
-  %46 = ashr exact i64 %45, 2
-  %47 = sub nsw i64 2305843009213693951, %46
-  %48 = icmp ult i64 %47, %2
-  br i1 %48, label %49, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
+43:                                               ; preds = %5
+  %44 = load ptr, ptr %0, align 8
+  %45 = ptrtoint ptr %44 to i64
+  %46 = sub i64 %11, %45
+  %47 = ashr exact i64 %46, 2
+  %48 = sub nsw i64 2305843009213693951, %47
+  %49 = icmp ult i64 %48, %2
+  br i1 %49, label %50, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
 
-49:                                               ; preds = %42
+50:                                               ; preds = %43
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #31
   unreachable
 
-_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %42
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %46, i64 %2)
-  %50 = add nsw i64 %.sroa.speculated.i, %46
-  %51 = icmp ult i64 %50, %46
-  %52 = tail call i64 @llvm.umin.i64(i64 %50, i64 2305843009213693951)
-  %53 = select i1 %51, i64 2305843009213693951, i64 %52
-  %54 = ptrtoint ptr %1 to i64
-  %55 = sub i64 %54, %44
-  %.not.i = icmp eq i64 %53, 0
-  br i1 %.not.i, label %59, label %56
+_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %43
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %47, i64 %2)
+  %51 = add nsw i64 %.sroa.speculated.i, %47
+  %52 = icmp ult i64 %51, %47
+  %53 = tail call i64 @llvm.umin.i64(i64 %51, i64 2305843009213693951)
+  %54 = select i1 %52, i64 2305843009213693951, i64 %53
+  %55 = ptrtoint ptr %1 to i64
+  %56 = sub i64 %55, %45
+  %.not.i = icmp eq i64 %54, 0
+  br i1 %.not.i, label %60, label %57
 
-56:                                               ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
-  %57 = shl nuw nsw i64 %53, 2
-  %58 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %57) #32
-  br label %59
+57:                                               ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
+  %58 = shl nuw nsw i64 %54, 2
+  %59 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %58) #32
+  br label %60
 
-59:                                               ; preds = %56, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
-  %60 = phi ptr [ %58, %56 ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit ]
-  %61 = getelementptr inbounds i8, ptr %60, i64 %55
-  %62 = getelementptr inbounds i32, ptr %61, i64 %2
-  %63 = load i32, ptr %3, align 4
+60:                                               ; preds = %57, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
+  %61 = phi ptr [ %59, %57 ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit ]
+  %62 = getelementptr inbounds i8, ptr %61, i64 %56
+  %63 = getelementptr inbounds i32, ptr %62, i64 %2
+  %64 = load i32, ptr %3, align 4
   br label %.lr.ph.i.i.i.i.i.i.i75
 
-.lr.ph.i.i.i.i.i.i.i75:                           ; preds = %.lr.ph.i.i.i.i.i.i.i75, %59
-  %.06.i.i.i.i.i.i.i76 = phi ptr [ %64, %.lr.ph.i.i.i.i.i.i.i75 ], [ %61, %59 ]
-  store i32 %63, ptr %.06.i.i.i.i.i.i.i76, align 4
-  %64 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i76, i64 4
-  %.not.i.i.i.i.i.i.i77 = icmp eq ptr %64, %62
+.lr.ph.i.i.i.i.i.i.i75:                           ; preds = %.lr.ph.i.i.i.i.i.i.i75, %60
+  %.06.i.i.i.i.i.i.i76 = phi ptr [ %65, %.lr.ph.i.i.i.i.i.i.i75 ], [ %62, %60 ]
+  store i32 %64, ptr %.06.i.i.i.i.i.i.i76, align 4
+  %65 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i76, i64 4
+  %.not.i.i.i.i.i.i.i77 = icmp eq ptr %65, %63
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !263
 
 _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79: ; preds = %.lr.ph.i.i.i.i.i.i.i75
-  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %43
-  br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit, label %65
+  %.not.i.i.i.i.i.i.i.i.i80 = icmp eq ptr %1, %44
+  br i1 %.not.i.i.i.i.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit, label %66
 
-65:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %60, ptr align 4 %43, i64 %55, i1 false)
+66:                                               ; preds = %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %61, ptr align 4 %44, i64 %56, i1 false)
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit
 
-_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %65, %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79
-  %66 = sub i64 %11, %54
+_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %66, %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79
+  %67 = sub i64 %11, %55
   %.not.i.i.i.i.i.i.i.i.i81 = icmp eq ptr %9, %1
-  br i1 %.not.i.i.i.i.i.i.i.i.i81, label %68, label %67
+  br i1 %.not.i.i.i.i.i.i.i.i.i81, label %69, label %68
 
-67:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %62, ptr align 4 %1, i64 %66, i1 false)
-  br label %68
+68:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %63, ptr align 4 %1, i64 %67, i1 false)
+  br label %69
 
-68:                                               ; preds = %67, %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit
-  %69 = getelementptr inbounds i8, ptr %62, i64 %66
-  %.not.i83 = icmp eq ptr %43, null
-  br i1 %.not.i83, label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit, label %70
+69:                                               ; preds = %68, %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit
+  %70 = getelementptr inbounds i8, ptr %63, i64 %67
+  %.not.i83 = icmp eq ptr %44, null
+  br i1 %.not.i83, label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit, label %71
 
-70:                                               ; preds = %68
-  tail call void @_ZdlPv(ptr noundef nonnull %43) #30
+71:                                               ; preds = %69
+  tail call void @_ZdlPv(ptr noundef nonnull %44) #30
   br label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit
 
-_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %68, %70
-  store ptr %60, ptr %0, align 8
-  store ptr %69, ptr %8, align 8
-  %71 = getelementptr inbounds i32, ptr %60, i64 %53
-  store ptr %71, ptr %6, align 8
+_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %69, %71
+  store ptr %61, ptr %0, align 8
+  store ptr %70, ptr %8, align 8
+  %72 = getelementptr inbounds i32, ptr %61, i64 %54
+  store ptr %72, ptr %6, align 8
   br label %_ZSt4fillIPiiEvT_S1_RKT0_.exit
 
 _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i71, %.lr.ph.i.i.i, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit, %4
@@ -60270,7 +60270,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit: ; pr
   br label %_ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit: ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]
@@ -61878,7 +61878,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolIPNS0_5RTLIL4CellENS1_8hash_opsIS5_EEE7e
   br label %_ZSt4copyIPN5Yosys7hashlib4poolIPNS0_5RTLIL4CellENS1_8hash_opsIS5_EEE7entry_tESA_ET0_T_SC_SB_.exit
 
 _ZSt4copyIPN5Yosys7hashlib4poolIPNS0_5RTLIL4CellENS1_8hash_opsIS5_EEE7entry_tESA_ET0_T_SC_SB_.exit: ; preds = %34, %35
-  %.pre-phi33 = phi i64 [ %31, %34 ], [ %.pre32, %35 ]
+  %.pre-phi33 = phi i64 [ 0, %34 ], [ %.pre32, %35 ]
   %36 = phi ptr [ %5, %34 ], [ %.pre28, %35 ]
   %37 = phi ptr [ %29, %34 ], [ %.pre26, %35 ]
   %38 = phi ptr [ %6, %34 ], [ %.pre, %35 ]
@@ -68447,7 +68447,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL6SigBitESaIS2_EE13_M_deallocateEPS2_m.exit: ; p
   br label %_ZSt4copyIPN5Yosys5RTLIL6SigBitES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPN5Yosys5RTLIL6SigBitES3_ET0_T_S5_S4_.exit: ; preds = %34, %35
-  %.pre-phi33 = phi i64 [ %31, %34 ], [ %.pre32, %35 ]
+  %.pre-phi33 = phi i64 [ 0, %34 ], [ %.pre32, %35 ]
   %36 = phi ptr [ %5, %34 ], [ %.pre28, %35 ]
   %37 = phi ptr [ %29, %34 ], [ %.pre26, %35 ]
   %38 = phi ptr [ %6, %34 ], [ %.pre, %35 ]

@@ -2861,7 +2861,7 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %cond.true
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, %_ZNK5boost10shared_ptrIN8QuantLib21StrippedOptionletBaseEEptEv.exit
-  %sub.ptr.sub.i.i.i.i.i.i.i.i.i.pre-phi = phi i64 [ %.pre82, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i ], [ %sub.ptr.sub.i.i, %_ZNK5boost10shared_ptrIN8QuantLib21StrippedOptionletBaseEEptEv.exit ]
+  %sub.ptr.sub.i.i.i.i.i.i.i.i.i.pre-phi = phi i64 [ %.pre82, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i ], [ 0, %_ZNK5boost10shared_ptrIN8QuantLib21StrippedOptionletBaseEEptEv.exit ]
   %5 = phi ptr [ %.pre76, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i ], [ %3, %_ZNK5boost10shared_ptrIN8QuantLib21StrippedOptionletBaseEEptEv.exit ]
   %6 = phi ptr [ %.pre, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i ], [ %4, %_ZNK5boost10shared_ptrIN8QuantLib21StrippedOptionletBaseEEptEv.exit ]
   %.pre78 = phi ptr [ %call5.i.i.i.i2.i6.i, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i ], [ null, %_ZNK5boost10shared_ptrIN8QuantLib21StrippedOptionletBaseEEptEv.exit ]

@@ -3020,7 +3020,7 @@ invoke.cont141.loopexit:                          ; preds = %while.body.i.i
   br label %invoke.cont141
 
 invoke.cont141:                                   ; preds = %invoke.cont141.loopexit, %cleanup.cont118
-  %sub.ptr.div.i.i.i270.pre-phi = phi i64 [ %.pre503, %invoke.cont141.loopexit ], [ %sub.ptr.div.i, %cleanup.cont118 ]
+  %sub.ptr.div.i.i.i270.pre-phi = phi i64 [ %.pre503, %invoke.cont141.loopexit ], [ 0, %cleanup.cont118 ]
   %add.ptr.i = getelementptr inbounds i64, ptr %buckets.sroa.0.0, i64 %sub.ptr.div.i.i.i270.pre-phi
   %68 = load i64, ptr %add.ptr.i, align 8
   %inc = add nsw i64 %68, 1

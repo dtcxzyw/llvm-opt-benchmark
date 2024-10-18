@@ -898,21 +898,21 @@ _ZL23combineWeightsByHashingRN4llvm11SmallVectorINS_26BlockFrequencyInfoImplBase
 .preheader.i.i.i.i.i.i.i.i:                       ; preds = %150
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %.not17.i.i.i.i.i.i.i.i = icmp eq i64 %148, 1
-  br i1 %.not17.i.i.i.i.i.i.i.i, label %"_ZSt16__insertion_sortIPN4llvm26BlockFrequencyInfoImplBase6WeightEN9__gnu_cxx5__ops15_Iter_comp_iterIZL23combineWeightsBySortingRNS0_11SmallVectorIS2_Lj4EEEE3$_0EEEvT_SC_T0_.exit47.i.i.i.i.i.i.i", label %.lr.ph.i27.i.i.i.i.i.i.i
+  br i1 %.not17.i.i.i.i.i.i.i.i, label %"_ZSt16__insertion_sortIPN4llvm26BlockFrequencyInfoImplBase6WeightEN9__gnu_cxx5__ops15_Iter_comp_iterIZL23combineWeightsBySortingRNS0_11SmallVectorIS2_Lj4EEEE3$_0EEEvT_SC_T0_.exit46.i.i.i.i.i.i.i", label %.lr.ph.i27.i.i.i.i.i.i.i
 
 .lr.ph.i27.i.i.i.i.i.i.i:                         ; preds = %.preheader.i.i.i.i.i.i.i.i
   %.016.i26.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %147, i64 16
   %174 = getelementptr i8, ptr %147, i64 4
   br label %175
 
-175:                                              ; preds = %189, %.lr.ph.i27.i.i.i.i.i.i.i
-  %.019.i28.i.i.i.i.i.i.i = phi ptr [ %.016.i26.i.i.i.i.i.i.i, %.lr.ph.i27.i.i.i.i.i.i.i ], [ %.0.i40.i.i.i.i.i.i.i, %189 ]
-  %.pn18.i29.i.i.i.i.i.i.i = phi ptr [ %147, %.lr.ph.i27.i.i.i.i.i.i.i ], [ %.019.i28.i.i.i.i.i.i.i, %189 ]
+175:                                              ; preds = %190, %.lr.ph.i27.i.i.i.i.i.i.i
+  %.019.i28.i.i.i.i.i.i.i = phi ptr [ %.016.i26.i.i.i.i.i.i.i, %.lr.ph.i27.i.i.i.i.i.i.i ], [ %.0.i40.i.i.i.i.i.i.i, %190 ]
+  %.pn18.i29.i.i.i.i.i.i.i = phi ptr [ %147, %.lr.ph.i27.i.i.i.i.i.i.i ], [ %.019.i28.i.i.i.i.i.i.i, %190 ]
   %176 = getelementptr i8, ptr %.pn18.i29.i.i.i.i.i.i.i, i64 20
   %.0.val.i30.i.i.i.i.i.i.i = load i32, ptr %176, align 4
   %.val.i31.i.i.i.i.i.i.i = load i32, ptr %174, align 4
   %177 = icmp ult i32 %.0.val.i30.i.i.i.i.i.i.i, %.val.i31.i.i.i.i.i.i.i
-  br i1 %177, label %178, label %184
+  br i1 %177, label %178, label %185
 
 178:                                              ; preds = %175
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %.019.i28.i.i.i.i.i.i.i, i64 16, i1 false)
@@ -920,209 +920,209 @@ _ZL23combineWeightsByHashingRN4llvm11SmallVectorINS_26BlockFrequencyInfoImplBase
   %180 = ptrtoint ptr %.019.i28.i.i.i.i.i.i.i to i64
   %181 = sub i64 %180, %151
   %182 = ashr exact i64 %181, 4
-  %.pre.i.i.i.i.i.i46.i.i.i.i.i.i.i = sub nsw i64 0, %182
-  %183 = getelementptr inbounds %"struct.llvm::BlockFrequencyInfoImplBase::Weight", ptr %179, i64 %.pre.i.i.i.i.i.i46.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %183, ptr noundef nonnull align 8 dereferenceable(1) %147, i64 %181, i1 false)
+  %183 = sub nsw i64 0, %182
+  %184 = getelementptr inbounds %"struct.llvm::BlockFrequencyInfoImplBase::Weight", ptr %179, i64 %183
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %184, ptr noundef nonnull align 8 dereferenceable(1) %147, i64 %181, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %147, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  br label %189
+  br label %190
 
-184:                                              ; preds = %175
+185:                                              ; preds = %175
   %.sroa.0.0.copyload.i.i32.i.i.i.i.i.i.i = load i32, ptr %.019.i28.i.i.i.i.i.i.i, align 8
   %.sroa.3.0..sroa_idx.i.i33.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn18.i29.i.i.i.i.i.i.i, i64 24
   %.sroa.3.0.copyload.i.i34.i.i.i.i.i.i.i = load i64, ptr %.sroa.3.0..sroa_idx.i.i33.i.i.i.i.i.i.i, align 8
-  %185 = getelementptr i8, ptr %.pn18.i29.i.i.i.i.i.i.i, i64 4
-  %.0.val13.i.i35.i.i.i.i.i.i.i = load i32, ptr %185, align 4
-  %186 = icmp ult i32 %.0.val.i30.i.i.i.i.i.i.i, %.0.val13.i.i35.i.i.i.i.i.i.i
-  br i1 %186, label %.lr.ph.i.i42.i.i.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPN4llvm26BlockFrequencyInfoImplBase6WeightEN9__gnu_cxx5__ops14_Val_comp_iterIZL23combineWeightsBySortingRNS0_11SmallVectorIS2_Lj4EEEE3$_0EEEvT_T0_.exit.i36.i.i.i.i.i.i.i"
+  %186 = getelementptr i8, ptr %.pn18.i29.i.i.i.i.i.i.i, i64 4
+  %.0.val13.i.i35.i.i.i.i.i.i.i = load i32, ptr %186, align 4
+  %187 = icmp ult i32 %.0.val.i30.i.i.i.i.i.i.i, %.0.val13.i.i35.i.i.i.i.i.i.i
+  br i1 %187, label %.lr.ph.i.i42.i.i.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPN4llvm26BlockFrequencyInfoImplBase6WeightEN9__gnu_cxx5__ops14_Val_comp_iterIZL23combineWeightsBySortingRNS0_11SmallVectorIS2_Lj4EEEE3$_0EEEvT_T0_.exit.i36.i.i.i.i.i.i.i"
 
-.lr.ph.i.i42.i.i.i.i.i.i.i:                       ; preds = %184, %.lr.ph.i.i42.i.i.i.i.i.i.i
-  %.0914.i.i43.i.i.i.i.i.i.i = phi ptr [ %.0.i.i44.i.i.i.i.i.i.i, %.lr.ph.i.i42.i.i.i.i.i.i.i ], [ %.019.i28.i.i.i.i.i.i.i, %184 ]
+.lr.ph.i.i42.i.i.i.i.i.i.i:                       ; preds = %185, %.lr.ph.i.i42.i.i.i.i.i.i.i
+  %.0914.i.i43.i.i.i.i.i.i.i = phi ptr [ %.0.i.i44.i.i.i.i.i.i.i, %.lr.ph.i.i42.i.i.i.i.i.i.i ], [ %.019.i28.i.i.i.i.i.i.i, %185 ]
   %.0.i.i44.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.0914.i.i43.i.i.i.i.i.i.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0914.i.i43.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i44.i.i.i.i.i.i.i, i64 16, i1 false)
-  %187 = getelementptr i8, ptr %.0914.i.i43.i.i.i.i.i.i.i, i64 -28
-  %.0.val.i.i45.i.i.i.i.i.i.i = load i32, ptr %187, align 4
-  %188 = icmp ult i32 %.0.val.i30.i.i.i.i.i.i.i, %.0.val.i.i45.i.i.i.i.i.i.i
-  br i1 %188, label %.lr.ph.i.i42.i.i.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPN4llvm26BlockFrequencyInfoImplBase6WeightEN9__gnu_cxx5__ops14_Val_comp_iterIZL23combineWeightsBySortingRNS0_11SmallVectorIS2_Lj4EEEE3$_0EEEvT_T0_.exit.i36.i.i.i.i.i.i.i", !llvm.loop !9
+  %188 = getelementptr i8, ptr %.0914.i.i43.i.i.i.i.i.i.i, i64 -28
+  %.0.val.i.i45.i.i.i.i.i.i.i = load i32, ptr %188, align 4
+  %189 = icmp ult i32 %.0.val.i30.i.i.i.i.i.i.i, %.0.val.i.i45.i.i.i.i.i.i.i
+  br i1 %189, label %.lr.ph.i.i42.i.i.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPN4llvm26BlockFrequencyInfoImplBase6WeightEN9__gnu_cxx5__ops14_Val_comp_iterIZL23combineWeightsBySortingRNS0_11SmallVectorIS2_Lj4EEEE3$_0EEEvT_T0_.exit.i36.i.i.i.i.i.i.i", !llvm.loop !9
 
-"_ZSt25__unguarded_linear_insertIPN4llvm26BlockFrequencyInfoImplBase6WeightEN9__gnu_cxx5__ops14_Val_comp_iterIZL23combineWeightsBySortingRNS0_11SmallVectorIS2_Lj4EEEE3$_0EEEvT_T0_.exit.i36.i.i.i.i.i.i.i": ; preds = %.lr.ph.i.i42.i.i.i.i.i.i.i, %184
-  %.09.lcssa.i.i37.i.i.i.i.i.i.i = phi ptr [ %.019.i28.i.i.i.i.i.i.i, %184 ], [ %.0.i.i44.i.i.i.i.i.i.i, %.lr.ph.i.i42.i.i.i.i.i.i.i ]
+"_ZSt25__unguarded_linear_insertIPN4llvm26BlockFrequencyInfoImplBase6WeightEN9__gnu_cxx5__ops14_Val_comp_iterIZL23combineWeightsBySortingRNS0_11SmallVectorIS2_Lj4EEEE3$_0EEEvT_T0_.exit.i36.i.i.i.i.i.i.i": ; preds = %.lr.ph.i.i42.i.i.i.i.i.i.i, %185
+  %.09.lcssa.i.i37.i.i.i.i.i.i.i = phi ptr [ %.019.i28.i.i.i.i.i.i.i, %185 ], [ %.0.i.i44.i.i.i.i.i.i.i, %.lr.ph.i.i42.i.i.i.i.i.i.i ]
   store i32 %.sroa.0.0.copyload.i.i32.i.i.i.i.i.i.i, ptr %.09.lcssa.i.i37.i.i.i.i.i.i.i, align 8
   %.sroa.2.0..09.sroa_idx.i.i38.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.09.lcssa.i.i37.i.i.i.i.i.i.i, i64 4
   store i32 %.0.val.i30.i.i.i.i.i.i.i, ptr %.sroa.2.0..09.sroa_idx.i.i38.i.i.i.i.i.i.i, align 4
   %.sroa.3.0..09.sroa_idx.i.i39.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.09.lcssa.i.i37.i.i.i.i.i.i.i, i64 8
   store i64 %.sroa.3.0.copyload.i.i34.i.i.i.i.i.i.i, ptr %.sroa.3.0..09.sroa_idx.i.i39.i.i.i.i.i.i.i, align 8
-  br label %189
+  br label %190
 
-189:                                              ; preds = %"_ZSt25__unguarded_linear_insertIPN4llvm26BlockFrequencyInfoImplBase6WeightEN9__gnu_cxx5__ops14_Val_comp_iterIZL23combineWeightsBySortingRNS0_11SmallVectorIS2_Lj4EEEE3$_0EEEvT_T0_.exit.i36.i.i.i.i.i.i.i", %178
+190:                                              ; preds = %"_ZSt25__unguarded_linear_insertIPN4llvm26BlockFrequencyInfoImplBase6WeightEN9__gnu_cxx5__ops14_Val_comp_iterIZL23combineWeightsBySortingRNS0_11SmallVectorIS2_Lj4EEEE3$_0EEEvT_T0_.exit.i36.i.i.i.i.i.i.i", %178
   %.0.i40.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.019.i28.i.i.i.i.i.i.i, i64 16
   %.not.i41.i.i.i.i.i.i.i = icmp eq ptr %.0.i40.i.i.i.i.i.i.i, %149
-  br i1 %.not.i41.i.i.i.i.i.i.i, label %"_ZSt16__insertion_sortIPN4llvm26BlockFrequencyInfoImplBase6WeightEN9__gnu_cxx5__ops15_Iter_comp_iterIZL23combineWeightsBySortingRNS0_11SmallVectorIS2_Lj4EEEE3$_0EEEvT_SC_T0_.exit47.i.i.i.i.i.i.i", label %175, !llvm.loop !10
+  br i1 %.not.i41.i.i.i.i.i.i.i, label %"_ZSt16__insertion_sortIPN4llvm26BlockFrequencyInfoImplBase6WeightEN9__gnu_cxx5__ops15_Iter_comp_iterIZL23combineWeightsBySortingRNS0_11SmallVectorIS2_Lj4EEEE3$_0EEEvT_SC_T0_.exit46.i.i.i.i.i.i.i", label %175, !llvm.loop !10
 
-"_ZSt16__insertion_sortIPN4llvm26BlockFrequencyInfoImplBase6WeightEN9__gnu_cxx5__ops15_Iter_comp_iterIZL23combineWeightsBySortingRNS0_11SmallVectorIS2_Lj4EEEE3$_0EEEvT_SC_T0_.exit47.i.i.i.i.i.i.i": ; preds = %189, %.preheader.i.i.i.i.i.i.i.i
+"_ZSt16__insertion_sortIPN4llvm26BlockFrequencyInfoImplBase6WeightEN9__gnu_cxx5__ops15_Iter_comp_iterIZL23combineWeightsBySortingRNS0_11SmallVectorIS2_Lj4EEEE3$_0EEEvT_SC_T0_.exit46.i.i.i.i.i.i.i": ; preds = %190, %.preheader.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %"_ZN4llvm4sortIRNS_11SmallVectorINS_26BlockFrequencyInfoImplBase6WeightELj4EEEZL23combineWeightsBySortingS5_E3$_0EEvOT_T0_.exit.i.i"
 
-"_ZN4llvm4sortIRNS_11SmallVectorINS_26BlockFrequencyInfoImplBase6WeightELj4EEEZL23combineWeightsBySortingS5_E3$_0EEvOT_T0_.exit.i.i": ; preds = %"_ZSt25__unguarded_linear_insertIPN4llvm26BlockFrequencyInfoImplBase6WeightEN9__gnu_cxx5__ops14_Val_comp_iterIZL23combineWeightsBySortingRNS0_11SmallVectorIS2_Lj4EEEE3$_0EEEvT_T0_.exit.i17.i.i.i.i.i.i.i", %"_ZSt16__insertion_sortIPN4llvm26BlockFrequencyInfoImplBase6WeightEN9__gnu_cxx5__ops15_Iter_comp_iterIZL23combineWeightsBySortingRNS0_11SmallVectorIS2_Lj4EEEE3$_0EEEvT_SC_T0_.exit47.i.i.i.i.i.i.i", %146
-  %190 = load ptr, ptr %0, align 8
-  %191 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #23
-  %192 = getelementptr inbounds %"struct.llvm::BlockFrequencyInfoImplBase::Weight", ptr %190, i64 %191
-  %.not33.i.i = icmp eq i64 %191, 0
+"_ZN4llvm4sortIRNS_11SmallVectorINS_26BlockFrequencyInfoImplBase6WeightELj4EEEZL23combineWeightsBySortingS5_E3$_0EEvOT_T0_.exit.i.i": ; preds = %"_ZSt25__unguarded_linear_insertIPN4llvm26BlockFrequencyInfoImplBase6WeightEN9__gnu_cxx5__ops14_Val_comp_iterIZL23combineWeightsBySortingRNS0_11SmallVectorIS2_Lj4EEEE3$_0EEEvT_T0_.exit.i17.i.i.i.i.i.i.i", %"_ZSt16__insertion_sortIPN4llvm26BlockFrequencyInfoImplBase6WeightEN9__gnu_cxx5__ops15_Iter_comp_iterIZL23combineWeightsBySortingRNS0_11SmallVectorIS2_Lj4EEEE3$_0EEEvT_SC_T0_.exit46.i.i.i.i.i.i.i", %146
+  %191 = load ptr, ptr %0, align 8
+  %192 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #23
+  %193 = getelementptr inbounds %"struct.llvm::BlockFrequencyInfoImplBase::Weight", ptr %191, i64 %192
+  %.not33.i.i = icmp eq i64 %192, 0
   br i1 %.not33.i.i, label %._crit_edge.i6.i, label %.lr.ph36.i.i
 
 .lr.ph36.i.i:                                     ; preds = %"_ZN4llvm4sortIRNS_11SmallVectorINS_26BlockFrequencyInfoImplBase6WeightELj4EEEZL23combineWeightsBySortingS5_E3$_0EEvOT_T0_.exit.i.i", %.critedge.i.i
-  %.035.i.i = phi ptr [ %211, %.critedge.i.i ], [ %190, %"_ZN4llvm4sortIRNS_11SmallVectorINS_26BlockFrequencyInfoImplBase6WeightELj4EEEZL23combineWeightsBySortingS5_E3$_0EEvOT_T0_.exit.i.i" ]
-  %.02234.i.i = phi ptr [ %.130.i.i, %.critedge.i.i ], [ %190, %"_ZN4llvm4sortIRNS_11SmallVectorINS_26BlockFrequencyInfoImplBase6WeightELj4EEEZL23combineWeightsBySortingS5_E3$_0EEvOT_T0_.exit.i.i" ]
+  %.035.i.i = phi ptr [ %212, %.critedge.i.i ], [ %191, %"_ZN4llvm4sortIRNS_11SmallVectorINS_26BlockFrequencyInfoImplBase6WeightELj4EEEZL23combineWeightsBySortingS5_E3$_0EEvOT_T0_.exit.i.i" ]
+  %.02234.i.i = phi ptr [ %.130.i.i, %.critedge.i.i ], [ %191, %"_ZN4llvm4sortIRNS_11SmallVectorINS_26BlockFrequencyInfoImplBase6WeightELj4EEEZL23combineWeightsBySortingS5_E3$_0EEvOT_T0_.exit.i.i" ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.035.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.02234.i.i, i64 16, i1 false)
-  %193 = getelementptr inbounds nuw i8, ptr %.02234.i.i, i64 4
+  %194 = getelementptr inbounds nuw i8, ptr %.02234.i.i, i64 4
   %.127.i.i = getelementptr inbounds i8, ptr %.02234.i.i, i64 16
-  %.not2528.i.i = icmp eq ptr %.127.i.i, %192
+  %.not2528.i.i = icmp eq ptr %.127.i.i, %193
   br i1 %.not2528.i.i, label %.critedge.thread.i.i, label %.lr.ph.i4.i
 
 .lr.ph.i4.i:                                      ; preds = %.lr.ph36.i.i
-  %194 = getelementptr inbounds nuw i8, ptr %.035.i.i, i64 8
-  br label %195
+  %195 = getelementptr inbounds nuw i8, ptr %.035.i.i, i64 8
+  br label %196
 
-195:                                              ; preds = %_ZL13combineWeightRN4llvm26BlockFrequencyInfoImplBase6WeightERKS1_.exit.i8.i, %.lr.ph.i4.i
+196:                                              ; preds = %_ZL13combineWeightRN4llvm26BlockFrequencyInfoImplBase6WeightERKS1_.exit.i8.i, %.lr.ph.i4.i
   %.130.i.i = phi ptr [ %.127.i.i, %.lr.ph.i4.i ], [ %.1.i.i, %_ZL13combineWeightRN4llvm26BlockFrequencyInfoImplBase6WeightERKS1_.exit.i8.i ]
   %.022.pn29.i.i = phi ptr [ %.02234.i.i, %.lr.ph.i4.i ], [ %.130.i.i, %_ZL13combineWeightRN4llvm26BlockFrequencyInfoImplBase6WeightERKS1_.exit.i8.i ]
-  %196 = getelementptr inbounds i8, ptr %.022.pn29.i.i, i64 20
-  %197 = load i32, ptr %193, align 4
-  %198 = load i32, ptr %196, align 4
-  %199 = icmp eq i32 %197, %198
-  br i1 %199, label %200, label %.critedge.i.i
+  %197 = getelementptr inbounds i8, ptr %.022.pn29.i.i, i64 20
+  %198 = load i32, ptr %194, align 4
+  %199 = load i32, ptr %197, align 4
+  %200 = icmp eq i32 %198, %199
+  br i1 %200, label %201, label %.critedge.i.i
 
-200:                                              ; preds = %195
-  %201 = load i64, ptr %194, align 8
-  %.not.i.i7.i = icmp eq i64 %201, 0
-  br i1 %.not.i.i7.i, label %202, label %203
+201:                                              ; preds = %196
+  %202 = load i64, ptr %195, align 8
+  %.not.i.i7.i = icmp eq i64 %202, 0
+  br i1 %.not.i.i7.i, label %203, label %204
 
-202:                                              ; preds = %200
+203:                                              ; preds = %201
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.035.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.130.i.i, i64 16, i1 false)
   br label %_ZL13combineWeightRN4llvm26BlockFrequencyInfoImplBase6WeightERKS1_.exit.i8.i
 
-203:                                              ; preds = %200
-  %204 = getelementptr inbounds i8, ptr %.022.pn29.i.i, i64 24
-  %205 = load i64, ptr %204, align 8
-  %206 = add i64 %205, %201
-  %207 = icmp ugt i64 %201, %206
-  br i1 %207, label %208, label %209
+204:                                              ; preds = %201
+  %205 = getelementptr inbounds i8, ptr %.022.pn29.i.i, i64 24
+  %206 = load i64, ptr %205, align 8
+  %207 = add i64 %206, %202
+  %208 = icmp ugt i64 %202, %207
+  br i1 %208, label %209, label %210
 
-208:                                              ; preds = %203
-  store i64 -1, ptr %194, align 8
+209:                                              ; preds = %204
+  store i64 -1, ptr %195, align 8
   br label %_ZL13combineWeightRN4llvm26BlockFrequencyInfoImplBase6WeightERKS1_.exit.i8.i
 
-209:                                              ; preds = %203
-  store i64 %206, ptr %194, align 8
+210:                                              ; preds = %204
+  store i64 %207, ptr %195, align 8
   br label %_ZL13combineWeightRN4llvm26BlockFrequencyInfoImplBase6WeightERKS1_.exit.i8.i
 
-_ZL13combineWeightRN4llvm26BlockFrequencyInfoImplBase6WeightERKS1_.exit.i8.i: ; preds = %209, %208, %202
+_ZL13combineWeightRN4llvm26BlockFrequencyInfoImplBase6WeightERKS1_.exit.i8.i: ; preds = %210, %209, %203
   %.1.i.i = getelementptr inbounds i8, ptr %.130.i.i, i64 16
-  %.not25.i9.i = icmp eq ptr %.1.i.i, %192
-  br i1 %.not25.i9.i, label %.critedge.thread.i.i, label %195, !llvm.loop !12
+  %.not25.i9.i = icmp eq ptr %.1.i.i, %193
+  br i1 %.not25.i9.i, label %.critedge.thread.i.i, label %196, !llvm.loop !12
 
 .critedge.thread.i.i:                             ; preds = %.lr.ph36.i.i, %_ZL13combineWeightRN4llvm26BlockFrequencyInfoImplBase6WeightERKS1_.exit.i8.i
-  %210 = getelementptr inbounds i8, ptr %.035.i.i, i64 16
+  %211 = getelementptr inbounds i8, ptr %.035.i.i, i64 16
   br label %._crit_edge.i6.i
 
-.critedge.i.i:                                    ; preds = %195
-  %211 = getelementptr inbounds i8, ptr %.035.i.i, i64 16
-  %.not.i5.i = icmp eq ptr %.130.i.i, %192
+.critedge.i.i:                                    ; preds = %196
+  %212 = getelementptr inbounds i8, ptr %.035.i.i, i64 16
+  %.not.i5.i = icmp eq ptr %.130.i.i, %193
   br i1 %.not.i5.i, label %._crit_edge.i6.i, label %.lr.ph36.i.i, !llvm.loop !13
 
 ._crit_edge.i6.i:                                 ; preds = %.critedge.i.i, %.critedge.thread.i.i, %"_ZN4llvm4sortIRNS_11SmallVectorINS_26BlockFrequencyInfoImplBase6WeightELj4EEEZL23combineWeightsBySortingS5_E3$_0EEvOT_T0_.exit.i.i"
-  %.0.lcssa.i.i = phi ptr [ %190, %"_ZN4llvm4sortIRNS_11SmallVectorINS_26BlockFrequencyInfoImplBase6WeightELj4EEEZL23combineWeightsBySortingS5_E3$_0EEvOT_T0_.exit.i.i" ], [ %210, %.critedge.thread.i.i ], [ %211, %.critedge.i.i ]
-  %212 = load ptr, ptr %0, align 8
-  %213 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #23
-  %214 = getelementptr inbounds %"struct.llvm::BlockFrequencyInfoImplBase::Weight", ptr %212, i64 %213
-  %215 = load ptr, ptr %0, align 8
-  %216 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #23
-  %217 = getelementptr inbounds %"struct.llvm::BlockFrequencyInfoImplBase::Weight", ptr %215, i64 %216
-  %218 = ptrtoint ptr %217 to i64
-  %219 = ptrtoint ptr %214 to i64
-  %220 = sub i64 %218, %219
-  %.not.i.i.i.i.i.i26.i.i = icmp eq ptr %217, %214
-  br i1 %.not.i.i.i.i.i.i26.i.i, label %_ZL23combineWeightsBySortingRN4llvm11SmallVectorINS_26BlockFrequencyInfoImplBase6WeightELj4EEE.exit.i, label %221
+  %.0.lcssa.i.i = phi ptr [ %191, %"_ZN4llvm4sortIRNS_11SmallVectorINS_26BlockFrequencyInfoImplBase6WeightELj4EEEZL23combineWeightsBySortingS5_E3$_0EEvOT_T0_.exit.i.i" ], [ %211, %.critedge.thread.i.i ], [ %212, %.critedge.i.i ]
+  %213 = load ptr, ptr %0, align 8
+  %214 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #23
+  %215 = getelementptr inbounds %"struct.llvm::BlockFrequencyInfoImplBase::Weight", ptr %213, i64 %214
+  %216 = load ptr, ptr %0, align 8
+  %217 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #23
+  %218 = getelementptr inbounds %"struct.llvm::BlockFrequencyInfoImplBase::Weight", ptr %216, i64 %217
+  %219 = ptrtoint ptr %218 to i64
+  %220 = ptrtoint ptr %215 to i64
+  %221 = sub i64 %219, %220
+  %.not.i.i.i.i.i.i26.i.i = icmp eq ptr %218, %215
+  br i1 %.not.i.i.i.i.i.i26.i.i, label %_ZL23combineWeightsBySortingRN4llvm11SmallVectorINS_26BlockFrequencyInfoImplBase6WeightELj4EEE.exit.i, label %222
 
-221:                                              ; preds = %._crit_edge.i6.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.lcssa.i.i, ptr align 8 %214, i64 %220, i1 false)
+222:                                              ; preds = %._crit_edge.i6.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.lcssa.i.i, ptr align 8 %215, i64 %221, i1 false)
   br label %_ZL23combineWeightsBySortingRN4llvm11SmallVectorINS_26BlockFrequencyInfoImplBase6WeightELj4EEE.exit.i
 
-_ZL23combineWeightsBySortingRN4llvm11SmallVectorINS_26BlockFrequencyInfoImplBase6WeightELj4EEE.exit.i: ; preds = %221, %._crit_edge.i6.i
-  %222 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 %220
-  %223 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #23
-  %224 = load ptr, ptr %0, align 8
-  %225 = ptrtoint ptr %222 to i64
-  %226 = ptrtoint ptr %224 to i64
-  %227 = sub i64 %225, %226
-  %228 = ashr exact i64 %227, 4
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %228) #23
+_ZL23combineWeightsBySortingRN4llvm11SmallVectorINS_26BlockFrequencyInfoImplBase6WeightELj4EEE.exit.i: ; preds = %222, %._crit_edge.i6.i
+  %223 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 %221
+  %224 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #23
+  %225 = load ptr, ptr %0, align 8
+  %226 = ptrtoint ptr %223 to i64
+  %227 = ptrtoint ptr %225 to i64
+  %228 = sub i64 %226, %227
+  %229 = ashr exact i64 %228, 4
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %229) #23
   br label %_ZL14combineWeightsRN4llvm11SmallVectorINS_26BlockFrequencyInfoImplBase6WeightELj4EEE.exit
 
 _ZL14combineWeightsRN4llvm11SmallVectorINS_26BlockFrequencyInfoImplBase6WeightELj4EEE.exit: ; preds = %_ZL23combineWeightsBySortingRN4llvm11SmallVectorINS_26BlockFrequencyInfoImplBase6WeightELj4EEE.exit.i, %_ZL23combineWeightsByHashingRN4llvm11SmallVectorINS_26BlockFrequencyInfoImplBase6WeightELj4EEE.exit.i, %6
-  %229 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
-  %230 = icmp eq i64 %229, 1
-  br i1 %230, label %231, label %235
+  %230 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
+  %231 = icmp eq i64 %230, 1
+  br i1 %231, label %232, label %236
 
-231:                                              ; preds = %_ZL14combineWeightsRN4llvm11SmallVectorINS_26BlockFrequencyInfoImplBase6WeightELj4EEE.exit
-  %232 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 1, ptr %232, align 8
-  %233 = load ptr, ptr %0, align 8
-  %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
-  store i64 1, ptr %234, align 8
+232:                                              ; preds = %_ZL14combineWeightsRN4llvm11SmallVectorINS_26BlockFrequencyInfoImplBase6WeightELj4EEE.exit
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i64 1, ptr %233, align 8
+  %234 = load ptr, ptr %0, align 8
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 8
+  store i64 1, ptr %235, align 8
   br label %.loopexit
 
-235:                                              ; preds = %_ZL14combineWeightsRN4llvm11SmallVectorINS_26BlockFrequencyInfoImplBase6WeightELj4EEE.exit
-  %236 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %237 = load i8, ptr %236, align 8
-  %238 = trunc i8 %237 to i1
-  br i1 %238, label %247, label %239
+236:                                              ; preds = %_ZL14combineWeightsRN4llvm11SmallVectorINS_26BlockFrequencyInfoImplBase6WeightELj4EEE.exit
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %238 = load i8, ptr %237, align 8
+  %239 = trunc i8 %238 to i1
+  br i1 %239, label %248, label %240
 
-239:                                              ; preds = %235
-  %240 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %241 = load i64, ptr %240, align 8
-  %242 = icmp ugt i64 %241, 4294967295
-  br i1 %242, label %243, label %.loopexit
+240:                                              ; preds = %236
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %242 = load i64, ptr %241, align 8
+  %243 = icmp ugt i64 %242, 4294967295
+  br i1 %243, label %244, label %.loopexit
 
-243:                                              ; preds = %239
-  %244 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %241, i1 true)
-  %245 = trunc nuw nsw i64 %244 to i32
-  %246 = sub nuw nsw i32 33, %245
-  br label %247
+244:                                              ; preds = %240
+  %245 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %242, i1 true)
+  %246 = trunc nuw nsw i64 %245 to i32
+  %247 = sub nuw nsw i32 33, %246
+  br label %248
 
-247:                                              ; preds = %243, %235
-  %.0.ph = phi i32 [ 33, %235 ], [ %246, %243 ]
-  %248 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 0, ptr %248, align 8
-  %249 = load ptr, ptr %0, align 8
-  %250 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
-  %251 = getelementptr inbounds %"struct.llvm::BlockFrequencyInfoImplBase::Weight", ptr %249, i64 %250
-  %.not1333 = icmp eq i64 %250, 0
+248:                                              ; preds = %244, %236
+  %.0.ph = phi i32 [ 33, %236 ], [ %247, %244 ]
+  %249 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i64 0, ptr %249, align 8
+  %250 = load ptr, ptr %0, align 8
+  %251 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
+  %252 = getelementptr inbounds %"struct.llvm::BlockFrequencyInfoImplBase::Weight", ptr %250, i64 %251
+  %.not1333 = icmp eq i64 %251, 0
   br i1 %.not1333, label %.loopexit, label %_ZL18shiftRightAndRoundmi.exit.lr.ph
 
-_ZL18shiftRightAndRoundmi.exit.lr.ph:             ; preds = %247
-  %252 = zext nneg i32 %.0.ph to i64
-  %253 = add nsw i32 %.0.ph, -1
-  %254 = zext nneg i32 %253 to i64
+_ZL18shiftRightAndRoundmi.exit.lr.ph:             ; preds = %248
+  %253 = zext nneg i32 %.0.ph to i64
+  %254 = add nsw i32 %.0.ph, -1
+  %255 = zext nneg i32 %254 to i64
   br label %_ZL18shiftRightAndRoundmi.exit
 
 _ZL18shiftRightAndRoundmi.exit:                   ; preds = %_ZL18shiftRightAndRoundmi.exit.lr.ph, %_ZL18shiftRightAndRoundmi.exit
-  %.01134 = phi ptr [ %249, %_ZL18shiftRightAndRoundmi.exit.lr.ph ], [ %263, %_ZL18shiftRightAndRoundmi.exit ]
-  %255 = getelementptr inbounds nuw i8, ptr %.01134, i64 8
-  %256 = load i64, ptr %255, align 8
-  %257 = lshr i64 %256, %252
-  %258 = lshr i64 %256, %254
-  %259 = and i64 %258, 1
-  %260 = add i64 %259, %257
-  %.sroa.speculated = call i64 @llvm.umax.i64(i64 %260, i64 1)
-  store i64 %.sroa.speculated, ptr %255, align 8
-  %261 = load i64, ptr %248, align 8
-  %262 = add i64 %.sroa.speculated, %261
-  store i64 %262, ptr %248, align 8
-  %263 = getelementptr inbounds i8, ptr %.01134, i64 16
-  %.not13 = icmp eq ptr %263, %251
+  %.01134 = phi ptr [ %250, %_ZL18shiftRightAndRoundmi.exit.lr.ph ], [ %264, %_ZL18shiftRightAndRoundmi.exit ]
+  %256 = getelementptr inbounds nuw i8, ptr %.01134, i64 8
+  %257 = load i64, ptr %256, align 8
+  %258 = lshr i64 %257, %253
+  %259 = lshr i64 %257, %255
+  %260 = and i64 %259, 1
+  %261 = add i64 %260, %258
+  %.sroa.speculated = call i64 @llvm.umax.i64(i64 %261, i64 1)
+  store i64 %.sroa.speculated, ptr %256, align 8
+  %262 = load i64, ptr %249, align 8
+  %263 = add i64 %.sroa.speculated, %262
+  store i64 %263, ptr %249, align 8
+  %264 = getelementptr inbounds i8, ptr %.01134, i64 16
+  %.not13 = icmp eq ptr %264, %252
   br i1 %.not13, label %.loopexit, label %_ZL18shiftRightAndRoundmi.exit
 
-.loopexit:                                        ; preds = %_ZL18shiftRightAndRoundmi.exit, %247, %239, %1, %231
+.loopexit:                                        ; preds = %_ZL18shiftRightAndRoundmi.exit, %248, %240, %1, %232
   ret void
 }
 
@@ -7663,7 +7663,7 @@ _ZN4llvm15SmallVectorImplINS_26BlockFrequencyInfoImplBase9BlockNodeEE7reserveEm.
   %34 = load ptr, ptr %0, align 8
   %35 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
   %36 = getelementptr inbounds %"struct.llvm::BlockFrequencyInfoImplBase::BlockNode", ptr %34, i64 %35
-  br i1 %.not, label %53, label %37
+  br i1 %.not, label %54, label %37
 
 37:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_26BlockFrequencyInfoImplBase9BlockNodeEE7reserveEm.exit
   %38 = load ptr, ptr %0, align 8
@@ -7683,62 +7683,62 @@ _ZN4llvm15SmallVectorImplINS_26BlockFrequencyInfoImplBase9BlockNodeEE7reserveEm.
   %48 = ptrtoint ptr %46 to i64
   %49 = sub i64 %48, %33
   %50 = ashr exact i64 %49, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %50
-  %51 = getelementptr inbounds %"struct.llvm::BlockFrequencyInfoImplBase::BlockNode", ptr %36, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %51, ptr align 4 %31, i64 %49, i1 false)
+  %51 = sub nsw i64 0, %50
+  %52 = getelementptr inbounds %"struct.llvm::BlockFrequencyInfoImplBase::BlockNode", ptr %36, i64 %51
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %52, ptr align 4 %31, i64 %49, i1 false)
   br label %_ZSt13move_backwardIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit
 
 _ZSt13move_backwardIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit: ; preds = %37, %47
-  br i1 %16, label %_ZSt4copyIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit, label %52
+  br i1 %16, label %_ZSt4copyIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit, label %53
 
-52:                                               ; preds = %_ZSt13move_backwardIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit
+53:                                               ; preds = %_ZSt13move_backwardIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %31, ptr align 4 %2, i64 %22, i1 false)
   br label %_ZSt4copyIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit
 
-53:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_26BlockFrequencyInfoImplBase9BlockNodeEE7reserveEm.exit
-  %54 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
-  %55 = add i64 %54, %23
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %55) #23
-  %56 = load ptr, ptr %0, align 8
-  %57 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
+54:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_26BlockFrequencyInfoImplBase9BlockNodeEE7reserveEm.exit
+  %55 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
+  %56 = add i64 %55, %23
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %56) #23
+  %57 = load ptr, ptr %0, align 8
+  %58 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
   %.not.i.i = icmp eq ptr %31, %36
   br i1 %.not.i.i, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %53
-  %58 = ptrtoint ptr %36 to i64
-  %59 = sub i64 %58, %33
-  %60 = ashr exact i64 %59, 2
-  %61 = getelementptr inbounds %"struct.llvm::BlockFrequencyInfoImplBase::BlockNode", ptr %56, i64 %57
-  %62 = sub nsw i64 0, %60
-  %63 = getelementptr inbounds %"struct.llvm::BlockFrequencyInfoImplBase::BlockNode", ptr %61, i64 %62
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %63, ptr align 4 %31, i64 %59, i1 false)
+.lr.ph.preheader:                                 ; preds = %54
+  %59 = ptrtoint ptr %36 to i64
+  %60 = sub i64 %59, %33
+  %61 = ashr exact i64 %60, 2
+  %62 = getelementptr inbounds %"struct.llvm::BlockFrequencyInfoImplBase::BlockNode", ptr %57, i64 %58
+  %63 = sub nsw i64 0, %61
+  %64 = getelementptr inbounds %"struct.llvm::BlockFrequencyInfoImplBase::BlockNode", ptr %62, i64 %63
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 4 %31, i64 %60, i1 false)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.050 = phi ptr [ %65, %.lr.ph ], [ %31, %.lr.ph.preheader ]
-  %.04049 = phi i64 [ %67, %.lr.ph ], [ %60, %.lr.ph.preheader ]
-  %.04248 = phi ptr [ %66, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %64 = load i32, ptr %.04248, align 4
-  store i32 %64, ptr %.050, align 4
-  %65 = getelementptr inbounds i8, ptr %.050, i64 4
-  %66 = getelementptr inbounds i8, ptr %.04248, i64 4
-  %67 = add i64 %.04049, -1
-  %.not44 = icmp eq i64 %67, 0
+  %.050 = phi ptr [ %66, %.lr.ph ], [ %31, %.lr.ph.preheader ]
+  %.04049 = phi i64 [ %68, %.lr.ph ], [ %61, %.lr.ph.preheader ]
+  %.04248 = phi ptr [ %67, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %65 = load i32, ptr %.04248, align 4
+  store i32 %65, ptr %.050, align 4
+  %66 = getelementptr inbounds i8, ptr %.050, i64 4
+  %67 = getelementptr inbounds i8, ptr %.04248, i64 4
+  %68 = add i64 %.04049, -1
+  %.not44 = icmp eq i64 %68, 0
   br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !123
 
-._crit_edge:                                      ; preds = %.lr.ph, %53
-  %.042.lcssa = phi ptr [ %2, %53 ], [ %66, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %54
+  %.042.lcssa = phi ptr [ %2, %54 ], [ %67, %.lr.ph ]
   %.not.i = icmp eq ptr %.042.lcssa, %3
-  br i1 %.not.i, label %_ZSt4copyIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit, label %68
+  br i1 %.not.i, label %_ZSt4copyIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit, label %69
 
-68:                                               ; preds = %._crit_edge
-  %69 = ptrtoint ptr %.042.lcssa to i64
-  %70 = sub i64 %20, %69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr align 4 %.042.lcssa, i64 %70, i1 false)
+69:                                               ; preds = %._crit_edge
+  %70 = ptrtoint ptr %.042.lcssa to i64
+  %71 = sub i64 %20, %70
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr align 4 %.042.lcssa, i64 %71, i1 false)
   br label %_ZSt4copyIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit
 
-_ZSt4copyIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit: ; preds = %68, %._crit_edge, %52, %_ZSt13move_backwardIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit, %12
-  %.041 = phi ptr [ %14, %12 ], [ %31, %_ZSt13move_backwardIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit ], [ %31, %52 ], [ %31, %._crit_edge ], [ %31, %68 ]
+_ZSt4copyIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit: ; preds = %69, %._crit_edge, %53, %_ZSt13move_backwardIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit, %12
+  %.041 = phi ptr [ %14, %12 ], [ %31, %_ZSt13move_backwardIPN4llvm26BlockFrequencyInfoImplBase9BlockNodeES3_ET0_T_S5_S4_.exit ], [ %31, %53 ], [ %31, %._crit_edge ], [ %31, %69 ]
   ret ptr %.041
 }
 
@@ -8600,7 +8600,7 @@ define linkonce_odr void @_ZNSt5dequeIPKN4llvm10bfi_detail16IrreducibleGraph7Irr
   %15 = load i64, ptr %14, align 8
   %16 = shl i64 %13, 1
   %17 = icmp ugt i64 %15, %16
-  br i1 %17, label %18, label %38
+  br i1 %17, label %18, label %39
 
 18:                                               ; preds = %3
   %19 = load ptr, ptr %0, align 8
@@ -8627,78 +8627,78 @@ define linkonce_odr void @_ZNSt5dequeIPKN4llvm10bfi_detail16IrreducibleGraph7Irr
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeES7_ET0_T_S9_S8_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = ptrtoint ptr %26 to i64
-  %34 = sub i64 %33, %9
-  %35 = ashr exact i64 %34, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %35
-  %36 = getelementptr inbounds ptr, ptr %24, i64 %12
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %37, ptr align 8 %7, i64 %34, i1 false)
+  %33 = getelementptr inbounds ptr, ptr %24, i64 %12
+  %34 = ptrtoint ptr %26 to i64
+  %35 = sub i64 %34, %9
+  %36 = ashr exact i64 %35, 3
+  %37 = sub nsw i64 0, %36
+  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeES7_ET0_T_S9_S8_.exit
 
-38:                                               ; preds = %3
+39:                                               ; preds = %3
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %15, i64 %1)
-  %39 = add i64 %15, 2
-  %40 = add i64 %39, %.sroa.speculated
-  %41 = icmp ugt i64 %40, 1152921504606846975
-  br i1 %41, label %42, label %_ZNSt11_Deque_baseIPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeESaIS5_EE15_M_allocate_mapEm.exit
+  %40 = add i64 %15, 2
+  %41 = add i64 %40, %.sroa.speculated
+  %42 = icmp ugt i64 %41, 1152921504606846975
+  br i1 %42, label %43, label %_ZNSt11_Deque_baseIPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeESaIS5_EE15_M_allocate_mapEm.exit
 
-42:                                               ; preds = %38
-  %43 = icmp ugt i64 %40, 2305843009213693951
-  br i1 %43, label %44, label %45
+43:                                               ; preds = %39
+  %44 = icmp ugt i64 %41, 2305843009213693951
+  br i1 %44, label %45, label %46
 
-44:                                               ; preds = %42
+45:                                               ; preds = %43
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #27
   unreachable
 
-45:                                               ; preds = %42
+46:                                               ; preds = %43
   tail call void @_ZSt17__throw_bad_allocv() #27
   unreachable
 
-_ZNSt11_Deque_baseIPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeESaIS5_EE15_M_allocate_mapEm.exit: ; preds = %38
-  %46 = shl nuw nsw i64 %40, 3
-  %47 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %46) #26
-  %48 = sub i64 %40, %13
-  %49 = lshr i64 %48, 1
-  %50 = getelementptr inbounds ptr, ptr %47, i64 %49
-  %51 = select i1 %2, i64 %1, i64 0
-  %52 = getelementptr inbounds ptr, ptr %50, i64 %51
-  %53 = getelementptr inbounds i8, ptr %5, i64 8
-  %.not.i.i.i.i.i25 = icmp eq ptr %53, %7
-  br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeES7_ET0_T_S9_S8_.exit26, label %54
+_ZNSt11_Deque_baseIPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeESaIS5_EE15_M_allocate_mapEm.exit: ; preds = %39
+  %47 = shl nuw nsw i64 %41, 3
+  %48 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #26
+  %49 = sub i64 %41, %13
+  %50 = lshr i64 %49, 1
+  %51 = getelementptr inbounds ptr, ptr %48, i64 %50
+  %52 = select i1 %2, i64 %1, i64 0
+  %53 = getelementptr inbounds ptr, ptr %51, i64 %52
+  %54 = getelementptr inbounds i8, ptr %5, i64 8
+  %.not.i.i.i.i.i25 = icmp eq ptr %54, %7
+  br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeES7_ET0_T_S9_S8_.exit26, label %55
 
-54:                                               ; preds = %_ZNSt11_Deque_baseIPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeESaIS5_EE15_M_allocate_mapEm.exit
-  %55 = ptrtoint ptr %53 to i64
-  %56 = sub i64 %55, %9
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %52, ptr align 8 %7, i64 %56, i1 false)
+55:                                               ; preds = %_ZNSt11_Deque_baseIPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeESaIS5_EE15_M_allocate_mapEm.exit
+  %56 = ptrtoint ptr %54 to i64
+  %57 = sub i64 %56, %9
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %53, ptr align 8 %7, i64 %57, i1 false)
   br label %_ZSt4copyIPPPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeES7_ET0_T_S9_S8_.exit26
 
-_ZSt4copyIPPPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeES7_ET0_T_S9_S8_.exit26: ; preds = %_ZNSt11_Deque_baseIPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeESaIS5_EE15_M_allocate_mapEm.exit, %54
-  %57 = load ptr, ptr %0, align 8
-  %58 = shl i64 %15, 3
-  tail call void @_ZdlPvm(ptr noundef %57, i64 noundef %58) #24
-  store ptr %47, ptr %0, align 8
-  store i64 %40, ptr %14, align 8
+_ZSt4copyIPPPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeES7_ET0_T_S9_S8_.exit26: ; preds = %_ZNSt11_Deque_baseIPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeESaIS5_EE15_M_allocate_mapEm.exit, %55
+  %58 = load ptr, ptr %0, align 8
+  %59 = shl i64 %15, 3
+  tail call void @_ZdlPvm(ptr noundef %58, i64 noundef %59) #24
+  store ptr %48, ptr %0, align 8
+  store i64 %41, ptr %14, align 8
   br label %_ZSt4copyIPPPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeES7_ET0_T_S9_S8_.exit
 
 _ZSt4copyIPPPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeES7_ET0_T_S9_S8_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeES7_ET0_T_S9_S8_.exit26
-  %.0 = phi ptr [ %52, %_ZSt4copyIPPPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeES7_ET0_T_S9_S8_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %53, %_ZSt4copyIPPPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeES7_ET0_T_S9_S8_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8
-  %59 = load ptr, ptr %.0, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %59, i64 512
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %61, ptr %62, align 8
-  %63 = getelementptr inbounds ptr, ptr %.0, i64 %12
-  %64 = getelementptr inbounds i8, ptr %63, i64 -8
-  store ptr %64, ptr %4, align 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %65, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %65, i64 512
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %67, ptr %68, align 8
+  %60 = load ptr, ptr %.0, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %60, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %60, i64 512
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %62, ptr %63, align 8
+  %64 = getelementptr inbounds ptr, ptr %.0, i64 %12
+  %65 = getelementptr inbounds i8, ptr %64, i64 -8
+  store ptr %65, ptr %4, align 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %66, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %66, i64 512
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %68, ptr %69, align 8
   ret void
 }
 

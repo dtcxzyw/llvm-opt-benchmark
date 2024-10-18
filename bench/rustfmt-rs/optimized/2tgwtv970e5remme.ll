@@ -352,26 +352,25 @@ define internal fastcc { ptr, i64 } @"_ZN113_$LT$alloc..string..String$u20$as$u2
 
 6:                                                ; preds = %5
   %7 = icmp eq i64 %0, %.16.val
-  %8 = sub i64 %.16.val, %0
   br i1 %7, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17ha2ee3e20bcc17cc5E.exit", label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17ha2ee3e20bcc17cc5E.exit.thread"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.exit.i": ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %.8.val, i64 %0
-  %10 = load i8, ptr %9, align 1, !alias.scope !13, !noundef !10
-  %11 = icmp sgt i8 %10, -65
-  %12 = sub nuw i64 %.16.val, %0
-  br i1 %11, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17ha2ee3e20bcc17cc5E.exit", label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17ha2ee3e20bcc17cc5E.exit.thread"
+  %8 = getelementptr inbounds i8, ptr %.8.val, i64 %0
+  %9 = load i8, ptr %8, align 1, !alias.scope !13, !noundef !10
+  %10 = icmp sgt i8 %9, -65
+  %11 = sub nuw i64 %.16.val, %0
+  br i1 %10, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17ha2ee3e20bcc17cc5E.exit", label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17ha2ee3e20bcc17cc5E.exit.thread"
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17ha2ee3e20bcc17cc5E.exit.thread": ; preds = %6, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.exit.i"
   tail call void @_ZN4core3str16slice_error_fail17hb5c4f833c44f34d2E(ptr noalias noundef nonnull readonly align 1 %.8.val, i64 noundef %.16.val, i64 noundef %0, i64 noundef %.16.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #26
   unreachable
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17ha2ee3e20bcc17cc5E.exit": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.exit.i", %6, %2
-  %13 = phi i64 [ %12, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.exit.i" ], [ %8, %6 ], [ %.16.val, %2 ]
-  %14 = getelementptr inbounds i8, ptr %.8.val, i64 %0
-  %15 = insertvalue { ptr, i64 } poison, ptr %14, 0
-  %16 = insertvalue { ptr, i64 } %15, i64 %13, 1
-  ret { ptr, i64 } %16
+  %12 = phi i64 [ %11, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.exit.i" ], [ 0, %6 ], [ %.16.val, %2 ]
+  %13 = getelementptr inbounds i8, ptr %.8.val, i64 %0
+  %14 = insertvalue { ptr, i64 } poison, ptr %13, 0
+  %15 = insertvalue { ptr, i64 } %14, i64 %12, 1
+  ret { ptr, i64 } %15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

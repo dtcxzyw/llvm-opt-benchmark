@@ -3857,7 +3857,7 @@ for.body41.i:                                     ; preds = %if.else.i, %for.bod
   br i1 %exitcond.not.i, label %if.end.i, label %for.body41.i, !llvm.loop !41
 
 if.end.i:                                         ; preds = %for.body41.i, %for.body22.i, %if.else.i, %for.cond19.preheader.i
-  %sub.ptr.sub.i92.pre-phi.i = phi i64 [ %sub.ptr.sub.i80.i, %if.else.i ], [ %sub.ptr.sub.i65.i, %for.cond19.preheader.i ], [ %sub.ptr.sub.i65.i, %for.body22.i ], [ %sub.ptr.sub.i80.i, %for.body41.i ]
+  %sub.ptr.sub.i92.pre-phi.i = phi i64 [ %sub.ptr.sub.i80.i, %if.else.i ], [ 0, %for.cond19.preheader.i ], [ %sub.ptr.sub.i65.i, %for.body22.i ], [ %sub.ptr.sub.i80.i, %for.body41.i ]
   %37 = phi ptr [ %33, %if.else.i ], [ %18, %for.cond19.preheader.i ], [ %18, %for.body22.i ], [ %33, %for.body41.i ]
   %sub.ptr.div.i93.i = lshr exact i64 %sub.ptr.sub.i92.pre-phi.i, 3
   %conv54.i = trunc i64 %sub.ptr.div.i93.i to i32

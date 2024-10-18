@@ -1829,7 +1829,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN20Ast
   %7 = inttoptr i64 %.val to ptr
   %.not8 = icmp eq i64 %.val, 0
   %.not = select i1 %6, i1 true, i1 %.not8
-  br i1 %.not, label %8, label %118
+  br i1 %.not, label %8, label %119
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1892,7 +1892,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN20Ast
   %55 = add nsw i64 %23, 2
   %56 = shl nsw i64 %55, 1
   %57 = icmp ugt i64 %46, %56
-  br i1 %57, label %58, label %75
+  br i1 %57, label %58, label %76
 
 58:                                               ; preds = %53
   %59 = sub i64 %46, %55
@@ -1916,119 +1916,119 @@ define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN20Ast
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE17_M_reallocate_mapEmb.exit.i.i.i, label %69
 
 69:                                               ; preds = %68
-  %70 = ptrtoint ptr %63 to i64
-  %71 = sub i64 %70, %21
-  %72 = ashr exact i64 %71, 3
-  %.pre.i.i.i.i.i.i.i.i.i = sub nsw i64 0, %72
-  %73 = getelementptr inbounds ptr, ptr %61, i64 %54
-  %74 = getelementptr inbounds ptr, ptr %73, i64 %.pre.i.i.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %74, ptr align 8 %19, i64 %71, i1 false)
+  %70 = getelementptr inbounds ptr, ptr %61, i64 %54
+  %71 = ptrtoint ptr %63 to i64
+  %72 = sub i64 %71, %21
+  %73 = ashr exact i64 %72, 3
+  %74 = sub nsw i64 0, %73
+  %75 = getelementptr inbounds ptr, ptr %70, i64 %74
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %75, ptr align 8 %19, i64 %72, i1 false)
   br label %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE17_M_reallocate_mapEmb.exit.i.i.i
 
-75:                                               ; preds = %53
+76:                                               ; preds = %53
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %46, i64 1)
-  %76 = add i64 %.sroa.speculated.i.i.i.i, %46
-  %77 = add i64 %76, 2
-  %78 = icmp ugt i64 %77, 1152921504606846975
-  br i1 %78, label %79, label %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_allocate_mapEm.exit.i.i.i.i
+  %77 = add i64 %.sroa.speculated.i.i.i.i, %46
+  %78 = add i64 %77, 2
+  %79 = icmp ugt i64 %78, 1152921504606846975
+  br i1 %79, label %80, label %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_allocate_mapEm.exit.i.i.i.i
 
-79:                                               ; preds = %75
-  %80 = icmp ugt i64 %77, 2305843009213693951
-  br i1 %80, label %.noexc.i.i.i.i.i, label %.noexc3.i.i.i.i.i
+80:                                               ; preds = %76
+  %81 = icmp ugt i64 %78, 2305843009213693951
+  br i1 %81, label %.noexc.i.i.i.i.i, label %.noexc3.i.i.i.i.i
 
-.noexc.i.i.i.i.i:                                 ; preds = %79
+.noexc.i.i.i.i.i:                                 ; preds = %80
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #24
   unreachable
 
-.noexc3.i.i.i.i.i:                                ; preds = %79
+.noexc3.i.i.i.i.i:                                ; preds = %80
   tail call void @_ZSt17__throw_bad_allocv() #24
   unreachable
 
-_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_allocate_mapEm.exit.i.i.i.i: ; preds = %75
-  %81 = shl nuw nsw i64 %77, 3
-  %82 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %81) #23
-  %83 = sub nsw i64 %76, %23
-  %84 = lshr i64 %83, 1
-  %85 = getelementptr inbounds ptr, ptr %82, i64 %84
-  %86 = getelementptr inbounds i8, ptr %17, i64 8
-  %.not.i.i.i.i.i25.i.i.i.i = icmp eq ptr %86, %19
-  br i1 %.not.i.i.i.i.i25.i.i.i.i, label %_ZSt4copyIPPN12_GLOBAL__N_111ModuleStateES3_ET0_T_S5_S4_.exit26.i.i.i.i, label %87
+_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_allocate_mapEm.exit.i.i.i.i: ; preds = %76
+  %82 = shl nuw nsw i64 %78, 3
+  %83 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %82) #23
+  %84 = sub nsw i64 %77, %23
+  %85 = lshr i64 %84, 1
+  %86 = getelementptr inbounds ptr, ptr %83, i64 %85
+  %87 = getelementptr inbounds i8, ptr %17, i64 8
+  %.not.i.i.i.i.i25.i.i.i.i = icmp eq ptr %87, %19
+  br i1 %.not.i.i.i.i.i25.i.i.i.i, label %_ZSt4copyIPPN12_GLOBAL__N_111ModuleStateES3_ET0_T_S5_S4_.exit26.i.i.i.i, label %88
 
-87:                                               ; preds = %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_allocate_mapEm.exit.i.i.i.i
-  %88 = ptrtoint ptr %86 to i64
-  %89 = sub i64 %88, %21
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %85, ptr align 8 %19, i64 %89, i1 false)
+88:                                               ; preds = %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_allocate_mapEm.exit.i.i.i.i
+  %89 = ptrtoint ptr %87 to i64
+  %90 = sub i64 %89, %21
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %86, ptr align 8 %19, i64 %90, i1 false)
   br label %_ZSt4copyIPPN12_GLOBAL__N_111ModuleStateES3_ET0_T_S5_S4_.exit26.i.i.i.i
 
-_ZSt4copyIPPN12_GLOBAL__N_111ModuleStateES3_ET0_T_S5_S4_.exit26.i.i.i.i: ; preds = %87, %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_allocate_mapEm.exit.i.i.i.i
+_ZSt4copyIPPN12_GLOBAL__N_111ModuleStateES3_ET0_T_S5_S4_.exit26.i.i.i.i: ; preds = %88, %_ZNSt11_Deque_baseIN12_GLOBAL__N_111ModuleStateESaIS1_EE15_M_allocate_mapEm.exit.i.i.i.i
   tail call void @_ZdlPv(ptr noundef %47) #26
-  store ptr %82, ptr %0, align 8
-  store i64 %77, ptr %45, align 8
+  store ptr %83, ptr %0, align 8
+  store i64 %78, ptr %45, align 8
   br label %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE17_M_reallocate_mapEmb.exit.i.i.i
 
 _ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE17_M_reallocate_mapEmb.exit.i.i.i: ; preds = %_ZSt4copyIPPN12_GLOBAL__N_111ModuleStateES3_ET0_T_S5_S4_.exit26.i.i.i.i, %69, %68, %65, %64
-  %.0.i.i.i.i = phi ptr [ %85, %_ZSt4copyIPPN12_GLOBAL__N_111ModuleStateES3_ET0_T_S5_S4_.exit26.i.i.i.i ], [ %61, %64 ], [ %61, %65 ], [ %61, %68 ], [ %61, %69 ]
+  %.0.i.i.i.i = phi ptr [ %86, %_ZSt4copyIPPN12_GLOBAL__N_111ModuleStateES3_ET0_T_S5_S4_.exit26.i.i.i.i ], [ %61, %64 ], [ %61, %65 ], [ %61, %68 ], [ %61, %69 ]
   store ptr %.0.i.i.i.i, ptr %18, align 8
-  %90 = load ptr, ptr %.0.i.i.i.i, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %90, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %90, i64 512
-  store ptr %92, ptr %34, align 8
-  %93 = getelementptr inbounds ptr, ptr %.0.i.i.i.i, i64 %54
-  %94 = getelementptr inbounds i8, ptr %93, i64 -8
-  store ptr %94, ptr %16, align 8
-  %95 = load ptr, ptr %94, align 8
-  store ptr %95, ptr %27, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 512
-  store ptr %96, ptr %11, align 8
+  %91 = load ptr, ptr %.0.i.i.i.i, align 8
+  %92 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %91, ptr %92, align 8
+  %93 = getelementptr inbounds i8, ptr %91, i64 512
+  store ptr %93, ptr %34, align 8
+  %94 = getelementptr inbounds ptr, ptr %.0.i.i.i.i, i64 %54
+  %95 = getelementptr inbounds i8, ptr %94, i64 -8
+  store ptr %95, ptr %16, align 8
+  %96 = load ptr, ptr %95, align 8
+  store ptr %96, ptr %27, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 512
+  store ptr %97, ptr %11, align 8
   br label %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit.thread
 
 _ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit.thread: ; preds = %44, %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE17_M_reallocate_mapEmb.exit.i.i.i
-  %97 = phi ptr [ %17, %44 ], [ %94, %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE17_M_reallocate_mapEmb.exit.i.i.i ]
-  %98 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #23
-  %99 = getelementptr inbounds i8, ptr %97, i64 8
-  store ptr %98, ptr %99, align 8
-  %100 = load ptr, ptr %9, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %100, i8 0, i64 32, i1 false)
-  %101 = load ptr, ptr %16, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 8
-  store ptr %102, ptr %16, align 8
-  %103 = load ptr, ptr %102, align 8
-  store ptr %103, ptr %27, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 512
-  store ptr %104, ptr %11, align 8
-  store ptr %103, ptr %9, align 8
-  br label %108
+  %98 = phi ptr [ %17, %44 ], [ %95, %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE17_M_reallocate_mapEmb.exit.i.i.i ]
+  %99 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #23
+  %100 = getelementptr inbounds i8, ptr %98, i64 8
+  store ptr %99, ptr %100, align 8
+  %101 = load ptr, ptr %9, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, i8 0, i64 32, i1 false)
+  %102 = load ptr, ptr %16, align 8
+  %103 = getelementptr inbounds i8, ptr %102, i64 8
+  store ptr %103, ptr %16, align 8
+  %104 = load ptr, ptr %103, align 8
+  store ptr %104, ptr %27, align 8
+  %105 = getelementptr inbounds i8, ptr %104, i64 512
+  store ptr %105, ptr %11, align 8
+  store ptr %104, ptr %9, align 8
+  br label %109
 
 _ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit: ; preds = %8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
-  %105 = load ptr, ptr %9, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 32
+  %106 = load ptr, ptr %9, align 8
+  %107 = getelementptr inbounds i8, ptr %106, i64 32
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 56
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !noalias !8
-  store ptr %106, ptr %9, align 8
-  %107 = icmp eq ptr %106, %.pre
-  br i1 %107, label %108, label %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE4backEv.exit
+  store ptr %107, ptr %9, align 8
+  %108 = icmp eq ptr %107, %.pre
+  br i1 %108, label %109, label %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE4backEv.exit
 
-108:                                              ; preds = %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit.thread, %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit
-  %109 = getelementptr inbounds i8, ptr %0, i64 72
-  %110 = load ptr, ptr %109, align 8, !noalias !8
-  %111 = getelementptr inbounds i8, ptr %110, i64 -8
-  %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 512
+109:                                              ; preds = %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit.thread, %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit
+  %110 = getelementptr inbounds i8, ptr %0, i64 72
+  %111 = load ptr, ptr %110, align 8, !noalias !8
+  %112 = getelementptr inbounds i8, ptr %111, i64 -8
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds i8, ptr %113, i64 512
   br label %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE4backEv.exit
 
-_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE4backEv.exit: ; preds = %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit, %108
-  %114 = phi ptr [ %113, %108 ], [ %106, %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit ]
-  %115 = getelementptr inbounds i8, ptr %114, i64 -32
-  %116 = ptrtoint ptr %115 to i64
-  store i64 %116, ptr %3, align 8
-  %117 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  store i32 %117, ptr %4, align 8
-  br label %118
+_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE4backEv.exit: ; preds = %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit, %109
+  %115 = phi ptr [ %114, %109 ], [ %107, %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit ]
+  %116 = getelementptr inbounds i8, ptr %115, i64 -32
+  %117 = ptrtoint ptr %116 to i64
+  store i64 %117, ptr %3, align 8
+  %118 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  store i32 %118, ptr %4, align 8
+  br label %119
 
-118:                                              ; preds = %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE4backEv.exit, %2
-  %.0 = phi ptr [ %7, %2 ], [ %115, %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE4backEv.exit ]
+119:                                              ; preds = %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE4backEv.exit, %2
+  %.0 = phi ptr [ %7, %2 ], [ %116, %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE4backEv.exit ]
   ret ptr %.0
 }
 

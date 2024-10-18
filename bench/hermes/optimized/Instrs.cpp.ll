@@ -2435,19 +2435,19 @@ if.else33:                                        ; preds = %for.cond
 if.then36:                                        ; preds = %if.else33
   %add.ptr39 = getelementptr inbounds i8, ptr %add.ptr38, i64 -1
   %5 = load i8, ptr %add.ptr39, align 1
-  %tobool.not.i.i.i.i.i42 = icmp eq ptr %add.ptr39, %__p.0
-  br i1 %tobool.not.i.i.i.i.i42, label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, label %if.then.i.i.i.i.i43
+  %tobool.not.i.i.i.i.i39 = icmp eq ptr %add.ptr39, %__p.0
+  br i1 %tobool.not.i.i.i.i.i39, label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, label %if.then.i.i.i.i.i40
 
-if.then.i.i.i.i.i43:                              ; preds = %if.then36
-  %sub.ptr.lhs.cast.i.i.i.i.i39 = ptrtoint ptr %add.ptr39 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i40 = ptrtoint ptr %__p.0 to i64
-  %sub.ptr.sub.i.i.i.i.i41 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i39, %sub.ptr.rhs.cast.i.i.i.i.i40
-  %.pre.i.i.i.i.i = sub i64 0, %sub.ptr.sub.i.i.i.i.i41
-  %add.ptr.i.i.i.i.i44 = getelementptr inbounds i8, ptr %add.ptr38, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i44, ptr nonnull align 1 %__p.0, i64 %sub.ptr.sub.i.i.i.i.i41, i1 false)
+if.then.i.i.i.i.i40:                              ; preds = %if.then36
+  %sub.ptr.lhs.cast.i.i.i.i.i41 = ptrtoint ptr %add.ptr39 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i42 = ptrtoint ptr %__p.0 to i64
+  %sub.ptr.sub.i.i.i.i.i43 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i41, %sub.ptr.rhs.cast.i.i.i.i.i42
+  %idx.neg.i.i.i.i.i = sub i64 0, %sub.ptr.sub.i.i.i.i.i43
+  %add.ptr.i.i.i.i.i44 = getelementptr inbounds i8, ptr %add.ptr38, i64 %idx.neg.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i44, ptr nonnull align 1 %__p.0, i64 %sub.ptr.sub.i.i.i.i.i43, i1 false)
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit
 
-_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %if.then36, %if.then.i.i.i.i.i43
+_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %if.then36, %if.then.i.i.i.i.i40
   store i8 %5, ptr %__p.0, align 1
   br label %return
 

@@ -10066,7 +10066,7 @@ invoke.cont31:                                    ; preds = %_ZN3fmt3v106detail1
   %size_.i = getelementptr inbounds i8, ptr %ref.tmp35, i64 8
   store i64 %sub.ptr.sub.i, ptr %size_.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %17, %16
-  br i1 %cmp.i.i.i.i.i, label %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %if.end.i.i29, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %invoke.cont31
   %.other.coerce1.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i, i64 4)
@@ -10076,15 +10076,11 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %invoke.cont31
   %or.cond.i.i = and i1 %18, %cmp6.i.i.i.i
   br i1 %or.cond.i.i, label %if.then.i.i30, label %if.end.i.i29
 
-_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i.i: ; preds = %invoke.cont31
-  %.old.i.i = icmp eq i64 %sub.ptr.sub.i, 4
-  br i1 %.old.i.i, label %if.then.i.i30, label %if.end.i.i29
-
-if.then.i.i30:                                    ; preds = %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+if.then.i.i30:                                    ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar34)
           to label %invoke.cont38 unwind label %lpad19
 
-if.end.i.i29:                                     ; preds = %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+if.end.i.i29:                                     ; preds = %invoke.cont31, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIA5_cN3fmt3v1017basic_string_viewIcEEEENS_15AssertionResultEPKcS9_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar34, ptr noundef nonnull @.str.138, ptr noundef nonnull @.str.142, ptr noundef nonnull align 1 dereferenceable(5) @.str.140, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp35)
           to label %invoke.cont38 unwind label %lpad19
 

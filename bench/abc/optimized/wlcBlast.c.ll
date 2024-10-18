@@ -16136,7 +16136,6 @@ Vec_IntGrow.exit.i3376:                           ; preds = %2543, %Wlc_BlastRed
 
 .lr.ph4781.preheader:                             ; preds = %Vec_IntGrow.exit.i3376
   %smax5149 = tail call i32 @llvm.abs.i32(i32 %440, i1 false)
-  %umax5150 = tail call i32 @llvm.umax.i32(i32 %smax5149, i32 1)
   br label %.lr.ph4781
 
 .lr.ph4781thread-pre-split:                       ; preds = %Vec_IntPush.exit3388
@@ -16208,7 +16207,7 @@ Vec_IntPush.exit3388:                             ; preds = %.Vec_IntGrow.exit10
   %2573 = sext i32 %2571 to i64
   %2574 = getelementptr inbounds i32, ptr %2570, i64 %2573
   store i32 0, ptr %2574, align 4
-  %exitcond5151.not = icmp eq i32 %.314780, %umax5150
+  %exitcond5151.not = icmp eq i32 %.314780, %smax5149
   br i1 %exitcond5151.not, label %.critedge28, label %.lr.ph4781thread-pre-split, !llvm.loop !157
 
 2575:                                             ; preds = %1314
@@ -16287,7 +16286,6 @@ Vec_IntGrow.exit.i3408:                           ; preds = %2592, %Wlc_BlastRed
 
 .lr.ph4778.preheader:                             ; preds = %Vec_IntGrow.exit.i3408
   %smax5146 = tail call i32 @llvm.abs.i32(i32 %440, i1 false)
-  %umax5147 = tail call i32 @llvm.umax.i32(i32 %smax5146, i32 1)
   br label %.lr.ph4778
 
 .lr.ph4778thread-pre-split:                       ; preds = %Vec_IntPush.exit3421
@@ -16359,7 +16357,7 @@ Vec_IntPush.exit3421:                             ; preds = %.Vec_IntGrow.exit10
   %2622 = sext i32 %2620 to i64
   %2623 = getelementptr inbounds i32, ptr %2619, i64 %2622
   store i32 0, ptr %2623, align 4
-  %exitcond5148.not = icmp eq i32 %.324777, %umax5147
+  %exitcond5148.not = icmp eq i32 %.324777, %smax5146
   br i1 %exitcond5148.not, label %.critedge28, label %.lr.ph4778thread-pre-split, !llvm.loop !158
 
 2624:                                             ; preds = %1314
@@ -16434,7 +16432,6 @@ Vec_IntGrow.exit.i3441:                           ; preds = %2640, %Wlc_BlastRed
 
 .lr.ph4775.preheader:                             ; preds = %Vec_IntGrow.exit.i3441
   %smax5143 = tail call i32 @llvm.abs.i32(i32 %440, i1 false)
-  %umax5144 = tail call i32 @llvm.umax.i32(i32 %smax5143, i32 1)
   br label %.lr.ph4775
 
 .lr.ph4775thread-pre-split:                       ; preds = %Vec_IntPush.exit3454
@@ -16506,7 +16503,7 @@ Vec_IntPush.exit3454:                             ; preds = %.Vec_IntGrow.exit10
   %2670 = sext i32 %2668 to i64
   %2671 = getelementptr inbounds i32, ptr %2667, i64 %2670
   store i32 0, ptr %2671, align 4
-  %exitcond5145.not = icmp eq i32 %.334774, %umax5144
+  %exitcond5145.not = icmp eq i32 %.334774, %smax5143
   br i1 %exitcond5145.not, label %.critedge28, label %.lr.ph4775thread-pre-split, !llvm.loop !159
 
 2672:                                             ; preds = %1314
@@ -16581,7 +16578,6 @@ Vec_IntGrow.exit.i3474:                           ; preds = %2688, %Wlc_BlastRed
 
 .lr.ph4772.preheader:                             ; preds = %Vec_IntGrow.exit.i3474
   %smax5140 = tail call i32 @llvm.abs.i32(i32 %440, i1 false)
-  %umax5141 = tail call i32 @llvm.umax.i32(i32 %smax5140, i32 1)
   br label %.lr.ph4772
 
 .lr.ph4772thread-pre-split:                       ; preds = %Vec_IntPush.exit3487
@@ -16653,7 +16649,7 @@ Vec_IntPush.exit3487:                             ; preds = %.Vec_IntGrow.exit10
   %2718 = sext i32 %2716 to i64
   %2719 = getelementptr inbounds i32, ptr %2715, i64 %2718
   store i32 0, ptr %2719, align 4
-  %exitcond5142.not = icmp eq i32 %.344771, %umax5141
+  %exitcond5142.not = icmp eq i32 %.344771, %smax5140
   br i1 %exitcond5142.not, label %.critedge28, label %.lr.ph4772thread-pre-split, !llvm.loop !160
 
 2720:                                             ; preds = %1314
@@ -16728,7 +16724,6 @@ Vec_IntGrow.exit.i3507:                           ; preds = %2736, %Wlc_BlastRed
 
 .lr.ph4784.preheader:                             ; preds = %Vec_IntGrow.exit.i3507
   %smax5152 = tail call i32 @llvm.abs.i32(i32 %440, i1 false)
-  %umax5153 = tail call i32 @llvm.umax.i32(i32 %smax5152, i32 1)
   br label %.lr.ph4784
 
 .lr.ph4784thread-pre-split:                       ; preds = %Vec_IntPush.exit3520
@@ -16800,7 +16795,7 @@ Vec_IntPush.exit3520:                             ; preds = %.Vec_IntGrow.exit10
   %2766 = sext i32 %2764 to i64
   %2767 = getelementptr inbounds i32, ptr %2763, i64 %2766
   store i32 0, ptr %2767, align 4
-  %exitcond5154.not = icmp eq i32 %.354783, %umax5153
+  %exitcond5154.not = icmp eq i32 %.354783, %smax5152
   br i1 %exitcond5154.not, label %.critedge28, label %.lr.ph4784thread-pre-split, !llvm.loop !161
 
 2768:                                             ; preds = %1314
@@ -17206,7 +17201,6 @@ Vec_IntGrow.exit.i3559:                           ; preds = %2933, %._crit_edge4
 
 .lr.ph4812.preheader:                             ; preds = %Vec_IntGrow.exit.i3559
   %smax5182 = tail call i32 @llvm.abs.i32(i32 %440, i1 false)
-  %umax5183 = tail call i32 @llvm.umax.i32(i32 %smax5182, i32 1)
   br label %.lr.ph4812
 
 .lr.ph4812thread-pre-split:                       ; preds = %Vec_IntPush.exit3572
@@ -17278,7 +17272,7 @@ Vec_IntPush.exit3572:                             ; preds = %.Vec_IntGrow.exit10
   %2963 = sext i32 %2961 to i64
   %2964 = getelementptr inbounds i32, ptr %2960, i64 %2963
   store i32 0, ptr %2964, align 4
-  %exitcond5184.not = icmp eq i32 %.384811, %umax5183
+  %exitcond5184.not = icmp eq i32 %.384811, %smax5182
   br i1 %exitcond5184.not, label %.critedge28, label %.lr.ph4812thread-pre-split, !llvm.loop !166
 
 .thread4449:                                      ; preds = %1314, %2768
@@ -17479,7 +17473,6 @@ Vec_IntGrow.exit.i3616:                           ; preds = %3049, %._crit_edge4
 
 .lr.ph4792.preheader:                             ; preds = %Vec_IntGrow.exit.i3616
   %smax5160 = tail call i32 @llvm.abs.i32(i32 %440, i1 false)
-  %umax5161 = tail call i32 @llvm.umax.i32(i32 %smax5160, i32 1)
   br label %.lr.ph4792
 
 .lr.ph4792thread-pre-split:                       ; preds = %Vec_IntPush.exit3629
@@ -17551,7 +17544,7 @@ Vec_IntPush.exit3629:                             ; preds = %.Vec_IntGrow.exit10
   %3079 = sext i32 %3077 to i64
   %3080 = getelementptr inbounds i32, ptr %3076, i64 %3079
   store i32 0, ptr %3080, align 4
-  %exitcond5162.not = icmp eq i32 %.404791, %umax5161
+  %exitcond5162.not = icmp eq i32 %.404791, %smax5160
   br i1 %exitcond5162.not, label %.critedge28, label %.lr.ph4792thread-pre-split, !llvm.loop !168
 
 3081:                                             ; preds = %1314, %1314, %1314, %1314
@@ -17688,7 +17681,6 @@ Vec_IntGrow.exit.i3652:                           ; preds = %3140, %3131
 
 .lr.ph4762.preheader:                             ; preds = %Vec_IntGrow.exit.i3652
   %smax5130 = tail call i32 @llvm.abs.i32(i32 %440, i1 false)
-  %umax5131 = tail call i32 @llvm.umax.i32(i32 %smax5130, i32 1)
   br label %.lr.ph4762
 
 .lr.ph4762thread-pre-split:                       ; preds = %Vec_IntPush.exit3665
@@ -17760,7 +17752,7 @@ Vec_IntPush.exit3665:                             ; preds = %.Vec_IntGrow.exit10
   %3170 = sext i32 %3168 to i64
   %3171 = getelementptr inbounds i32, ptr %3167, i64 %3170
   store i32 0, ptr %3171, align 4
-  %exitcond5132.not = icmp eq i32 %.414761, %umax5131
+  %exitcond5132.not = icmp eq i32 %.414761, %smax5130
   br i1 %exitcond5132.not, label %.critedge28, label %.lr.ph4762thread-pre-split, !llvm.loop !169
 
 3172:                                             ; preds = %1314, %1314, %1314, %1314, %1314, %1314
@@ -17833,7 +17825,6 @@ Vec_IntPush.exit3672:                             ; preds = %.Vec_IntGrow.exit10
 
 .lr.ph4759.preheader:                             ; preds = %Vec_IntPush.exit3672
   %smax5128 = tail call i32 @llvm.abs.i32(i32 %440, i1 false)
-  %umax = tail call i32 @llvm.umax.i32(i32 %smax5128, i32 1)
   br label %.lr.ph4759
 
 .lr.ph4759:                                       ; preds = %.lr.ph4759.preheader, %Vec_IntPush.exit3679
@@ -17901,7 +17892,7 @@ Vec_IntPush.exit3679:                             ; preds = %.Vec_IntGrow.exit10
   %3230 = getelementptr inbounds i32, ptr %3226, i64 %3229
   store i32 0, ptr %3230, align 4
   %3231 = add nuw i32 %.424758, 1
-  %exitcond5129.not = icmp eq i32 %.424758, %umax
+  %exitcond5129.not = icmp eq i32 %.424758, %smax5128
   br i1 %exitcond5129.not, label %.critedge28, label %.lr.ph4759, !llvm.loop !170
 
 3232:                                             ; preds = %1314, %1314

@@ -3440,90 +3440,90 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   %7 = load ptr, ptr %0, align 8
   %8 = tail call fastcc noundef zeroext i1 @"_ZZL19emitRISCVExtensionsRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_"(ptr noundef %6, ptr noundef %7)
   %9 = load ptr, ptr %.sroa.0.019, align 8
-  br i1 %8, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, label %15
+  br i1 %8, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, label %16
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %5
   %10 = getelementptr inbounds i8, ptr %.pn18, i64 16
   %11 = ptrtoint ptr %.sroa.0.019 to i64
   %12 = sub i64 %11, %4
   %13 = ashr exact i64 %12, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %13
-  %14 = getelementptr inbounds ptr, ptr %10, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %12, i1 false)
+  %14 = sub nsw i64 0, %13
+  %15 = getelementptr inbounds ptr, ptr %10, i64 %14
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %12, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZL19emitRISCVExtensionsRNS2_12RecordKeeperERNS2_11raw_ostreamEE3$_0EEEvT_T0_.exit"
 
-15:                                               ; preds = %5
-  %16 = load ptr, ptr %.pn18, align 8
-  %17 = tail call fastcc noundef zeroext i1 @"_ZZL19emitRISCVExtensionsRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_"(ptr noundef nonnull %9, ptr noundef %16)
-  br i1 %17, label %.lr.ph.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZL19emitRISCVExtensionsRNS2_12RecordKeeperERNS2_11raw_ostreamEE3$_0EEEvT_T0_.exit"
+16:                                               ; preds = %5
+  %17 = load ptr, ptr %.pn18, align 8
+  %18 = tail call fastcc noundef zeroext i1 @"_ZZL19emitRISCVExtensionsRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_"(ptr noundef nonnull %9, ptr noundef %17)
+  br i1 %18, label %.lr.ph.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZL19emitRISCVExtensionsRNS2_12RecordKeeperERNS2_11raw_ostreamEE3$_0EEEvT_T0_.exit"
 
-.lr.ph.i:                                         ; preds = %15, %.lr.ph.i.backedge
-  %.sroa.0.08.i = phi ptr [ %.sroa.0.0.i, %.lr.ph.i.backedge ], [ %.pn18, %15 ]
-  %.sroa.03.07.i = phi ptr [ %.sroa.0.08.i, %.lr.ph.i.backedge ], [ %.sroa.0.019, %15 ]
-  %18 = load ptr, ptr %.sroa.0.08.i, align 8
-  store ptr %18, ptr %.sroa.03.07.i, align 8
+.lr.ph.i:                                         ; preds = %16, %.lr.ph.i.backedge
+  %.sroa.0.08.i = phi ptr [ %.sroa.0.0.i, %.lr.ph.i.backedge ], [ %.pn18, %16 ]
+  %.sroa.03.07.i = phi ptr [ %.sroa.0.08.i, %.lr.ph.i.backedge ], [ %.sroa.0.019, %16 ]
+  %19 = load ptr, ptr %.sroa.0.08.i, align 8
+  store ptr %19, ptr %.sroa.03.07.i, align 8
   %.sroa.0.0.i = getelementptr inbounds i8, ptr %.sroa.0.08.i, i64 -8
-  %19 = load ptr, ptr %.sroa.0.0.i, align 8
-  %20 = tail call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr nonnull @.str.24, i64 4) #13
-  %21 = extractvalue { ptr, i64 } %20, 0
-  %22 = extractvalue { ptr, i64 } %20, 1
-  %.not.i.i.i.i = icmp ult i64 %22, 13
+  %20 = load ptr, ptr %.sroa.0.0.i, align 8
+  %21 = tail call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr nonnull @.str.24, i64 4) #13
+  %22 = extractvalue { ptr, i64 } %21, 0
+  %23 = extractvalue { ptr, i64 } %21, 1
+  %.not.i.i.i.i = icmp ult i64 %23, 13
   br i1 %.not.i.i.i.i, label %_ZL16getExtensionNamePKN4llvm6RecordE.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i:  ; preds = %.lr.ph.i
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %21, ptr noundef nonnull dereferenceable(13) @.str.25, i64 13)
-  %23 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %23, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i, label %_ZL16getExtensionNamePKN4llvm6RecordE.exit.i
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %22, ptr noundef nonnull dereferenceable(13) @.str.25, i64 13)
+  %24 = icmp eq i32 %bcmp.i.i.i.i, 0
+  br i1 %24, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i, label %_ZL16getExtensionNamePKN4llvm6RecordE.exit.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i
-  %24 = getelementptr inbounds i8, ptr %21, i64 13
-  %25 = add i64 %22, -13
+  %25 = getelementptr inbounds i8, ptr %22, i64 13
+  %26 = add i64 %23, -13
   br label %_ZL16getExtensionNamePKN4llvm6RecordE.exit.i
 
 _ZL16getExtensionNamePKN4llvm6RecordE.exit.i:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i, %.lr.ph.i
-  %.sroa.03.0.i.i = phi ptr [ %21, %.lr.ph.i ], [ %24, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i ], [ %21, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ]
-  %.sroa.4.0.i.i = phi i64 [ %22, %.lr.ph.i ], [ %25, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i ], [ %22, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ]
-  %26 = tail call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %19, ptr nonnull @.str.24, i64 4) #13
-  %27 = extractvalue { ptr, i64 } %26, 0
-  %28 = extractvalue { ptr, i64 } %26, 1
-  %.not.i.i.i4.i = icmp ult i64 %28, 13
+  %.sroa.03.0.i.i = phi ptr [ %22, %.lr.ph.i ], [ %25, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i ], [ %22, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ]
+  %.sroa.4.0.i.i = phi i64 [ %23, %.lr.ph.i ], [ %26, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i ], [ %23, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ]
+  %27 = tail call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %20, ptr nonnull @.str.24, i64 4) #13
+  %28 = extractvalue { ptr, i64 } %27, 0
+  %29 = extractvalue { ptr, i64 } %27, 1
+  %.not.i.i.i4.i = icmp ult i64 %29, 13
   br i1 %.not.i.i.i4.i, label %_ZL16getExtensionNamePKN4llvm6RecordE.exit12.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i5.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i.i5.i: ; preds = %_ZL16getExtensionNamePKN4llvm6RecordE.exit.i
-  %bcmp.i.i.i6.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %27, ptr noundef nonnull dereferenceable(13) @.str.25, i64 13)
-  %29 = icmp eq i32 %bcmp.i.i.i6.i, 0
-  br i1 %29, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i11.i, label %_ZL16getExtensionNamePKN4llvm6RecordE.exit12.i
+  %bcmp.i.i.i6.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %28, ptr noundef nonnull dereferenceable(13) @.str.25, i64 13)
+  %30 = icmp eq i32 %bcmp.i.i.i6.i, 0
+  br i1 %30, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i11.i, label %_ZL16getExtensionNamePKN4llvm6RecordE.exit12.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i11.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i5.i
-  %30 = getelementptr inbounds i8, ptr %27, i64 13
-  %31 = add i64 %28, -13
+  %31 = getelementptr inbounds i8, ptr %28, i64 13
+  %32 = add i64 %29, -13
   br label %_ZL16getExtensionNamePKN4llvm6RecordE.exit12.i
 
 _ZL16getExtensionNamePKN4llvm6RecordE.exit12.i:   ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i11.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i5.i, %_ZL16getExtensionNamePKN4llvm6RecordE.exit.i
-  %.sroa.03.0.i7.i = phi ptr [ %27, %_ZL16getExtensionNamePKN4llvm6RecordE.exit.i ], [ %30, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i11.i ], [ %27, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i5.i ]
-  %.sroa.4.0.i8.i = phi i64 [ %28, %_ZL16getExtensionNamePKN4llvm6RecordE.exit.i ], [ %31, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i11.i ], [ %28, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i5.i ]
+  %.sroa.03.0.i7.i = phi ptr [ %28, %_ZL16getExtensionNamePKN4llvm6RecordE.exit.i ], [ %31, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i11.i ], [ %28, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i5.i ]
+  %.sroa.4.0.i8.i = phi i64 [ %29, %_ZL16getExtensionNamePKN4llvm6RecordE.exit.i ], [ %32, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i11.i ], [ %29, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i5.i ]
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.4.0.i8.i, i64 %.sroa.4.0.i.i)
-  %32 = icmp eq i64 %.sroa.speculated.i.i.i, 0
-  br i1 %32, label %"_ZZL19emitRISCVExtensionsRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_.exit", label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
+  %33 = icmp eq i64 %.sroa.speculated.i.i.i, 0
+  br i1 %33, label %"_ZZL19emitRISCVExtensionsRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_.exit", label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i: ; preds = %_ZL16getExtensionNamePKN4llvm6RecordE.exit12.i
-  %33 = tail call i32 @memcmp(ptr noundef %.sroa.03.0.i.i, ptr noundef %.sroa.03.0.i7.i, i64 noundef %.sroa.speculated.i.i.i) #14
-  %.not.i.i.i = icmp eq i32 %33, 0
-  br i1 %.not.i.i.i, label %"_ZZL19emitRISCVExtensionsRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_.exit", label %34
+  %34 = tail call i32 @memcmp(ptr noundef %.sroa.03.0.i.i, ptr noundef %.sroa.03.0.i7.i, i64 noundef %.sroa.speculated.i.i.i) #14
+  %.not.i.i.i = icmp eq i32 %34, 0
+  br i1 %.not.i.i.i, label %"_ZZL19emitRISCVExtensionsRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_.exit", label %35
 
-34:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
-  %.inv.i.i.i = icmp slt i32 %33, 0
+35:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
+  %.inv.i.i.i = icmp slt i32 %34, 0
   br i1 %.inv.i.i.i, label %.lr.ph.i.backedge, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZL19emitRISCVExtensionsRNS2_12RecordKeeperERNS2_11raw_ostreamEE3$_0EEEvT_T0_.exit"
 
 "_ZZL19emitRISCVExtensionsRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_.exit": ; preds = %_ZL16getExtensionNamePKN4llvm6RecordE.exit12.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
-  %35 = icmp ult i64 %.sroa.4.0.i.i, %.sroa.4.0.i8.i
-  br i1 %35, label %.lr.ph.i.backedge, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZL19emitRISCVExtensionsRNS2_12RecordKeeperERNS2_11raw_ostreamEE3$_0EEEvT_T0_.exit"
+  %36 = icmp ult i64 %.sroa.4.0.i.i, %.sroa.4.0.i8.i
+  br i1 %36, label %.lr.ph.i.backedge, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZL19emitRISCVExtensionsRNS2_12RecordKeeperERNS2_11raw_ostreamEE3$_0EEEvT_T0_.exit"
 
-.lr.ph.i.backedge:                                ; preds = %"_ZZL19emitRISCVExtensionsRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_.exit", %34
+.lr.ph.i.backedge:                                ; preds = %"_ZZL19emitRISCVExtensionsRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_.exit", %35
   br label %.lr.ph.i, !llvm.loop !4
 
-"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZL19emitRISCVExtensionsRNS2_12RecordKeeperERNS2_11raw_ostreamEE3$_0EEEvT_T0_.exit": ; preds = %"_ZZL19emitRISCVExtensionsRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_.exit", %34, %15, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
-  %.sink = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ], [ %.sroa.0.019, %15 ], [ %.sroa.0.08.i, %34 ], [ %.sroa.0.08.i, %"_ZZL19emitRISCVExtensionsRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_.exit" ]
+"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZL19emitRISCVExtensionsRNS2_12RecordKeeperERNS2_11raw_ostreamEE3$_0EEEvT_T0_.exit": ; preds = %"_ZZL19emitRISCVExtensionsRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_.exit", %35, %16, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
+  %.sink = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ], [ %.sroa.0.019, %16 ], [ %.sroa.0.08.i, %35 ], [ %.sroa.0.08.i, %"_ZZL19emitRISCVExtensionsRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_.exit" ]
   store ptr %9, ptr %.sink, align 8
   %.sroa.0.0 = getelementptr inbounds i8, ptr %.sroa.0.019, i64 8
   %.not = icmp eq ptr %.sroa.0.0, %1
@@ -5058,90 +5058,90 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   %7 = load ptr, ptr %0, align 8
   %8 = tail call fastcc noundef zeroext i1 @"_ZZL25emitRISCVExtensionBitmaskRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_"(ptr noundef %6, ptr noundef %7)
   %9 = load ptr, ptr %.sroa.0.019, align 8
-  br i1 %8, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, label %15
+  br i1 %8, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, label %16
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %5
   %10 = getelementptr inbounds i8, ptr %.pn18, i64 16
   %11 = ptrtoint ptr %.sroa.0.019 to i64
   %12 = sub i64 %11, %4
   %13 = ashr exact i64 %12, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %13
-  %14 = getelementptr inbounds ptr, ptr %10, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %12, i1 false)
+  %14 = sub nsw i64 0, %13
+  %15 = getelementptr inbounds ptr, ptr %10, i64 %14
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %12, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZL25emitRISCVExtensionBitmaskRNS2_12RecordKeeperERNS2_11raw_ostreamEE3$_0EEEvT_T0_.exit"
 
-15:                                               ; preds = %5
-  %16 = load ptr, ptr %.pn18, align 8
-  %17 = tail call fastcc noundef zeroext i1 @"_ZZL25emitRISCVExtensionBitmaskRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_"(ptr noundef nonnull %9, ptr noundef %16)
-  br i1 %17, label %.lr.ph.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZL25emitRISCVExtensionBitmaskRNS2_12RecordKeeperERNS2_11raw_ostreamEE3$_0EEEvT_T0_.exit"
+16:                                               ; preds = %5
+  %17 = load ptr, ptr %.pn18, align 8
+  %18 = tail call fastcc noundef zeroext i1 @"_ZZL25emitRISCVExtensionBitmaskRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_"(ptr noundef nonnull %9, ptr noundef %17)
+  br i1 %18, label %.lr.ph.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZL25emitRISCVExtensionBitmaskRNS2_12RecordKeeperERNS2_11raw_ostreamEE3$_0EEEvT_T0_.exit"
 
-.lr.ph.i:                                         ; preds = %15, %.lr.ph.i.backedge
-  %.sroa.0.08.i = phi ptr [ %.sroa.0.0.i, %.lr.ph.i.backedge ], [ %.pn18, %15 ]
-  %.sroa.03.07.i = phi ptr [ %.sroa.0.08.i, %.lr.ph.i.backedge ], [ %.sroa.0.019, %15 ]
-  %18 = load ptr, ptr %.sroa.0.08.i, align 8
-  store ptr %18, ptr %.sroa.03.07.i, align 8
+.lr.ph.i:                                         ; preds = %16, %.lr.ph.i.backedge
+  %.sroa.0.08.i = phi ptr [ %.sroa.0.0.i, %.lr.ph.i.backedge ], [ %.pn18, %16 ]
+  %.sroa.03.07.i = phi ptr [ %.sroa.0.08.i, %.lr.ph.i.backedge ], [ %.sroa.0.019, %16 ]
+  %19 = load ptr, ptr %.sroa.0.08.i, align 8
+  store ptr %19, ptr %.sroa.03.07.i, align 8
   %.sroa.0.0.i = getelementptr inbounds i8, ptr %.sroa.0.08.i, i64 -8
-  %19 = load ptr, ptr %.sroa.0.0.i, align 8
-  %20 = tail call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr nonnull @.str.24, i64 4) #13
-  %21 = extractvalue { ptr, i64 } %20, 0
-  %22 = extractvalue { ptr, i64 } %20, 1
-  %.not.i.i.i.i = icmp ult i64 %22, 13
+  %20 = load ptr, ptr %.sroa.0.0.i, align 8
+  %21 = tail call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr nonnull @.str.24, i64 4) #13
+  %22 = extractvalue { ptr, i64 } %21, 0
+  %23 = extractvalue { ptr, i64 } %21, 1
+  %.not.i.i.i.i = icmp ult i64 %23, 13
   br i1 %.not.i.i.i.i, label %_ZL16getExtensionNamePKN4llvm6RecordE.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i:  ; preds = %.lr.ph.i
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %21, ptr noundef nonnull dereferenceable(13) @.str.25, i64 13)
-  %23 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %23, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i, label %_ZL16getExtensionNamePKN4llvm6RecordE.exit.i
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %22, ptr noundef nonnull dereferenceable(13) @.str.25, i64 13)
+  %24 = icmp eq i32 %bcmp.i.i.i.i, 0
+  br i1 %24, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i, label %_ZL16getExtensionNamePKN4llvm6RecordE.exit.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i
-  %24 = getelementptr inbounds i8, ptr %21, i64 13
-  %25 = add i64 %22, -13
+  %25 = getelementptr inbounds i8, ptr %22, i64 13
+  %26 = add i64 %23, -13
   br label %_ZL16getExtensionNamePKN4llvm6RecordE.exit.i
 
 _ZL16getExtensionNamePKN4llvm6RecordE.exit.i:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i, %.lr.ph.i
-  %.sroa.03.0.i.i = phi ptr [ %21, %.lr.ph.i ], [ %24, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i ], [ %21, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ]
-  %.sroa.4.0.i.i = phi i64 [ %22, %.lr.ph.i ], [ %25, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i ], [ %22, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ]
-  %26 = tail call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %19, ptr nonnull @.str.24, i64 4) #13
-  %27 = extractvalue { ptr, i64 } %26, 0
-  %28 = extractvalue { ptr, i64 } %26, 1
-  %.not.i.i.i4.i = icmp ult i64 %28, 13
+  %.sroa.03.0.i.i = phi ptr [ %22, %.lr.ph.i ], [ %25, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i ], [ %22, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ]
+  %.sroa.4.0.i.i = phi i64 [ %23, %.lr.ph.i ], [ %26, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i.i ], [ %23, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ]
+  %27 = tail call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %20, ptr nonnull @.str.24, i64 4) #13
+  %28 = extractvalue { ptr, i64 } %27, 0
+  %29 = extractvalue { ptr, i64 } %27, 1
+  %.not.i.i.i4.i = icmp ult i64 %29, 13
   br i1 %.not.i.i.i4.i, label %_ZL16getExtensionNamePKN4llvm6RecordE.exit12.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i5.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i.i5.i: ; preds = %_ZL16getExtensionNamePKN4llvm6RecordE.exit.i
-  %bcmp.i.i.i6.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %27, ptr noundef nonnull dereferenceable(13) @.str.25, i64 13)
-  %29 = icmp eq i32 %bcmp.i.i.i6.i, 0
-  br i1 %29, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i11.i, label %_ZL16getExtensionNamePKN4llvm6RecordE.exit12.i
+  %bcmp.i.i.i6.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %28, ptr noundef nonnull dereferenceable(13) @.str.25, i64 13)
+  %30 = icmp eq i32 %bcmp.i.i.i6.i, 0
+  br i1 %30, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i11.i, label %_ZL16getExtensionNamePKN4llvm6RecordE.exit12.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i11.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i5.i
-  %30 = getelementptr inbounds i8, ptr %27, i64 13
-  %31 = add i64 %28, -13
+  %31 = getelementptr inbounds i8, ptr %28, i64 13
+  %32 = add i64 %29, -13
   br label %_ZL16getExtensionNamePKN4llvm6RecordE.exit12.i
 
 _ZL16getExtensionNamePKN4llvm6RecordE.exit12.i:   ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i11.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i5.i, %_ZL16getExtensionNamePKN4llvm6RecordE.exit.i
-  %.sroa.03.0.i7.i = phi ptr [ %27, %_ZL16getExtensionNamePKN4llvm6RecordE.exit.i ], [ %30, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i11.i ], [ %27, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i5.i ]
-  %.sroa.4.0.i8.i = phi i64 [ %28, %_ZL16getExtensionNamePKN4llvm6RecordE.exit.i ], [ %31, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i11.i ], [ %28, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i5.i ]
+  %.sroa.03.0.i7.i = phi ptr [ %28, %_ZL16getExtensionNamePKN4llvm6RecordE.exit.i ], [ %31, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i11.i ], [ %28, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i5.i ]
+  %.sroa.4.0.i8.i = phi i64 [ %29, %_ZL16getExtensionNamePKN4llvm6RecordE.exit.i ], [ %32, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i11.i ], [ %29, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i5.i ]
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.4.0.i8.i, i64 %.sroa.4.0.i.i)
-  %32 = icmp eq i64 %.sroa.speculated.i.i.i, 0
-  br i1 %32, label %"_ZZL25emitRISCVExtensionBitmaskRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_.exit", label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
+  %33 = icmp eq i64 %.sroa.speculated.i.i.i, 0
+  br i1 %33, label %"_ZZL25emitRISCVExtensionBitmaskRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_.exit", label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i: ; preds = %_ZL16getExtensionNamePKN4llvm6RecordE.exit12.i
-  %33 = tail call i32 @memcmp(ptr noundef %.sroa.03.0.i.i, ptr noundef %.sroa.03.0.i7.i, i64 noundef %.sroa.speculated.i.i.i) #14
-  %.not.i.i.i = icmp eq i32 %33, 0
-  br i1 %.not.i.i.i, label %"_ZZL25emitRISCVExtensionBitmaskRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_.exit", label %34
+  %34 = tail call i32 @memcmp(ptr noundef %.sroa.03.0.i.i, ptr noundef %.sroa.03.0.i7.i, i64 noundef %.sroa.speculated.i.i.i) #14
+  %.not.i.i.i = icmp eq i32 %34, 0
+  br i1 %.not.i.i.i, label %"_ZZL25emitRISCVExtensionBitmaskRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_.exit", label %35
 
-34:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
-  %.inv.i.i.i = icmp slt i32 %33, 0
+35:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
+  %.inv.i.i.i = icmp slt i32 %34, 0
   br i1 %.inv.i.i.i, label %.lr.ph.i.backedge, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZL25emitRISCVExtensionBitmaskRNS2_12RecordKeeperERNS2_11raw_ostreamEE3$_0EEEvT_T0_.exit"
 
 "_ZZL25emitRISCVExtensionBitmaskRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_.exit": ; preds = %_ZL16getExtensionNamePKN4llvm6RecordE.exit12.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
-  %35 = icmp ult i64 %.sroa.4.0.i.i, %.sroa.4.0.i8.i
-  br i1 %35, label %.lr.ph.i.backedge, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZL25emitRISCVExtensionBitmaskRNS2_12RecordKeeperERNS2_11raw_ostreamEE3$_0EEEvT_T0_.exit"
+  %36 = icmp ult i64 %.sroa.4.0.i.i, %.sroa.4.0.i8.i
+  br i1 %36, label %.lr.ph.i.backedge, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZL25emitRISCVExtensionBitmaskRNS2_12RecordKeeperERNS2_11raw_ostreamEE3$_0EEEvT_T0_.exit"
 
-.lr.ph.i.backedge:                                ; preds = %"_ZZL25emitRISCVExtensionBitmaskRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_.exit", %34
+.lr.ph.i.backedge:                                ; preds = %"_ZZL25emitRISCVExtensionBitmaskRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_.exit", %35
   br label %.lr.ph.i, !llvm.loop !13
 
-"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZL25emitRISCVExtensionBitmaskRNS2_12RecordKeeperERNS2_11raw_ostreamEE3$_0EEEvT_T0_.exit": ; preds = %"_ZZL25emitRISCVExtensionBitmaskRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_.exit", %34, %15, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
-  %.sink = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ], [ %.sroa.0.019, %15 ], [ %.sroa.0.08.i, %34 ], [ %.sroa.0.08.i, %"_ZZL25emitRISCVExtensionBitmaskRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_.exit" ]
+"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZL25emitRISCVExtensionBitmaskRNS2_12RecordKeeperERNS2_11raw_ostreamEE3$_0EEEvT_T0_.exit": ; preds = %"_ZZL25emitRISCVExtensionBitmaskRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_.exit", %35, %16, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
+  %.sink = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ], [ %.sroa.0.019, %16 ], [ %.sroa.0.08.i, %35 ], [ %.sroa.0.08.i, %"_ZZL25emitRISCVExtensionBitmaskRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_0clEPKNS_6RecordES7_.exit" ]
   store ptr %9, ptr %.sink, align 8
   %.sroa.0.0 = getelementptr inbounds i8, ptr %.sroa.0.019, i64 8
   %.not = icmp eq ptr %.sroa.0.0, %1

@@ -23413,7 +23413,6 @@ _ZNSt8multimapImmSt4lessImESaISt4pairIKmmEEE11equal_rangeERS3_.exit: ; preds = %
 .lr.ph:                                           ; preds = %_ZNSt8multimapImmSt4lessImESaISt4pairIKmmEEE11equal_rangeERS3_.exit
   %51 = getelementptr inbounds i8, ptr %0, i64 3072
   %52 = load ptr, ptr %51, align 8
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %19, i64 1)
   br i1 %16, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN6casadi13CodeGenerator5equalIcEEbRKSt6vectorIT_SaIS3_EES7_.exit.us
@@ -23451,7 +23450,7 @@ _ZN6casadi13CodeGenerator5equalIcEEbRKSt6vectorIT_SaIS3_EES7_.exit.us: ; preds =
 
 72:                                               ; preds = %.lr.ph.i
   %73 = add nuw i64 %.011.i, 1
-  %exitcond.not.i = icmp eq i64 %73, %umax.i
+  %exitcond.not.i = icmp eq i64 %73, %19
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !177
 
 .lr.ph.i:                                         ; preds = %.lr.ph.split, %72

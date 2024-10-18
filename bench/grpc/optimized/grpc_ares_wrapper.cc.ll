@@ -1588,10 +1588,6 @@ if.end:                                           ; preds = %if.then, %entry
   %call2 = tail call ptr @gpr_zalloc(i64 noundef %mul)
   %3 = load ptr, ptr %_M_finish.i, align 8
   %4 = load ptr, ptr %addresses, align 8
-  %sub.ptr.lhs.cast.i2957 = ptrtoint ptr %3 to i64
-  %sub.ptr.rhs.cast.i3058 = ptrtoint ptr %4 to i64
-  %sub.ptr.sub.i3159 = sub i64 %sub.ptr.lhs.cast.i2957, %sub.ptr.rhs.cast.i3058
-  %sub.ptr.div.i3260 = ashr exact i64 %sub.ptr.sub.i3159, 5
   %cmp61.not = icmp eq ptr %3, %4
   br i1 %cmp61.not, label %for.end, label %for.body
 
@@ -1628,7 +1624,7 @@ for.body:                                         ; preds = %if.end, %for.body
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body, %if.end
-  %sub.ptr.div.i32.lcssa = phi i64 [ %sub.ptr.div.i3260, %if.end ], [ %sub.ptr.div.i32, %for.body ]
+  %sub.ptr.div.i32.lcssa = phi i64 [ 0, %if.end ], [ %sub.ptr.div.i32, %for.body ]
   tail call void @address_sorting_rfc_6724_sort(ptr noundef %call2, i64 noundef %sub.ptr.div.i32.lcssa)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sorted, i8 0, i64 24, i1 false)
   %14 = load ptr, ptr %_M_finish.i, align 8

@@ -10900,60 +10900,60 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN
   br i1 %15, label %16, label %.preheader26
 
 .preheader26:                                     ; preds = %14, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIPPNS4_11TreePatternESM_EEbSB_SE_.exit
-  br label %22
+  br label %23
 
 16:                                               ; preds = %14, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIPPNS4_11TreePatternESM_EEbSB_SE_.exit
   %17 = getelementptr inbounds i8, ptr %.pn21, i64 16
   %18 = ptrtoint ptr %.022 to i64
   %19 = sub i64 %18, %4
   %20 = ashr exact i64 %19, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %20
-  %21 = getelementptr inbounds ptr, ptr %17, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %21, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %19, i1 false)
+  %21 = sub nsw i64 0, %20
+  %22 = getelementptr inbounds ptr, ptr %17, i64 %21
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %22, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %19, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPPN4llvm11TreePatternEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEEvSF_SI_.exit
 
-22:                                               ; preds = %.preheader26, %31
-  %.val.val.val.val10.i = phi i64 [ %.val.val.val.val10.i.pre, %31 ], [ %.0.val.val.val.val17, %.preheader26 ]
-  %.val.val.val.i = phi ptr [ %.val.val.val.i.pre, %31 ], [ %.0.val.val.val, %.preheader26 ]
-  %.09.i = phi ptr [ %.0.i, %31 ], [ %.022, %.preheader26 ]
+23:                                               ; preds = %.preheader26, %32
+  %.val.val.val.val10.i = phi i64 [ %.val.val.val.val10.i.pre, %32 ], [ %.0.val.val.val.val17, %.preheader26 ]
+  %.val.val.val.i = phi ptr [ %.val.val.val.i.pre, %32 ], [ %.0.val.val.val, %.preheader26 ]
+  %.09.i = phi ptr [ %.0.i, %32 ], [ %.022, %.preheader26 ]
   %.0.i = getelementptr inbounds i8, ptr %.09.i, i64 -8
   %.0.val.i = load ptr, ptr %.0.i, align 8
-  %23 = getelementptr i8, ptr %.0.val.i, i64 48
-  %.0.val.val.i = load ptr, ptr %23, align 8
+  %24 = getelementptr i8, ptr %.0.val.i, i64 48
+  %.0.val.val.i = load ptr, ptr %24, align 8
   %.0.val.val.val.i = load ptr, ptr %.0.val.val.i, align 8
-  %24 = getelementptr i8, ptr %.0.val.val.val.i, i64 32
-  %.0.val.val.val.val11.i = load i64, ptr %24, align 8
+  %25 = getelementptr i8, ptr %.0.val.val.val.i, i64 32
+  %.0.val.val.val.val11.i = load i64, ptr %25, align 8
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.0.val.val.val.val11.i, i64 %.val.val.val.val10.i)
-  %25 = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
-  br i1 %25, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIPNS4_11TreePatternEPSL_EEbRSB_SE_.exit.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
+  %26 = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
+  br i1 %26, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIPNS4_11TreePatternEPSL_EEbRSB_SE_.exit.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %22
-  %26 = getelementptr i8, ptr %.0.val.val.val.i, i64 24
-  %.0.val.val.val.val.i = load ptr, ptr %26, align 8
-  %27 = getelementptr i8, ptr %.val.val.val.i, i64 24
-  %.val.val.val.val.i = load ptr, ptr %27, align 8
-  %28 = tail call i32 @memcmp(ptr noundef readonly %.val.val.val.val.i, ptr noundef readonly %.0.val.val.val.val.i, i64 noundef %.sroa.speculated.i.i.i.i.i) #24
-  %.not.i.i.i.i.i = icmp eq i32 %28, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIPNS4_11TreePatternEPSL_EEbRSB_SE_.exit.i, label %29
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %23
+  %27 = getelementptr i8, ptr %.0.val.val.val.i, i64 24
+  %.0.val.val.val.val.i = load ptr, ptr %27, align 8
+  %28 = getelementptr i8, ptr %.val.val.val.i, i64 24
+  %.val.val.val.val.i = load ptr, ptr %28, align 8
+  %29 = tail call i32 @memcmp(ptr noundef readonly %.val.val.val.val.i, ptr noundef readonly %.0.val.val.val.val.i, i64 noundef %.sroa.speculated.i.i.i.i.i) #24
+  %.not.i.i.i.i.i = icmp eq i32 %29, 0
+  br i1 %.not.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIPNS4_11TreePatternEPSL_EEbRSB_SE_.exit.i, label %30
 
-29:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
-  %.inv.i.i.i.i.i = icmp slt i32 %28, 0
-  br i1 %.inv.i.i.i.i.i, label %31, label %_ZSt25__unguarded_linear_insertIPPN4llvm11TreePatternEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEEvSF_SI_.exit
+30:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
+  %.inv.i.i.i.i.i = icmp slt i32 %29, 0
+  br i1 %.inv.i.i.i.i.i, label %32, label %_ZSt25__unguarded_linear_insertIPPN4llvm11TreePatternEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEEvSF_SI_.exit
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIPNS4_11TreePatternEPSL_EEbRSB_SE_.exit.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i, %22
-  %30 = icmp ult i64 %.val.val.val.val10.i, %.0.val.val.val.val11.i
-  br i1 %30, label %31, label %_ZSt25__unguarded_linear_insertIPPN4llvm11TreePatternEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEEvSF_SI_.exit
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIPNS4_11TreePatternEPSL_EEbRSB_SE_.exit.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i, %23
+  %31 = icmp ult i64 %.val.val.val.val10.i, %.0.val.val.val.val11.i
+  br i1 %31, label %32, label %_ZSt25__unguarded_linear_insertIPPN4llvm11TreePatternEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEEvSF_SI_.exit
 
-31:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIPNS4_11TreePatternEPSL_EEbRSB_SE_.exit.i, %29
+32:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIPNS4_11TreePatternEPSL_EEbRSB_SE_.exit.i, %30
   store ptr %.0.val.i, ptr %.09.i, align 8
   %.val.val.i.pre = load ptr, ptr %6, align 8
   %.val.val.val.i.pre = load ptr, ptr %.val.val.i.pre, align 8
   %.phi.trans.insert = getelementptr i8, ptr %.val.val.val.i.pre, i64 32
   %.val.val.val.val10.i.pre = load i64, ptr %.phi.trans.insert, align 8
-  br label %22, !llvm.loop !124
+  br label %23, !llvm.loop !124
 
-_ZSt25__unguarded_linear_insertIPPN4llvm11TreePatternEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEEvSF_SI_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIPNS4_11TreePatternEPSL_EEbRSB_SE_.exit.i, %29, %16
-  %.sink = phi ptr [ %0, %16 ], [ %.09.i, %29 ], [ %.09.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIPNS4_11TreePatternEPSL_EEbRSB_SE_.exit.i ]
+_ZSt25__unguarded_linear_insertIPPN4llvm11TreePatternEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEEvSF_SI_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIPNS4_11TreePatternEPSL_EEbRSB_SE_.exit.i, %30, %16
+  %.sink = phi ptr [ %0, %16 ], [ %.09.i, %30 ], [ %.09.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIPNS4_11TreePatternEPSL_EEbRSB_SE_.exit.i ]
   store ptr %.0.val, ptr %.sink, align 8
   %.0 = getelementptr inbounds i8, ptr %.022, i64 8
   %.not = icmp eq ptr %.0, %1
@@ -11289,7 +11289,7 @@ _ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit: ; preds = %29, %32
 47:                                               ; preds = %24
   %48 = icmp eq i64 %25, 1
   %49 = getelementptr inbounds ptr, ptr %.053, i64 %.076
-  br i1 %48, label %50, label %59
+  br i1 %48, label %50, label %60
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds i8, ptr %49, i64 -8
@@ -11302,44 +11302,44 @@ _ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit: ; preds = %29, %32
   %55 = ptrtoint ptr %.053 to i64
   %56 = sub i64 %54, %55
   %57 = ashr exact i64 %56, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %57
-  %58 = getelementptr inbounds ptr, ptr %49, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %58, ptr nonnull align 8 %.053, i64 %56, i1 false)
+  %58 = sub nsw i64 0, %57
+  %59 = getelementptr inbounds ptr, ptr %49, i64 %58
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %59, ptr nonnull align 8 %.053, i64 %56, i1 false)
   br label %_ZSt13move_backwardIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit
 
 _ZSt13move_backwardIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit: ; preds = %50, %53
   store ptr %52, ptr %.053, align 8
   br label %_ZSt11swap_rangesIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit
 
-59:                                               ; preds = %47
-  %60 = sub i64 0, %25
-  %61 = getelementptr inbounds ptr, ptr %49, i64 %60
-  %62 = icmp sgt i64 %.074, 0
-  br i1 %62, label %.lr.ph, label %._crit_edge
+60:                                               ; preds = %47
+  %61 = sub i64 0, %25
+  %62 = getelementptr inbounds ptr, ptr %49, i64 %61
+  %63 = icmp sgt i64 %.074, 0
+  br i1 %63, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %59, %.lr.ph
-  %.085 = phi i64 [ %67, %.lr.ph ], [ 0, %59 ]
-  %.04984 = phi ptr [ %64, %.lr.ph ], [ %49, %59 ]
-  %.383 = phi ptr [ %63, %.lr.ph ], [ %61, %59 ]
-  %63 = getelementptr inbounds i8, ptr %.383, i64 -8
-  %64 = getelementptr inbounds i8, ptr %.04984, i64 -8
-  %65 = load ptr, ptr %63, align 8
+.lr.ph:                                           ; preds = %60, %.lr.ph
+  %.085 = phi i64 [ %68, %.lr.ph ], [ 0, %60 ]
+  %.04984 = phi ptr [ %65, %.lr.ph ], [ %49, %60 ]
+  %.383 = phi ptr [ %64, %.lr.ph ], [ %62, %60 ]
+  %64 = getelementptr inbounds i8, ptr %.383, i64 -8
+  %65 = getelementptr inbounds i8, ptr %.04984, i64 -8
   %66 = load ptr, ptr %64, align 8
-  store ptr %66, ptr %63, align 8
-  store ptr %65, ptr %64, align 8
-  %67 = add nuw nsw i64 %.085, 1
-  %exitcond.not = icmp eq i64 %67, %.074
+  %67 = load ptr, ptr %65, align 8
+  store ptr %67, ptr %64, align 8
+  store ptr %66, ptr %65, align 8
+  %68 = add nuw nsw i64 %.085, 1
+  %exitcond.not = icmp eq i64 %68, %.074
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !130
 
-._crit_edge:                                      ; preds = %.lr.ph, %59
-  %.3.lcssa = phi ptr [ %61, %59 ], [ %.053, %.lr.ph ]
-  %68 = srem i64 %.076, %25
-  %69 = icmp eq i64 %68, 0
-  br i1 %69, label %_ZSt11swap_rangesIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit, label %.backedge
+._crit_edge:                                      ; preds = %.lr.ph, %60
+  %.3.lcssa = phi ptr [ %62, %60 ], [ %.053, %.lr.ph ]
+  %69 = srem i64 %.076, %25
+  %70 = icmp eq i64 %69, 0
+  br i1 %70, label %_ZSt11swap_rangesIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %45
   %.076.be = phi i64 [ %.074, %45 ], [ %25, %._crit_edge ]
-  %.074.be = phi i64 [ %46, %45 ], [ %68, %._crit_edge ]
+  %.074.be = phi i64 [ %46, %45 ], [ %69, %._crit_edge ]
   %.053.be = phi ptr [ %.1.lcssa, %45 ], [ %.3.lcssa, %._crit_edge ]
   br label %24, !llvm.loop !131
 
@@ -11450,12 +11450,12 @@ _ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit.i: ; preds = %._crit_edge.i
 
 39:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIPPN4llvm11TreePatternES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
   %.not153 = phi i1 [ %.not145, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPPN4llvm11TreePatternES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr137152 = phi i64 [ %4, %.lr.ph ], [ %154, %_ZSt17__rotate_adaptiveIPPN4llvm11TreePatternES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr136151 = phi i64 [ %3, %.lr.ph ], [ %123, %_ZSt17__rotate_adaptiveIPPN4llvm11TreePatternES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr137152 = phi i64 [ %4, %.lr.ph ], [ %157, %_ZSt17__rotate_adaptiveIPPN4llvm11TreePatternES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr136151 = phi i64 [ %3, %.lr.ph ], [ %124, %_ZSt17__rotate_adaptiveIPPN4llvm11TreePatternES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
   %.tr134149 = phi ptr [ %1, %.lr.ph ], [ %.0130, %_ZSt17__rotate_adaptiveIPPN4llvm11TreePatternES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
   %.tr148 = phi ptr [ %0, %.lr.ph ], [ %.0.i120, %_ZSt17__rotate_adaptiveIPPN4llvm11TreePatternES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
   %.not71 = icmp sgt i64 %.tr137152, %6
-  br i1 %.not71, label %73, label %40
+  br i1 %.not71, label %74, label %40
 
 40:                                               ; preds = %39
   %.not.i.i.i.i.i74 = icmp eq ptr %2, %.tr134149
@@ -11538,265 +11538,266 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN
   br label %47, !llvm.loop !133
 
 _ZSt13move_backwardIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit.sink.split.i: ; preds = %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit75.thread, %61
-  %.sink43.i = phi ptr [ %62, %61 ], [ %43, %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit75.thread ]
+  %.sink44.i = phi ptr [ %62, %61 ], [ %43, %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit75.thread ]
   %.lcssa.sink.i = phi ptr [ %59, %61 ], [ %2, %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit75.thread ]
-  %68 = ptrtoint ptr %.sink43.i to i64
+  %68 = ptrtoint ptr %.sink44.i to i64
   %69 = ptrtoint ptr %5 to i64
   %70 = sub i64 %68, %69
   %71 = ashr exact i64 %70, 3
-  %.pre.i.i.i.i.i35.i = sub nsw i64 0, %71
-  %72 = getelementptr inbounds ptr, ptr %.lcssa.sink.i, i64 %.pre.i.i.i.i.i35.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %72, ptr align 8 %5, i64 %70, i1 false)
+  %72 = sub nsw i64 0, %71
+  %73 = getelementptr inbounds ptr, ptr %.lcssa.sink.i, i64 %72
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %73, ptr align 8 %5, i64 %70, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPPN4llvm11TreePatternES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEEvSF_SF_SI_SI_T1_T2_.exit
 
-73:                                               ; preds = %39
-  %74 = ptrtoint ptr %.tr134149 to i64
+74:                                               ; preds = %39
+  %75 = ptrtoint ptr %.tr134149 to i64
   br i1 %.not153, label %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit, label %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit93
 
-_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit: ; preds = %73
-  %75 = sdiv i64 %.tr136151, 2
-  %76 = getelementptr inbounds ptr, ptr %.tr148, i64 %75
-  %77 = sub i64 %8, %74
-  %78 = ashr exact i64 %77, 3
-  %79 = icmp sgt i64 %78, 0
-  br i1 %79, label %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit
+_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit: ; preds = %74
+  %76 = sdiv i64 %.tr136151, 2
+  %77 = getelementptr inbounds ptr, ptr %.tr148, i64 %76
+  %78 = sub i64 %8, %75
+  %79 = ashr exact i64 %78, 3
+  %80 = icmp sgt i64 %79, 0
+  br i1 %80, label %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit
 
 _ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit
-  %.val = load ptr, ptr %76, align 8
-  %80 = getelementptr i8, ptr %.val, i64 48
-  %.val13.val.i = load ptr, ptr %80, align 8
+  %.val = load ptr, ptr %77, align 8
+  %81 = getelementptr i8, ptr %.val, i64 48
+  %.val13.val.i = load ptr, ptr %81, align 8
   %.val13.val.val.i = load ptr, ptr %.val13.val.i, align 8
-  %81 = getelementptr i8, ptr %.val13.val.val.i, i64 32
-  %.val13.val.val.val15.i = load i64, ptr %81, align 8
-  %82 = getelementptr i8, ptr %.val13.val.val.i, i64 24
+  %82 = getelementptr i8, ptr %.val13.val.val.i, i64 32
+  %.val13.val.val.val15.i = load i64, ptr %82, align 8
+  %83 = getelementptr i8, ptr %.val13.val.val.i, i64 24
   br label %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit.i
 
 _ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIPPNS4_11TreePatternEKSL_EEbSB_RSE_.exit.i, %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit.lr.ph.i
   %.05.i = phi ptr [ %.tr134149, %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit.lr.ph.i ], [ %.1.i89, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIPPNS4_11TreePatternEKSL_EEbSB_RSE_.exit.i ]
-  %.0114.i = phi i64 [ %78, %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIPPNS4_11TreePatternEKSL_EEbSB_RSE_.exit.i ]
-  %83 = lshr i64 %.0114.i, 1
-  %84 = getelementptr inbounds ptr, ptr %.05.i, i64 %83
-  %.val.i = load ptr, ptr %84, align 8
-  %85 = getelementptr i8, ptr %.val.i, i64 48
-  %.val.val.i = load ptr, ptr %85, align 8
+  %.0114.i = phi i64 [ %79, %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIPPNS4_11TreePatternEKSL_EEbSB_RSE_.exit.i ]
+  %84 = lshr i64 %.0114.i, 1
+  %85 = getelementptr inbounds ptr, ptr %.05.i, i64 %84
+  %.val.i = load ptr, ptr %85, align 8
+  %86 = getelementptr i8, ptr %.val.i, i64 48
+  %.val.val.i = load ptr, ptr %86, align 8
   %.val.val.val.i = load ptr, ptr %.val.val.i, align 8
-  %86 = getelementptr i8, ptr %.val.val.val.i, i64 32
-  %.val.val.val.val14.i = load i64, ptr %86, align 8
+  %87 = getelementptr i8, ptr %.val.val.val.i, i64 32
+  %.val.val.val.val14.i = load i64, ptr %87, align 8
   %.sroa.speculated.i.i.i.i.i85 = tail call i64 @llvm.umin.i64(i64 %.val13.val.val.val15.i, i64 %.val.val.val.val14.i)
-  %87 = icmp eq i64 %.sroa.speculated.i.i.i.i.i85, 0
-  br i1 %87, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i86
+  %88 = icmp eq i64 %.sroa.speculated.i.i.i.i.i85, 0
+  br i1 %88, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i86
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i86: ; preds = %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit.i
-  %.val13.val.val.val.i = load ptr, ptr %82, align 8
-  %88 = getelementptr i8, ptr %.val.val.val.i, i64 24
-  %.val.val.val.val.i = load ptr, ptr %88, align 8
-  %89 = tail call i32 @memcmp(ptr noundef readonly %.val.val.val.val.i, ptr noundef readonly %.val13.val.val.val.i, i64 noundef %.sroa.speculated.i.i.i.i.i85) #24
-  %.not.i.i.i.i.i87 = icmp eq i32 %89, 0
-  br i1 %.not.i.i.i.i.i87, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %90
+  %.val13.val.val.val.i = load ptr, ptr %83, align 8
+  %89 = getelementptr i8, ptr %.val.val.val.i, i64 24
+  %.val.val.val.val.i = load ptr, ptr %89, align 8
+  %90 = tail call i32 @memcmp(ptr noundef readonly %.val.val.val.val.i, ptr noundef readonly %.val13.val.val.val.i, i64 noundef %.sroa.speculated.i.i.i.i.i85) #24
+  %.not.i.i.i.i.i87 = icmp eq i32 %90, 0
+  br i1 %.not.i.i.i.i.i87, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %91
 
-90:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i86
-  %.inv.i.i.i.i.i88 = icmp slt i32 %89, 0
+91:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i86
+  %.inv.i.i.i.i.i88 = icmp slt i32 %90, 0
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIPPNS4_11TreePatternEKSL_EEbSB_RSE_.exit.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i86, %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit.i
-  %91 = icmp ult i64 %.val.val.val.val14.i, %.val13.val.val.val15.i
+  %92 = icmp ult i64 %.val.val.val.val14.i, %.val13.val.val.val15.i
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIPPNS4_11TreePatternEKSL_EEbSB_RSE_.exit.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIPPNS4_11TreePatternEKSL_EEbSB_RSE_.exit.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, %90
-  %.0.i.i.i.i.i = phi i1 [ %.inv.i.i.i.i.i88, %90 ], [ %91, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i ]
-  %92 = getelementptr inbounds i8, ptr %84, i64 8
-  %93 = xor i64 %83, -1
-  %94 = add nsw i64 %.0114.i, %93
-  %.112.i = select i1 %.0.i.i.i.i.i, i64 %94, i64 %83
-  %.1.i89 = select i1 %.0.i.i.i.i.i, ptr %92, ptr %.05.i
-  %95 = icmp sgt i64 %.112.i, 0
-  br i1 %95, label %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit.loopexit, !llvm.loop !126
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIPPNS4_11TreePatternEKSL_EEbSB_RSE_.exit.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, %91
+  %.0.i.i.i.i.i = phi i1 [ %.inv.i.i.i.i.i88, %91 ], [ %92, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i ]
+  %93 = getelementptr inbounds i8, ptr %85, i64 8
+  %94 = xor i64 %84, -1
+  %95 = add nsw i64 %.0114.i, %94
+  %.112.i = select i1 %.0.i.i.i.i.i, i64 %95, i64 %84
+  %.1.i89 = select i1 %.0.i.i.i.i.i, ptr %93, ptr %.05.i
+  %96 = icmp sgt i64 %.112.i, 0
+  br i1 %96, label %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit.loopexit, !llvm.loop !126
 
 _ZSt13__lower_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIPPNS4_11TreePatternEKSL_EEbSB_RSE_.exit.i
   %.pre = ptrtoint ptr %.1.i89 to i64
   br label %_ZSt13__lower_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit
 
 _ZSt13__lower_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit: ; preds = %_ZSt13__lower_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit.loopexit, %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit.loopexit ], [ %74, %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit.loopexit ], [ %75, %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit ]
   %.0.lcssa.i84 = phi ptr [ %.1.i89, %_ZSt13__lower_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit.loopexit ], [ %.tr134149, %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit ]
-  %96 = sub i64 %.pre-phi, %74
-  %97 = ashr exact i64 %96, 3
-  br label %122
+  %97 = sub i64 %.pre-phi, %75
+  %98 = ashr exact i64 %97, 3
+  br label %123
 
-_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit93: ; preds = %73
-  %98 = sdiv i64 %.tr137152, 2
-  %99 = getelementptr inbounds ptr, ptr %.tr134149, i64 %98
-  %100 = ptrtoint ptr %.tr148 to i64
-  %101 = sub i64 %74, %100
-  %102 = ashr exact i64 %101, 3
-  %103 = icmp sgt i64 %102, 0
-  br i1 %103, label %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit.lr.ph.i96, label %_ZSt13__upper_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit
+_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit93: ; preds = %74
+  %99 = sdiv i64 %.tr137152, 2
+  %100 = getelementptr inbounds ptr, ptr %.tr134149, i64 %99
+  %101 = ptrtoint ptr %.tr148 to i64
+  %102 = sub i64 %75, %101
+  %103 = ashr exact i64 %102, 3
+  %104 = icmp sgt i64 %103, 0
+  br i1 %104, label %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit.lr.ph.i96, label %_ZSt13__upper_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit
 
 _ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit.lr.ph.i96: ; preds = %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit93
-  %.val72 = load ptr, ptr %99, align 8
-  %104 = getelementptr i8, ptr %.val72, i64 48
-  %.val.val.i97 = load ptr, ptr %104, align 8
+  %.val72 = load ptr, ptr %100, align 8
+  %105 = getelementptr i8, ptr %.val72, i64 48
+  %.val.val.i97 = load ptr, ptr %105, align 8
   %.val.val.val.i98 = load ptr, ptr %.val.val.i97, align 8
-  %105 = getelementptr i8, ptr %.val.val.val.i98, i64 32
-  %.val.val.val.val14.i99 = load i64, ptr %105, align 8
-  %106 = getelementptr i8, ptr %.val.val.val.i98, i64 24
+  %106 = getelementptr i8, ptr %.val.val.val.i98, i64 32
+  %.val.val.val.val14.i99 = load i64, ptr %106, align 8
+  %107 = getelementptr i8, ptr %.val.val.val.i98, i64 24
   br label %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit.i100
 
 _ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit.i100: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIKPNS4_11TreePatternEPSL_EEbRSB_SE_.exit.i, %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit.lr.ph.i96
   %.05.i101 = phi ptr [ %.tr148, %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit.lr.ph.i96 ], [ %.1.i116, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIKPNS4_11TreePatternEPSL_EEbRSB_SE_.exit.i ]
-  %.0114.i102 = phi i64 [ %102, %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit.lr.ph.i96 ], [ %.112.i115, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIKPNS4_11TreePatternEPSL_EEbRSB_SE_.exit.i ]
-  %107 = lshr i64 %.0114.i102, 1
-  %108 = getelementptr inbounds ptr, ptr %.05.i101, i64 %107
-  %.val13.i = load ptr, ptr %108, align 8
-  %109 = getelementptr i8, ptr %.val13.i, i64 48
-  %.val13.val.i105 = load ptr, ptr %109, align 8
+  %.0114.i102 = phi i64 [ %103, %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit.lr.ph.i96 ], [ %.112.i115, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIKPNS4_11TreePatternEPSL_EEbRSB_SE_.exit.i ]
+  %108 = lshr i64 %.0114.i102, 1
+  %109 = getelementptr inbounds ptr, ptr %.05.i101, i64 %108
+  %.val13.i = load ptr, ptr %109, align 8
+  %110 = getelementptr i8, ptr %.val13.i, i64 48
+  %.val13.val.i105 = load ptr, ptr %110, align 8
   %.val13.val.val.i106 = load ptr, ptr %.val13.val.i105, align 8
-  %110 = getelementptr i8, ptr %.val13.val.val.i106, i64 32
-  %.val13.val.val.val15.i107 = load i64, ptr %110, align 8
+  %111 = getelementptr i8, ptr %.val13.val.val.i106, i64 32
+  %.val13.val.val.val15.i107 = load i64, ptr %111, align 8
   %.sroa.speculated.i.i.i.i.i108 = tail call i64 @llvm.umin.i64(i64 %.val13.val.val.val15.i107, i64 %.val.val.val.val14.i99)
-  %111 = icmp eq i64 %.sroa.speculated.i.i.i.i.i108, 0
-  br i1 %111, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i117, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i109
+  %112 = icmp eq i64 %.sroa.speculated.i.i.i.i.i108, 0
+  br i1 %112, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i117, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i109
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i109: ; preds = %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit.i100
-  %112 = getelementptr i8, ptr %.val13.val.val.i106, i64 24
-  %.val13.val.val.val.i110 = load ptr, ptr %112, align 8
-  %.val.val.val.val.i111 = load ptr, ptr %106, align 8
-  %113 = tail call i32 @memcmp(ptr noundef readonly %.val.val.val.val.i111, ptr noundef readonly %.val13.val.val.val.i110, i64 noundef %.sroa.speculated.i.i.i.i.i108) #24
-  %.not.i.i.i.i.i112 = icmp eq i32 %113, 0
-  br i1 %.not.i.i.i.i.i112, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i117, label %114
+  %113 = getelementptr i8, ptr %.val13.val.val.i106, i64 24
+  %.val13.val.val.val.i110 = load ptr, ptr %113, align 8
+  %.val.val.val.val.i111 = load ptr, ptr %107, align 8
+  %114 = tail call i32 @memcmp(ptr noundef readonly %.val.val.val.val.i111, ptr noundef readonly %.val13.val.val.val.i110, i64 noundef %.sroa.speculated.i.i.i.i.i108) #24
+  %.not.i.i.i.i.i112 = icmp eq i32 %114, 0
+  br i1 %.not.i.i.i.i.i112, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i117, label %115
 
-114:                                              ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i109
-  %.inv.i.i.i.i.i113 = icmp slt i32 %113, 0
+115:                                              ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i109
+  %.inv.i.i.i.i.i113 = icmp slt i32 %114, 0
   br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIKPNS4_11TreePatternEPSL_EEbRSB_SE_.exit.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i117: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i109, %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit.i100
-  %115 = icmp ult i64 %.val.val.val.val14.i99, %.val13.val.val.val15.i107
+  %116 = icmp ult i64 %.val.val.val.val14.i99, %.val13.val.val.val15.i107
   br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIKPNS4_11TreePatternEPSL_EEbRSB_SE_.exit.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIKPNS4_11TreePatternEPSL_EEbRSB_SE_.exit.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i117, %114
-  %.0.i.i.i.i.i114 = phi i1 [ %.inv.i.i.i.i.i113, %114 ], [ %115, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i117 ]
-  %116 = getelementptr inbounds i8, ptr %108, i64 8
-  %117 = xor i64 %107, -1
-  %118 = add nsw i64 %.0114.i102, %117
-  %.112.i115 = select i1 %.0.i.i.i.i.i114, i64 %107, i64 %118
-  %.1.i116 = select i1 %.0.i.i.i.i.i114, ptr %.05.i101, ptr %116
-  %119 = icmp sgt i64 %.112.i115, 0
-  br i1 %119, label %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit.i100, label %_ZSt13__upper_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit.loopexit, !llvm.loop !127
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIKPNS4_11TreePatternEPSL_EEbRSB_SE_.exit.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i117, %115
+  %.0.i.i.i.i.i114 = phi i1 [ %.inv.i.i.i.i.i113, %115 ], [ %116, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i117 ]
+  %117 = getelementptr inbounds i8, ptr %109, i64 8
+  %118 = xor i64 %108, -1
+  %119 = add nsw i64 %.0114.i102, %118
+  %.112.i115 = select i1 %.0.i.i.i.i.i114, i64 %108, i64 %119
+  %.1.i116 = select i1 %.0.i.i.i.i.i114, ptr %.05.i101, ptr %117
+  %120 = icmp sgt i64 %.112.i115, 0
+  br i1 %120, label %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit.i100, label %_ZSt13__upper_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit.loopexit, !llvm.loop !127
 
 _ZSt13__upper_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKN4llvm7MatcherERKNS4_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EclIKPNS4_11TreePatternEPSL_EEbRSB_SE_.exit.i
   %.pre160 = ptrtoint ptr %.1.i116 to i64
   br label %_ZSt13__upper_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit
 
 _ZSt13__upper_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit: ; preds = %_ZSt13__upper_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit.loopexit, %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit93
-  %.pre-phi161 = phi i64 [ %.pre160, %_ZSt13__upper_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit.loopexit ], [ %100, %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit93 ]
+  %.pre-phi161 = phi i64 [ %.pre160, %_ZSt13__upper_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit.loopexit ], [ %101, %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit93 ]
   %.0.lcssa.i95 = phi ptr [ %.1.i116, %_ZSt13__upper_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit.loopexit ], [ %.tr148, %_ZSt7advanceIPPN4llvm11TreePatternElEvRT_T0_.exit93 ]
-  %120 = sub i64 %.pre-phi161, %100
-  %121 = ashr exact i64 %120, 3
-  br label %122
+  %121 = sub i64 %.pre-phi161, %101
+  %122 = ashr exact i64 %121, 3
+  br label %123
 
-122:                                              ; preds = %_ZSt13__upper_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit, %_ZSt13__lower_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit
-  %.0131 = phi ptr [ %76, %_ZSt13__lower_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit ], [ %.0.lcssa.i95, %_ZSt13__upper_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit ]
-  %.0130 = phi ptr [ %.0.lcssa.i84, %_ZSt13__lower_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit ], [ %99, %_ZSt13__upper_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit ]
-  %.066 = phi i64 [ %97, %_ZSt13__lower_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit ], [ %98, %_ZSt13__upper_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit ]
-  %.0 = phi i64 [ %75, %_ZSt13__lower_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit ], [ %121, %_ZSt13__upper_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit ]
-  %123 = sub nsw i64 %.tr136151, %.0
-  %124 = icmp sle i64 %123, %.066
+123:                                              ; preds = %_ZSt13__upper_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit, %_ZSt13__lower_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit
+  %.0131 = phi ptr [ %77, %_ZSt13__lower_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit ], [ %.0.lcssa.i95, %_ZSt13__upper_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit ]
+  %.0130 = phi ptr [ %.0.lcssa.i84, %_ZSt13__lower_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit ], [ %100, %_ZSt13__upper_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit ]
+  %.066 = phi i64 [ %98, %_ZSt13__lower_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit ], [ %99, %_ZSt13__upper_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit ]
+  %.0 = phi i64 [ %76, %_ZSt13__lower_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit ], [ %122, %_ZSt13__upper_boundIPPN4llvm11TreePatternES2_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEESF_SF_SF_RSJ_T1_.exit ]
+  %124 = sub nsw i64 %.tr136151, %.0
+  %125 = icmp sle i64 %124, %.066
   %.not.i = icmp sgt i64 %.066, %6
-  %or.cond.i = or i1 %.not.i, %124
-  br i1 %or.cond.i, label %138, label %125
+  %or.cond.i = or i1 %.not.i, %125
+  br i1 %or.cond.i, label %140, label %126
 
-125:                                              ; preds = %122
+126:                                              ; preds = %123
   %.not35.i = icmp eq i64 %.066, 0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPPN4llvm11TreePatternES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %126
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPPN4llvm11TreePatternES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %127
 
-126:                                              ; preds = %125
-  %127 = ptrtoint ptr %.0130 to i64
-  %128 = ptrtoint ptr %.tr134149 to i64
-  %129 = sub i64 %127, %128
+127:                                              ; preds = %126
+  %128 = ptrtoint ptr %.0130 to i64
+  %129 = ptrtoint ptr %.tr134149 to i64
+  %130 = sub i64 %128, %129
   %.not.i.i.i.i.i.i118 = icmp eq ptr %.0130, %.tr134149
-  br i1 %.not.i.i.i.i.i.i118, label %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit.i119, label %130
+  br i1 %.not.i.i.i.i.i.i118, label %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit.i119, label %131
 
-130:                                              ; preds = %126
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr134149, i64 %129, i1 false)
+131:                                              ; preds = %127
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr134149, i64 %130, i1 false)
   br label %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit.i119
 
-_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit.i119: ; preds = %130, %126
+_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit.i119: ; preds = %131, %127
   %.not.i.i.i.i.i36.i = icmp eq ptr %.tr134149, %.0131
-  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit.i, label %131
+  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit.i, label %132
 
-131:                                              ; preds = %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit.i119
-  %132 = ptrtoint ptr %.0131 to i64
-  %133 = sub i64 %128, %132
-  %134 = ashr exact i64 %133, 3
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %134
-  %135 = getelementptr inbounds ptr, ptr %.0130, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %135, ptr align 8 %.0131, i64 %133, i1 false)
+132:                                              ; preds = %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit.i119
+  %133 = ptrtoint ptr %.0131 to i64
+  %134 = sub i64 %129, %133
+  %135 = ashr exact i64 %134, 3
+  %136 = sub nsw i64 0, %135
+  %137 = getelementptr inbounds ptr, ptr %.0130, i64 %136
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %137, ptr align 8 %.0131, i64 %134, i1 false)
   br label %_ZSt13move_backwardIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit.i
 
-_ZSt13move_backwardIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit.i: ; preds = %131, %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit.i119
-  br i1 %.not.i.i.i.i.i.i118, label %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit38.i, label %136
+_ZSt13move_backwardIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit.i: ; preds = %132, %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit.i119
+  br i1 %.not.i.i.i.i.i.i118, label %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit38.i, label %138
 
-136:                                              ; preds = %_ZSt13move_backwardIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0131, ptr align 8 %5, i64 %129, i1 false)
+138:                                              ; preds = %_ZSt13move_backwardIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0131, ptr align 8 %5, i64 %130, i1 false)
   br label %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit38.i
 
-_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit38.i: ; preds = %136, %_ZSt13move_backwardIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit.i
-  %137 = getelementptr inbounds i8, ptr %.0131, i64 %129
+_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit38.i: ; preds = %138, %_ZSt13move_backwardIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit.i
+  %139 = getelementptr inbounds i8, ptr %.0131, i64 %130
   br label %_ZSt17__rotate_adaptiveIPPN4llvm11TreePatternES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
-138:                                              ; preds = %122
-  %.not33.i = icmp sgt i64 %123, %6
-  br i1 %.not33.i, label %152, label %139
+140:                                              ; preds = %123
+  %.not33.i = icmp sgt i64 %124, %6
+  br i1 %.not33.i, label %155, label %141
 
-139:                                              ; preds = %138
+141:                                              ; preds = %140
   %.not34.i = icmp eq i64 %.tr136151, %.0
-  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPPN4llvm11TreePatternES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %140
+  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPPN4llvm11TreePatternES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %142
 
-140:                                              ; preds = %139
-  %141 = ptrtoint ptr %.tr134149 to i64
-  %142 = ptrtoint ptr %.0131 to i64
-  %143 = sub i64 %141, %142
+142:                                              ; preds = %141
+  %143 = ptrtoint ptr %.tr134149 to i64
+  %144 = ptrtoint ptr %.0131 to i64
+  %145 = sub i64 %143, %144
   %.not.i.i.i.i.i39.i = icmp eq ptr %.tr134149, %.0131
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit40.i, label %144
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit40.i, label %146
 
-144:                                              ; preds = %140
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.0131, i64 %143, i1 false)
+146:                                              ; preds = %142
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.0131, i64 %145, i1 false)
   br label %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit40.i
 
-_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit40.i: ; preds = %144, %140
+_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit40.i: ; preds = %146, %142
   %.not.i.i.i.i.i41.i = icmp eq ptr %.0130, %.tr134149
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit42.i, label %145
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit42.i, label %147
 
-145:                                              ; preds = %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit40.i
-  %146 = ptrtoint ptr %.0130 to i64
-  %147 = sub i64 %146, %141
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0131, ptr align 8 %.tr134149, i64 %147, i1 false)
+147:                                              ; preds = %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit40.i
+  %148 = ptrtoint ptr %.0130 to i64
+  %149 = sub i64 %148, %143
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0131, ptr align 8 %.tr134149, i64 %149, i1 false)
   br label %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit42.i
 
-_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit42.i: ; preds = %145, %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit40.i
-  %148 = ashr exact i64 %143, 3
-  %.pre.i.i.i.i.i44.i = sub nsw i64 0, %148
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit45.i, label %149
+_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit42.i: ; preds = %147, %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit40.i
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit45.i, label %150
 
-149:                                              ; preds = %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit42.i
-  %150 = getelementptr inbounds ptr, ptr %.0130, i64 %.pre.i.i.i.i.i44.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %150, ptr align 8 %5, i64 %143, i1 false)
+150:                                              ; preds = %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit42.i
+  %151 = ashr exact i64 %145, 3
+  %152 = sub nsw i64 0, %151
+  %153 = getelementptr inbounds ptr, ptr %.0130, i64 %152
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %153, ptr align 8 %5, i64 %145, i1 false)
   br label %_ZSt13move_backwardIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit45.i
 
-_ZSt13move_backwardIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit45.i: ; preds = %149, %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit42.i
-  %151 = getelementptr inbounds ptr, ptr %.0130, i64 %.pre.i.i.i.i.i44.i
+_ZSt13move_backwardIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit45.i: ; preds = %150, %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit42.i
+  %.pre-phi.i.i.i.i.i44.i = phi i64 [ %152, %150 ], [ 0, %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit42.i ]
+  %154 = getelementptr inbounds ptr, ptr %.0130, i64 %.pre-phi.i.i.i.i.i44.i
   br label %_ZSt17__rotate_adaptiveIPPN4llvm11TreePatternES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
-152:                                              ; preds = %138
-  %153 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN4llvm11TreePatternEEET_S5_S5_S5_St26random_access_iterator_tag(ptr noundef %.0131, ptr noundef %.tr134149, ptr noundef %.0130)
+155:                                              ; preds = %140
+  %156 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN4llvm11TreePatternEEET_S5_S5_S5_St26random_access_iterator_tag(ptr noundef %.0131, ptr noundef %.tr134149, ptr noundef %.0130)
   br label %_ZSt17__rotate_adaptiveIPPN4llvm11TreePatternES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
-_ZSt17__rotate_adaptiveIPPN4llvm11TreePatternES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit: ; preds = %125, %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit38.i, %139, %_ZSt13move_backwardIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit45.i, %152
-  %.0.i120 = phi ptr [ %137, %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit38.i ], [ %151, %_ZSt13move_backwardIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit45.i ], [ %153, %152 ], [ %.0131, %125 ], [ %.0130, %139 ]
+_ZSt17__rotate_adaptiveIPPN4llvm11TreePatternES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit: ; preds = %126, %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit38.i, %141, %_ZSt13move_backwardIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit45.i, %155
+  %.0.i120 = phi ptr [ %139, %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit38.i ], [ %154, %_ZSt13move_backwardIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit45.i ], [ %156, %155 ], [ %.0131, %126 ], [ %.0130, %141 ]
   tail call fastcc void @_ZSt16__merge_adaptiveIPPN4llvm11TreePatternElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_119MatcherTableEmitterC1EPKNS0_7MatcherERKNS0_18CodeGenDAGPatternsEEUlPKT_PKT0_E_EEEvSF_SF_SF_SI_SI_T1_SI_T2_(ptr noundef %.tr148, ptr noundef %.0131, ptr noundef %.0.i120, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
-  %154 = sub nsw i64 %.tr137152, %.066
-  %.not = icmp sgt i64 %123, %154
-  %.not70 = icmp sgt i64 %123, %6
+  %157 = sub nsw i64 %.tr137152, %.066
+  %.not = icmp sgt i64 %124, %157
+  %.not70 = icmp sgt i64 %124, %6
   %or.cond = or i1 %.not70, %.not
   br i1 %or.cond, label %39, label %tailrecurse._crit_edge
 

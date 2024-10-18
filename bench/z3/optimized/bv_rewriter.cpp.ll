@@ -53782,8 +53782,8 @@ if.then2.i33:                                     ; preds = %for.body.i18
   %sub.ptr.lhs.cast.i.i.i.i.i.i35 = ptrtoint ptr %__i.015.i19 to i64
   %sub.ptr.sub.i.i.i.i.i.i36 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i35, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i.i37 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i36, 3
-  %.pre.i.i.i.i.i.i38 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i37
-  %add.ptr.i.i.i.i.i.i39 = getelementptr inbounds ptr, ptr %add.ptr3.i34, i64 %.pre.i.i.i.i.i.i38
+  %idx.neg.i.i.i.i.i.i38 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i37
+  %add.ptr.i.i.i.i.i.i39 = getelementptr inbounds ptr, ptr %add.ptr3.i34, i64 %idx.neg.i.i.i.i.i.i38
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i39, ptr noundef nonnull align 8 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i36, i1 false)
   br label %for.inc.i24
 
@@ -55037,8 +55037,8 @@ if.then3:                                         ; preds = %if.then.i.i, %_ZN9_
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %__i.073 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr4, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr4, i64 %idx.neg.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   store ptr %4, ptr %__first, align 8
   br label %for.inc

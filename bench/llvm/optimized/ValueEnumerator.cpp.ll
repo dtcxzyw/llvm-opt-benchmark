@@ -18559,139 +18559,139 @@ _ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i: ; preds = %_ZN4llvm8dyn_c
   %38 = ptrtoint ptr %.024 to i64
   %39 = sub i64 %38, %6
   %40 = ashr exact i64 %39, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %40
-  %41 = getelementptr inbounds %"struct.llvm::ValueEnumerator::MDIndex", ptr %37, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %41, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %39, i1 false)
+  %41 = sub nsw i64 0, %40
+  %42 = getelementptr inbounds %"struct.llvm::ValueEnumerator::MDIndex", ptr %37, i64 %41
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %42, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %39, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIPN4llvm15ValueEnumerator7MDIndexEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_16organizeMetadataEvE3$_0EEEvT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20.preheader", %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.thread.i"
-  %42 = phi i8 [ %.pre26, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.thread.i" ], [ %12, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20.preheader" ]
-  %43 = phi ptr [ %.pre, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.thread.i" ], [ %11, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20.preheader" ]
+  %43 = phi i8 [ %.pre26, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.thread.i" ], [ %12, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20.preheader" ]
+  %44 = phi ptr [ %.pre, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.thread.i" ], [ %11, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20.preheader" ]
   %.val.val.i = phi ptr [ %.val.val.i.pre, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.thread.i" ], [ %.val.val, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20.preheader" ]
   %.09.i = phi ptr [ %.0.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.thread.i" ], [ %.024, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20.preheader" ]
   %.0.i = getelementptr inbounds i8, ptr %.09.i, i64 -8
   %.0.val.i = load i64, ptr %.0.i, align 4
   %.sroa.09.0.extract.trunc.i.i.i = trunc i64 %.0.val.i to i32
   %.sroa.210.0.extract.shift.i.i.i = lshr i64 %.0.val.i, 32
-  switch i8 %42, label %_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit.fold.split.i.i.i.i [
+  switch i8 %43, label %_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit.fold.split.i.i.i.i [
     i8 0, label %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i
-    i8 5, label %44
-    i8 6, label %44
-    i8 7, label %44
-    i8 8, label %44
-    i8 9, label %44
-    i8 10, label %44
-    i8 11, label %44
-    i8 12, label %44
-    i8 13, label %44
-    i8 14, label %44
-    i8 15, label %44
-    i8 16, label %44
-    i8 17, label %44
-    i8 18, label %44
-    i8 19, label %44
-    i8 20, label %44
-    i8 21, label %44
-    i8 22, label %44
-    i8 23, label %44
-    i8 24, label %44
-    i8 25, label %44
-    i8 26, label %44
-    i8 27, label %44
-    i8 28, label %44
-    i8 29, label %44
-    i8 30, label %44
-    i8 31, label %44
-    i8 32, label %44
-    i8 33, label %44
-    i8 34, label %44
-    i8 35, label %44
+    i8 5, label %45
+    i8 6, label %45
+    i8 7, label %45
+    i8 8, label %45
+    i8 9, label %45
+    i8 10, label %45
+    i8 11, label %45
+    i8 12, label %45
+    i8 13, label %45
+    i8 14, label %45
+    i8 15, label %45
+    i8 16, label %45
+    i8 17, label %45
+    i8 18, label %45
+    i8 19, label %45
+    i8 20, label %45
+    i8 21, label %45
+    i8 22, label %45
+    i8 23, label %45
+    i8 24, label %45
+    i8 25, label %45
+    i8 26, label %45
+    i8 27, label %45
+    i8 28, label %45
+    i8 29, label %45
+    i8 30, label %45
+    i8 31, label %45
+    i8 32, label %45
+    i8 33, label %45
+    i8 34, label %45
+    i8 35, label %45
   ]
 
-44:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20"
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 1
-  %46 = load i8, ptr %45, align 1
-  %47 = and i8 %46, 127
-  %48 = icmp eq i8 %47, 1
-  %49 = select i1 %48, i32 2, i32 3
+45:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20"
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 1
+  %47 = load i8, ptr %46, align 1
+  %48 = and i8 %47, 127
+  %49 = icmp eq i8 %48, 1
+  %50 = select i1 %49, i32 2, i32 3
   br label %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i
 
 _ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit.fold.split.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20"
   br label %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i
 
-_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i: ; preds = %_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit.fold.split.i.i.i.i, %44, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20"
-  %.0.i.i.i.i = phi i32 [ %49, %44 ], [ 0, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20" ], [ 1, %_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit.fold.split.i.i.i.i ]
-  %50 = add nuw nsw i64 %.sroa.210.0.extract.shift.i.i.i, 4294967295
-  %51 = and i64 %50, 4294967295
-  %52 = getelementptr inbounds ptr, ptr %.val.val.i, i64 %51
-  %53 = load ptr, ptr %52, align 8
-  %54 = load i8, ptr %53, align 4
-  switch i8 %54, label %_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit.fold.split.i2.i.i.i [
+_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i: ; preds = %_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit.fold.split.i.i.i.i, %45, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20"
+  %.0.i.i.i.i = phi i32 [ %50, %45 ], [ 0, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20" ], [ 1, %_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit.fold.split.i.i.i.i ]
+  %51 = add nuw nsw i64 %.sroa.210.0.extract.shift.i.i.i, 4294967295
+  %52 = and i64 %51, 4294967295
+  %53 = getelementptr inbounds ptr, ptr %.val.val.i, i64 %52
+  %54 = load ptr, ptr %53, align 8
+  %55 = load i8, ptr %54, align 4
+  switch i8 %55, label %_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit.fold.split.i2.i.i.i [
     i8 0, label %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i.i
-    i8 5, label %55
-    i8 6, label %55
-    i8 7, label %55
-    i8 8, label %55
-    i8 9, label %55
-    i8 10, label %55
-    i8 11, label %55
-    i8 12, label %55
-    i8 13, label %55
-    i8 14, label %55
-    i8 15, label %55
-    i8 16, label %55
-    i8 17, label %55
-    i8 18, label %55
-    i8 19, label %55
-    i8 20, label %55
-    i8 21, label %55
-    i8 22, label %55
-    i8 23, label %55
-    i8 24, label %55
-    i8 25, label %55
-    i8 26, label %55
-    i8 27, label %55
-    i8 28, label %55
-    i8 29, label %55
-    i8 30, label %55
-    i8 31, label %55
-    i8 32, label %55
-    i8 33, label %55
-    i8 34, label %55
-    i8 35, label %55
+    i8 5, label %56
+    i8 6, label %56
+    i8 7, label %56
+    i8 8, label %56
+    i8 9, label %56
+    i8 10, label %56
+    i8 11, label %56
+    i8 12, label %56
+    i8 13, label %56
+    i8 14, label %56
+    i8 15, label %56
+    i8 16, label %56
+    i8 17, label %56
+    i8 18, label %56
+    i8 19, label %56
+    i8 20, label %56
+    i8 21, label %56
+    i8 22, label %56
+    i8 23, label %56
+    i8 24, label %56
+    i8 25, label %56
+    i8 26, label %56
+    i8 27, label %56
+    i8 28, label %56
+    i8 29, label %56
+    i8 30, label %56
+    i8 31, label %56
+    i8 32, label %56
+    i8 33, label %56
+    i8 34, label %56
+    i8 35, label %56
   ]
 
-55:                                               ; preds = %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i
-  %56 = getelementptr inbounds nuw i8, ptr %53, i64 1
-  %57 = load i8, ptr %56, align 1
-  %58 = and i8 %57, 127
-  %59 = icmp eq i8 %58, 1
-  %60 = select i1 %59, i32 2, i32 3
+56:                                               ; preds = %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 1
+  %58 = load i8, ptr %57, align 1
+  %59 = and i8 %58, 127
+  %60 = icmp eq i8 %59, 1
+  %61 = select i1 %60, i32 2, i32 3
   br label %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i.i
 
 _ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit.fold.split.i2.i.i.i: ; preds = %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i
   br label %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i.i
 
-_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i.i: ; preds = %_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit.fold.split.i2.i.i.i, %55, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i
-  %.0.i1.i.i.i = phi i32 [ %60, %55 ], [ 0, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i ], [ 1, %_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit.fold.split.i2.i.i.i ]
-  %61 = icmp ult i32 %.sroa.012.0.extract.trunc.i.i, %.sroa.09.0.extract.trunc.i.i.i
-  br i1 %61, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.thread.i", label %62
+_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i.i: ; preds = %_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit.fold.split.i2.i.i.i, %56, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i
+  %.0.i1.i.i.i = phi i32 [ %61, %56 ], [ 0, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i.i ], [ 1, %_ZN4llvm8dyn_castINS_6MDNodeEKNS_8MetadataEEEDcPT0_.exit.fold.split.i2.i.i.i ]
+  %62 = icmp ult i32 %.sroa.012.0.extract.trunc.i.i, %.sroa.09.0.extract.trunc.i.i.i
+  br i1 %62, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.thread.i", label %63
 
-62:                                               ; preds = %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i.i
-  %63 = icmp ult i32 %.sroa.09.0.extract.trunc.i.i.i, %.sroa.012.0.extract.trunc.i.i
-  br i1 %63, label %"_ZSt25__unguarded_linear_insertIPN4llvm15ValueEnumerator7MDIndexEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_16organizeMetadataEvE3$_0EEEvT_T0_.exit", label %64
+63:                                               ; preds = %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i.i
+  %64 = icmp ult i32 %.sroa.09.0.extract.trunc.i.i.i, %.sroa.012.0.extract.trunc.i.i
+  br i1 %64, label %"_ZSt25__unguarded_linear_insertIPN4llvm15ValueEnumerator7MDIndexEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_16organizeMetadataEvE3$_0EEEvT_T0_.exit", label %65
 
-64:                                               ; preds = %62
-  %65 = icmp samesign ult i32 %.0.i.i.i.i, %.0.i1.i.i.i
-  br i1 %65, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.thread.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.i"
+65:                                               ; preds = %63
+  %66 = icmp samesign ult i32 %.0.i.i.i.i, %.0.i1.i.i.i
+  br i1 %66, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.thread.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.i": ; preds = %64
-  %66 = icmp samesign uge i32 %.0.i1.i.i.i, %.0.i.i.i.i
-  %67 = icmp samesign ult i64 %.sroa.213.0.extract.shift.i.i, %.sroa.210.0.extract.shift.i.i.i
-  %spec.select.i.i.i = select i1 %66, i1 %67, i1 false
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.i": ; preds = %65
+  %67 = icmp samesign uge i32 %.0.i1.i.i.i, %.0.i.i.i.i
+  %68 = icmp samesign ult i64 %.sroa.213.0.extract.shift.i.i, %.sroa.210.0.extract.shift.i.i.i
+  %spec.select.i.i.i = select i1 %67, i1 %68, i1 false
   br i1 %spec.select.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.thread.i", label %"_ZSt25__unguarded_linear_insertIPN4llvm15ValueEnumerator7MDIndexEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_16organizeMetadataEvE3$_0EEEvT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.i", %64, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i.i
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.i", %65, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i.i
   store i64 %.0.val.i, ptr %.09.i, align 4
   %.val.val.i.pre = load ptr, ptr %5, align 8
   %.phi.trans.insert = getelementptr inbounds ptr, ptr %.val.val.i.pre, i64 %9
@@ -18699,8 +18699,8 @@ _ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i.i: ; preds = %_ZN4llvm8dyn
   %.pre26 = load i8, ptr %.pre, align 4
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread20", !llvm.loop !68
 
-"_ZSt25__unguarded_linear_insertIPN4llvm15ValueEnumerator7MDIndexEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_16organizeMetadataEvE3$_0EEEvT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.i", %62, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread"
-  %.sink = phi ptr [ %0, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread" ], [ %.09.i, %62 ], [ %.09.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.i" ]
+"_ZSt25__unguarded_linear_insertIPN4llvm15ValueEnumerator7MDIndexEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_16organizeMetadataEvE3$_0EEEvT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.i", %63, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread"
+  %.sink = phi ptr [ %0, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread" ], [ %.09.i, %63 ], [ %.09.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclINS3_7MDIndexEPS7_EEbRT_T0_.exit.i" ]
   store i64 %.0.val, ptr %.sink, align 4
   %.0 = getelementptr inbounds i8, ptr %.024, i64 8
   %.not = icmp eq ptr %.0, %1
@@ -19084,7 +19084,7 @@ define linkonce_odr void @_ZNSt6vectorIPKN4llvm8MetadataESaIS3_EE15_M_range_inse
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %.not = icmp ult i64 %16, %8
-  br i1 %.not, label %41, label %17
+  br i1 %.not, label %42, label %17
 
 17:                                               ; preds = %5
   %18 = ptrtoint ptr %1 to i64
@@ -19107,9 +19107,9 @@ _ZSt22__uninitialized_move_aIPPKN4llvm8MetadataES4_SaIS3_EET0_T_S7_S6_RT1_.exit:
   %26 = ptrtoint ptr %23 to i64
   %27 = sub i64 %26, %18
   %28 = ashr exact i64 %27, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %28
-  %29 = getelementptr inbounds ptr, ptr %13, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %29, ptr align 8 %1, i64 %27, i1 false)
+  %29 = sub nsw i64 0, %28
+  %30 = getelementptr inbounds ptr, ptr %13, i64 %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %30, ptr align 8 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPPKN4llvm8MetadataES4_ET0_T_S6_S5_.exit
 
 _ZSt13move_backwardIPPKN4llvm8MetadataES4_ET0_T_S6_S5_.exit: ; preds = %25, %_ZSt22__uninitialized_move_aIPPKN4llvm8MetadataES4_SaIS3_EET0_T_S7_S6_RT1_.exit
@@ -19117,109 +19117,109 @@ _ZSt13move_backwardIPPKN4llvm8MetadataES4_ET0_T_S6_S5_.exit: ; preds = %25, %_ZS
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit: ; preds = %17
-  %30 = getelementptr inbounds i8, ptr %2, i64 %19
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %30
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit, label %31
+  %31 = getelementptr inbounds i8, ptr %2, i64 %19
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %31
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit, label %32
 
-31:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit
-  %32 = ptrtoint ptr %30 to i64
-  %33 = sub i64 %6, %32
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %13, ptr align 8 %30, i64 %33, i1 false)
+32:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit
+  %33 = ptrtoint ptr %31 to i64
+  %34 = sub i64 %6, %33
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %13, ptr align 8 %31, i64 %34, i1 false)
   %.pre = load ptr, ptr %12, align 8
   br label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit
 
-_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit, %31
-  %34 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit ], [ %.pre, %31 ]
-  %35 = sub nuw nsw i64 %9, %20
-  %36 = getelementptr inbounds ptr, ptr %34, i64 %35
-  store ptr %36, ptr %12, align 8
+_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit, %32
+  %35 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit ], [ %.pre, %32 ]
+  %36 = sub nuw nsw i64 %9, %20
+  %37 = getelementptr inbounds ptr, ptr %35, i64 %36
+  store ptr %37, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i44 = icmp eq ptr %13, %1
-  br i1 %.not.i.i.i.i.i.i.i.i.i44, label %_ZSt22__uninitialized_move_aIPPKN4llvm8MetadataES4_SaIS3_EET0_T_S7_S6_RT1_.exit45, label %37
+  br i1 %.not.i.i.i.i.i.i.i.i.i44, label %_ZSt22__uninitialized_move_aIPPKN4llvm8MetadataES4_SaIS3_EET0_T_S7_S6_RT1_.exit45, label %38
 
-37:                                               ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %36, ptr align 8 %1, i64 %19, i1 false)
+38:                                               ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %37, ptr align 8 %1, i64 %19, i1 false)
   %.pre64 = load ptr, ptr %12, align 8
   br label %_ZSt22__uninitialized_move_aIPPKN4llvm8MetadataES4_SaIS3_EET0_T_S7_S6_RT1_.exit45
 
-_ZSt22__uninitialized_move_aIPPKN4llvm8MetadataES4_SaIS3_EET0_T_S7_S6_RT1_.exit45: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit, %37
-  %38 = phi ptr [ %36, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit ], [ %.pre64, %37 ]
-  %39 = getelementptr inbounds i8, ptr %38, i64 %19
-  store ptr %39, ptr %12, align 8
+_ZSt22__uninitialized_move_aIPPKN4llvm8MetadataES4_SaIS3_EET0_T_S7_S6_RT1_.exit45: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit, %38
+  %39 = phi ptr [ %37, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit ], [ %.pre64, %38 ]
+  %40 = getelementptr inbounds i8, ptr %39, i64 %19
+  store ptr %40, ptr %12, align 8
   %.not.i.i.i.i.i46 = icmp eq ptr %13, %1
-  br i1 %.not.i.i.i.i.i46, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, label %40
+  br i1 %.not.i.i.i.i.i46, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, label %41
 
-40:                                               ; preds = %_ZSt22__uninitialized_move_aIPPKN4llvm8MetadataES4_SaIS3_EET0_T_S7_S6_RT1_.exit45
+41:                                               ; preds = %_ZSt22__uninitialized_move_aIPPKN4llvm8MetadataES4_SaIS3_EET0_T_S7_S6_RT1_.exit45
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr align 8 %2, i64 %19, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
 
-41:                                               ; preds = %5
-  %42 = load ptr, ptr %0, align 8
-  %43 = ptrtoint ptr %42 to i64
-  %44 = sub i64 %15, %43
-  %45 = ashr exact i64 %44, 3
-  %46 = sub nsw i64 1152921504606846975, %45
-  %47 = icmp ult i64 %46, %9
-  br i1 %47, label %48, label %_ZNKSt6vectorIPKN4llvm8MetadataESaIS3_EE12_M_check_lenEmPKc.exit
+42:                                               ; preds = %5
+  %43 = load ptr, ptr %0, align 8
+  %44 = ptrtoint ptr %43 to i64
+  %45 = sub i64 %15, %44
+  %46 = ashr exact i64 %45, 3
+  %47 = sub nsw i64 1152921504606846975, %46
+  %48 = icmp ult i64 %47, %9
+  br i1 %48, label %49, label %_ZNKSt6vectorIPKN4llvm8MetadataESaIS3_EE12_M_check_lenEmPKc.exit
 
-48:                                               ; preds = %41
+49:                                               ; preds = %42
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.16) #24
   unreachable
 
-_ZNKSt6vectorIPKN4llvm8MetadataESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %41
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %45, i64 %9)
-  %49 = add nsw i64 %.sroa.speculated.i, %45
-  %50 = icmp ult i64 %49, %45
-  %51 = tail call i64 @llvm.umin.i64(i64 %49, i64 1152921504606846975)
-  %52 = select i1 %50, i64 1152921504606846975, i64 %51
-  %.not.i = icmp eq i64 %52, 0
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIPKN4llvm8MetadataESaIS3_EE11_M_allocateEm.exit, label %53
+_ZNKSt6vectorIPKN4llvm8MetadataESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %42
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %46, i64 %9)
+  %50 = add nsw i64 %.sroa.speculated.i, %46
+  %51 = icmp ult i64 %50, %46
+  %52 = tail call i64 @llvm.umin.i64(i64 %50, i64 1152921504606846975)
+  %53 = select i1 %51, i64 1152921504606846975, i64 %52
+  %.not.i = icmp eq i64 %53, 0
+  br i1 %.not.i, label %_ZNSt12_Vector_baseIPKN4llvm8MetadataESaIS3_EE11_M_allocateEm.exit, label %54
 
-53:                                               ; preds = %_ZNKSt6vectorIPKN4llvm8MetadataESaIS3_EE12_M_check_lenEmPKc.exit
-  %54 = shl nuw nsw i64 %52, 3
-  %55 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %54) #25
+54:                                               ; preds = %_ZNKSt6vectorIPKN4llvm8MetadataESaIS3_EE12_M_check_lenEmPKc.exit
+  %55 = shl nuw nsw i64 %53, 3
+  %56 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %55) #25
   br label %_ZNSt12_Vector_baseIPKN4llvm8MetadataESaIS3_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIPKN4llvm8MetadataESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIPKN4llvm8MetadataESaIS3_EE12_M_check_lenEmPKc.exit, %53
-  %56 = phi ptr [ %55, %53 ], [ null, %_ZNKSt6vectorIPKN4llvm8MetadataESaIS3_EE12_M_check_lenEmPKc.exit ]
-  %57 = ptrtoint ptr %1 to i64
-  %58 = sub i64 %57, %43
-  %.not.i.i.i.i.i.i.i.i.i48 = icmp eq ptr %1, %42
-  br i1 %.not.i.i.i.i.i.i.i.i.i48, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit50, label %59
+_ZNSt12_Vector_baseIPKN4llvm8MetadataESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIPKN4llvm8MetadataESaIS3_EE12_M_check_lenEmPKc.exit, %54
+  %57 = phi ptr [ %56, %54 ], [ null, %_ZNKSt6vectorIPKN4llvm8MetadataESaIS3_EE12_M_check_lenEmPKc.exit ]
+  %58 = ptrtoint ptr %1 to i64
+  %59 = sub i64 %58, %44
+  %.not.i.i.i.i.i.i.i.i.i48 = icmp eq ptr %1, %43
+  br i1 %.not.i.i.i.i.i.i.i.i.i48, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit50, label %60
 
-59:                                               ; preds = %_ZNSt12_Vector_baseIPKN4llvm8MetadataESaIS3_EE11_M_allocateEm.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %56, ptr align 8 %42, i64 %58, i1 false)
+60:                                               ; preds = %_ZNSt12_Vector_baseIPKN4llvm8MetadataESaIS3_EE11_M_allocateEm.exit
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr align 8 %43, i64 %59, i1 false)
   br label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit50
 
-_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit50: ; preds = %_ZNSt12_Vector_baseIPKN4llvm8MetadataESaIS3_EE11_M_allocateEm.exit, %59
-  %60 = getelementptr inbounds i8, ptr %56, i64 %58
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %60, ptr align 8 %2, i64 %8, i1 false)
-  %61 = getelementptr inbounds i8, ptr %60, i64 %8
-  %62 = sub i64 %15, %57
+_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit50: ; preds = %_ZNSt12_Vector_baseIPKN4llvm8MetadataESaIS3_EE11_M_allocateEm.exit, %60
+  %61 = getelementptr inbounds i8, ptr %57, i64 %59
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %61, ptr align 8 %2, i64 %8, i1 false)
+  %62 = getelementptr inbounds i8, ptr %61, i64 %8
+  %63 = sub i64 %15, %58
   %.not.i.i.i.i.i.i.i.i.i51 = icmp eq ptr %13, %1
-  br i1 %.not.i.i.i.i.i.i.i.i.i51, label %_ZSt34__uninitialized_move_if_noexcept_aIPPKN4llvm8MetadataES4_SaIS3_EET0_T_S7_S6_RT1_.exit52, label %63
+  br i1 %.not.i.i.i.i.i.i.i.i.i51, label %_ZSt34__uninitialized_move_if_noexcept_aIPPKN4llvm8MetadataES4_SaIS3_EET0_T_S7_S6_RT1_.exit52, label %64
 
-63:                                               ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit50
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %61, ptr align 8 %1, i64 %62, i1 false)
+64:                                               ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit50
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %62, ptr align 8 %1, i64 %63, i1 false)
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPPKN4llvm8MetadataES4_SaIS3_EET0_T_S7_S6_RT1_.exit52
 
-_ZSt34__uninitialized_move_if_noexcept_aIPPKN4llvm8MetadataES4_SaIS3_EET0_T_S7_S6_RT1_.exit52: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit50, %63
-  %64 = getelementptr inbounds i8, ptr %61, i64 %62
-  %.not.i53 = icmp eq ptr %42, null
-  br i1 %.not.i53, label %_ZNSt12_Vector_baseIPKN4llvm8MetadataESaIS3_EE13_M_deallocateEPS3_m.exit, label %65
+_ZSt34__uninitialized_move_if_noexcept_aIPPKN4llvm8MetadataES4_SaIS3_EET0_T_S7_S6_RT1_.exit52: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit50, %64
+  %65 = getelementptr inbounds i8, ptr %62, i64 %63
+  %.not.i53 = icmp eq ptr %43, null
+  br i1 %.not.i53, label %_ZNSt12_Vector_baseIPKN4llvm8MetadataESaIS3_EE13_M_deallocateEPS3_m.exit, label %66
 
-65:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPPKN4llvm8MetadataES4_SaIS3_EET0_T_S7_S6_RT1_.exit52
-  %66 = sub i64 %14, %43
-  tail call void @_ZdlPvm(ptr noundef nonnull %42, i64 noundef %66) #23
+66:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPPKN4llvm8MetadataES4_SaIS3_EET0_T_S7_S6_RT1_.exit52
+  %67 = sub i64 %14, %44
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %67) #23
   br label %_ZNSt12_Vector_baseIPKN4llvm8MetadataESaIS3_EE13_M_deallocateEPS3_m.exit
 
-_ZNSt12_Vector_baseIPKN4llvm8MetadataESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPPKN4llvm8MetadataES4_SaIS3_EET0_T_S7_S6_RT1_.exit52, %65
-  store ptr %56, ptr %0, align 8
-  store ptr %64, ptr %12, align 8
-  %67 = getelementptr inbounds ptr, ptr %56, i64 %52
-  store ptr %67, ptr %10, align 8
+_ZNSt12_Vector_baseIPKN4llvm8MetadataESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPPKN4llvm8MetadataES4_SaIS3_EET0_T_S7_S6_RT1_.exit52, %66
+  store ptr %57, ptr %0, align 8
+  store ptr %65, ptr %12, align 8
+  %68 = getelementptr inbounds ptr, ptr %57, i64 %53
+  store ptr %68, ptr %10, align 8
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
 
-_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit: ; preds = %40, %_ZSt22__uninitialized_move_aIPPKN4llvm8MetadataES4_SaIS3_EET0_T_S7_S6_RT1_.exit45, %_ZSt13move_backwardIPPKN4llvm8MetadataES4_ET0_T_S6_S5_.exit, %_ZNSt12_Vector_baseIPKN4llvm8MetadataESaIS3_EE13_M_deallocateEPS3_m.exit, %4
+_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPKN4llvm8MetadataESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit: ; preds = %41, %_ZSt22__uninitialized_move_aIPPKN4llvm8MetadataES4_SaIS3_EET0_T_S7_S6_RT1_.exit45, %_ZSt13move_backwardIPPKN4llvm8MetadataES4_ET0_T_S6_S5_.exit, %_ZNSt12_Vector_baseIPKN4llvm8MetadataESaIS3_EE13_M_deallocateEPS3_m.exit, %4
   ret void
 }
 

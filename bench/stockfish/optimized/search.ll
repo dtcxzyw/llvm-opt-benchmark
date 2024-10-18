@@ -1887,7 +1887,7 @@ _ZNSt12_Vector_baseIN9Stockfish4MoveESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; pre
   br label %_ZSt4copyIPN9Stockfish4MoveES2_ET0_T_S4_S3_.exit.i
 
 _ZSt4copyIPN9Stockfish4MoveES2_ET0_T_S4_S3_.exit.i: ; preds = %485, %484
-  %.pre-phi33.i = phi i64 [ %481, %484 ], [ %.pre32.i, %485 ]
+  %.pre-phi33.i = phi i64 [ 0, %484 ], [ %.pre32.i, %485 ]
   %486 = phi ptr [ %463, %484 ], [ %.pre28.i, %485 ]
   %487 = phi ptr [ %479, %484 ], [ %.pre26.i, %485 ]
   %488 = phi ptr [ %456, %484 ], [ %.pre.i, %485 ]
@@ -4727,7 +4727,7 @@ _ZNSt12_Vector_baseIN9Stockfish4MoveESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds
   br label %_ZSt4copyIPN9Stockfish4MoveES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPN9Stockfish4MoveES2_ET0_T_S4_S3_.exit: ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]

@@ -1880,18 +1880,18 @@ define hidden void @_ZN2cv8ximgproc16GuidedFilterImpl19GFTransform_ParBodyC2ERS1
   %11 = getelementptr inbounds i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %2, align 8
-  %14 = ptrtoint ptr %12 to i64
-  %15 = ptrtoint ptr %13 to i64
-  %16 = sub i64 %14, %15
-  %17 = sdiv exact i64 %16, 96
   %.not = icmp eq ptr %12, %13
-  br i1 %.not, label %_ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit, label %18
+  br i1 %.not, label %_ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit, label %14
 
-18:                                               ; preds = %6
-  invoke void @_ZNSt6vectorIPN2cv3MatESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %17)
+14:                                               ; preds = %6
+  %15 = ptrtoint ptr %12 to i64
+  %16 = ptrtoint ptr %13 to i64
+  %17 = sub i64 %15, %16
+  %18 = sdiv exact i64 %17, 96
+  invoke void @_ZNSt6vectorIPN2cv3MatESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %18)
           to label %._ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit_crit_edge29 unwind label %58
 
-._ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit_crit_edge29: ; preds = %18
+._ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit_crit_edge29: ; preds = %14
   %.pre = load ptr, ptr %11, align 8
   %.pre30 = load ptr, ptr %2, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 48
@@ -1904,7 +1904,7 @@ define hidden void @_ZN2cv8ximgproc16GuidedFilterImpl19GFTransform_ParBodyC2ERS1
   br label %_ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit
 
 _ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit:    ; preds = %6, %._ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit_crit_edge29
-  %.pre-phi39 = phi i64 [ %.pre38, %._ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit_crit_edge29 ], [ %17, %6 ]
+  %.pre-phi39 = phi i64 [ %.pre38, %._ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit_crit_edge29 ], [ 0, %6 ]
   %19 = phi ptr [ %.pre32, %._ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit_crit_edge29 ], [ null, %6 ]
   %20 = phi ptr [ %.pre31, %._ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit_crit_edge29 ], [ null, %6 ]
   %21 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1968,7 +1968,7 @@ _ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit24:  ; preds = %27, %29, %31, %33
   %57 = icmp slt i64 %indvars.iv.next, %56
   br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 
-58:                                               ; preds = %27, %18
+58:                                               ; preds = %27, %14
   %59 = landingpad { ptr, i32 }
           cleanup
   %60 = load ptr, ptr %9, align 8

@@ -2909,7 +2909,7 @@ if.else:                                          ; preds = %if.end
   br label %if.end23
 
 if.end23:                                         ; preds = %if.else, %if.end, %entry
-  %scaled_size_over_min.0 = phi i64 [ %sub, %entry ], [ 0, %if.end ], [ %spec.select, %if.else ]
+  %scaled_size_over_min.0 = phi i64 [ 0, %entry ], [ 0, %if.end ], [ %spec.select, %if.else ]
   %add25 = add i64 %scaled_size_over_min.0, %request.coerce0
   %free_bytes_ = getelementptr inbounds i8, ptr %this, i64 40
   %11 = load atomic i64, ptr %free_bytes_ acquire, align 8

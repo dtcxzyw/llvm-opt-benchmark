@@ -11191,14 +11191,13 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %13 = load ptr, ptr %source_heap_ptr, align 8, !tbaa !17
   %byte_offset = getelementptr inbounds i8, ptr %target_heap_block, i64 40
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub, i64 1)
   %.pre = load ptr, ptr %target_data_ptr, align 8, !tbaa !17
-  %xtraiter = and i64 %umax, 1
+  %xtraiter = and i64 %sub, 1
   %14 = icmp ult i64 %sub, 2
   br i1 %14, label %for.cond.cleanup.loopexit.unr-lcssa, label %for.body.lr.ph.new
 
 for.body.lr.ph.new:                               ; preds = %for.body.lr.ph
-  %unroll_iter = and i64 %umax, -2
+  %unroll_iter = and i64 %sub, -2
   br label %for.body
 
 for.cond.cleanup.loopexit.unr-lcssa:              ; preds = %for.body, %for.body.lr.ph
@@ -29298,11 +29297,7 @@ invoke.cont36.i.i:                                ; preds = %call.i192.noexc.i.i
   %110 = load ptr, ptr %pointer.i.i.i, align 8, !tbaa !834
   %cmp41227.not.i.i = icmp eq i64 %add.i, %storemerge70.i
   %.pre247.i.i = load i64, ptr %entry_size.i.i, align 8, !tbaa !225
-  br i1 %cmp41227.not.i.i, label %for.cond.cleanup42.i.i, label %for.body43.i.preheader.i
-
-for.body43.i.preheader.i:                         ; preds = %invoke.cont36.i.i
-  %umax.i158 = call i64 @llvm.umax.i64(i64 %sub.i.i, i64 1)
-  br label %for.body43.i.i
+  br i1 %cmp41227.not.i.i, label %for.cond.cleanup42.i.i, label %for.body43.i.i
 
 for.cond.cleanup42.loopexit.i.i:                  ; preds = %for.body43.i.i
   %.pre.i.i = load ptr, ptr %pointer.i.i.i, align 8, !tbaa !834
@@ -29311,10 +29306,9 @@ for.cond.cleanup42.loopexit.i.i:                  ; preds = %for.body43.i.i
 for.cond.cleanup42.i.i:                           ; preds = %for.cond.cleanup42.loopexit.i.i, %invoke.cont36.i.i
   %111 = phi ptr [ %110, %invoke.cont36.i.i ], [ %.pre.i.i, %for.cond.cleanup42.loopexit.i.i ]
   %112 = phi i64 [ %.pre247.i.i, %invoke.cont36.i.i ], [ %122, %for.cond.cleanup42.loopexit.i.i ]
-  %sub40.lcssa.i.i = phi i64 [ 0, %invoke.cont36.i.i ], [ %sub.i.i, %for.cond.cleanup42.loopexit.i.i ]
   %mul54.i.i = mul i64 %112, %storemerge70.i
   %add.ptr55.i.i = getelementptr inbounds i8, ptr %40, i64 %mul54.i.i
-  %mul59.i.i = mul i64 %sub40.lcssa.i.i, %112
+  %mul59.i.i = mul i64 %112, %sub.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr55.i.i, ptr align 1 %111, i64 %mul59.i.i, i1 false)
   %113 = load i64, ptr %i12, align 8, !tbaa !13
   %114 = load i64, ptr %46, align 8, !tbaa !52
@@ -29379,17 +29373,17 @@ lpad30.i.i:                                       ; preds = %call.i192.noexc.i.i
           cleanup
   br label %ehcleanup102.i.i
 
-for.body43.i.i:                                   ; preds = %for.body43.i.i, %for.body43.i.preheader.i
-  %120 = phi i64 [ %122, %for.body43.i.i ], [ %.pre247.i.i, %for.body43.i.preheader.i ]
-  %i38.0229.i.i = phi i64 [ %inc51.i.i, %for.body43.i.i ], [ 0, %for.body43.i.preheader.i ]
-  %temp_ptr.0228.i.i = phi ptr [ %add.ptr49.i.i, %for.body43.i.i ], [ %110, %for.body43.i.preheader.i ]
+for.body43.i.i:                                   ; preds = %invoke.cont36.i.i, %for.body43.i.i
+  %120 = phi i64 [ %122, %for.body43.i.i ], [ %.pre247.i.i, %invoke.cont36.i.i ]
+  %i38.0229.i.i = phi i64 [ %inc51.i.i, %for.body43.i.i ], [ 0, %invoke.cont36.i.i ]
+  %temp_ptr.0228.i.i = phi ptr [ %add.ptr49.i.i, %for.body43.i.i ], [ %110, %invoke.cont36.i.i ]
   %arrayidx44.i.i = getelementptr inbounds ptr, ptr %call.i.i24.i, i64 %i38.0229.i.i
   %121 = load ptr, ptr %arrayidx44.i.i, align 8, !tbaa !17
   call fastcc void @_ZN6duckdbL10FastMemcpyEPvPKvm(ptr noundef %temp_ptr.0228.i.i, ptr noundef %121, i64 noundef %120)
   %122 = load i64, ptr %entry_size.i.i, align 8, !tbaa !225
   %add.ptr49.i.i = getelementptr inbounds i8, ptr %temp_ptr.0228.i.i, i64 %122
   %inc51.i.i = add nuw i64 %i38.0229.i.i, 1
-  %exitcond98.not.i = icmp eq i64 %inc51.i.i, %umax.i158
+  %exitcond98.not.i = icmp eq i64 %inc51.i.i, %sub.i.i
   br i1 %exitcond98.not.i, label %for.cond.cleanup42.loopexit.i.i, label %for.body43.i.i, !llvm.loop !899
 
 for.body81.preheader.i.i:                         ; preds = %for.cond.cleanup42.i.i

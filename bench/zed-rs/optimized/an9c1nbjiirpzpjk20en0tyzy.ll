@@ -8307,7 +8307,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17hbcebfe43427fccc3E.exit: ; preds
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %147, i64 24, i1 false)
   br i1 %27, label %.thread, label %148
 
-_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h14f04d8d0925e819E.exit: ; preds = %87, %.outer._crit_edge, %125
+_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h14f04d8d0925e819E.exit: ; preds = %.outer._crit_edge.thread, %87, %.outer._crit_edge, %125
   ret void
 
 148:                                              ; preds = %_ZN4core5slice4sort6shared5pivot12choose_pivot17hbcebfe43427fccc3E.exit
@@ -8502,7 +8502,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h14f04d8d
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.ph94, ptr nonnull align 8 %2, i64 %216, i1 false), !alias.scope !888
   %217 = sub i64 %.sroa.12.087, %.sroa.11.1.lcssa.i40
   %.not.i43 = icmp eq i64 %.sroa.12.087, %.sroa.11.1.lcssa.i40
-  br i1 %.not.i43, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17h792e6d97050f5976E.exit, label %.lr.ph18.i44
+  br i1 %.not.i43, label %.outer._crit_edge.thread, label %.lr.ph18.i44
 
 .lr.ph18.i44:                                     ; preds = %215
   %218 = getelementptr { { { { { i64, ptr, {} }, i64 } } } }, ptr %.sroa.0.0.ph94, i64 %.sroa.11.1.lcssa.i40
@@ -8518,9 +8518,13 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h14f04d8d
   %exitcond.not.i46 = icmp eq i64 %220, %217
   br i1 %exitcond.not.i46, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17h792e6d97050f5976E.exit, label %219
 
-_ZN4core5slice4sort6stable9quicksort16stable_partition17h792e6d97050f5976E.exit: ; preds = %219, %215
+_ZN4core5slice4sort6stable9quicksort16stable_partition17h792e6d97050f5976E.exit: ; preds = %219
   %224 = icmp ugt i64 %.sroa.11.1.lcssa.i40, %.sroa.12.087
   br i1 %224, label %225, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h61aaa79a3ff1a37aE.exit"
+
+.outer._crit_edge.thread:                         ; preds = %215
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
+  br label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h14f04d8d0925e819E.exit
 
 225:                                              ; preds = %_ZN4core5slice4sort6stable9quicksort16stable_partition17h792e6d97050f5976E.exit
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %.sroa.11.1.lcssa.i40, i64 noundef range(i64 33, 0) %.sroa.12.087, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1a9f74e0b9681dc18e13ce3079448e56.56) #30, !noalias !895

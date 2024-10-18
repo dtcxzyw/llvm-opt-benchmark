@@ -7888,10 +7888,6 @@ _ZN6duckdb6vectorINS_10unique_ptrINS_16ParsedExpressionESt14default_deleteIS2_EL
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i1127, i8 0, i64 16, i1 false)
   %20 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !147
   %21 = load ptr, ptr %select_list, align 8, !tbaa !163
-  %sub.ptr.lhs.cast.i2644 = ptrtoint ptr %20 to i64
-  %sub.ptr.rhs.cast.i2645 = ptrtoint ptr %21 to i64
-  %sub.ptr.sub.i2646 = sub i64 %sub.ptr.lhs.cast.i2644, %sub.ptr.rhs.cast.i2645
-  %sub.ptr.div.i2647 = ashr exact i64 %sub.ptr.sub.i2646, 3
   %cmp2648.not = icmp eq ptr %20, %21
   br i1 %cmp2648.not, label %for.cond.cleanup, label %for.body.lr.ph
 
@@ -7901,7 +7897,7 @@ for.body.lr.ph:                                   ; preds = %_ZN6duckdb6vectorIN
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %_ZNSt10unique_ptrIN6duckdb16ParsedExpressionESt14default_deleteIS1_EED2Ev.exit, %_ZN6duckdb6vectorINS_10unique_ptrINS_16ParsedExpressionESt14default_deleteIS2_ELb1EEELb1EEaSEOS6_.exit
-  %sub.ptr.div.i.lcssa = phi i64 [ %sub.ptr.div.i2647, %_ZN6duckdb6vectorINS_10unique_ptrINS_16ParsedExpressionESt14default_deleteIS2_ELb1EEELb1EEaSEOS6_.exit ], [ %sub.ptr.div.i, %_ZNSt10unique_ptrIN6duckdb16ParsedExpressionESt14default_deleteIS1_EED2Ev.exit ]
+  %sub.ptr.div.i.lcssa = phi i64 [ 0, %_ZN6duckdb6vectorINS_10unique_ptrINS_16ParsedExpressionESt14default_deleteIS2_ELb1EEELb1EEaSEOS6_.exit ], [ %sub.ptr.div.i, %_ZNSt10unique_ptrIN6duckdb16ParsedExpressionESt14default_deleteIS1_EED2Ev.exit ]
   %call112 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_15BoundSelectNodeESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %result)
           to label %invoke.cont111 unwind label %lpad110
 

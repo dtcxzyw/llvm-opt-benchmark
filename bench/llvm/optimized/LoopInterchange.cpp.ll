@@ -1460,7 +1460,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i.i: ; preds = %107, %_ZNS
   br label %_ZSt4copyIPcS0_ET0_T_S2_S1_.exit.i.i.i
 
 _ZSt4copyIPcS0_ET0_T_S2_S1_.exit.i.i.i:           ; preds = %115, %114
-  %.pre-phi33.i.i.i = phi i64 [ %111, %114 ], [ %.pre32.i.i.i, %115 ]
+  %.pre-phi33.i.i.i = phi i64 [ 0, %114 ], [ %.pre32.i.i.i, %115 ]
   %116 = phi ptr [ %92, %114 ], [ %.pre28.i.i.i, %115 ]
   %117 = phi ptr [ %86, %114 ], [ %.pre26.i.i.i, %115 ]
   %118 = phi ptr [ %93, %114 ], [ %.pre.i.i.i, %115 ]

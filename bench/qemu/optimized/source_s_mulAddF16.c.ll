@@ -273,7 +273,7 @@ cond.true.i134:                                   ; preds = %if.else193
   %cmp2.i139 = icmp ne i32 %shl.i138, 0
   %conv.i140 = zext i1 %cmp2.i139 to i32
   %or.i141 = or i32 %shr.i136, %conv.i140
-  %23 = zext i32 %or.i141 to i64
+  %23 = zext nneg i32 %or.i141 to i64
   br label %softfloat_shiftRightJam32.exit142
 
 softfloat_shiftRightJam32.exit142:                ; preds = %if.else193, %cond.true.i134

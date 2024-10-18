@@ -38267,97 +38267,85 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %.not.i.i.i.i.i = icmp eq ptr %7, %8
-  br i1 %.not.i.i.i.i.i, label %_ZNK5clang10ASTContext17getTraversalScopeEv.exit, label %12
+  br i1 %.not.i.i.i.i.i, label %.thread78, label %12
 
 12:                                               ; preds = %2
   %13 = icmp ugt i64 %11, 9223372036854775800
-  br i1 %13, label %14, label %15
+  br i1 %13, label %14, label %_ZNK5clang10ASTContext17getTraversalScopeEv.exit
 
 14:                                               ; preds = %12
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #30, !noalias !102
   unreachable
 
-15:                                               ; preds = %12
-  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #28, !noalias !102
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %16, ptr align 8 %8, i64 %11, i1 false), !noalias !102
-  br label %_ZNK5clang10ASTContext17getTraversalScopeEv.exit
-
-_ZNK5clang10ASTContext17getTraversalScopeEv.exit: ; preds = %2, %15
-  %.sroa.034.0 = phi ptr [ %16, %15 ], [ null, %2 ]
-  %17 = getelementptr inbounds i8, ptr %.sroa.034.0, i64 %11
+_ZNK5clang10ASTContext17getTraversalScopeEv.exit: ; preds = %12
+  %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #28, !noalias !102
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %15, ptr align 8 %8, i64 %11, i1 false), !noalias !102
+  %16 = getelementptr inbounds i8, ptr %15, i64 %11
   %.not = icmp eq i64 %11, 8
-  br i1 %.not, label %18, label %.thread
+  br i1 %.not, label %17, label %.lr.ph.preheader
 
-18:                                               ; preds = %_ZNK5clang10ASTContext17getTraversalScopeEv.exit
-  %19 = load ptr, ptr %.sroa.034.0, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 28
-  %21 = load i32, ptr %20, align 4
-  %22 = and i32 %21, 127
-  %.not44 = icmp eq i32 %22, 0
-  br i1 %.not44, label %39, label %.thread
+17:                                               ; preds = %_ZNK5clang10ASTContext17getTraversalScopeEv.exit
+  %18 = load ptr, ptr %15, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 28
+  %20 = load i32, ptr %19, align 4
+  %21 = and i32 %20, 127
+  %.not44 = icmp eq i32 %21, 0
+  br i1 %.not44, label %39, label %.lr.ph.preheader
 
-.thread:                                          ; preds = %_ZNK5clang10ASTContext17getTraversalScopeEv.exit, %18
-  br i1 %.not.i.i.i.i.i, label %.loopexit47, label %.lr.ph
+.lr.ph.preheader:                                 ; preds = %_ZNK5clang10ASTContext17getTraversalScopeEv.exit, %17
+  br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread42
-  %.sroa.031.049 = phi ptr [ %38, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread42 ], [ %.sroa.034.0, %.thread ]
-  %23 = load ptr, ptr %.sroa.031.049, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 28
-  %25 = load i32, ptr %24, align 4
-  %26 = and i32 %25, 126
-  %switch.i = icmp eq i32 %26, 6
-  br i1 %switch.i, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread42, label %27
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread42
+  %.sroa.031.049 = phi ptr [ %37, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread42 ], [ %15, %.lr.ph.preheader ]
+  %22 = load ptr, ptr %.sroa.031.049, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 28
+  %24 = load i32, ptr %23, align 4
+  %25 = and i32 %24, 126
+  %switch.i = icmp eq i32 %25, 6
+  br i1 %switch.i, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread42, label %26
 
-27:                                               ; preds = %.lr.ph
-  %28 = and i32 %25, 127
-  %29 = add nsw i32 %28, -59
-  %30 = icmp ult i32 %29, -3
-  br i1 %30, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread, label %31
+26:                                               ; preds = %.lr.ph
+  %27 = and i32 %24, 127
+  %28 = add nsw i32 %27, -59
+  %29 = icmp ult i32 %28, -3
+  br i1 %29, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread, label %30
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds nuw i8, ptr %23, i64 128
-  %33 = load ptr, ptr %32, align 8
-  %.not.i.i = icmp eq ptr %33, null
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 128
+  %32 = load ptr, ptr %31, align 8
+  %.not.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit
 
-_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit: ; preds = %31
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load i32, ptr %34, align 8
-  %36 = and i32 %35, 1048576
-  %.not46 = icmp eq i32 %36, 0
+_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit: ; preds = %30
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %34 = load i32, ptr %33, align 8
+  %35 = and i32 %34, 1048576
+  %.not46 = icmp eq i32 %35, 0
   br i1 %.not46, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread42
 
-_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread: ; preds = %31, %27, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit
-  %37 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE12TraverseDeclEPNS_4DeclE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %23)
-  br i1 %37, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread42, label %.loopexit47.thread73
+_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread: ; preds = %30, %26, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit
+  %36 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE12TraverseDeclEPNS_4DeclE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %22)
+  br i1 %36, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread42, label %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread42: ; preds = %.lr.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread
-  %38 = getelementptr inbounds i8, ptr %.sroa.031.049, i64 8
-  %.not45 = icmp eq ptr %38, %17
-  br i1 %.not45, label %.loopexit47, label %.lr.ph
+  %37 = getelementptr inbounds i8, ptr %.sroa.031.049, i64 8
+  %.not45 = icmp eq ptr %37, %16
+  br i1 %.not45, label %38, label %.lr.ph
 
-.loopexit47:                                      ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread42, %.thread
-  %.not.i.i.i = icmp eq ptr %.sroa.034.0, null
-  br i1 %.not.i.i.i, label %.thread65, label %.loopexit47.thread
-
-.loopexit47.thread73:                             ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread
-  %.not.i.i.i75 = icmp eq ptr %.sroa.034.0, null
-  br i1 %.not.i.i.i75, label %.loopexit, label %.loopexit47.thread.thread
-
-.loopexit47.thread.thread:                        ; preds = %.loopexit47.thread73
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.034.0, i64 noundef %11) #26
+_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit:     ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread
+  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef %11) #26
   br label %.loopexit
 
-.loopexit47.thread:                               ; preds = %.loopexit47
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.034.0, i64 noundef %11) #26
-  br label %.thread65
+38:                                               ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread42
+  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef %11) #26
+  br label %.thread78
 
-39:                                               ; preds = %18
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.034.0, i64 noundef 8) #26
+39:                                               ; preds = %17
+  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef 8) #26
   %40 = getelementptr inbounds i8, ptr %1, i64 40
   %41 = tail call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %40) #25
   %.not1719.i = icmp eq ptr %41, null
-  br i1 %.not1719.i, label %.thread65, label %.lr.ph.i
+  br i1 %.not1719.i, label %.thread78, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %39, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread15.i
   %.sroa.0.020.i = phi ptr [ %58, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread15.i ], [ %41, %39 ]
@@ -38376,8 +38364,8 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canI
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i, i64 128
   %51 = load ptr, ptr %50, align 8
-  %.not.i.i.i72 = icmp eq ptr %51, null
-  br i1 %.not.i.i.i72, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i
+  %.not.i.i.i = icmp eq ptr %51, null
+  br i1 %.not.i.i.i, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.i: ; preds = %49
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -38396,16 +38384,16 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canI
   %57 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %58 = inttoptr i64 %57 to ptr
   %.not17.i = icmp eq i64 %57, 0
-  br i1 %.not17.i, label %.thread65, label %.lr.ph.i
+  br i1 %.not17.i, label %.thread78, label %.lr.ph.i
 
-.thread65:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread15.i, %39, %.loopexit47, %.loopexit47.thread
+.thread78:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread15.i, %39, %2, %38
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %60 = load i32, ptr %59, align 4
   %61 = and i32 %60, 256
   %.not.i.i29 = icmp eq i32 %61, 0
   br i1 %.not.i.i29, label %.loopexit, label %_ZNK5clang4Decl10attr_beginEv.exit.i
 
-_ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %.thread65
+_ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %.thread78
   %62 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #25
   %63 = load ptr, ptr %62, align 8
   %.pre.i = load i32, ptr %59, align 4
@@ -38434,8 +38422,8 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   %or.cond.not = select i1 %72, i1 %.not28, i1 false
   br i1 %or.cond.not, label %.lr.ph53, label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph53, %.loopexit47.thread73, %.loopexit47.thread.thread, %.thread65, %_ZNK5clang4Decl5attrsEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.thread65 ], [ false, %.loopexit47.thread.thread ], [ false, %.loopexit47.thread73 ], [ %72, %.lr.ph53 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
+.loopexit:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i, %.lr.ph53, %.thread78, %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit, %_ZNK5clang4Decl5attrsEv.exit
+  %.0 = phi i1 [ false, %_ZNSt6vectorIPN5clang4DeclESaIS2_EED2Ev.exit ], [ true, %_ZNK5clang4Decl5attrsEv.exit ], [ true, %.thread78 ], [ %72, %.lr.ph53 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_124DiagnoseHLSLAvailabilityEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -54644,7 +54632,7 @@ _ZN4llvm15SmallVectorImplIN5clang8QualTypeEE7reserveEm.exit: ; preds = %_ZN4llvm
   %34 = load ptr, ptr %0, align 8
   %35 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
   %36 = getelementptr inbounds %"class.clang::QualType", ptr %34, i64 %35
-  br i1 %.not, label %53, label %37
+  br i1 %.not, label %54, label %37
 
 37:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang8QualTypeEE7reserveEm.exit
   %38 = load ptr, ptr %0, align 8
@@ -54664,62 +54652,62 @@ _ZN4llvm15SmallVectorImplIN5clang8QualTypeEE7reserveEm.exit: ; preds = %_ZN4llvm
   %48 = ptrtoint ptr %46 to i64
   %49 = sub i64 %48, %33
   %50 = ashr exact i64 %49, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %50
-  %51 = getelementptr inbounds %"class.clang::QualType", ptr %36, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %51, ptr align 8 %31, i64 %49, i1 false)
+  %51 = sub nsw i64 0, %50
+  %52 = getelementptr inbounds %"class.clang::QualType", ptr %36, i64 %51
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %52, ptr align 8 %31, i64 %49, i1 false)
   br label %_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit
 
 _ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit: ; preds = %37, %47
-  br i1 %16, label %_ZSt4copyIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit, label %52
+  br i1 %16, label %_ZSt4copyIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit, label %53
 
-52:                                               ; preds = %_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit
+53:                                               ; preds = %_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %31, ptr align 8 %2, i64 %22, i1 false)
   br label %_ZSt4copyIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit
 
-53:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang8QualTypeEE7reserveEm.exit
-  %54 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
-  %55 = add i64 %54, %23
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %55) #25
-  %56 = load ptr, ptr %0, align 8
-  %57 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
+54:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang8QualTypeEE7reserveEm.exit
+  %55 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
+  %56 = add i64 %55, %23
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %56) #25
+  %57 = load ptr, ptr %0, align 8
+  %58 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
   %.not.i.i = icmp eq ptr %31, %36
   br i1 %.not.i.i, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %53
-  %58 = ptrtoint ptr %36 to i64
-  %59 = sub i64 %58, %33
-  %60 = ashr exact i64 %59, 3
-  %61 = getelementptr inbounds %"class.clang::QualType", ptr %56, i64 %57
-  %62 = sub nsw i64 0, %60
-  %63 = getelementptr inbounds %"class.clang::QualType", ptr %61, i64 %62
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %63, ptr align 8 %31, i64 %59, i1 false)
+.lr.ph.preheader:                                 ; preds = %54
+  %59 = ptrtoint ptr %36 to i64
+  %60 = sub i64 %59, %33
+  %61 = ashr exact i64 %60, 3
+  %62 = getelementptr inbounds %"class.clang::QualType", ptr %57, i64 %58
+  %63 = sub nsw i64 0, %61
+  %64 = getelementptr inbounds %"class.clang::QualType", ptr %62, i64 %63
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 8 %31, i64 %60, i1 false)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.050 = phi ptr [ %65, %.lr.ph ], [ %31, %.lr.ph.preheader ]
-  %.04049 = phi i64 [ %67, %.lr.ph ], [ %60, %.lr.ph.preheader ]
-  %.04248 = phi ptr [ %66, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %64 = load i64, ptr %.04248, align 8
-  store i64 %64, ptr %.050, align 8
-  %65 = getelementptr inbounds i8, ptr %.050, i64 8
-  %66 = getelementptr inbounds i8, ptr %.04248, i64 8
-  %67 = add i64 %.04049, -1
-  %.not44 = icmp eq i64 %67, 0
+  %.050 = phi ptr [ %66, %.lr.ph ], [ %31, %.lr.ph.preheader ]
+  %.04049 = phi i64 [ %68, %.lr.ph ], [ %61, %.lr.ph.preheader ]
+  %.04248 = phi ptr [ %67, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %65 = load i64, ptr %.04248, align 8
+  store i64 %65, ptr %.050, align 8
+  %66 = getelementptr inbounds i8, ptr %.050, i64 8
+  %67 = getelementptr inbounds i8, ptr %.04248, i64 8
+  %68 = add i64 %.04049, -1
+  %.not44 = icmp eq i64 %68, 0
   br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !163
 
-._crit_edge:                                      ; preds = %.lr.ph, %53
-  %.042.lcssa = phi ptr [ %2, %53 ], [ %66, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %54
+  %.042.lcssa = phi ptr [ %2, %54 ], [ %67, %.lr.ph ]
   %.not.i = icmp eq ptr %.042.lcssa, %3
-  br i1 %.not.i, label %_ZSt4copyIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit, label %68
+  br i1 %.not.i, label %_ZSt4copyIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit, label %69
 
-68:                                               ; preds = %._crit_edge
-  %69 = ptrtoint ptr %.042.lcssa to i64
-  %70 = sub i64 %20, %69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr align 8 %.042.lcssa, i64 %70, i1 false)
+69:                                               ; preds = %._crit_edge
+  %70 = ptrtoint ptr %.042.lcssa to i64
+  %71 = sub i64 %20, %70
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr align 8 %.042.lcssa, i64 %71, i1 false)
   br label %_ZSt4copyIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit
 
-_ZSt4copyIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit: ; preds = %68, %._crit_edge, %52, %_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit, %12
-  %.041 = phi ptr [ %14, %12 ], [ %31, %_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit ], [ %31, %52 ], [ %31, %._crit_edge ], [ %31, %68 ]
+_ZSt4copyIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit: ; preds = %69, %._crit_edge, %53, %_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit, %12
+  %.041 = phi ptr [ %14, %12 ], [ %31, %_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit ], [ %31, %53 ], [ %31, %._crit_edge ], [ %31, %69 ]
   ret ptr %.041
 }
 
@@ -54793,7 +54781,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE28reserveForParamAndGetA
   %35 = load ptr, ptr %0, align 8
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
   %37 = getelementptr inbounds %"class.clang::QualType", ptr %35, i64 %36
-  br i1 %.not, label %56, label %38
+  br i1 %.not, label %57, label %38
 
 38:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE28reserveForParamAndGetAddressERS2_m.exit
   %39 = load ptr, ptr %0, align 8
@@ -54813,64 +54801,64 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE28reserveForParamAndGetA
   %49 = ptrtoint ptr %47 to i64
   %50 = sub i64 %49, %33
   %51 = ashr exact i64 %50, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %51
-  %52 = getelementptr inbounds %"class.clang::QualType", ptr %37, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %52, ptr align 8 %31, i64 %50, i1 false)
+  %52 = sub nsw i64 0, %51
+  %53 = getelementptr inbounds %"class.clang::QualType", ptr %37, i64 %52
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %53, ptr align 8 %31, i64 %50, i1 false)
   br label %_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit
 
 _ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit: ; preds = %38, %48
-  %53 = icmp eq i64 %2, 0
-  br i1 %53, label %_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit, label %.lr.ph.preheader.i.i.i.i
+  %54 = icmp eq i64 %2, 0
+  br i1 %54, label %_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit, label %.lr.ph.preheader.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit
-  %54 = getelementptr inbounds %"class.clang::QualType", ptr %31, i64 %2
+  %55 = getelementptr inbounds %"class.clang::QualType", ptr %31, i64 %2
   br label %.lr.ph.i.i.i.i33
 
 .lr.ph.i.i.i.i33:                                 ; preds = %.lr.ph.i.i.i.i33, %.lr.ph.preheader.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %55, %.lr.ph.i.i.i.i33 ], [ %31, %.lr.ph.preheader.i.i.i.i ]
+  %.06.i.i.i.i = phi ptr [ %56, %.lr.ph.i.i.i.i33 ], [ %31, %.lr.ph.preheader.i.i.i.i ]
   store i64 %3, ptr %.06.i.i.i.i, align 8
-  %55 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 8
-  %.not.i.i.i.i34 = icmp eq ptr %55, %54
+  %56 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 8
+  %.not.i.i.i.i34 = icmp eq ptr %56, %55
   br i1 %.not.i.i.i.i34, label %_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit, label %.lr.ph.i.i.i.i33, !llvm.loop !165
 
-56:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE28reserveForParamAndGetAddressERS2_m.exit
-  %57 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
-  %58 = add i64 %57, %2
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %58) #25
-  %59 = ptrtoint ptr %37 to i64
-  %60 = sub i64 %59, %33
-  %61 = ashr exact i64 %60, 3
-  %62 = load ptr, ptr %0, align 8
-  %63 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
+57:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE28reserveForParamAndGetAddressERS2_m.exit
+  %58 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
+  %59 = add i64 %58, %2
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %59) #25
+  %60 = ptrtoint ptr %37 to i64
+  %61 = sub i64 %60, %33
+  %62 = ashr exact i64 %61, 3
+  %63 = load ptr, ptr %0, align 8
+  %64 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
   %.not.i.i35 = icmp eq ptr %31, %37
-  br i1 %.not.i.i35, label %_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit42, label %.lr.ph.i.i.i.i38.preheader
+  br i1 %.not.i.i35, label %_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit42, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit
 
-.lr.ph.i.i.i.i38.preheader:                       ; preds = %56
-  %64 = getelementptr inbounds %"class.clang::QualType", ptr %62, i64 %63
-  %65 = sub nsw i64 0, %61
-  %66 = getelementptr inbounds %"class.clang::QualType", ptr %64, i64 %65
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %66, ptr align 8 %31, i64 %60, i1 false)
+_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit: ; preds = %57
+  %65 = getelementptr inbounds %"class.clang::QualType", ptr %63, i64 %64
+  %66 = sub nsw i64 0, %62
+  %67 = getelementptr inbounds %"class.clang::QualType", ptr %65, i64 %66
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %67, ptr align 8 %31, i64 %61, i1 false)
   br label %.lr.ph.i.i.i.i38
 
-.lr.ph.i.i.i.i38:                                 ; preds = %.lr.ph.i.i.i.i38.preheader, %.lr.ph.i.i.i.i38
-  %.06.i.i.i.i39 = phi ptr [ %67, %.lr.ph.i.i.i.i38 ], [ %31, %.lr.ph.i.i.i.i38.preheader ]
+.lr.ph.i.i.i.i38:                                 ; preds = %.lr.ph.i.i.i.i38, %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit
+  %.06.i.i.i.i39 = phi ptr [ %68, %.lr.ph.i.i.i.i38 ], [ %31, %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit ]
   store i64 %3, ptr %.06.i.i.i.i39, align 8
-  %67 = getelementptr inbounds i8, ptr %.06.i.i.i.i39, i64 8
-  %.not.i.i.i.i40 = icmp eq ptr %67, %37
+  %68 = getelementptr inbounds i8, ptr %.06.i.i.i.i39, i64 8
+  %.not.i.i.i.i40 = icmp eq ptr %68, %37
   br i1 %.not.i.i.i.i40, label %_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit42, label %.lr.ph.i.i.i.i38, !llvm.loop !165
 
-_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit42: ; preds = %.lr.ph.i.i.i.i38, %56
-  %68 = sub i64 %2, %61
-  %.not7.i.i.i = icmp eq i64 %68, 0
+_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit42: ; preds = %.lr.ph.i.i.i.i38, %57
+  %69 = sub i64 %2, %62
+  %.not7.i.i.i = icmp eq i64 %69, 0
   br i1 %.not7.i.i.i, label %_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit42, %.lr.ph.i.i.i
-  %.09.i.i.i = phi ptr [ %70, %.lr.ph.i.i.i ], [ %37, %_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit42 ]
-  %.068.i.i.i = phi i64 [ %69, %.lr.ph.i.i.i ], [ %68, %_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit42 ]
+  %.09.i.i.i = phi ptr [ %71, %.lr.ph.i.i.i ], [ %37, %_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit42 ]
+  %.068.i.i.i = phi i64 [ %70, %.lr.ph.i.i.i ], [ %69, %_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit42 ]
   store i64 %3, ptr %.09.i.i.i, align 8
-  %69 = add i64 %.068.i.i.i, -1
-  %70 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 8
-  %.not.i.i.i43 = icmp eq i64 %69, 0
+  %70 = add i64 %.068.i.i.i, -1
+  %71 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 8
+  %.not.i.i.i43 = icmp eq i64 %70, 0
   br i1 %.not.i.i.i43, label %_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit, label %.lr.ph.i.i.i, !llvm.loop !164
 
 _ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit: ; preds = %.lr.ph.i.i.i.i33, %.lr.ph.i.i.i, %_ZSt6fill_nIPN5clang8QualTypeEmS1_ET_S3_T0_RKT1_.exit42, %_ZSt13move_backwardIPN5clang8QualTypeES2_ET0_T_S4_S3_.exit, %_ZN4llvm15SmallVectorImplIN5clang8QualTypeEE6appendEmS2_.exit

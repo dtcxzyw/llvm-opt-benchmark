@@ -1317,7 +1317,7 @@ define range(i32 -1, -2147483648) i32 @cli_bcapi_fill_buffer(ptr nocapture nound
   br label %41
 
 41:                                               ; preds = %40, %23
-  %42 = sub i32 %2, %24
+  %42 = sub nsw i32 %2, %24
   %or.cond107.not = icmp ult i32 %24, %2
   br i1 %or.cond107.not, label %43, label %54
 

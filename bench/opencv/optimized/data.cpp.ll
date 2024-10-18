@@ -2283,7 +2283,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i: ; preds = %184, %_ZNSt6ve
   br label %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit.i
 
 _ZSt4copyIPhS0_ET0_T_S2_S1_.exit.i:               ; preds = %193, %192
-  %.pre-phi33.i = phi i64 [ %189, %192 ], [ %.pre32.i, %193 ]
+  %.pre-phi33.i = phi i64 [ 0, %192 ], [ %.pre32.i, %193 ]
   %194 = phi ptr [ %187, %192 ], [ %.pre26.i, %193 ]
   %195 = getelementptr inbounds i8, ptr %.sroa.0283.5, i64 %.pre-phi33.i
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %.sroa.14.4, %195
@@ -8211,35 +8211,35 @@ _ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %31 = load i32, ptr %.019.i16.i, align 4
   %32 = load i32, ptr %0, align 4
   %33 = icmp slt i32 %31, %32
-  br i1 %33, label %34, label %40
+  br i1 %33, label %34, label %41
 
 34:                                               ; preds = %.lr.ph.i15.i
   %35 = getelementptr inbounds i8, ptr %.pn18.i17.i, i64 8
   %36 = ptrtoint ptr %.019.i16.i to i64
   %37 = sub i64 %36, %5
   %38 = ashr exact i64 %37, 2
-  %.pre.i.i.i.i.i.i26.i = sub nsw i64 0, %38
-  %39 = getelementptr inbounds i32, ptr %35, i64 %.pre.i.i.i.i.i.i26.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %39, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %37, i1 false)
+  %39 = sub nsw i64 0, %38
+  %40 = getelementptr inbounds i32, ptr %35, i64 %39
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %40, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %37, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i
 
-40:                                               ; preds = %.lr.ph.i15.i
-  %41 = load i32, ptr %.pn18.i17.i, align 4
-  %42 = icmp slt i32 %31, %41
-  br i1 %42, label %.lr.ph.i.i22.i, label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i
+41:                                               ; preds = %.lr.ph.i15.i
+  %42 = load i32, ptr %.pn18.i17.i, align 4
+  %43 = icmp slt i32 %31, %42
+  br i1 %43, label %.lr.ph.i.i22.i, label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i
 
-.lr.ph.i.i22.i:                                   ; preds = %40, %.lr.ph.i.i22.i
-  %43 = phi i32 [ %44, %.lr.ph.i.i22.i ], [ %41, %40 ]
-  %.013.i.i23.i = phi ptr [ %.0.i.i25.i, %.lr.ph.i.i22.i ], [ %.pn18.i17.i, %40 ]
-  %.0912.i.i24.i = phi ptr [ %.013.i.i23.i, %.lr.ph.i.i22.i ], [ %.019.i16.i, %40 ]
-  store i32 %43, ptr %.0912.i.i24.i, align 4
+.lr.ph.i.i22.i:                                   ; preds = %41, %.lr.ph.i.i22.i
+  %44 = phi i32 [ %45, %.lr.ph.i.i22.i ], [ %42, %41 ]
+  %.013.i.i23.i = phi ptr [ %.0.i.i25.i, %.lr.ph.i.i22.i ], [ %.pn18.i17.i, %41 ]
+  %.0912.i.i24.i = phi ptr [ %.013.i.i23.i, %.lr.ph.i.i22.i ], [ %.019.i16.i, %41 ]
+  store i32 %44, ptr %.0912.i.i24.i, align 4
   %.0.i.i25.i = getelementptr inbounds i8, ptr %.013.i.i23.i, i64 -4
-  %44 = load i32, ptr %.0.i.i25.i, align 4
-  %45 = icmp slt i32 %31, %44
-  br i1 %45, label %.lr.ph.i.i22.i, label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i, !llvm.loop !85
+  %45 = load i32, ptr %.0.i.i25.i, align 4
+  %46 = icmp slt i32 %31, %45
+  br i1 %46, label %.lr.ph.i.i22.i, label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i, !llvm.loop !85
 
-_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i: ; preds = %.lr.ph.i.i22.i, %40, %34
-  %.sink.i19.i = phi ptr [ %0, %34 ], [ %.019.i16.i, %40 ], [ %.013.i.i23.i, %.lr.ph.i.i22.i ]
+_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i: ; preds = %.lr.ph.i.i22.i, %41, %34
+  %.sink.i19.i = phi ptr [ %0, %34 ], [ %.019.i16.i, %41 ], [ %.013.i.i23.i, %.lr.ph.i.i22.i ]
   store i32 %31, ptr %.sink.i19.i, align 4
   %.0.i20.i = getelementptr inbounds i8, ptr %.019.i16.i, i64 4
   %.not.i21.i = icmp eq ptr %.0.i20.i, %1
@@ -8954,44 +8954,44 @@ _ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv2ml13Tra
   %69 = getelementptr inbounds i32, ptr %2, i64 %68
   %70 = load i32, ptr %69, align 4
   %71 = icmp slt i32 %66, %70
-  br i1 %71, label %72, label %78
+  br i1 %71, label %72, label %79
 
 72:                                               ; preds = %.lr.ph.i26
   %73 = getelementptr inbounds i8, ptr %.pn21.i28, i64 8
   %74 = ptrtoint ptr %.022.i27 to i64
   %75 = sub i64 %74, %6
   %76 = ashr exact i64 %75, 2
-  %.pre.i.i.i.i.i.i37 = sub nsw i64 0, %76
-  %77 = getelementptr inbounds i32, ptr %73, i64 %.pre.i.i.i.i.i.i37
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %77, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %75, i1 false)
+  %77 = sub nsw i64 0, %76
+  %78 = getelementptr inbounds i32, ptr %73, i64 %77
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %78, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %75, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv2ml13TrainDataImpl8CmpByIdxEEEEvT_T0_.exit.i29
 
-78:                                               ; preds = %.lr.ph.i26
-  %79 = load i32, ptr %.pn21.i28, align 4
-  %80 = mul nsw i32 %79, %3
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds i32, ptr %2, i64 %81
-  %83 = load i32, ptr %82, align 4
-  %84 = icmp slt i32 %66, %83
-  br i1 %84, label %.lr.ph.i.i33, label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv2ml13TrainDataImpl8CmpByIdxEEEEvT_T0_.exit.i29
+79:                                               ; preds = %.lr.ph.i26
+  %80 = load i32, ptr %.pn21.i28, align 4
+  %81 = mul nsw i32 %80, %3
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr inbounds i32, ptr %2, i64 %82
+  %84 = load i32, ptr %83, align 4
+  %85 = icmp slt i32 %66, %84
+  br i1 %85, label %.lr.ph.i.i33, label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv2ml13TrainDataImpl8CmpByIdxEEEEvT_T0_.exit.i29
 
-.lr.ph.i.i33:                                     ; preds = %78, %.lr.ph.i.i33
-  %85 = phi i32 [ %86, %.lr.ph.i.i33 ], [ %79, %78 ]
-  %.013.i.i34 = phi ptr [ %.0.i.i36, %.lr.ph.i.i33 ], [ %.pn21.i28, %78 ]
-  %.0912.i.i35 = phi ptr [ %.013.i.i34, %.lr.ph.i.i33 ], [ %.022.i27, %78 ]
-  store i32 %85, ptr %.0912.i.i35, align 4
+.lr.ph.i.i33:                                     ; preds = %79, %.lr.ph.i.i33
+  %86 = phi i32 [ %87, %.lr.ph.i.i33 ], [ %80, %79 ]
+  %.013.i.i34 = phi ptr [ %.0.i.i36, %.lr.ph.i.i33 ], [ %.pn21.i28, %79 ]
+  %.0912.i.i35 = phi ptr [ %.013.i.i34, %.lr.ph.i.i33 ], [ %.022.i27, %79 ]
+  store i32 %86, ptr %.0912.i.i35, align 4
   %.0.i.i36 = getelementptr inbounds i8, ptr %.013.i.i34, i64 -4
-  %86 = load i32, ptr %.0.i.i36, align 4
-  %87 = load i32, ptr %65, align 4
-  %88 = mul nsw i32 %86, %3
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds i32, ptr %2, i64 %89
-  %91 = load i32, ptr %90, align 4
-  %92 = icmp slt i32 %87, %91
-  br i1 %92, label %.lr.ph.i.i33, label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv2ml13TrainDataImpl8CmpByIdxEEEEvT_T0_.exit.i29, !llvm.loop !97
+  %87 = load i32, ptr %.0.i.i36, align 4
+  %88 = load i32, ptr %65, align 4
+  %89 = mul nsw i32 %87, %3
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds i32, ptr %2, i64 %90
+  %92 = load i32, ptr %91, align 4
+  %93 = icmp slt i32 %88, %92
+  br i1 %93, label %.lr.ph.i.i33, label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv2ml13TrainDataImpl8CmpByIdxEEEEvT_T0_.exit.i29, !llvm.loop !97
 
-_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv2ml13TrainDataImpl8CmpByIdxEEEEvT_T0_.exit.i29: ; preds = %.lr.ph.i.i33, %78, %72
-  %.sink.i30 = phi ptr [ %0, %72 ], [ %.022.i27, %78 ], [ %.013.i.i34, %.lr.ph.i.i33 ]
+_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIN2cv2ml13TrainDataImpl8CmpByIdxEEEEvT_T0_.exit.i29: ; preds = %.lr.ph.i.i33, %79, %72
+  %.sink.i30 = phi ptr [ %0, %72 ], [ %.022.i27, %79 ], [ %.013.i.i34, %.lr.ph.i.i33 ]
   store i32 %61, ptr %.sink.i30, align 4
   %.0.i31 = getelementptr inbounds i8, ptr %.022.i27, i64 4
   %.not.i32 = icmp eq ptr %.0.i31, %1

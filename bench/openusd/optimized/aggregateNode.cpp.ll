@@ -1732,7 +1732,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18TraceAggregateNodeEEptEv.ex
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
   %24 = phi ptr [ %.pre65, %._crit_edge.loopexit ], [ %11, %4 ]
   %25 = phi ptr [ %.pre64, %._crit_edge.loopexit ], [ %12, %4 ]
-  %26 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %16, %4 ]
+  %26 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ 0, %4 ]
   %27 = mul i64 %26, %1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i64, ptr %28, align 8

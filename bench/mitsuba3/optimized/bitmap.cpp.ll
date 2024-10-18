@@ -18719,7 +18719,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_
   %145 = sub i64 %143, %144
   %146 = sdiv exact i64 %145, 24
   %147 = icmp ult i64 %141, %146
-  br i1 %147, label %111, label %._crit_edge, !llvm.loop !234
+  br i1 %147, label %111, label %._crit_edge.loopexit, !llvm.loop !234
 
 .loopexit:                                        ; preds = %111
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -18736,12 +18736,15 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_
   call void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #37
   br label %.body
 
-._crit_edge:                                      ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_.exit, %108
-  %.lcssa = phi i64 [ %87, %108 ], [ %146, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_.exit ]
-  %149 = load ptr, ptr %5, align 8
-  %150 = load ptr, ptr %6, align 8
-  %151 = trunc i64 %.lcssa to i32
-  invoke void @png_set_text(ptr noundef %149, ptr noundef %150, ptr noundef nonnull %107, i32 noundef %151)
+._crit_edge.loopexit:                             ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_.exit
+  %149 = trunc i64 %146 to i32
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %108
+  %.lcssa = phi i32 [ 0, %108 ], [ %149, %._crit_edge.loopexit ]
+  %150 = load ptr, ptr %5, align 8
+  %151 = load ptr, ptr %6, align 8
+  invoke void @png_set_text(ptr noundef %150, ptr noundef %151, ptr noundef nonnull %107, i32 noundef %.lcssa)
           to label %152 unwind label %.loopexit.split-lp
 
 152:                                              ; preds = %._crit_edge

@@ -10102,7 +10102,7 @@ if.then.i.i.i.i.i35:                              ; preds = %if.else49
   br label %_ZSt4copyIPjS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPjS0_ET0_T_S2_S1_.exit:                 ; preds = %if.else49, %if.then.i.i.i.i.i35
-  %sub.ptr.sub.i40.pre-phi = phi i64 [ %sub.ptr.sub.i22, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
+  %sub.ptr.sub.i40.pre-phi = phi i64 [ 0, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
   %5 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
   %6 = phi ptr [ %4, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
   %7 = phi ptr [ %1, %if.else49 ], [ %.pre, %if.then.i.i.i.i.i35 ]
@@ -14916,7 +14916,7 @@ if.end:                                           ; preds = %land.lhs.true, %lor
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %_M_finish.i.i = getelementptr inbounds i8, ptr %unit, i64 56
   %cmp.i.not = icmp eq ptr %2, %3
-  br i1 %cmp.i.not, label %_ZNSt6vectorIN7rocksdb15TypeCorrelationESaIS1_EE6resizeEm.exit, label %if.else.i1100
+  br i1 %cmp.i.not, label %for.end, label %if.else.i1100
 
 if.else.i1100:                                    ; preds = %if.end
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %unit, i64 64
@@ -14938,35 +14938,41 @@ _ZNKSt6vectorIN7rocksdb15TypeCorrelationESaIS1_EE12_M_check_lenEmPKc.exit.i: ; p
 call5.i.i.i.i.noexc:                              ; preds = %_ZNKSt6vectorIN7rocksdb15TypeCorrelationESaIS1_EE12_M_check_lenEmPKc.exit.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i1105, i8 0, i64 16, i1 false)
   %cmp.i.i.i.i.i24.i = icmp eq i64 %sub.ptr.sub.i, 8
-  br i1 %cmp.i.i.i.i.i24.i, label %_ZNSt12_Vector_baseIN7rocksdb15TypeCorrelationESaIS1_EE13_M_deallocateEPS1_m.exit37.i, label %if.end.i.i.i.i.i25.i
+  %add.ptr37.i1170 = getelementptr %"struct.rocksdb::TypeCorrelation", ptr %call5.i.i.i.i1105, i64 %sub.ptr.div.i
+  br i1 %cmp.i.i.i.i.i24.i, label %_ZNSt6vectorIN7rocksdb15TypeCorrelationESaIS1_EE6resizeEm.exit.thread1169, label %if.end.i.i.i.i.i25.i
+
+_ZNSt6vectorIN7rocksdb15TypeCorrelationESaIS1_EE6resizeEm.exit.thread1169: ; preds = %call5.i.i.i.i.noexc
+  store ptr %call5.i.i.i.i1105, ptr %v_correlation.i, align 8
+  store ptr %add.ptr37.i1170, ptr %_M_finish.i.i, align 8
+  store ptr %add.ptr37.i1170, ptr %_M_end_of_storage.i, align 8
+  br label %for.body.preheader
 
 if.end.i.i.i.i.i25.i:                             ; preds = %call5.i.i.i.i.noexc
   %incdec.ptr.i.i.i23.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1105, i64 16
-  %add.ptr.i.i.i.i.i26.i = getelementptr %"struct.rocksdb::TypeCorrelation", ptr %call5.i.i.i.i1105, i64 %sub.ptr.div.i
   br label %for.body.i.i.i.i.i.i.i27.i
 
 for.body.i.i.i.i.i.i.i27.i:                       ; preds = %for.body.i.i.i.i.i.i.i27.i, %if.end.i.i.i.i.i25.i
   %__first.addr.04.i.i.i.i.i.i.i28.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i29.i, %for.body.i.i.i.i.i.i.i27.i ], [ %incdec.ptr.i.i.i23.i, %if.end.i.i.i.i.i25.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i.i.i.i.i28.i, ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i1105, i64 16, i1 false)
   %incdec.ptr.i.i.i.i.i.i.i29.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i28.i, i64 16
-  %cmp.not.i.i.i.i.i.i.i30.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i29.i, %add.ptr.i.i.i.i.i26.i
-  br i1 %cmp.not.i.i.i.i.i.i.i30.i, label %_ZNSt12_Vector_baseIN7rocksdb15TypeCorrelationESaIS1_EE13_M_deallocateEPS1_m.exit37.i, label %for.body.i.i.i.i.i.i.i27.i, !llvm.loop !119
+  %cmp.not.i.i.i.i.i.i.i30.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i29.i, %add.ptr37.i1170
+  br i1 %cmp.not.i.i.i.i.i.i.i30.i, label %_ZNSt6vectorIN7rocksdb15TypeCorrelationESaIS1_EE6resizeEm.exit, label %for.body.i.i.i.i.i.i.i27.i, !llvm.loop !119
 
-_ZNSt12_Vector_baseIN7rocksdb15TypeCorrelationESaIS1_EE13_M_deallocateEPS1_m.exit37.i: ; preds = %for.body.i.i.i.i.i.i.i27.i, %call5.i.i.i.i.noexc
+_ZNSt6vectorIN7rocksdb15TypeCorrelationESaIS1_EE6resizeEm.exit: ; preds = %for.body.i.i.i.i.i.i.i27.i
   store ptr %call5.i.i.i.i1105, ptr %v_correlation.i, align 8
   %add.ptr37.i = getelementptr inbounds %"struct.rocksdb::TypeCorrelation", ptr %call5.i.i.i.i1105, i64 %sub.ptr.div.i
   store ptr %add.ptr37.i, ptr %_M_finish.i.i, align 8
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
-  br label %_ZNSt6vectorIN7rocksdb15TypeCorrelationESaIS1_EE6resizeEm.exit
-
-_ZNSt6vectorIN7rocksdb15TypeCorrelationESaIS1_EE6resizeEm.exit: ; preds = %if.end, %_ZNSt12_Vector_baseIN7rocksdb15TypeCorrelationESaIS1_EE13_M_deallocateEPS1_m.exit37.i
   %sub.ptr.div.i881156 = lshr exact i64 %sub.ptr.sub.i, 3
   %conv1157 = trunc i64 %sub.ptr.div.i881156 to i32
   %cmp101158 = icmp sgt i32 %conv1157, 0
-  br i1 %cmp101158, label %for.body, label %for.end
+  br i1 %cmp101158, label %for.body.preheader, label %for.end
 
-for.body:                                         ; preds = %_ZNSt6vectorIN7rocksdb15TypeCorrelationESaIS1_EE6resizeEm.exit, %for.body
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %_ZNSt6vectorIN7rocksdb15TypeCorrelationESaIS1_EE6resizeEm.exit ]
+for.body.preheader:                               ; preds = %_ZNSt6vectorIN7rocksdb15TypeCorrelationESaIS1_EE6resizeEm.exit.thread1169, %_ZNSt6vectorIN7rocksdb15TypeCorrelationESaIS1_EE6resizeEm.exit
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.preheader, %for.body
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.preheader ]
   %4 = load ptr, ptr %v_correlation.i, align 8
   %add.ptr.i89 = getelementptr inbounds %"struct.rocksdb::TypeCorrelation", ptr %4, i64 %indvars.iv
   store i64 0, ptr %add.ptr.i89, align 8
@@ -14989,7 +14995,7 @@ lpad:                                             ; preds = %_ZNKSt6vectorIN7roc
           cleanup
   br label %ehcleanup444
 
-for.end:                                          ; preds = %for.body, %_ZNSt6vectorIN7rocksdb15TypeCorrelationESaIS1_EE6resizeEm.exit
+for.end:                                          ; preds = %for.body, %if.end, %_ZNSt6vectorIN7rocksdb15TypeCorrelationESaIS1_EE6resizeEm.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %prefix) #26
   %10 = load i32, ptr @_ZN3fLI23FLAGS_output_prefix_cutE, align 4
   %cmp17 = icmp sgt i32 %10, 0
@@ -22188,7 +22194,7 @@ if.then.i.i.i.i.i35:                              ; preds = %if.else49
   br label %_ZSt4copyIPN7rocksdb15TypeCorrelationES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPN7rocksdb15TypeCorrelationES2_ET0_T_S4_S3_.exit: ; preds = %if.else49, %if.then.i.i.i.i.i35
-  %sub.ptr.sub.i40.pre-phi = phi i64 [ %sub.ptr.sub.i22, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
+  %sub.ptr.sub.i40.pre-phi = phi i64 [ 0, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
   %5 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
   %6 = phi ptr [ %4, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
   %7 = phi ptr [ %1, %if.else49 ], [ %.pre, %if.then.i.i.i.i.i35 ]
@@ -28793,8 +28799,8 @@ if.then.i.i.i.i.i:                                ; preds = %if.then11
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %1, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i, ptr align 8 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %invoke.cont20
 

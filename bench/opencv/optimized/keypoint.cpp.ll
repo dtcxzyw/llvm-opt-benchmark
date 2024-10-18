@@ -3957,120 +3957,120 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_i
   br i1 %65, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %.preheader23
 
 .preheader23:                                     ; preds = %63, %56, %49, %41, %33, %25, %17, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit
-  br label %71
+  br label %72
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit: ; preds = %63, %56, %49, %41, %33, %25, %17, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv17KeyPoint_LessThanEEclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESB_EEbT_T0_.exit
   %66 = getelementptr inbounds i8, ptr %.pn20, i64 8
   %67 = ptrtoint ptr %.sroa.0.021 to i64
   %68 = sub i64 %67, %5
   %69 = ashr exact i64 %68, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %69
-  %70 = getelementptr inbounds i32, ptr %66, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %70, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %68, i1 false)
+  %70 = sub nsw i64 0, %69
+  %71 = getelementptr inbounds i32, ptr %66, i64 %70
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %71, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %68, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
 
-71:                                               ; preds = %.preheader23, %129
-  %72 = phi float [ %.pre22, %129 ], [ %14, %.preheader23 ]
-  %73 = phi ptr [ %.pre, %129 ], [ %10, %.preheader23 ]
-  %.sroa.05.0.i = phi ptr [ %.sroa.0.0.i, %129 ], [ %.sroa.0.021, %.preheader23 ]
+72:                                               ; preds = %.preheader23, %130
+  %73 = phi float [ %.pre22, %130 ], [ %14, %.preheader23 ]
+  %74 = phi ptr [ %.pre, %130 ], [ %10, %.preheader23 ]
+  %.sroa.05.0.i = phi ptr [ %.sroa.0.0.i, %130 ], [ %.sroa.0.021, %.preheader23 ]
   %.sroa.0.0.i = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 -4
-  %74 = load i32, ptr %.sroa.0.0.i, align 4
-  %75 = getelementptr inbounds %"class.cv::KeyPoint", ptr %73, i64 %9
-  %76 = sext i32 %74 to i64
-  %77 = getelementptr inbounds %"class.cv::KeyPoint", ptr %73, i64 %76
-  %78 = load float, ptr %77, align 4
-  %79 = fcmp une float %72, %78
-  br i1 %79, label %80, label %82
+  %75 = load i32, ptr %.sroa.0.0.i, align 4
+  %76 = getelementptr inbounds %"class.cv::KeyPoint", ptr %74, i64 %9
+  %77 = sext i32 %75 to i64
+  %78 = getelementptr inbounds %"class.cv::KeyPoint", ptr %74, i64 %77
+  %79 = load float, ptr %78, align 4
+  %80 = fcmp une float %73, %79
+  br i1 %80, label %81, label %83
 
-80:                                               ; preds = %71
-  %81 = fcmp olt float %72, %78
-  br i1 %81, label %129, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
+81:                                               ; preds = %72
+  %82 = fcmp olt float %73, %79
+  br i1 %82, label %130, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
 
-82:                                               ; preds = %71
-  %83 = getelementptr inbounds i8, ptr %75, i64 4
-  %84 = load float, ptr %83, align 4
-  %85 = getelementptr inbounds i8, ptr %77, i64 4
-  %86 = load float, ptr %85, align 4
-  %87 = fcmp une float %84, %86
-  br i1 %87, label %88, label %90
+83:                                               ; preds = %72
+  %84 = getelementptr inbounds i8, ptr %76, i64 4
+  %85 = load float, ptr %84, align 4
+  %86 = getelementptr inbounds i8, ptr %78, i64 4
+  %87 = load float, ptr %86, align 4
+  %88 = fcmp une float %85, %87
+  br i1 %88, label %89, label %91
 
-88:                                               ; preds = %82
-  %89 = fcmp olt float %84, %86
-  br i1 %89, label %129, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
+89:                                               ; preds = %83
+  %90 = fcmp olt float %85, %87
+  br i1 %90, label %130, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
 
-90:                                               ; preds = %82
-  %91 = getelementptr inbounds i8, ptr %75, i64 8
-  %92 = load float, ptr %91, align 4
-  %93 = getelementptr inbounds i8, ptr %77, i64 8
-  %94 = load float, ptr %93, align 4
-  %95 = fcmp une float %92, %94
-  br i1 %95, label %96, label %98
+91:                                               ; preds = %83
+  %92 = getelementptr inbounds i8, ptr %76, i64 8
+  %93 = load float, ptr %92, align 4
+  %94 = getelementptr inbounds i8, ptr %78, i64 8
+  %95 = load float, ptr %94, align 4
+  %96 = fcmp une float %93, %95
+  br i1 %96, label %97, label %99
 
-96:                                               ; preds = %90
-  %97 = fcmp ogt float %92, %94
-  br i1 %97, label %129, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
+97:                                               ; preds = %91
+  %98 = fcmp ogt float %93, %95
+  br i1 %98, label %130, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
 
-98:                                               ; preds = %90
-  %99 = getelementptr inbounds i8, ptr %75, i64 12
-  %100 = load float, ptr %99, align 4
-  %101 = getelementptr inbounds i8, ptr %77, i64 12
-  %102 = load float, ptr %101, align 4
-  %103 = fcmp une float %100, %102
-  br i1 %103, label %104, label %106
+99:                                               ; preds = %91
+  %100 = getelementptr inbounds i8, ptr %76, i64 12
+  %101 = load float, ptr %100, align 4
+  %102 = getelementptr inbounds i8, ptr %78, i64 12
+  %103 = load float, ptr %102, align 4
+  %104 = fcmp une float %101, %103
+  br i1 %104, label %105, label %107
 
-104:                                              ; preds = %98
-  %105 = fcmp olt float %100, %102
-  br i1 %105, label %129, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
+105:                                              ; preds = %99
+  %106 = fcmp olt float %101, %103
+  br i1 %106, label %130, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
 
-106:                                              ; preds = %98
-  %107 = getelementptr inbounds i8, ptr %75, i64 16
-  %108 = load float, ptr %107, align 4
-  %109 = getelementptr inbounds i8, ptr %77, i64 16
-  %110 = load float, ptr %109, align 4
-  %111 = fcmp une float %108, %110
-  br i1 %111, label %112, label %114
+107:                                              ; preds = %99
+  %108 = getelementptr inbounds i8, ptr %76, i64 16
+  %109 = load float, ptr %108, align 4
+  %110 = getelementptr inbounds i8, ptr %78, i64 16
+  %111 = load float, ptr %110, align 4
+  %112 = fcmp une float %109, %111
+  br i1 %112, label %113, label %115
 
-112:                                              ; preds = %106
-  %113 = fcmp ogt float %108, %110
-  br i1 %113, label %129, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
+113:                                              ; preds = %107
+  %114 = fcmp ogt float %109, %111
+  br i1 %114, label %130, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
 
-114:                                              ; preds = %106
-  %115 = getelementptr inbounds i8, ptr %75, i64 20
-  %116 = load i32, ptr %115, align 4
-  %117 = getelementptr inbounds i8, ptr %77, i64 20
-  %118 = load i32, ptr %117, align 4
-  %.not.i.i.i = icmp eq i32 %116, %118
-  br i1 %.not.i.i.i, label %121, label %119
+115:                                              ; preds = %107
+  %116 = getelementptr inbounds i8, ptr %76, i64 20
+  %117 = load i32, ptr %116, align 4
+  %118 = getelementptr inbounds i8, ptr %78, i64 20
+  %119 = load i32, ptr %118, align 4
+  %.not.i.i.i = icmp eq i32 %117, %119
+  br i1 %.not.i.i.i, label %122, label %120
 
-119:                                              ; preds = %114
-  %120 = icmp sgt i32 %116, %118
-  br i1 %120, label %129, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
+120:                                              ; preds = %115
+  %121 = icmp sgt i32 %117, %119
+  br i1 %121, label %130, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
 
-121:                                              ; preds = %114
-  %122 = getelementptr inbounds i8, ptr %75, i64 24
-  %123 = load i32, ptr %122, align 4
-  %124 = getelementptr inbounds i8, ptr %77, i64 24
-  %125 = load i32, ptr %124, align 4
-  %.not47.i.i.i = icmp eq i32 %123, %125
-  br i1 %.not47.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %126
+122:                                              ; preds = %115
+  %123 = getelementptr inbounds i8, ptr %76, i64 24
+  %124 = load i32, ptr %123, align 4
+  %125 = getelementptr inbounds i8, ptr %78, i64 24
+  %126 = load i32, ptr %125, align 4
+  %.not47.i.i.i = icmp eq i32 %124, %126
+  br i1 %.not47.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, label %127
 
-126:                                              ; preds = %121
-  %127 = icmp sgt i32 %123, %125
-  br i1 %127, label %129, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
+127:                                              ; preds = %122
+  %128 = icmp sgt i32 %124, %126
+  br i1 %128, label %130, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %121
-  %128 = icmp slt i32 %7, %74
-  br i1 %128, label %129, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %122
+  %129 = icmp slt i32 %7, %75
+  br i1 %129, label %130, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit
 
-129:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, %126, %119, %112, %104, %96, %88, %80
-  store i32 %74, ptr %.sroa.05.0.i, align 4
+130:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, %127, %120, %113, %105, %97, %89, %81
+  store i32 %75, ptr %.sroa.05.0.i, align 4
   %.pre = load ptr, ptr %2, align 8
   %.phi.trans.insert = getelementptr inbounds %"class.cv::KeyPoint", ptr %.pre, i64 %9
   %.pre22 = load float, ptr %.phi.trans.insert, align 4
-  br label %71, !llvm.loop !40
+  br label %72, !llvm.loop !40
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, %126, %119, %112, %104, %96, %88, %80, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
-  %.sink = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %.sroa.05.0.i, %80 ], [ %.sroa.05.0.i, %88 ], [ %.sroa.05.0.i, %96 ], [ %.sroa.05.0.i, %104 ], [ %.sroa.05.0.i, %112 ], [ %.sroa.05.0.i, %119 ], [ %.sroa.05.0.i, %126 ], [ %.sroa.05.0.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ]
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i, %127, %120, %113, %105, %97, %89, %81, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
+  %.sink = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %.sroa.05.0.i, %81 ], [ %.sroa.05.0.i, %89 ], [ %.sroa.05.0.i, %97 ], [ %.sroa.05.0.i, %105 ], [ %.sroa.05.0.i, %113 ], [ %.sroa.05.0.i, %120 ], [ %.sroa.05.0.i, %127 ], [ %.sroa.05.0.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv17KeyPoint_LessThanEEclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i ]
   store i32 %7, ptr %.sink, align 4
   %.sroa.0.0 = getelementptr inbounds i8, ptr %.sroa.0.021, i64 4
   %.not = icmp eq ptr %.sroa.0.0, %1

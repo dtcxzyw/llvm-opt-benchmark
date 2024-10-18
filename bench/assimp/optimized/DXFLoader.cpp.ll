@@ -5700,19 +5700,11 @@ if.end.i:                                         ; preds = %if.then74
   %sub.ptr.sub.i.i203 = sub i64 %sub.ptr.lhs.cast.i.i201, %sub.ptr.rhs.cast.i186
   %sub.ptr.div.i.i204 = ashr exact i64 %sub.ptr.sub.i.i203, 2
   %cmp3.i205 = icmp ult i64 %sub.ptr.div.i.i204, %add
-  br i1 %cmp3.i205, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i206, label %_ZNSt6vectorIjSaIjEE7reserveEm.exit220
+  br i1 %cmp3.i205, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i213, label %_ZNSt6vectorIjSaIjEE7reserveEm.exit220
 
-_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i206: ; preds = %if.end.i
+_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i213: ; preds = %if.end.i
   %mul.i.i.i.i210 = shl nuw nsw i64 %add, 2
   %call5.i.i.i.i211 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i210) #24
-  %cmp.i.i.i10.i212 = icmp sgt i64 %sub.ptr.sub.i187, 0
-  br i1 %cmp.i.i.i10.i212, label %if.then.i.i.i11.i219, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i213
-
-if.then.i.i.i11.i219:                             ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i206
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i211, ptr align 4 %89, i64 %sub.ptr.sub.i187, i1 false)
-  br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i213
-
-_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i213: ; preds = %if.then.i.i.i11.i219, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i206
   %tobool.not.i.i214 = icmp eq ptr %88, null
   br i1 %tobool.not.i.i214, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i216, label %if.then.i.i215
 

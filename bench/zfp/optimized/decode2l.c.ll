@@ -365,12 +365,12 @@ define internal fastcc i32 @decode_ints_uint64(ptr noalias nocapture noundef %0,
   %19 = shl i64 %18, %.sroa.0.0120.i
   %20 = add i64 %19, %.sroa.9.0118.i
   %21 = add nuw nsw i64 %.sroa.0.0120.i, 64
-  %22 = sub nsw i64 %21, %14
   %.not.i.i = icmp eq i64 %21, %14
-  br i1 %.not.i.i, label %stream_read_bits.exit.i, label %23
+  br i1 %.not.i.i, label %stream_read_bits.exit.i, label %22
 
-23:                                               ; preds = %16
-  %24 = sub nsw i64 64, %22
+22:                                               ; preds = %16
+  %23 = sub nsw i64 %21, %14
+  %24 = sub nsw i64 64, %23
   %25 = lshr i64 %18, %24
   %26 = add nsw i64 %14, -1
   %27 = shl i64 2, %26
@@ -386,11 +386,11 @@ define internal fastcc i32 @decode_ints_uint64(ptr noalias nocapture noundef %0,
   %34 = and i64 %.sroa.9.0118.i, %33
   br label %stream_read_bits.exit.i
 
-stream_read_bits.exit.i:                          ; preds = %30, %23, %16
-  %.sroa.9.5.i = phi i64 [ %25, %23 ], [ %32, %30 ], [ 0, %16 ]
-  %.sroa.17.5.i = phi ptr [ %17, %23 ], [ %.sroa.17.0119.i, %30 ], [ %17, %16 ]
-  %.sroa.0.5.i = phi i64 [ %22, %23 ], [ %31, %30 ], [ %22, %16 ]
-  %.0.i.i = phi i64 [ %29, %23 ], [ %34, %30 ], [ %20, %16 ]
+stream_read_bits.exit.i:                          ; preds = %30, %22, %16
+  %.sroa.9.5.i = phi i64 [ %25, %22 ], [ %32, %30 ], [ 0, %16 ]
+  %.sroa.17.5.i = phi ptr [ %17, %22 ], [ %.sroa.17.0119.i, %30 ], [ %17, %16 ]
+  %.sroa.0.5.i = phi i64 [ %23, %22 ], [ %31, %30 ], [ 0, %16 ]
+  %.0.i.i = phi i64 [ %29, %22 ], [ %34, %30 ], [ %20, %16 ]
   %35 = icmp ne i32 %13, 0
   %36 = icmp ult i32 %.045123.i, 16
   %37 = select i1 %35, i1 %36, i1 false
@@ -552,12 +552,12 @@ decode_few_ints_uint64.exit:                      ; preds = %.loopexit.i, %.lr.p
   %84 = shl i64 %83, %.sroa.0.0104.i
   %85 = add i64 %84, %.sroa.11.0102.i
   %86 = add nuw nsw i64 %.sroa.0.0104.i, 64
-  %87 = sub nsw i64 %86, %79
   %.not.i.i43 = icmp eq i64 %86, %79
-  br i1 %.not.i.i43, label %stream_read_bits.exit.i27, label %88
+  br i1 %.not.i.i43, label %stream_read_bits.exit.i27, label %87
 
-88:                                               ; preds = %81
-  %89 = sub nsw i64 64, %87
+87:                                               ; preds = %81
+  %88 = sub nsw i64 %86, %79
+  %89 = sub nsw i64 64, %88
   %90 = lshr i64 %83, %89
   %91 = add nsw i64 %79, -1
   %92 = shl i64 2, %91
@@ -573,11 +573,11 @@ decode_few_ints_uint64.exit:                      ; preds = %.loopexit.i, %.lr.p
   %99 = and i64 %.sroa.11.0102.i, %98
   br label %stream_read_bits.exit.i27
 
-stream_read_bits.exit.i27:                        ; preds = %95, %88, %81
-  %.sroa.11.5.i = phi i64 [ %90, %88 ], [ %97, %95 ], [ 0, %81 ]
-  %.sroa.19.5.i = phi ptr [ %82, %88 ], [ %.sroa.19.0103.i, %95 ], [ %82, %81 ]
-  %.sroa.0.5.i28 = phi i64 [ %87, %88 ], [ %96, %95 ], [ %87, %81 ]
-  %.0.i.i29 = phi i64 [ %94, %88 ], [ %99, %95 ], [ %85, %81 ]
+stream_read_bits.exit.i27:                        ; preds = %95, %87, %81
+  %.sroa.11.5.i = phi i64 [ %90, %87 ], [ %97, %95 ], [ 0, %81 ]
+  %.sroa.19.5.i = phi ptr [ %82, %87 ], [ %.sroa.19.0103.i, %95 ], [ %82, %81 ]
+  %.sroa.0.5.i28 = phi i64 [ %88, %87 ], [ %96, %95 ], [ 0, %81 ]
+  %.0.i.i29 = phi i64 [ %94, %87 ], [ %99, %95 ], [ %85, %81 ]
   %100 = icmp ult i32 %.032105.i, 16
   br i1 %100, label %.lr.ph87.i, label %.critedge.i
 

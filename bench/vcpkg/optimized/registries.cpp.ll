@@ -8577,7 +8577,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN5vcpkg10StringViewESaIS1_EE15_
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %.not54 = icmp ult i64 %16, %8
-  br i1 %.not54, label %43, label %17
+  br i1 %.not54, label %44, label %17
 
 17:                                               ; preds = %5
   %18 = ptrtoint ptr %1 to i64
@@ -8611,9 +8611,9 @@ _ZSt22__uninitialized_move_aIPN5vcpkg10StringViewES2_SaIS1_EET0_T_S5_S4_RT1_.exi
   %28 = ptrtoint ptr %23 to i64
   %29 = sub i64 %28, %18
   %30 = ashr exact i64 %29, 4
-  %.pre.i.i.i.i.i = sub nsw i64 0, %30
-  %31 = getelementptr inbounds %"struct.vcpkg::StringView", ptr %13, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %31, ptr align 8 %1, i64 %29, i1 false)
+  %31 = sub nsw i64 0, %30
+  %32 = getelementptr inbounds %"struct.vcpkg::StringView", ptr %13, i64 %31
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %32, ptr align 8 %1, i64 %29, i1 false)
   br label %_ZSt4copyIPKN5vcpkg10StringViewEN9__gnu_cxx17__normal_iteratorIPS1_St6vectorIS1_SaIS1_EEEEET0_T_SC_SB_.exit
 
 _ZSt4copyIPKN5vcpkg10StringViewEN9__gnu_cxx17__normal_iteratorIPS1_St6vectorIS1_SaIS1_EEEEET0_T_SC_SB_.exit: ; preds = %_ZSt22__uninitialized_move_aIPN5vcpkg10StringViewES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %27
@@ -8621,17 +8621,17 @@ _ZSt4copyIPKN5vcpkg10StringViewEN9__gnu_cxx17__normal_iteratorIPS1_St6vectorIS1_
   br label %_ZSt4copyIPKN5vcpkg10StringViewEN9__gnu_cxx17__normal_iteratorIPS1_St6vectorIS1_SaIS1_EEEEET0_T_SC_SB_.exit65
 
 _ZSt7advanceIPKN5vcpkg10StringViewEmEvRT_T0_.exit: ; preds = %17
-  %32 = getelementptr inbounds i8, ptr %2, i64 %19
-  %.not9.i.i.i.i = icmp eq ptr %32, %3
+  %33 = getelementptr inbounds i8, ptr %2, i64 %19
+  %.not9.i.i.i.i = icmp eq ptr %33, %3
   br i1 %.not9.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt7advanceIPKN5vcpkg10StringViewEmEvRT_T0_.exit, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i ], [ %13, %_ZSt7advanceIPKN5vcpkg10StringViewEmEvRT_T0_.exit ]
-  %.0810.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i ], [ %32, %_ZSt7advanceIPKN5vcpkg10StringViewEmEvRT_T0_.exit ]
+  %.011.i.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i.i ], [ %13, %_ZSt7advanceIPKN5vcpkg10StringViewEmEvRT_T0_.exit ]
+  %.0810.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i ], [ %33, %_ZSt7advanceIPKN5vcpkg10StringViewEmEvRT_T0_.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.011.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0810.i.i.i.i, i64 16, i1 false)
-  %33 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 16
-  %34 = getelementptr inbounds i8, ptr %.011.i.i.i.i, i64 16
-  %.not.i.i.i.i = icmp eq ptr %33, %3
+  %34 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 16
+  %35 = getelementptr inbounds i8, ptr %.011.i.i.i.i, i64 16
+  %.not.i.i.i.i = icmp eq ptr %34, %3
   br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !171
 
 _ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit.loopexit: ; preds = %.lr.ph.i.i.i.i
@@ -8639,20 +8639,20 @@ _ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.e
   br label %_ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit
 
 _ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPKN5vcpkg10StringViewEmEvRT_T0_.exit
-  %35 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIPKN5vcpkg10StringViewEmEvRT_T0_.exit ]
-  %36 = sub nuw nsw i64 %9, %20
-  %37 = getelementptr inbounds %"struct.vcpkg::StringView", ptr %35, i64 %36
-  store ptr %37, ptr %12, align 8
+  %36 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIPKN5vcpkg10StringViewEmEvRT_T0_.exit ]
+  %37 = sub nuw nsw i64 %9, %20
+  %38 = getelementptr inbounds %"struct.vcpkg::StringView", ptr %36, i64 %37
+  store ptr %38, ptr %12, align 8
   %.not11.i.i.i.i.i57 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i57, label %_ZSt22__uninitialized_move_aIPN5vcpkg10StringViewES2_SaIS1_EET0_T_S5_S4_RT1_.exit63, label %.lr.ph.i.i.i.i.i58
 
 .lr.ph.i.i.i.i.i58:                               ; preds = %_ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit, %.lr.ph.i.i.i.i.i58
-  %.013.i.i.i.i.i59 = phi ptr [ %39, %.lr.ph.i.i.i.i.i58 ], [ %37, %_ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit ]
-  %.sroa.08.012.i.i.i.i.i60 = phi ptr [ %38, %.lr.ph.i.i.i.i.i58 ], [ %1, %_ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit ]
+  %.013.i.i.i.i.i59 = phi ptr [ %40, %.lr.ph.i.i.i.i.i58 ], [ %38, %_ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit ]
+  %.sroa.08.012.i.i.i.i.i60 = phi ptr [ %39, %.lr.ph.i.i.i.i.i58 ], [ %1, %_ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.013.i.i.i.i.i59, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.012.i.i.i.i.i60, i64 16, i1 false)
-  %38 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i60, i64 16
-  %39 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i59, i64 16
-  %.not.i.i.i.i.i61 = icmp eq ptr %38, %13
+  %39 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i60, i64 16
+  %40 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i59, i64 16
+  %.not.i.i.i.i.i61 = icmp eq ptr %39, %13
   br i1 %.not.i.i.i.i.i61, label %_ZSt22__uninitialized_move_aIPN5vcpkg10StringViewES2_SaIS1_EET0_T_S5_S4_RT1_.exit63.loopexit, label %.lr.ph.i.i.i.i.i58, !llvm.loop !170
 
 _ZSt22__uninitialized_move_aIPN5vcpkg10StringViewES2_SaIS1_EET0_T_S5_S4_RT1_.exit63.loopexit: ; preds = %.lr.ph.i.i.i.i.i58
@@ -8660,68 +8660,68 @@ _ZSt22__uninitialized_move_aIPN5vcpkg10StringViewES2_SaIS1_EET0_T_S5_S4_RT1_.exi
   br label %_ZSt22__uninitialized_move_aIPN5vcpkg10StringViewES2_SaIS1_EET0_T_S5_S4_RT1_.exit63
 
 _ZSt22__uninitialized_move_aIPN5vcpkg10StringViewES2_SaIS1_EET0_T_S5_S4_RT1_.exit63: ; preds = %_ZSt22__uninitialized_move_aIPN5vcpkg10StringViewES2_SaIS1_EET0_T_S5_S4_RT1_.exit63.loopexit, %_ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit
-  %40 = phi ptr [ %.pre101, %_ZSt22__uninitialized_move_aIPN5vcpkg10StringViewES2_SaIS1_EET0_T_S5_S4_RT1_.exit63.loopexit ], [ %37, %_ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit ]
-  %41 = getelementptr inbounds i8, ptr %40, i64 %19
-  store ptr %41, ptr %12, align 8
+  %41 = phi ptr [ %.pre101, %_ZSt22__uninitialized_move_aIPN5vcpkg10StringViewES2_SaIS1_EET0_T_S5_S4_RT1_.exit63.loopexit ], [ %38, %_ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit ]
+  %42 = getelementptr inbounds i8, ptr %41, i64 %19
+  store ptr %42, ptr %12, align 8
   %.not.i.i.i.i.i64 = icmp eq ptr %13, %1
-  br i1 %.not.i.i.i.i.i64, label %_ZSt4copyIPKN5vcpkg10StringViewEN9__gnu_cxx17__normal_iteratorIPS1_St6vectorIS1_SaIS1_EEEEET0_T_SC_SB_.exit65, label %42
+  br i1 %.not.i.i.i.i.i64, label %_ZSt4copyIPKN5vcpkg10StringViewEN9__gnu_cxx17__normal_iteratorIPS1_St6vectorIS1_SaIS1_EEEEET0_T_SC_SB_.exit65, label %43
 
-42:                                               ; preds = %_ZSt22__uninitialized_move_aIPN5vcpkg10StringViewES2_SaIS1_EET0_T_S5_S4_RT1_.exit63
+43:                                               ; preds = %_ZSt22__uninitialized_move_aIPN5vcpkg10StringViewES2_SaIS1_EET0_T_S5_S4_RT1_.exit63
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr align 8 %2, i64 %19, i1 false)
   br label %_ZSt4copyIPKN5vcpkg10StringViewEN9__gnu_cxx17__normal_iteratorIPS1_St6vectorIS1_SaIS1_EEEEET0_T_SC_SB_.exit65
 
-43:                                               ; preds = %5
-  %44 = load ptr, ptr %0, align 8
-  %45 = ptrtoint ptr %44 to i64
-  %46 = sub i64 %15, %45
-  %47 = ashr exact i64 %46, 4
-  %48 = sub nsw i64 576460752303423487, %47
-  %49 = icmp ult i64 %48, %9
-  br i1 %49, label %50, label %_ZNKSt6vectorIN5vcpkg10StringViewESaIS1_EE12_M_check_lenEmPKc.exit
+44:                                               ; preds = %5
+  %45 = load ptr, ptr %0, align 8
+  %46 = ptrtoint ptr %45 to i64
+  %47 = sub i64 %15, %46
+  %48 = ashr exact i64 %47, 4
+  %49 = sub nsw i64 576460752303423487, %48
+  %50 = icmp ult i64 %49, %9
+  br i1 %50, label %51, label %_ZNKSt6vectorIN5vcpkg10StringViewESaIS1_EE12_M_check_lenEmPKc.exit
 
-50:                                               ; preds = %43
+51:                                               ; preds = %44
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.37) #30
   unreachable
 
-_ZNKSt6vectorIN5vcpkg10StringViewESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %43
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %47, i64 %9)
-  %51 = add nsw i64 %.sroa.speculated.i, %47
-  %52 = icmp ult i64 %51, %47
-  %53 = tail call i64 @llvm.umin.i64(i64 %51, i64 576460752303423487)
-  %54 = select i1 %52, i64 576460752303423487, i64 %53
-  %.not.i = icmp eq i64 %54, 0
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIN5vcpkg10StringViewESaIS1_EE11_M_allocateEm.exit, label %55
+_ZNKSt6vectorIN5vcpkg10StringViewESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %44
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %48, i64 %9)
+  %52 = add nsw i64 %.sroa.speculated.i, %48
+  %53 = icmp ult i64 %52, %48
+  %54 = tail call i64 @llvm.umin.i64(i64 %52, i64 576460752303423487)
+  %55 = select i1 %53, i64 576460752303423487, i64 %54
+  %.not.i = icmp eq i64 %55, 0
+  br i1 %.not.i, label %_ZNSt12_Vector_baseIN5vcpkg10StringViewESaIS1_EE11_M_allocateEm.exit, label %56
 
-55:                                               ; preds = %_ZNKSt6vectorIN5vcpkg10StringViewESaIS1_EE12_M_check_lenEmPKc.exit
-  %56 = shl nuw nsw i64 %54, 4
-  %57 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %56) #31
+56:                                               ; preds = %_ZNKSt6vectorIN5vcpkg10StringViewESaIS1_EE12_M_check_lenEmPKc.exit
+  %57 = shl nuw nsw i64 %55, 4
+  %58 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %57) #31
   br label %_ZNSt12_Vector_baseIN5vcpkg10StringViewESaIS1_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN5vcpkg10StringViewESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN5vcpkg10StringViewESaIS1_EE12_M_check_lenEmPKc.exit, %55
-  %58 = phi ptr [ %57, %55 ], [ null, %_ZNKSt6vectorIN5vcpkg10StringViewESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %.not11.i.i.i.i.i66 = icmp eq ptr %44, %1
+_ZNSt12_Vector_baseIN5vcpkg10StringViewESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN5vcpkg10StringViewESaIS1_EE12_M_check_lenEmPKc.exit, %56
+  %59 = phi ptr [ %58, %56 ], [ null, %_ZNKSt6vectorIN5vcpkg10StringViewESaIS1_EE12_M_check_lenEmPKc.exit ]
+  %.not11.i.i.i.i.i66 = icmp eq ptr %45, %1
   br i1 %.not11.i.i.i.i.i66, label %.lr.ph.i.i.i.i73.preheader, label %.lr.ph.i.i.i.i.i67
 
 .lr.ph.i.i.i.i.i67:                               ; preds = %_ZNSt12_Vector_baseIN5vcpkg10StringViewESaIS1_EE11_M_allocateEm.exit, %.lr.ph.i.i.i.i.i67
-  %.013.i.i.i.i.i68 = phi ptr [ %60, %.lr.ph.i.i.i.i.i67 ], [ %58, %_ZNSt12_Vector_baseIN5vcpkg10StringViewESaIS1_EE11_M_allocateEm.exit ]
-  %.sroa.08.012.i.i.i.i.i69 = phi ptr [ %59, %.lr.ph.i.i.i.i.i67 ], [ %44, %_ZNSt12_Vector_baseIN5vcpkg10StringViewESaIS1_EE11_M_allocateEm.exit ]
+  %.013.i.i.i.i.i68 = phi ptr [ %61, %.lr.ph.i.i.i.i.i67 ], [ %59, %_ZNSt12_Vector_baseIN5vcpkg10StringViewESaIS1_EE11_M_allocateEm.exit ]
+  %.sroa.08.012.i.i.i.i.i69 = phi ptr [ %60, %.lr.ph.i.i.i.i.i67 ], [ %45, %_ZNSt12_Vector_baseIN5vcpkg10StringViewESaIS1_EE11_M_allocateEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.013.i.i.i.i.i68, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.012.i.i.i.i.i69, i64 16, i1 false)
-  %59 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i69, i64 16
-  %60 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i68, i64 16
-  %.not.i.i.i.i.i70 = icmp eq ptr %59, %1
+  %60 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i69, i64 16
+  %61 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i68, i64 16
+  %.not.i.i.i.i.i70 = icmp eq ptr %60, %1
   br i1 %.not.i.i.i.i.i70, label %.lr.ph.i.i.i.i73.preheader, label %.lr.ph.i.i.i.i.i67, !llvm.loop !170
 
 .lr.ph.i.i.i.i73.preheader:                       ; preds = %.lr.ph.i.i.i.i.i67, %_ZNSt12_Vector_baseIN5vcpkg10StringViewESaIS1_EE11_M_allocateEm.exit
-  %.011.i.i.i.i74.ph = phi ptr [ %58, %_ZNSt12_Vector_baseIN5vcpkg10StringViewESaIS1_EE11_M_allocateEm.exit ], [ %60, %.lr.ph.i.i.i.i.i67 ]
+  %.011.i.i.i.i74.ph = phi ptr [ %59, %_ZNSt12_Vector_baseIN5vcpkg10StringViewESaIS1_EE11_M_allocateEm.exit ], [ %61, %.lr.ph.i.i.i.i.i67 ]
   br label %.lr.ph.i.i.i.i73
 
 .lr.ph.i.i.i.i73:                                 ; preds = %.lr.ph.i.i.i.i73.preheader, %.lr.ph.i.i.i.i73
-  %.011.i.i.i.i74 = phi ptr [ %62, %.lr.ph.i.i.i.i73 ], [ %.011.i.i.i.i74.ph, %.lr.ph.i.i.i.i73.preheader ]
-  %.0810.i.i.i.i75 = phi ptr [ %61, %.lr.ph.i.i.i.i73 ], [ %2, %.lr.ph.i.i.i.i73.preheader ]
+  %.011.i.i.i.i74 = phi ptr [ %63, %.lr.ph.i.i.i.i73 ], [ %.011.i.i.i.i74.ph, %.lr.ph.i.i.i.i73.preheader ]
+  %.0810.i.i.i.i75 = phi ptr [ %62, %.lr.ph.i.i.i.i73 ], [ %2, %.lr.ph.i.i.i.i73.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.011.i.i.i.i74, ptr noundef nonnull align 8 dereferenceable(16) %.0810.i.i.i.i75, i64 16, i1 false)
-  %61 = getelementptr inbounds i8, ptr %.0810.i.i.i.i75, i64 16
-  %62 = getelementptr inbounds i8, ptr %.011.i.i.i.i74, i64 16
-  %.not.i.i.i.i76 = icmp eq ptr %61, %3
+  %62 = getelementptr inbounds i8, ptr %.0810.i.i.i.i75, i64 16
+  %63 = getelementptr inbounds i8, ptr %.011.i.i.i.i74, i64 16
+  %.not.i.i.i.i76 = icmp eq ptr %62, %3
   br i1 %.not.i.i.i.i76, label %_ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit78, label %.lr.ph.i.i.i.i73, !llvm.loop !171
 
 _ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit78: ; preds = %.lr.ph.i.i.i.i73
@@ -8729,31 +8729,31 @@ _ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.e
   br i1 %.not11.i.i.i.i.i79, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5vcpkg10StringViewES2_SaIS1_EET0_T_S5_S4_RT1_.exit85, label %.lr.ph.i.i.i.i.i80
 
 .lr.ph.i.i.i.i.i80:                               ; preds = %_ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit78, %.lr.ph.i.i.i.i.i80
-  %.013.i.i.i.i.i81 = phi ptr [ %64, %.lr.ph.i.i.i.i.i80 ], [ %62, %_ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit78 ]
-  %.sroa.08.012.i.i.i.i.i82 = phi ptr [ %63, %.lr.ph.i.i.i.i.i80 ], [ %1, %_ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit78 ]
+  %.013.i.i.i.i.i81 = phi ptr [ %65, %.lr.ph.i.i.i.i.i80 ], [ %63, %_ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit78 ]
+  %.sroa.08.012.i.i.i.i.i82 = phi ptr [ %64, %.lr.ph.i.i.i.i.i80 ], [ %1, %_ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit78 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.013.i.i.i.i.i81, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.012.i.i.i.i.i82, i64 16, i1 false)
-  %63 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i82, i64 16
-  %64 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i81, i64 16
-  %.not.i.i.i.i.i83 = icmp eq ptr %63, %13
+  %64 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i82, i64 16
+  %65 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i81, i64 16
+  %.not.i.i.i.i.i83 = icmp eq ptr %64, %13
   br i1 %.not.i.i.i.i.i83, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5vcpkg10StringViewES2_SaIS1_EET0_T_S5_S4_RT1_.exit85, label %.lr.ph.i.i.i.i.i80, !llvm.loop !170
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN5vcpkg10StringViewES2_SaIS1_EET0_T_S5_S4_RT1_.exit85: ; preds = %.lr.ph.i.i.i.i.i80, %_ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit78
-  %.0.lcssa.i.i.i.i.i84 = phi ptr [ %62, %_ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit78 ], [ %64, %.lr.ph.i.i.i.i.i80 ]
-  %.not.i86 = icmp eq ptr %44, null
-  br i1 %.not.i86, label %_ZNSt12_Vector_baseIN5vcpkg10StringViewESaIS1_EE13_M_deallocateEPS1_m.exit, label %65
+  %.0.lcssa.i.i.i.i.i84 = phi ptr [ %63, %_ZSt22__uninitialized_copy_aIPKN5vcpkg10StringViewEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit78 ], [ %65, %.lr.ph.i.i.i.i.i80 ]
+  %.not.i86 = icmp eq ptr %45, null
+  br i1 %.not.i86, label %_ZNSt12_Vector_baseIN5vcpkg10StringViewESaIS1_EE13_M_deallocateEPS1_m.exit, label %66
 
-65:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5vcpkg10StringViewES2_SaIS1_EET0_T_S5_S4_RT1_.exit85
-  tail call void @_ZdlPv(ptr noundef nonnull %44) #29
+66:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5vcpkg10StringViewES2_SaIS1_EET0_T_S5_S4_RT1_.exit85
+  tail call void @_ZdlPv(ptr noundef nonnull %45) #29
   br label %_ZNSt12_Vector_baseIN5vcpkg10StringViewESaIS1_EE13_M_deallocateEPS1_m.exit
 
-_ZNSt12_Vector_baseIN5vcpkg10StringViewESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5vcpkg10StringViewES2_SaIS1_EET0_T_S5_S4_RT1_.exit85, %65
-  store ptr %58, ptr %0, align 8
+_ZNSt12_Vector_baseIN5vcpkg10StringViewESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5vcpkg10StringViewES2_SaIS1_EET0_T_S5_S4_RT1_.exit85, %66
+  store ptr %59, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i84, ptr %12, align 8
-  %66 = getelementptr inbounds %"struct.vcpkg::StringView", ptr %58, i64 %54
-  store ptr %66, ptr %10, align 8
+  %67 = getelementptr inbounds %"struct.vcpkg::StringView", ptr %59, i64 %55
+  store ptr %67, ptr %10, align 8
   br label %_ZSt4copyIPKN5vcpkg10StringViewEN9__gnu_cxx17__normal_iteratorIPS1_St6vectorIS1_SaIS1_EEEEET0_T_SC_SB_.exit65
 
-_ZSt4copyIPKN5vcpkg10StringViewEN9__gnu_cxx17__normal_iteratorIPS1_St6vectorIS1_SaIS1_EEEEET0_T_SC_SB_.exit65: ; preds = %42, %_ZSt22__uninitialized_move_aIPN5vcpkg10StringViewES2_SaIS1_EET0_T_S5_S4_RT1_.exit63, %_ZNSt12_Vector_baseIN5vcpkg10StringViewESaIS1_EE13_M_deallocateEPS1_m.exit, %_ZSt4copyIPKN5vcpkg10StringViewEN9__gnu_cxx17__normal_iteratorIPS1_St6vectorIS1_SaIS1_EEEEET0_T_SC_SB_.exit, %4
+_ZSt4copyIPKN5vcpkg10StringViewEN9__gnu_cxx17__normal_iteratorIPS1_St6vectorIS1_SaIS1_EEEEET0_T_SC_SB_.exit65: ; preds = %43, %_ZSt22__uninitialized_move_aIPN5vcpkg10StringViewES2_SaIS1_EET0_T_S5_S4_RT1_.exit63, %_ZNSt12_Vector_baseIN5vcpkg10StringViewESaIS1_EE13_M_deallocateEPS1_m.exit, %_ZSt4copyIPKN5vcpkg10StringViewEN9__gnu_cxx17__normal_iteratorIPS1_St6vectorIS1_SaIS1_EEEEET0_T_SC_SB_.exit, %4
   ret void
 }
 
@@ -13232,7 +13232,7 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_
   %6 = sub i64 %4, %5
   %7 = ashr exact i64 %6, 4
   %8 = icmp slt i64 %7, 15
-  br i1 %8, label %9, label %26
+  br i1 %8, label %9, label %27
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -13248,14 +13248,14 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_
   %11 = getelementptr i8, ptr %0, i64 8
   br label %12
 
-12:                                               ; preds = %25, %.lr.ph.i
-  %.sroa.0.020.i = phi ptr [ %.sroa.0.017.i, %.lr.ph.i ], [ %.sroa.0.0.i, %25 ]
-  %.pn19.i = phi ptr [ %0, %.lr.ph.i ], [ %.sroa.0.020.i, %25 ]
+12:                                               ; preds = %26, %.lr.ph.i
+  %.sroa.0.020.i = phi ptr [ %.sroa.0.017.i, %.lr.ph.i ], [ %.sroa.0.0.i, %26 ]
+  %.pn19.i = phi ptr [ %0, %.lr.ph.i ], [ %.sroa.0.020.i, %26 ]
   %13 = getelementptr i8, ptr %.pn19.i, i64 24
   %.val2.i.i = load i64, ptr %13, align 8
   %.val3.i.i = load i64, ptr %11, align 8
   %14 = icmp ugt i64 %.val2.i.i, %.val3.i.i
-  br i1 %14, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i, label %20
+  br i1 %14, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i, label %21
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i: ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.020.i, i64 16, i1 false)
@@ -13263,56 +13263,56 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19regi
   %16 = ptrtoint ptr %.sroa.0.020.i to i64
   %17 = sub i64 %16, %5
   %18 = ashr exact i64 %17, 4
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %18
-  %19 = getelementptr inbounds %struct.RegistryCandidate, ptr %15, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %17, i1 false)
+  %19 = sub nsw i64 0, %18
+  %20 = getelementptr inbounds %struct.RegistryCandidate, ptr %15, i64 %19
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %20, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %17, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  br label %25
+  br label %26
 
-20:                                               ; preds = %12
+21:                                               ; preds = %12
   %.sroa.06.0.copyload.i.i = load ptr, ptr %.sroa.0.020.i, align 8
-  %21 = getelementptr i8, ptr %.pn19.i, i64 8
-  %.val3.i10.i.i = load i64, ptr %21, align 8
-  %22 = icmp ugt i64 %.val2.i.i, %.val3.i10.i.i
-  br i1 %22, label %.lr.ph.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_T0_.exit.i"
+  %22 = getelementptr i8, ptr %.pn19.i, i64 8
+  %.val3.i10.i.i = load i64, ptr %22, align 8
+  %23 = icmp ugt i64 %.val2.i.i, %.val3.i10.i.i
+  br i1 %23, label %.lr.ph.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_T0_.exit.i"
 
-.lr.ph.i.i:                                       ; preds = %20, %.lr.ph.i.i
-  %.sroa.09.011.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.sroa.0.020.i, %20 ]
+.lr.ph.i.i:                                       ; preds = %21, %.lr.ph.i.i
+  %.sroa.09.011.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.sroa.0.020.i, %21 ]
   %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.sroa.09.011.i.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.09.011.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.i.i, i64 16, i1 false)
-  %23 = getelementptr i8, ptr %.sroa.09.011.i.i, i64 -24
-  %.val3.i.i.i = load i64, ptr %23, align 8
-  %24 = icmp ugt i64 %.val2.i.i, %.val3.i.i.i
-  br i1 %24, label %.lr.ph.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_T0_.exit.i", !llvm.loop !266
+  %24 = getelementptr i8, ptr %.sroa.09.011.i.i, i64 -24
+  %.val3.i.i.i = load i64, ptr %24, align 8
+  %25 = icmp ugt i64 %.val2.i.i, %.val3.i.i.i
+  br i1 %25, label %.lr.ph.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_T0_.exit.i", !llvm.loop !266
 
-"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_T0_.exit.i": ; preds = %.lr.ph.i.i, %20
-  %.sroa.09.0.lcssa.i.i = phi ptr [ %.sroa.0.020.i, %20 ], [ %.sroa.0.0.i.i, %.lr.ph.i.i ]
+"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_T0_.exit.i": ; preds = %.lr.ph.i.i, %21
+  %.sroa.09.0.lcssa.i.i = phi ptr [ %.sroa.0.020.i, %21 ], [ %.sroa.0.0.i.i, %.lr.ph.i.i ]
   store ptr %.sroa.06.0.copyload.i.i, ptr %.sroa.09.0.lcssa.i.i, align 8
   %.sroa.2.0..val.sroa_idx.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.lcssa.i.i, i64 8
   store i64 %.val2.i.i, ptr %.sroa.2.0..val.sroa_idx.i.i, align 8
-  br label %25
+  br label %26
 
-25:                                               ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_T0_.exit.i", %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
+26:                                               ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_T0_.exit.i", %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
   %.sroa.0.0.i = getelementptr inbounds i8, ptr %.sroa.0.020.i, i64 16
   %.not.i = icmp eq ptr %.sroa.0.0.i, %1
   br i1 %.not.i, label %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_.exit", label %12, !llvm.loop !267
 
-"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_.exit": ; preds = %25, %9, %.preheader.i
+"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_.exit": ; preds = %26, %9, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %common.ret27
 
-common.ret27:                                     ; preds = %26, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_.exit"
+common.ret27:                                     ; preds = %27, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_.exit"
   ret void
 
-26:                                               ; preds = %2
-  %27 = lshr i64 %7, 1
-  %28 = getelementptr inbounds %struct.RegistryCandidate, ptr %0, i64 %27
-  tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_"(ptr %0, ptr %28)
-  tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_"(ptr %28, ptr %1)
-  %29 = ptrtoint ptr %28 to i64
-  %30 = sub i64 %4, %29
-  %31 = ashr exact i64 %30, 4
-  tail call fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_SF_T0_SG_T1_"(ptr %0, ptr %28, ptr %1, i64 noundef %27, i64 noundef %31)
+27:                                               ; preds = %2
+  %28 = lshr i64 %7, 1
+  %29 = getelementptr inbounds %struct.RegistryCandidate, ptr %0, i64 %28
+  tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_"(ptr %0, ptr %29)
+  tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_"(ptr %29, ptr %1)
+  %30 = ptrtoint ptr %29 to i64
+  %31 = sub i64 %4, %30
+  %32 = ashr exact i64 %31, 4
+  tail call fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_SF_T0_SG_T1_"(ptr %0, ptr %29, ptr %1, i64 noundef %28, i64 noundef %32)
   br label %common.ret27
 }
 
@@ -13596,7 +13596,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for
 47:                                               ; preds = %27
   %48 = icmp eq i64 %28, 1
   %49 = getelementptr inbounds %struct.RegistryCandidate, ptr %.sroa.059.0.i, i64 %.083.i
-  br i1 %48, label %50, label %58
+  br i1 %48, label %50, label %59
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds i8, ptr %49, i64 -16
@@ -13609,45 +13609,45 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for
   %54 = ptrtoint ptr %.sroa.059.0.i to i64
   %55 = sub i64 %53, %54
   %56 = ashr exact i64 %55, 4
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %56
-  %57 = getelementptr inbounds %struct.RegistryCandidate, ptr %49, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr nonnull align 8 %.sroa.059.0.i, i64 %55, i1 false)
+  %57 = sub nsw i64 0, %56
+  %58 = getelementptr inbounds %struct.RegistryCandidate, ptr %49, i64 %57
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %58, ptr nonnull align 8 %.sroa.059.0.i, i64 %55, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i: ; preds = %52, %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.059.0.i, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
   br label %_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS3_10StringViewEE17RegistryCandidateSt6vectorIS6_SaIS6_EEEEEET_SC_SC_SC_St26random_access_iterator_tag.exit
 
-58:                                               ; preds = %47
-  %59 = sub i64 0, %28
-  %60 = getelementptr inbounds %struct.RegistryCandidate, ptr %49, i64 %59
-  %61 = icmp sgt i64 %.084.i, 0
-  br i1 %61, label %.lr.ph.i, label %._crit_edge.i
+59:                                               ; preds = %47
+  %60 = sub i64 0, %28
+  %61 = getelementptr inbounds %struct.RegistryCandidate, ptr %49, i64 %60
+  %62 = icmp sgt i64 %.084.i, 0
+  br i1 %62, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %58, %.lr.ph.i
-  %.02393.i = phi i64 [ %64, %.lr.ph.i ], [ 0, %58 ]
-  %.sroa.0.092.i = phi ptr [ %63, %.lr.ph.i ], [ %49, %58 ]
-  %.sroa.059.391.i = phi ptr [ %62, %.lr.ph.i ], [ %60, %58 ]
-  %62 = getelementptr inbounds i8, ptr %.sroa.059.391.i, i64 -16
-  %63 = getelementptr inbounds i8, ptr %.sroa.0.092.i, i64 -16
+.lr.ph.i:                                         ; preds = %59, %.lr.ph.i
+  %.02393.i = phi i64 [ %65, %.lr.ph.i ], [ 0, %59 ]
+  %.sroa.0.092.i = phi ptr [ %64, %.lr.ph.i ], [ %49, %59 ]
+  %.sroa.059.391.i = phi ptr [ %63, %.lr.ph.i ], [ %61, %59 ]
+  %63 = getelementptr inbounds i8, ptr %.sroa.059.391.i, i64 -16
+  %64 = getelementptr inbounds i8, ptr %.sroa.0.092.i, i64 -16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %63, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %63, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %64, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %64 = add nuw nsw i64 %.02393.i, 1
-  %exitcond.not.i = icmp eq i64 %64, %.084.i
+  %65 = add nuw nsw i64 %.02393.i, 1
+  %exitcond.not.i = icmp eq i64 %65, %.084.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !272
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %58
-  %.sroa.059.3.lcssa.i = phi ptr [ %60, %58 ], [ %.sroa.059.0.i, %.lr.ph.i ]
-  %65 = srem i64 %.083.i, %28
-  %66 = icmp eq i64 %65, 0
-  br i1 %66, label %_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS3_10StringViewEE17RegistryCandidateSt6vectorIS6_SaIS6_EEEEEET_SC_SC_SC_St26random_access_iterator_tag.exit, label %.backedge
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %59
+  %.sroa.059.3.lcssa.i = phi ptr [ %61, %59 ], [ %.sroa.059.0.i, %.lr.ph.i ]
+  %66 = srem i64 %.083.i, %28
+  %67 = icmp eq i64 %66, 0
+  br i1 %67, label %_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS3_10StringViewEE17RegistryCandidateSt6vectorIS6_SaIS6_EEEEEET_SC_SC_SC_St26random_access_iterator_tag.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge.i, %45
   %.sroa.059.0.i.be = phi ptr [ %.sroa.059.1.lcssa.i, %45 ], [ %.sroa.059.3.lcssa.i, %._crit_edge.i ]
-  %.084.i.be = phi i64 [ %46, %45 ], [ %65, %._crit_edge.i ]
+  %.084.i.be = phi i64 [ %46, %45 ], [ %66, %._crit_edge.i ]
   %.083.i.be = phi i64 [ %.084.i, %45 ], [ %28, %._crit_edge.i ]
   br label %27, !llvm.loop !273
 
@@ -13671,21 +13671,21 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   br i1 %11, label %.lr.ph.i.i, label %._crit_edge.i
 
 .lr.ph.i.i:                                       ; preds = %3, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_.exit.i"
-  %12 = phi i64 [ %29, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_.exit.i" ], [ %7, %3 ]
-  %.sroa.034.035.i = phi ptr [ %28, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_.exit.i" ], [ %0, %3 ]
+  %12 = phi i64 [ %30, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_.exit.i" ], [ %7, %3 ]
+  %.sroa.033.034.i = phi ptr [ %29, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_.exit.i" ], [ %0, %3 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %13 = getelementptr i8, ptr %.sroa.034.035.i, i64 8
+  %13 = getelementptr i8, ptr %.sroa.033.034.i, i64 8
   br label %14
 
-14:                                               ; preds = %27, %.lr.ph.i.i
-  %.sroa.0.020.i.idx.i = phi i64 [ 16, %.lr.ph.i.i ], [ %.sroa.0.020.i.add.i, %27 ]
-  %.pn19.i.i = phi ptr [ %.sroa.034.035.i, %.lr.ph.i.i ], [ %.sroa.0.020.i.ptr.i, %27 ]
-  %.sroa.0.020.i.ptr.i = getelementptr inbounds i8, ptr %.sroa.034.035.i, i64 %.sroa.0.020.i.idx.i
+14:                                               ; preds = %28, %.lr.ph.i.i
+  %.sroa.0.020.i.idx.i = phi i64 [ 16, %.lr.ph.i.i ], [ %.sroa.0.020.i.add.i, %28 ]
+  %.pn19.i.i = phi ptr [ %.sroa.033.034.i, %.lr.ph.i.i ], [ %.sroa.0.020.i.ptr.i, %28 ]
+  %.sroa.0.020.i.ptr.i = getelementptr inbounds i8, ptr %.sroa.033.034.i, i64 %.sroa.0.020.i.idx.i
   %15 = getelementptr i8, ptr %.pn19.i.i, i64 24
   %.val2.i.i.i = load i64, ptr %15, align 8
   %.val3.i.i.i = load i64, ptr %13, align 8
   %16 = icmp ugt i64 %.val2.i.i.i, %.val3.i.i.i
-  br i1 %16, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i, label %22
+  br i1 %16, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i, label %23
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i: ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.020.i.ptr.i, i64 16, i1 false)
@@ -13693,402 +13693,402 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19regi
   %18 = ptrtoint ptr %.sroa.0.020.i.ptr.i to i64
   %19 = sub i64 %18, %12
   %20 = ashr exact i64 %19, 4
-  %.pre.i.i.i.i.i.i.i = sub nsw i64 0, %20
-  %21 = getelementptr inbounds %struct.RegistryCandidate, ptr %17, i64 %.pre.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %21, ptr noundef nonnull align 8 dereferenceable(1) %.sroa.034.035.i, i64 %19, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.034.035.i, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  br label %27
+  %21 = sub nsw i64 0, %20
+  %22 = getelementptr inbounds %struct.RegistryCandidate, ptr %17, i64 %21
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %22, ptr noundef nonnull align 8 dereferenceable(1) %.sroa.033.034.i, i64 %19, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.033.034.i, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+  br label %28
 
-22:                                               ; preds = %14
+23:                                               ; preds = %14
   %.sroa.06.0.copyload.i.i.i = load ptr, ptr %.sroa.0.020.i.ptr.i, align 8
-  %23 = getelementptr i8, ptr %.pn19.i.i, i64 8
-  %.val3.i10.i.i.i = load i64, ptr %23, align 8
-  %24 = icmp ugt i64 %.val2.i.i.i, %.val3.i10.i.i.i
-  br i1 %24, label %.lr.ph.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_T0_.exit.i.i"
+  %24 = getelementptr i8, ptr %.pn19.i.i, i64 8
+  %.val3.i10.i.i.i = load i64, ptr %24, align 8
+  %25 = icmp ugt i64 %.val2.i.i.i, %.val3.i10.i.i.i
+  br i1 %25, label %.lr.ph.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_T0_.exit.i.i"
 
-.lr.ph.i.i.i:                                     ; preds = %22, %.lr.ph.i.i.i
-  %.sroa.09.011.i.i.i = phi ptr [ %.sroa.0.0.i.i.i, %.lr.ph.i.i.i ], [ %.sroa.0.020.i.ptr.i, %22 ]
+.lr.ph.i.i.i:                                     ; preds = %23, %.lr.ph.i.i.i
+  %.sroa.09.011.i.i.i = phi ptr [ %.sroa.0.0.i.i.i, %.lr.ph.i.i.i ], [ %.sroa.0.020.i.ptr.i, %23 ]
   %.sroa.0.0.i.i.i = getelementptr inbounds i8, ptr %.sroa.09.011.i.i.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.09.011.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.i.i.i, i64 16, i1 false)
-  %25 = getelementptr i8, ptr %.sroa.09.011.i.i.i, i64 -24
-  %.val3.i.i.i.i = load i64, ptr %25, align 8
-  %26 = icmp ugt i64 %.val2.i.i.i, %.val3.i.i.i.i
-  br i1 %26, label %.lr.ph.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_T0_.exit.i.i", !llvm.loop !266
+  %26 = getelementptr i8, ptr %.sroa.09.011.i.i.i, i64 -24
+  %.val3.i.i.i.i = load i64, ptr %26, align 8
+  %27 = icmp ugt i64 %.val2.i.i.i, %.val3.i.i.i.i
+  br i1 %27, label %.lr.ph.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_T0_.exit.i.i", !llvm.loop !266
 
-"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_T0_.exit.i.i": ; preds = %.lr.ph.i.i.i, %22
-  %.sroa.09.0.lcssa.i.i.i = phi ptr [ %.sroa.0.020.i.ptr.i, %22 ], [ %.sroa.0.0.i.i.i, %.lr.ph.i.i.i ]
+"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_T0_.exit.i.i": ; preds = %.lr.ph.i.i.i, %23
+  %.sroa.09.0.lcssa.i.i.i = phi ptr [ %.sroa.0.020.i.ptr.i, %23 ], [ %.sroa.0.0.i.i.i, %.lr.ph.i.i.i ]
   store ptr %.sroa.06.0.copyload.i.i.i, ptr %.sroa.09.0.lcssa.i.i.i, align 8
   %.sroa.2.0..val.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.lcssa.i.i.i, i64 8
   store i64 %.val2.i.i.i, ptr %.sroa.2.0..val.sroa_idx.i.i.i, align 8
-  br label %27
+  br label %28
 
-27:                                               ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_T0_.exit.i.i", %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i
+28:                                               ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_T0_.exit.i.i", %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i
   %.sroa.0.020.i.add.i = add nuw nsw i64 %.sroa.0.020.i.idx.i, 16
   %.not.i.i = icmp eq i64 %.sroa.0.020.i.add.i, 112
   br i1 %.not.i.i, label %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_.exit.i", label %14, !llvm.loop !267
 
-"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_.exit.i": ; preds = %27
-  %28 = getelementptr inbounds i8, ptr %.sroa.034.035.i, i64 112
+"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_.exit.i": ; preds = %28
+  %29 = getelementptr inbounds i8, ptr %.sroa.033.034.i, i64 112
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %29 = ptrtoint ptr %28 to i64
-  %30 = sub i64 %6, %29
-  %31 = icmp sgt i64 %30, 96
-  br i1 %31, label %.lr.ph.i.i, label %._crit_edge.i, !llvm.loop !274
+  %30 = ptrtoint ptr %29 to i64
+  %31 = sub i64 %6, %30
+  %32 = icmp sgt i64 %31, 96
+  br i1 %32, label %.lr.ph.i.i, label %._crit_edge.i, !llvm.loop !274
 
 ._crit_edge.i:                                    ; preds = %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_.exit.i", %3
-  %.sroa.034.0.lcssa.i = phi ptr [ %0, %3 ], [ %28, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_.exit.i" ]
-  %.lcssa.i = phi i64 [ %7, %3 ], [ %29, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_.exit.i" ]
+  %.sroa.033.0.lcssa.i = phi ptr [ %0, %3 ], [ %29, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_.exit.i" ]
+  %.lcssa.i = phi i64 [ %7, %3 ], [ %30, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_.exit.i" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %32 = icmp eq ptr %.sroa.034.0.lcssa.i, %1
-  br i1 %32, label %"_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_.exit", label %.preheader.i12.i
+  %33 = icmp eq ptr %.sroa.033.0.lcssa.i, %1
+  br i1 %33, label %"_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_.exit", label %.preheader.i12.i
 
 .preheader.i12.i:                                 ; preds = %._crit_edge.i
-  %.sroa.0.017.i13.i = getelementptr inbounds i8, ptr %.sroa.034.0.lcssa.i, i64 16
+  %.sroa.0.017.i13.i = getelementptr inbounds i8, ptr %.sroa.033.0.lcssa.i, i64 16
   %.not18.i14.i = icmp eq ptr %.sroa.0.017.i13.i, %1
   br i1 %.not18.i14.i, label %"_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_.exit", label %.lr.ph.i15.i
 
 .lr.ph.i15.i:                                     ; preds = %.preheader.i12.i
-  %33 = getelementptr i8, ptr %.sroa.034.0.lcssa.i, i64 8
-  br label %34
+  %34 = getelementptr i8, ptr %.sroa.033.0.lcssa.i, i64 8
+  br label %35
 
-34:                                               ; preds = %47, %.lr.ph.i15.i
-  %.sroa.0.020.i16.i = phi ptr [ %.sroa.0.017.i13.i, %.lr.ph.i15.i ], [ %.sroa.0.0.i25.i, %47 ]
-  %.pn19.i17.i = phi ptr [ %.sroa.034.0.lcssa.i, %.lr.ph.i15.i ], [ %.sroa.0.020.i16.i, %47 ]
-  %35 = getelementptr i8, ptr %.pn19.i17.i, i64 24
-  %.val2.i.i18.i = load i64, ptr %35, align 8
-  %.val3.i.i19.i = load i64, ptr %33, align 8
-  %36 = icmp ugt i64 %.val2.i.i18.i, %.val3.i.i19.i
-  br i1 %36, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i31.i, label %42
+35:                                               ; preds = %49, %.lr.ph.i15.i
+  %.sroa.0.020.i16.i = phi ptr [ %.sroa.0.017.i13.i, %.lr.ph.i15.i ], [ %.sroa.0.0.i25.i, %49 ]
+  %.pn19.i17.i = phi ptr [ %.sroa.033.0.lcssa.i, %.lr.ph.i15.i ], [ %.sroa.0.020.i16.i, %49 ]
+  %36 = getelementptr i8, ptr %.pn19.i17.i, i64 24
+  %.val2.i.i18.i = load i64, ptr %36, align 8
+  %.val3.i.i19.i = load i64, ptr %34, align 8
+  %37 = icmp ugt i64 %.val2.i.i18.i, %.val3.i.i19.i
+  br i1 %37, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i31.i, label %44
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i31.i: ; preds = %34
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i31.i: ; preds = %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.020.i16.i, i64 16, i1 false)
-  %37 = getelementptr inbounds i8, ptr %.pn19.i17.i, i64 32
-  %38 = ptrtoint ptr %.sroa.0.020.i16.i to i64
-  %39 = sub i64 %38, %.lcssa.i
-  %40 = ashr exact i64 %39, 4
-  %.pre.i.i.i.i.i.i32.i = sub nsw i64 0, %40
-  %41 = getelementptr inbounds %struct.RegistryCandidate, ptr %37, i64 %.pre.i.i.i.i.i.i32.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %41, ptr noundef nonnull align 8 dereferenceable(1) %.sroa.034.0.lcssa.i, i64 %39, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.034.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  br label %47
+  %38 = getelementptr inbounds i8, ptr %.pn19.i17.i, i64 32
+  %39 = ptrtoint ptr %.sroa.0.020.i16.i to i64
+  %40 = sub i64 %39, %.lcssa.i
+  %41 = ashr exact i64 %40, 4
+  %42 = sub nsw i64 0, %41
+  %43 = getelementptr inbounds %struct.RegistryCandidate, ptr %38, i64 %42
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %43, ptr noundef nonnull align 8 dereferenceable(1) %.sroa.033.0.lcssa.i, i64 %40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.033.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  br label %49
 
-42:                                               ; preds = %34
+44:                                               ; preds = %35
   %.sroa.06.0.copyload.i.i20.i = load ptr, ptr %.sroa.0.020.i16.i, align 8
-  %43 = getelementptr i8, ptr %.pn19.i17.i, i64 8
-  %.val3.i10.i.i21.i = load i64, ptr %43, align 8
-  %44 = icmp ugt i64 %.val2.i.i18.i, %.val3.i10.i.i21.i
-  br i1 %44, label %.lr.ph.i.i27.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_T0_.exit.i22.i"
+  %45 = getelementptr i8, ptr %.pn19.i17.i, i64 8
+  %.val3.i10.i.i21.i = load i64, ptr %45, align 8
+  %46 = icmp ugt i64 %.val2.i.i18.i, %.val3.i10.i.i21.i
+  br i1 %46, label %.lr.ph.i.i27.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_T0_.exit.i22.i"
 
-.lr.ph.i.i27.i:                                   ; preds = %42, %.lr.ph.i.i27.i
-  %.sroa.09.011.i.i28.i = phi ptr [ %.sroa.0.0.i.i29.i, %.lr.ph.i.i27.i ], [ %.sroa.0.020.i16.i, %42 ]
+.lr.ph.i.i27.i:                                   ; preds = %44, %.lr.ph.i.i27.i
+  %.sroa.09.011.i.i28.i = phi ptr [ %.sroa.0.0.i.i29.i, %.lr.ph.i.i27.i ], [ %.sroa.0.020.i16.i, %44 ]
   %.sroa.0.0.i.i29.i = getelementptr inbounds i8, ptr %.sroa.09.011.i.i28.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.09.011.i.i28.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.i.i29.i, i64 16, i1 false)
-  %45 = getelementptr i8, ptr %.sroa.09.011.i.i28.i, i64 -24
-  %.val3.i.i.i30.i = load i64, ptr %45, align 8
-  %46 = icmp ugt i64 %.val2.i.i18.i, %.val3.i.i.i30.i
-  br i1 %46, label %.lr.ph.i.i27.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_T0_.exit.i22.i", !llvm.loop !266
+  %47 = getelementptr i8, ptr %.sroa.09.011.i.i28.i, i64 -24
+  %.val3.i.i.i30.i = load i64, ptr %47, align 8
+  %48 = icmp ugt i64 %.val2.i.i18.i, %.val3.i.i.i30.i
+  br i1 %48, label %.lr.ph.i.i27.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_T0_.exit.i22.i", !llvm.loop !266
 
-"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_T0_.exit.i22.i": ; preds = %.lr.ph.i.i27.i, %42
-  %.sroa.09.0.lcssa.i.i23.i = phi ptr [ %.sroa.0.020.i16.i, %42 ], [ %.sroa.0.0.i.i29.i, %.lr.ph.i.i27.i ]
+"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_T0_.exit.i22.i": ; preds = %.lr.ph.i.i27.i, %44
+  %.sroa.09.0.lcssa.i.i23.i = phi ptr [ %.sroa.0.020.i16.i, %44 ], [ %.sroa.0.0.i.i29.i, %.lr.ph.i.i27.i ]
   store ptr %.sroa.06.0.copyload.i.i20.i, ptr %.sroa.09.0.lcssa.i.i23.i, align 8
   %.sroa.2.0..val.sroa_idx.i.i24.i = getelementptr inbounds i8, ptr %.sroa.09.0.lcssa.i.i23.i, i64 8
   store i64 %.val2.i.i18.i, ptr %.sroa.2.0..val.sroa_idx.i.i24.i, align 8
-  br label %47
+  br label %49
 
-47:                                               ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_T0_.exit.i22.i", %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i31.i
+49:                                               ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_T0_.exit.i22.i", %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i31.i
   %.sroa.0.0.i25.i = getelementptr inbounds i8, ptr %.sroa.0.020.i16.i, i64 16
   %.not.i26.i = icmp eq ptr %.sroa.0.0.i25.i, %1
-  br i1 %.not.i26.i, label %"_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_.exit", label %34, !llvm.loop !267
+  br i1 %.not.i26.i, label %"_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_.exit", label %35, !llvm.loop !267
 
-"_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_.exit": ; preds = %47, %._crit_edge.i, %.preheader.i12.i
+"_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_.exit": ; preds = %49, %._crit_edge.i, %.preheader.i12.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %48 = icmp sgt i64 %9, 7
-  br i1 %48, label %.lr.ph, label %._crit_edge
+  %50 = icmp sgt i64 %9, 7
+  br i1 %50, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %"_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_.exit"
-  %49 = ptrtoint ptr %10 to i64
-  br label %50
+  %51 = ptrtoint ptr %10 to i64
+  br label %52
 
-50:                                               ; preds = %.lr.ph, %"_ZSt17__merge_sort_loopIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEElNS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEEvT_SF_T0_T1_T2_.exit"
-  %.048 = phi i64 [ 7, %.lr.ph ], [ %99, %"_ZSt17__merge_sort_loopIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEElNS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEEvT_SF_T0_T1_T2_.exit" ]
-  %51 = shl nsw i64 %.048, 1
-  %.not53.i = icmp slt i64 %9, %51
+52:                                               ; preds = %.lr.ph, %"_ZSt17__merge_sort_loopIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEElNS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEEvT_SF_T0_T1_T2_.exit"
+  %.048 = phi i64 [ 7, %.lr.ph ], [ %101, %"_ZSt17__merge_sort_loopIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEElNS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEEvT_SF_T0_T1_T2_.exit" ]
+  %53 = shl nsw i64 %.048, 1
+  %.not53.i = icmp slt i64 %9, %53
   br i1 %.not53.i, label %._crit_edge.i25, label %.lr.ph.i.preheader.i
 
-.lr.ph.i.preheader.i:                             ; preds = %50, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i"
-  %.055.i = phi ptr [ %74, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ], [ %2, %50 ]
-  %.sroa.048.054.i = phi ptr [ %53, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ], [ %0, %50 ]
-  %52 = getelementptr inbounds %struct.RegistryCandidate, ptr %.sroa.048.054.i, i64 %.048
-  %53 = getelementptr inbounds %struct.RegistryCandidate, ptr %.sroa.048.054.i, i64 %51
+.lr.ph.i.preheader.i:                             ; preds = %52, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i"
+  %.055.i = phi ptr [ %76, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ], [ %2, %52 ]
+  %.sroa.048.054.i = phi ptr [ %55, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ], [ %0, %52 ]
+  %54 = getelementptr inbounds %struct.RegistryCandidate, ptr %.sroa.048.054.i, i64 %.048
+  %55 = getelementptr inbounds %struct.RegistryCandidate, ptr %.sroa.048.054.i, i64 %53
   br label %.lr.ph.i.i22
 
-.lr.ph.i.i22:                                     ; preds = %61, %.lr.ph.i.preheader.i
-  %.022.i.i = phi ptr [ %62, %61 ], [ %.055.i, %.lr.ph.i.preheader.i ]
-  %.sroa.018.021.i.i = phi ptr [ %.sroa.018.1.i.i, %61 ], [ %.sroa.048.054.i, %.lr.ph.i.preheader.i ]
-  %.sroa.016.020.i.i = phi ptr [ %.sroa.016.1.i.i, %61 ], [ %52, %.lr.ph.i.preheader.i ]
-  %54 = getelementptr i8, ptr %.sroa.016.020.i.i, i64 8
-  %.val2.i.i.i23 = load i64, ptr %54, align 8
-  %55 = getelementptr i8, ptr %.sroa.018.021.i.i, i64 8
-  %.val3.i.i.i24 = load i64, ptr %55, align 8
-  %56 = icmp ugt i64 %.val2.i.i.i23, %.val3.i.i.i24
-  br i1 %56, label %57, label %59
-
-57:                                               ; preds = %.lr.ph.i.i22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.022.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.016.020.i.i, i64 16, i1 false)
-  %58 = getelementptr inbounds i8, ptr %.sroa.016.020.i.i, i64 16
-  br label %61
+.lr.ph.i.i22:                                     ; preds = %63, %.lr.ph.i.preheader.i
+  %.022.i.i = phi ptr [ %64, %63 ], [ %.055.i, %.lr.ph.i.preheader.i ]
+  %.sroa.018.021.i.i = phi ptr [ %.sroa.018.1.i.i, %63 ], [ %.sroa.048.054.i, %.lr.ph.i.preheader.i ]
+  %.sroa.016.020.i.i = phi ptr [ %.sroa.016.1.i.i, %63 ], [ %54, %.lr.ph.i.preheader.i ]
+  %56 = getelementptr i8, ptr %.sroa.016.020.i.i, i64 8
+  %.val2.i.i.i23 = load i64, ptr %56, align 8
+  %57 = getelementptr i8, ptr %.sroa.018.021.i.i, i64 8
+  %.val3.i.i.i24 = load i64, ptr %57, align 8
+  %58 = icmp ugt i64 %.val2.i.i.i23, %.val3.i.i.i24
+  br i1 %58, label %59, label %61
 
 59:                                               ; preds = %.lr.ph.i.i22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.022.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.018.021.i.i, i64 16, i1 false)
-  %60 = getelementptr inbounds i8, ptr %.sroa.018.021.i.i, i64 16
-  br label %61
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.022.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.016.020.i.i, i64 16, i1 false)
+  %60 = getelementptr inbounds i8, ptr %.sroa.016.020.i.i, i64 16
+  br label %63
 
-61:                                               ; preds = %59, %57
-  %.sroa.016.1.i.i = phi ptr [ %58, %57 ], [ %.sroa.016.020.i.i, %59 ]
-  %.sroa.018.1.i.i = phi ptr [ %.sroa.018.021.i.i, %57 ], [ %60, %59 ]
-  %62 = getelementptr inbounds i8, ptr %.022.i.i, i64 16
-  %63 = icmp ne ptr %.sroa.018.1.i.i, %52
-  %64 = icmp ne ptr %.sroa.016.1.i.i, %53
-  %or.cond.i.i = select i1 %63, i1 %64, i1 false
+61:                                               ; preds = %.lr.ph.i.i22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.022.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.018.021.i.i, i64 16, i1 false)
+  %62 = getelementptr inbounds i8, ptr %.sroa.018.021.i.i, i64 16
+  br label %63
+
+63:                                               ; preds = %61, %59
+  %.sroa.016.1.i.i = phi ptr [ %60, %59 ], [ %.sroa.016.020.i.i, %61 ]
+  %.sroa.018.1.i.i = phi ptr [ %.sroa.018.021.i.i, %59 ], [ %62, %61 ]
+  %64 = getelementptr inbounds i8, ptr %.022.i.i, i64 16
+  %65 = icmp ne ptr %.sroa.018.1.i.i, %54
+  %66 = icmp ne ptr %.sroa.016.1.i.i, %55
+  %or.cond.i.i = select i1 %65, i1 %66, i1 false
   br i1 %or.cond.i.i, label %.lr.ph.i.i22, label %.critedge.i.loopexit.i, !llvm.loop !275
 
-.critedge.i.loopexit.i:                           ; preds = %61
-  %65 = ptrtoint ptr %52 to i64
-  %66 = ptrtoint ptr %.sroa.018.1.i.i to i64
-  %67 = sub i64 %65, %66
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %52, %.sroa.018.1.i.i
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i.i, label %68
+.critedge.i.loopexit.i:                           ; preds = %63
+  %67 = ptrtoint ptr %54 to i64
+  %68 = ptrtoint ptr %.sroa.018.1.i.i to i64
+  %69 = sub i64 %67, %68
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %54, %.sroa.018.1.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i.i, label %70
 
-68:                                               ; preds = %.critedge.i.loopexit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %62, ptr nonnull align 8 %.sroa.018.1.i.i, i64 %67, i1 false)
+70:                                               ; preds = %.critedge.i.loopexit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %64, ptr nonnull align 8 %.sroa.018.1.i.i, i64 %69, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i.i: ; preds = %68, %.critedge.i.loopexit.i
-  %69 = getelementptr inbounds i8, ptr %62, i64 %67
-  %70 = ptrtoint ptr %53 to i64
-  %71 = ptrtoint ptr %.sroa.016.1.i.i to i64
-  %72 = sub i64 %70, %71
-  %.not.i.i.i.i.i14.i.i = icmp eq ptr %53, %.sroa.016.1.i.i
-  br i1 %.not.i.i.i.i.i14.i.i, label %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i", label %73
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i.i: ; preds = %70, %.critedge.i.loopexit.i
+  %71 = getelementptr inbounds i8, ptr %64, i64 %69
+  %72 = ptrtoint ptr %55 to i64
+  %73 = ptrtoint ptr %.sroa.016.1.i.i to i64
+  %74 = sub i64 %72, %73
+  %.not.i.i.i.i.i14.i.i = icmp eq ptr %55, %.sroa.016.1.i.i
+  br i1 %.not.i.i.i.i.i14.i.i, label %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i", label %75
 
-73:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %69, ptr nonnull align 8 %.sroa.016.1.i.i, i64 %72, i1 false)
+75:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %71, ptr nonnull align 8 %.sroa.016.1.i.i, i64 %74, i1 false)
   br label %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i"
 
-"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i": ; preds = %73, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i.i
-  %74 = getelementptr inbounds i8, ptr %69, i64 %72
-  %75 = sub i64 %6, %70
-  %76 = ashr exact i64 %75, 4
-  %.not.i = icmp slt i64 %76, %51
+"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i": ; preds = %75, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i.i
+  %76 = getelementptr inbounds i8, ptr %71, i64 %74
+  %77 = sub i64 %6, %72
+  %78 = ashr exact i64 %77, 4
+  %.not.i = icmp slt i64 %78, %53
   br i1 %.not.i, label %._crit_edge.i25, label %.lr.ph.i.preheader.i, !llvm.loop !276
 
-._crit_edge.i25:                                  ; preds = %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i", %50
-  %.sroa.048.0.lcssa.i = phi ptr [ %0, %50 ], [ %53, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ]
-  %.0.lcssa.i = phi ptr [ %2, %50 ], [ %74, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ]
-  %.lcssa51.i = phi i64 [ %9, %50 ], [ %76, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ]
+._crit_edge.i25:                                  ; preds = %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i", %52
+  %.sroa.048.0.lcssa.i = phi ptr [ %0, %52 ], [ %55, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ]
+  %.0.lcssa.i = phi ptr [ %2, %52 ], [ %76, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ]
+  %.lcssa51.i = phi i64 [ %9, %52 ], [ %78, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ]
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 range(i64 -9223372036854775808, 576460752303423487) %.048, i64 %.lcssa51.i)
-  %77 = getelementptr inbounds %struct.RegistryCandidate, ptr %.sroa.048.0.lcssa.i, i64 %.sroa.speculated.i
-  %78 = icmp ne i64 %.sroa.speculated.i, 0
-  %79 = icmp ne ptr %77, %1
-  %or.cond19.i24.i = select i1 %78, i1 %79, i1 false
+  %79 = getelementptr inbounds %struct.RegistryCandidate, ptr %.sroa.048.0.lcssa.i, i64 %.sroa.speculated.i
+  %80 = icmp ne i64 %.sroa.speculated.i, 0
+  %81 = icmp ne ptr %79, %1
+  %or.cond19.i24.i = select i1 %80, i1 %81, i1 false
   br i1 %or.cond19.i24.i, label %.lr.ph.i32.i, label %.critedge.i25.i
 
-.lr.ph.i32.i:                                     ; preds = %._crit_edge.i25, %87
-  %.022.i33.i = phi ptr [ %88, %87 ], [ %.0.lcssa.i, %._crit_edge.i25 ]
-  %.sroa.018.021.i34.i = phi ptr [ %.sroa.018.1.i39.i, %87 ], [ %.sroa.048.0.lcssa.i, %._crit_edge.i25 ]
-  %.sroa.016.020.i35.i = phi ptr [ %.sroa.016.1.i38.i, %87 ], [ %77, %._crit_edge.i25 ]
-  %80 = getelementptr i8, ptr %.sroa.016.020.i35.i, i64 8
-  %.val2.i.i36.i = load i64, ptr %80, align 8
-  %81 = getelementptr i8, ptr %.sroa.018.021.i34.i, i64 8
-  %.val3.i.i37.i = load i64, ptr %81, align 8
-  %82 = icmp ugt i64 %.val2.i.i36.i, %.val3.i.i37.i
-  br i1 %82, label %83, label %85
-
-83:                                               ; preds = %.lr.ph.i32.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.022.i33.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.016.020.i35.i, i64 16, i1 false)
-  %84 = getelementptr inbounds i8, ptr %.sroa.016.020.i35.i, i64 16
-  br label %87
+.lr.ph.i32.i:                                     ; preds = %._crit_edge.i25, %89
+  %.022.i33.i = phi ptr [ %90, %89 ], [ %.0.lcssa.i, %._crit_edge.i25 ]
+  %.sroa.018.021.i34.i = phi ptr [ %.sroa.018.1.i39.i, %89 ], [ %.sroa.048.0.lcssa.i, %._crit_edge.i25 ]
+  %.sroa.016.020.i35.i = phi ptr [ %.sroa.016.1.i38.i, %89 ], [ %79, %._crit_edge.i25 ]
+  %82 = getelementptr i8, ptr %.sroa.016.020.i35.i, i64 8
+  %.val2.i.i36.i = load i64, ptr %82, align 8
+  %83 = getelementptr i8, ptr %.sroa.018.021.i34.i, i64 8
+  %.val3.i.i37.i = load i64, ptr %83, align 8
+  %84 = icmp ugt i64 %.val2.i.i36.i, %.val3.i.i37.i
+  br i1 %84, label %85, label %87
 
 85:                                               ; preds = %.lr.ph.i32.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.022.i33.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.018.021.i34.i, i64 16, i1 false)
-  %86 = getelementptr inbounds i8, ptr %.sroa.018.021.i34.i, i64 16
-  br label %87
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.022.i33.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.016.020.i35.i, i64 16, i1 false)
+  %86 = getelementptr inbounds i8, ptr %.sroa.016.020.i35.i, i64 16
+  br label %89
 
-87:                                               ; preds = %85, %83
-  %.sroa.016.1.i38.i = phi ptr [ %84, %83 ], [ %.sroa.016.020.i35.i, %85 ]
-  %.sroa.018.1.i39.i = phi ptr [ %.sroa.018.021.i34.i, %83 ], [ %86, %85 ]
-  %88 = getelementptr inbounds i8, ptr %.022.i33.i, i64 16
-  %89 = icmp ne ptr %.sroa.018.1.i39.i, %77
-  %90 = icmp ne ptr %.sroa.016.1.i38.i, %1
-  %or.cond.i40.i = select i1 %89, i1 %90, i1 false
+87:                                               ; preds = %.lr.ph.i32.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.022.i33.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.018.021.i34.i, i64 16, i1 false)
+  %88 = getelementptr inbounds i8, ptr %.sroa.018.021.i34.i, i64 16
+  br label %89
+
+89:                                               ; preds = %87, %85
+  %.sroa.016.1.i38.i = phi ptr [ %86, %85 ], [ %.sroa.016.020.i35.i, %87 ]
+  %.sroa.018.1.i39.i = phi ptr [ %.sroa.018.021.i34.i, %85 ], [ %88, %87 ]
+  %90 = getelementptr inbounds i8, ptr %.022.i33.i, i64 16
+  %91 = icmp ne ptr %.sroa.018.1.i39.i, %79
+  %92 = icmp ne ptr %.sroa.016.1.i38.i, %1
+  %or.cond.i40.i = select i1 %91, i1 %92, i1 false
   br i1 %or.cond.i40.i, label %.lr.ph.i32.i, label %.critedge.i25.i, !llvm.loop !275
 
-.critedge.i25.i:                                  ; preds = %87, %._crit_edge.i25
-  %.sroa.016.0.lcssa.i26.i = phi ptr [ %77, %._crit_edge.i25 ], [ %.sroa.016.1.i38.i, %87 ]
-  %.sroa.018.0.lcssa.i27.i = phi ptr [ %.sroa.048.0.lcssa.i, %._crit_edge.i25 ], [ %.sroa.018.1.i39.i, %87 ]
-  %.0.lcssa.i28.i = phi ptr [ %.0.lcssa.i, %._crit_edge.i25 ], [ %88, %87 ]
-  %91 = ptrtoint ptr %77 to i64
-  %92 = ptrtoint ptr %.sroa.018.0.lcssa.i27.i to i64
-  %93 = sub i64 %91, %92
-  %.not.i.i.i.i.i.i29.i = icmp eq ptr %77, %.sroa.018.0.lcssa.i27.i
-  br i1 %.not.i.i.i.i.i.i29.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i30.i, label %94
+.critedge.i25.i:                                  ; preds = %89, %._crit_edge.i25
+  %.sroa.016.0.lcssa.i26.i = phi ptr [ %79, %._crit_edge.i25 ], [ %.sroa.016.1.i38.i, %89 ]
+  %.sroa.018.0.lcssa.i27.i = phi ptr [ %.sroa.048.0.lcssa.i, %._crit_edge.i25 ], [ %.sroa.018.1.i39.i, %89 ]
+  %.0.lcssa.i28.i = phi ptr [ %.0.lcssa.i, %._crit_edge.i25 ], [ %90, %89 ]
+  %93 = ptrtoint ptr %79 to i64
+  %94 = ptrtoint ptr %.sroa.018.0.lcssa.i27.i to i64
+  %95 = sub i64 %93, %94
+  %.not.i.i.i.i.i.i29.i = icmp eq ptr %79, %.sroa.018.0.lcssa.i27.i
+  br i1 %.not.i.i.i.i.i.i29.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i30.i, label %96
 
-94:                                               ; preds = %.critedge.i25.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.lcssa.i28.i, ptr align 8 %.sroa.018.0.lcssa.i27.i, i64 %93, i1 false)
+96:                                               ; preds = %.critedge.i25.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.lcssa.i28.i, ptr align 8 %.sroa.018.0.lcssa.i27.i, i64 %95, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i30.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i30.i: ; preds = %94, %.critedge.i25.i
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i30.i: ; preds = %96, %.critedge.i25.i
   %.not.i.i.i.i.i14.i31.i = icmp eq ptr %1, %.sroa.016.0.lcssa.i26.i
-  br i1 %.not.i.i.i.i.i14.i31.i, label %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_T2_.exit", label %95
+  br i1 %.not.i.i.i.i.i14.i31.i, label %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_T2_.exit", label %97
 
-95:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i30.i
-  %96 = ptrtoint ptr %.sroa.016.0.lcssa.i26.i to i64
-  %97 = sub i64 %6, %96
-  %98 = getelementptr inbounds i8, ptr %.0.lcssa.i28.i, i64 %93
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %98, ptr align 8 %.sroa.016.0.lcssa.i26.i, i64 %97, i1 false)
+97:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i30.i
+  %98 = ptrtoint ptr %.sroa.016.0.lcssa.i26.i to i64
+  %99 = sub i64 %6, %98
+  %100 = getelementptr inbounds i8, ptr %.0.lcssa.i28.i, i64 %95
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %100, ptr align 8 %.sroa.016.0.lcssa.i26.i, i64 %99, i1 false)
   br label %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_T2_.exit"
 
-"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_T2_.exit": ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i30.i, %95
-  %99 = shl nsw i64 %.048, 2
-  %.not49.i = icmp slt i64 %9, %99
+"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_T2_.exit": ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i30.i, %97
+  %101 = shl nsw i64 %.048, 2
+  %.not49.i = icmp slt i64 %9, %101
   br i1 %.not49.i, label %._crit_edge.i30, label %.lr.ph.i.preheader.i26
 
 .lr.ph.i.preheader.i26:                           ; preds = %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_T2_.exit", %"_ZSt12__move_mergeIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i"
-  %.sroa.022.051.i = phi ptr [ %123, %"_ZSt12__move_mergeIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ], [ %0, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_T2_.exit" ]
-  %.050.i = phi ptr [ %101, %"_ZSt12__move_mergeIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ], [ %2, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_T2_.exit" ]
-  %100 = getelementptr inbounds %struct.RegistryCandidate, ptr %.050.i, i64 %51
-  %101 = getelementptr inbounds %struct.RegistryCandidate, ptr %.050.i, i64 %99
+  %.sroa.022.051.i = phi ptr [ %125, %"_ZSt12__move_mergeIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ], [ %0, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_T2_.exit" ]
+  %.050.i = phi ptr [ %103, %"_ZSt12__move_mergeIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ], [ %2, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_T2_.exit" ]
+  %102 = getelementptr inbounds %struct.RegistryCandidate, ptr %.050.i, i64 %53
+  %103 = getelementptr inbounds %struct.RegistryCandidate, ptr %.050.i, i64 %101
   br label %.lr.ph.i.i27
 
-.lr.ph.i.i27:                                     ; preds = %109, %.lr.ph.i.preheader.i26
-  %.023.i.i = phi ptr [ %.1.i.i, %109 ], [ %.050.i, %.lr.ph.i.preheader.i26 ]
-  %.01622.i.i = phi ptr [ %.117.i.i, %109 ], [ %100, %.lr.ph.i.preheader.i26 ]
-  %.sroa.0.021.i.i = phi ptr [ %110, %109 ], [ %.sroa.022.051.i, %.lr.ph.i.preheader.i26 ]
-  %102 = getelementptr i8, ptr %.01622.i.i, i64 8
-  %.016.val.i.i = load i64, ptr %102, align 8
-  %103 = getelementptr i8, ptr %.023.i.i, i64 8
-  %.0.val.i.i = load i64, ptr %103, align 8
-  %104 = icmp ugt i64 %.016.val.i.i, %.0.val.i.i
-  br i1 %104, label %105, label %107
-
-105:                                              ; preds = %.lr.ph.i.i27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.021.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.01622.i.i, i64 16, i1 false)
-  %106 = getelementptr inbounds i8, ptr %.01622.i.i, i64 16
-  br label %109
+.lr.ph.i.i27:                                     ; preds = %111, %.lr.ph.i.preheader.i26
+  %.023.i.i = phi ptr [ %.1.i.i, %111 ], [ %.050.i, %.lr.ph.i.preheader.i26 ]
+  %.01622.i.i = phi ptr [ %.117.i.i, %111 ], [ %102, %.lr.ph.i.preheader.i26 ]
+  %.sroa.0.021.i.i = phi ptr [ %112, %111 ], [ %.sroa.022.051.i, %.lr.ph.i.preheader.i26 ]
+  %104 = getelementptr i8, ptr %.01622.i.i, i64 8
+  %.016.val.i.i = load i64, ptr %104, align 8
+  %105 = getelementptr i8, ptr %.023.i.i, i64 8
+  %.0.val.i.i = load i64, ptr %105, align 8
+  %106 = icmp ugt i64 %.016.val.i.i, %.0.val.i.i
+  br i1 %106, label %107, label %109
 
 107:                                              ; preds = %.lr.ph.i.i27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.021.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.01622.i.i, i64 16, i1 false)
+  %108 = getelementptr inbounds i8, ptr %.01622.i.i, i64 16
+  br label %111
+
+109:                                              ; preds = %.lr.ph.i.i27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.021.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.023.i.i, i64 16, i1 false)
-  %108 = getelementptr inbounds i8, ptr %.023.i.i, i64 16
-  br label %109
+  %110 = getelementptr inbounds i8, ptr %.023.i.i, i64 16
+  br label %111
 
-109:                                              ; preds = %107, %105
-  %.117.i.i = phi ptr [ %106, %105 ], [ %.01622.i.i, %107 ]
-  %.1.i.i = phi ptr [ %.023.i.i, %105 ], [ %108, %107 ]
-  %110 = getelementptr inbounds i8, ptr %.sroa.0.021.i.i, i64 16
-  %111 = icmp ne ptr %.1.i.i, %100
-  %112 = icmp ne ptr %.117.i.i, %101
-  %113 = select i1 %111, i1 %112, i1 false
-  br i1 %113, label %.lr.ph.i.i27, label %._crit_edge.i.loopexit.i, !llvm.loop !277
+111:                                              ; preds = %109, %107
+  %.117.i.i = phi ptr [ %108, %107 ], [ %.01622.i.i, %109 ]
+  %.1.i.i = phi ptr [ %.023.i.i, %107 ], [ %110, %109 ]
+  %112 = getelementptr inbounds i8, ptr %.sroa.0.021.i.i, i64 16
+  %113 = icmp ne ptr %.1.i.i, %102
+  %114 = icmp ne ptr %.117.i.i, %103
+  %115 = select i1 %113, i1 %114, i1 false
+  br i1 %115, label %.lr.ph.i.i27, label %._crit_edge.i.loopexit.i, !llvm.loop !277
 
-._crit_edge.i.loopexit.i:                         ; preds = %109
-  %114 = ptrtoint ptr %100 to i64
-  %115 = ptrtoint ptr %.1.i.i to i64
-  %116 = sub i64 %114, %115
-  %.not.i.i.i.i.i.i.i28 = icmp eq ptr %100, %.1.i.i
-  br i1 %.not.i.i.i.i.i.i.i28, label %_ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i.i, label %117
+._crit_edge.i.loopexit.i:                         ; preds = %111
+  %116 = ptrtoint ptr %102 to i64
+  %117 = ptrtoint ptr %.1.i.i to i64
+  %118 = sub i64 %116, %117
+  %.not.i.i.i.i.i.i.i28 = icmp eq ptr %102, %.1.i.i
+  br i1 %.not.i.i.i.i.i.i.i28, label %_ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i.i, label %119
 
-117:                                              ; preds = %._crit_edge.i.loopexit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %110, ptr nonnull align 8 %.1.i.i, i64 %116, i1 false)
+119:                                              ; preds = %._crit_edge.i.loopexit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %112, ptr nonnull align 8 %.1.i.i, i64 %118, i1 false)
   br label %_ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i.i
 
-_ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i.i: ; preds = %117, %._crit_edge.i.loopexit.i
-  %118 = getelementptr inbounds i8, ptr %110, i64 %116
-  %119 = ptrtoint ptr %101 to i64
-  %120 = ptrtoint ptr %.117.i.i to i64
-  %121 = sub i64 %119, %120
-  %.not.i.i.i.i.i19.i.i = icmp eq ptr %101, %.117.i.i
-  br i1 %.not.i.i.i.i.i19.i.i, label %"_ZSt12__move_mergeIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i", label %122
+_ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i.i: ; preds = %119, %._crit_edge.i.loopexit.i
+  %120 = getelementptr inbounds i8, ptr %112, i64 %118
+  %121 = ptrtoint ptr %103 to i64
+  %122 = ptrtoint ptr %.117.i.i to i64
+  %123 = sub i64 %121, %122
+  %.not.i.i.i.i.i19.i.i = icmp eq ptr %103, %.117.i.i
+  br i1 %.not.i.i.i.i.i19.i.i, label %"_ZSt12__move_mergeIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i", label %124
 
-122:                                              ; preds = %_ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %118, ptr nonnull align 8 %.117.i.i, i64 %121, i1 false)
+124:                                              ; preds = %_ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %120, ptr nonnull align 8 %.117.i.i, i64 %123, i1 false)
   br label %"_ZSt12__move_mergeIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i"
 
-"_ZSt12__move_mergeIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i": ; preds = %122, %_ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i.i
-  %123 = getelementptr inbounds i8, ptr %118, i64 %121
-  %124 = sub i64 %49, %119
-  %125 = ashr exact i64 %124, 4
-  %.not.i29 = icmp slt i64 %125, %99
+"_ZSt12__move_mergeIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i": ; preds = %124, %_ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i.i
+  %125 = getelementptr inbounds i8, ptr %120, i64 %123
+  %126 = sub i64 %51, %121
+  %127 = ashr exact i64 %126, 4
+  %.not.i29 = icmp slt i64 %127, %101
   br i1 %.not.i29, label %._crit_edge.i30, label %.lr.ph.i.preheader.i26, !llvm.loop !278
 
 ._crit_edge.i30:                                  ; preds = %"_ZSt12__move_mergeIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i", %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_T2_.exit"
-  %.0.lcssa.i31 = phi ptr [ %2, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_T2_.exit" ], [ %101, %"_ZSt12__move_mergeIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ]
-  %.sroa.022.0.lcssa.i = phi ptr [ %0, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_T2_.exit" ], [ %123, %"_ZSt12__move_mergeIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ]
-  %.lcssa47.i = phi i64 [ %9, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_T2_.exit" ], [ %125, %"_ZSt12__move_mergeIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ]
-  %.sroa.speculated.i32 = tail call i64 @llvm.smin.i64(i64 range(i64 -9223372036854775808, 1152921504606846973) %51, i64 %.lcssa47.i)
-  %126 = getelementptr inbounds %struct.RegistryCandidate, ptr %.0.lcssa.i31, i64 %.sroa.speculated.i32
-  %127 = icmp ne i64 %.sroa.speculated.i32, 0
-  %128 = icmp ne ptr %126, %10
-  %129 = and i1 %127, %128
-  br i1 %129, label %.lr.ph.i32.i35, label %._crit_edge.i25.i
+  %.0.lcssa.i31 = phi ptr [ %2, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_T2_.exit" ], [ %103, %"_ZSt12__move_mergeIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ]
+  %.sroa.022.0.lcssa.i = phi ptr [ %0, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_T2_.exit" ], [ %125, %"_ZSt12__move_mergeIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ]
+  %.lcssa47.i = phi i64 [ %9, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_T2_.exit" ], [ %127, %"_ZSt12__move_mergeIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEET0_T_SG_SG_SG_SF_T1_.exit.i" ]
+  %.sroa.speculated.i32 = tail call i64 @llvm.smin.i64(i64 range(i64 -9223372036854775808, 1152921504606846973) %53, i64 %.lcssa47.i)
+  %128 = getelementptr inbounds %struct.RegistryCandidate, ptr %.0.lcssa.i31, i64 %.sroa.speculated.i32
+  %129 = icmp ne i64 %.sroa.speculated.i32, 0
+  %130 = icmp ne ptr %128, %10
+  %131 = and i1 %129, %130
+  br i1 %131, label %.lr.ph.i32.i35, label %._crit_edge.i25.i
 
-.lr.ph.i32.i35:                                   ; preds = %._crit_edge.i30, %137
-  %.023.i33.i = phi ptr [ %.1.i39.i, %137 ], [ %.0.lcssa.i31, %._crit_edge.i30 ]
-  %.01622.i34.i = phi ptr [ %.117.i38.i, %137 ], [ %126, %._crit_edge.i30 ]
-  %.sroa.0.021.i35.i = phi ptr [ %138, %137 ], [ %.sroa.022.0.lcssa.i, %._crit_edge.i30 ]
-  %130 = getelementptr i8, ptr %.01622.i34.i, i64 8
-  %.016.val.i36.i = load i64, ptr %130, align 8
-  %131 = getelementptr i8, ptr %.023.i33.i, i64 8
-  %.0.val.i37.i = load i64, ptr %131, align 8
-  %132 = icmp ugt i64 %.016.val.i36.i, %.0.val.i37.i
-  br i1 %132, label %133, label %135
-
-133:                                              ; preds = %.lr.ph.i32.i35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.021.i35.i, ptr noundef nonnull align 8 dereferenceable(16) %.01622.i34.i, i64 16, i1 false)
-  %134 = getelementptr inbounds i8, ptr %.01622.i34.i, i64 16
-  br label %137
+.lr.ph.i32.i35:                                   ; preds = %._crit_edge.i30, %139
+  %.023.i33.i = phi ptr [ %.1.i39.i, %139 ], [ %.0.lcssa.i31, %._crit_edge.i30 ]
+  %.01622.i34.i = phi ptr [ %.117.i38.i, %139 ], [ %128, %._crit_edge.i30 ]
+  %.sroa.0.021.i35.i = phi ptr [ %140, %139 ], [ %.sroa.022.0.lcssa.i, %._crit_edge.i30 ]
+  %132 = getelementptr i8, ptr %.01622.i34.i, i64 8
+  %.016.val.i36.i = load i64, ptr %132, align 8
+  %133 = getelementptr i8, ptr %.023.i33.i, i64 8
+  %.0.val.i37.i = load i64, ptr %133, align 8
+  %134 = icmp ugt i64 %.016.val.i36.i, %.0.val.i37.i
+  br i1 %134, label %135, label %137
 
 135:                                              ; preds = %.lr.ph.i32.i35
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.021.i35.i, ptr noundef nonnull align 8 dereferenceable(16) %.01622.i34.i, i64 16, i1 false)
+  %136 = getelementptr inbounds i8, ptr %.01622.i34.i, i64 16
+  br label %139
+
+137:                                              ; preds = %.lr.ph.i32.i35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.021.i35.i, ptr noundef nonnull align 8 dereferenceable(16) %.023.i33.i, i64 16, i1 false)
-  %136 = getelementptr inbounds i8, ptr %.023.i33.i, i64 16
-  br label %137
+  %138 = getelementptr inbounds i8, ptr %.023.i33.i, i64 16
+  br label %139
 
-137:                                              ; preds = %135, %133
-  %.117.i38.i = phi ptr [ %134, %133 ], [ %.01622.i34.i, %135 ]
-  %.1.i39.i = phi ptr [ %.023.i33.i, %133 ], [ %136, %135 ]
-  %138 = getelementptr inbounds i8, ptr %.sroa.0.021.i35.i, i64 16
-  %139 = icmp ne ptr %.1.i39.i, %126
-  %140 = icmp ne ptr %.117.i38.i, %10
-  %141 = select i1 %139, i1 %140, i1 false
-  br i1 %141, label %.lr.ph.i32.i35, label %._crit_edge.i25.i, !llvm.loop !277
+139:                                              ; preds = %137, %135
+  %.117.i38.i = phi ptr [ %136, %135 ], [ %.01622.i34.i, %137 ]
+  %.1.i39.i = phi ptr [ %.023.i33.i, %135 ], [ %138, %137 ]
+  %140 = getelementptr inbounds i8, ptr %.sroa.0.021.i35.i, i64 16
+  %141 = icmp ne ptr %.1.i39.i, %128
+  %142 = icmp ne ptr %.117.i38.i, %10
+  %143 = select i1 %141, i1 %142, i1 false
+  br i1 %143, label %.lr.ph.i32.i35, label %._crit_edge.i25.i, !llvm.loop !277
 
-._crit_edge.i25.i:                                ; preds = %137, %._crit_edge.i30
-  %.sroa.0.0.lcssa.i26.i = phi ptr [ %.sroa.022.0.lcssa.i, %._crit_edge.i30 ], [ %138, %137 ]
-  %.016.lcssa.i27.i = phi ptr [ %126, %._crit_edge.i30 ], [ %.117.i38.i, %137 ]
-  %.0.lcssa.i28.i33 = phi ptr [ %.0.lcssa.i31, %._crit_edge.i30 ], [ %.1.i39.i, %137 ]
-  %142 = ptrtoint ptr %126 to i64
-  %143 = ptrtoint ptr %.0.lcssa.i28.i33 to i64
-  %144 = sub i64 %142, %143
-  %.not.i.i.i.i.i.i29.i34 = icmp eq ptr %126, %.0.lcssa.i28.i33
-  br i1 %.not.i.i.i.i.i.i29.i34, label %_ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i30.i, label %145
+._crit_edge.i25.i:                                ; preds = %139, %._crit_edge.i30
+  %.sroa.0.0.lcssa.i26.i = phi ptr [ %.sroa.022.0.lcssa.i, %._crit_edge.i30 ], [ %140, %139 ]
+  %.016.lcssa.i27.i = phi ptr [ %128, %._crit_edge.i30 ], [ %.117.i38.i, %139 ]
+  %.0.lcssa.i28.i33 = phi ptr [ %.0.lcssa.i31, %._crit_edge.i30 ], [ %.1.i39.i, %139 ]
+  %144 = ptrtoint ptr %128 to i64
+  %145 = ptrtoint ptr %.0.lcssa.i28.i33 to i64
+  %146 = sub i64 %144, %145
+  %.not.i.i.i.i.i.i29.i34 = icmp eq ptr %128, %.0.lcssa.i28.i33
+  br i1 %.not.i.i.i.i.i.i29.i34, label %_ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i30.i, label %147
 
-145:                                              ; preds = %._crit_edge.i25.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.0.0.lcssa.i26.i, ptr align 8 %.0.lcssa.i28.i33, i64 %144, i1 false)
+147:                                              ; preds = %._crit_edge.i25.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.0.0.lcssa.i26.i, ptr align 8 %.0.lcssa.i28.i33, i64 %146, i1 false)
   br label %_ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i30.i
 
-_ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i30.i: ; preds = %145, %._crit_edge.i25.i
+_ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i30.i: ; preds = %147, %._crit_edge.i25.i
   %.not.i.i.i.i.i19.i31.i = icmp eq ptr %10, %.016.lcssa.i27.i
-  br i1 %.not.i.i.i.i.i19.i31.i, label %"_ZSt17__merge_sort_loopIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEElNS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEEvT_SF_T0_T1_T2_.exit", label %146
+  br i1 %.not.i.i.i.i.i19.i31.i, label %"_ZSt17__merge_sort_loopIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEElNS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEEvT_SF_T0_T1_T2_.exit", label %148
 
-146:                                              ; preds = %_ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i30.i
-  %147 = ptrtoint ptr %.016.lcssa.i27.i to i64
-  %148 = sub i64 %49, %147
-  %149 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i26.i, i64 %144
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %149, ptr align 8 %.016.lcssa.i27.i, i64 %148, i1 false)
+148:                                              ; preds = %_ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i30.i
+  %149 = ptrtoint ptr %.016.lcssa.i27.i to i64
+  %150 = sub i64 %51, %149
+  %151 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i26.i, i64 %146
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %151, ptr align 8 %.016.lcssa.i27.i, i64 %150, i1 false)
   br label %"_ZSt17__merge_sort_loopIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEElNS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEEvT_SF_T0_T1_T2_.exit"
 
-"_ZSt17__merge_sort_loopIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEElNS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEEvT_SF_T0_T1_T2_.exit": ; preds = %_ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i30.i, %146
-  %150 = icmp slt i64 %99, %9
-  br i1 %150, label %50, label %._crit_edge, !llvm.loop !279
+"_ZSt17__merge_sort_loopIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEElNS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEEvT_SF_T0_T1_T2_.exit": ; preds = %_ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i30.i, %148
+  %152 = icmp slt i64 %101, %9
+  br i1 %152, label %52, label %._crit_edge, !llvm.loop !279
 
 ._crit_edge:                                      ; preds = %"_ZSt17__merge_sort_loopIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEElNS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEEvT_SF_T0_T1_T2_.exit", %"_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_T0_T1_.exit"
   ret void
@@ -14160,12 +14160,12 @@ _ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17Regis
 
 26:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit
   %.not134 = phi i1 [ %.not125, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit ]
-  %.tr115133 = phi i64 [ %4, %.lr.ph ], [ %119, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit ]
-  %.tr114132 = phi i64 [ %3, %.lr.ph ], [ %88, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit ]
+  %.tr115133 = phi i64 [ %4, %.lr.ph ], [ %122, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit ]
+  %.tr114132 = phi i64 [ %3, %.lr.ph ], [ %89, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit ]
   %.tr112130 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit ]
   %.tr128 = phi ptr [ %0, %.lr.ph ], [ %.sroa.032.0.i, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit ]
   %.not81 = icmp sgt i64 %.tr115133, %6
-  br i1 %.not81, label %52, label %27
+  br i1 %.not81, label %53, label %27
 
 27:                                               ; preds = %26
   %.not.i.i.i.i.i85 = icmp eq ptr %2, %.tr112130
@@ -14221,199 +14221,200 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for
   br label %35, !llvm.loop !281
 
 _ZSt13move_backwardIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit86.thread, %41
-  %.sink37.i = phi ptr [ %42, %41 ], [ %30, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit86.thread ]
+  %.sink38.i = phi ptr [ %42, %41 ], [ %30, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit86.thread ]
   %.lcssa.sink.i = phi ptr [ %38, %41 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit86.thread ]
-  %47 = ptrtoint ptr %.sink37.i to i64
+  %47 = ptrtoint ptr %.sink38.i to i64
   %48 = ptrtoint ptr %5 to i64
   %49 = sub i64 %47, %48
   %50 = ashr exact i64 %49, 4
-  %.pre.i.i.i.i.i25.i = sub nsw i64 0, %50
-  %51 = getelementptr inbounds %struct.RegistryCandidate, ptr %.lcssa.sink.i, i64 %.pre.i.i.i.i.i25.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %51, ptr align 8 %5, i64 %49, i1 false)
+  %51 = sub nsw i64 0, %50
+  %52 = getelementptr inbounds %struct.RegistryCandidate, ptr %.lcssa.sink.i, i64 %51
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %52, ptr align 8 %5, i64 %49, i1 false)
   br label %"_ZSt21__move_merge_adaptiveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEESA_NS5_5__ops15_Iter_comp_iterIZNKS1_19registries_for_portES2_E3$_0EEEvT_SF_T0_SG_T1_T2_.exit"
 
-52:                                               ; preds = %26
-  %53 = ptrtoint ptr %.tr112130 to i64
+53:                                               ; preds = %26
+  %54 = ptrtoint ptr %.tr112130 to i64
   br i1 %.not134, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit94
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit: ; preds = %52
-  %54 = sdiv i64 %.tr114132, 2
-  %55 = getelementptr inbounds %struct.RegistryCandidate, ptr %.tr128, i64 %54
-  %56 = getelementptr i8, ptr %55, i64 8
-  %.val83 = load i64, ptr %56, align 8
-  %57 = sub i64 %8, %53
-  %58 = ashr exact i64 %57, 4
-  %59 = icmp sgt i64 %58, 0
-  br i1 %59, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit"
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit: ; preds = %53
+  %55 = sdiv i64 %.tr114132, 2
+  %56 = getelementptr inbounds %struct.RegistryCandidate, ptr %.tr128, i64 %55
+  %57 = getelementptr i8, ptr %56, i64 8
+  %.val83 = load i64, ptr %57, align 8
+  %58 = sub i64 %8, %54
+  %59 = ashr exact i64 %58, 4
+  %60 = icmp sgt i64 %59, 0
+  br i1 %60, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit"
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i
-  %.04.i = phi i64 [ %.1.i90, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i ], [ %58, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit ]
+  %.04.i = phi i64 [ %.1.i90, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i ], [ %59, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit ]
   %.sroa.02.03.i = phi ptr [ %.sroa.02.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i ], [ %.tr112130, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit ]
-  %60 = lshr i64 %.04.i, 1
-  %61 = getelementptr inbounds %struct.RegistryCandidate, ptr %.sroa.02.03.i, i64 %60
-  %62 = getelementptr i8, ptr %61, i64 8
-  %.val2.i.i89 = load i64, ptr %62, align 8
-  %63 = icmp ugt i64 %.val2.i.i89, %.val83
-  %64 = getelementptr inbounds i8, ptr %61, i64 16
-  %65 = xor i64 %60, -1
-  %66 = add nsw i64 %.04.i, %65
-  %.sroa.02.1.i = select i1 %63, ptr %64, ptr %.sroa.02.03.i
-  %.1.i90 = select i1 %63, i64 %66, i64 %60
-  %67 = icmp sgt i64 %.1.i90, 0
-  br i1 %67, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit", !llvm.loop !268
+  %61 = lshr i64 %.04.i, 1
+  %62 = getelementptr inbounds %struct.RegistryCandidate, ptr %.sroa.02.03.i, i64 %61
+  %63 = getelementptr i8, ptr %62, i64 8
+  %.val2.i.i89 = load i64, ptr %63, align 8
+  %64 = icmp ugt i64 %.val2.i.i89, %.val83
+  %65 = getelementptr inbounds i8, ptr %62, i64 16
+  %66 = xor i64 %61, -1
+  %67 = add nsw i64 %.04.i, %66
+  %.sroa.02.1.i = select i1 %64, ptr %65, ptr %.sroa.02.03.i
+  %.1.i90 = select i1 %64, i64 %67, i64 %61
+  %68 = icmp sgt i64 %.1.i90, 0
+  br i1 %68, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit", !llvm.loop !268
 
 "_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i
   %.pre = ptrtoint ptr %.sroa.02.1.i to i64
   br label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit"
 
 "_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %53, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %54, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit ]
   %.sroa.02.0.lcssa.i = phi ptr [ %.sroa.02.1.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %.tr112130, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit ]
-  %68 = sub i64 %.pre-phi, %53
-  %69 = ashr exact i64 %68, 4
-  br label %87
+  %69 = sub i64 %.pre-phi, %54
+  %70 = ashr exact i64 %69, 4
+  br label %88
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit94: ; preds = %52
-  %70 = sdiv i64 %.tr115133, 2
-  %71 = getelementptr inbounds %struct.RegistryCandidate, ptr %.tr112130, i64 %70
-  %72 = getelementptr i8, ptr %71, i64 8
-  %.val84 = load i64, ptr %72, align 8
-  %73 = ptrtoint ptr %.tr128 to i64
-  %74 = sub i64 %53, %73
-  %75 = ashr exact i64 %74, 4
-  %76 = icmp sgt i64 %75, 0
-  br i1 %76, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i96, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit"
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit94: ; preds = %53
+  %71 = sdiv i64 %.tr115133, 2
+  %72 = getelementptr inbounds %struct.RegistryCandidate, ptr %.tr112130, i64 %71
+  %73 = getelementptr i8, ptr %72, i64 8
+  %.val84 = load i64, ptr %73, align 8
+  %74 = ptrtoint ptr %.tr128 to i64
+  %75 = sub i64 %54, %74
+  %76 = ashr exact i64 %75, 4
+  %77 = icmp sgt i64 %76, 0
+  br i1 %77, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i96, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit"
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i96: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit94, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i96
-  %.04.i97 = phi i64 [ %.1.i103, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i96 ], [ %75, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit94 ]
+  %.04.i97 = phi i64 [ %.1.i103, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i96 ], [ %76, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit94 ]
   %.sroa.02.03.i98 = phi ptr [ %.sroa.02.1.i102, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i96 ], [ %.tr128, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit94 ]
-  %77 = lshr i64 %.04.i97, 1
-  %78 = getelementptr inbounds %struct.RegistryCandidate, ptr %.sroa.02.03.i98, i64 %77
-  %79 = getelementptr i8, ptr %78, i64 8
-  %.val3.i.i101 = load i64, ptr %79, align 8
-  %80 = icmp ugt i64 %.val84, %.val3.i.i101
-  %81 = getelementptr inbounds i8, ptr %78, i64 16
-  %82 = xor i64 %77, -1
-  %83 = add nsw i64 %.04.i97, %82
-  %.sroa.02.1.i102 = select i1 %80, ptr %.sroa.02.03.i98, ptr %81
-  %.1.i103 = select i1 %80, i64 %77, i64 %83
-  %84 = icmp sgt i64 %.1.i103, 0
-  br i1 %84, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i96, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit", !llvm.loop !269
+  %78 = lshr i64 %.04.i97, 1
+  %79 = getelementptr inbounds %struct.RegistryCandidate, ptr %.sroa.02.03.i98, i64 %78
+  %80 = getelementptr i8, ptr %79, i64 8
+  %.val3.i.i101 = load i64, ptr %80, align 8
+  %81 = icmp ugt i64 %.val84, %.val3.i.i101
+  %82 = getelementptr inbounds i8, ptr %79, i64 16
+  %83 = xor i64 %78, -1
+  %84 = add nsw i64 %.04.i97, %83
+  %.sroa.02.1.i102 = select i1 %81, ptr %.sroa.02.03.i98, ptr %82
+  %.1.i103 = select i1 %81, i64 %78, i64 %84
+  %85 = icmp sgt i64 %.1.i103, 0
+  br i1 %85, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i96, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit", !llvm.loop !269
 
 "_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i96
   %.pre143 = ptrtoint ptr %.sroa.02.1.i102 to i64
   br label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit"
 
 "_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit94
-  %.pre-phi144 = phi i64 [ %.pre143, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %73, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit94 ]
+  %.pre-phi144 = phi i64 [ %.pre143, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %74, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit94 ]
   %.sroa.02.0.lcssa.i95 = phi ptr [ %.sroa.02.1.i102, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %.tr128, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit94 ]
-  %85 = sub i64 %.pre-phi144, %73
-  %86 = ashr exact i64 %85, 4
-  br label %87
+  %86 = sub i64 %.pre-phi144, %74
+  %87 = ashr exact i64 %86, 4
+  br label %88
 
-87:                                               ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit", %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit"
-  %.sroa.0108.0 = phi ptr [ %55, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit" ], [ %.sroa.02.0.lcssa.i95, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit" ]
-  %.sroa.0.0 = phi ptr [ %.sroa.02.0.lcssa.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit" ], [ %71, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit" ]
-  %.076 = phi i64 [ %69, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit" ], [ %70, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit" ]
-  %.0 = phi i64 [ %54, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit" ], [ %86, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit" ]
-  %88 = sub nsw i64 %.tr114132, %.0
-  %89 = icmp sle i64 %88, %.076
+88:                                               ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit", %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit"
+  %.sroa.0108.0 = phi ptr [ %56, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit" ], [ %.sroa.02.0.lcssa.i95, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit" ]
+  %.sroa.0.0 = phi ptr [ %.sroa.02.0.lcssa.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit" ], [ %72, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit" ]
+  %.076 = phi i64 [ %70, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit" ], [ %71, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit" ]
+  %.0 = phi i64 [ %55, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit" ], [ %87, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEET_SF_SF_RKT0_T1_.exit" ]
+  %89 = sub nsw i64 %.tr114132, %.0
+  %90 = icmp sle i64 %89, %.076
   %.not.i104 = icmp sgt i64 %.076, %6
-  %or.cond.i = or i1 %.not.i104, %89
-  br i1 %or.cond.i, label %103, label %90
+  %or.cond.i = or i1 %.not.i104, %90
+  br i1 %or.cond.i, label %105, label %91
 
-90:                                               ; preds = %87
+91:                                               ; preds = %88
   %.not36.i = icmp eq i64 %.076, 0
-  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit, label %91
+  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit, label %92
 
-91:                                               ; preds = %90
-  %92 = ptrtoint ptr %.sroa.0.0 to i64
-  %93 = ptrtoint ptr %.tr112130 to i64
-  %94 = sub i64 %92, %93
+92:                                               ; preds = %91
+  %93 = ptrtoint ptr %.sroa.0.0 to i64
+  %94 = ptrtoint ptr %.tr112130 to i64
+  %95 = sub i64 %93, %94
   %.not.i.i.i.i.i.i105 = icmp eq ptr %.sroa.0.0, %.tr112130
-  br i1 %.not.i.i.i.i.i.i105, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i, label %95
+  br i1 %.not.i.i.i.i.i.i105, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i, label %96
 
-95:                                               ; preds = %91
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr112130, i64 %94, i1 false)
+96:                                               ; preds = %92
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr112130, i64 %95, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i: ; preds = %95, %91
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i: ; preds = %96, %92
   %.not.i.i.i.i.i37.i = icmp eq ptr %.tr112130, %.sroa.0108.0
-  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i, label %96
+  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i, label %97
 
-96:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i
-  %97 = ptrtoint ptr %.sroa.0108.0 to i64
-  %98 = sub i64 %93, %97
-  %99 = ashr exact i64 %98, 4
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %99
-  %100 = getelementptr inbounds %struct.RegistryCandidate, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %100, ptr align 8 %.sroa.0108.0, i64 %98, i1 false)
+97:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i
+  %98 = ptrtoint ptr %.sroa.0108.0 to i64
+  %99 = sub i64 %94, %98
+  %100 = ashr exact i64 %99, 4
+  %101 = sub nsw i64 0, %100
+  %102 = getelementptr inbounds %struct.RegistryCandidate, ptr %.sroa.0.0, i64 %101
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %102, ptr align 8 %.sroa.0108.0, i64 %99, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i: ; preds = %96, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i
-  br i1 %.not.i.i.i.i.i.i105, label %_ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i106, label %101
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i: ; preds = %97, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i
+  br i1 %.not.i.i.i.i.i.i105, label %_ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i106, label %103
 
-101:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.0108.0, ptr align 8 %5, i64 %94, i1 false)
+103:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.0108.0, ptr align 8 %5, i64 %95, i1 false)
   br label %_ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i106
 
-_ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i106: ; preds = %101, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
-  %102 = getelementptr inbounds i8, ptr %.sroa.0108.0, i64 %94
+_ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i106: ; preds = %103, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
+  %104 = getelementptr inbounds i8, ptr %.sroa.0108.0, i64 %95
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit
 
-103:                                              ; preds = %87
-  %.not34.i = icmp sgt i64 %88, %6
-  br i1 %.not34.i, label %117, label %104
+105:                                              ; preds = %88
+  %.not34.i = icmp sgt i64 %89, %6
+  br i1 %.not34.i, label %120, label %106
 
-104:                                              ; preds = %103
+106:                                              ; preds = %105
   %.not35.i = icmp eq i64 %.tr114132, %.0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit, label %105
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit, label %107
 
-105:                                              ; preds = %104
-  %106 = ptrtoint ptr %.tr112130 to i64
-  %107 = ptrtoint ptr %.sroa.0108.0 to i64
-  %108 = sub i64 %106, %107
+107:                                              ; preds = %106
+  %108 = ptrtoint ptr %.tr112130 to i64
+  %109 = ptrtoint ptr %.sroa.0108.0 to i64
+  %110 = sub i64 %108, %109
   %.not.i.i.i.i.i39.i = icmp eq ptr %.tr112130, %.sroa.0108.0
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit40.i, label %109
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit40.i, label %111
 
-109:                                              ; preds = %105
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.sroa.0108.0, i64 %108, i1 false)
+111:                                              ; preds = %107
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.sroa.0108.0, i64 %110, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit40.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit40.i: ; preds = %109, %105
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit40.i: ; preds = %111, %107
   %.not.i.i.i.i.i41.i = icmp eq ptr %.sroa.0.0, %.tr112130
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i, label %110
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i, label %112
 
-110:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit40.i
-  %111 = ptrtoint ptr %.sroa.0.0 to i64
-  %112 = sub i64 %111, %106
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.0108.0, ptr align 8 %.tr112130, i64 %112, i1 false)
+112:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit40.i
+  %113 = ptrtoint ptr %.sroa.0.0 to i64
+  %114 = sub i64 %113, %108
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.0108.0, ptr align 8 %.tr112130, i64 %114, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i: ; preds = %110, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit40.i
-  %113 = ashr exact i64 %108, 4
-  %.pre.i.i.i.i.i43.i = sub nsw i64 0, %113
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i, label %114
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i: ; preds = %112, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit40.i
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i, label %115
 
-114:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
-  %115 = getelementptr inbounds %struct.RegistryCandidate, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %115, ptr align 8 %5, i64 %108, i1 false)
+115:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
+  %116 = ashr exact i64 %110, 4
+  %117 = sub nsw i64 0, %116
+  %118 = getelementptr inbounds %struct.RegistryCandidate, ptr %.sroa.0.0, i64 %117
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %118, ptr align 8 %5, i64 %110, i1 false)
   br label %_ZSt13move_backwardIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i
 
-_ZSt13move_backwardIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i: ; preds = %114, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
-  %116 = getelementptr inbounds %struct.RegistryCandidate, ptr %.sroa.0.0, i64 %.pre.i.i.i.i.i43.i
+_ZSt13move_backwardIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i: ; preds = %115, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
+  %.pre-phi.i.i.i.i.i43.i = phi i64 [ %117, %115 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i ]
+  %119 = getelementptr inbounds %struct.RegistryCandidate, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit
 
-117:                                              ; preds = %103
-  %118 = tail call fastcc ptr @_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS3_10StringViewEE17RegistryCandidateSt6vectorIS6_SaIS6_EEEEEET_SC_SC_SC_(ptr %.sroa.0108.0, ptr %.tr112130, ptr %.sroa.0.0)
+120:                                              ; preds = %105
+  %121 = tail call fastcc ptr @_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS3_10StringViewEE17RegistryCandidateSt6vectorIS6_SaIS6_EEEEEET_SC_SC_SC_(ptr %.sroa.0108.0, ptr %.tr112130, ptr %.sroa.0.0)
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit
 
-_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit: ; preds = %90, %_ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i106, %104, %_ZSt13move_backwardIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i, %117
-  %.sroa.032.0.i = phi ptr [ %102, %_ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i106 ], [ %116, %_ZSt13move_backwardIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i ], [ %118, %117 ], [ %.sroa.0108.0, %90 ], [ %.sroa.0.0, %104 ]
+_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit: ; preds = %91, %_ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i106, %106, %_ZSt13move_backwardIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i, %120
+  %.sroa.032.0.i = phi ptr [ %104, %_ZSt4moveIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i106 ], [ %119, %_ZSt13move_backwardIPZNK5vcpkg11RegistrySet19registries_for_portENS0_10StringViewEE17RegistryCandidateN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i ], [ %121, %120 ], [ %.sroa.0108.0, %91 ], [ %.sroa.0.0, %106 ]
   tail call fastcc void @"_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPZNK5vcpkg11RegistrySet19registries_for_portENS2_10StringViewEE17RegistryCandidateSt6vectorIS5_SaIS5_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNKS3_19registries_for_portES4_E3$_0EEEvT_SF_SF_T0_SG_T1_SG_T2_"(ptr %.tr128, ptr %.sroa.0108.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.076, ptr noundef %5, i64 noundef %6)
-  %119 = sub nsw i64 %.tr115133, %.076
-  %.not = icmp sgt i64 %88, %119
-  %.not80 = icmp sgt i64 %88, %6
+  %122 = sub nsw i64 %.tr115133, %.076
+  %.not = icmp sgt i64 %89, %122
+  %.not80 = icmp sgt i64 %89, %6
   %or.cond = or i1 %.not80, %.not
   br i1 %or.cond, label %26, label %tailrecurse._crit_edge
 

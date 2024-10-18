@@ -651,18 +651,22 @@ for.body:                                         ; preds = %for.body.preheader,
   %add.ptr.i = getelementptr inbounds nuw double, ptr %0, i64 %i.0102
   %41 = load double, ptr %add.ptr.i, align 8, !tbaa !27
   %cmp64 = fcmp ogt double %41, %x
-  br i1 %cmp64, label %return, label %for.inc
+  br i1 %cmp64, label %return.loopexit, label %for.inc
 
 for.inc:                                          ; preds = %for.body
   %inc = add nuw i64 %i.0102, 1
   %exitcond.not = icmp eq i64 %inc, %umax
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !38
+  br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !38
 
-return:                                           ; preds = %for.body, %for.inc, %do.end
-  %retval.1.in.in = phi i64 [ %sub.ptr.div.i, %do.end ], [ %sub.ptr.div.i, %for.inc ], [ %i.0102, %for.body ]
-  %retval.1.in = trunc i64 %retval.1.in.in to i32
-  %retval.1 = add i32 %retval.1.in, -1
-  ret i32 %retval.1
+return.loopexit:                                  ; preds = %for.inc, %for.body
+  %retval.1.in.in.ph = phi i64 [ %i.0102, %for.body ], [ %sub.ptr.div.i, %for.inc ]
+  %42 = trunc i64 %retval.1.in.in.ph to i32
+  %43 = add i32 %42, -1
+  br label %return
+
+return:                                           ; preds = %return.loopexit, %do.end
+  %retval.1.in.in = phi i32 [ -1, %do.end ], [ %43, %return.loopexit ]
+  ret i32 %retval.1.in.in
 
 unreachable:                                      ; preds = %invoke.cont47
   unreachable

@@ -2806,7 +2806,7 @@ lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds
   br label %ehcleanup209.i
 
 lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i: ; preds = %invoke.cont.i229.i, %invoke.cont171.i, %if.then163.i, %if.then.i.i.i.i205.i, %call1.i.noexc161.i, %if.then.i159.i, %if.then133.i, %if.then.i.i.i.i.i285, %dynamic_cast.bad_cast.i.i.i286
-  %nodes.sroa.0.1.ph.ph.ph.ph.i = phi ptr [ %nodes.sroa.0.5367.i, %dynamic_cast.bad_cast.i.i.i286 ], [ %nodes.sroa.0.5367.i, %if.then.i.i.i.i.i285 ], [ %nodes.sroa.0.9390.i, %if.then.i.i.i.i205.i ], [ %nodes.sroa.0.8.i, %invoke.cont171.i ], [ %nodes.sroa.0.8.i, %if.then163.i ], [ %nodes.sroa.0.8.i, %invoke.cont.i229.i ], [ %nodes.sroa.0.0.lcssa453.i, %call1.i.noexc161.i ], [ %nodes.sroa.0.0.lcssa453.i, %if.then.i159.i ], [ %nodes.sroa.0.0.lcssa453.i, %if.then133.i ]
+  %nodes.sroa.0.1.ph.ph.ph.ph.i = phi ptr [ %nodes.sroa.0.5367.i, %dynamic_cast.bad_cast.i.i.i286 ], [ %nodes.sroa.0.5367.i, %if.then.i.i.i.i.i285 ], [ %nodes.sroa.0.9390.i, %if.then.i.i.i.i205.i ], [ %nodes.sroa.0.8.i, %invoke.cont171.i ], [ %nodes.sroa.0.8.i, %if.then163.i ], [ %nodes.sroa.0.8459.i, %invoke.cont.i229.i ], [ %nodes.sroa.0.0.lcssa453.i, %call1.i.noexc161.i ], [ %nodes.sroa.0.0.lcssa453.i, %if.then.i159.i ], [ %nodes.sroa.0.0.lcssa453.i, %if.then133.i ]
   %lpad.loopexit.split-lp280.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup209.i
@@ -3393,7 +3393,6 @@ for.end130.i:                                     ; preds = %for.inc128.i
   br i1 %cmp132.i, label %if.then133.i, label %if.end158.i
 
 if.then133.i:                                     ; preds = %for.end130.i, %if.end23.i
-  %sub.ptr.sub.i454.i = phi i64 [ %sub.ptr.sub.i.i280, %for.end130.i ], [ 0, %if.end23.i ]
   %nodes.sroa.0.0.lcssa453.i = phi ptr [ %nodes.sroa.0.2.i, %for.end130.i ], [ null, %if.end23.i ]
   %nodes.sroa.11.0.lcssa452.i = phi ptr [ %nodes.sroa.11.1.i, %for.end130.i ], [ null, %if.end23.i ]
   %nodes.sroa.21.0.lcssa451.i = phi ptr [ %nodes.sroa.21.1.i, %for.end130.i ], [ null, %if.end23.i ]
@@ -3417,7 +3416,7 @@ invoke.cont134.i:                                 ; preds = %call1.i.noexc161.i,
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i157.i)
   %180 = load ptr, ptr %_M_left.i.i.i258, align 8
   %cmp.i166.not386.i = icmp eq ptr %180, %add.ptr.i.i.i
-  br i1 %cmp.i166.not386.i, label %if.end158.i, label %for.body141.i
+  br i1 %cmp.i166.not386.i, label %if.else205.i, label %for.body141.i
 
 for.body141.i:                                    ; preds = %invoke.cont134.i, %for.inc154.i
   %nodes.sroa.0.9390.i = phi ptr [ %nodes.sroa.0.10.i, %for.inc154.i ], [ %nodes.sroa.0.0.lcssa453.i, %invoke.cont134.i ]
@@ -3526,9 +3525,9 @@ for.end156.loopexit.i:                            ; preds = %for.inc154.i
   %.pre440.i = sub i64 %.pre.i, %.pre439.i
   br label %if.end158.i
 
-if.end158.i:                                      ; preds = %for.end156.loopexit.i, %invoke.cont134.i, %for.end130.i
-  %nodes.sroa.0.8.i = phi ptr [ %nodes.sroa.0.2.i, %for.end130.i ], [ %nodes.sroa.0.10.i, %for.end156.loopexit.i ], [ %nodes.sroa.0.0.lcssa453.i, %invoke.cont134.i ]
-  %nb_nodes.0.in.i = phi i64 [ %sub.ptr.sub.i.i280, %for.end130.i ], [ %.pre440.i, %for.end156.loopexit.i ], [ %sub.ptr.sub.i454.i, %invoke.cont134.i ]
+if.end158.i:                                      ; preds = %for.end156.loopexit.i, %for.end130.i
+  %nodes.sroa.0.8.i = phi ptr [ %nodes.sroa.0.2.i, %for.end130.i ], [ %nodes.sroa.0.10.i, %for.end156.loopexit.i ]
+  %nb_nodes.0.in.i = phi i64 [ %sub.ptr.sub.i.i280, %for.end130.i ], [ %.pre440.i, %for.end156.loopexit.i ]
   %nb_nodes.0.i = ashr exact i64 %nb_nodes.0.in.i, 3
   switch i64 %nb_nodes.0.i, label %if.then163.i [
     i64 1, label %if.end208.thread.i
@@ -3657,7 +3656,8 @@ ehcleanup175.i:                                   ; preds = %lpad170.i, %lpad168
   call void @_ZdlPv(ptr noundef nonnull %call165.i) #29
   br label %ehcleanup209.i
 
-if.else205.i:                                     ; preds = %if.end158.i
+if.else205.i:                                     ; preds = %if.end158.i, %invoke.cont134.i
+  %nodes.sroa.0.8459.i = phi ptr [ %nodes.sroa.0.8.i, %if.end158.i ], [ %nodes.sroa.0.0.lcssa453.i, %invoke.cont134.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i226.i)
   %exception.i227.i = call ptr @__cxa_allocate_exception(i64 16) #24
   store ptr @.str, ptr %ref.tmp.i226.i, align 8
@@ -3705,7 +3705,7 @@ if.then.i.i.i234.i:                               ; preds = %for.body195.i, %if.
   br label %invoke.cont179
 
 ehcleanup209.i:                                   ; preds = %lpad30.loopexit.split-lp.loopexit.i, %common.resume.i452, %lpad.i228.body.i, %ehcleanup175.i, %cleanup.action69.i, %ehcleanup67.i, %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad30.loopexit.i
-  %nodes.sroa.0.3.i = phi ptr [ %nodes.sroa.0.0382.i, %cleanup.action69.i ], [ %nodes.sroa.0.0382.i, %ehcleanup67.i ], [ %nodes.sroa.0.8.i, %ehcleanup175.i ], [ %nodes.sroa.0.8.i, %lpad.i228.body.i ], [ %nodes.sroa.0.9390.i, %lpad30.loopexit.i ], [ %nodes.sroa.0.4374.i, %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %nodes.sroa.0.0382.i, %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %nodes.sroa.0.1.ph.ph.ph.ph.i, %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ], [ %nodes.sroa.0.5367.i, %common.resume.i452 ], [ %nodes.sroa.0.5367.i, %lpad30.loopexit.split-lp.loopexit.i ]
+  %nodes.sroa.0.3.i = phi ptr [ %nodes.sroa.0.0382.i, %cleanup.action69.i ], [ %nodes.sroa.0.0382.i, %ehcleanup67.i ], [ %nodes.sroa.0.8.i, %ehcleanup175.i ], [ %nodes.sroa.0.8459.i, %lpad.i228.body.i ], [ %nodes.sroa.0.9390.i, %lpad30.loopexit.i ], [ %nodes.sroa.0.4374.i, %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %nodes.sroa.0.0382.i, %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %nodes.sroa.0.1.ph.ph.ph.ph.i, %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ], [ %nodes.sroa.0.5367.i, %common.resume.i452 ], [ %nodes.sroa.0.5367.i, %lpad30.loopexit.split-lp.loopexit.i ]
   %.pn46.i = phi { ptr, i32 } [ %.pn42.pn.pn271.i, %cleanup.action69.i ], [ %.pn42.pn.i, %ehcleanup67.i ], [ %.pn40.i, %ehcleanup175.i ], [ %eh.lpad-body242.i, %lpad.i228.body.i ], [ %lpad.loopexit.i, %lpad30.loopexit.i ], [ %lpad.loopexit276.i, %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit279.i, %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp280.i, %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ], [ %common.resume.op.i453, %common.resume.i452 ], [ %lpad.loopexit273.i, %lpad30.loopexit.split-lp.loopexit.i ]
   %tobool.not.i.i.i236.i = icmp eq ptr %nodes.sroa.0.3.i, null
   br i1 %tobool.not.i.i.i236.i, label %lpad176.body, label %if.then.i.i.i237.i
@@ -13782,8 +13782,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3IFC10Schema_2x317
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %__i.sroa.0.012 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i2, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i2, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %for.inc
 

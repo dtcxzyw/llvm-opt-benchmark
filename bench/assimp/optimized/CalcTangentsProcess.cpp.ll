@@ -1060,7 +1060,7 @@ for.body371:                                      ; preds = %for.body371.prehead
 
 for.end386:                                       ; preds = %for.body371, %for.cond367.preheader
   %cmp370638.not695 = phi i1 [ true, %for.cond367.preheader ], [ false, %for.body371 ]
-  %sub.ptr.div.i416693 = phi i64 [ %sub.ptr.div.i416, %for.cond367.preheader ], [ %sub.ptr.div.i416692, %for.body371 ]
+  %sub.ptr.div.i416693 = phi i64 [ 0, %for.cond367.preheader ], [ %sub.ptr.div.i416692, %for.body371 ]
   %closeVertices.sroa.30.2.lcssa691 = phi ptr [ %closeVertices.sroa.30.3, %for.cond367.preheader ], [ %closeVertices.sroa.30.2.lcssa690, %for.body371 ]
   %closeVertices.sroa.0.3.lcssa689 = phi ptr [ %closeVertices.sroa.0.4, %for.cond367.preheader ], [ %closeVertices.sroa.0.3.lcssa688, %for.body371 ]
   %smoothTangent.sroa.11.0.lcssa = phi float [ 0.000000e+00, %for.cond367.preheader ], [ %add6.i, %for.body371 ]

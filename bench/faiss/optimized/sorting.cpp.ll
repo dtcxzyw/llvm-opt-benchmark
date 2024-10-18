@@ -235,40 +235,40 @@ _ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_comp_iterIN5faiss12_GL
   %42 = getelementptr inbounds float, ptr %2, i64 %.val17.i25.i.i
   %43 = load float, ptr %42, align 4
   %44 = fcmp olt float %41, %43
-  br i1 %44, label %45, label %51
+  br i1 %44, label %45, label %52
 
 45:                                               ; preds = %.lr.ph.i21.i.i
   %46 = getelementptr inbounds i8, ptr %.pn20.i23.i.i, i64 16
   %47 = ptrtoint ptr %.021.i22.i.i to i64
   %48 = sub i64 %47, %6
   %49 = ashr exact i64 %48, 3
-  %.pre.i.i.i.i.i.i37.i.i = sub nsw i64 0, %49
-  %50 = getelementptr inbounds i64, ptr %46, i64 %.pre.i.i.i.i.i.i37.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %50, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %48, i1 false)
+  %50 = sub nsw i64 0, %49
+  %51 = getelementptr inbounds i64, ptr %46, i64 %50
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %51, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %48, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_comp_iterIN5faiss12_GLOBAL__N_117ArgsortComparatorEEEEvT_T0_.exit.i27.i.i
 
-51:                                               ; preds = %.lr.ph.i21.i.i
+52:                                               ; preds = %.lr.ph.i21.i.i
   %.0.val13.i.i26.i.i = load i64, ptr %.pn20.i23.i.i, align 8
-  %52 = getelementptr inbounds float, ptr %2, i64 %.0.val13.i.i26.i.i
-  %53 = load float, ptr %52, align 4
-  %54 = fcmp olt float %41, %53
-  br i1 %54, label %.lr.ph.i.i31.i.i, label %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_comp_iterIN5faiss12_GLOBAL__N_117ArgsortComparatorEEEEvT_T0_.exit.i27.i.i
+  %53 = getelementptr inbounds float, ptr %2, i64 %.0.val13.i.i26.i.i
+  %54 = load float, ptr %53, align 4
+  %55 = fcmp olt float %41, %54
+  br i1 %55, label %.lr.ph.i.i31.i.i, label %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_comp_iterIN5faiss12_GLOBAL__N_117ArgsortComparatorEEEEvT_T0_.exit.i27.i.i
 
-.lr.ph.i.i31.i.i:                                 ; preds = %51, %.lr.ph.i.i31.i.i
-  %.0.val16.i.i32.i.i = phi i64 [ %.0.val.i.i36.i.i, %.lr.ph.i.i31.i.i ], [ %.0.val13.i.i26.i.i, %51 ]
-  %.015.i.i33.i.i = phi ptr [ %.0.i.i35.i.i, %.lr.ph.i.i31.i.i ], [ %.pn20.i23.i.i, %51 ]
-  %.0914.i.i34.i.i = phi ptr [ %.015.i.i33.i.i, %.lr.ph.i.i31.i.i ], [ %.021.i22.i.i, %51 ]
+.lr.ph.i.i31.i.i:                                 ; preds = %52, %.lr.ph.i.i31.i.i
+  %.0.val16.i.i32.i.i = phi i64 [ %.0.val.i.i36.i.i, %.lr.ph.i.i31.i.i ], [ %.0.val13.i.i26.i.i, %52 ]
+  %.015.i.i33.i.i = phi ptr [ %.0.i.i35.i.i, %.lr.ph.i.i31.i.i ], [ %.pn20.i23.i.i, %52 ]
+  %.0914.i.i34.i.i = phi ptr [ %.015.i.i33.i.i, %.lr.ph.i.i31.i.i ], [ %.021.i22.i.i, %52 ]
   store i64 %.0.val16.i.i32.i.i, ptr %.0914.i.i34.i.i, align 8
   %.0.i.i35.i.i = getelementptr inbounds i8, ptr %.015.i.i33.i.i, i64 -8
   %.0.val.i.i36.i.i = load i64, ptr %.0.i.i35.i.i, align 8
-  %55 = load float, ptr %40, align 4
-  %56 = getelementptr inbounds float, ptr %2, i64 %.0.val.i.i36.i.i
-  %57 = load float, ptr %56, align 4
-  %58 = fcmp olt float %55, %57
-  br i1 %58, label %.lr.ph.i.i31.i.i, label %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_comp_iterIN5faiss12_GLOBAL__N_117ArgsortComparatorEEEEvT_T0_.exit.i27.i.i, !llvm.loop !7
+  %56 = load float, ptr %40, align 4
+  %57 = getelementptr inbounds float, ptr %2, i64 %.0.val.i.i36.i.i
+  %58 = load float, ptr %57, align 4
+  %59 = fcmp olt float %56, %58
+  br i1 %59, label %.lr.ph.i.i31.i.i, label %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_comp_iterIN5faiss12_GLOBAL__N_117ArgsortComparatorEEEEvT_T0_.exit.i27.i.i, !llvm.loop !7
 
-_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_comp_iterIN5faiss12_GLOBAL__N_117ArgsortComparatorEEEEvT_T0_.exit.i27.i.i: ; preds = %.lr.ph.i.i31.i.i, %51, %45
-  %.sink.i28.i.i = phi ptr [ %0, %45 ], [ %.021.i22.i.i, %51 ], [ %.015.i.i33.i.i, %.lr.ph.i.i31.i.i ]
+_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_comp_iterIN5faiss12_GLOBAL__N_117ArgsortComparatorEEEEvT_T0_.exit.i27.i.i: ; preds = %.lr.ph.i.i31.i.i, %52, %45
+  %.sink.i28.i.i = phi ptr [ %0, %45 ], [ %.021.i22.i.i, %52 ], [ %.015.i.i33.i.i, %.lr.ph.i.i31.i.i ]
   store i64 %.0.val.i24.i.i, ptr %.sink.i28.i.i, align 8
   %.0.i29.i.i = getelementptr inbounds i8, ptr %.021.i22.i.i, i64 8
   %.not.i30.i.i = icmp eq ptr %.0.i29.i.i, %1

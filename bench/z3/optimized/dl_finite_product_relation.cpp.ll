@@ -24281,8 +24281,8 @@ if.then3.i43:                                     ; preds = %for.body.i20
   %sub.ptr.lhs.cast.i.i.i.i.i.i45 = ptrtoint ptr %__i.015.i21 to i64
   %sub.ptr.sub.i.i.i.i.i.i46 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i45, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i.i47 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i46, 2
-  %.pre.i.i.i.i.i.i48 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i47
-  %add.ptr.i.i.i.i.i.i49 = getelementptr inbounds i32, ptr %add.ptr4.i44, i64 %.pre.i.i.i.i.i.i48
+  %idx.neg.i.i.i.i.i.i48 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i47
+  %add.ptr.i.i.i.i.i.i49 = getelementptr inbounds i32, ptr %add.ptr4.i44, i64 %idx.neg.i.i.i.i.i.i48
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i49, ptr noundef nonnull align 4 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i46, i1 false)
   br label %for.inc.i32
 

@@ -5661,7 +5661,7 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit: ; preds = %_ZNSt6vectorIdSa
   br label %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPdS0_ET0_T_S2_S1_.exit:                 ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]
@@ -16730,7 +16730,7 @@ _ZNK5osgeo4proj2io7WKTNode7Private12lookForChildERKNSt7__cxx1112basic_stringIcSt
 
 .preheader212:                                    ; preds = %541
   %.not211219 = icmp eq ptr %547, %546
-  br i1 %.not211219, label %.preheader, label %.lr.ph
+  br i1 %.not211219, label %.lr.ph222, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader212
   %553 = getelementptr inbounds i8, ptr %1, i64 56
@@ -16738,11 +16738,11 @@ _ZNK5osgeo4proj2io7WKTNode7Private12lookForChildERKNSt7__cxx1112basic_stringIcSt
   %555 = getelementptr inbounds i8, ptr %1, i64 72
   br label %560
 
-.preheader:                                       ; preds = %_ZNSt6vectorIdSaIdEE9push_backEOd.exit, %.preheader212
+.preheader:                                       ; preds = %_ZNSt6vectorIdSaIdEE9push_backEOd.exit
   %556 = icmp ult i64 %551, 7
   br i1 %556, label %.lr.ph222, label %_ZNK5osgeo4proj2io7WKTNode7Private12lookForChildERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
 
-.lr.ph222:                                        ; preds = %.preheader
+.lr.ph222:                                        ; preds = %.preheader212, %.preheader
   %557 = getelementptr inbounds i8, ptr %1, i64 56
   %558 = getelementptr inbounds i8, ptr %1, i64 64
   %559 = getelementptr inbounds i8, ptr %1, i64 72

@@ -15142,7 +15142,7 @@ _ZNSt12_Vector_baseIZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17Ric
   br label %_ZSt4copyIPZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSF_ET0_T_SH_SG_.exit
 
 _ZSt4copyIPZN18FilterCameraPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcEE14CorrespondenceSF_ET0_T_SH_SG_.exit: ; preds = %26, %27
-  %.pre-phi48 = phi i64 [ %23, %26 ], [ %.pre47, %27 ]
+  %.pre-phi48 = phi i64 [ 0, %26 ], [ %.pre47, %27 ]
   %28 = phi ptr [ %.val25, %26 ], [ %.pre43, %27 ]
   %.val31 = phi ptr [ %.val27, %26 ], [ %.val31.pre, %27 ]
   %29 = phi ptr [ %.val, %26 ], [ %.pre, %27 ]

@@ -355,14 +355,12 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp.not.i.i.i.i, label %invoke.cont.i.thread, label %cond.true.i.i.i.i
 
 invoke.cont.i.thread:                             ; preds = %for.end.thread, %for.end
-  %sub.ptr.sub.i.i82 = phi i64 [ 0, %for.end.thread ], [ %sub.ptr.sub.i.i, %for.end ]
   %7 = phi ptr [ %2, %for.end.thread ], [ %6, %for.end ]
   %base_handles.sroa.0.0.lcssa80 = phi ptr [ null, %for.end.thread ], [ %base_handles.sroa.0.1, %for.end ]
   %_M_finish.i.i.i44 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %add.ptr.i.i.i45 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i82
   %_M_end_of_storage.i.i.i46 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i45, ptr %_M_end_of_storage.i.i.i46, align 8
+  store ptr null, ptr %_M_end_of_storage.i.i.i46, align 8
   br label %invoke.cont12
 
 cond.true.i.i.i.i:                                ; preds = %for.end
@@ -391,7 +389,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_tr
   br label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont.i.thread
-  %sub.ptr.sub.i.i81 = phi i64 [ %sub.ptr.sub.i.i82, %invoke.cont.i.thread ], [ %sub.ptr.sub.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
+  %sub.ptr.sub.i.i81 = phi i64 [ 0, %invoke.cont.i.thread ], [ %sub.ptr.sub.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
   %8 = phi ptr [ %7, %invoke.cont.i.thread ], [ %6, %if.then.i.i.i.i.i.i.i.i.i ]
   %base_handles.sroa.0.0.lcssa79 = phi ptr [ %base_handles.sroa.0.0.lcssa80, %invoke.cont.i.thread ], [ %base_handles.sroa.0.1, %if.then.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i48 = phi ptr [ %_M_finish.i.i.i44, %invoke.cont.i.thread ], [ %_M_finish.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
@@ -854,14 +852,12 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp.not.i.i.i.i, label %invoke.cont.i10.thread, label %cond.true.i.i.i.i
 
 invoke.cont.i10.thread:                           ; preds = %for.end.thread, %for.end
-  %sub.ptr.sub.i.i108 = phi i64 [ 0, %for.end.thread ], [ %sub.ptr.sub.i.i, %for.end ]
   %12 = phi ptr [ %6, %for.end.thread ], [ %11, %for.end ]
   %base_handles.sroa.0.0.lcssa106 = phi ptr [ null, %for.end.thread ], [ %base_handles.sroa.0.1, %for.end ]
   %_M_finish.i.i.i70 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %add.ptr.i.i.i71 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i108
   %_M_end_of_storage.i.i.i72 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i71, ptr %_M_end_of_storage.i.i.i72, align 8
+  store ptr null, ptr %_M_end_of_storage.i.i.i72, align 8
   br label %invoke.cont12
 
 cond.true.i.i.i.i:                                ; preds = %for.end
@@ -890,7 +886,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_tr
   br label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont.i10.thread
-  %sub.ptr.sub.i.i107 = phi i64 [ %sub.ptr.sub.i.i108, %invoke.cont.i10.thread ], [ %sub.ptr.sub.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
+  %sub.ptr.sub.i.i107 = phi i64 [ 0, %invoke.cont.i10.thread ], [ %sub.ptr.sub.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
   %13 = phi ptr [ %12, %invoke.cont.i10.thread ], [ %11, %if.then.i.i.i.i.i.i.i.i.i ]
   %base_handles.sroa.0.0.lcssa105 = phi ptr [ %base_handles.sroa.0.0.lcssa106, %invoke.cont.i10.thread ], [ %base_handles.sroa.0.1, %if.then.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i74 = phi ptr [ %_M_finish.i.i.i70, %invoke.cont.i10.thread ], [ %_M_finish.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]

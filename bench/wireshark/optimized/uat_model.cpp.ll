@@ -8876,7 +8876,7 @@ _ZSt4moveIPbS0_ET0_T_S2_S1_.exit:                 ; preds = %29, %33
 50:                                               ; preds = %24
   %51 = icmp eq i64 %25, 1
   %52 = getelementptr i8, ptr %.053, i64 %.076
-  br i1 %51, label %53, label %62
+  br i1 %51, label %53, label %63
 
 53:                                               ; preds = %50
   %54 = getelementptr i8, ptr %52, i64 -1
@@ -8889,46 +8889,46 @@ _ZSt4moveIPbS0_ET0_T_S2_S1_.exit:                 ; preds = %29, %33
   %58 = ptrtoint ptr %54 to i64
   %59 = ptrtoint ptr %.053 to i64
   %60 = sub i64 %58, %59
-  %.pre.i.i.i.i.i = sub i64 0, %60
-  %61 = getelementptr i8, ptr %52, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %61, ptr nonnull align 1 %.053, i64 %60, i1 false)
+  %61 = sub i64 0, %60
+  %62 = getelementptr i8, ptr %52, i64 %61
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %62, ptr nonnull align 1 %.053, i64 %60, i1 false)
   br label %_ZSt13move_backwardIPbS0_ET0_T_S2_S1_.exit
 
 _ZSt13move_backwardIPbS0_ET0_T_S2_S1_.exit:       ; preds = %53, %57
   store i8 %56, ptr %.053, align 1
   br label %_ZSt11swap_rangesIPbS0_ET0_T_S2_S1_.exit
 
-62:                                               ; preds = %50
-  %63 = sub i64 0, %25
-  %64 = getelementptr i8, ptr %52, i64 %63
-  %65 = icmp sgt i64 %.074, 0
-  br i1 %65, label %.lr.ph, label %._crit_edge
+63:                                               ; preds = %50
+  %64 = sub i64 0, %25
+  %65 = getelementptr i8, ptr %52, i64 %64
+  %66 = icmp sgt i64 %.074, 0
+  br i1 %66, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %62, %.lr.ph
-  %.085 = phi i64 [ %72, %.lr.ph ], [ 0, %62 ]
-  %.04984 = phi ptr [ %67, %.lr.ph ], [ %52, %62 ]
-  %.383 = phi ptr [ %66, %.lr.ph ], [ %64, %62 ]
-  %66 = getelementptr i8, ptr %.383, i64 -1
-  %67 = getelementptr i8, ptr %.04984, i64 -1
-  %68 = load i8, ptr %66, align 1
-  %69 = and i8 %68, 1
-  %70 = load i8, ptr %67, align 1
-  %71 = and i8 %70, 1
-  store i8 %71, ptr %66, align 1
-  store i8 %69, ptr %67, align 1
-  %72 = add nuw nsw i64 %.085, 1
-  %exitcond.not = icmp eq i64 %72, %.074
+.lr.ph:                                           ; preds = %63, %.lr.ph
+  %.085 = phi i64 [ %73, %.lr.ph ], [ 0, %63 ]
+  %.04984 = phi ptr [ %68, %.lr.ph ], [ %52, %63 ]
+  %.383 = phi ptr [ %67, %.lr.ph ], [ %65, %63 ]
+  %67 = getelementptr i8, ptr %.383, i64 -1
+  %68 = getelementptr i8, ptr %.04984, i64 -1
+  %69 = load i8, ptr %67, align 1
+  %70 = and i8 %69, 1
+  %71 = load i8, ptr %68, align 1
+  %72 = and i8 %71, 1
+  store i8 %72, ptr %67, align 1
+  store i8 %70, ptr %68, align 1
+  %73 = add nuw nsw i64 %.085, 1
+  %exitcond.not = icmp eq i64 %73, %.074
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 
-._crit_edge:                                      ; preds = %.lr.ph, %62
-  %.3.lcssa = phi ptr [ %64, %62 ], [ %.053, %.lr.ph ]
-  %73 = srem i64 %.076, %25
-  %74 = icmp eq i64 %73, 0
-  br i1 %74, label %_ZSt11swap_rangesIPbS0_ET0_T_S2_S1_.exit, label %.backedge
+._crit_edge:                                      ; preds = %.lr.ph, %63
+  %.3.lcssa = phi ptr [ %65, %63 ], [ %.053, %.lr.ph ]
+  %74 = srem i64 %.076, %25
+  %75 = icmp eq i64 %74, 0
+  br i1 %75, label %_ZSt11swap_rangesIPbS0_ET0_T_S2_S1_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %48
   %.076.be = phi i64 [ %.074, %48 ], [ %25, %._crit_edge ]
-  %.074.be = phi i64 [ %49, %48 ], [ %73, %._crit_edge ]
+  %.074.be = phi i64 [ %49, %48 ], [ %74, %._crit_edge ]
   %.053.be = phi ptr [ %.1.lcssa, %48 ], [ %.3.lcssa, %._crit_edge ]
   br label %24, !llvm.loop !51
 

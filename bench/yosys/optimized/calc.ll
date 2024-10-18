@@ -9742,59 +9742,57 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt
   %114 = sub i64 %112, %113
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %111, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq ptr %.sroa.11.4, %.sroa.0.5
-  br i1 %.not.i.i.i.i.i, label %.noexc65.thread, label %120
+  br i1 %.not.i.i.i.i.i, label %.noexc65.thread, label %118
 
 .noexc65.thread:                                  ; preds = %._crit_edge166.thread, %._crit_edge166
-  %115 = phi i64 [ 0, %._crit_edge166.thread ], [ %114, %._crit_edge166 ]
-  %116 = phi ptr [ %20, %._crit_edge166.thread ], [ %111, %._crit_edge166 ]
+  %115 = phi ptr [ %20, %._crit_edge166.thread ], [ %111, %._crit_edge166 ]
   %.sroa.0.0.lcssa208 = phi ptr [ null, %._crit_edge166.thread ], [ %.sroa.0.5, %._crit_edge166 ]
+  store ptr null, ptr %115, align 8
+  %116 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %0, i64 16
+  %117 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr null, i64 %115
-  %119 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %118, ptr %119, align 8
-  br label %127
+  br label %125
 
-120:                                              ; preds = %._crit_edge166
-  %121 = icmp slt i64 %114, 0
-  br i1 %121, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i
+118:                                              ; preds = %._crit_edge166
+  %119 = icmp slt i64 %114, 0
+  br i1 %119, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i
 
-.noexc.i.i.i:                                     ; preds = %120
+.noexc.i.i.i:                                     ; preds = %118
   invoke void @_ZSt17__throw_bad_allocv() #16
           to label %.noexc64 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc64:                                         ; preds = %.noexc.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i: ; preds = %120
-  %122 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %114) #17
-          to label %123 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i: ; preds = %118
+  %120 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %114) #17
+          to label %121 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-123:                                              ; preds = %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i
-  store ptr %122, ptr %111, align 8
-  %124 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %122, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %122, i64 %114
-  %126 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %125, ptr %126, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %122, ptr align 1 %.sroa.0.5, i64 %114, i1 false)
-  br label %127
+121:                                              ; preds = %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i
+  store ptr %120, ptr %111, align 8
+  %122 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %120, ptr %122, align 8
+  %123 = getelementptr inbounds i8, ptr %120, i64 %114
+  %124 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %123, ptr %124, align 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %120, ptr align 1 %.sroa.0.5, i64 %114, i1 false)
+  br label %125
 
-127:                                              ; preds = %123, %.noexc65.thread
-  %.sroa.0.0.lcssa207 = phi ptr [ %.sroa.0.0.lcssa208, %.noexc65.thread ], [ %.sroa.0.5, %123 ]
-  %128 = phi ptr [ %118, %.noexc65.thread ], [ %125, %123 ]
-  %129 = phi ptr [ %117, %.noexc65.thread ], [ %124, %123 ]
-  store ptr %128, ptr %129, align 8
+125:                                              ; preds = %121, %.noexc65.thread
+  %.sroa.0.0.lcssa207 = phi ptr [ %.sroa.0.0.lcssa208, %.noexc65.thread ], [ %.sroa.0.5, %121 ]
+  %126 = phi ptr [ null, %.noexc65.thread ], [ %123, %121 ]
+  %127 = phi ptr [ %116, %.noexc65.thread ], [ %122, %121 ]
+  store ptr %126, ptr %127, align 8
   store i32 0, ptr %0, align 8
   %.not.i.i.i66 = icmp eq ptr %.sroa.0.0.lcssa207, null
-  br i1 %.not.i.i.i66, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit67, label %130
+  br i1 %.not.i.i.i66, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit67, label %128
 
-130:                                              ; preds = %127
+128:                                              ; preds = %125
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0.lcssa207) #18
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit67
 
-_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit67: ; preds = %127, %130
+_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit67: ; preds = %125, %128
   ret void
 }
 

@@ -4342,14 +4342,13 @@ if.end40:                                         ; preds = %if.else, %invoke.co
   br i1 %cmp42, label %if.then.i343, label %if.end55
 
 if.then.i343:                                     ; preds = %if.end40
-  %sub.ptr.div.i330 = ashr exact i64 %sub.ptr.sub.i329, 3
-  %sub.i344 = sub nuw nsw i64 5, %sub.ptr.div.i330
+  %sub.i344 = sub nuw nsw i64 5, %sub.ptr.sub.i329
   %_M_end_of_storage.i.i345 = getelementptr inbounds i8, ptr %crossSection, i64 16
   %35 = load ptr, ptr %_M_end_of_storage.i.i345, align 8
   %sub.ptr.lhs.cast.i9.i346 = ptrtoint ptr %35 to i64
   %sub.ptr.sub.i10.i347 = sub i64 %sub.ptr.lhs.cast.i9.i346, %sub.ptr.lhs.cast.i327
   %sub.ptr.div.i11.i348 = ashr exact i64 %sub.ptr.sub.i10.i347, 3
-  %sub.i.i349 = xor i64 %sub.ptr.div.i330, 1152921504606846975
+  %sub.i.i349 = xor i64 %sub.ptr.sub.i329, 1152921504606846975
   %cmp6.i.i350 = icmp ule i64 %sub.ptr.div.i11.i348, %sub.i.i349
   call void @llvm.assume(i1 %cmp6.i.i350)
   %cmp8.not.i.i351 = icmp ult i64 %sub.ptr.div.i11.i348, %sub.i344
@@ -8069,7 +8068,7 @@ if.then.i.i.i.i.i35:                              ; preds = %if.else49
   br label %_ZSt4copyIP10aiVector3tIfES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIP10aiVector3tIfES2_ET0_T_S4_S3_.exit:   ; preds = %if.else49, %if.then.i.i.i.i.i35
-  %sub.ptr.sub.i40.pre-phi = phi i64 [ %sub.ptr.sub.i22, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
+  %sub.ptr.sub.i40.pre-phi = phi i64 [ 0, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
   %10 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
   %11 = phi ptr [ %9, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
   %12 = phi ptr [ %1, %if.else49 ], [ %.pre, %if.then.i.i.i.i.i35 ]
@@ -9020,7 +9019,7 @@ if.then.i.i.i.i.i35:                              ; preds = %if.else49
   br label %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPiS0_ET0_T_S2_S1_.exit:                 ; preds = %if.else49, %if.then.i.i.i.i.i35
-  %sub.ptr.sub.i40.pre-phi = phi i64 [ %sub.ptr.sub.i22, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
+  %sub.ptr.sub.i40.pre-phi = phi i64 [ 0, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
   %5 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
   %6 = phi ptr [ %4, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
   %7 = phi ptr [ %1, %if.else49 ], [ %.pre, %if.then.i.i.i.i.i35 ]

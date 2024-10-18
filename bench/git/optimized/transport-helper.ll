@@ -4105,14 +4105,14 @@ if.then12.i:                                      ; preds = %if.then9.i
   %add.ptr.i15 = getelementptr inbounds i8, ptr %buf.i, i64 %call.i12
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %buf.i, ptr nonnull align 1 %add.ptr.i15, i64 %sub.i14, i1 false)
   %.pre.i = load i64, ptr %bufuse.i, align 8
+  %18 = trunc i64 %.pre.i to i32
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then12.i, %if.then9.i
-  %18 = phi i64 [ %.pre.i, %if.then12.i ], [ %sub.i14, %if.then9.i ]
-  %conv.i16 = trunc i64 %call.i12 to i32
+  %conv21.i16 = phi i32 [ %18, %if.then12.i ], [ 0, %if.then9.i ]
+  %conv.i17 = trunc i64 %call.i12 to i32
   %19 = load ptr, ptr %dest_name.i, align 8
-  %conv21.i17 = trunc i64 %18 to i32
-  tail call void (ptr, ...) @transfer_debug(ptr noundef nonnull @.str.166, i32 noundef %conv.i16, ptr noundef %19, i32 noundef %conv21.i17)
+  tail call void (ptr, ...) @transfer_debug(ptr noundef nonnull @.str.166, i32 noundef %conv.i17, ptr noundef %19, i32 noundef %conv21.i16)
   br label %if.end12
 
 udt_do_write.exit:                                ; preds = %if.then3.i, %if.end3.i.i20

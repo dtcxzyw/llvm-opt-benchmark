@@ -8117,7 +8117,6 @@ for.cond.i2214.outer:                             ; preds = %if.end12.i5128, %_Z
   br label %for.cond.i2214
 
 invoke.cont695.thread:                            ; preds = %invoke.cont689.thread, %invoke.cont689
-  %sub.ptr.sub.i22056730.ph = phi i64 [ %sub.ptr.sub.i2205, %invoke.cont689 ], [ 0, %invoke.cont689.thread ]
   %sub.ptr.rhs.cast.i22046729.ph = phi i64 [ %sub.ptr.rhs.cast.i2204.pre-phi, %invoke.cont689 ], [ %sub.ptr.rhs.cast.i.i.i2164, %invoke.cont689.thread ]
   %toArray591.sroa.0.76728.ph = phi ptr [ %toArray591.sroa.0.7, %invoke.cont689 ], [ %toArray591.sroa.0.667086715, %invoke.cont689.thread ]
   %toArray591.sroa.33.56727.ph = phi ptr [ %toArray591.sroa.33.5, %invoke.cont689 ], [ %toArray591.sroa.0.667086715, %invoke.cont689.thread ]
@@ -8153,7 +8152,7 @@ invoke.cont699:                                   ; preds = %for.body.i2236, %fo
   %toArray591.sroa.33.567276742 = phi ptr [ %toArray591.sroa.33.56727.ph, %invoke.cont695.thread ], [ %toArray591.sroa.33.5, %for.cond.i2232 ], [ %toArray591.sroa.33.5, %for.body.i2236 ]
   %toArray591.sroa.0.767286741 = phi ptr [ %toArray591.sroa.0.76728.ph, %invoke.cont695.thread ], [ %toArray591.sroa.0.7, %for.cond.i2232 ], [ %toArray591.sroa.0.7, %for.body.i2236 ]
   %sub.ptr.rhs.cast.i220467296740 = phi i64 [ %sub.ptr.rhs.cast.i22046729.ph, %invoke.cont695.thread ], [ %sub.ptr.rhs.cast.i2204.pre-phi, %for.cond.i2232 ], [ %sub.ptr.rhs.cast.i2204.pre-phi, %for.body.i2236 ]
-  %sub.ptr.sub.i220567306739 = phi i64 [ %sub.ptr.sub.i22056730.ph, %invoke.cont695.thread ], [ %sub.ptr.sub.i2205, %for.cond.i2232 ], [ %sub.ptr.sub.i2205, %for.body.i2236 ]
+  %sub.ptr.sub.i220567306739 = phi i64 [ 0, %invoke.cont695.thread ], [ %sub.ptr.sub.i2205, %for.cond.i2232 ], [ %sub.ptr.sub.i2205, %for.body.i2236 ]
   %cmp.i220767316738 = phi i1 [ true, %invoke.cont695.thread ], [ false, %for.cond.i2232 ], [ false, %for.body.i2236 ]
   %retval.0.i2245 = phi i1 [ true, %invoke.cont695.thread ], [ %cmp1.not.i2235, %for.cond.i2232 ], [ %cmp1.not.i2235, %for.body.i2236 ]
   %call702 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i2245, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 494, ptr noundef nonnull @.str.17)

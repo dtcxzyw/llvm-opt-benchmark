@@ -1240,7 +1240,7 @@ define linkonce_odr ptr @_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE6insertEN
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %9, %11
-  br i1 %.not, label %28, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %3
   %13 = icmp eq ptr %1, %9
@@ -1251,7 +1251,7 @@ define linkonce_odr ptr @_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE6insertEN
   %15 = load ptr, ptr %8, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 16
   store ptr %16, ptr %8, align 8
-  br label %55
+  br label %56
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds i8, ptr %4, i64 %7
@@ -1271,98 +1271,98 @@ define linkonce_odr ptr @_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE6insertEN
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %24, %5
   %26 = ashr exact i64 %25, 4
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %26
-  %27 = getelementptr inbounds %"class.clang::DirectoryLookup", ptr %20, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %27, ptr align 8 %18, i64 %25, i1 false)
+  %27 = sub nsw i64 0, %26
+  %28 = getelementptr inbounds %"class.clang::DirectoryLookup", ptr %20, i64 %27
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr align 8 %18, i64 %25, i1 false)
   br label %_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE13_M_insert_auxIS1_EEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEOT_.exit
 
 _ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE13_M_insert_auxIS1_EEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEOT_.exit: ; preds = %17, %23
   store i8 %.sroa.1.8.copyload, ptr %18, align 8
   %.sroa.4.8..sroa_idx9 = getelementptr inbounds i8, ptr %18, i64 1
   store i64 %.sroa.4.sroa.0.0.copyload, ptr %.sroa.4.8..sroa_idx9, align 1
-  br label %55
+  br label %56
 
-28:                                               ; preds = %3
-  %29 = getelementptr inbounds i8, ptr %4, i64 %7
-  %30 = ptrtoint ptr %9 to i64
-  %31 = sub i64 %30, %6
-  %32 = icmp eq i64 %31, 9223372036854775792
-  br i1 %32, label %33, label %_ZNKSt6vectorIN5clang15DirectoryLookupESaIS1_EE12_M_check_lenEmPKc.exit.i
+29:                                               ; preds = %3
+  %30 = getelementptr inbounds i8, ptr %4, i64 %7
+  %31 = ptrtoint ptr %9 to i64
+  %32 = sub i64 %31, %6
+  %33 = icmp eq i64 %32, 9223372036854775792
+  br i1 %33, label %34, label %_ZNKSt6vectorIN5clang15DirectoryLookupESaIS1_EE12_M_check_lenEmPKc.exit.i
 
-33:                                               ; preds = %28
+34:                                               ; preds = %29
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.39) #23
   unreachable
 
-_ZNKSt6vectorIN5clang15DirectoryLookupESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %28
-  %34 = ashr exact i64 %31, 4
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %34, i64 1)
-  %35 = add nsw i64 %.sroa.speculated.i.i, %34
-  %36 = icmp ult i64 %35, %34
-  %37 = tail call i64 @llvm.umin.i64(i64 %35, i64 576460752303423487)
-  %38 = select i1 %36, i64 576460752303423487, i64 %37
-  %39 = ashr exact i64 %7, 4
-  %.not.i.i = icmp eq i64 %38, 0
-  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5clang15DirectoryLookupESaIS1_EE11_M_allocateEm.exit.i, label %40
+_ZNKSt6vectorIN5clang15DirectoryLookupESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %29
+  %35 = ashr exact i64 %32, 4
+  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %35, i64 1)
+  %36 = add nsw i64 %.sroa.speculated.i.i, %35
+  %37 = icmp ult i64 %36, %35
+  %38 = tail call i64 @llvm.umin.i64(i64 %36, i64 576460752303423487)
+  %39 = select i1 %37, i64 576460752303423487, i64 %38
+  %40 = ashr exact i64 %7, 4
+  %.not.i.i = icmp eq i64 %39, 0
+  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5clang15DirectoryLookupESaIS1_EE11_M_allocateEm.exit.i, label %41
 
-40:                                               ; preds = %_ZNKSt6vectorIN5clang15DirectoryLookupESaIS1_EE12_M_check_lenEmPKc.exit.i
-  %41 = shl nuw nsw i64 %38, 4
-  %42 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %41) #25
+41:                                               ; preds = %_ZNKSt6vectorIN5clang15DirectoryLookupESaIS1_EE12_M_check_lenEmPKc.exit.i
+  %42 = shl nuw nsw i64 %39, 4
+  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #25
   br label %_ZNSt12_Vector_baseIN5clang15DirectoryLookupESaIS1_EE11_M_allocateEm.exit.i
 
-_ZNSt12_Vector_baseIN5clang15DirectoryLookupESaIS1_EE11_M_allocateEm.exit.i: ; preds = %40, %_ZNKSt6vectorIN5clang15DirectoryLookupESaIS1_EE12_M_check_lenEmPKc.exit.i
-  %43 = phi ptr [ %42, %40 ], [ null, %_ZNKSt6vectorIN5clang15DirectoryLookupESaIS1_EE12_M_check_lenEmPKc.exit.i ]
-  %44 = getelementptr inbounds %"class.clang::DirectoryLookup", ptr %43, i64 %39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+_ZNSt12_Vector_baseIN5clang15DirectoryLookupESaIS1_EE11_M_allocateEm.exit.i: ; preds = %41, %_ZNKSt6vectorIN5clang15DirectoryLookupESaIS1_EE12_M_check_lenEmPKc.exit.i
+  %44 = phi ptr [ %43, %41 ], [ null, %_ZNKSt6vectorIN5clang15DirectoryLookupESaIS1_EE12_M_check_lenEmPKc.exit.i ]
+  %45 = getelementptr inbounds %"class.clang::DirectoryLookup", ptr %44, i64 %40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %.not10.i.i.i.i = icmp eq ptr %4, %1
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN5clang15DirectoryLookupESaIS1_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %43, %_ZNSt12_Vector_baseIN5clang15DirectoryLookupESaIS1_EE11_M_allocateEm.exit.i ]
-  %.0911.i.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i.i ], [ %4, %_ZNSt12_Vector_baseIN5clang15DirectoryLookupESaIS1_EE11_M_allocateEm.exit.i ]
+  %.012.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %44, %_ZNSt12_Vector_baseIN5clang15DirectoryLookupESaIS1_EE11_M_allocateEm.exit.i ]
+  %.0911.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %4, %_ZNSt12_Vector_baseIN5clang15DirectoryLookupESaIS1_EE11_M_allocateEm.exit.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i, i64 16, i1 false), !alias.scope !8
-  %45 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
-  %46 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
-  %.not.i.i.i.i = icmp eq ptr %45, %1
+  %46 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
+  %47 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
+  %.not.i.i.i.i = icmp eq ptr %46, %1
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
 
 _ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN5clang15DirectoryLookupESaIS1_EE11_M_allocateEm.exit.i
-  %.0.lcssa.i.i.i.i = phi ptr [ %43, %_ZNSt12_Vector_baseIN5clang15DirectoryLookupESaIS1_EE11_M_allocateEm.exit.i ], [ %46, %.lr.ph.i.i.i.i ]
-  %47 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %.0.lcssa.i.i.i.i = phi ptr [ %44, %_ZNSt12_Vector_baseIN5clang15DirectoryLookupESaIS1_EE11_M_allocateEm.exit.i ], [ %47, %.lr.ph.i.i.i.i ]
+  %48 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not10.i.i.i16.i = icmp eq ptr %1, %9
   br i1 %.not10.i.i.i16.i, label %_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i, label %.lr.ph.i.i.i17.i
 
 .lr.ph.i.i.i17.i:                                 ; preds = %_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, %.lr.ph.i.i.i17.i
-  %.012.i.i.i18.i = phi ptr [ %49, %.lr.ph.i.i.i17.i ], [ %47, %_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i ]
-  %.0911.i.i.i19.i = phi ptr [ %48, %.lr.ph.i.i.i17.i ], [ %29, %_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i ]
+  %.012.i.i.i18.i = phi ptr [ %50, %.lr.ph.i.i.i17.i ], [ %48, %_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i ]
+  %.0911.i.i.i19.i = phi ptr [ %49, %.lr.ph.i.i.i17.i ], [ %30, %_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i18.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i19.i, i64 16, i1 false), !alias.scope !13
-  %48 = getelementptr inbounds i8, ptr %.0911.i.i.i19.i, i64 16
-  %49 = getelementptr inbounds i8, ptr %.012.i.i.i18.i, i64 16
-  %.not.i.i.i20.i = icmp eq ptr %48, %9
+  %49 = getelementptr inbounds i8, ptr %.0911.i.i.i19.i, i64 16
+  %50 = getelementptr inbounds i8, ptr %.012.i.i.i18.i, i64 16
+  %.not.i.i.i20.i = icmp eq ptr %49, %9
   br i1 %.not.i.i.i20.i, label %_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i, label %.lr.ph.i.i.i17.i, !llvm.loop !12
 
 _ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i: ; preds = %.lr.ph.i.i.i17.i, %_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  %.0.lcssa.i.i.i21.i = phi ptr [ %47, %_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i ], [ %49, %.lr.ph.i.i.i17.i ]
+  %.0.lcssa.i.i.i21.i = phi ptr [ %48, %_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i ], [ %50, %.lr.ph.i.i.i17.i ]
   %.not.i23.i = icmp eq ptr %4, null
-  br i1 %.not.i23.i, label %_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, label %50
+  br i1 %.not.i23.i, label %_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, label %51
 
-50:                                               ; preds = %_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i
-  %51 = load ptr, ptr %10, align 8
-  %52 = ptrtoint ptr %51 to i64
-  %53 = sub i64 %52, %6
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %53) #24
+51:                                               ; preds = %_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i
+  %52 = load ptr, ptr %10, align 8
+  %53 = ptrtoint ptr %52 to i64
+  %54 = sub i64 %53, %6
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %54) #24
   br label %_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit
 
-_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i, %50
-  store ptr %43, ptr %0, align 8
+_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i, %51
+  store ptr %44, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21.i, ptr %8, align 8
-  %54 = getelementptr inbounds %"class.clang::DirectoryLookup", ptr %43, i64 %38
-  store ptr %54, ptr %10, align 8
-  br label %55
+  %55 = getelementptr inbounds %"class.clang::DirectoryLookup", ptr %44, i64 %39
+  store ptr %55, ptr %10, align 8
+  br label %56
 
-55:                                               ; preds = %14, %_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE13_M_insert_auxIS1_EEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEOT_.exit, %_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit
-  %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 %7
-  ret ptr %57
+56:                                               ; preds = %14, %_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE13_M_insert_auxIS1_EEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEOT_.exit, %_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit
+  %57 = load ptr, ptr %0, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 %7
+  ret ptr %58
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -5201,7 +5201,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit:      ; preds = %_ZN4llvm25SmallVect
   %33 = load ptr, ptr %0, align 8
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #22
   %35 = getelementptr inbounds i8, ptr %33, i64 %34
-  br i1 %.not, label %66, label %36
+  br i1 %.not, label %67, label %36
 
 36:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
   %37 = load ptr, ptr %0, align 8
@@ -5248,44 +5248,40 @@ _ZN4llvm15SmallVectorImplIcE6appendISt13move_iteratorIPcEvEEvT_S6_.exit: ; preds
 61:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE6appendISt13move_iteratorIPcEvEEvT_S6_.exit
   %62 = ptrtoint ptr %60 to i64
   %63 = sub i64 %62, %32
-  %.pre.i.i.i.i.i = sub i64 0, %63
-  %64 = getelementptr inbounds i8, ptr %35, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %64, ptr align 1 %30, i64 %63, i1 false)
+  %64 = sub i64 0, %63
+  %65 = getelementptr inbounds i8, ptr %35, i64 %64
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %65, ptr align 1 %30, i64 %63, i1 false)
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit
 
 _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %_ZN4llvm15SmallVectorImplIcE6appendISt13move_iteratorIPcEvEEvT_S6_.exit, %61
-  br i1 %16, label %_ZSt4copyIPKcPcET0_T_S4_S3_.exit, label %65
+  br i1 %16, label %_ZSt4copyIPKcPcET0_T_S4_S3_.exit, label %66
 
-65:                                               ; preds = %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit
+66:                                               ; preds = %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %30, ptr align 1 %2, i64 %22, i1 false)
   br label %_ZSt4copyIPKcPcET0_T_S4_S3_.exit
 
-66:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
-  %67 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #22
-  %68 = add i64 %67, %22
-  tail call void @_ZN4llvm15SmallVectorBaseImE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %68) #22
-  %69 = ptrtoint ptr %35 to i64
-  %70 = sub i64 %69, %32
-  %71 = load ptr, ptr %0, align 8
-  %72 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #22
+67:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
+  %68 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #22
+  %69 = add i64 %68, %22
+  tail call void @_ZN4llvm15SmallVectorBaseImE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %69) #22
+  %70 = load ptr, ptr %0, align 8
+  %71 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #22
   %.not.i.i = icmp eq ptr %30, %35
-  br i1 %.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit, label %73
+  br i1 %.not.i.i, label %._crit_edge, label %.lr.ph.preheader
 
-73:                                               ; preds = %66
-  %74 = getelementptr inbounds i8, ptr %71, i64 %72
-  %75 = sub i64 0, %70
+.lr.ph.preheader:                                 ; preds = %67
+  %72 = ptrtoint ptr %35 to i64
+  %73 = sub i64 %72, %32
+  %74 = getelementptr inbounds i8, ptr %70, i64 %71
+  %75 = sub i64 0, %73
   %76 = getelementptr inbounds i8, ptr %74, i64 %75
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr align 1 %30, i64 %70, i1 false)
-  br label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr align 1 %30, i64 %73, i1 false)
+  br label %.lr.ph
 
-_ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit: ; preds = %66, %73
-  %.not4447 = icmp eq i64 %70, 0
-  br i1 %.not4447, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit, %.lr.ph
-  %.050 = phi ptr [ %78, %.lr.ph ], [ %30, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit ]
-  %.04049 = phi i64 [ %80, %.lr.ph ], [ %70, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit ]
-  %.04248 = phi ptr [ %79, %.lr.ph ], [ %2, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.050 = phi ptr [ %78, %.lr.ph ], [ %30, %.lr.ph.preheader ]
+  %.04049 = phi i64 [ %80, %.lr.ph ], [ %73, %.lr.ph.preheader ]
+  %.04248 = phi ptr [ %79, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %77 = load i8, ptr %.04248, align 1
   store i8 %77, ptr %.050, align 1
   %78 = getelementptr inbounds i8, ptr %.050, i64 1
@@ -5294,8 +5290,8 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.ex
   %.not44 = icmp eq i64 %80, 0
   br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !121
 
-._crit_edge:                                      ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit
-  %.042.lcssa = phi ptr [ %2, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit ], [ %79, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %67
+  %.042.lcssa = phi ptr [ %2, %67 ], [ %79, %.lr.ph ]
   %.not.i = icmp eq ptr %.042.lcssa, %3
   br i1 %.not.i, label %_ZSt4copyIPKcPcET0_T_S4_S3_.exit, label %81
 
@@ -5305,8 +5301,8 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.ex
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr align 1 %.042.lcssa, i64 %83, i1 false)
   br label %_ZSt4copyIPKcPcET0_T_S4_S3_.exit
 
-_ZSt4copyIPKcPcET0_T_S4_S3_.exit:                 ; preds = %81, %._crit_edge, %65, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %12
-  %.041 = phi ptr [ %14, %12 ], [ %30, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %30, %65 ], [ %30, %._crit_edge ], [ %30, %81 ]
+_ZSt4copyIPKcPcET0_T_S4_S3_.exit:                 ; preds = %81, %._crit_edge, %66, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %12
+  %.041 = phi ptr [ %14, %12 ], [ %30, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %30, %66 ], [ %30, %._crit_edge ], [ %30, %81 ]
   ret ptr %.041
 }
 

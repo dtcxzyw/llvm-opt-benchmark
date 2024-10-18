@@ -11588,7 +11588,7 @@ _ZNSt16allocator_traitsISaIPK12cmSourceFileEE8allocateERS3_m.exit.i.i.i.i..noexc
   br label %.noexc33
 
 .noexc33:                                         ; preds = %_ZNSt16allocator_traitsISaIPK12cmSourceFileEE8allocateERS3_m.exit.i.i.i.i..noexc33_crit_edge, %66
-  %.pre-phi74 = phi i64 [ %.pre73, %_ZNSt16allocator_traitsISaIPK12cmSourceFileEE8allocateERS3_m.exit.i.i.i.i..noexc33_crit_edge ], [ %72, %66 ]
+  %.pre-phi74 = phi i64 [ %.pre73, %_ZNSt16allocator_traitsISaIPK12cmSourceFileEE8allocateERS3_m.exit.i.i.i.i..noexc33_crit_edge ], [ 0, %66 ]
   %76 = phi ptr [ %.pre69, %_ZNSt16allocator_traitsISaIPK12cmSourceFileEE8allocateERS3_m.exit.i.i.i.i..noexc33_crit_edge ], [ %68, %66 ]
   %77 = phi ptr [ %.pre, %_ZNSt16allocator_traitsISaIPK12cmSourceFileEE8allocateERS3_m.exit.i.i.i.i..noexc33_crit_edge ], [ %69, %66 ]
   %78 = phi ptr [ %75, %_ZNSt16allocator_traitsISaIPK12cmSourceFileEE8allocateERS3_m.exit.i.i.i.i..noexc33_crit_edge ], [ null, %66 ]

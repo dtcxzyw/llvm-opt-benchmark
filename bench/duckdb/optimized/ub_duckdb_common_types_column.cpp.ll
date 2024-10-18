@@ -6556,7 +6556,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorImSaImE
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !267
 
 invoke.cont4:                                     ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %for.cond.cleanup, %entry
-  %sub.ptr.sub.i.i.i80 = phi i64 [ %sub.ptr.sub.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %sub.ptr.sub.i.i.i, %for.cond.cleanup ], [ 0, %entry ]
+  %sub.ptr.sub.i.i.i80 = phi i64 [ %sub.ptr.sub.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ 0, %for.cond.cleanup ], [ 0, %entry ]
   %column_ids.sroa.0.0.lcssa79 = phi ptr [ %column_ids.sroa.0.1, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %column_ids.sroa.0.1, %for.cond.cleanup ], [ null, %entry ]
   %cond.i.i.i.i.i43 = phi ptr [ %call5.i.i.i.i4.i20.i.i10, %if.then.i.i.i.i.i.i.i.i.i.i ], [ null, %for.cond.cleanup ], [ null, %entry ]
   %add.ptr.i.i.i.i44 = getelementptr inbounds i8, ptr %cond.i.i.i.i.i43, i64 %sub.ptr.sub.i.i.i80

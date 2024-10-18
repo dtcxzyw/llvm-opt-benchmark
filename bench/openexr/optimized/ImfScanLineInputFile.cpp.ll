@@ -1030,7 +1030,7 @@ if.then.i.i.i.i.i35:                              ; preds = %if.else49
   br label %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPmS0_ET0_T_S2_S1_.exit:                 ; preds = %if.else49, %if.then.i.i.i.i.i35
-  %sub.ptr.sub.i40.pre-phi = phi i64 [ %sub.ptr.sub.i22, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
+  %sub.ptr.sub.i40.pre-phi = phi i64 [ 0, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
   %5 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
   %6 = phi ptr [ %4, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
   %7 = phi ptr [ %1, %if.else49 ], [ %.pre, %if.then.i.i.i.i.i35 ]
@@ -2721,7 +2721,7 @@ if.then.i.i.i.i.i44.i:                            ; preds = %if.else49.i
   br label %_ZSt4copyIPN7Imf_3_212_GLOBAL__N_111InSliceInfoES3_ET0_T_S5_S4_.exit.i
 
 _ZSt4copyIPN7Imf_3_212_GLOBAL__N_111InSliceInfoES3_ET0_T_S5_S4_.exit.i: ; preds = %if.then.i.i.i.i.i44.i, %if.else49.i
-  %sub.ptr.sub.i48.pre-phi.i = phi i64 [ %sub.ptr.sub.i34.i, %if.else49.i ], [ %.pre55.i, %if.then.i.i.i.i.i44.i ]
+  %sub.ptr.sub.i48.pre-phi.i = phi i64 [ 0, %if.else49.i ], [ %.pre55.i, %if.then.i.i.i.i.i44.i ]
   %this.val20.i = phi ptr [ %this.val16.i, %if.else49.i ], [ %this.val20.pre.i, %if.then.i.i.i.i.i44.i ]
   %add.ptr62.i = getelementptr inbounds i8, ptr %slices.sroa.0.1, i64 %sub.ptr.sub.i48.pre-phi.i
   %cmp.not5.i.i.i.i.i = icmp eq ptr %add.ptr62.i, %slices.sroa.11.0
@@ -2823,7 +2823,7 @@ if.then.i.i.i.i.i44.i198:                         ; preds = %if.else49.i196
   br label %_ZSt4copyIPN7Imf_3_212_GLOBAL__N_121sliceOptimizationDataES3_ET0_T_S5_S4_.exit.i
 
 _ZSt4copyIPN7Imf_3_212_GLOBAL__N_121sliceOptimizationDataES3_ET0_T_S5_S4_.exit.i: ; preds = %if.then.i.i.i.i.i44.i198, %if.else49.i196
-  %sub.ptr.sub.i48.pre-phi.i206 = phi i64 [ %sub.ptr.sub.i34.i188, %if.else49.i196 ], [ %.pre55.i205, %if.then.i.i.i.i.i44.i198 ]
+  %sub.ptr.sub.i48.pre-phi.i206 = phi i64 [ 0, %if.else49.i196 ], [ %.pre55.i205, %if.then.i.i.i.i.i44.i198 ]
   %this.val20.i207 = phi ptr [ %this.val16.i186, %if.else49.i196 ], [ %this.val20.pre.i201, %if.then.i.i.i.i.i44.i198 ]
   %add.ptr62.i208 = getelementptr inbounds i8, ptr %optData.sroa.0.3, i64 %sub.ptr.sub.i48.pre-phi.i206
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %optData.sroa.11.2, %add.ptr62.i208
@@ -4817,7 +4817,7 @@ for.cond85.preheader:                             ; preds = %if.end76.thread, %i
   %43 = phi i64 [ %40, %if.end76.thread ], [ %42, %if.end76 ]
   %44 = phi i64 [ %39, %if.end76.thread ], [ %41, %if.end76 ]
   %cmp8638.not = icmp eq ptr %optimizationData.val26, %optimizationData.val
-  br i1 %cmp8638.not, label %for.end96, label %for.body87.lr.ph
+  br i1 %cmp8638.not, label %if.else162, label %for.body87.lr.ph
 
 for.body87.lr.ph:                                 ; preds = %for.cond85.preheader
   %mul = shl i64 %44, 3
@@ -4838,7 +4838,7 @@ for.body87:                                       ; preds = %for.body87.lr.ph, %
   %exitcond.not = icmp eq i64 %inc95, %umax
   br i1 %exitcond.not, label %for.end96, label %for.body87, !llvm.loop !40
 
-for.end96:                                        ; preds = %for.body87, %for.cond85.preheader
+for.end96:                                        ; preds = %for.body87
   %cmp98 = icmp eq i64 %sub.ptr.sub.i, 336
   switch i64 %sub.ptr.div.i, label %if.else111 [
     i64 6, label %if.then99
@@ -4904,7 +4904,7 @@ if.else154:                                       ; preds = %if.then137
   invoke void @_ZN7Imf_3_220optimizedWriteToRGBAERPtS1_S1_S1_S1_RKmS3_(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx107, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx108, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx157, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx158, ptr noundef nonnull align 8 dereferenceable(8) %writePtrLeft, ptr noundef nonnull align 8 dereferenceable(8) %pixelsToCopySSE, ptr noundef nonnull align 8 dereferenceable(8) %pixelsToCopyNormal)
           to label %for.inc167 unwind label %lpad.loopexit
 
-if.else162:                                       ; preds = %if.else111
+if.else162:                                       ; preds = %for.cond85.preheader, %if.else111
   %exception = call ptr @__cxa_allocate_exception(i64 72) #30
   invoke void @_ZN7Iex_3_28LogicExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception, ptr noundef nonnull @.str.22)
           to label %invoke.cont164 unwind label %lpad163

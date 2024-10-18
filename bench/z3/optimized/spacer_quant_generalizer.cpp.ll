@@ -797,8 +797,8 @@ if.then2.i46.i.i.i:                               ; preds = %call.i.i29.i.i.i.no
   %sub.ptr.lhs.cast.i.i.i.i.i.i48.i.i.i = ptrtoint ptr %__i.015.i25.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i49.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i48.i.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i.i.i.i.i50.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i49.i.i.i, 3
-  %.pre.i.i.i.i.i.i51.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i50.i.i.i
-  %add.ptr.i.i.i.i.i.i52.i.i.i = getelementptr inbounds ptr, ptr %add.ptr3.i47.i.i.i, i64 %.pre.i.i.i.i.i.i51.i.i.i
+  %idx.neg.i.i.i.i.i.i51.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i50.i.i.i
+  %add.ptr.i.i.i.i.i.i52.i.i.i = getelementptr inbounds ptr, ptr %add.ptr3.i47.i.i.i, i64 %idx.neg.i.i.i.i.i.i51.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i52.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %44, i64 %sub.ptr.sub.i.i.i.i.i.i49.i.i.i, i1 false)
   store ptr %62, ptr %44, align 8
   br label %for.inc.i37.i.i.i
@@ -10758,8 +10758,8 @@ if.then2.i31.i:                                   ; preds = %for.body.i16.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i33.i = ptrtoint ptr %__i.015.i17.i to i64
   %sub.ptr.sub.i.i.i.i.i.i34.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i33.i, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i.i35.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i34.i, 2
-  %.pre.i.i.i.i.i.i36.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i35.i
-  %add.ptr.i.i.i.i.i.i37.i = getelementptr inbounds i32, ptr %add.ptr3.i32.i, i64 %.pre.i.i.i.i.i.i36.i
+  %idx.neg.i.i.i.i.i.i36.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i35.i
+  %add.ptr.i.i.i.i.i.i37.i = getelementptr inbounds i32, ptr %add.ptr3.i32.i, i64 %idx.neg.i.i.i.i.i.i36.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i37.i, ptr noundef nonnull align 4 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i34.i, i1 false)
   br label %for.inc.i22.i
 

@@ -2870,8 +2870,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN9grpc_core12_GLOBAL__N_18Ri
   %sub.ptr.lhs.cast.i.i.i.i.i.i52.i.i.i.i.i = ptrtoint ptr %__i.sroa.0.011.i28.i.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i53.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i52.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i54.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i53.i.i.i.i.i, 4
-  %.pre.i.i.i.i.i.i55.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i54.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i56.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %add.ptr.i7.i51.i.i.i.i.i, i64 %.pre.i.i.i.i.i.i55.i.i.i.i.i
+  %idx.neg.i.i.i.i.i.i55.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i54.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i56.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %add.ptr.i7.i51.i.i.i.i.i, i64 %idx.neg.i.i.i.i.i.i55.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i56.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %ring_.val34.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i53.i.i.i.i.i, i1 false), !noalias !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ring_.val34.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__val.i20.i.i.i.i.i, i64 16, i1 false), !noalias !19
   br label %for.inc.i41.i.i.i.i.i

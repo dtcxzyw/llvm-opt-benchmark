@@ -114,18 +114,17 @@ lj_state_checkstack.exit:                         ; preds = %if.then.i, %if.end2
 
 for.body.lr.ph:                                   ; preds = %lj_state_checkstack.exit
   %base = getelementptr inbounds i8, ptr %L, i64 32
-  %4 = tail call i32 @llvm.umax.i32(i32 %sub, i32 1)
-  %wide.trip.count = zext nneg i32 %4 to i64
+  %wide.trip.count = zext nneg i32 %sub to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %5 = load ptr, ptr %base, align 8
-  %add.ptr25 = getelementptr inbounds %union.TValue, ptr %5, i64 %indvars.iv
+  %4 = load ptr, ptr %base, align 8
+  %add.ptr25 = getelementptr inbounds %union.TValue, ptr %4, i64 %indvars.iv
   %add.ptr27 = getelementptr inbounds i8, ptr %add.ptr25, i64 -16
   %arrayidx = getelementptr inbounds i8, ptr %add.ptr22, i64 %indvars.iv
-  %6 = load i8, ptr %arrayidx, align 1
-  %conv.i29 = uitofp i8 %6 to double
+  %5 = load i8, ptr %arrayidx, align 1
+  %conv.i29 = uitofp i8 %5 to double
   store double %conv.i29, ptr %add.ptr27, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

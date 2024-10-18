@@ -1385,7 +1385,7 @@ if.then.i.i.i4.i44:                               ; preds = %lpad.i42
 
 invoke.cont:                                      ; preds = %invoke.cont16.i60, %if.then.i.i.i.i65
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ret_vec.i39)
-  %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i36, 2
+  %sub.ptr.div.i.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i.i36, 2
   %cmp.not.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i36, %sub.ptr.sub.i.i.i.i50
   %brmerge.not = and i1 %cmp.not.i.i.i.i.i.i, %cmp.not.i.i
   br i1 %brmerge.not, label %for.body.i.i, label %invoke.cont7
@@ -1393,7 +1393,7 @@ invoke.cont:                                      ; preds = %invoke.cont16.i60, 
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %inc.i.i = add i32 %i.034.i.i, 1
   %conv.i.i = zext i32 %inc.i.i to i64
-  %cmp7.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i, %conv.i.i
+  %cmp7.i.i = icmp samesign ugt i64 %sub.ptr.div.i.i.i.i, %conv.i.i
   br i1 %cmp7.i.i, label %for.body.i.i, label %if.then.i.i.i.i, !llvm.loop !6
 
 for.body.i.i:                                     ; preds = %invoke.cont, %for.cond.i.i
@@ -1620,7 +1620,7 @@ if.then.i.i.i4.i43:                               ; preds = %lpad.i41
 
 invoke.cont:                                      ; preds = %invoke.cont16.i59, %if.then.i.i.i.i64
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ret_vec.i39)
-  %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i36, 2
+  %sub.ptr.div.i.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i.i36, 2
   %cmp.not.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i36, %sub.ptr.sub.i.i.i.i49
   %brmerge.not = and i1 %cmp.not.i.i.i.i.i.i, %cmp.not.i.i
   br i1 %brmerge.not, label %for.body.i.i, label %invoke.cont7
@@ -1628,7 +1628,7 @@ invoke.cont:                                      ; preds = %invoke.cont16.i59, 
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %inc.i.i = add i32 %i.034.i.i, 1
   %conv.i.i = zext i32 %inc.i.i to i64
-  %cmp7.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i, %conv.i.i
+  %cmp7.i.i = icmp samesign ugt i64 %sub.ptr.div.i.i.i.i, %conv.i.i
   br i1 %cmp7.i.i, label %for.body.i.i, label %if.then.i.i.i.i, !llvm.loop !6
 
 for.body.i.i:                                     ; preds = %invoke.cont, %for.cond.i.i
@@ -3335,8 +3335,8 @@ if.then.i.i.i.i.i:                                ; preds = %_ZSt22__uninitializ
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %1, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %1, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i, ptr align 4 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %if.then.i.i.i.i.i30
 
@@ -3492,8 +3492,8 @@ if.then.i.i.i.i.i:                                ; preds = %_ZSt22__uninitializ
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %1, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %1, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i, ptr align 4 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %if.then.i.i.i.i.i30
 

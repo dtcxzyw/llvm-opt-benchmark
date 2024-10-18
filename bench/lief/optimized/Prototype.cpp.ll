@@ -321,7 +321,7 @@ _ZNK4LIEF3DEX9Prototype15parameters_typeEv.exit:  ; preds = %2, %14
   br i1 %.not.i.i.i.i.i, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %23 = ashr exact i64 %9, 3
+  %23 = lshr exact i64 %9, 3
   %umax = tail call i64 @llvm.umax.i64(i64 %23, i64 1)
   br label %24
 

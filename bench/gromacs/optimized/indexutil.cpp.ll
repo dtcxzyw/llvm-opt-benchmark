@@ -1899,91 +1899,90 @@ define noundef zeroext i1 @_Z22gmx_ana_indexgrps_findP15gmx_ana_index_tPNSt7__cx
   %12 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.3, i32 noundef 230, i64 noundef %11, i64 noundef 8)
   %13 = load ptr, ptr %5, align 8
   %14 = load ptr, ptr %2, align 8
-  %15 = ptrtoint ptr %13 to i64
-  %16 = ptrtoint ptr %14 to i64
-  %17 = sub i64 %15, %16
-  %18 = sdiv exact i64 %17, 24
   %.not = icmp eq ptr %13, %14
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %19 = getelementptr inbounds i8, ptr %2, i64 24
-  br label %20
+  %15 = getelementptr inbounds i8, ptr %2, i64 24
+  br label %16
 
-20:                                               ; preds = %.lr.ph, %20
-  %.01620 = phi i64 [ 0, %.lr.ph ], [ %25, %20 ]
-  %21 = load ptr, ptr %19, align 8
-  %22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %21, i64 %.01620
-  %23 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #23
-  %24 = getelementptr inbounds ptr, ptr %12, i64 %.01620
-  store ptr %23, ptr %24, align 8
-  %25 = add nuw i64 %.01620, 1
-  %26 = load ptr, ptr %5, align 8
-  %27 = load ptr, ptr %2, align 8
-  %28 = ptrtoint ptr %26 to i64
-  %29 = ptrtoint ptr %27 to i64
-  %30 = sub i64 %28, %29
-  %31 = sdiv exact i64 %30, 24
-  %32 = icmp ult i64 %25, %31
-  br i1 %32, label %20, label %._crit_edge, !llvm.loop !17
+16:                                               ; preds = %.lr.ph, %16
+  %.01620 = phi i64 [ 0, %.lr.ph ], [ %21, %16 ]
+  %17 = load ptr, ptr %15, align 8
+  %18 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %17, i64 %.01620
+  %19 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #23
+  %20 = getelementptr inbounds ptr, ptr %12, i64 %.01620
+  store ptr %19, ptr %20, align 8
+  %21 = add nuw i64 %.01620, 1
+  %22 = load ptr, ptr %5, align 8
+  %23 = load ptr, ptr %2, align 8
+  %24 = ptrtoint ptr %22 to i64
+  %25 = ptrtoint ptr %23 to i64
+  %26 = sub i64 %24, %25
+  %27 = sdiv exact i64 %26, 24
+  %28 = icmp ult i64 %21, %27
+  br i1 %28, label %16, label %._crit_edge.loopexit, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %20, %4
-  %.lcssa = phi i64 [ %18, %4 ], [ %31, %20 ]
-  %33 = trunc i64 %.lcssa to i32
-  %34 = tail call noundef i32 @_Z10find_groupPKciPPc(ptr noundef %3, i32 noundef %33, ptr noundef %12)
+._crit_edge.loopexit:                             ; preds = %16
+  %29 = trunc i64 %27 to i32
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
+  %.lcssa = phi i32 [ 0, %4 ], [ %29, %._crit_edge.loopexit ]
+  %30 = tail call noundef i32 @_Z10find_groupPKciPPc(ptr noundef %3, i32 noundef %.lcssa, ptr noundef %12)
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.3, i32 noundef 236, ptr noundef %12)
-  %35 = icmp slt i32 %34, 0
-  br i1 %35, label %36, label %37
+  %31 = icmp slt i32 %30, 0
+  br i1 %31, label %32, label %33
 
-36:                                               ; preds = %._crit_edge
+32:                                               ; preds = %._crit_edge
   store i32 0, ptr %0, align 8
   br label %_Z25gmx_ana_indexgrps_extractP15gmx_ana_index_tPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP19gmx_ana_indexgrps_ti.exit
 
-37:                                               ; preds = %._crit_edge
+33:                                               ; preds = %._crit_edge
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #23
-  %38 = zext nneg i32 %34 to i64
-  %39 = load ptr, ptr %5, align 8
-  %40 = load ptr, ptr %2, align 8
-  %41 = ptrtoint ptr %39 to i64
-  %42 = ptrtoint ptr %40 to i64
-  %43 = sub i64 %41, %42
-  %44 = sdiv exact i64 %43, 24
-  %.not.i = icmp sgt i64 %44, %38
-  br i1 %.not.i, label %46, label %45
+  %34 = zext nneg i32 %30 to i64
+  %35 = load ptr, ptr %5, align 8
+  %36 = load ptr, ptr %2, align 8
+  %37 = ptrtoint ptr %35 to i64
+  %38 = ptrtoint ptr %36 to i64
+  %39 = sub i64 %37, %38
+  %40 = sdiv exact i64 %39, 24
+  %.not.i = icmp sgt i64 %40, %34
+  br i1 %.not.i, label %42, label %41
 
-45:                                               ; preds = %37
+41:                                               ; preds = %33
   store i32 0, ptr %0, align 8
   br label %_Z25gmx_ana_indexgrps_extractP15gmx_ana_index_tPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP19gmx_ana_indexgrps_ti.exit
 
-46:                                               ; preds = %37
-  %47 = getelementptr inbounds i8, ptr %2, i64 24
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %48, i64 %38
-  %50 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %49)
-  %51 = load ptr, ptr %2, align 8
-  %52 = getelementptr inbounds %struct.gmx_ana_index_t, ptr %51, i64 %38
-  %53 = load i32, ptr %52, align 8
-  store i32 %53, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 8
-  %55 = sext i32 %53 to i64
-  %56 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.3, i32 noundef 360, i64 noundef range(i64 -2147483648, 2147483648) %55, i64 noundef 4)
-  store ptr %56, ptr %54, align 8
-  %57 = load i32, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %57, ptr %58, align 8
-  %59 = icmp sgt i32 %57, 0
-  br i1 %59, label %60, label %_Z25gmx_ana_indexgrps_extractP15gmx_ana_index_tPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP19gmx_ana_indexgrps_ti.exit
+42:                                               ; preds = %33
+  %43 = getelementptr inbounds i8, ptr %2, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %44, i64 %34
+  %46 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %45)
+  %47 = load ptr, ptr %2, align 8
+  %48 = getelementptr inbounds %struct.gmx_ana_index_t, ptr %47, i64 %34
+  %49 = load i32, ptr %48, align 8
+  store i32 %49, ptr %0, align 8
+  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  %51 = sext i32 %49 to i64
+  %52 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.3, i32 noundef 360, i64 noundef range(i64 -2147483648, 2147483648) %51, i64 noundef 4)
+  store ptr %52, ptr %50, align 8
+  %53 = load i32, ptr %0, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %53, ptr %54, align 8
+  %55 = icmp sgt i32 %53, 0
+  br i1 %55, label %56, label %_Z25gmx_ana_indexgrps_extractP15gmx_ana_index_tPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP19gmx_ana_indexgrps_ti.exit
 
-60:                                               ; preds = %46
-  %61 = getelementptr inbounds i8, ptr %52, i64 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = zext nneg i32 %57 to i64
-  %64 = shl nuw nsw i64 %63, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %56, ptr align 4 %62, i64 %64, i1 false)
+56:                                               ; preds = %42
+  %57 = getelementptr inbounds i8, ptr %48, i64 8
+  %58 = load ptr, ptr %57, align 8
+  %59 = zext nneg i32 %53 to i64
+  %60 = shl nuw nsw i64 %59, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %52, ptr align 4 %58, i64 %60, i1 false)
   br label %_Z25gmx_ana_indexgrps_extractP15gmx_ana_index_tPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP19gmx_ana_indexgrps_ti.exit
 
-_Z25gmx_ana_indexgrps_extractP15gmx_ana_index_tPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP19gmx_ana_indexgrps_ti.exit: ; preds = %60, %46, %45, %36
-  %.0 = phi i1 [ false, %36 ], [ false, %45 ], [ true, %46 ], [ true, %60 ]
+_Z25gmx_ana_indexgrps_extractP15gmx_ana_index_tPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP19gmx_ana_indexgrps_ti.exit: ; preds = %56, %42, %41, %32
+  %.0 = phi i1 [ false, %32 ], [ false, %41 ], [ true, %42 ], [ true, %56 ]
   ret i1 %.0
 }
 
@@ -2421,35 +2420,35 @@ _ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %31 = load i32, ptr %.019.i16.i, align 4
   %32 = load i32, ptr %0, align 4
   %33 = icmp slt i32 %31, %32
-  br i1 %33, label %34, label %40
+  br i1 %33, label %34, label %41
 
 34:                                               ; preds = %.lr.ph.i15.i
   %35 = getelementptr inbounds i8, ptr %.pn18.i17.i, i64 8
   %36 = ptrtoint ptr %.019.i16.i to i64
   %37 = sub i64 %36, %5
   %38 = ashr exact i64 %37, 2
-  %.pre.i.i.i.i.i.i26.i = sub nsw i64 0, %38
-  %39 = getelementptr inbounds i32, ptr %35, i64 %.pre.i.i.i.i.i.i26.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %39, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %37, i1 false)
+  %39 = sub nsw i64 0, %38
+  %40 = getelementptr inbounds i32, ptr %35, i64 %39
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %40, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %37, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i
 
-40:                                               ; preds = %.lr.ph.i15.i
-  %41 = load i32, ptr %.pn18.i17.i, align 4
-  %42 = icmp slt i32 %31, %41
-  br i1 %42, label %.lr.ph.i.i22.i, label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i
+41:                                               ; preds = %.lr.ph.i15.i
+  %42 = load i32, ptr %.pn18.i17.i, align 4
+  %43 = icmp slt i32 %31, %42
+  br i1 %43, label %.lr.ph.i.i22.i, label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i
 
-.lr.ph.i.i22.i:                                   ; preds = %40, %.lr.ph.i.i22.i
-  %43 = phi i32 [ %44, %.lr.ph.i.i22.i ], [ %41, %40 ]
-  %.013.i.i23.i = phi ptr [ %.0.i.i25.i, %.lr.ph.i.i22.i ], [ %.pn18.i17.i, %40 ]
-  %.0912.i.i24.i = phi ptr [ %.013.i.i23.i, %.lr.ph.i.i22.i ], [ %.019.i16.i, %40 ]
-  store i32 %43, ptr %.0912.i.i24.i, align 4
+.lr.ph.i.i22.i:                                   ; preds = %41, %.lr.ph.i.i22.i
+  %44 = phi i32 [ %45, %.lr.ph.i.i22.i ], [ %42, %41 ]
+  %.013.i.i23.i = phi ptr [ %.0.i.i25.i, %.lr.ph.i.i22.i ], [ %.pn18.i17.i, %41 ]
+  %.0912.i.i24.i = phi ptr [ %.013.i.i23.i, %.lr.ph.i.i22.i ], [ %.019.i16.i, %41 ]
+  store i32 %44, ptr %.0912.i.i24.i, align 4
   %.0.i.i25.i = getelementptr inbounds i8, ptr %.013.i.i23.i, i64 -4
-  %44 = load i32, ptr %.0.i.i25.i, align 4
-  %45 = icmp slt i32 %31, %44
-  br i1 %45, label %.lr.ph.i.i22.i, label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i, !llvm.loop !24
+  %45 = load i32, ptr %.0.i.i25.i, align 4
+  %46 = icmp slt i32 %31, %45
+  br i1 %46, label %.lr.ph.i.i22.i, label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i, !llvm.loop !24
 
-_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i: ; preds = %.lr.ph.i.i22.i, %40, %34
-  %.sink.i19.i = phi ptr [ %0, %34 ], [ %.019.i16.i, %40 ], [ %.013.i.i23.i, %.lr.ph.i.i22.i ]
+_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i: ; preds = %.lr.ph.i.i22.i, %41, %34
+  %.sink.i19.i = phi ptr [ %0, %34 ], [ %.019.i16.i, %41 ], [ %.013.i.i23.i, %.lr.ph.i.i22.i ]
   store i32 %31, ptr %.sink.i19.i, align 4
   %.0.i20.i = getelementptr inbounds i8, ptr %.019.i16.i, i64 4
   %.not.i21.i = icmp eq ptr %.0.i20.i, %1

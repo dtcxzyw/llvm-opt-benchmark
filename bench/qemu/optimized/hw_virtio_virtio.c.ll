@@ -2453,9 +2453,9 @@ cond.end.i.i:                                     ; preds = %virtio_lduw_phys_ca
   %conv8.i.i33 = zext i16 %conv7.i.i to i32
   %43 = load i32, ptr %vq, align 8
   %cmp9.i.i = icmp ult i32 %43, %conv8.i.i33
-  br i1 %cmp9.i.i, label %while.end.thread.i, label %if.end.i.i
+  br i1 %cmp9.i.i, label %while.end.thread76.i, label %if.end.i.i
 
-while.end.thread.i:                               ; preds = %cond.end.i.i
+while.end.thread76.i:                             ; preds = %cond.end.i.i
   %44 = load ptr, ptr %vdev, align 8
   %45 = load i16, ptr %shadow_avail_idx.i.i, align 4
   %conv12.i.i = zext i16 %45 to i32
@@ -2464,9 +2464,9 @@ while.end.thread.i:                               ; preds = %cond.end.i.i
 
 if.end.i.i:                                       ; preds = %cond.end.i.i
   %tobool.not.i.i = icmp eq i16 %cond.i.i, %42
-  br i1 %tobool.not.i.i, label %done.i35, label %while.body.i
+  br i1 %tobool.not.i.i, label %done.i35, label %virtqueue_num_heads.exit.i
 
-while.body.i:                                     ; preds = %if.end.i.i
+virtqueue_num_heads.exit.i:                       ; preds = %if.end.i.i
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !18
   fence acquire
   %46 = load i32, ptr %vq, align 8
@@ -2476,7 +2476,7 @@ while.body.i:                                     ; preds = %if.end.i.i
   %tobool.not.i.i31.i = icmp eq i64 %47, 0
   br i1 %tobool.not.i.i31.i, label %vring_avail_ring.exit.i.i, label %if.end.i.i32.i
 
-if.end.i.i32.i:                                   ; preds = %while.body.i
+if.end.i.i32.i:                                   ; preds = %virtqueue_num_heads.exit.i
   %rem.i.i = urem i32 %idx.0.i, %46
   %48 = inttoptr i64 %47 to ptr
   %conv.i.i.i = sext i32 %rem.i.i to i64
@@ -2509,8 +2509,8 @@ if.else8.i.i.i.i.i45.i:                           ; preds = %if.end.i.i.i.i.i36.
   %call10.i.i.i.i.i46.i = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i33.i, i64 noundef range(i64 -34359738354, 34359738367) %50, i32 1, ptr noundef null) #23
   br label %vring_avail_ring.exit.i.i
 
-vring_avail_ring.exit.i.i:                        ; preds = %if.else8.i.i.i.i.i45.i, %if.then5.i.i.i.i.i38.i, %while.body.i
-  %retval.0.i.i.i = phi i16 [ 0, %while.body.i ], [ %add.ptr.val.i.i.i.i.i40.i, %if.then5.i.i.i.i.i38.i ], [ %call10.i.i.i.i.i46.i, %if.else8.i.i.i.i.i45.i ]
+vring_avail_ring.exit.i.i:                        ; preds = %if.else8.i.i.i.i.i45.i, %if.then5.i.i.i.i.i38.i, %virtqueue_num_heads.exit.i
+  %retval.0.i.i.i = phi i16 [ 0, %virtqueue_num_heads.exit.i ], [ %add.ptr.val.i.i.i.i.i40.i, %if.then5.i.i.i.i.i38.i ], [ %call10.i.i.i.i.i46.i, %if.else8.i.i.i.i.i45.i ]
   %conv.i41.i = zext i16 %retval.0.i.i.i to i32
   %53 = load i32, ptr %vq, align 8
   %cmp.not.i42.i = icmp ugt i32 %53, %conv.i41.i
@@ -2618,9 +2618,9 @@ if.end30.i:                                       ; preds = %if.else8.i.i59.i, %
   %desc_cache.0.i40 = phi ptr [ %desc.i29, %vring_split_desc_read.exit.i ], [ %indirect_desc_cache.i23, %if.then6.i.i57.i ], [ %indirect_desc_cache.i23, %if.else8.i.i59.i ]
   %num_bufs.0.i41 = phi i32 [ %total_bufs.0.i, %vring_split_desc_read.exit.i ], [ 0, %if.then6.i.i57.i ], [ 0, %if.else8.i.i59.i ]
   %max.0.i42 = phi i32 [ %46, %vring_split_desc_read.exit.i ], [ %div29.i, %if.then6.i.i57.i ], [ %div29.i, %if.else8.i.i59.i ]
-  %inc31149.i = add i32 %num_bufs.0.i41, 1
-  %cmp32150.i = icmp ugt i32 %inc31149.i, %max.0.i42
-  br i1 %cmp32150.i, label %if.then34.i, label %if.end35.lr.ph.i
+  %inc31152.i = add i32 %num_bufs.0.i41, 1
+  %cmp32153.i = icmp ugt i32 %inc31152.i, %max.0.i42
+  br i1 %cmp32153.i, label %if.then34.i, label %if.end35.lr.ph.i
 
 if.end35.lr.ph.i:                                 ; preds = %if.end30.i
   %len1.i.i.i.i = getelementptr inbounds i8, ptr %desc_cache.0.i40, i64 16
@@ -2631,17 +2631,17 @@ if.then34.i:                                      ; preds = %if.end30.i, %virtqu
   br label %done.i35
 
 if.end35.i:                                       ; preds = %virtqueue_split_read_next_desc.exit.i, %if.end35.lr.ph.i
-  %inc31153.i = phi i32 [ %inc31149.i, %if.end35.lr.ph.i ], [ %inc31.i, %virtqueue_split_read_next_desc.exit.i ]
-  %out_total.1152.i = phi i32 [ %out_total.0.i, %if.end35.lr.ph.i ], [ %out_total.2.i45, %virtqueue_split_read_next_desc.exit.i ]
-  %in_total.1151.i = phi i32 [ %in_total.0.i, %if.end35.lr.ph.i ], [ %in_total.2.i44, %virtqueue_split_read_next_desc.exit.i ]
+  %inc31156.i = phi i32 [ %inc31152.i, %if.end35.lr.ph.i ], [ %inc31.i, %virtqueue_split_read_next_desc.exit.i ]
+  %out_total.1155.i = phi i32 [ %out_total.0.i, %if.end35.lr.ph.i ], [ %out_total.2.i45, %virtqueue_split_read_next_desc.exit.i ]
+  %in_total.1154.i = phi i32 [ %in_total.0.i, %if.end35.lr.ph.i ], [ %in_total.2.i44, %virtqueue_split_read_next_desc.exit.i ]
   %65 = load i16, ptr %flags.i30, align 4
   %66 = and i16 %65, 2
   %tobool39.not.i = icmp eq i16 %66, 0
   %67 = load i32, ptr %len7.i, align 8
   %add.i43 = select i1 %tobool39.not.i, i32 0, i32 %67
-  %in_total.2.i44 = add i32 %add.i43, %in_total.1151.i
+  %in_total.2.i44 = add i32 %add.i43, %in_total.1154.i
   %add43.i = select i1 %tobool39.not.i, i32 %67, i32 0
-  %out_total.2.i45 = add i32 %add43.i, %out_total.1152.i
+  %out_total.2.i45 = add i32 %add43.i, %out_total.1155.i
   %cmp45.not.i = icmp ult i32 %in_total.2.i44, %max_in_bytes
   %cmp47.not.i = icmp ult i32 %out_total.2.i45, %max_out_bytes
   %or.cond.i46 = select i1 %cmp45.not.i, i1 true, i1 %cmp47.not.i
@@ -2691,7 +2691,7 @@ if.else8.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   br label %virtqueue_split_read_next_desc.exit.i
 
 virtqueue_split_read_next_desc.exit.i:            ; preds = %if.else8.i.i.i.i, %if.then6.i.i.i.i
-  %inc31.i = add i32 %inc31153.i, 1
+  %inc31.i = add i32 %inc31156.i, 1
   %cmp32.i = icmp ugt i32 %inc31.i, %max.0.i42
   br i1 %cmp32.i, label %if.then34.i, label %if.end35.i
 
@@ -2705,12 +2705,12 @@ if.then60.i:                                      ; preds = %if.end57.i
   br label %while.cond.i.backedge
 
 while.cond.i.backedge:                            ; preds = %if.then60.i, %if.end57.i
-  %total_bufs.0.i.be = phi i32 [ %inc61.i, %if.then60.i ], [ %inc31153.i, %if.end57.i ]
+  %total_bufs.0.i.be = phi i32 [ %inc61.i, %if.then60.i ], [ %inc31156.i, %if.end57.i ]
   br label %while.cond.i, !llvm.loop !19
 
-done.i35:                                         ; preds = %if.end.i.i, %if.end35.i, %virtqueue_split_read_next_desc.exit.thread72.i, %if.then34.i, %if.then25.i, %if.then16.i, %if.then12.i, %virtqueue_get_head.exit.i, %while.end.thread.i
-  %in_total.3.i36 = phi i32 [ 0, %while.end.thread.i ], [ 0, %virtqueue_split_read_next_desc.exit.thread72.i ], [ 0, %virtqueue_get_head.exit.i ], [ 0, %if.then34.i ], [ 0, %if.then25.i ], [ 0, %if.then16.i ], [ 0, %if.then12.i ], [ %in_total.2.i44, %if.end35.i ], [ %in_total.0.i, %if.end.i.i ]
-  %out_total.3.i37 = phi i32 [ 0, %while.end.thread.i ], [ 0, %virtqueue_split_read_next_desc.exit.thread72.i ], [ 0, %virtqueue_get_head.exit.i ], [ 0, %if.then34.i ], [ 0, %if.then25.i ], [ 0, %if.then16.i ], [ 0, %if.then12.i ], [ %out_total.2.i45, %if.end35.i ], [ %out_total.0.i, %if.end.i.i ]
+done.i35:                                         ; preds = %if.end.i.i, %if.end35.i, %virtqueue_split_read_next_desc.exit.thread72.i, %if.then34.i, %if.then25.i, %if.then16.i, %if.then12.i, %virtqueue_get_head.exit.i, %while.end.thread76.i
+  %in_total.3.i36 = phi i32 [ 0, %while.end.thread76.i ], [ 0, %virtqueue_split_read_next_desc.exit.thread72.i ], [ 0, %virtqueue_get_head.exit.i ], [ 0, %if.then34.i ], [ 0, %if.then25.i ], [ 0, %if.then16.i ], [ 0, %if.then12.i ], [ %in_total.2.i44, %if.end35.i ], [ %in_total.0.i, %if.end.i.i ]
+  %out_total.3.i37 = phi i32 [ 0, %while.end.thread76.i ], [ 0, %virtqueue_split_read_next_desc.exit.thread72.i ], [ 0, %virtqueue_get_head.exit.i ], [ 0, %if.then34.i ], [ 0, %if.then25.i ], [ 0, %if.then16.i ], [ 0, %if.then12.i ], [ %out_total.2.i45, %if.end35.i ], [ %out_total.0.i, %if.end.i.i ]
   call void @address_space_cache_destroy(ptr noundef nonnull %indirect_desc_cache.i23) #23
   %tobool68.not.i = icmp eq ptr %in_bytes, null
   br i1 %tobool68.not.i, label %if.end70.i, label %if.then69.i

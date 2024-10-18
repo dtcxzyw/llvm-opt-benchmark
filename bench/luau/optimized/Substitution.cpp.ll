@@ -10058,7 +10058,7 @@ _ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE13_M_deallocateEPS3_m.exit.i.i: ; pred
   br label %_ZSt4copyIPPKN4Luau4TypeES4_ET0_T_S6_S5_.exit.i.i
 
 _ZSt4copyIPPKN4Luau4TypeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %68, %67
-  %.pre-phi33.i.i = phi i64 [ %64, %67 ], [ %.pre32.i.i, %68 ]
+  %.pre-phi33.i.i = phi i64 [ 0, %67 ], [ %.pre32.i.i, %68 ]
   %69 = phi ptr [ %42, %67 ], [ %.pre28.i.i, %68 ]
   %70 = phi ptr [ %62, %67 ], [ %.pre26.i.i, %68 ]
   %71 = phi ptr [ %43, %67 ], [ %.pre.i.i, %68 ]
@@ -10164,7 +10164,7 @@ _ZNSt12_Vector_baseIPKN4Luau11TypePackVarESaIS3_EE13_M_deallocateEPS3_m.exit.i.i
   br label %_ZSt4copyIPPKN4Luau11TypePackVarES4_ET0_T_S6_S5_.exit.i.i
 
 _ZSt4copyIPPKN4Luau11TypePackVarES4_ET0_T_S6_S5_.exit.i.i: ; preds = %110, %109
-  %.pre-phi33.i32.i = phi i64 [ %106, %109 ], [ %.pre32.i31.i, %110 ]
+  %.pre-phi33.i32.i = phi i64 [ 0, %109 ], [ %.pre32.i31.i, %110 ]
   %111 = phi ptr [ %84, %109 ], [ %.pre28.i28.i, %110 ]
   %112 = phi ptr [ %104, %109 ], [ %.pre26.i26.i, %110 ]
   %113 = phi ptr [ %85, %109 ], [ %.pre.i25.i, %110 ]
@@ -10579,7 +10579,7 @@ _ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE13_M_deallocateEPS3_m.exit.i.i: ; pred
   br label %_ZSt4copyIPPKN4Luau4TypeES4_ET0_T_S6_S5_.exit.i.i
 
 _ZSt4copyIPPKN4Luau4TypeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %74, %73
-  %.pre-phi33.i.i = phi i64 [ %70, %73 ], [ %.pre32.i.i, %74 ]
+  %.pre-phi33.i.i = phi i64 [ 0, %73 ], [ %.pre32.i.i, %74 ]
   %75 = phi ptr [ %48, %73 ], [ %.pre28.i.i, %74 ]
   %76 = phi ptr [ %68, %73 ], [ %.pre26.i.i, %74 ]
   %77 = phi ptr [ %49, %73 ], [ %.pre.i.i, %74 ]
@@ -10685,7 +10685,7 @@ _ZNSt12_Vector_baseIPKN4Luau11TypePackVarESaIS3_EE13_M_deallocateEPS3_m.exit.i.i
   br label %_ZSt4copyIPPKN4Luau11TypePackVarES4_ET0_T_S6_S5_.exit.i.i
 
 _ZSt4copyIPPKN4Luau11TypePackVarES4_ET0_T_S6_S5_.exit.i.i: ; preds = %116, %115
-  %.pre-phi33.i34.i = phi i64 [ %112, %115 ], [ %.pre32.i33.i, %116 ]
+  %.pre-phi33.i34.i = phi i64 [ 0, %115 ], [ %.pre32.i33.i, %116 ]
   %117 = phi ptr [ %90, %115 ], [ %.pre28.i30.i, %116 ]
   %118 = phi ptr [ %110, %115 ], [ %.pre26.i28.i, %116 ]
   %119 = phi ptr [ %91, %115 ], [ %.pre.i27.i, %116 ]

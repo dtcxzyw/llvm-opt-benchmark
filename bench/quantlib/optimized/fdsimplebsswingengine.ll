@@ -2232,7 +2232,7 @@ _ZN5boost10shared_ptrIN8QuantLib6PayoffEED2Ev.exit: ; preds = %invoke.cont227, %
 
 invoke.cont236:                                   ; preds = %_ZN5boost10shared_ptrIN8QuantLib6PayoffEED2Ev.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp238, i8 0, i64 24, i1 false)
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont.i247.thread, label %cond.true.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont.i247.thread, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
 
 invoke.cont.i247.thread:                          ; preds = %invoke.cont236
   %_M_finish.i.i.i698 = getelementptr inbounds nuw i8, ptr %agg.tmp238, i64 8
@@ -2242,18 +2242,7 @@ invoke.cont.i247.thread:                          ; preds = %invoke.cont236
   store ptr %add.ptr.i.i.i699, ptr %_M_end_of_storage.i.i.i700, align 8, !tbaa !123
   br label %invoke.cont240
 
-cond.true.i.i.i.i:                                ; preds = %invoke.cont236
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !73
-
-if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #27
-          to label %.noexc249 unwind label %ehcleanup254.thread
-
-.noexc249:                                        ; preds = %if.then3.i.i.i.i.i.i
-  unreachable
-
-_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i
+_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %invoke.cont236
   %call5.i.i.i.i2.i6.i250 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i.i.i.i) #29
           to label %if.then.i.i.i.i.i.i.i.i.i248 unwind label %ehcleanup254.thread
 
@@ -3543,7 +3532,7 @@ lpad235:                                          ; preds = %_ZN5boost10shared_p
           cleanup
   br label %ehcleanup258
 
-ehcleanup254.thread:                              ; preds = %if.then3.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
+ehcleanup254.thread:                              ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
   %358 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action256

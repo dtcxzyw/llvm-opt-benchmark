@@ -8823,9 +8823,9 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   %4 = ptrtoint ptr %0 to i64
   br label %5
 
-5:                                                ; preds = %.lr.ph, %22
-  %.sroa.0.020 = phi ptr [ %.sroa.0.017, %.lr.ph ], [ %.sroa.0.0, %22 ]
-  %.pn19 = phi ptr [ %0, %.lr.ph ], [ %.sroa.0.020, %22 ]
+5:                                                ; preds = %.lr.ph, %23
+  %.sroa.0.020 = phi ptr [ %.sroa.0.017, %.lr.ph ], [ %.sroa.0.0, %23 ]
+  %.pn19 = phi ptr [ %0, %.lr.ph ], [ %.sroa.0.020, %23 ]
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.pn19, i64 24
   %.sroa.22.0.copyload.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
@@ -8842,7 +8842,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %5
 
 8:                                                ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
   %.inv.i.i.i.i = icmp slt i32 %7, 0
-  br i1 %.inv.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP13FlowStringRefSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit, label %15
+  br i1 %.inv.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP13FlowStringRefSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit, label %16
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIP13FlowStringRefSt6vectorIS4_SaIS4_EEEES9_EEbT_T0_.exit: ; preds = %5, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
   %9 = icmp ult i64 %.sroa.22.0.copyload.i.i, %.sroa.2.0.copyload.i.i
@@ -8850,7 +8850,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIP13FlowStringRefS
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIP13FlowStringRefSt6vectorIS4_SaIS4_EEEES9_EEbT_T0_.exit._crit_edge: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIP13FlowStringRefSt6vectorIS4_SaIS4_EEEES9_EEbT_T0_.exit
   %.sroa.03.0.copyload.i.pre = load ptr, ptr %.sroa.0.020, align 8
-  br label %15
+  br label %16
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP13FlowStringRefSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit: ; preds = %8, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIP13FlowStringRefSt6vectorIS4_SaIS4_EEEES9_EEbT_T0_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.020, i64 16, i1 false)
@@ -8858,55 +8858,55 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP13FlowStringRefSt6vectorIS2_
   %11 = ptrtoint ptr %.sroa.0.020 to i64
   %12 = sub i64 %11, %4
   %13 = ashr exact i64 %12, 4
-  %.pre.i.i.i.i.i = sub nsw i64 0, %13
-  %14 = getelementptr inbounds %struct.FlowStringRef, ptr %10, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %12, i1 false)
+  %14 = sub nsw i64 0, %13
+  %15 = getelementptr inbounds %struct.FlowStringRef, ptr %10, i64 %14
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05, i64 16, i1 false)
-  br label %22
+  br label %23
 
-15:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIP13FlowStringRefSt6vectorIS4_SaIS4_EEEES9_EEbT_T0_.exit._crit_edge, %8
+16:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIP13FlowStringRefSt6vectorIS4_SaIS4_EEEES9_EEbT_T0_.exit._crit_edge, %8
   %.sroa.03.0.copyload.i = phi ptr [ %.sroa.03.0.copyload.i.pre, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIP13FlowStringRefSt6vectorIS4_SaIS4_EEEES9_EEbT_T0_.exit._crit_edge ], [ %.sroa.01.0.copyload.i.i, %8 ]
-  br label %16
+  br label %17
 
-16:                                               ; preds = %21, %15
-  %.sroa.07.0.i = phi ptr [ %.sroa.0.020, %15 ], [ %.sroa.0.0.i, %21 ]
+17:                                               ; preds = %22, %16
+  %.sroa.07.0.i = phi ptr [ %.sroa.0.020, %16 ], [ %.sroa.0.0.i, %22 ]
   %.sroa.0.0.i = getelementptr inbounds i8, ptr %.sroa.07.0.i, i64 -16
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.07.0.i, i64 -8
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i.i, i64 %.sroa.22.0.copyload.i.i)
-  %17 = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
-  br i1 %17, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclI13FlowStringRefNS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbRT_T0_.exit.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
+  %18 = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
+  br i1 %18, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclI13FlowStringRefNS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbRT_T0_.exit.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %16
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %17
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %.sroa.0.0.i, align 8
-  %18 = tail call i32 @memcmp(ptr noundef %.sroa.03.0.copyload.i, ptr noundef %.sroa.0.0.copyload.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i) #23
-  %.not.i.i.i.i.i8 = icmp eq i32 %18, 0
-  br i1 %.not.i.i.i.i.i8, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclI13FlowStringRefNS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbRT_T0_.exit.i, label %19
+  %19 = tail call i32 @memcmp(ptr noundef %.sroa.03.0.copyload.i, ptr noundef %.sroa.0.0.copyload.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i) #23
+  %.not.i.i.i.i.i8 = icmp eq i32 %19, 0
+  br i1 %.not.i.i.i.i.i8, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclI13FlowStringRefNS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbRT_T0_.exit.i, label %20
 
-19:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
-  %.inv.i.i.i.i.i = icmp slt i32 %18, 0
-  br i1 %.inv.i.i.i.i.i, label %21, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP13FlowStringRefSt6vectorIS2_SaIS2_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit
+20:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
+  %.inv.i.i.i.i.i = icmp slt i32 %19, 0
+  br i1 %.inv.i.i.i.i.i, label %22, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP13FlowStringRefSt6vectorIS2_SaIS2_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit
 
-_ZNK9__gnu_cxx5__ops14_Val_less_iterclI13FlowStringRefNS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbRT_T0_.exit.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i, %16
-  %20 = icmp ult i64 %.sroa.22.0.copyload.i.i, %.sroa.2.0.copyload.i.i.i
-  br i1 %20, label %21, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP13FlowStringRefSt6vectorIS2_SaIS2_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit
+_ZNK9__gnu_cxx5__ops14_Val_less_iterclI13FlowStringRefNS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbRT_T0_.exit.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i, %17
+  %21 = icmp ult i64 %.sroa.22.0.copyload.i.i, %.sroa.2.0.copyload.i.i.i
+  br i1 %21, label %22, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP13FlowStringRefSt6vectorIS2_SaIS2_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit
 
-21:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclI13FlowStringRefNS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbRT_T0_.exit.i, %19
+22:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclI13FlowStringRefNS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbRT_T0_.exit.i, %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.07.0.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.i, i64 16, i1 false)
-  br label %16, !llvm.loop !160
+  br label %17, !llvm.loop !160
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP13FlowStringRefSt6vectorIS2_SaIS2_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit: ; preds = %19, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclI13FlowStringRefNS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbRT_T0_.exit.i
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP13FlowStringRefSt6vectorIS2_SaIS2_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit: ; preds = %20, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclI13FlowStringRefNS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbRT_T0_.exit.i
   store ptr %.sroa.03.0.copyload.i, ptr %.sroa.07.0.i, align 8
   %.sroa.3.0..sroa_idx5.i = getelementptr inbounds i8, ptr %.sroa.07.0.i, i64 8
   store i64 %.sroa.22.0.copyload.i.i, ptr %.sroa.3.0..sroa_idx5.i, align 8
-  br label %22
+  br label %23
 
-22:                                               ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP13FlowStringRefSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP13FlowStringRefSt6vectorIS2_SaIS2_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit
+23:                                               ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP13FlowStringRefSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP13FlowStringRefSt6vectorIS2_SaIS2_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit
   %.sroa.0.0 = getelementptr inbounds i8, ptr %.sroa.0.020, i64 16
   %.not = icmp eq ptr %.sroa.0.0, %1
   br i1 %.not, label %.loopexit, label %5, !llvm.loop !161
 
-.loopexit:                                        ; preds = %22, %.preheader, %2
+.loopexit:                                        ; preds = %23, %.preheader, %2
   ret void
 }
 
@@ -14354,13 +14354,13 @@ _ZN4llvm23SmallVectorTemplateBaseINS_5MachO6TargetELb1EE28reserveForParamAndGetA
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPN4llvm5MachO6TargetES3_ET0_T_S5_S4_.exit, label %50
 
 50:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_5MachO6TargetELb1EE28reserveForParamAndGetAddressERKS2_m.exit
-  %51 = ptrtoint ptr %47 to i64
-  %52 = ptrtoint ptr %37 to i64
-  %53 = sub i64 %51, %52
-  %.neg.i.i.i.i.i = sdiv exact i64 %53, -24
-  %54 = getelementptr inbounds %"class.llvm::MachO::Target", ptr %48, i64 %49
-  %55 = getelementptr inbounds %"class.llvm::MachO::Target", ptr %54, i64 %.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %55, ptr nonnull align 4 %37, i64 %53, i1 false)
+  %51 = getelementptr inbounds %"class.llvm::MachO::Target", ptr %48, i64 %49
+  %52 = ptrtoint ptr %47 to i64
+  %53 = ptrtoint ptr %37 to i64
+  %54 = sub i64 %52, %53
+  %.neg.i.i.i.i.i = sdiv exact i64 %54, -24
+  %55 = getelementptr inbounds %"class.llvm::MachO::Target", ptr %51, i64 %.neg.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %55, ptr nonnull align 4 %37, i64 %54, i1 false)
   br label %_ZSt13move_backwardIPN4llvm5MachO6TargetES3_ET0_T_S5_S4_.exit
 
 _ZSt13move_backwardIPN4llvm5MachO6TargetES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_5MachO6TargetELb1EE28reserveForParamAndGetAddressERKS2_m.exit, %50

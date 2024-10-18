@@ -6050,7 +6050,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds
   br label %_ZSt4copyIPN2cv6Point_IiEES3_ET0_T_S5_S4_.exit.i
 
 _ZSt4copyIPN2cv6Point_IiEES3_ET0_T_S5_S4_.exit.i: ; preds = %138, %137
-  %.pre-phi33.i = phi i64 [ %134, %137 ], [ %.pre32.i, %138 ]
+  %.pre-phi33.i = phi i64 [ 0, %137 ], [ %.pre32.i, %138 ]
   %139 = phi ptr [ %132, %137 ], [ %.pre26.i, %138 ]
   %140 = getelementptr inbounds i8, ptr %.sroa.0.1, i64 %.pre-phi33.i
   %.not9.i.i.i.i.i = icmp eq ptr %140, %.0.lcssa.i.i.i.i.i.i
@@ -9746,7 +9746,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds =
   br label %_ZSt4copyIPN2cv6Point_IiEES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPN2cv6Point_IiEES3_ET0_T_S5_S4_.exit:   ; preds = %34, %35
-  %.pre-phi33 = phi i64 [ %31, %34 ], [ %.pre32, %35 ]
+  %.pre-phi33 = phi i64 [ 0, %34 ], [ %.pre32, %35 ]
   %36 = phi ptr [ %5, %34 ], [ %.pre28, %35 ]
   %37 = phi ptr [ %29, %34 ], [ %.pre26, %35 ]
   %38 = phi ptr [ %6, %34 ], [ %.pre, %35 ]

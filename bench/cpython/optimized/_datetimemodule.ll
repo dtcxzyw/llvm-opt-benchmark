@@ -13190,7 +13190,7 @@ for.end:                                          ; preds = %if.else20, %for.inc
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %sub.ptr.sub, i64 6)
   %cmp5.not.i = icmp eq ptr %tstr_end, %p.1
-  br i1 %cmp5.not.i, label %parse_digits.exit42, label %for.body.i29
+  br i1 %cmp5.not.i, label %parse_digits.exit42.thread, label %for.body.i29
 
 for.body.i29:                                     ; preds = %for.end, %if.end.i35
   %i.07.i30 = phi i64 [ %inc.i39, %if.end.i35 ], [ 0, %for.end ]
@@ -13211,16 +13211,20 @@ if.end.i35:                                       ; preds = %for.body.i29
   %exitcond.not.i40 = icmp eq i64 %inc.i39, %spec.store.select
   br i1 %exitcond.not.i40, label %parse_digits.exit42, label %for.body.i29, !llvm.loop !6
 
-parse_digits.exit42:                              ; preds = %if.end.i35, %for.end
-  %retval.0.i41 = phi ptr [ %p.1, %for.end ], [ %incdec.ptr.i36, %if.end.i35 ]
-  %cmp42 = icmp eq ptr %retval.0.i41, null
+parse_digits.exit42:                              ; preds = %if.end.i35
+  %cmp42 = icmp eq ptr %incdec.ptr.i36, null
   br i1 %cmp42, label %return, label %if.end45
+
+parse_digits.exit42.thread:                       ; preds = %for.end
+  %cmp4262 = icmp eq ptr %p.1, null
+  br i1 %cmp4262, label %return, label %if.then48
 
 if.end45:                                         ; preds = %parse_digits.exit42
   %cmp46 = icmp ult i64 %sub.ptr.sub, 6
   br i1 %cmp46, label %if.then48, label %while.cond.preheader
 
-if.then48:                                        ; preds = %if.end45
+if.then48:                                        ; preds = %parse_digits.exit42.thread, %if.end45
+  %retval.0.i416367 = phi ptr [ %incdec.ptr.i36, %if.end45 ], [ %p.1, %parse_digits.exit42.thread ]
   %sub = add nsw i64 %spec.store.select, -1
   %arrayidx49 = getelementptr [5 x i32], ptr @parse_hh_mm_ss_ff.correction, i64 0, i64 %sub
   %7 = load i32, ptr %arrayidx49, align 4
@@ -13230,10 +13234,11 @@ if.then48:                                        ; preds = %if.end45
   br label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.then48, %if.end45
+  %p.3.ph = phi ptr [ %incdec.ptr.i36, %if.end45 ], [ %retval.0.i416367, %if.then48 ]
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %while.cond
-  %p.3 = phi ptr [ %incdec.ptr53, %while.cond ], [ %retval.0.i41, %while.cond.preheader ]
+  %p.3 = phi ptr [ %incdec.ptr53, %while.cond ], [ %p.3.ph, %while.cond.preheader ]
   %9 = load i8, ptr %p.3, align 1
   %conv.i43 = sext i8 %9 to i32
   %10 = add nsw i32 %conv.i43, -58
@@ -13246,8 +13251,8 @@ while.end:                                        ; preds = %while.cond
   %conv56 = zext i1 %cmp55 to i32
   br label %return
 
-return:                                           ; preds = %if.else28, %parse_digits.exit, %for.body.i, %for.body.i29, %parse_digits.exit42, %while.end, %if.then11
-  %retval.0 = phi i32 [ %conv14, %if.then11 ], [ %conv56, %while.end ], [ -3, %parse_digits.exit42 ], [ -3, %for.body.i29 ], [ -3, %for.body.i ], [ -4, %if.else28 ], [ -3, %parse_digits.exit ]
+return:                                           ; preds = %if.else28, %parse_digits.exit, %for.body.i, %for.body.i29, %parse_digits.exit42.thread, %parse_digits.exit42, %while.end, %if.then11
+  %retval.0 = phi i32 [ %conv14, %if.then11 ], [ %conv56, %while.end ], [ -3, %parse_digits.exit42 ], [ -3, %parse_digits.exit42.thread ], [ -3, %for.body.i29 ], [ -3, %for.body.i ], [ -4, %if.else28 ], [ -3, %parse_digits.exit ]
   ret i32 %retval.0
 }
 

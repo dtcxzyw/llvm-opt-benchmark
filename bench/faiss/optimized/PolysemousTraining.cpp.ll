@@ -4416,42 +4416,42 @@ _ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIN5faiss12Ind
   %59 = getelementptr inbounds float, ptr %2, i64 %58
   %60 = load float, ptr %59, align 4
   %61 = fcmp olt float %57, %60
-  br i1 %61, label %62, label %68
+  br i1 %61, label %62, label %69
 
 62:                                               ; preds = %.lr.ph.i18
   %63 = getelementptr inbounds i8, ptr %.pn19.i20, i64 8
   %64 = ptrtoint ptr %.020.i19 to i64
   %65 = sub i64 %64, %5
   %66 = ashr exact i64 %65, 2
-  %.pre.i.i.i.i.i.i29 = sub nsw i64 0, %66
-  %67 = getelementptr inbounds i32, ptr %63, i64 %.pre.i.i.i.i.i.i29
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %67, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %65, i1 false)
+  %67 = sub nsw i64 0, %66
+  %68 = getelementptr inbounds i32, ptr %63, i64 %67
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %68, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %65, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIN5faiss12IndirectSortEEEEvT_T0_.exit.i21
 
-68:                                               ; preds = %.lr.ph.i18
-  %69 = load i32, ptr %.pn19.i20, align 4
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds float, ptr %2, i64 %70
-  %72 = load float, ptr %71, align 4
-  %73 = fcmp olt float %57, %72
-  br i1 %73, label %.lr.ph.i.i25, label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIN5faiss12IndirectSortEEEEvT_T0_.exit.i21
+69:                                               ; preds = %.lr.ph.i18
+  %70 = load i32, ptr %.pn19.i20, align 4
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds float, ptr %2, i64 %71
+  %73 = load float, ptr %72, align 4
+  %74 = fcmp olt float %57, %73
+  br i1 %74, label %.lr.ph.i.i25, label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIN5faiss12IndirectSortEEEEvT_T0_.exit.i21
 
-.lr.ph.i.i25:                                     ; preds = %68, %.lr.ph.i.i25
-  %74 = phi i32 [ %75, %.lr.ph.i.i25 ], [ %69, %68 ]
-  %.013.i.i26 = phi ptr [ %.0.i.i28, %.lr.ph.i.i25 ], [ %.pn19.i20, %68 ]
-  %.0912.i.i27 = phi ptr [ %.013.i.i26, %.lr.ph.i.i25 ], [ %.020.i19, %68 ]
-  store i32 %74, ptr %.0912.i.i27, align 4
+.lr.ph.i.i25:                                     ; preds = %69, %.lr.ph.i.i25
+  %75 = phi i32 [ %76, %.lr.ph.i.i25 ], [ %70, %69 ]
+  %.013.i.i26 = phi ptr [ %.0.i.i28, %.lr.ph.i.i25 ], [ %.pn19.i20, %69 ]
+  %.0912.i.i27 = phi ptr [ %.013.i.i26, %.lr.ph.i.i25 ], [ %.020.i19, %69 ]
+  store i32 %75, ptr %.0912.i.i27, align 4
   %.0.i.i28 = getelementptr inbounds i8, ptr %.013.i.i26, i64 -4
-  %75 = load i32, ptr %.0.i.i28, align 4
-  %76 = load float, ptr %56, align 4
-  %77 = sext i32 %75 to i64
-  %78 = getelementptr inbounds float, ptr %2, i64 %77
-  %79 = load float, ptr %78, align 4
-  %80 = fcmp olt float %76, %79
-  br i1 %80, label %.lr.ph.i.i25, label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIN5faiss12IndirectSortEEEEvT_T0_.exit.i21, !llvm.loop !53
+  %76 = load i32, ptr %.0.i.i28, align 4
+  %77 = load float, ptr %56, align 4
+  %78 = sext i32 %76 to i64
+  %79 = getelementptr inbounds float, ptr %2, i64 %78
+  %80 = load float, ptr %79, align 4
+  %81 = fcmp olt float %77, %80
+  br i1 %81, label %.lr.ph.i.i25, label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIN5faiss12IndirectSortEEEEvT_T0_.exit.i21, !llvm.loop !53
 
-_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIN5faiss12IndirectSortEEEEvT_T0_.exit.i21: ; preds = %.lr.ph.i.i25, %68, %62
-  %.sink.i22 = phi ptr [ %0, %62 ], [ %.020.i19, %68 ], [ %.013.i.i26, %.lr.ph.i.i25 ]
+_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIN5faiss12IndirectSortEEEEvT_T0_.exit.i21: ; preds = %.lr.ph.i.i25, %69, %62
+  %.sink.i22 = phi ptr [ %0, %62 ], [ %.020.i19, %69 ], [ %.013.i.i26, %.lr.ph.i.i25 ]
   store i32 %53, ptr %.sink.i22, align 4
   %.0.i23 = getelementptr inbounds i8, ptr %.020.i19, i64 4
   %.not.i24 = icmp eq ptr %.0.i23, %1

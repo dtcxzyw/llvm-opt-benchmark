@@ -12251,8 +12251,8 @@ if.then7.i:                                       ; preds = %_ZN9__gnu_cxx5__ops
 
 if.then10.i:                                      ; preds = %if.then7.i
   %incdec.ptr11.i = getelementptr inbounds i8, ptr %__last2.addr.0.i, i64 24
-  %tobool.not.i.i.i.i.i24.i = icmp eq ptr %incdec.ptr11.i, %__buffer
-  br i1 %tobool.not.i.i.i.i.i24.i, label %if.end50, label %return.sink.split.i
+  %tobool.not.i.i.i.i.i20.i = icmp eq ptr %incdec.ptr11.i, %__buffer
+  br i1 %tobool.not.i.i.i.i.i20.i, label %if.end50, label %return.sink.split.i
 
 if.else15.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S8_ESA_EEbT_T0_.exit.i70
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %incdec.ptr8.i, ptr noundef nonnull align 8 dereferenceable(24) %__last2.addr.0.i, i64 24, i1 false)
@@ -12266,12 +12266,12 @@ if.end19.i:                                       ; preds = %if.else15.i
 return.sink.split.i:                              ; preds = %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit51.thread, %if.then10.i
   %incdec.ptr11.sink.i = phi ptr [ %incdec.ptr11.i, %if.then10.i ], [ %add.ptr.i.i.i.i.i50177, %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit51.thread ]
   %incdec.ptr8.lcssa.sink.i = phi ptr [ %incdec.ptr8.i, %if.then10.i ], [ %__last, %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit51.thread ]
-  %sub.ptr.lhs.cast.i.i.i.i.i20.i = ptrtoint ptr %incdec.ptr11.sink.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i21.i = ptrtoint ptr %__buffer to i64
-  %sub.ptr.sub.i.i.i.i.i22.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i20.i, %sub.ptr.rhs.cast.i.i.i.i.i21.i
-  %sub.ptr.div.neg.i.i.i.i.i23.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i22.i, -24
-  %add.ptr.i.i.i.i.i26.i = getelementptr inbounds %struct.triple, ptr %incdec.ptr8.lcssa.sink.i, i64 %sub.ptr.div.neg.i.i.i.i.i23.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i26.i, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i22.i, i1 false)
+  %sub.ptr.lhs.cast.i.i.i.i.i22.i = ptrtoint ptr %incdec.ptr11.sink.i to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i23.i = ptrtoint ptr %__buffer to i64
+  %sub.ptr.sub.i.i.i.i.i24.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i22.i, %sub.ptr.rhs.cast.i.i.i.i.i23.i
+  %sub.ptr.div.neg.i.i.i.i.i25.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i24.i, -24
+  %add.ptr.i.i.i.i.i26.i = getelementptr inbounds %struct.triple, ptr %incdec.ptr8.lcssa.sink.i, i64 %sub.ptr.div.neg.i.i.i.i.i25.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i26.i, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i24.i, i1 false)
   br label %if.end50
 
 if.else12:                                        ; preds = %if.else
@@ -12873,18 +12873,18 @@ if.then.i.i.i.i.i:                                ; preds = %if.then2
   br label %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit
 
 _ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit: ; preds = %if.then2, %if.then.i.i.i.i.i
-  %tobool.not.i.i.i.i.i27 = icmp eq ptr %__middle, %__first
-  br i1 %tobool.not.i.i.i.i.i27, label %_ZSt13move_backwardIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit, label %if.then.i.i.i.i.i28
+  %tobool.not.i.i.i.i.i24 = icmp eq ptr %__middle, %__first
+  br i1 %tobool.not.i.i.i.i.i24, label %_ZSt13move_backwardIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit, label %if.then.i.i.i.i.i25
 
-if.then.i.i.i.i.i28:                              ; preds = %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit
-  %sub.ptr.rhs.cast.i.i.i.i.i25 = ptrtoint ptr %__first to i64
-  %sub.ptr.sub.i.i.i.i.i26 = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i25
-  %sub.ptr.div.neg.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i26, -24
+if.then.i.i.i.i.i25:                              ; preds = %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit
+  %sub.ptr.rhs.cast.i.i.i.i.i27 = ptrtoint ptr %__first to i64
+  %sub.ptr.sub.i.i.i.i.i28 = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i27
+  %sub.ptr.div.neg.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i28, -24
   %add.ptr.i.i.i.i.i29 = getelementptr inbounds %struct.triple, ptr %__last, i64 %sub.ptr.div.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i29, ptr align 8 %__first, i64 %sub.ptr.sub.i.i.i.i.i26, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i29, ptr align 8 %__first, i64 %sub.ptr.sub.i.i.i.i.i28, i1 false)
   br label %_ZSt13move_backwardIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit
 
-_ZSt13move_backwardIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit: ; preds = %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit, %if.then.i.i.i.i.i28
+_ZSt13move_backwardIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit: ; preds = %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit, %if.then.i.i.i.i.i25
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit36, label %if.then.i.i.i.i.i34
 
 if.then.i.i.i.i.i34:                              ; preds = %_ZSt13move_backwardIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit
@@ -12925,16 +12925,17 @@ if.then.i.i.i.i.i48:                              ; preds = %_ZSt4moveIP6tripleI
   br label %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit50
 
 _ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit50: ; preds = %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit43, %if.then.i.i.i.i.i48
-  %sub.ptr.div.neg.i.i.i.i.i54 = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i39, -24
-  br i1 %tobool.not.i.i.i.i.i40, label %_ZSt13move_backwardIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit59, label %if.then.i.i.i.i.i56
+  br i1 %tobool.not.i.i.i.i.i40, label %_ZSt13move_backwardIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit60, label %if.then.i.i.i.i.i52
 
-if.then.i.i.i.i.i56:                              ; preds = %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit50
-  %add.ptr.i.i.i.i.i57 = getelementptr inbounds %struct.triple, ptr %__last, i64 %sub.ptr.div.neg.i.i.i.i.i54
+if.then.i.i.i.i.i52:                              ; preds = %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit50
+  %sub.ptr.div.neg.i.i.i.i.i56 = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i39, -24
+  %add.ptr.i.i.i.i.i57 = getelementptr inbounds %struct.triple, ptr %__last, i64 %sub.ptr.div.neg.i.i.i.i.i56
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i57, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i39, i1 false)
-  br label %_ZSt13move_backwardIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit59
+  br label %_ZSt13move_backwardIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit60
 
-_ZSt13move_backwardIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit59: ; preds = %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit50, %if.then.i.i.i.i.i56
-  %add.ptr2.i.i.i.i.i58 = getelementptr inbounds %struct.triple, ptr %__last, i64 %sub.ptr.div.neg.i.i.i.i.i54
+_ZSt13move_backwardIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit60: ; preds = %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit50, %if.then.i.i.i.i.i52
+  %idx.neg1.pre-phi.i.i.i.i.i58 = phi i64 [ %sub.ptr.div.neg.i.i.i.i.i56, %if.then.i.i.i.i.i52 ], [ 0, %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit50 ]
+  %add.ptr2.i.i.i.i.i59 = getelementptr inbounds %struct.triple, ptr %__last, i64 %idx.neg1.pre-phi.i.i.i.i.i58
   br label %return
 
 if.else14:                                        ; preds = %if.else5
@@ -13050,8 +13051,8 @@ for.cond.i.i.backedge:                            ; preds = %for.end41.i.i, %if.
   %__p.0.i.i.be = phi ptr [ %__p.1.lcssa.i.i, %if.end25.i.i ], [ %__p.3.lcssa.i.i, %for.end41.i.i ]
   br label %for.cond.i.i, !llvm.loop !103
 
-return:                                           ; preds = %for.end41.i.i, %for.end.i.i, %for.body.i.i.i, %if.else.i.i, %if.else14, %if.then7, %if.then, %_ZSt13move_backwardIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit59, %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit36
-  %retval.0 = phi ptr [ %add.ptr.i.i.i.i.i35, %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit36 ], [ %add.ptr2.i.i.i.i.i58, %_ZSt13move_backwardIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit59 ], [ %__first, %if.then ], [ %__last, %if.then7 ], [ %__last, %if.else14 ], [ %__first, %if.else.i.i ], [ %__middle, %for.body.i.i.i ], [ %add.ptr.i.i, %for.end.i.i ], [ %add.ptr.i.i, %for.end41.i.i ]
+return:                                           ; preds = %for.end41.i.i, %for.end.i.i, %for.body.i.i.i, %if.else.i.i, %if.else14, %if.then7, %if.then, %_ZSt13move_backwardIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit60, %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit36
+  %retval.0 = phi ptr [ %add.ptr.i.i.i.i.i35, %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit36 ], [ %add.ptr2.i.i.i.i.i59, %_ZSt13move_backwardIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit60 ], [ %__first, %if.then ], [ %__last, %if.then7 ], [ %__last, %if.else14 ], [ %__first, %if.else.i.i ], [ %__middle, %for.body.i.i.i ], [ %add.ptr.i.i, %for.end.i.i ], [ %add.ptr.i.i, %for.end41.i.i ]
   ret ptr %retval.0
 }
 

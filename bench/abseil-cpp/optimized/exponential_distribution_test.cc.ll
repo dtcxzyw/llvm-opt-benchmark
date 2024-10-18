@@ -3576,7 +3576,7 @@ invoke.cont38.loopexit.i:                         ; preds = %while.body.i.i.i
   br label %invoke.cont38.i
 
 invoke.cont38.i:                                  ; preds = %invoke.cont38.loopexit.i, %invoke.cont21.i
-  %sub.ptr.div.i.i.i.pre-phi.i = phi i64 [ %.pre207.i, %invoke.cont38.loopexit.i ], [ %sub.ptr.div.i.i, %invoke.cont21.i ]
+  %sub.ptr.div.i.i.i.pre-phi.i = phi i64 [ %.pre207.i, %invoke.cont38.loopexit.i ], [ 0, %invoke.cont21.i ]
   %add.ptr.i.i = getelementptr inbounds i32, ptr %counts.sroa.0.0.i, i64 %sub.ptr.div.i.i.i.pre-phi.i
   %11 = load i32, ptr %add.ptr.i.i, align 4
   %inc.i = add nsw i32 %11, 1

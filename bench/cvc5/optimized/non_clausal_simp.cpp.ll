@@ -1123,14 +1123,14 @@ if.end189:                                        ; preds = %_ZN4cvc58internal9T
   %_M_finish.i695 = getelementptr inbounds i8, ptr %2, i64 192
   %67 = load ptr, ptr %_M_finish.i695, align 8
   %68 = load ptr, ptr %d_learnedLiterals.i626, align 8
-  %sub.ptr.lhs.cast.i696 = ptrtoint ptr %67 to i64
-  %sub.ptr.rhs.cast.i697 = ptrtoint ptr %68 to i64
-  %sub.ptr.sub.i698 = sub i64 %sub.ptr.lhs.cast.i696, %sub.ptr.rhs.cast.i697
-  %sub.ptr.div.i699 = sdiv exact i64 %sub.ptr.sub.i698, 24
   %cmp1943616.not = icmp eq ptr %67, %68
   br i1 %cmp1943616.not, label %if.else.i, label %for.body195.lr.ph
 
 for.body195.lr.ph:                                ; preds = %if.end189
+  %sub.ptr.lhs.cast.i696 = ptrtoint ptr %67 to i64
+  %sub.ptr.rhs.cast.i697 = ptrtoint ptr %68 to i64
+  %sub.ptr.sub.i698 = sub i64 %sub.ptr.lhs.cast.i696, %sub.ptr.rhs.cast.i697
+  %sub.ptr.div.i699 = sdiv exact i64 %sub.ptr.sub.i698, 24
   %d_llpg309 = getelementptr inbounds i8, ptr %this, i64 72
   %d_proven.i1126 = getelementptr inbounds i8, ptr %agg.tmp322, i64 8
   %d_proven3.i1127 = getelementptr inbounds i8, ptr %tlearnedLiteral, i64 8
@@ -2836,7 +2836,7 @@ if.else.i:                                        ; preds = %if.end189, %cond.tr
   %j.0.lcssa3662 = phi i64 [ %j.1, %cond.true521 ], [ 0, %if.end189 ]
   %259 = phi ptr [ %.pre, %cond.true521 ], [ %67, %if.end189 ]
   %260 = phi ptr [ %.pre3651, %cond.true521 ], [ %68, %if.end189 ]
-  %sub.ptr.div.i.i1917.pre-phi3661 = phi i64 [ %.pre3657, %cond.true521 ], [ %sub.ptr.div.i699, %if.end189 ]
+  %sub.ptr.div.i.i1917.pre-phi3661 = phi i64 [ %.pre3657, %cond.true521 ], [ 0, %if.end189 ]
   %cmp4.i1919 = icmp ult i64 %j.0.lcssa3662, %sub.ptr.div.i.i1917.pre-phi3661
   br i1 %cmp4.i1919, label %if.then5.i1920, label %invoke.cont535
 

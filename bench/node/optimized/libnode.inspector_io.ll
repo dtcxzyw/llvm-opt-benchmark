@@ -964,16 +964,16 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then14.i.i.i.i.i
   br label %_ZNSt5dequeIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE17_M_reallocate_mapEmb.exit.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt5dequeIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE17_M_reallocate_mapEmb.exit.i.i.i.i, label %if.then.i.i.i.i.i22.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt5dequeIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE17_M_reallocate_mapEmb.exit.i.i.i.i, label %if.then.i.i.i.i.i19.i.i.i.i.i
 
-if.then.i.i.i.i.i22.i.i.i.i.i:                    ; preds = %if.else.i.i.i.i.i
-  %sub.ptr.lhs.cast.i.i.i.i.i18.i.i.i.i.i = ptrtoint ptr %add.ptr21.i.i.i.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i20.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i18.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %sub.ptr.div.i.i.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i20.i.i.i.i.i, 3
-  %.pre.i.i.i.i.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i.i.i.i
+if.then.i.i.i.i.i19.i.i.i.i.i:                    ; preds = %if.else.i.i.i.i.i
   %add.ptr29.i.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i, i64 %add.i.i4.i.i.i
-  %add.ptr.i.i.i.i.i23.i.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr29.i.i.i.i.i, i64 %.pre.i.i.i.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i23.i.i.i.i.i, ptr align 8 %6, i64 %sub.ptr.sub.i.i.i.i.i20.i.i.i.i.i, i1 false)
+  %sub.ptr.lhs.cast.i.i.i.i.i20.i.i.i.i.i = ptrtoint ptr %add.ptr21.i.i.i.i.i to i64
+  %sub.ptr.sub.i.i.i.i.i22.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i20.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
+  %sub.ptr.div.i.i.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i22.i.i.i.i.i, 3
+  %idx.neg.i.i.i.i.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i23.i.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr29.i.i.i.i.i, i64 %idx.neg.i.i.i.i.i.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i23.i.i.i.i.i, ptr align 8 %6, i64 %sub.ptr.sub.i.i.i.i.i22.i.i.i.i.i, i1 false)
   br label %_ZNSt5dequeIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE17_M_reallocate_mapEmb.exit.i.i.i.i
 
 if.else31.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
@@ -1017,8 +1017,8 @@ _ZSt4copyIPPN4node9inspector12_GLOBAL__N_115RequestToServerES5_ET0_T_S7_S6_.exit
   store i64 %add38.i.i.i.i.i, ptr %_M_map_size.i.i.i.i, align 8
   br label %_ZNSt5dequeIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE17_M_reallocate_mapEmb.exit.i.i.i.i
 
-_ZNSt5dequeIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE17_M_reallocate_mapEmb.exit.i.i.i.i: ; preds = %_ZSt4copyIPPN4node9inspector12_GLOBAL__N_115RequestToServerES5_ET0_T_S7_S6_.exit30.i.i.i.i.i, %if.then.i.i.i.i.i22.i.i.i.i.i, %if.else.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i, %if.then14.i.i.i.i.i
-  %__new_nstart.0.i.i.i.i.i = phi ptr [ %add.ptr42.i.i.i.i.i, %_ZSt4copyIPPN4node9inspector12_GLOBAL__N_115RequestToServerES5_ET0_T_S7_S6_.exit30.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.then14.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i22.i.i.i.i.i ]
+_ZNSt5dequeIN4node9inspector12_GLOBAL__N_115RequestToServerESaIS3_EE17_M_reallocate_mapEmb.exit.i.i.i.i: ; preds = %_ZSt4copyIPPN4node9inspector12_GLOBAL__N_115RequestToServerES5_ET0_T_S7_S6_.exit30.i.i.i.i.i, %if.then.i.i.i.i.i19.i.i.i.i.i, %if.else.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i, %if.then14.i.i.i.i.i
+  %__new_nstart.0.i.i.i.i.i = phi ptr [ %add.ptr42.i.i.i.i.i, %_ZSt4copyIPPN4node9inspector12_GLOBAL__N_115RequestToServerES5_ET0_T_S7_S6_.exit30.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.then14.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i19.i.i.i.i.i ]
   store ptr %__new_nstart.0.i.i.i.i.i, ptr %_M_node1.i.i.i.i.i, align 8
   %11 = load ptr, ptr %__new_nstart.0.i.i.i.i.i, align 8
   %_M_first.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 176

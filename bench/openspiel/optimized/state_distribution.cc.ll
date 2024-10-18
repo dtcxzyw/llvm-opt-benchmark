@@ -5890,7 +5890,7 @@ _ZNSt16allocator_traitsISaIN10open_spiel5State12PlayerActionEEE8allocateERS3_m.e
   br label %.noexc221
 
 .noexc221:                                        ; preds = %_ZNSt16allocator_traitsISaIN10open_spiel5State12PlayerActionEEE8allocateERS3_m.exit.i.i.i.i..noexc221_crit_edge, %764
-  %.pre-phi613 = phi i64 [ %.pre612, %_ZNSt16allocator_traitsISaIN10open_spiel5State12PlayerActionEEE8allocateERS3_m.exit.i.i.i.i..noexc221_crit_edge ], [ %772, %764 ]
+  %.pre-phi613 = phi i64 [ %.pre612, %_ZNSt16allocator_traitsISaIN10open_spiel5State12PlayerActionEEE8allocateERS3_m.exit.i.i.i.i..noexc221_crit_edge ], [ 0, %764 ]
   %777 = phi ptr [ %.pre606, %_ZNSt16allocator_traitsISaIN10open_spiel5State12PlayerActionEEE8allocateERS3_m.exit.i.i.i.i..noexc221_crit_edge ], [ %768, %764 ]
   %778 = phi ptr [ %.pre605, %_ZNSt16allocator_traitsISaIN10open_spiel5State12PlayerActionEEE8allocateERS3_m.exit.i.i.i.i..noexc221_crit_edge ], [ %769, %764 ]
   %779 = phi ptr [ %776, %_ZNSt16allocator_traitsISaIN10open_spiel5State12PlayerActionEEE8allocateERS3_m.exit.i.i.i.i..noexc221_crit_edge ], [ null, %764 ]

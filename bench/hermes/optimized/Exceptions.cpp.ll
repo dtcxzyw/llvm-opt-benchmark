@@ -3088,8 +3088,8 @@ if.then2.i54:                                     ; preds = %_ZNK9__gnu_cxx5__op
   %sub.ptr.lhs.cast.i.i.i.i.i.i56 = ptrtoint ptr %__i.016.i27 to i64
   %sub.ptr.sub.i.i.i.i.i.i57 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i56, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i.i58 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i57, 4
-  %.pre.i.i.i.i.i.i59 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i58
-  %add.ptr.i.i.i.i.i.i60 = getelementptr inbounds %"struct.hermes::ExceptionHandlerInfo", ptr %add.ptr3.i55, i64 %.pre.i.i.i.i.i.i59
+  %idx.neg.i.i.i.i.i.i59 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i58
+  %add.ptr.i.i.i.i.i.i60 = getelementptr inbounds %"struct.hermes::ExceptionHandlerInfo", ptr %add.ptr3.i55, i64 %idx.neg.i.i.i.i.i.i59
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i60, ptr noundef nonnull align 4 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i57, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__first, ptr noundef nonnull align 4 dereferenceable(16) %__val.i22, i64 16, i1 false)
   br label %for.inc.i46

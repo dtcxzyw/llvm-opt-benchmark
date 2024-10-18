@@ -1966,7 +1966,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S
   %sub671 = phi double [ %sub, %for.cond.cleanup ], [ 0x7FF8000000000000, %invoke.cont240 ], [ %sub, %for.body.i ]
   %div670 = phi double [ %div, %for.cond.cleanup ], [ 0x7FF8000000000000, %invoke.cont240 ], [ %div, %for.body.i ]
   %conv669 = phi double [ %conv, %for.cond.cleanup ], [ 0.000000e+00, %invoke.cont240 ], [ %conv, %for.body.i ]
-  %sub.ptr.div.i668 = phi i64 [ %sub.ptr.div.i, %for.cond.cleanup ], [ 0, %invoke.cont240 ], [ %sub.ptr.div.i, %for.body.i ]
+  %sub.ptr.div.i668 = phi i64 [ 0, %for.cond.cleanup ], [ 0, %invoke.cont240 ], [ %sub.ptr.div.i, %for.body.i ]
   %sub.ptr.rhs.cast.i667 = phi i64 [ %sub.ptr.rhs.cast.i, %for.cond.cleanup ], [ 0, %invoke.cont240 ], [ %sub.ptr.rhs.cast.i, %for.body.i ]
   %fixingTimes.sroa.0.0.lcssa662 = phi ptr [ %fixingTimes.sroa.0.1, %for.cond.cleanup ], [ null, %invoke.cont240 ], [ %fixingTimes.sroa.0.1, %for.body.i ]
   %fixingTimes.sroa.16.0.lcssa657 = phi ptr [ %fixingTimes.sroa.16.1, %for.cond.cleanup ], [ null, %invoke.cont240 ], [ %fixingTimes.sroa.16.1, %for.body.i ]

@@ -8813,10 +8813,6 @@ entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %mask, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %mask, align 8
-  %sub.ptr.lhs.cast.i94 = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i95 = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i96 = sub i64 %sub.ptr.lhs.cast.i94, %sub.ptr.rhs.cast.i95
-  %sub.ptr.div.i97 = ashr exact i64 %sub.ptr.sub.i96, 5
   %cmp98.not = icmp eq ptr %0, %1
   br i1 %cmp98.not, label %for.end, label %for.body.lr.ph
 
@@ -8973,7 +8969,7 @@ for.end:                                          ; preds = %for.inc, %entry
   %end.0.lcssa = phi i64 [ 0, %entry ], [ %end.1, %for.inc ]
   %best_end.0.lcssa = phi i64 [ 0, %entry ], [ %best_end.2, %for.inc ]
   %best_begin.0.lcssa = phi i64 [ 0, %entry ], [ %best_begin.2, %for.inc ]
-  %sub.ptr.div.i.lcssa = phi i64 [ %sub.ptr.div.i97, %entry ], [ %sub.ptr.div.i, %for.inc ]
+  %sub.ptr.div.i.lcssa = phi i64 [ 0, %entry ], [ %sub.ptr.div.i, %for.inc ]
   %sub56 = sub i64 %end.0.lcssa, %begin.0.lcssa
   %cmp58.not = icmp ult i64 %sub56, %best_len.0.lcssa
   %sub60 = sub i64 %sub.ptr.div.i.lcssa, %end.0.lcssa
@@ -9768,7 +9764,7 @@ if.then.i.i.i.i.i35:                              ; preds = %if.else49
   br label %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPmS0_ET0_T_S2_S1_.exit:                 ; preds = %if.else49, %if.then.i.i.i.i.i35
-  %sub.ptr.sub.i40.pre-phi = phi i64 [ %sub.ptr.sub.i22, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
+  %sub.ptr.sub.i40.pre-phi = phi i64 [ 0, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
   %5 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
   %6 = phi ptr [ %4, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
   %7 = phi ptr [ %1, %if.else49 ], [ %.pre, %if.then.i.i.i.i.i35 ]

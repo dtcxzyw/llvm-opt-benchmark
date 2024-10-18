@@ -5611,13 +5611,13 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_118InitializerBuilder5RangeELb1E
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPN12_GLOBAL__N_118InitializerBuilder5RangeES3_ET0_T_S5_S4_.exit.i.i, label %79
 
 79:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_118InitializerBuilder5RangeELb1EE28reserveForParamAndGetAddressERKS3_m.exit.i.i
-  %80 = ptrtoint ptr %77 to i64
-  %81 = ptrtoint ptr %69 to i64
-  %82 = sub i64 %80, %81
-  %.neg.i.i.i.i.i.i.i = sdiv exact i64 %82, -24
-  %83 = getelementptr inbounds %"struct.(anonymous namespace)::InitializerBuilder::Range", ptr %.val.i22.i.i, i64 %78
-  %84 = getelementptr inbounds %"struct.(anonymous namespace)::InitializerBuilder::Range", ptr %83, i64 %.neg.i.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %84, ptr nonnull align 8 %69, i64 %82, i1 false)
+  %80 = getelementptr inbounds %"struct.(anonymous namespace)::InitializerBuilder::Range", ptr %.val.i22.i.i, i64 %78
+  %81 = ptrtoint ptr %77 to i64
+  %82 = ptrtoint ptr %69 to i64
+  %83 = sub i64 %81, %82
+  %.neg.i.i.i.i.i.i.i = sdiv exact i64 %83, -24
+  %84 = getelementptr inbounds %"struct.(anonymous namespace)::InitializerBuilder::Range", ptr %80, i64 %.neg.i.i.i.i.i.i.i
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %84, ptr nonnull align 8 %69, i64 %83, i1 false)
   br label %_ZSt13move_backwardIPN12_GLOBAL__N_118InitializerBuilder5RangeES3_ET0_T_S5_S4_.exit.i.i
 
 _ZSt13move_backwardIPN12_GLOBAL__N_118InitializerBuilder5RangeES3_ET0_T_S5_S4_.exit.i.i: ; preds = %79, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_118InitializerBuilder5RangeELb1EE28reserveForParamAndGetAddressERKS3_m.exit.i.i

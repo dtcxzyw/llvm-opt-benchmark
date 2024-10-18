@@ -10067,8 +10067,8 @@ if.then2.i38:                                     ; preds = %for.body.i22
   %sub.ptr.lhs.cast.i.i.i.i.i.i41 = ptrtoint ptr %__i.016.i23 to i64
   %sub.ptr.sub.i.i.i.i.i.i42 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i41, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i.i43 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i42, 3
-  %.pre.i.i.i.i.i.i44 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i43
-  %add.ptr.i.i.i.i.i.i45 = getelementptr inbounds %class.symbol, ptr %add.ptr3.i40, i64 %.pre.i.i.i.i.i.i44
+  %idx.neg.i.i.i.i.i.i44 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i43
+  %add.ptr.i.i.i.i.i.i45 = getelementptr inbounds %class.symbol, ptr %add.ptr3.i40, i64 %idx.neg.i.i.i.i.i.i44
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i45, ptr noundef nonnull align 8 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i42, i1 false)
   store ptr %__val.sroa.0.0.copyload.i39, ptr %__first, align 8
   br label %for.inc.i30

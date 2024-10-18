@@ -3266,12 +3266,8 @@ call.i.noexc:                                     ; preds = %for.body.i.i.i.preh
 _ZN8QuantLib5ArrayC2Emd.exit:                     ; preds = %call.i.noexc, %invoke.cont91
   %jitter.sroa.0.0 = phi ptr [ null, %invoke.cont91 ], [ %call.i501, %call.i.noexc ]
   %113 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !53
-  %sub.ptr.lhs.cast.i5032239 = ptrtoint ptr %113 to i64
-  %sub.ptr.rhs.cast.i5042240 = ptrtoint ptr %108 to i64
-  %sub.ptr.sub.i5052241 = sub i64 %sub.ptr.lhs.cast.i5032239, %sub.ptr.rhs.cast.i5042240
-  %sub.ptr.div.i5062242 = sdiv exact i64 %sub.ptr.sub.i5052241, 24
   %cmp1012243.not = icmp eq ptr %113, %108
-  br i1 %cmp1012243.not, label %for.cond.cleanup102, label %for.body103.lr.ph
+  br i1 %cmp1012243.not, label %_ZNSt6vectorIN8QuantLib21DifferentialEvolution9CandidateESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i, label %for.body103.lr.ph
 
 for.body103.lr.ph:                                ; preds = %_ZN8QuantLib5ArrayC2Emd.exit
   %add.ptr.i530 = getelementptr inbounds nuw double, ptr %jitter.sroa.0.0, i64 %109
@@ -3285,13 +3281,8 @@ for.body103.lr.ph:                                ; preds = %_ZN8QuantLib5ArrayC
   %n_3.i.i570 = getelementptr inbounds nuw i8, ptr %ref.tmp124, i64 8
   br label %for.body103
 
-for.cond.cleanup102:                              ; preds = %_ZN8QuantLib5ArrayD2Ev.exit585, %_ZN8QuantLib5ArrayC2Emd.exit
-  %.lcssa2193 = phi ptr [ %113, %_ZN8QuantLib5ArrayC2Emd.exit ], [ %138, %_ZN8QuantLib5ArrayD2Ev.exit585 ]
-  %.lcssa = phi ptr [ %108, %_ZN8QuantLib5ArrayC2Emd.exit ], [ %139, %_ZN8QuantLib5ArrayD2Ev.exit585 ]
-  %sub.ptr.sub.i505.lcssa = phi i64 [ 0, %_ZN8QuantLib5ArrayC2Emd.exit ], [ %sub.ptr.sub.i505, %_ZN8QuantLib5ArrayD2Ev.exit585 ]
-  %sub.ptr.div.i506.lcssa = phi i64 [ %sub.ptr.div.i5062242, %_ZN8QuantLib5ArrayC2Emd.exit ], [ %sub.ptr.div.i506, %_ZN8QuantLib5ArrayD2Ev.exit585 ]
-  %bestMemberEver_165 = getelementptr inbounds nuw i8, ptr %this, i64 176
-  %cmp.i.i512 = icmp ugt i64 %sub.ptr.div.i506.lcssa, 384307168202282325
+for.cond.cleanup102:                              ; preds = %_ZN8QuantLib5ArrayD2Ev.exit585
+  %cmp.i.i512 = icmp ugt i64 %sub.ptr.div.i506, 384307168202282325
   br i1 %cmp.i.i512, label %if.then.i.i525, label %_ZNSt6vectorIN8QuantLib21DifferentialEvolution9CandidateESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
 
 if.then.i.i525:                                   ; preds = %for.cond.cleanup102
@@ -3301,17 +3292,22 @@ if.then.i.i525:                                   ; preds = %for.cond.cleanup102
 .noexc526:                                        ; preds = %if.then.i.i525
   unreachable
 
-_ZNSt6vectorIN8QuantLib21DifferentialEvolution9CandidateESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds = %for.cond.cleanup102
-  %cmp.not.i.i.i.i513 = icmp eq ptr %.lcssa2193, %.lcssa
+_ZNSt6vectorIN8QuantLib21DifferentialEvolution9CandidateESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds = %_ZN8QuantLib5ArrayC2Emd.exit, %for.cond.cleanup102
+  %sub.ptr.div.i506.lcssa2354 = phi i64 [ %sub.ptr.div.i506, %for.cond.cleanup102 ], [ 0, %_ZN8QuantLib5ArrayC2Emd.exit ]
+  %sub.ptr.sub.i505.lcssa2353 = phi i64 [ %sub.ptr.sub.i505, %for.cond.cleanup102 ], [ 0, %_ZN8QuantLib5ArrayC2Emd.exit ]
+  %.lcssa2352 = phi ptr [ %139, %for.cond.cleanup102 ], [ %108, %_ZN8QuantLib5ArrayC2Emd.exit ]
+  %.lcssa21932351 = phi ptr [ %138, %for.cond.cleanup102 ], [ %113, %_ZN8QuantLib5ArrayC2Emd.exit ]
+  %bestMemberEver_1652355 = getelementptr inbounds nuw i8, ptr %this, i64 176
+  %cmp.not.i.i.i.i513 = icmp eq ptr %.lcssa21932351, %.lcssa2352
   br i1 %cmp.not.i.i.i.i513, label %_ZNSt12_Vector_baseIN8QuantLib21DifferentialEvolution9CandidateESaIS2_EEC2EmRKS3_.exit.i, label %_ZNSt16allocator_traitsISaIN8QuantLib21DifferentialEvolution9CandidateEEE8allocateERS3_m.exit.i.i.i.i514
 
 _ZNSt16allocator_traitsISaIN8QuantLib21DifferentialEvolution9CandidateEEE8allocateERS3_m.exit.i.i.i.i514: ; preds = %_ZNSt6vectorIN8QuantLib21DifferentialEvolution9CandidateESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
-  %call5.i.i.i.i2.i.i527 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i505.lcssa) #25
+  %call5.i.i.i.i2.i.i527 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i505.lcssa2353) #25
           to label %_ZNSt12_Vector_baseIN8QuantLib21DifferentialEvolution9CandidateESaIS2_EEC2EmRKS3_.exit.i unwind label %lpad167
 
 _ZNSt12_Vector_baseIN8QuantLib21DifferentialEvolution9CandidateESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_ZNSt16allocator_traitsISaIN8QuantLib21DifferentialEvolution9CandidateEEE8allocateERS3_m.exit.i.i.i.i514, %_ZNSt6vectorIN8QuantLib21DifferentialEvolution9CandidateESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
   %cond.i.i.i.i515 = phi ptr [ null, %_ZNSt6vectorIN8QuantLib21DifferentialEvolution9CandidateESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %call5.i.i.i.i2.i.i527, %_ZNSt16allocator_traitsISaIN8QuantLib21DifferentialEvolution9CandidateEEE8allocateERS3_m.exit.i.i.i.i514 ]
-  %call.i.i.i.i3.i = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPN8QuantLib21DifferentialEvolution9CandidateEmS2_ET_S4_T0_RKT1_(ptr noundef %cond.i.i.i.i515, i64 noundef %sub.ptr.div.i506.lcssa, ptr noundef nonnull align 8 dereferenceable(24) %bestMemberEver_165)
+  %call.i.i.i.i3.i = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPN8QuantLib21DifferentialEvolution9CandidateEmS2_ET_S4_T0_RKT1_(ptr noundef %cond.i.i.i.i515, i64 noundef %sub.ptr.div.i506.lcssa2354, ptr noundef nonnull align 8 dereferenceable(24) %bestMemberEver_1652355)
           to label %invoke.cont168 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %_ZNSt12_Vector_baseIN8QuantLib21DifferentialEvolution9CandidateESaIS2_EEC2EmRKS3_.exit.i
@@ -3321,7 +3317,7 @@ lpad.i:                                           ; preds = %_ZNSt12_Vector_base
   br i1 %tobool.not.i.i.i519, label %ehcleanup173, label %if.then.i.i.i520
 
 if.then.i.i.i520:                                 ; preds = %lpad.i
-  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i515, i64 noundef %sub.ptr.sub.i505.lcssa) #23
+  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i515, i64 noundef %sub.ptr.sub.i505.lcssa2353) #23
   br label %ehcleanup173
 
 lpad79:                                           ; preds = %_ZNSt16allocator_traitsISaIN8QuantLib21DifferentialEvolution9CandidateEEE8allocateERS3_m.exit.i.i.i.i434, %if.then3.i.i.i.i.i.i448
@@ -3575,7 +3571,7 @@ ehcleanup156:                                     ; preds = %_ZNKSt14default_del
   br label %ehcleanup173
 
 invoke.cont168:                                   ; preds = %_ZNSt12_Vector_baseIN8QuantLib21DifferentialEvolution9CandidateESaIS2_EEC2EmRKS3_.exit.i
-  %add.ptr.i.i.i517 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %cond.i.i.i.i515, i64 %sub.ptr.div.i506.lcssa
+  %add.ptr.i.i.i517 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %cond.i.i.i.i515, i64 %sub.ptr.div.i506.lcssa2354
   %147 = load ptr, ptr %mirrorPopulation, align 8, !tbaa !44
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %mirrorPopulation, i64 8
   %148 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !53

@@ -628,7 +628,7 @@ _ZNSt12_Vector_baseIN3gmx9HashedMapIiE9hashEntryESaIS3_EE13_M_deallocateEPS3_m.e
   br label %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i
 
 _ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i: ; preds = %_ZNSt12_Vector_baseIN3gmx9HashedMapIiE9hashEntryESaIS3_EE13_M_deallocateEPS3_m.exit41.i, %.lr.ph.i.i.i.i.preheader, %140, %139, %.critedge.i.i
-  %.1.lcssa36.i.i = phi i64 [ -1, %140 ], [ -1, %139 ], [ %.1.lcssa.i.i, %.critedge.i.i ], [ %106, %.lr.ph.i.i.i.i.preheader ], [ %106, %_ZNSt12_Vector_baseIN3gmx9HashedMapIiE9hashEntryESaIS3_EE13_M_deallocateEPS3_m.exit41.i ]
+  %.1.lcssa36.i.i = phi i64 [ -1, %140 ], [ 0, %139 ], [ %.1.lcssa.i.i, %.critedge.i.i ], [ %106, %.lr.ph.i.i.i.i.preheader ], [ %106, %_ZNSt12_Vector_baseIN3gmx9HashedMapIiE9hashEntryESaIS3_EE13_M_deallocateEPS3_m.exit41.i ]
   %141 = phi ptr [ %91, %140 ], [ %91, %139 ], [ %91, %.critedge.i.i ], [ %.pre.i.i.pre, %.lr.ph.i.i.i.i.preheader ], [ %131, %_ZNSt12_Vector_baseIN3gmx9HashedMapIiE9hashEntryESaIS3_EE13_M_deallocateEPS3_m.exit41.i ]
   %142 = trunc i64 %.1.lcssa36.i.i to i32
   %143 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %141, i64 %95, i32 2

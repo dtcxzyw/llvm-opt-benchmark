@@ -2624,7 +2624,7 @@ define noundef zeroext i1 @_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb(ptr nocaptur
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 3
   %.not98 = icmp eq ptr %15, %16
-  br i1 %.not98, label %._crit_edge, label %.lr.ph
+  br i1 %.not98, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %.neg = sext i1 %1 to i64
@@ -2824,7 +2824,7 @@ define noundef zeroext i1 @_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb(ptr nocaptur
   %exitcond.not = icmp eq i64 %77, %umax107
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !38
 
-._crit_edge:                                      ; preds = %76, %26, %2
+._crit_edge:                                      ; preds = %76, %26
   %78 = icmp ult i64 %20, 2
   br i1 %78, label %.loopexit, label %79
 
@@ -2861,8 +2861,8 @@ define noundef zeroext i1 @_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb(ptr nocaptur
   %or.cond.not = select i1 %.not, i1 %exitcond110.not, i1 false
   br i1 %or.cond.not, label %.lr.ph94, label %.loopexit, !llvm.loop !42
 
-.loopexit:                                        ; preds = %.lr.ph.split, %24, %.lr.ph94, %._crit_edge, %82
-  %.035 = phi i1 [ %85, %82 ], [ true, %._crit_edge ], [ %.not, %.lr.ph94 ], [ false, %24 ], [ false, %.lr.ph.split ]
+.loopexit:                                        ; preds = %.lr.ph.split, %24, %.lr.ph94, %2, %._crit_edge, %82
+  %.035 = phi i1 [ %85, %82 ], [ true, %._crit_edge ], [ true, %2 ], [ %.not, %.lr.ph94 ], [ false, %24 ], [ false, %.lr.ph.split ]
   ret i1 %.035
 
 96:                                               ; preds = %74, %75
@@ -2893,7 +2893,7 @@ define noundef zeroext i1 @_ZN6casadi9is_slice2ERKSt6vectorIxSaIxEE(ptr nocaptur
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 3
   %.not98.i = icmp eq ptr %13, %14
-  br i1 %.not98.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not98.i, label %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
   %umax107.i = tail call i64 @llvm.umax.i64(i64 %18, i64 1)
@@ -2905,14 +2905,14 @@ define noundef zeroext i1 @_ZN6casadi9is_slice2ERKSt6vectorIxSaIxEE(ptr nocaptur
   %19 = getelementptr inbounds i64, ptr %14, i64 %.05685.i
   %20 = load i64, ptr %19, align 8
   %.not57.i = icmp sgt i64 %20, %.03686.i
-  br i1 %.not57.i, label %21, label %.preheader103
+  br i1 %.not57.i, label %21, label %.lr.ph.preheader
 
 21:                                               ; preds = %.lr.ph.split.i
   %22 = add nuw i64 %.05685.i, 1
   %exitcond.not.i = icmp eq i64 %22, %umax107.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !38
 
-._crit_edge.i:                                    ; preds = %21, %1
+._crit_edge.i:                                    ; preds = %21
   %23 = icmp ult i64 %18, 2
   br i1 %23, label %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread, label %24
 
@@ -2925,7 +2925,7 @@ define noundef zeroext i1 @_ZN6casadi9is_slice2ERKSt6vectorIxSaIxEE(ptr nocaptur
 
 29:                                               ; preds = %24
   %.not101 = icmp eq i64 %26, %28
-  br i1 %.not101, label %.preheader103, label %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread
+  br i1 %.not101, label %.lr.ph.preheader, label %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread
 
 .lr.ph94.preheader.i:                             ; preds = %24
   %30 = sub nsw i64 %28, %26
@@ -2944,18 +2944,14 @@ define noundef zeroext i1 @_ZN6casadi9is_slice2ERKSt6vectorIxSaIxEE(ptr nocaptur
   %35 = mul nsw i64 %.092.i, %30
   %36 = add nsw i64 %35, %26
   %.not.i = icmp eq i64 %34, %36
-  br i1 %.not.i, label %31, label %.preheader103
+  br i1 %.not.i, label %31, label %.lr.ph.preheader
 
-.preheader103:                                    ; preds = %.lr.ph.split.i, %.lr.ph94.i, %29
-  br i1 %.not98.i, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader103
-  %umax = tail call i64 @llvm.umax.i64(i64 %18, i64 1)
+.lr.ph.preheader:                                 ; preds = %.lr.ph.split.i, %.lr.ph94.i, %29
   br label %.lr.ph
 
 37:                                               ; preds = %.lr.ph
   %38 = add nuw i64 %.073110, 1
-  %exitcond.not = icmp eq i64 %38, %umax
+  %exitcond.not = icmp eq i64 %38, %umax107.i
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
@@ -2966,7 +2962,7 @@ define noundef zeroext i1 @_ZN6casadi9is_slice2ERKSt6vectorIxSaIxEE(ptr nocaptur
   %.not87 = icmp sgt i64 %40, %.072111
   br i1 %.not87, label %37, label %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread
 
-._crit_edge:                                      ; preds = %37, %.preheader103
+._crit_edge:                                      ; preds = %37
   %41 = load i64, ptr %14, align 8
   %42 = getelementptr inbounds i8, ptr %14, i64 8
   %43 = load i64, ptr %42, align 8
@@ -3182,8 +3178,8 @@ define noundef zeroext i1 @_ZN6casadi9is_slice2ERKSt6vectorIxSaIxEE(ptr nocaptur
   %.not102 = icmp eq ptr %.sroa.090.0.lcssa, %13
   br label %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread
 
-_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread: ; preds = %31, %.lr.ph, %96, %.lr.ph119, %._crit_edge.i, %29, %._crit_edge125
-  %.069 = phi i1 [ %.not102, %._crit_edge125 ], [ true, %29 ], [ true, %._crit_edge.i ], [ false, %.lr.ph119 ], [ false, %96 ], [ false, %.lr.ph ], [ true, %31 ]
+_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread: ; preds = %31, %.lr.ph, %96, %.lr.ph119, %1, %._crit_edge.i, %29, %._crit_edge125
+  %.069 = phi i1 [ %.not102, %._crit_edge125 ], [ true, %29 ], [ true, %._crit_edge.i ], [ true, %1 ], [ false, %.lr.ph119 ], [ false, %96 ], [ false, %.lr.ph ], [ true, %31 ]
   ret i1 %.069
 
 102:                                              ; preds = %86, %87
@@ -3352,7 +3348,7 @@ define void @_ZN6casadi9to_slice2ERKSt6vectorIxSaIxEE(ptr dead_on_unwind noalias
   %57 = sub i64 %55, %56
   %58 = ashr exact i64 %57, 3
   %.not98.i = icmp eq ptr %53, %54
-  br i1 %.not98.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not98.i, label %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %51
   %umax107.i = call i64 @llvm.umax.i64(i64 %58, i64 1)
@@ -3371,7 +3367,7 @@ define void @_ZN6casadi9to_slice2ERKSt6vectorIxSaIxEE(ptr dead_on_unwind noalias
   %exitcond.not.i = icmp eq i64 %62, %umax107.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !38
 
-._crit_edge.i:                                    ; preds = %61, %51
+._crit_edge.i:                                    ; preds = %61
   %63 = icmp ult i64 %58, 2
   br i1 %63, label %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread, label %64
 
@@ -3405,7 +3401,7 @@ _ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit:    ; preds = %64
   %.not51 = icmp eq i64 %66, %68
   br i1 %.not51, label %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread49, label %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread
 
-_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread: ; preds = %70, %._crit_edge.i, %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit
+_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread: ; preds = %70, %51, %._crit_edge.i, %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit
   call void @_ZN6casadi8to_sliceERKSt6vectorIxSaIxEEb(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Slice") align 8 %15, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   store i64 0, ptr %14, align 8

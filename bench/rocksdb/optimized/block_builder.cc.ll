@@ -324,10 +324,6 @@ entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %restarts_, align 8
-  %sub.ptr.lhs.cast.i11 = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i12 = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i13 = sub i64 %sub.ptr.lhs.cast.i11, %sub.ptr.rhs.cast.i12
-  %sub.ptr.div.i14 = ashr exact i64 %sub.ptr.sub.i13, 2
   %cmp15.not = icmp eq ptr %0, %1
   br i1 %cmp15.not, label %for.end, label %for.body.lr.ph
 
@@ -352,29 +348,33 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
   %cmp = icmp ult i64 %inc, %sub.ptr.div.i
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !6
+  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !6
 
-for.end:                                          ; preds = %for.body, %entry
-  %sub.ptr.div.i.lcssa = phi i64 [ %sub.ptr.div.i14, %entry ], [ %sub.ptr.div.i, %for.body ]
+for.end.loopexit:                                 ; preds = %for.body
+  %6 = trunc i64 %sub.ptr.div.i to i32
+  br label %for.end
+
+for.end:                                          ; preds = %for.end.loopexit, %entry
+  %sub.ptr.div.i.lcssa = phi i32 [ 0, %entry ], [ %6, %for.end.loopexit ]
   %data_block_hash_index_builder_ = getelementptr inbounds i8, ptr %this, i64 128
   %valid_.i = getelementptr inbounds i8, ptr %this, i64 144
-  %6 = load i8, ptr %valid_.i, align 8
-  %tobool.i = trunc i8 %6 to i1
-  %7 = load double, ptr %data_block_hash_index_builder_, align 8
-  %cmp.i = fcmp ogt double %7, 0.000000e+00
-  %8 = select i1 %tobool.i, i1 %cmp.i, i1 false
-  br i1 %8, label %_ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit, label %if.end
+  %7 = load i8, ptr %valid_.i, align 8
+  %tobool.i = trunc i8 %7 to i1
+  %8 = load double, ptr %data_block_hash_index_builder_, align 8
+  %cmp.i = fcmp ogt double %8, 0.000000e+00
+  %9 = select i1 %tobool.i, i1 %cmp.i, i1 false
+  br i1 %9, label %_ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit, label %if.end
 
 _ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit: ; preds = %for.end
   %estimate_.i = getelementptr inbounds i8, ptr %this, i64 80
-  %9 = load i64, ptr %estimate_.i, align 8
+  %10 = load i64, ptr %estimate_.i, align 8
   %estimated_num_buckets_.i.i = getelementptr inbounds i8, ptr %this, i64 136
-  %10 = load double, ptr %estimated_num_buckets_.i.i, align 8
-  %conv.i.i = fptoui double %10 to i16
-  %11 = or i16 %conv.i.i, 1
-  %conv4.i.i = zext i16 %11 to i64
+  %11 = load double, ptr %estimated_num_buckets_.i.i, align 8
+  %conv.i.i = fptoui double %11 to i16
+  %12 = or i16 %conv.i.i, 1
+  %conv4.i.i = zext i16 %12 to i64
   %add.i.i = add nuw nsw i64 %conv4.i.i, 2
-  %add.i = add i64 %add.i.i, %9
+  %add.i = add i64 %add.i.i, %10
   %cmp8 = icmp ult i64 %add.i, 65537
   br i1 %cmp8, label %if.then, label %if.end
 
@@ -385,8 +385,7 @@ if.then:                                          ; preds = %_ZNK7rocksdb12Block
 
 if.end:                                           ; preds = %if.then, %_ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit, %for.end
   %index_type.0 = phi i8 [ 1, %if.then ], [ 0, %_ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit ], [ 0, %for.end ]
-  %conv = trunc i64 %sub.ptr.div.i.lcssa to i32
-  %call11 = call noundef i32 @_ZN7rocksdb27PackIndexTypeAndNumRestartsENS_22BlockBasedTableOptions18DataBlockIndexTypeEj(i8 noundef signext %index_type.0, i32 noundef %conv)
+  %call11 = call noundef i32 @_ZN7rocksdb27PackIndexTypeAndNumRestartsENS_22BlockBasedTableOptions18DataBlockIndexTypeEj(i8 noundef signext %index_type.0, i32 noundef %sub.ptr.div.i.lcssa)
   %buffer_12 = getelementptr inbounds i8, ptr %this, i64 24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i8)
   store i32 %call11, ptr %value.addr.i8, align 4

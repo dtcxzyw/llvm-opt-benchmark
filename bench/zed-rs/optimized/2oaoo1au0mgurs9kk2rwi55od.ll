@@ -20430,12 +20430,12 @@ define hidden void @"_ZN97_$LT$futures_util..future..join_all..JoinAll$LT$F$GT$$
           to label %common.resume unwind label %55
 
 "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h95056d33c39b4d27E.exit": ; preds = %45, %.critedge.thread
-  %storemerge.i.i.i.i.i.i.i = phi i64 [ 0, %.critedge.thread ], [ %.idx, %45 ]
+  %.idx16 = phi i64 [ 0, %.critedge.thread ], [ %.idx, %45 ]
   store i64 0, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %storemerge.i.i.i.i.i.i.i, ptr %.sroa.3.0..sroa_idx, align 8
+  store i64 %.idx16, ptr %.sroa.3.0..sroa_idx, align 8
   invoke void @"_ZN4core3ptr118drop_in_place$LT$$u5b$futures_util..future..maybe_done..MaybeDone$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$$u5d$$GT$17hcb7aafbd86eb309dE.llvm.1329437807393224980"(ptr noalias noundef nonnull align 8 %10, i64 noundef %12)
           to label %53 unwind label %50, !noalias !6281
 

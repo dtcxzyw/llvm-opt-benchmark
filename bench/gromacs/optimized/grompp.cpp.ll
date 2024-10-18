@@ -3660,7 +3660,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i.i: ; preds = %782, %_ZNSt6
   br label %_ZSt4copyIPfS0_ET0_T_S2_S1_.exit.i.i
 
 _ZSt4copyIPfS0_ET0_T_S2_S1_.exit.i.i:             ; preds = %792, %791
-  %.pre-phi33.i288.i = phi i64 [ %788, %791 ], [ %.pre32.i287.i, %792 ]
+  %.pre-phi33.i288.i = phi i64 [ 0, %791 ], [ %.pre32.i287.i, %792 ]
   %793 = phi ptr [ %766, %791 ], [ %.pre28.i284.i, %792 ]
   %794 = phi ptr [ %786, %791 ], [ %.pre26.i282.i, %792 ]
   %795 = phi ptr [ %767, %791 ], [ %.pre.i281.i, %792 ]
@@ -3766,7 +3766,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i: ; preds = %824, %_ZNSt6
   br label %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i.i
 
 _ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i.i:             ; preds = %834, %833
-  %.pre-phi33.i.i = phi i64 [ %830, %833 ], [ %.pre32.i.i, %834 ]
+  %.pre-phi33.i.i = phi i64 [ 0, %833 ], [ %.pre32.i.i, %834 ]
   %835 = phi ptr [ %808, %833 ], [ %.pre28.i.i, %834 ]
   %836 = phi ptr [ %828, %833 ], [ %.pre26.i.i, %834 ]
   %837 = phi ptr [ %809, %833 ], [ %.pre.i271.i, %834 ]
@@ -13662,7 +13662,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %_ZNSt6vectorIiSa
   br label %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPiS0_ET0_T_S2_S1_.exit:                 ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]
@@ -14926,7 +14926,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i: ; preds = %45, %_ZNSt6vec
   br label %_ZSt4copyIPfS0_ET0_T_S2_S1_.exit.i
 
 _ZSt4copyIPfS0_ET0_T_S2_S1_.exit.i:               ; preds = %55, %54
-  %.pre-phi33.i22 = phi i64 [ %51, %54 ], [ %.pre32.i21, %55 ]
+  %.pre-phi33.i22 = phi i64 [ 0, %54 ], [ %.pre32.i21, %55 ]
   %56 = phi ptr [ %28, %54 ], [ %.pre28.i18, %55 ]
   %57 = phi ptr [ %49, %54 ], [ %.pre26.i16, %55 ]
   %58 = phi ptr [ %29, %54 ], [ %.pre.i15, %55 ]
@@ -15026,7 +15026,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %88, %_ZNSt6vec
   br label %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i
 
 _ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i:               ; preds = %98, %97
-  %.pre-phi33.i = phi i64 [ %94, %97 ], [ %.pre32.i, %98 ]
+  %.pre-phi33.i = phi i64 [ 0, %97 ], [ %.pre32.i, %98 ]
   %99 = phi ptr [ %71, %97 ], [ %.pre28.i, %98 ]
   %100 = phi ptr [ %92, %97 ], [ %.pre26.i, %98 ]
   %101 = phi ptr [ %72, %97 ], [ %.pre.i, %98 ]
@@ -15185,7 +15185,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i: ; preds = %45, %_ZNSt6vec
   br label %_ZSt4copyIPfS0_ET0_T_S2_S1_.exit.i
 
 _ZSt4copyIPfS0_ET0_T_S2_S1_.exit.i:               ; preds = %55, %54
-  %.pre-phi33.i22 = phi i64 [ %51, %54 ], [ %.pre32.i21, %55 ]
+  %.pre-phi33.i22 = phi i64 [ 0, %54 ], [ %.pre32.i21, %55 ]
   %56 = phi ptr [ %28, %54 ], [ %.pre28.i18, %55 ]
   %57 = phi ptr [ %49, %54 ], [ %.pre26.i16, %55 ]
   %58 = phi ptr [ %29, %54 ], [ %.pre.i15, %55 ]
@@ -15285,7 +15285,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %88, %_ZNSt6vec
   br label %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i
 
 _ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i:               ; preds = %98, %97
-  %.pre-phi33.i = phi i64 [ %94, %97 ], [ %.pre32.i, %98 ]
+  %.pre-phi33.i = phi i64 [ 0, %97 ], [ %.pre32.i, %98 ]
   %99 = phi ptr [ %71, %97 ], [ %.pre28.i, %98 ]
   %100 = phi ptr [ %92, %97 ], [ %.pre26.i, %98 ]
   %101 = phi ptr [ %72, %97 ], [ %.pre.i, %98 ]

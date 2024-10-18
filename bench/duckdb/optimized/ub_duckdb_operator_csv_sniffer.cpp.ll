@@ -13933,10 +13933,6 @@ if.then57:                                        ; preds = %if.end55, %if.else
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i, i8 0, i64 16, i1 false)
   %41 = load ptr, ptr %_M_finish.i351, align 8, !tbaa !398
   %42 = load ptr, ptr %best_header_row, align 8, !tbaa !397
-  %sub.ptr.lhs.cast.i3611092 = ptrtoint ptr %41 to i64
-  %sub.ptr.rhs.cast.i3621093 = ptrtoint ptr %42 to i64
-  %sub.ptr.sub.i3631094 = sub i64 %sub.ptr.lhs.cast.i3611092, %sub.ptr.rhs.cast.i3621093
-  %sub.ptr.div.i3641095 = ashr exact i64 %sub.ptr.sub.i3631094, 6
   %cmp671096.not = icmp eq ptr %41, %42
   br i1 %cmp671096.not, label %for.cond.cleanup68, label %for.body69.lr.ph
 
@@ -13977,7 +13973,7 @@ for.body69.lr.ph:                                 ; preds = %if.then57
   br label %for.body69
 
 for.cond.cleanup68:                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit619, %if.then57
-  %sub.ptr.div.i364.lcssa = phi i64 [ %sub.ptr.div.i3641095, %if.then57 ], [ %sub.ptr.div.i364, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit619 ]
+  %sub.ptr.div.i364.lcssa = phi i64 [ 0, %if.then57 ], [ %sub.ptr.div.i364, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit619 ]
   %call163 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_15CSVStateMachineESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %best_candidate)
           to label %invoke.cont162 unwind label %lpad161
 

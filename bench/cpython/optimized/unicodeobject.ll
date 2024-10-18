@@ -42410,7 +42410,7 @@ cond.false20:                                     ; preds = %land.lhs.true15.spl
   br i1 %6, label %return, label %if.end26
 
 if.end26:                                         ; preds = %land.lhs.true15, %cond.false, %cond.false20
-  %sub34 = phi i64 [ %sub35, %land.lhs.true15 ], [ %sub, %cond.false ], [ %sub33, %cond.false20 ]
+  %sub34 = phi i64 [ %sub35, %land.lhs.true15 ], [ 0, %cond.false ], [ %sub33, %cond.false20 ]
   %7 = load ptr, ptr %writer, align 8
   %pos27 = getelementptr inbounds i8, ptr %writer, i64 32
   %8 = load i64, ptr %pos27, align 8

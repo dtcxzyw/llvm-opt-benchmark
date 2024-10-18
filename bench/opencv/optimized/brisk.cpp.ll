@@ -1880,7 +1880,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   br i1 %146, label %80, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %143, %74
-  %.0139.lcssa = phi i64 [ %59, %74 ], [ %.1140, %143 ]
+  %.0139.lcssa = phi i64 [ 0, %74 ], [ %.1140, %143 ]
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #23
   %147 = getelementptr inbounds i8, ptr %14, i64 16
   store i32 0, ptr %147, align 8

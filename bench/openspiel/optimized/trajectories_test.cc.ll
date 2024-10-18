@@ -5489,7 +5489,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc28_crit_edge: ;
   br label %.noexc28
 
 .noexc28:                                         ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc28_crit_edge, %_ZNK10open_spiel5State16LegalActionsMaskEv.exit
-  %.pre-phi62 = phi i64 [ %.pre61, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc28_crit_edge ], [ %151, %_ZNK10open_spiel5State16LegalActionsMaskEv.exit ]
+  %.pre-phi62 = phi i64 [ %.pre61, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc28_crit_edge ], [ 0, %_ZNK10open_spiel5State16LegalActionsMaskEv.exit ]
   %156 = phi ptr [ %.pre56, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc28_crit_edge ], [ %147, %_ZNK10open_spiel5State16LegalActionsMaskEv.exit ]
   %157 = phi ptr [ %.pre, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc28_crit_edge ], [ %148, %_ZNK10open_spiel5State16LegalActionsMaskEv.exit ]
   %158 = phi ptr [ %155, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc28_crit_edge ], [ null, %_ZNK10open_spiel5State16LegalActionsMaskEv.exit ]

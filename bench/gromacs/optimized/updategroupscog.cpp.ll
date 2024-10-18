@@ -1045,7 +1045,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %121, %_ZNSt6vectorI
   br label %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i
 
 _ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i: ; preds = %206, %205, %204, %.critedge.i.i
-  %.1.lcssa36.i.i = phi i64 [ -1, %206 ], [ -1, %205 ], [ %196, %204 ], [ %.1.lcssa.i.i, %.critedge.i.i ]
+  %.1.lcssa36.i.i = phi i64 [ -1, %206 ], [ 0, %205 ], [ %196, %204 ], [ %.1.lcssa.i.i, %.critedge.i.i ]
   %207 = phi ptr [ %107, %206 ], [ %107, %205 ], [ %.pre.i.i, %204 ], [ %107, %.critedge.i.i ]
   %208 = trunc i64 %.1.lcssa36.i.i to i32
   %209 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %207, i64 %185, i32 2

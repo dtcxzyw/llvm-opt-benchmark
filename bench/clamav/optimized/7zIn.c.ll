@@ -3912,33 +3912,28 @@ SzSkeepDataSize.exit230.thread.i.i:               ; preds = %.loopexit.i107.i
   %766 = getelementptr inbounds i8, ptr %344, i64 40
   store i32 %765, ptr %766, align 8
   %767 = icmp eq i32 %673, %679
-  br i1 %767, label %775, label %768
+  br i1 %767, label %.preheader320.thread.i.i, label %769
 
-768:                                              ; preds = %764
-  %769 = zext i32 %765 to i64
-  %770 = load ptr, ptr %7, align 8
-  %771 = shl nuw nsw i64 %769, 2
-  %772 = tail call ptr %770(ptr noundef nonnull %7, i64 noundef %771) #11
-  %773 = getelementptr inbounds i8, ptr %344, i64 16
-  store ptr %772, ptr %773, align 8
-  %774 = icmp eq ptr %772, null
-  br i1 %774, label %SzGetNextFolderItem.exit.thread.i, label %.thread600.i.i
-
-775:                                              ; preds = %764
-  %776 = getelementptr inbounds i8, ptr %344, i64 16
-  store ptr null, ptr %776, align 8
+.preheader320.thread.i.i:                         ; preds = %764
+  %768 = getelementptr inbounds i8, ptr %344, i64 16
+  store ptr null, ptr %768, align 8
   br label %SzReadSwitch.exit.i
 
-.thread600.i.i:                                   ; preds = %768
+769:                                              ; preds = %764
+  %770 = zext i32 %765 to i64
+  %771 = load ptr, ptr %7, align 8
+  %772 = shl nuw nsw i64 %770, 2
+  %773 = tail call ptr %771(ptr noundef nonnull %7, i64 noundef %772) #11
+  %774 = getelementptr inbounds i8, ptr %344, i64 16
+  store ptr %773, ptr %774, align 8
+  %775 = icmp eq ptr %773, null
+  br i1 %775, label %SzGetNextFolderItem.exit.thread.i, label %776
+
+776:                                              ; preds = %769
   %777 = icmp eq i32 %765, 1
-  br i1 %777, label %.lr.ph464.i.i, label %.lr.ph459.preheader.i.i
+  br i1 %777, label %.lr.ph464.i.i, label %.lr.ph459.i.i
 
-.lr.ph459.preheader.i.i:                          ; preds = %.thread600.i.i
-  %umax592.i.i = tail call i32 @llvm.umax.i32(i32 %765, i32 1)
-  %wide.trip.count593.i.i = zext i32 %umax592.i.i to i64
-  br label %.lr.ph459.i.i
-
-.lr.ph464.i.i:                                    ; preds = %.thread600.i.i
+.lr.ph464.i.i:                                    ; preds = %776
   %778 = load i32, ptr %680, align 4
   %.not.i249.i.i = icmp eq i32 %778, 0
   %wide.trip.count.i.i.i = zext i32 %778 to i64
@@ -3981,28 +3976,28 @@ SzFolder_FindBindPairForInStream.exit.thread.i.i: ; preds = %SzFolder_FindBindPa
   br i1 %789, label %SzGetNextFolderItem.exit.thread.i, label %790
 
 790:                                              ; preds = %SzFolder_FindBindPairForInStream.exit.thread.i.i
-  store i32 %.3343.i.i, ptr %772, align 4
+  store i32 %.3343.i.i, ptr %773, align 4
   br label %SzReadSwitch.exit.i
 
 791:                                              ; preds = %.lr.ph459.i.i
   %indvars.iv.next590.i.i = add nuw nsw i64 %indvars.iv589.i.i, 1
-  %exitcond594.not.i.i = icmp eq i64 %indvars.iv.next590.i.i, %wide.trip.count593.i.i
+  %exitcond594.not.i.i = icmp eq i64 %indvars.iv.next590.i.i, %770
   br i1 %exitcond594.not.i.i, label %SzReadSwitch.exit.i, label %.lr.ph459.i.i
 
-.lr.ph459.i.i:                                    ; preds = %791, %.lr.ph459.preheader.i.i
-  %indvars.iv589.i.i = phi i64 [ 0, %.lr.ph459.preheader.i.i ], [ %indvars.iv.next590.i.i, %791 ]
-  %792 = load ptr, ptr %773, align 8
+.lr.ph459.i.i:                                    ; preds = %776, %791
+  %indvars.iv589.i.i = phi i64 [ %indvars.iv.next590.i.i, %791 ], [ 0, %776 ]
+  %792 = load ptr, ptr %774, align 8
   %793 = getelementptr inbounds i32, ptr %792, i64 %indvars.iv589.i.i
   %794 = tail call fastcc i32 @SzReadNumber32(ptr noundef nonnull %0, ptr noundef %793)
   %.not153.i.i = icmp eq i32 %794, 0
   br i1 %.not153.i.i, label %791, label %SzGetNextFolderItem.exit.thread.i
 
-SzGetNextFolderItem.exit.thread.i:                ; preds = %SzFolder_FindBindPairForInStream.exit.thread.i.i, %768, %._crit_edge457.i.i, %683, %._crit_edge452.i.i, %384, %378, %.loopexit.i.i.i, %.lr.ph294.i, %366, %.loopexit332.i.i, %503, %494, %.loopexit.i190.i.i, %458, %.loopexit.i181.i.i, %424, %.loopexit336.i.i, %.lr.ph451.i.i, %.loopexit.i245.i.i, %725, %.loopexit.i236.i.i, %.lr.ph456.i.i, %.lr.ph459.i.i, %787, %.lr.ph.i.i.i, %446, %482, %525, %.lr.ph.i197.i.i, %.loopexit.i107.i, %634, %.loopexit.i219.i.i, %SzReadNumber32.exit213.i.i, %.loopexit.i210.i.i, %564, %552, %549, %713, %749, %584, %617, %654, %.preheader337.thread.i.i
-  %.0.i108.ph.i = phi i32 [ 4, %.preheader337.thread.i.i ], [ 16, %654 ], [ 16, %617 ], [ 16, %584 ], [ 16, %749 ], [ 16, %713 ], [ 16, %549 ], [ 16, %552 ], [ 16, %634 ], [ 16, %.loopexit.i107.i ], [ 16, %564 ], [ 4, %.loopexit.i210.i.i ], [ 16, %SzReadNumber32.exit213.i.i ], [ 4, %.loopexit.i219.i.i ], [ 16, %.lr.ph.i197.i.i ], [ 16, %525 ], [ 16, %482 ], [ 16, %446 ], [ 16, %.lr.ph.i.i.i ], [ 4, %787 ], [ %794, %.lr.ph459.i.i ], [ 16, %.lr.ph456.i.i ], [ 4, %.loopexit.i236.i.i ], [ 16, %725 ], [ 4, %.loopexit.i245.i.i ], [ 4, %.loopexit336.i.i ], [ 4, %494 ], [ 2, %.loopexit332.i.i ], [ 16, %.lr.ph451.i.i ], [ 16, %503 ], [ 16, %424 ], [ 4, %.loopexit.i181.i.i ], [ 16, %458 ], [ 4, %.loopexit.i190.i.i ], [ 16, %366 ], [ 4, %.loopexit.i.i.i ], [ 16, %.lr.ph294.i ], [ 4, %SzFolder_FindBindPairForInStream.exit.thread.i.i ], [ 2, %768 ], [ 4, %._crit_edge457.i.i ], [ 2, %683 ], [ 4, %._crit_edge452.i.i ], [ 2, %384 ], [ 4, %378 ]
+SzGetNextFolderItem.exit.thread.i:                ; preds = %SzFolder_FindBindPairForInStream.exit.thread.i.i, %769, %._crit_edge457.i.i, %683, %._crit_edge452.i.i, %384, %378, %.loopexit.i.i.i, %.lr.ph294.i, %366, %.loopexit332.i.i, %503, %494, %.loopexit.i190.i.i, %458, %.loopexit.i181.i.i, %424, %.loopexit336.i.i, %.lr.ph451.i.i, %.loopexit.i245.i.i, %725, %.loopexit.i236.i.i, %.lr.ph456.i.i, %.lr.ph459.i.i, %787, %.lr.ph.i.i.i, %446, %482, %525, %.lr.ph.i197.i.i, %.loopexit.i107.i, %634, %.loopexit.i219.i.i, %SzReadNumber32.exit213.i.i, %.loopexit.i210.i.i, %564, %552, %549, %713, %749, %584, %617, %654, %.preheader337.thread.i.i
+  %.0.i108.ph.i = phi i32 [ 4, %.preheader337.thread.i.i ], [ 16, %654 ], [ 16, %617 ], [ 16, %584 ], [ 16, %749 ], [ 16, %713 ], [ 16, %549 ], [ 16, %552 ], [ 16, %634 ], [ 16, %.loopexit.i107.i ], [ 16, %564 ], [ 4, %.loopexit.i210.i.i ], [ 16, %SzReadNumber32.exit213.i.i ], [ 4, %.loopexit.i219.i.i ], [ 16, %.lr.ph.i197.i.i ], [ 16, %525 ], [ 16, %482 ], [ 16, %446 ], [ 16, %.lr.ph.i.i.i ], [ 4, %787 ], [ %794, %.lr.ph459.i.i ], [ 16, %.lr.ph456.i.i ], [ 4, %.loopexit.i236.i.i ], [ 16, %725 ], [ 4, %.loopexit.i245.i.i ], [ 4, %.loopexit336.i.i ], [ 4, %494 ], [ 2, %.loopexit332.i.i ], [ 16, %.lr.ph451.i.i ], [ 16, %503 ], [ 16, %424 ], [ 4, %.loopexit.i181.i.i ], [ 16, %458 ], [ 4, %.loopexit.i190.i.i ], [ 16, %366 ], [ 4, %.loopexit.i.i.i ], [ 16, %.lr.ph294.i ], [ 4, %SzFolder_FindBindPairForInStream.exit.thread.i.i ], [ 2, %769 ], [ 4, %._crit_edge457.i.i ], [ 2, %683 ], [ 4, %._crit_edge452.i.i ], [ 2, %384 ], [ 4, %378 ]
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %13)
   br label %SzReadUnpackInfo.exit.thread
 
-SzReadSwitch.exit.i:                              ; preds = %791, %790, %775
+SzReadSwitch.exit.i:                              ; preds = %791, %790, %.preheader320.thread.i.i
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %13)
   %indvars.iv.next476.i = add nuw nsw i64 %indvars.iv475.i, 1
   %795 = load i32, ptr %20, align 4

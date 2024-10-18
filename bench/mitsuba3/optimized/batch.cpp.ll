@@ -720,7 +720,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
           to label %._crit_edge135.thread unwind label %.loopexit.split-lp
 
 ._crit_edge135.thread:                            ; preds = %132, %._crit_edge135, %.noexc.i
-  %.lcssa157 = phi i64 [ %171, %._crit_edge135 ], [ %171, %.noexc.i ], [ %122, %132 ]
+  %.lcssa157 = phi i64 [ %171, %._crit_edge135 ], [ %171, %.noexc.i ], [ 0, %132 ]
   %.lcssa123156 = phi ptr [ %167, %._crit_edge135 ], [ %167, %.noexc.i ], [ %118, %132 ]
   %.sroa.0.0 = phi ptr [ null, %._crit_edge135 ], [ %178, %.noexc.i ], [ null, %132 ]
   %.pre-phi.i = phi i64 [ 0, %._crit_edge135 ], [ %170, %.noexc.i ], [ 0, %132 ]

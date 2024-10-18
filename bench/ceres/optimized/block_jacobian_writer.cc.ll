@@ -1223,8 +1223,8 @@ define hidden void @_ZNK5ceres8internal19BlockJacobianWriter14CreateJacobianEv(p
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #16
   br label %_ZNSt10unique_ptrIN5ceres8internal17BlockSparseMatrixESt14default_deleteIS2_EED2Ev.exit
 
-common.resume:                                    ; preds = %263, %47, %19
-  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %48, %47 ], [ %264, %263 ]
+common.resume:                                    ; preds = %264, %47, %19
+  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %48, %47 ], [ %265, %264 ]
   resume { ptr, i32 } %common.resume.op
 
 19:                                               ; preds = %16, %14
@@ -1479,7 +1479,7 @@ _ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE6resizeEm.exit: ; preds = 
 
 140:                                              ; preds = %.lr.ph101, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEEPFbRKS4_SB_EEvT_SE_T0_.exit
   %indvars.iv115 = phi i64 [ 0, %.lr.ph101 ], [ %indvars.iv.next116, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEEPFbRKS4_SB_EEvT_SE_T0_.exit ]
-  %141 = phi ptr [ %138, %.lr.ph101 ], [ %253, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEEPFbRKS4_SB_EEvT_SE_T0_.exit ]
+  %141 = phi ptr [ %138, %.lr.ph101 ], [ %254, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEEPFbRKS4_SB_EEvT_SE_T0_.exit ]
   %.067100 = phi i32 [ 0, %.lr.ph101 ], [ %150, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEEPFbRKS4_SB_EEvT_SE_T0_.exit ]
   %142 = getelementptr inbounds ptr, ptr %141, i64 %indvars.iv115
   %143 = load ptr, ptr %142, align 8
@@ -1693,11 +1693,11 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal
   %.not19.i20.i = icmp eq ptr %scevgep.i, %211
   br i1 %.not19.i20.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEEPFbRKS4_SB_EEvT_SE_T0_.exit, label %.lr.ph.i21.i
 
-.lr.ph.i21.i:                                     ; preds = %237, %251
-  %.sroa.0.021.i22.i = phi ptr [ %.sroa.0.0.i26.i, %251 ], [ %scevgep.i, %237 ]
-  %.pn20.i23.i = phi ptr [ %.sroa.0.021.i22.i, %251 ], [ %209, %237 ]
+.lr.ph.i21.i:                                     ; preds = %237, %252
+  %.sroa.0.021.i22.i = phi ptr [ %.sroa.0.0.i26.i, %252 ], [ %scevgep.i, %237 ]
+  %.pn20.i23.i = phi ptr [ %.sroa.0.021.i22.i, %252 ], [ %209, %237 ]
   %238 = call noundef zeroext i1 @_ZN5ceres8internal12CellLessThanERKNS0_4CellES3_(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.0.021.i22.i, ptr noundef nonnull align 4 dereferenceable(8) %209)
-  br i1 %238, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i32.i, label %245
+  br i1 %238, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i32.i, label %246
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i32.i: ; preds = %.lr.ph.i21.i
   %239 = load i64, ptr %.sroa.0.021.i22.i, align 4
@@ -1705,67 +1705,67 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vec
   %241 = ptrtoint ptr %.sroa.0.021.i22.i to i64
   %242 = sub i64 %241, %214
   %243 = ashr exact i64 %242, 3
-  %.pre.i.i.i.i.i.i33.i = sub nsw i64 0, %243
-  %244 = getelementptr inbounds %"struct.ceres::internal::Cell", ptr %240, i64 %.pre.i.i.i.i.i.i33.i
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %244, ptr noundef nonnull align 4 dereferenceable(1) %209, i64 %242, i1 false)
+  %244 = sub nsw i64 0, %243
+  %245 = getelementptr inbounds %"struct.ceres::internal::Cell", ptr %240, i64 %244
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %245, ptr noundef nonnull align 4 dereferenceable(1) %209, i64 %242, i1 false)
   store i64 %239, ptr %209, align 4
-  br label %251
+  br label %252
 
-245:                                              ; preds = %.lr.ph.i21.i
+246:                                              ; preds = %.lr.ph.i21.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %246 = load i64, ptr %.sroa.0.021.i22.i, align 4
-  store i64 %246, ptr %3, align 8
-  %247 = call noundef zeroext i1 @_ZN5ceres8internal12CellLessThanERKNS0_4CellES3_(ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %.pn20.i23.i)
-  br i1 %247, label %.lr.ph.i.i28.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIPFbRKS4_SD_EEEEvT_T0_.exit.i24.i
+  %247 = load i64, ptr %.sroa.0.021.i22.i, align 4
+  store i64 %247, ptr %3, align 8
+  %248 = call noundef zeroext i1 @_ZN5ceres8internal12CellLessThanERKNS0_4CellES3_(ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %.pn20.i23.i)
+  br i1 %248, label %.lr.ph.i.i28.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIPFbRKS4_SD_EEEEvT_T0_.exit.i24.i
 
-.lr.ph.i.i28.i:                                   ; preds = %245, %.lr.ph.i.i28.i
-  %.sroa.0.09.i.i29.i = phi ptr [ %.sroa.0.0.i.i31.i, %.lr.ph.i.i28.i ], [ %.pn20.i23.i, %245 ]
-  %.sroa.04.08.i.i30.i = phi ptr [ %.sroa.0.09.i.i29.i, %.lr.ph.i.i28.i ], [ %.sroa.0.021.i22.i, %245 ]
-  %248 = load i64, ptr %.sroa.0.09.i.i29.i, align 4
-  store i64 %248, ptr %.sroa.04.08.i.i30.i, align 4
+.lr.ph.i.i28.i:                                   ; preds = %246, %.lr.ph.i.i28.i
+  %.sroa.0.09.i.i29.i = phi ptr [ %.sroa.0.0.i.i31.i, %.lr.ph.i.i28.i ], [ %.pn20.i23.i, %246 ]
+  %.sroa.04.08.i.i30.i = phi ptr [ %.sroa.0.09.i.i29.i, %.lr.ph.i.i28.i ], [ %.sroa.0.021.i22.i, %246 ]
+  %249 = load i64, ptr %.sroa.0.09.i.i29.i, align 4
+  store i64 %249, ptr %.sroa.04.08.i.i30.i, align 4
   %.sroa.0.0.i.i31.i = getelementptr inbounds i8, ptr %.sroa.0.09.i.i29.i, i64 -8
-  %249 = call noundef zeroext i1 @_ZN5ceres8internal12CellLessThanERKNS0_4CellES3_(ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %.sroa.0.0.i.i31.i)
-  br i1 %249, label %.lr.ph.i.i28.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIPFbRKS4_SD_EEEEvT_T0_.exit.i24.i, !llvm.loop !26
+  %250 = call noundef zeroext i1 @_ZN5ceres8internal12CellLessThanERKNS0_4CellES3_(ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %.sroa.0.0.i.i31.i)
+  br i1 %250, label %.lr.ph.i.i28.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIPFbRKS4_SD_EEEEvT_T0_.exit.i24.i, !llvm.loop !26
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIPFbRKS4_SD_EEEEvT_T0_.exit.i24.i: ; preds = %.lr.ph.i.i28.i, %245
-  %.sroa.04.0.lcssa.i.i25.i = phi ptr [ %.sroa.0.021.i22.i, %245 ], [ %.sroa.0.09.i.i29.i, %.lr.ph.i.i28.i ]
-  %250 = load i64, ptr %3, align 8
-  store i64 %250, ptr %.sroa.04.0.lcssa.i.i25.i, align 4
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIPFbRKS4_SD_EEEEvT_T0_.exit.i24.i: ; preds = %.lr.ph.i.i28.i, %246
+  %.sroa.04.0.lcssa.i.i25.i = phi ptr [ %.sroa.0.021.i22.i, %246 ], [ %.sroa.0.09.i.i29.i, %.lr.ph.i.i28.i ]
+  %251 = load i64, ptr %3, align 8
+  store i64 %251, ptr %.sroa.04.0.lcssa.i.i25.i, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %251
+  br label %252
 
-251:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIPFbRKS4_SD_EEEEvT_T0_.exit.i24.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i32.i
+252:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIPFbRKS4_SD_EEEEvT_T0_.exit.i24.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i32.i
   %.sroa.0.0.i26.i = getelementptr inbounds i8, ptr %.sroa.0.021.i22.i, i64 8
   %.not.i27.i = icmp eq ptr %.sroa.0.0.i26.i, %211
   br i1 %.not.i27.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEEPFbRKS4_SB_EEvT_SE_T0_.exit, label %.lr.ph.i21.i, !llvm.loop !27
 
-_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEEPFbRKS4_SB_EEvT_SE_T0_.exit: ; preds = %251, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIPFbRKS4_SD_EEEEvT_T0_.exit.i11.i, %237, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_T0_.exit.i, %._crit_edge98
+_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEEPFbRKS4_SB_EEvT_SE_T0_.exit: ; preds = %252, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIPFbRKS4_SD_EEEEvT_T0_.exit.i11.i, %237, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_T0_.exit.i, %._crit_edge98
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
-  %252 = load ptr, ptr %112, align 8
-  %253 = load ptr, ptr %110, align 8
-  %254 = ptrtoint ptr %252 to i64
+  %253 = load ptr, ptr %112, align 8
+  %254 = load ptr, ptr %110, align 8
   %255 = ptrtoint ptr %253 to i64
-  %256 = sub i64 %254, %255
-  %257 = ashr exact i64 %256, 3
-  %258 = icmp ugt i64 %257, %indvars.iv.next116
-  br i1 %258, label %140, label %._crit_edge102, !llvm.loop !29
+  %256 = ptrtoint ptr %254 to i64
+  %257 = sub i64 %255, %256
+  %258 = ashr exact i64 %257, 3
+  %259 = icmp ugt i64 %258, %indvars.iv.next116
+  br i1 %259, label %140, label %._crit_edge102, !llvm.loop !29
 
 ._crit_edge102:                                   ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5ceres8internal4CellESt6vectorIS4_SaIS4_EEEEPFbRKS4_SB_EEvT_SE_T0_.exit, %_ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE6resizeEm.exit
-  %259 = getelementptr inbounds i8, ptr %1, i64 12
-  %260 = load i32, ptr %259, align 4
-  %261 = icmp eq i32 %260, 3
-  %262 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #20, !noalias !30
-  invoke void @_ZN5ceres8internal17BlockSparseMatrixC1EPNS0_27CompressedRowBlockStructureEb(ptr noundef nonnull align 8 dereferenceable(56) %262, ptr noundef nonnull %22, i1 noundef zeroext %261)
-          to label %_ZNSt10unique_ptrIN5ceres8internal17BlockSparseMatrixESt14default_deleteIS2_EED2Ev.exit unwind label %263, !noalias !30
+  %260 = getelementptr inbounds i8, ptr %1, i64 12
+  %261 = load i32, ptr %260, align 4
+  %262 = icmp eq i32 %261, 3
+  %263 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #20, !noalias !30
+  invoke void @_ZN5ceres8internal17BlockSparseMatrixC1EPNS0_27CompressedRowBlockStructureEb(ptr noundef nonnull align 8 dereferenceable(56) %263, ptr noundef nonnull %22, i1 noundef zeroext %262)
+          to label %_ZNSt10unique_ptrIN5ceres8internal17BlockSparseMatrixESt14default_deleteIS2_EED2Ev.exit unwind label %264, !noalias !30
 
-263:                                              ; preds = %._crit_edge102
-  %264 = landingpad { ptr, i32 }
+264:                                              ; preds = %._crit_edge102
+  %265 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %262) #18, !noalias !30
+  call void @_ZdlPv(ptr noundef nonnull %263) #18, !noalias !30
   br label %common.resume
 
 _ZNSt10unique_ptrIN5ceres8internal17BlockSparseMatrixESt14default_deleteIS2_EED2Ev.exit: ; preds = %._crit_edge102, %18
-  %storemerge = phi ptr [ null, %18 ], [ %262, %._crit_edge102 ]
+  %storemerge = phi ptr [ null, %18 ], [ %263, %._crit_edge102 ]
   store ptr %storemerge, ptr %0, align 8
   ret void
 }

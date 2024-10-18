@@ -1034,10 +1034,6 @@ _ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE7reserveEm.exit: ; 
   %_M_finish.i21129 = getelementptr inbounds i8, ptr %files13128, i64 8
   %14 = load ptr, ptr %_M_finish.i21129, align 8
   %15 = load ptr, ptr %files13128, align 8
-  %sub.ptr.lhs.cast.i22130 = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i23131 = ptrtoint ptr %15 to i64
-  %sub.ptr.sub.i24132 = sub i64 %sub.ptr.lhs.cast.i22130, %sub.ptr.rhs.cast.i23131
-  %sub.ptr.div.i25133 = ashr exact i64 %sub.ptr.sub.i24132, 3
   %cmp15134.not = icmp eq ptr %14, %15
   br i1 %cmp15134.not, label %for.end, label %for.body16
 
@@ -1213,7 +1209,7 @@ for.end:                                          ; preds = %for.inc, %_ZNSt6vec
   %first_atomic_idx.0.lcssa = phi i64 [ 0, %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE7reserveEm.exit ], [ %first_atomic_idx.1, %for.inc ]
   %cur_boundary.sroa.0.2.lcssa = phi ptr [ null, %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE7reserveEm.exit ], [ %cur_boundary.sroa.0.3, %for.inc ]
   %cur_boundary.sroa.7.2.lcssa = phi ptr [ null, %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE7reserveEm.exit ], [ %cur_boundary.sroa.7.3, %for.inc ]
-  %sub.ptr.div.i25.lcssa = phi i64 [ %sub.ptr.div.i25133, %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE7reserveEm.exit ], [ %sub.ptr.div.i25, %for.inc ]
+  %sub.ptr.div.i25.lcssa = phi i64 [ 0, %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE7reserveEm.exit ], [ %sub.ptr.div.i25, %for.inc ]
   %cmp24.i44 = icmp ult i64 %first_atomic_idx.0.lcssa, %sub.ptr.div.i25.lcssa
   br i1 %cmp24.i44, label %for.body.i47, label %for.inc41
 

@@ -4424,7 +4424,7 @@ if.then.i.i.i.i.i35.i:                            ; preds = %if.else49.i
   br label %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i
 
 _ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i:               ; preds = %if.then.i.i.i.i.i35.i, %if.else49.i
-  %sub.ptr.sub.i40.pre-phi.i = phi i64 [ %sub.ptr.sub.i22.i, %if.else49.i ], [ %.pre47.i, %if.then.i.i.i.i.i35.i ]
+  %sub.ptr.sub.i40.pre-phi.i = phi i64 [ 0, %if.else49.i ], [ %.pre47.i, %if.then.i.i.i.i.i35.i ]
   %127 = phi ptr [ %122, %if.else49.i ], [ %.pre44.i, %if.then.i.i.i.i.i35.i ]
   %128 = phi ptr [ %126, %if.else49.i ], [ %.pre42.i, %if.then.i.i.i.i.i35.i ]
   %129 = phi ptr [ %123, %if.else49.i ], [ %.pre.i850, %if.then.i.i.i.i.i35.i ]
@@ -6605,7 +6605,7 @@ if.then.i.i.i.i.i35.i893:                         ; preds = %if.else49.i891
   br label %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i901
 
 _ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i901:            ; preds = %if.then.i.i.i.i.i35.i893, %if.else49.i891
-  %sub.ptr.sub.i40.pre-phi.i902 = phi i64 [ %sub.ptr.sub.i22.i883, %if.else49.i891 ], [ %.pre47.i900, %if.then.i.i.i.i.i35.i893 ]
+  %sub.ptr.sub.i40.pre-phi.i902 = phi i64 [ 0, %if.else49.i891 ], [ %.pre47.i900, %if.then.i.i.i.i.i35.i893 ]
   %447 = phi ptr [ %442, %if.else49.i891 ], [ %.pre44.i897, %if.then.i.i.i.i.i35.i893 ]
   %448 = phi ptr [ %446, %if.else49.i891 ], [ %.pre42.i895, %if.then.i.i.i.i.i35.i893 ]
   %449 = phi ptr [ %443, %if.else49.i891 ], [ %.pre.i894, %if.then.i.i.i.i.i35.i893 ]
@@ -8635,7 +8635,7 @@ if.then.i.i.i.i.i35:                              ; preds = %if.else49
   br label %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPmS0_ET0_T_S2_S1_.exit:                 ; preds = %if.else49, %if.then.i.i.i.i.i35
-  %sub.ptr.sub.i40.pre-phi = phi i64 [ %sub.ptr.sub.i22, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
+  %sub.ptr.sub.i40.pre-phi = phi i64 [ 0, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
   %5 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
   %6 = phi ptr [ %4, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
   %7 = phi ptr [ %1, %if.else49 ], [ %.pre, %if.then.i.i.i.i.i35 ]
@@ -9172,8 +9172,8 @@ if.then.i.i.i.i.i:                                ; preds = %if.then11
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %1, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i, ptr align 8 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %invoke.cont20
 

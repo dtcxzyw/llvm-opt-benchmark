@@ -1124,19 +1124,19 @@ trace_vfio_attach_device.exit:                    ; preds = %if.end, %land.lhs.t
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %path.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %status.i)
   store i64 8, ptr %status.i, align 8
-  %group.043.i = load ptr, ptr @vfio_group_list, align 8
-  %tobool.not44.i = icmp eq ptr %group.043.i, null
-  br i1 %tobool.not44.i, label %for.end.i, label %for.body.i
+  %group.046.i = load ptr, ptr @vfio_group_list, align 8
+  %tobool.not47.i = icmp eq ptr %group.046.i, null
+  br i1 %tobool.not47.i, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %trace_vfio_attach_device.exit, %for.inc.i
-  %group.045.i = phi ptr [ %group.0.i, %for.inc.i ], [ %group.043.i, %trace_vfio_attach_device.exit ]
-  %groupid1.i = getelementptr inbounds i8, ptr %group.045.i, i64 4
+  %group.048.i = phi ptr [ %group.0.i, %for.inc.i ], [ %group.046.i, %trace_vfio_attach_device.exit ]
+  %groupid1.i = getelementptr inbounds i8, ptr %group.048.i, i64 4
   %13 = load i32, ptr %groupid1.i, align 4
   %cmp.i = icmp eq i32 %13, %retval.0.i
   br i1 %cmp.i, label %if.then.i38, label %for.inc.i
 
 if.then.i38:                                      ; preds = %for.body.i
-  %container.i = getelementptr inbounds i8, ptr %group.045.i, i64 8
+  %container.i = getelementptr inbounds i8, ptr %group.048.i, i64 8
   %14 = load ptr, ptr %container.i, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
@@ -1148,7 +1148,7 @@ if.else.i:                                        ; preds = %if.then.i38
   br label %vfio_get_group.exit.thread
 
 for.inc.i:                                        ; preds = %for.body.i
-  %next.i = getelementptr inbounds i8, ptr %group.045.i, i64 24
+  %next.i = getelementptr inbounds i8, ptr %group.048.i, i64 24
   %group.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %group.0.i, null
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !17
@@ -1237,12 +1237,12 @@ if.then7.i.i:                                     ; preds = %vfio_ram_block_disc
   %22 = load i32, ptr %call.i32, align 8
   %call10.i.i37 = call i32 (i32, i64, ...) @ioctl(i32 noundef %22, i64 noundef 15209, ptr noundef nonnull %fd2.i.i) #15
   %tobool11.not.i.i = icmp eq i32 %call10.i.i37, 0
-  br i1 %tobool11.not.i.i, label %vfio_connect_container.exit.thread34.i, label %if.then12.i.i
+  br i1 %tobool11.not.i.i, label %if.then27.sink.split.i, label %if.then12.i.i
 
 if.then12.i.i:                                    ; preds = %if.then7.i.i
   %23 = load i32, ptr %groupid24.i, align 4
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.27, i32 noundef %23) #15
-  br label %vfio_connect_container.exit.thread34.i
+  br label %if.then27.sink.split.i
 
 if.end13.i.i:                                     ; preds = %vfio_ram_block_discard_disable.exit.i.i
   %container14.i.i = getelementptr inbounds i8, ptr %call.i32, i64 8
@@ -1289,15 +1289,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 for.end.i.i:                                      ; preds = %for.inc.i.i, %if.end23.i
   %call31.i.i = call i32 (ptr, i32, ...) @qemu_open_old(ptr noundef nonnull @.str.28, i32 noundef 2) #15
   %cmp32.i.i = icmp slt i32 %call31.i.i, 0
-  br i1 %cmp32.i.i, label %if.then33.i.i, label %if.end37.i.i
-
-if.then33.i.i:                                    ; preds = %for.end.i.i
-  %call34.i.i = tail call ptr @__errno_location() #17
-  %28 = load i32, ptr %call34.i.i, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.4, i32 noundef 533, ptr noundef nonnull @__func__.vfio_connect_container, i32 noundef %28, ptr noundef nonnull @.str.29) #15
-  %29 = load i32, ptr %call34.i.i, align 4
-  %sub36.i.i = sub i32 0, %29
-  br label %vfio_connect_container.exit.i
+  br i1 %cmp32.i.i, label %vfio_connect_container.exit.i, label %if.end37.i.i
 
 if.end37.i.i:                                     ; preds = %for.end.i.i
   %call38.i.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %call31.i.i, i64 noundef 15204) #15
@@ -1306,7 +1298,7 @@ if.end37.i.i:                                     ; preds = %for.end.i.i
 
 if.then40.i.i:                                    ; preds = %if.end37.i.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.4, i32 noundef 541, ptr noundef nonnull @__func__.vfio_connect_container, ptr noundef nonnull @.str.30, i32 noundef 0, i32 noundef %call38.i.i) #15
-  br label %close_fd_exit.i.i
+  br label %vfio_connect_container.exit.thread37.i
 
 if.end41.i.i:                                     ; preds = %if.end37.i.i
   %call42.i.i = call noalias dereferenceable_or_null(520) ptr @g_malloc0(i64 noundef 520) #16
@@ -1325,7 +1317,7 @@ if.end41.i.i:                                     ; preds = %if.end37.i.i
   store ptr null, ptr %giommu_list.i.i, align 8
   %vrdl_list.i.i = getelementptr inbounds i8, ptr %call42.i.i, i64 480
   store ptr null, ptr %vrdl_list.i.i, align 8
-  %30 = load i32, ptr %call.i32, align 8
+  %28 = load i32, ptr %call.i32, align 8
   br label %for.body.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
@@ -1335,10 +1327,10 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i, %if.end41.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %if.end41.i.i ], [ %indvars.iv.next.i.i.i.i, %for.cond.i.i.i.i ]
-  %31 = load i32, ptr %fd44.i.i, align 8
+  %29 = load i32, ptr %fd44.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr [4 x i32], ptr @__const.vfio_get_iommu_type.iommu_types, i64 0, i64 %indvars.iv.i.i.i.i
-  %32 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %call.i.i.i.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %31, i64 noundef 15205, i32 noundef %32) #15
+  %30 = load i32, ptr %arrayidx.i.i.i.i, align 4
+  %call.i.i.i.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %29, i64 noundef 15205, i32 noundef %30) #15
   %tobool.not.i.i.i.i = icmp eq i32 %call.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %for.cond.i.i.i.i, label %if.end.i.i.i
 
@@ -1347,20 +1339,20 @@ vfio_init_container.exit.thread124.i.i:           ; preds = %for.cond.i.i.i.i
   br label %free_container_exit.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i.i
-  %call1.i.i.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %30, i64 noundef 15208, ptr noundef nonnull %fd44.i.i) #15
+  %call1.i.i.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %28, i64 noundef 15208, ptr noundef nonnull %fd44.i.i) #15
   %tobool.not.i113.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i113.i.i, label %while.cond.i.i.i, label %if.then2.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.end.i.i.i
   %call3.i.i.i = tail call ptr @__errno_location() #17
-  %33 = load i32, ptr %call3.i.i.i, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.4, i32 noundef 373, ptr noundef nonnull @__func__.vfio_init_container, i32 noundef %33, ptr noundef nonnull @.str.34) #15
+  %31 = load i32, ptr %call3.i.i.i, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.4, i32 noundef 373, ptr noundef nonnull @__func__.vfio_init_container, i32 noundef %31, ptr noundef nonnull @.str.34) #15
   br label %vfio_init_container.exit.i.i
 
 while.cond.i.i.i:                                 ; preds = %if.end.i.i.i, %while.body.i.i.i
-  %iommu_type.0.i.i.i = phi i32 [ 2, %while.body.i.i.i ], [ %32, %if.end.i.i.i ]
-  %34 = load i32, ptr %fd44.i.i, align 8
-  %call7.i.i.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %34, i64 noundef 15206, i32 noundef %iommu_type.0.i.i.i) #15
+  %iommu_type.0.i.i.i = phi i32 [ 2, %while.body.i.i.i ], [ %30, %if.end.i.i.i ]
+  %32 = load i32, ptr %fd44.i.i, align 8
+  %call7.i.i.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %32, i64 noundef 15206, i32 noundef %iommu_type.0.i.i.i) #15
   %tobool8.not.i.i.i = icmp eq i32 %call7.i.i.i, 0
   br i1 %tobool8.not.i.i.i, label %vfio_init_container.exit.thread.i.i, label %while.body.i.i.i
 
@@ -1370,8 +1362,8 @@ while.body.i.i.i:                                 ; preds = %while.cond.i.i.i
 
 if.end11.i.i.i:                                   ; preds = %while.body.i.i.i
   %call12.i.i.i = tail call ptr @__errno_location() #17
-  %35 = load i32, ptr %call12.i.i.i, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.4, i32 noundef 388, ptr noundef nonnull @__func__.vfio_init_container, i32 noundef %35, ptr noundef nonnull @.str.35) #15
+  %33 = load i32, ptr %call12.i.i.i, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.4, i32 noundef 388, ptr noundef nonnull @__func__.vfio_init_container, i32 noundef %33, ptr noundef nonnull @.str.35) #15
   br label %vfio_init_container.exit.i.i
 
 vfio_init_container.exit.thread.i.i:              ; preds = %while.cond.i.i.i
@@ -1382,7 +1374,6 @@ vfio_init_container.exit.thread.i.i:              ; preds = %while.cond.i.i.i
 vfio_init_container.exit.i.i:                     ; preds = %if.end11.i.i.i, %if.then2.i.i.i
   %.pn.in.i.i = phi ptr [ %call3.i.i.i, %if.then2.i.i.i ], [ %call12.i.i.i, %if.end11.i.i.i ]
   %.pn.i.i = load i32, ptr %.pn.in.i.i, align 4
-  %retval.0.i114.i.i = sub i32 0, %.pn.i.i
   %tobool53.not.i.i = icmp eq i32 %.pn.i.i, 0
   br i1 %tobool53.not.i.i, label %vfio_init_container.exit.if.end55_crit_edge.i.i, label %free_container_exit.i.i
 
@@ -1393,7 +1384,7 @@ vfio_init_container.exit.if.end55_crit_edge.i.i:  ; preds = %vfio_init_container
 
 if.end55.i.i:                                     ; preds = %vfio_init_container.exit.if.end55_crit_edge.i.i, %vfio_init_container.exit.thread.i.i
   %call42.val.i.i = phi i32 [ %call42.val.pre.i.i, %vfio_init_container.exit.if.end55_crit_edge.i.i ], [ %iommu_type.0.i.i.i, %vfio_init_container.exit.thread.i.i ]
-  %36 = getelementptr i8, ptr %call42.i.i, i64 400
+  %34 = getelementptr i8, ptr %call42.i.i, i64 400
   switch i32 %call42.val.i.i, label %sw.default.i118.i.i [
     i32 3, label %sw.bb.i115.i.i
     i32 1, label %sw.bb.i115.i.i
@@ -1418,8 +1409,8 @@ if.then58.i.i:                                    ; preds = %vfio_ram_block_disc
   br label %free_container_exit.i.i
 
 if.end60.i.i:                                     ; preds = %vfio_ram_block_discard_disable.exit120.i.i
-  %37 = load i32, ptr %36, align 8
-  switch i32 %37, label %sw.epilog.i.i [
+  %35 = load i32, ptr %34, align 8
+  switch i32 %35, label %sw.epilog.i.i [
     i32 3, label %sw.bb.i.i
     i32 1, label %sw.bb.i.i
     i32 7, label %sw.bb77.i.i
@@ -1437,16 +1428,16 @@ if.then63.i.i:                                    ; preds = %sw.bb.i.i
   br label %enable_discards_exit.i.i
 
 if.end65.i.i:                                     ; preds = %sw.bb.i.i
-  %38 = load ptr, ptr %info.i.i, align 8
-  %flags.i.i = getelementptr inbounds i8, ptr %38, i64 4
-  %39 = load i32, ptr %flags.i.i, align 4
-  %and.i.i = and i32 %39, 1
+  %36 = load ptr, ptr %info.i.i, align 8
+  %flags.i.i = getelementptr inbounds i8, ptr %36, i64 4
+  %37 = load i32, ptr %flags.i.i, align 4
+  %and.i.i = and i32 %37, 1
   %tobool66.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool66.not.i.i, label %if.else.i.i35, label %if.then67.i.i
 
 if.then67.i.i:                                    ; preds = %if.end65.i.i
-  %iova_pgsizes.i.i = getelementptr inbounds i8, ptr %38, i64 8
-  %40 = load i64, ptr %iova_pgsizes.i.i, align 8
+  %iova_pgsizes.i.i = getelementptr inbounds i8, ptr %36, i64 8
+  %38 = load i64, ptr %iova_pgsizes.i.i, align 8
   br label %if.end70.i.i
 
 if.else.i.i35:                                    ; preds = %if.end65.i.i
@@ -1455,10 +1446,10 @@ if.else.i.i35:                                    ; preds = %if.end65.i.i
   br label %if.end70.i.i
 
 if.end70.i.i:                                     ; preds = %if.else.i.i35, %if.then67.i.i
-  %.sink.i.i = phi i64 [ %conv.i.i.i, %if.else.i.i35 ], [ %40, %if.then67.i.i ]
-  %41 = getelementptr inbounds i8, ptr %call42.i.i, i64 440
-  store i64 %.sink.i.i, ptr %41, align 8
-  %call72.i.i = call zeroext i1 @vfio_get_info_dma_avail(ptr noundef nonnull %38, ptr noundef nonnull %dma_max_mappings.i.i)
+  %.sink.i.i = phi i64 [ %conv.i.i.i, %if.else.i.i35 ], [ %38, %if.then67.i.i ]
+  %39 = getelementptr inbounds i8, ptr %call42.i.i, i64 440
+  store i64 %.sink.i.i, ptr %39, align 8
+  %call72.i.i = call zeroext i1 @vfio_get_info_dma_avail(ptr noundef nonnull %36, ptr noundef nonnull %dma_max_mappings.i.i)
   br i1 %call72.i.i, label %if.end75.i.i, label %if.then73.i.i
 
 if.then73.i.i:                                    ; preds = %if.end70.i.i
@@ -1466,9 +1457,9 @@ if.then73.i.i:                                    ; preds = %if.end70.i.i
   br label %if.end75.i.i
 
 if.end75.i.i:                                     ; preds = %if.then73.i.i, %if.end70.i.i
-  call fastcc void @vfio_get_info_iova_range(ptr noundef nonnull %38, ptr noundef nonnull %call42.i.i)
-  call fastcc void @vfio_get_iommu_info_migration(ptr noundef nonnull %call42.i.i, ptr noundef nonnull %38)
-  call void @g_free(ptr noundef nonnull %38) #15
+  call fastcc void @vfio_get_info_iova_range(ptr noundef nonnull %36, ptr noundef nonnull %call42.i.i)
+  call fastcc void @vfio_get_iommu_info_migration(ptr noundef nonnull %call42.i.i, ptr noundef nonnull %36)
+  call void @g_free(ptr noundef nonnull %36) #15
   br label %sw.epilog.i.i
 
 sw.bb77.i.i:                                      ; preds = %if.end60.i.i, %if.end60.i.i
@@ -1480,10 +1471,10 @@ sw.epilog.i.i:                                    ; preds = %sw.bb77.i.i, %if.en
   call fastcc void @vfio_kvm_device_add_group(ptr noundef nonnull %call.i32)
   %group_list83.i.i = getelementptr inbounds i8, ptr %call42.i.i, i64 472
   store ptr null, ptr %group_list83.i.i, align 8
-  %42 = load ptr, ptr %containers.i.i, align 8
+  %40 = load ptr, ptr %containers.i.i, align 8
   %next89.i.i = getelementptr inbounds i8, ptr %call42.i.i, i64 488
-  store ptr %42, ptr %next89.i.i, align 8
-  %cmp91.not.i.i = icmp eq ptr %42, null
+  store ptr %40, ptr %next89.i.i, align 8
+  %cmp91.not.i.i = icmp eq ptr %40, null
   br i1 %cmp91.not.i.i, label %if.end99.thread.i.i, label %if.end99.i.i
 
 if.end99.thread.i.i:                              ; preds = %sw.epilog.i.i
@@ -1497,7 +1488,7 @@ if.end99.thread.i.i:                              ; preds = %sw.epilog.i.i
   br label %if.end121.i.i
 
 if.end99.i.i:                                     ; preds = %sw.epilog.i.i
-  %le_prev98.i.i = getelementptr inbounds i8, ptr %42, i64 496
+  %le_prev98.i.i = getelementptr inbounds i8, ptr %40, i64 496
   store ptr %next89.i.i, ptr %le_prev98.i.i, align 8
   %.pre.i.i = load ptr, ptr %group_list83.i.i, align 8
   store ptr %call42.i.i, ptr %containers.i.i, align 8
@@ -1523,17 +1514,17 @@ if.end121.i.i:                                    ; preds = %if.then114.i.i, %if
   store ptr %group_list83.i.i, ptr %le_prev127.i.i, align 8
   %listener.i.i = getelementptr inbounds i8, ptr %call42.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %listener.i.i, ptr noundef nonnull align 8 dereferenceable(192) @vfio_memory_listener, i64 192, i1 false)
-  %43 = load ptr, ptr %call42.i.i, align 8
-  %44 = load ptr, ptr %43, align 8
-  call void @memory_listener_register(ptr noundef nonnull %listener.i.i, ptr noundef %44) #15
-  %45 = load ptr, ptr %error.i.i, align 8
-  %tobool133.not.i.i = icmp eq ptr %45, null
+  %41 = load ptr, ptr %call42.i.i, align 8
+  %42 = load ptr, ptr %41, align 8
+  call void @memory_listener_register(ptr noundef nonnull %listener.i.i, ptr noundef %42) #15
+  %43 = load ptr, ptr %error.i.i, align 8
+  %tobool133.not.i.i = icmp eq ptr %43, null
   br i1 %tobool133.not.i.i, label %if.end136.i.i, label %if.then134.i.i
 
 if.then134.i.i:                                   ; preds = %if.end121.i.i
-  call void (ptr, ptr, ptr, ...) @error_propagate_prepend(ptr noundef %errp, ptr noundef nonnull %45, ptr noundef nonnull @.str.32) #15
-  %46 = load ptr, ptr %container_next111147.i.i, align 8
-  %cmp140.not.i.i = icmp eq ptr %46, null
+  call void (ptr, ptr, ptr, ...) @error_propagate_prepend(ptr noundef %errp, ptr noundef nonnull %43, ptr noundef nonnull @.str.32) #15
+  %44 = load ptr, ptr %container_next111147.i.i, align 8
+  %cmp140.not.i.i = icmp eq ptr %44, null
   %.pre139.i.i = load ptr, ptr %le_prev127.i.i, align 8
   br i1 %cmp140.not.i.i, label %if.end148.i.i, label %if.then141.i.i
 
@@ -1543,36 +1534,36 @@ if.end136.i.i:                                    ; preds = %if.end121.i.i
   br label %vfio_connect_container.exit.thread.i
 
 if.then141.i.i:                                   ; preds = %if.then134.i.i
-  %le_prev147.i.i = getelementptr inbounds i8, ptr %46, i64 48
+  %le_prev147.i.i = getelementptr inbounds i8, ptr %44, i64 48
   store ptr %.pre139.i.i, ptr %le_prev147.i.i, align 8
   %.pre138.i.i = load ptr, ptr %container_next111147.i.i, align 8
   br label %if.end148.i.i
 
 if.end148.i.i:                                    ; preds = %if.then141.i.i, %if.then134.i.i
-  %47 = phi ptr [ %.pre138.i.i, %if.then141.i.i ], [ null, %if.then134.i.i ]
-  store ptr %47, ptr %.pre139.i.i, align 8
+  %45 = phi ptr [ %.pre138.i.i, %if.then141.i.i ], [ null, %if.then134.i.i ]
+  store ptr %45, ptr %.pre139.i.i, align 8
   store ptr null, ptr %container_next111147.i.i, align 8
   store ptr null, ptr %le_prev127.i.i, align 8
-  %48 = load ptr, ptr %next89.i.i, align 8
-  %cmp161.not.i.i = icmp eq ptr %48, null
+  %46 = load ptr, ptr %next89.i.i, align 8
+  %cmp161.not.i.i = icmp eq ptr %46, null
   %.pre141.i.i = load ptr, ptr %le_prev105146.i.i, align 8
   br i1 %cmp161.not.i.i, label %if.end169.i.i, label %if.then162.i.i
 
 if.then162.i.i:                                   ; preds = %if.end148.i.i
-  %le_prev168.i.i = getelementptr inbounds i8, ptr %48, i64 496
+  %le_prev168.i.i = getelementptr inbounds i8, ptr %46, i64 496
   store ptr %.pre141.i.i, ptr %le_prev168.i.i, align 8
   %.pre140.i.i = load ptr, ptr %next89.i.i, align 8
   br label %if.end169.i.i
 
 if.end169.i.i:                                    ; preds = %if.then162.i.i, %if.end148.i.i
-  %49 = phi ptr [ %.pre140.i.i, %if.then162.i.i ], [ null, %if.end148.i.i ]
-  store ptr %49, ptr %.pre141.i.i, align 8
+  %47 = phi ptr [ %.pre140.i.i, %if.then162.i.i ], [ null, %if.end148.i.i ]
+  store ptr %47, ptr %.pre141.i.i, align 8
   store ptr null, ptr %next89.i.i, align 8
   store ptr null, ptr %le_prev105146.i.i, align 8
   call fastcc void @vfio_kvm_device_del_group(ptr noundef nonnull %call.i32)
   call void @memory_listener_unregister(ptr noundef nonnull %listener.i.i) #15
-  %50 = load i32, ptr %36, align 8
-  switch i32 %50, label %enable_discards_exit.i.i [
+  %48 = load i32, ptr %34, align 8
+  switch i32 %48, label %enable_discards_exit.i.i [
     i32 7, label %if.then184.i.i
     i32 2, label %if.then184.i.i
   ]
@@ -1582,39 +1573,40 @@ if.then184.i.i:                                   ; preds = %if.end169.i.i, %if.
   br label %enable_discards_exit.i.i
 
 enable_discards_exit.i.i:                         ; preds = %if.then184.i.i, %if.end169.i.i, %sw.bb77.i.i, %if.then63.i.i
-  %ret.3.i.i = phi i32 [ -1, %if.then184.i.i ], [ %call78.i.i, %sw.bb77.i.i ], [ %call61.i.i, %if.then63.i.i ], [ -1, %if.end169.i.i ]
-  %call42.val111.i.i = load i32, ptr %36, align 8
+  %call42.val111.i.i = load i32, ptr %34, align 8
   call fastcc void @vfio_ram_block_discard_disable(i32 %call42.val111.i.i, i1 noundef zeroext false)
   br label %free_container_exit.i.i
 
 free_container_exit.i.i:                          ; preds = %enable_discards_exit.i.i, %if.then58.i.i, %vfio_init_container.exit.i.i, %vfio_init_container.exit.thread124.i.i
-  %ret.2.i.i = phi i32 [ %retval.0.i114.i.i, %vfio_init_container.exit.i.i ], [ %retval.0.i117.i.i, %if.then58.i.i ], [ %ret.3.i.i, %enable_discards_exit.i.i ], [ -22, %vfio_init_container.exit.thread124.i.i ]
-  %51 = load ptr, ptr %iova_ranges.i.i, align 8
-  call void @g_list_free_full(ptr noundef %51, ptr noundef nonnull @g_free) #15
+  %49 = load ptr, ptr %iova_ranges.i.i, align 8
+  call void @g_list_free_full(ptr noundef %49, ptr noundef nonnull @g_free) #15
   call void @g_free(ptr noundef nonnull %call42.i.i) #15
-  br label %close_fd_exit.i.i
+  br label %vfio_connect_container.exit.thread37.i
 
-close_fd_exit.i.i:                                ; preds = %free_container_exit.i.i, %if.then40.i.i
-  %ret.1.i.i = phi i32 [ -22, %if.then40.i.i ], [ %ret.2.i.i, %free_container_exit.i.i ]
+vfio_connect_container.exit.thread37.i:           ; preds = %free_container_exit.i.i, %if.then40.i.i
   %call187.i.i = call i32 @close(i32 noundef %call31.i.i) #15
-  br label %vfio_connect_container.exit.i
+  call void @vfio_put_address_space(ptr noundef %call.i.i) #15
+  br label %if.then27.sink.split.i
 
 vfio_connect_container.exit.thread.i:             ; preds = %if.end136.i.i, %vfio_kvm_device_add_group.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %info.i.i)
   br label %do.body29.i
 
-vfio_connect_container.exit.thread34.i:           ; preds = %if.then12.i.i, %if.then7.i.i
+vfio_connect_container.exit.i:                    ; preds = %for.end.i.i
+  %call34.i.i = tail call ptr @__errno_location() #17
+  %50 = load i32, ptr %call34.i.i, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.4, i32 noundef 533, ptr noundef nonnull @__func__.vfio_connect_container, i32 noundef %50, ptr noundef nonnull @.str.29) #15
+  %51 = load i32, ptr %call34.i.i, align 4
+  call void @vfio_put_address_space(ptr noundef %call.i.i) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %info.i.i)
+  %tobool26.not.i = icmp eq i32 %51, 0
+  br i1 %tobool26.not.i, label %do.body29.i, label %if.then27.i
+
+if.then27.sink.split.i:                           ; preds = %vfio_connect_container.exit.thread37.i, %if.then12.i.i, %if.then7.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %info.i.i)
   br label %if.then27.i
 
-vfio_connect_container.exit.i:                    ; preds = %close_fd_exit.i.i, %if.then33.i.i
-  %ret.0.i.i = phi i32 [ %sub36.i.i, %if.then33.i.i ], [ %ret.1.i.i, %close_fd_exit.i.i ]
-  call void @vfio_put_address_space(ptr noundef %call.i.i) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %info.i.i)
-  %tobool26.not.i = icmp eq i32 %ret.0.i.i, 0
-  br i1 %tobool26.not.i, label %do.body29.i, label %if.then27.i
-
-if.then27.i:                                      ; preds = %vfio_connect_container.exit.i, %vfio_connect_container.exit.thread34.i
+if.then27.i:                                      ; preds = %if.then27.sink.split.i, %vfio_connect_container.exit.i
   call void (ptr, ptr, ...) @error_prepend(ptr noundef %errp, ptr noundef nonnull @.str.25, i32 noundef range(i32 0, -2147483648) %retval.0.i) #15
   br label %close_fd_exit.i
 
@@ -1651,7 +1643,7 @@ vfio_get_group.exit.thread:                       ; preds = %if.else.i, %free_gr
   br label %return
 
 if.end4:                                          ; preds = %if.end37.i, %if.then.i38
-  %retval.0.i34 = phi ptr [ %call.i32, %if.end37.i ], [ %group.045.i, %if.then.i38 ]
+  %retval.0.i34 = phi ptr [ %call.i32, %if.end37.i ], [ %group.048.i, %if.then.i38 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %path.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %status.i)
   %device_list = getelementptr inbounds i8, ptr %retval.0.i34, i64 16

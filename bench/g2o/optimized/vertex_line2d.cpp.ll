@@ -372,7 +372,7 @@ define linkonce_odr noundef double @_ZN3g2o10BaseVertexILi2ENS_6Line2DEE11solveD
   %.044.i.i.i.sroa.gep7 = getelementptr inbounds i8, ptr %4, i64 8
   %22 = fcmp olt double %20, 0x3CB0000000000000
   %or.cond = or i1 %21, %22
-  br i1 %or.cond, label %95, label %23
+  br i1 %or.cond, label %93, label %23
 
 23:                                               ; preds = %2
   %.sroa.5.16.vec.insert = insertelement <2 x double> poison, double %14, i64 0
@@ -454,75 +454,73 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELin1ELb0E
 55:                                               ; preds = %_ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELin1ELb0EEEE11squaredNormEv.exit.i.i.i.i.i.i, %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit.i.i.i.i.i.i
   %.046.i.i.i.i.i.i = phi double [ %54, %_ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELin1ELb0EEEE11squaredNormEv.exit.i.i.i.i.i.i ], [ %51, %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit.i.i.i.i.i.i ]
   %56 = fcmp ole double %.046.i.i.i.i.i.i, 0.000000e+00
-  br i1 %56, label %69, label %57
+  br i1 %56, label %67, label %57
 
 57:                                               ; preds = %55
   %58 = call double @sqrt(double noundef %.046.i.i.i.i.i.i) #19
   store double %58, ptr %50, align 8, !alias.scope !4
-  br i1 %.not47.i.i.i.i.i.i, label %69, label %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %.not47.i.i.i.i.i.i, label %67, label %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %57
   %59 = ptrtoint ptr %49 to i64
   %60 = lshr exact i64 %59, 3
   %61 = and i64 %60, 1
-  %62 = call i64 @llvm.umin.i64(i64 %61, i64 %47)
-  %.not50.i.i.i.i.i.i = icmp eq i64 %62, 0
+  %.not50.i.i.i.i.i.i = icmp eq i64 %61, 0
   br i1 %.not50.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.preheader.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.preheader.i.i.i.i.i.i:       ; preds = %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i.i
-  %63 = load double, ptr %49, align 8, !alias.scope !4
-  %64 = fdiv double %63, %58
-  store double %64, ptr %49, align 8, !alias.scope !4
+  %62 = load double, ptr %49, align 8, !alias.scope !4
+  %63 = fdiv double %62, %58
+  store double %63, ptr %49, align 8, !alias.scope !4
   br label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %.lr.ph.i.i.i.i.i.i.i.preheader.i.i.i.i.i.i, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i.i
-  %65 = icmp samesign ult i64 %61, %47
-  br i1 %65, label %.lr.ph.i17.i.i.i.i.i.i.i.preheader.i.i.i.i.i, label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit.i.i.i.i.i.i.backedge
+  %64 = icmp samesign ult i64 %61, %47
+  br i1 %64, label %.lr.ph.i17.i.i.i.i.i.i.i.preheader.i.i.i.i.i, label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit.i.i.i.i.i.i.backedge
 
 .lr.ph.i17.i.i.i.i.i.i.i.preheader.i.i.i.i.i:     ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i
-  %66 = getelementptr inbounds double, ptr %49, i64 %62
-  %67 = load double, ptr %66, align 8, !alias.scope !4
-  %68 = fdiv double %67, %58
-  store double %68, ptr %66, align 8, !alias.scope !4
+  %65 = load double, ptr %49, align 8, !alias.scope !4
+  %66 = fdiv double %65, %58
+  store double %66, ptr %49, align 8, !alias.scope !4
   br label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit.i.i.i.i.i.i.backedge
 
 _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit.i.i.i.i.i.i.backedge: ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.preheader.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i
   br label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit.i.i.i.i.i.i
 
-69:                                               ; preds = %55, %57
-  %70 = zext i1 %56 to i32
-  %71 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  store i32 %70, ptr %71, align 4, !alias.scope !4
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %73 = load <2 x double>, ptr %72, align 16
-  %74 = load double, ptr %4, align 16
-  %75 = extractelement <2 x double> %73, i64 0
-  %76 = fdiv double %75, %74
-  %77 = load double, ptr %.044.i.i.i.sroa.gep7, align 8
-  %78 = fmul double %76, %77
-  %79 = getelementptr inbounds i8, ptr %3, i64 8
-  %80 = extractelement <2 x double> %73, i64 1
-  %81 = fsub double %80, %78
-  %82 = getelementptr inbounds i8, ptr %4, i64 24
-  %83 = load double, ptr %82, align 8
-  %84 = fdiv double %81, %83
-  %85 = fdiv double %84, %83
-  store double %85, ptr %79, align 8
-  %86 = fmul double %77, %85
-  %87 = fsub double %76, %86
-  %88 = fdiv double %87, %74
-  store double %88, ptr %3, align 16
-  %89 = load ptr, ptr %0, align 16
-  %90 = getelementptr inbounds i8, ptr %89, i64 224
-  %91 = load ptr, ptr %90, align 8
-  call void %91(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %3)
-  %92 = load ptr, ptr %0, align 16
-  %93 = getelementptr inbounds i8, ptr %92, i64 216
-  %94 = load ptr, ptr %93, align 8
-  call void %94(ptr noundef nonnull align 8 dereferenceable(128) %0)
-  br label %95
+67:                                               ; preds = %55, %57
+  %68 = zext i1 %56 to i32
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 44
+  store i32 %68, ptr %69, align 4, !alias.scope !4
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %71 = load <2 x double>, ptr %70, align 16
+  %72 = load double, ptr %4, align 16
+  %73 = extractelement <2 x double> %71, i64 0
+  %74 = fdiv double %73, %72
+  %75 = load double, ptr %.044.i.i.i.sroa.gep7, align 8
+  %76 = fmul double %74, %75
+  %77 = getelementptr inbounds i8, ptr %3, i64 8
+  %78 = extractelement <2 x double> %71, i64 1
+  %79 = fsub double %78, %76
+  %80 = getelementptr inbounds i8, ptr %4, i64 24
+  %81 = load double, ptr %80, align 8
+  %82 = fdiv double %79, %81
+  %83 = fdiv double %82, %81
+  store double %83, ptr %77, align 8
+  %84 = fmul double %75, %83
+  %85 = fsub double %74, %84
+  %86 = fdiv double %85, %72
+  store double %86, ptr %3, align 16
+  %87 = load ptr, ptr %0, align 16
+  %88 = getelementptr inbounds i8, ptr %87, i64 224
+  %89 = load ptr, ptr %88, align 8
+  call void %89(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %3)
+  %90 = load ptr, ptr %0, align 16
+  %91 = getelementptr inbounds i8, ptr %90, i64 216
+  %92 = load ptr, ptr %91, align 8
+  call void %92(ptr noundef nonnull align 8 dereferenceable(128) %0)
+  br label %93
 
-95:                                               ; preds = %2, %69
+93:                                               ; preds = %2, %67
   ret double %20
 }
 

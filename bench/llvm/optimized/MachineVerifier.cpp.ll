@@ -33225,7 +33225,7 @@ _ZN4llvm15SmallVectorImplINS_8RegisterEE7reserveEm.exit: ; preds = %_ZSt8distanc
   %56 = load ptr, ptr %0, align 8
   %57 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   %58 = getelementptr inbounds %"class.llvm::Register", ptr %56, i64 %57
-  br i1 %.not, label %84, label %59
+  br i1 %.not, label %85, label %59
 
 59:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_8RegisterEE7reserveEm.exit
   %60 = load ptr, ptr %0, align 8
@@ -33245,9 +33245,9 @@ _ZN4llvm15SmallVectorImplINS_8RegisterEE7reserveEm.exit: ; preds = %_ZSt8distanc
   %70 = ptrtoint ptr %68 to i64
   %71 = sub i64 %70, %54
   %72 = ashr exact i64 %71, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %72
-  %73 = getelementptr inbounds %"class.llvm::Register", ptr %58, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %73, ptr align 4 %52, i64 %71, i1 false)
+  %73 = sub nsw i64 0, %72
+  %74 = getelementptr inbounds %"class.llvm::Register", ptr %58, i64 %73
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %74, ptr align 4 %52, i64 %71, i1 false)
   br label %_ZSt13move_backwardIPN4llvm8RegisterES2_ET0_T_S4_S3_.exit
 
 _ZSt13move_backwardIPN4llvm8RegisterES2_ET0_T_S4_S3_.exit: ; preds = %59, %69
@@ -33259,73 +33259,73 @@ _ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i34.preheader: ; preds = %_ZSt13move
   br label %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i34
 
 _ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i34:  ; preds = %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i34.preheader, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i34
-  %74 = phi i16 [ %83, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i34 ], [ %.sroa.478.0.copyload, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i34.preheader ]
-  %.06.i.i.i.i.i = phi ptr [ %78, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i34 ], [ %52, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i34.preheader ]
-  %75 = phi ptr [ %spec.select.i.i.i.i.i36, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i34 ], [ %.sroa.262.0.copyload, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i34.preheader ]
-  %76 = phi i32 [ %82, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i34 ], [ %.sroa.075.0.copyload, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i34.preheader ]
-  %77 = zext i16 %74 to i32
-  store i32 %77, ptr %.06.i.i.i.i.i, align 4
-  %78 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i, i64 4
-  %79 = getelementptr inbounds i8, ptr %75, i64 2
-  %80 = load i16, ptr %75, align 2
-  %81 = zext i16 %80 to i32
-  %82 = add i32 %76, %81
-  %.not.i.i.i.i.i.i.i35 = icmp eq i16 %80, 0
-  %spec.select.i.i.i.i.i36 = select i1 %.not.i.i.i.i.i.i.i35, ptr null, ptr %79
-  %83 = trunc i32 %82 to i16
+  %75 = phi i16 [ %84, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i34 ], [ %.sroa.478.0.copyload, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i34.preheader ]
+  %.06.i.i.i.i.i = phi ptr [ %79, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i34 ], [ %52, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i34.preheader ]
+  %76 = phi ptr [ %spec.select.i.i.i.i.i36, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i34 ], [ %.sroa.262.0.copyload, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i34.preheader ]
+  %77 = phi i32 [ %83, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i34 ], [ %.sroa.075.0.copyload, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i34.preheader ]
+  %78 = zext i16 %75 to i32
+  store i32 %78, ptr %.06.i.i.i.i.i, align 4
+  %79 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i, i64 4
+  %80 = getelementptr inbounds i8, ptr %76, i64 2
+  %81 = load i16, ptr %76, align 2
+  %82 = zext i16 %81 to i32
+  %83 = add i32 %77, %82
+  %.not.i.i.i.i.i.i.i35 = icmp eq i16 %81, 0
+  %spec.select.i.i.i.i.i36 = select i1 %.not.i.i.i.i.i.i.i35, ptr null, ptr %80
+  %84 = trunc i32 %83 to i16
   %.not.i.i.i.i.i37 = icmp eq ptr %spec.select.i.i.i.i.i36, %.sroa.268.0.copyload
   br i1 %.not.i.i.i.i.i37, label %_ZSt4copyIN4llvm16MCSubRegIteratorEPNS0_8RegisterEET0_T_S5_S4_.exit, label %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i.i34, !llvm.loop !240
 
-84:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_8RegisterEE7reserveEm.exit
-  %85 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %86 = add i64 %85, %.0.lcssa.i.i
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %86) #18
-  %87 = load ptr, ptr %0, align 8
-  %88 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+85:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_8RegisterEE7reserveEm.exit
+  %86 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  %87 = add i64 %86, %.0.lcssa.i.i
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %87) #18
+  %88 = load ptr, ptr %0, align 8
+  %89 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   %.not.i.i38 = icmp eq ptr %52, %58
   br i1 %.not.i.i38, label %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.thread, label %.lr.ph.preheader
 
-_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.thread: ; preds = %84
+_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.thread: ; preds = %85
   %.sroa.363.0..sroa_idx.promoted116 = load i16, ptr %.sroa.363.0..sroa_idx, align 8
   %.promoted117 = load i32, ptr %2, align 8
   br label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %84
-  %89 = ptrtoint ptr %58 to i64
-  %90 = sub i64 %89, %54
-  %91 = ashr exact i64 %90, 2
-  %92 = getelementptr inbounds %"class.llvm::Register", ptr %87, i64 %88
-  %93 = sub nsw i64 0, %91
-  %94 = getelementptr inbounds %"class.llvm::Register", ptr %92, i64 %93
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %94, ptr align 4 %52, i64 %90, i1 false)
+.lr.ph.preheader:                                 ; preds = %85
+  %90 = ptrtoint ptr %58 to i64
+  %91 = sub i64 %90, %54
+  %92 = ashr exact i64 %91, 2
+  %93 = getelementptr inbounds %"class.llvm::Register", ptr %88, i64 %89
+  %94 = sub nsw i64 0, %92
+  %95 = getelementptr inbounds %"class.llvm::Register", ptr %93, i64 %94
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %95, ptr align 4 %52, i64 %91, i1 false)
   %.sroa.363.0..sroa_idx.promoted = load i16, ptr %.sroa.363.0..sroa_idx, align 8
   %.promoted = load i32, ptr %2, align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0109 = phi ptr [ %99, %.lr.ph ], [ %52, %.lr.ph.preheader ]
-  %.028108 = phi i64 [ %105, %.lr.ph ], [ %91, %.lr.ph.preheader ]
-  %95 = phi i16 [ %104, %.lr.ph ], [ %.sroa.363.0..sroa_idx.promoted, %.lr.ph.preheader ]
-  %96 = phi ptr [ %spec.select, %.lr.ph ], [ %.sroa.262.0.copyload, %.lr.ph.preheader ]
-  %97 = phi i32 [ %103, %.lr.ph ], [ %.promoted, %.lr.ph.preheader ]
-  %98 = zext i16 %95 to i32
-  store i32 %98, ptr %.0109, align 4
-  %99 = getelementptr inbounds i8, ptr %.0109, i64 4
-  %100 = getelementptr inbounds i8, ptr %96, i64 2
-  %101 = load i16, ptr %96, align 2
-  %102 = sext i16 %101 to i32
-  %103 = add i32 %97, %102
-  %.not.i.i39 = icmp eq i16 %101, 0
-  %spec.select = select i1 %.not.i.i39, ptr null, ptr %100
-  %104 = trunc i32 %103 to i16
-  %105 = add i64 %.028108, -1
-  %.not31 = icmp eq i64 %105, 0
+  %.0109 = phi ptr [ %100, %.lr.ph ], [ %52, %.lr.ph.preheader ]
+  %.028108 = phi i64 [ %106, %.lr.ph ], [ %92, %.lr.ph.preheader ]
+  %96 = phi i16 [ %105, %.lr.ph ], [ %.sroa.363.0..sroa_idx.promoted, %.lr.ph.preheader ]
+  %97 = phi ptr [ %spec.select, %.lr.ph ], [ %.sroa.262.0.copyload, %.lr.ph.preheader ]
+  %98 = phi i32 [ %104, %.lr.ph ], [ %.promoted, %.lr.ph.preheader ]
+  %99 = zext i16 %96 to i32
+  store i32 %99, ptr %.0109, align 4
+  %100 = getelementptr inbounds i8, ptr %.0109, i64 4
+  %101 = getelementptr inbounds i8, ptr %97, i64 2
+  %102 = load i16, ptr %97, align 2
+  %103 = sext i16 %102 to i32
+  %104 = add i32 %98, %103
+  %.not.i.i39 = icmp eq i16 %102, 0
+  %spec.select = select i1 %.not.i.i39, ptr null, ptr %101
+  %105 = trunc i32 %104 to i16
+  %106 = add i64 %.028108, -1
+  %.not31 = icmp eq i64 %106, 0
   br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !241
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.thread
-  %.lcssa106 = phi i32 [ %.promoted117, %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.thread ], [ %103, %.lr.ph ]
+  %.lcssa106 = phi i32 [ %.promoted117, %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.thread ], [ %104, %.lr.ph ]
   %.lcssa105 = phi ptr [ %.sroa.262.0.copyload, %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.thread ], [ %spec.select, %.lr.ph ]
-  %.lcssa104 = phi i16 [ %.sroa.363.0..sroa_idx.promoted116, %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.thread ], [ %104, %.lr.ph ]
+  %.lcssa104 = phi i16 [ %.sroa.363.0..sroa_idx.promoted116, %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.thread ], [ %105, %.lr.ph ]
   store i16 %.lcssa104, ptr %.sroa.363.0..sroa_idx, align 8
   store ptr %.lcssa105, ptr %.sroa.262.0..sroa_idx, align 8
   store i32 %.lcssa106, ptr %2, align 8
@@ -33333,20 +33333,20 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE18uninitialized_moveIPS1_S4_
   br i1 %.not6.i.i.i.i, label %_ZSt4copyIN4llvm16MCSubRegIteratorEPNS0_8RegisterEET0_T_S5_S4_.exit, label %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i
 
 _ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i:      ; preds = %._crit_edge, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i
-  %106 = phi i16 [ %114, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i ], [ %.lcssa104, %._crit_edge ]
-  %.07.i.i.i.i = phi ptr [ %115, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i ], [ %58, %._crit_edge ]
-  %107 = phi ptr [ %spec.select.i.i.i.i, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i ], [ %.lcssa105, %._crit_edge ]
-  %108 = phi i32 [ %113, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i ], [ %.lcssa106, %._crit_edge ]
-  %109 = zext i16 %106 to i32
-  store i32 %109, ptr %.07.i.i.i.i, align 4
-  %110 = getelementptr inbounds i8, ptr %107, i64 2
-  %111 = load i16, ptr %107, align 2
-  %112 = zext i16 %111 to i32
-  %113 = add i32 %108, %112
-  %.not.i.i.i.i.i.i = icmp eq i16 %111, 0
-  %spec.select.i.i.i.i = select i1 %.not.i.i.i.i.i.i, ptr null, ptr %110
-  %114 = trunc i32 %113 to i16
-  %115 = getelementptr inbounds i8, ptr %.07.i.i.i.i, i64 4
+  %107 = phi i16 [ %115, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i ], [ %.lcssa104, %._crit_edge ]
+  %.07.i.i.i.i = phi ptr [ %116, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i ], [ %58, %._crit_edge ]
+  %108 = phi ptr [ %spec.select.i.i.i.i, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i ], [ %.lcssa105, %._crit_edge ]
+  %109 = phi i32 [ %114, %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i ], [ %.lcssa106, %._crit_edge ]
+  %110 = zext i16 %107 to i32
+  store i32 %110, ptr %.07.i.i.i.i, align 4
+  %111 = getelementptr inbounds i8, ptr %108, i64 2
+  %112 = load i16, ptr %108, align 2
+  %113 = zext i16 %112 to i32
+  %114 = add i32 %109, %113
+  %.not.i.i.i.i.i.i = icmp eq i16 %112, 0
+  %spec.select.i.i.i.i = select i1 %.not.i.i.i.i.i.i, ptr null, ptr %111
+  %115 = trunc i32 %114 to i16
+  %116 = getelementptr inbounds i8, ptr %.07.i.i.i.i, i64 4
   %.not.i.i.i.i44 = icmp eq ptr %spec.select.i.i.i.i, %.sroa.268.0.copyload
   br i1 %.not.i.i.i.i44, label %_ZSt4copyIN4llvm16MCSubRegIteratorEPNS0_8RegisterEET0_T_S5_S4_.exit, label %_ZN4llvm16MCSubRegIteratorppEv.exit.i.i.i.i, !llvm.loop !239
 

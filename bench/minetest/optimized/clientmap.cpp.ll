@@ -10953,20 +10953,20 @@ if.end.i:                                         ; preds = %invoke.cont13
   %23 = shufflevector <2 x double> %22, <2 x double> poison, <2 x i32> zeroinitializer
   %24 = fmul nsz <2 x double> %23, %21
   %25 = fptrunc <2 x double> %24 to <2 x float>
-  %.pre35 = extractelement <2 x float> %25, i64 0
-  %.pre36 = extractelement <2 x float> %25, i64 1
+  %.pre40 = extractelement <2 x float> %25, i64 0
+  %.pre41 = extractelement <2 x float> %25, i64 1
   br label %invoke.cont19
 
 invoke.cont19:                                    ; preds = %if.end.i, %invoke.cont13
-  %.pre-phi37 = phi float [ %.pre36, %if.end.i ], [ %18, %invoke.cont13 ]
-  %.pre-phi = phi float [ %.pre35, %if.end.i ], [ %16, %invoke.cont13 ]
+  %.pre-phi42 = phi float [ %.pre41, %if.end.i ], [ %18, %invoke.cont13 ]
+  %.pre-phi = phi float [ %.pre40, %if.end.i ], [ %16, %invoke.cont13 ]
   %ref.tmp8.sroa.7.0 = phi float [ %conv13.i, %if.end.i ], [ 1.000000e+00, %invoke.cont13 ]
   %arrayidx = getelementptr inbounds [50 x %"class.irr::core::vector3d"], ptr @_ZZN9ClientMap23getBackgroundBrightnessEfjiPbE12z_directions, i64 0, i64 %indvars.iv
   store float %.pre-phi, ptr %arrayidx, align 4, !tbaa !22
   %ref.tmp8.sroa.7.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 4
   store float %ref.tmp8.sroa.7.0, ptr %ref.tmp8.sroa.7.0.arrayidx.sroa_idx, align 4, !tbaa !22
   %ref.tmp8.sroa.10.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  store float %.pre-phi37, ptr %ref.tmp8.sroa.10.0.arrayidx.sroa_idx, align 4, !tbaa !22
+  store float %.pre-phi42, ptr %ref.tmp8.sroa.10.0.arrayidx.sroa_idx, align 4, !tbaa !22
   %call24 = invoke noundef i32 @_Z12myrand_rangeii(i32 noundef 0, i32 noundef 100)
           to label %invoke.cont23 unwind label %lpad22
 
@@ -11154,16 +11154,16 @@ if.end.i.i258:                                    ; preds = %invoke.cont56
   %conv16.i.i = fpext float %71 to double
   %mul17.i.i = fmul nsz double %div.i.i.i, %conv16.i.i
   %conv18.i.i = fptrunc double %mul17.i.i to float
-  %.pre38 = extractelement <2 x float> %84, i64 0
+  %.pre43 = extractelement <2 x float> %84, i64 0
   br label %_ZN3irr4core8vector3dIfE9normalizeEv.exit.i
 
 _ZN3irr4core8vector3dIfE9normalizeEv.exit.i:      ; preds = %if.end.i.i258, %invoke.cont56
-  %.pre-phi39 = phi float [ %.pre38, %if.end.i.i258 ], [ %76, %invoke.cont56 ]
+  %.pre-phi44 = phi float [ %.pre43, %if.end.i.i258 ], [ %76, %invoke.cont56 ]
   %dir.sroa.11.0.i = phi float [ %conv18.i.i, %if.end.i.i258 ], [ %71, %invoke.cont56 ]
   %85 = phi <2 x float> [ %84, %if.end.i.i258 ], [ %69, %invoke.cont56 ]
   %pf.sroa.0.0.copyload.i = load <2 x float>, ptr %m_camera_position, align 8
   %pf.sroa.14.0.copyload.i = load float, ptr %pf.sroa.14.0.p0.sroa_idx.i, align 8, !tbaa !22
-  %mul.i141.i = fmul nsz float %.pre-phi39, %conv69
+  %mul.i141.i = fmul nsz float %.pre-phi44, %conv69
   %86 = extractelement <2 x float> %85, i64 1
   %mul2.i.i = fmul nsz float %86, %conv69
   %mul3.i.i = fmul nsz float %dir.sroa.11.0.i, %conv69
@@ -11257,7 +11257,7 @@ if.end34.i:                                       ; preds = %if.then24.i, %call2
   br i1 %cmp35296.i, label %for.body.lr.ph.i, label %for.inc98
 
 for.body.lr.ph.i:                                 ; preds = %if.end34.i
-  %mul.i206.i = fmul nsz float %step.0, %.pre-phi39
+  %mul.i206.i = fmul nsz float %step.0, %.pre-phi44
   %mul2.i208.i = fmul nsz float %step.0, %86
   %mul3.i210.i = fmul nsz float %step.0, %dir.sroa.11.0.i
   br label %for.body.i
@@ -11513,7 +11513,7 @@ cleanup100:                                       ; preds = %invoke.cont79, %cle
   %.pre409 = ptrtoint ptr %values.sroa.0.4 to i64
   %.pre410 = sub i64 %.pre, %.pre409
   %.pre411 = ashr exact i64 %.pre410, 2
-  br i1 %cmp.i.not.i.i, label %invoke.cont111, label %if.then.i.i271
+  br i1 %cmp.i.not.i.i, label %if.end122, label %if.then.i.i271
 
 if.then.i.i271:                                   ; preds = %cleanup100
   %110 = call i64 @llvm.ctlz.i64(i64 %.pre411, i1 true), !range !511
@@ -11526,7 +11526,7 @@ if.then.i.i271:                                   ; preds = %cleanup100
   invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_(ptr %values.sroa.0.4, ptr %values.sroa.14.4)
           to label %invoke.cont111 unwind label %lpad110
 
-invoke.cont111:                                   ; preds = %.noexc274, %cleanup100
+invoke.cont111:                                   ; preds = %.noexc274
   %conv113 = trunc i64 %.pre411 to i32
   %cmp114 = icmp ugt i32 %conv113, 9
   br i1 %cmp114, label %if.then115, label %if.else
@@ -11552,8 +11552,8 @@ if.then118:                                       ; preds = %if.else
   %sub120 = sub nuw nsw i32 %conv113, %div119.zext
   br label %if.end122
 
-if.end122:                                        ; preds = %if.then118, %if.else, %if.then115
-  %num_values_to_use.0 = phi i32 [ %sub, %if.then115 ], [ %sub120, %if.then118 ], [ %conv113, %if.else ]
+if.end122:                                        ; preds = %cleanup100, %if.then118, %if.else, %if.then115
+  %num_values_to_use.0 = phi i32 [ %sub, %if.then115 ], [ %sub120, %if.then118 ], [ %conv113, %if.else ], [ 0, %cleanup100 ]
   %conv124 = zext i32 %num_values_to_use.0 to i64
   %sub125 = sub nsw i64 %.pre411, %conv124
   %div126230 = lshr i64 %sub125, 1
@@ -11567,9 +11567,9 @@ for.body132.preheader:                            ; preds = %if.end122
   %wide.trip.count = zext i32 %add to i64
   %113 = sub nsw i64 %wide.trip.count, %112
   %min.iters.check = icmp ult i64 %113, 8
-  br i1 %min.iters.check, label %for.body132.preheader54, label %vector.ph
+  br i1 %min.iters.check, label %for.body132.preheader59, label %vector.ph
 
-for.body132.preheader54:                          ; preds = %middle.block, %for.body132.preheader
+for.body132.preheader59:                          ; preds = %middle.block, %for.body132.preheader
   %indvars.iv405.ph = phi i64 [ %ind.end, %middle.block ], [ %112, %for.body132.preheader ]
   %brightness_sum.0391.ph = phi i32 [ %119, %middle.block ], [ 0, %for.body132.preheader ]
   br label %for.body132
@@ -11598,16 +11598,16 @@ middle.block:                                     ; preds = %vector.body
   %bin.rdx = add <4 x i32> %117, %116
   %119 = call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %bin.rdx)
   %cmp.n = icmp eq i64 %113, %n.vec
-  br i1 %cmp.n, label %for.cond.cleanup131, label %for.body132.preheader54
+  br i1 %cmp.n, label %for.cond.cleanup131, label %for.body132.preheader59
 
 for.cond.cleanup131:                              ; preds = %for.body132, %middle.block
   %add135.lcssa = phi i32 [ %119, %middle.block ], [ %add135, %for.body132 ]
   %cmp141 = icmp eq i32 %num_values_to_use.0, 0
   br i1 %cmp141, label %invoke.cont147, label %if.end170.thread
 
-for.body132:                                      ; preds = %for.body132.preheader54, %for.body132
-  %indvars.iv405 = phi i64 [ %indvars.iv.next406, %for.body132 ], [ %indvars.iv405.ph, %for.body132.preheader54 ]
-  %brightness_sum.0391 = phi i32 [ %add135, %for.body132 ], [ %brightness_sum.0391.ph, %for.body132.preheader54 ]
+for.body132:                                      ; preds = %for.body132.preheader59, %for.body132
+  %indvars.iv405 = phi i64 [ %indvars.iv.next406, %for.body132 ], [ %indvars.iv405.ph, %for.body132.preheader59 ]
+  %brightness_sum.0391 = phi i32 [ %add135, %for.body132 ], [ %brightness_sum.0391.ph, %for.body132.preheader59 ]
   %add.ptr.i282 = getelementptr inbounds i32, ptr %values.sroa.0.4, i64 %indvars.iv405
   %120 = load i32, ptr %add.ptr.i282, align 4, !tbaa !128
   %add135 = add nsw i32 %120, %brightness_sum.0391

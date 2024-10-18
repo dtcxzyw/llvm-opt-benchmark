@@ -263,7 +263,7 @@ _ZNSt12_Vector_baseIPN4LIEF5MachO6SymbolESaIS3_EE13_M_deallocateEPS3_m.exit: ; p
   br label %_ZSt4copyIPPN4LIEF5MachO6SymbolES4_ET0_T_S6_S5_.exit
 
 _ZSt4copyIPPN4LIEF5MachO6SymbolES4_ET0_T_S6_S5_.exit: ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]

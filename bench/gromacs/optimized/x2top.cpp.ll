@@ -2559,7 +2559,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %799
   br label %802
 
 802:                                              ; preds = %.noexc81, %791
-  %.pre-phi51.i = phi i64 [ %.pre50.i, %.noexc81 ], [ %797, %791 ]
+  %.pre-phi51.i = phi i64 [ %.pre50.i, %.noexc81 ], [ 0, %791 ]
   %803 = phi ptr [ %.pre.i70, %.noexc81 ], [ %793, %791 ]
   %804 = phi ptr [ %801, %.noexc81 ], [ null, %791 ]
   store ptr %804, ptr %19, align 8

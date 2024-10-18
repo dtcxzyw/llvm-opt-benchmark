@@ -9383,8 +9383,8 @@ if.then3:                                         ; preds = %for.body
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %__i.017 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.sat::literal", ptr %add.ptr4, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.sat::literal", ptr %add.ptr4, i64 %idx.neg.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   store i32 %__val.sroa.0.0.copyload, ptr %__first, align 4
   br label %for.inc
@@ -18610,8 +18610,8 @@ if.then3.i80:                                     ; preds = %_ZN9__gnu_cxx5__ops
   %sub.ptr.lhs.cast.i.i.i.i.i.i82 = ptrtoint ptr %__i.018.i36 to i64
   %sub.ptr.sub.i.i.i.i.i.i83 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i82, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i.i84 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i83, 2
-  %.pre.i.i.i.i.i.i85 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i84
-  %add.ptr.i.i.i.i.i.i86 = getelementptr inbounds i32, ptr %add.ptr4.i81, i64 %.pre.i.i.i.i.i.i85
+  %idx.neg.i.i.i.i.i.i85 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i84
+  %add.ptr.i.i.i.i.i.i86 = getelementptr inbounds i32, ptr %add.ptr4.i81, i64 %idx.neg.i.i.i.i.i.i85
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i86, ptr noundef nonnull align 4 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i83, i1 false)
   br label %for.inc.i70
 
@@ -19576,8 +19576,8 @@ if.then3.i51:                                     ; preds = %_ZN9__gnu_cxx5__ops
   %sub.ptr.lhs.cast.i.i.i.i.i.i53 = ptrtoint ptr %__i.016.i22 to i64
   %sub.ptr.sub.i.i.i.i.i.i54 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i53, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i.i55 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i54, 2
-  %.pre.i.i.i.i.i.i56 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i55
-  %add.ptr.i.i.i.i.i.i57 = getelementptr inbounds i32, ptr %add.ptr4.i52, i64 %.pre.i.i.i.i.i.i56
+  %idx.neg.i.i.i.i.i.i56 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i55
+  %add.ptr.i.i.i.i.i.i57 = getelementptr inbounds i32, ptr %add.ptr4.i52, i64 %idx.neg.i.i.i.i.i.i56
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i57, ptr noundef nonnull align 4 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i54, i1 false)
   br label %for.inc.i43
 

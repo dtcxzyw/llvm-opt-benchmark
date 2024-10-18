@@ -1670,16 +1670,14 @@ entry:
   %sub.ptr.lhs.cast.i5.i.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i6.i.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i7.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i5.i.i.i.i.i, %sub.ptr.rhs.cast.i6.i.i.i.i.i
-  %cmp.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i, %sub.ptr.sub.i7.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %invoke.cont.thread
-
-land.rhs.i.i.i.i.i:                               ; preds = %entry
+  %cmp.i.i.i.i.i = icmp ne i64 %sub.ptr.sub.i.i.i.i.i.i, %sub.ptr.sub.i7.i.i.i.i.i
   %cmp.not4.i.i.i.i.i.i.i.i.i = icmp eq ptr %1, %0
-  br i1 %cmp.not4.i.i.i.i.i.i.i.i.i, label %_ZNK19OpenColorIO_v2_4dev9LogOpData18allComponentsEqualEv.exit.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i
+  %or.cond.i.i.i = or i1 %cmp.not4.i.i.i.i.i.i.i.i.i, %cmp.i.i.i.i.i
+  br i1 %or.cond.i.i.i, label %invoke.cont.thread, label %for.body.i.i.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %land.rhs.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i
-  %__first2.addr.06.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr2.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i ], [ %3, %land.rhs.i.i.i.i.i ]
-  %__first1.addr.05.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i ], [ %1, %land.rhs.i.i.i.i.i ]
+for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %entry, %for.inc.i.i.i.i.i.i.i.i.i
+  %__first2.addr.06.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr2.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i ], [ %3, %entry ]
+  %__first1.addr.05.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i ], [ %1, %entry ]
   %4 = load double, ptr %__first1.addr.05.i.i.i.i.i.i.i.i.i, align 8
   %5 = load double, ptr %__first2.addr.06.i.i.i.i.i.i.i.i.i, align 8
   %cmp1.i.i.i.i.i.i.i.i.i = fcmp oeq double %4, %5
@@ -1716,96 +1714,79 @@ for.inc.i.i.i.i.i16.i.i.i.i:                      ; preds = %for.body.i.i.i.i.i1
   %cmp.not.i.i.i.i.i19.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i17.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i19.i.i.i.i, label %land.lhs.true.i.i.i, label %for.body.i.i.i.i.i12.i.i.i.i, !llvm.loop !4
 
-_ZNK19OpenColorIO_v2_4dev9LogOpData18allComponentsEqualEv.exit.i.i.i: ; preds = %land.rhs.i.i.i.i.i
-  %m_blueParams23.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 216
-  %_M_finish.i4.i524.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 224
-  %10 = load ptr, ptr %_M_finish.i4.i524.i.i.i.i, align 8
-  %11 = load ptr, ptr %m_blueParams23.i.i.i.i, align 8
-  %sub.ptr.lhs.cast.i5.i625.i.i.i.i = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast.i6.i726.i.i.i.i = ptrtoint ptr %11 to i64
-  %sub.ptr.sub.i7.i827.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i5.i625.i.i.i.i, %sub.ptr.rhs.cast.i6.i726.i.i.i.i
-  %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i, 32
-  %12 = icmp eq i64 %sub.ptr.sub.i7.i827.i.i.i.i, 32
-  %or.cond.i.i.i = and i1 %cmp.i.i.i, %12
-  br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %invoke.cont.thread
-
 land.lhs.true.i.i.i:                              ; preds = %for.inc.i.i.i.i.i16.i.i.i.i
-  %cmp.old.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i, 32
-  br i1 %cmp.old.i.i.i, label %if.then.i.i.i, label %invoke.cont.thread
+  %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i, 32
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %invoke.cont.thread
 
-if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i, %_ZNK19OpenColorIO_v2_4dev9LogOpData18allComponentsEqualEv.exit.i.i.i
-  %13 = load double, ptr %1, align 8
-  %cmp5.i.i.i = fcmp oeq double %13, 1.000000e+00
+if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
+  %10 = load double, ptr %1, align 8
+  %cmp5.i.i.i = fcmp oeq double %10, 1.000000e+00
   br i1 %cmp5.i.i.i, label %land.lhs.true6.i.i.i, label %invoke.cont.thread
 
 land.lhs.true6.i.i.i:                             ; preds = %if.then.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
-  %14 = load double, ptr %add.ptr.i.i.i.i, align 8
-  %cmp9.i.i.i = fcmp oeq double %14, 1.000000e+00
+  %11 = load double, ptr %add.ptr.i.i.i.i, align 8
+  %cmp9.i.i.i = fcmp oeq double %11, 1.000000e+00
   br i1 %cmp9.i.i.i, label %land.lhs.true10.i.i.i, label %invoke.cont.thread
 
 land.lhs.true10.i.i.i:                            ; preds = %land.lhs.true6.i.i.i
   %add.ptr.i1.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
-  %15 = load double, ptr %add.ptr.i1.i.i.i, align 8
-  %cmp13.i.i.i = fcmp oeq double %15, 0.000000e+00
+  %12 = load double, ptr %add.ptr.i1.i.i.i, align 8
+  %cmp13.i.i.i = fcmp oeq double %12, 0.000000e+00
   br i1 %cmp13.i.i.i, label %land.lhs.true14.i.i.i, label %invoke.cont.thread
 
 land.lhs.true14.i.i.i:                            ; preds = %land.lhs.true10.i.i.i
   %add.ptr.i2.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %16 = load double, ptr %add.ptr.i2.i.i.i, align 8
-  %cmp17.i.i.i = fcmp oeq double %16, 0.000000e+00
+  %13 = load double, ptr %add.ptr.i2.i.i.i, align 8
+  %cmp17.i.i.i = fcmp oeq double %13, 0.000000e+00
   br i1 %cmp17.i.i.i, label %invoke.cont, label %invoke.cont.thread
 
-invoke.cont.thread:                               ; preds = %for.body.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i12.i.i.i.i, %entry, %land.rhs.i.i.i.i, %_ZNK19OpenColorIO_v2_4dev9LogOpData18allComponentsEqualEv.exit.i.i.i, %land.lhs.true.i.i.i, %if.then.i.i.i, %land.lhs.true6.i.i.i, %land.lhs.true10.i.i.i, %land.lhs.true14.i.i.i
-  %m_base.i.i372 = getelementptr inbounds i8, ptr %this, i64 240
-  %17 = load double, ptr %m_base.i.i372, align 8
+invoke.cont.thread:                               ; preds = %for.body.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i12.i.i.i.i, %entry, %land.rhs.i.i.i.i, %land.lhs.true.i.i.i, %if.then.i.i.i, %land.lhs.true6.i.i.i, %land.lhs.true10.i.i.i, %land.lhs.true14.i.i.i
+  %m_base.i.i364 = getelementptr inbounds i8, ptr %this, i64 240
+  %14 = load double, ptr %m_base.i.i364, align 8
   br label %lor.lhs.false
 
 invoke.cont:                                      ; preds = %land.lhs.true14.i.i.i
   %m_base.i.i = getelementptr inbounds i8, ptr %this, i64 240
-  %18 = load double, ptr %m_base.i.i, align 8
-  %cmp.i.i = fcmp oeq double %18, 2.000000e+00
+  %15 = load double, ptr %m_base.i.i, align 8
+  %cmp.i.i = fcmp oeq double %15, 2.000000e+00
   br i1 %cmp.i.i, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont.thread, %invoke.cont
-  %19 = phi double [ %17, %invoke.cont.thread ], [ %18, %invoke.cont ]
-  br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i17, label %if.else
+  %16 = phi double [ %14, %invoke.cont.thread ], [ %15, %invoke.cont ]
+  br i1 %or.cond.i.i.i, label %if.else, label %for.body.i.i.i.i.i.i.i.i.i14
 
-land.rhs.i.i.i.i.i17:                             ; preds = %lor.lhs.false
-  %cmp.not4.i.i.i.i.i.i.i.i.i18 = icmp eq ptr %1, %0
-  br i1 %cmp.not4.i.i.i.i.i.i.i.i.i18, label %_ZNK19OpenColorIO_v2_4dev9LogOpData18allComponentsEqualEv.exit.i.i.i55, label %for.body.i.i.i.i.i.i.i.i.i19
+for.body.i.i.i.i.i.i.i.i.i14:                     ; preds = %lor.lhs.false, %for.inc.i.i.i.i.i.i.i.i.i23
+  %__first2.addr.06.i.i.i.i.i.i.i.i.i15 = phi ptr [ %incdec.ptr2.i.i.i.i.i.i.i.i.i25, %for.inc.i.i.i.i.i.i.i.i.i23 ], [ %3, %lor.lhs.false ]
+  %__first1.addr.05.i.i.i.i.i.i.i.i.i16 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i24, %for.inc.i.i.i.i.i.i.i.i.i23 ], [ %1, %lor.lhs.false ]
+  %17 = load double, ptr %__first1.addr.05.i.i.i.i.i.i.i.i.i16, align 8
+  %18 = load double, ptr %__first2.addr.06.i.i.i.i.i.i.i.i.i15, align 8
+  %cmp1.i.i.i.i.i.i.i.i.i17 = fcmp oeq double %17, %18
+  br i1 %cmp1.i.i.i.i.i.i.i.i.i17, label %for.inc.i.i.i.i.i.i.i.i.i23, label %if.else
 
-for.body.i.i.i.i.i.i.i.i.i19:                     ; preds = %land.rhs.i.i.i.i.i17, %for.inc.i.i.i.i.i.i.i.i.i23
-  %__first2.addr.06.i.i.i.i.i.i.i.i.i20 = phi ptr [ %incdec.ptr2.i.i.i.i.i.i.i.i.i25, %for.inc.i.i.i.i.i.i.i.i.i23 ], [ %3, %land.rhs.i.i.i.i.i17 ]
-  %__first1.addr.05.i.i.i.i.i.i.i.i.i21 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i24, %for.inc.i.i.i.i.i.i.i.i.i23 ], [ %1, %land.rhs.i.i.i.i.i17 ]
-  %20 = load double, ptr %__first1.addr.05.i.i.i.i.i.i.i.i.i21, align 8
-  %21 = load double, ptr %__first2.addr.06.i.i.i.i.i.i.i.i.i20, align 8
-  %cmp1.i.i.i.i.i.i.i.i.i22 = fcmp oeq double %20, %21
-  br i1 %cmp1.i.i.i.i.i.i.i.i.i22, label %for.inc.i.i.i.i.i.i.i.i.i23, label %if.else
-
-for.inc.i.i.i.i.i.i.i.i.i23:                      ; preds = %for.body.i.i.i.i.i.i.i.i.i19
-  %incdec.ptr.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__first1.addr.05.i.i.i.i.i.i.i.i.i21, i64 8
-  %incdec.ptr2.i.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first2.addr.06.i.i.i.i.i.i.i.i.i20, i64 8
+for.inc.i.i.i.i.i.i.i.i.i23:                      ; preds = %for.body.i.i.i.i.i.i.i.i.i14
+  %incdec.ptr.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__first1.addr.05.i.i.i.i.i.i.i.i.i16, i64 8
+  %incdec.ptr2.i.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first2.addr.06.i.i.i.i.i.i.i.i.i15, i64 8
   %cmp.not.i.i.i.i.i.i.i.i.i26 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i24, %0
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i26, label %land.rhs.i.i.i.i27, label %for.body.i.i.i.i.i.i.i.i.i19, !llvm.loop !4
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i26, label %land.rhs.i.i.i.i27, label %for.body.i.i.i.i.i.i.i.i.i14, !llvm.loop !4
 
 land.rhs.i.i.i.i27:                               ; preds = %for.inc.i.i.i.i.i.i.i.i.i23
   %m_blueParams.i.i.i.i28 = getelementptr inbounds i8, ptr %this, i64 216
   %_M_finish.i4.i5.i.i.i.i29 = getelementptr inbounds i8, ptr %this, i64 224
-  %22 = load ptr, ptr %_M_finish.i4.i5.i.i.i.i29, align 8
-  %23 = load ptr, ptr %m_blueParams.i.i.i.i28, align 8
-  %sub.ptr.lhs.cast.i5.i6.i.i.i.i30 = ptrtoint ptr %22 to i64
-  %sub.ptr.rhs.cast.i6.i7.i.i.i.i31 = ptrtoint ptr %23 to i64
+  %19 = load ptr, ptr %_M_finish.i4.i5.i.i.i.i29, align 8
+  %20 = load ptr, ptr %m_blueParams.i.i.i.i28, align 8
+  %sub.ptr.lhs.cast.i5.i6.i.i.i.i30 = ptrtoint ptr %19 to i64
+  %sub.ptr.rhs.cast.i6.i7.i.i.i.i31 = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i7.i8.i.i.i.i32 = sub i64 %sub.ptr.lhs.cast.i5.i6.i.i.i.i30, %sub.ptr.rhs.cast.i6.i7.i.i.i.i31
   %cmp.i9.not.i.i.i.i33 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i, %sub.ptr.sub.i7.i8.i.i.i.i32
   br i1 %cmp.i9.not.i.i.i.i33, label %for.body.i.i.i.i.i12.i.i.i.i34, label %if.else
 
 for.body.i.i.i.i.i12.i.i.i.i34:                   ; preds = %land.rhs.i.i.i.i27, %for.inc.i.i.i.i.i16.i.i.i.i38
-  %__first2.addr.06.i.i.i.i.i13.i.i.i.i35 = phi ptr [ %incdec.ptr2.i.i.i.i.i18.i.i.i.i40, %for.inc.i.i.i.i.i16.i.i.i.i38 ], [ %23, %land.rhs.i.i.i.i27 ]
+  %__first2.addr.06.i.i.i.i.i13.i.i.i.i35 = phi ptr [ %incdec.ptr2.i.i.i.i.i18.i.i.i.i40, %for.inc.i.i.i.i.i16.i.i.i.i38 ], [ %20, %land.rhs.i.i.i.i27 ]
   %__first1.addr.05.i.i.i.i.i14.i.i.i.i36 = phi ptr [ %incdec.ptr.i.i.i.i.i17.i.i.i.i39, %for.inc.i.i.i.i.i16.i.i.i.i38 ], [ %1, %land.rhs.i.i.i.i27 ]
-  %24 = load double, ptr %__first1.addr.05.i.i.i.i.i14.i.i.i.i36, align 8
-  %25 = load double, ptr %__first2.addr.06.i.i.i.i.i13.i.i.i.i35, align 8
-  %cmp1.i.i.i.i.i15.i.i.i.i37 = fcmp oeq double %24, %25
+  %21 = load double, ptr %__first1.addr.05.i.i.i.i.i14.i.i.i.i36, align 8
+  %22 = load double, ptr %__first2.addr.06.i.i.i.i.i13.i.i.i.i35, align 8
+  %cmp1.i.i.i.i.i15.i.i.i.i37 = fcmp oeq double %21, %22
   br i1 %cmp1.i.i.i.i.i15.i.i.i.i37, label %for.inc.i.i.i.i.i16.i.i.i.i38, label %if.else
 
 for.inc.i.i.i.i.i16.i.i.i.i38:                    ; preds = %for.body.i.i.i.i.i12.i.i.i.i34
@@ -1814,63 +1795,50 @@ for.inc.i.i.i.i.i16.i.i.i.i38:                    ; preds = %for.body.i.i.i.i.i1
   %cmp.not.i.i.i.i.i19.i.i.i.i41 = icmp eq ptr %incdec.ptr.i.i.i.i.i17.i.i.i.i39, %0
   br i1 %cmp.not.i.i.i.i.i19.i.i.i.i41, label %land.lhs.true.i.i.i42, label %for.body.i.i.i.i.i12.i.i.i.i34, !llvm.loop !4
 
-_ZNK19OpenColorIO_v2_4dev9LogOpData18allComponentsEqualEv.exit.i.i.i55: ; preds = %land.rhs.i.i.i.i.i17
-  %m_blueParams23.i.i.i.i56 = getelementptr inbounds i8, ptr %this, i64 216
-  %_M_finish.i4.i524.i.i.i.i57 = getelementptr inbounds i8, ptr %this, i64 224
-  %26 = load ptr, ptr %_M_finish.i4.i524.i.i.i.i57, align 8
-  %27 = load ptr, ptr %m_blueParams23.i.i.i.i56, align 8
-  %sub.ptr.lhs.cast.i5.i625.i.i.i.i58 = ptrtoint ptr %26 to i64
-  %sub.ptr.rhs.cast.i6.i726.i.i.i.i59 = ptrtoint ptr %27 to i64
-  %sub.ptr.sub.i7.i827.i.i.i.i60 = sub i64 %sub.ptr.lhs.cast.i5.i625.i.i.i.i58, %sub.ptr.rhs.cast.i6.i726.i.i.i.i59
-  %cmp.i.i.i61 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i, 32
-  %28 = icmp eq i64 %sub.ptr.sub.i7.i827.i.i.i.i60, 32
-  %or.cond.i.i.i62 = and i1 %cmp.i.i.i61, %28
-  br i1 %or.cond.i.i.i62, label %if.then.i.i.i44, label %if.else
-
 land.lhs.true.i.i.i42:                            ; preds = %for.inc.i.i.i.i.i16.i.i.i.i38
-  %cmp.old.i.i.i43 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i, 32
-  br i1 %cmp.old.i.i.i43, label %if.then.i.i.i44, label %if.else
+  %cmp.i.i.i43 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i, 32
+  br i1 %cmp.i.i.i43, label %if.then.i.i.i44, label %if.else
 
-if.then.i.i.i44:                                  ; preds = %land.lhs.true.i.i.i42, %_ZNK19OpenColorIO_v2_4dev9LogOpData18allComponentsEqualEv.exit.i.i.i55
-  %29 = load double, ptr %1, align 8
-  %cmp5.i.i.i45 = fcmp oeq double %29, 1.000000e+00
+if.then.i.i.i44:                                  ; preds = %land.lhs.true.i.i.i42
+  %23 = load double, ptr %1, align 8
+  %cmp5.i.i.i45 = fcmp oeq double %23, 1.000000e+00
   br i1 %cmp5.i.i.i45, label %land.lhs.true6.i.i.i46, label %if.then20
 
 land.lhs.true6.i.i.i46:                           ; preds = %if.then.i.i.i44
   %add.ptr.i.i.i.i47 = getelementptr inbounds i8, ptr %1, i64 16
-  %30 = load double, ptr %add.ptr.i.i.i.i47, align 8
-  %cmp9.i.i.i48 = fcmp oeq double %30, 1.000000e+00
+  %24 = load double, ptr %add.ptr.i.i.i.i47, align 8
+  %cmp9.i.i.i48 = fcmp oeq double %24, 1.000000e+00
   br i1 %cmp9.i.i.i48, label %land.lhs.true10.i.i.i49, label %if.then20
 
 land.lhs.true10.i.i.i49:                          ; preds = %land.lhs.true6.i.i.i46
   %add.ptr.i1.i.i.i50 = getelementptr inbounds i8, ptr %1, i64 24
-  %31 = load double, ptr %add.ptr.i1.i.i.i50, align 8
-  %cmp13.i.i.i51 = fcmp oeq double %31, 0.000000e+00
+  %25 = load double, ptr %add.ptr.i1.i.i.i50, align 8
+  %cmp13.i.i.i51 = fcmp oeq double %25, 0.000000e+00
   br i1 %cmp13.i.i.i51, label %land.lhs.true14.i.i.i52, label %if.then20
 
 land.lhs.true14.i.i.i52:                          ; preds = %land.lhs.true10.i.i.i49
   %add.ptr.i2.i.i.i53 = getelementptr inbounds i8, ptr %1, i64 8
-  %32 = load double, ptr %add.ptr.i2.i.i.i53, align 8
-  %cmp17.i.i.i54 = fcmp oeq double %32, 0.000000e+00
-  %cmp.i.i15 = fcmp oeq double %19, 1.000000e+01
-  %or.cond = select i1 %cmp17.i.i.i54, i1 %cmp.i.i15, i1 false
+  %26 = load double, ptr %add.ptr.i2.i.i.i53, align 8
+  %cmp17.i.i.i54 = fcmp oeq double %26, 0.000000e+00
+  %cmp.i.i21 = fcmp oeq double %16, 1.000000e+01
+  %or.cond = select i1 %cmp17.i.i.i54, i1 %cmp.i.i21, i1 false
   br i1 %or.cond, label %if.then, label %if.then20
 
 if.then:                                          ; preds = %land.lhs.true14.i.i.i52, %invoke.cont
   %m_direction = getelementptr inbounds i8, ptr %this, i64 248
-  %33 = load i32, ptr %m_direction, align 8
-  switch i32 %33, label %nrvo.skipdtor [
+  %27 = load i32, ptr %m_direction, align 8
+  switch i32 %27, label %nrvo.skipdtor [
     i32 0, label %sw.bb
     i32 1, label %sw.bb14
   ]
 
 lpad:                                             ; preds = %if.else40, %sw.bb35, %invoke.cont31, %sw.bb14, %invoke.cont10, %invoke.cont28, %sw.bb22, %invoke.cont6, %sw.bb
-  %34 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
-lpad.body:                                        ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i218, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i293, %lpad, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11RangeOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i144, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11RangeOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %35, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11RangeOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ], [ %36, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ], [ %40, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11RangeOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i144 ], [ %41, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i218 ], [ %34, %lpad ], [ %42, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i293 ]
+lpad.body:                                        ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i210, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i285, %lpad, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11RangeOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i136, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11RangeOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i
+  %eh.lpad-body = phi { ptr, i32 } [ %29, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11RangeOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ], [ %30, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ], [ %34, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11RangeOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i136 ], [ %35, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i210 ], [ %28, %lpad ], [ %36, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i285 ]
   tail call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev6OpDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #23
   resume { ptr, i32 } %eh.lpad-body
 
@@ -1883,64 +1851,64 @@ invoke.cont6:                                     ; preds = %sw.bb
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont6
-  %call5.i.i.i3.i.i.i.i63 = invoke noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #25
+  %call5.i.i.i3.i.i.i.i55 = invoke noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #25
           to label %call5.i.i.i3.i.i.i.i.noexc unwind label %lpad
 
 call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %invoke.cont10
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i63, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i55, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !6
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i63, i64 12
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i55, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !6
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11RangeOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i63, align 8, !noalias !6
-  %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i63, i64 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11RangeOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i55, align 8, !noalias !6
+  %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i55, i64 16
   invoke void @_ZN19OpenColorIO_v2_4dev11RangeOpDataC1Edddd(ptr noundef nonnull align 8 dereferenceable(228) %_M_impl.i.i.i.i.i.i, double noundef 0.000000e+00, double noundef %call7, double noundef 0.000000e+00, double noundef %call11)
           to label %nrvo.skipdtor.sink.split unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11RangeOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !6
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11RangeOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i: ; preds = %call5.i.i.i3.i.i.i.i.noexc
-  %35 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i63) #22, !noalias !6
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i55) #22, !noalias !6
   br label %lpad.body
 
 sw.bb14:                                          ; preds = %if.then
-  %call5.i.i.i3.i.i.i.i74 = invoke noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #25
-          to label %call5.i.i.i3.i.i.i.i.noexc73 unwind label %lpad
+  %call5.i.i.i3.i.i.i.i66 = invoke noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #25
+          to label %call5.i.i.i3.i.i.i.i.noexc65 unwind label %lpad
 
-call5.i.i.i3.i.i.i.i.noexc73:                     ; preds = %sw.bb14
-  %_M_use_count.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i74, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i69, align 8, !noalias !9
-  %_M_weak_count.i.i.i.i.i.i70 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i74, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i70, align 4, !noalias !9
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i74, align 8, !noalias !9
-  %_M_impl.i.i.i.i.i.i71 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i74, i64 16
-  invoke void @_ZN19OpenColorIO_v2_4dev12MatrixOpDataC1Ev(ptr noundef nonnull align 8 dereferenceable(260) %_M_impl.i.i.i.i.i.i71)
+call5.i.i.i3.i.i.i.i.noexc65:                     ; preds = %sw.bb14
+  %_M_use_count.i.i.i.i.i.i61 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i66, i64 8
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i61, align 8, !noalias !9
+  %_M_weak_count.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i66, i64 12
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i62, align 4, !noalias !9
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i66, align 8, !noalias !9
+  %_M_impl.i.i.i.i.i.i63 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i66, i64 16
+  invoke void @_ZN19OpenColorIO_v2_4dev12MatrixOpDataC1Ev(ptr noundef nonnull align 8 dereferenceable(260) %_M_impl.i.i.i.i.i.i63)
           to label %nrvo.skipdtor.sink.split unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !9
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i: ; preds = %call5.i.i.i3.i.i.i.i.noexc73
-  %36 = landingpad { ptr, i32 }
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i: ; preds = %call5.i.i.i3.i.i.i.i.noexc65
+  %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i74) #22, !noalias !9
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i66) #22, !noalias !9
   br label %lpad.body
 
-if.else:                                          ; preds = %for.body.i.i.i.i.i.i.i.i.i19, %for.body.i.i.i.i.i12.i.i.i.i34, %lor.lhs.false, %land.rhs.i.i.i.i27, %_ZNK19OpenColorIO_v2_4dev9LogOpData18allComponentsEqualEv.exit.i.i.i55, %land.lhs.true.i.i.i42
+if.else:                                          ; preds = %for.body.i.i.i.i.i.i.i.i.i14, %for.body.i.i.i.i.i12.i.i.i.i34, %lor.lhs.false, %land.rhs.i.i.i.i27, %land.lhs.true.i.i.i42
   %cmp.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i.i, 32
   br i1 %cmp.i, label %if.else40, label %if.then20
 
 if.then20:                                        ; preds = %land.lhs.true14.i.i.i52, %land.lhs.true10.i.i.i49, %land.lhs.true6.i.i.i46, %if.then.i.i.i44, %if.else
   %m_direction21 = getelementptr inbounds i8, ptr %this, i64 248
-  %37 = load i32, ptr %m_direction21, align 8
-  switch i32 %37, label %nrvo.skipdtor [
+  %31 = load i32, ptr %m_direction21, align 8
+  switch i32 %31, label %nrvo.skipdtor [
     i32 0, label %sw.bb22
     i32 1, label %sw.bb35
   ]
 
 sw.bb22:                                          ; preds = %if.then20
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 24
-  %38 = load double, ptr %add.ptr.i, align 8
-  %fneg = fneg double %38
-  %add.ptr.i140 = getelementptr inbounds i8, ptr %1, i64 16
-  %39 = load double, ptr %add.ptr.i140, align 8
-  %div = fdiv double %fneg, %39
+  %32 = load double, ptr %add.ptr.i, align 8
+  %fneg = fneg double %32
+  %add.ptr.i132 = getelementptr inbounds i8, ptr %1, i64 16
+  %33 = load double, ptr %add.ptr.i132, align 8
+  %div = fdiv double %fneg, %33
   %call29 = invoke noundef double @_ZN19OpenColorIO_v2_4dev11RangeOpData10EmptyValueEv()
           to label %invoke.cont28 unwind label %lpad
 
@@ -1949,71 +1917,71 @@ invoke.cont28:                                    ; preds = %sw.bb22
           to label %invoke.cont31 unwind label %lpad
 
 invoke.cont31:                                    ; preds = %invoke.cont28
-  %call5.i.i.i3.i.i.i.i147 = invoke noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #25
-          to label %call5.i.i.i3.i.i.i.i.noexc146 unwind label %lpad
+  %call5.i.i.i3.i.i.i.i139 = invoke noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #25
+          to label %call5.i.i.i3.i.i.i.i.noexc138 unwind label %lpad
 
-call5.i.i.i3.i.i.i.i.noexc146:                    ; preds = %invoke.cont31
-  %_M_use_count.i.i.i.i.i.i141 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i147, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i141, align 8, !noalias !12
-  %_M_weak_count.i.i.i.i.i.i142 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i147, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i142, align 4, !noalias !12
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11RangeOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i147, align 8, !noalias !12
-  %_M_impl.i.i.i.i.i.i143 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i147, i64 16
-  invoke void @_ZN19OpenColorIO_v2_4dev11RangeOpDataC1Edddd(ptr noundef nonnull align 8 dereferenceable(228) %_M_impl.i.i.i.i.i.i143, double noundef %div, double noundef %call29, double noundef %div, double noundef %call32)
-          to label %nrvo.skipdtor.sink.split unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11RangeOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i144, !noalias !12
+call5.i.i.i3.i.i.i.i.noexc138:                    ; preds = %invoke.cont31
+  %_M_use_count.i.i.i.i.i.i133 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i139, i64 8
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i133, align 8, !noalias !12
+  %_M_weak_count.i.i.i.i.i.i134 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i139, i64 12
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i134, align 4, !noalias !12
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11RangeOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i139, align 8, !noalias !12
+  %_M_impl.i.i.i.i.i.i135 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i139, i64 16
+  invoke void @_ZN19OpenColorIO_v2_4dev11RangeOpDataC1Edddd(ptr noundef nonnull align 8 dereferenceable(228) %_M_impl.i.i.i.i.i.i135, double noundef %div, double noundef %call29, double noundef %div, double noundef %call32)
+          to label %nrvo.skipdtor.sink.split unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11RangeOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i136, !noalias !12
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11RangeOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i144: ; preds = %call5.i.i.i3.i.i.i.i.noexc146
-  %40 = landingpad { ptr, i32 }
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11RangeOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i136: ; preds = %call5.i.i.i3.i.i.i.i.noexc138
+  %34 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i147) #22, !noalias !12
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i139) #22, !noalias !12
   br label %lpad.body
 
 sw.bb35:                                          ; preds = %if.then20
-  %call5.i.i.i3.i.i.i.i221 = invoke noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #25
-          to label %call5.i.i.i3.i.i.i.i.noexc220 unwind label %lpad
+  %call5.i.i.i3.i.i.i.i213 = invoke noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #25
+          to label %call5.i.i.i3.i.i.i.i.noexc212 unwind label %lpad
 
-call5.i.i.i3.i.i.i.i.noexc220:                    ; preds = %sw.bb35
-  %_M_use_count.i.i.i.i.i.i215 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i221, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i215, align 8, !noalias !15
-  %_M_weak_count.i.i.i.i.i.i216 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i221, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i216, align 4, !noalias !15
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i221, align 8, !noalias !15
-  %_M_impl.i.i.i.i.i.i217 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i221, i64 16
-  invoke void @_ZN19OpenColorIO_v2_4dev12MatrixOpDataC1Ev(ptr noundef nonnull align 8 dereferenceable(260) %_M_impl.i.i.i.i.i.i217)
-          to label %nrvo.skipdtor.sink.split unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i218, !noalias !15
+call5.i.i.i3.i.i.i.i.noexc212:                    ; preds = %sw.bb35
+  %_M_use_count.i.i.i.i.i.i207 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i213, i64 8
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i207, align 8, !noalias !15
+  %_M_weak_count.i.i.i.i.i.i208 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i213, i64 12
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i208, align 4, !noalias !15
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i213, align 8, !noalias !15
+  %_M_impl.i.i.i.i.i.i209 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i213, i64 16
+  invoke void @_ZN19OpenColorIO_v2_4dev12MatrixOpDataC1Ev(ptr noundef nonnull align 8 dereferenceable(260) %_M_impl.i.i.i.i.i.i209)
+          to label %nrvo.skipdtor.sink.split unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i210, !noalias !15
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i218: ; preds = %call5.i.i.i3.i.i.i.i.noexc220
-  %41 = landingpad { ptr, i32 }
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i210: ; preds = %call5.i.i.i3.i.i.i.i.noexc212
+  %35 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i221) #22, !noalias !15
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i213) #22, !noalias !15
   br label %lpad.body
 
 if.else40:                                        ; preds = %if.else
-  %call5.i.i.i3.i.i.i.i296 = invoke noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #25
-          to label %call5.i.i.i3.i.i.i.i.noexc295 unwind label %lpad
+  %call5.i.i.i3.i.i.i.i288 = invoke noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #25
+          to label %call5.i.i.i3.i.i.i.i.noexc287 unwind label %lpad
 
-call5.i.i.i3.i.i.i.i.noexc295:                    ; preds = %if.else40
-  %_M_use_count.i.i.i.i.i.i290 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i296, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i290, align 8, !noalias !18
-  %_M_weak_count.i.i.i.i.i.i291 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i296, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i291, align 4, !noalias !18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i296, align 8, !noalias !18
-  %_M_impl.i.i.i.i.i.i292 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i296, i64 16
-  invoke void @_ZN19OpenColorIO_v2_4dev12MatrixOpDataC1Ev(ptr noundef nonnull align 8 dereferenceable(260) %_M_impl.i.i.i.i.i.i292)
-          to label %nrvo.skipdtor.sink.split unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i293, !noalias !18
+call5.i.i.i3.i.i.i.i.noexc287:                    ; preds = %if.else40
+  %_M_use_count.i.i.i.i.i.i282 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i288, i64 8
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i282, align 8, !noalias !18
+  %_M_weak_count.i.i.i.i.i.i283 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i288, i64 12
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i283, align 4, !noalias !18
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i288, align 8, !noalias !18
+  %_M_impl.i.i.i.i.i.i284 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i288, i64 16
+  invoke void @_ZN19OpenColorIO_v2_4dev12MatrixOpDataC1Ev(ptr noundef nonnull align 8 dereferenceable(260) %_M_impl.i.i.i.i.i.i284)
+          to label %nrvo.skipdtor.sink.split unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i285, !noalias !18
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i293: ; preds = %call5.i.i.i3.i.i.i.i.noexc295
-  %42 = landingpad { ptr, i32 }
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i285: ; preds = %call5.i.i.i3.i.i.i.i.noexc287
+  %36 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i296) #22, !noalias !18
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i288) #22, !noalias !18
   br label %lpad.body
 
-nrvo.skipdtor.sink.split:                         ; preds = %call5.i.i.i3.i.i.i.i.noexc295, %call5.i.i.i3.i.i.i.i.noexc220, %call5.i.i.i3.i.i.i.i.noexc146, %call5.i.i.i3.i.i.i.i.noexc73, %call5.i.i.i3.i.i.i.i.noexc
-  %_M_impl.i.i.i.i.i.i292.sink = phi ptr [ %_M_impl.i.i.i.i.i.i, %call5.i.i.i3.i.i.i.i.noexc ], [ %_M_impl.i.i.i.i.i.i71, %call5.i.i.i3.i.i.i.i.noexc73 ], [ %_M_impl.i.i.i.i.i.i143, %call5.i.i.i3.i.i.i.i.noexc146 ], [ %_M_impl.i.i.i.i.i.i217, %call5.i.i.i3.i.i.i.i.noexc220 ], [ %_M_impl.i.i.i.i.i.i292, %call5.i.i.i3.i.i.i.i.noexc295 ]
-  %call5.i.i.i3.i.i.i.i296.sink = phi ptr [ %call5.i.i.i3.i.i.i.i63, %call5.i.i.i3.i.i.i.i.noexc ], [ %call5.i.i.i3.i.i.i.i74, %call5.i.i.i3.i.i.i.i.noexc73 ], [ %call5.i.i.i3.i.i.i.i147, %call5.i.i.i3.i.i.i.i.noexc146 ], [ %call5.i.i.i3.i.i.i.i221, %call5.i.i.i3.i.i.i.i.noexc220 ], [ %call5.i.i.i3.i.i.i.i296, %call5.i.i.i3.i.i.i.i.noexc295 ]
-  store ptr %_M_impl.i.i.i.i.i.i292.sink, ptr %agg.result, align 8
-  %_M_refcount3.i.i.i301 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %call5.i.i.i3.i.i.i.i296.sink, ptr %_M_refcount3.i.i.i301, align 8
+nrvo.skipdtor.sink.split:                         ; preds = %call5.i.i.i3.i.i.i.i.noexc287, %call5.i.i.i3.i.i.i.i.noexc212, %call5.i.i.i3.i.i.i.i.noexc138, %call5.i.i.i3.i.i.i.i.noexc65, %call5.i.i.i3.i.i.i.i.noexc
+  %_M_impl.i.i.i.i.i.i284.sink = phi ptr [ %_M_impl.i.i.i.i.i.i, %call5.i.i.i3.i.i.i.i.noexc ], [ %_M_impl.i.i.i.i.i.i63, %call5.i.i.i3.i.i.i.i.noexc65 ], [ %_M_impl.i.i.i.i.i.i135, %call5.i.i.i3.i.i.i.i.noexc138 ], [ %_M_impl.i.i.i.i.i.i209, %call5.i.i.i3.i.i.i.i.noexc212 ], [ %_M_impl.i.i.i.i.i.i284, %call5.i.i.i3.i.i.i.i.noexc287 ]
+  %call5.i.i.i3.i.i.i.i288.sink = phi ptr [ %call5.i.i.i3.i.i.i.i55, %call5.i.i.i3.i.i.i.i.noexc ], [ %call5.i.i.i3.i.i.i.i66, %call5.i.i.i3.i.i.i.i.noexc65 ], [ %call5.i.i.i3.i.i.i.i139, %call5.i.i.i3.i.i.i.i.noexc138 ], [ %call5.i.i.i3.i.i.i.i213, %call5.i.i.i3.i.i.i.i.noexc212 ], [ %call5.i.i.i3.i.i.i.i288, %call5.i.i.i3.i.i.i.i.noexc287 ]
+  store ptr %_M_impl.i.i.i.i.i.i284.sink, ptr %agg.result, align 8
+  %_M_refcount3.i.i.i293 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr %call5.i.i.i3.i.i.i.i288.sink, ptr %_M_refcount3.i.i.i293, align 8
   br label %nrvo.skipdtor
 
 nrvo.skipdtor:                                    ; preds = %nrvo.skipdtor.sink.split, %if.then, %if.then20
@@ -2037,16 +2005,14 @@ entry:
   %sub.ptr.lhs.cast.i5.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i6.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i7.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i5.i.i.i.i, %sub.ptr.rhs.cast.i6.i.i.i.i
-  %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, %sub.ptr.sub.i7.i.i.i.i
-  br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i.i, label %if.end19.i.i
-
-land.rhs.i.i.i.i:                                 ; preds = %entry
+  %cmp.i.i.i.i = icmp ne i64 %sub.ptr.sub.i.i.i.i.i, %sub.ptr.sub.i7.i.i.i.i
   %cmp.not4.i.i.i.i.i.i.i.i = icmp eq ptr %1, %0
-  br i1 %cmp.not4.i.i.i.i.i.i.i.i, label %_ZNK19OpenColorIO_v2_4dev9LogOpData18allComponentsEqualEv.exit.i.i, label %for.body.i.i.i.i.i.i.i.i
+  %or.cond.i.i = or i1 %cmp.not4.i.i.i.i.i.i.i.i, %cmp.i.i.i.i
+  br i1 %or.cond.i.i, label %if.end19.i.i, label %for.body.i.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i:                         ; preds = %land.rhs.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i
-  %__first2.addr.06.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr2.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ], [ %3, %land.rhs.i.i.i.i ]
-  %__first1.addr.05.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ], [ %1, %land.rhs.i.i.i.i ]
+for.body.i.i.i.i.i.i.i.i:                         ; preds = %entry, %for.inc.i.i.i.i.i.i.i.i
+  %__first2.addr.06.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr2.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ], [ %3, %entry ]
+  %__first1.addr.05.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ], [ %1, %entry ]
   %4 = load double, ptr %__first1.addr.05.i.i.i.i.i.i.i.i, align 8
   %5 = load double, ptr %__first2.addr.06.i.i.i.i.i.i.i.i, align 8
   %cmp1.i.i.i.i.i.i.i.i = fcmp oeq double %4, %5
@@ -2083,54 +2049,41 @@ for.inc.i.i.i.i.i16.i.i.i:                        ; preds = %for.body.i.i.i.i.i1
   %cmp.not.i.i.i.i.i19.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i17.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i19.i.i.i, label %land.lhs.true.i.i, label %for.body.i.i.i.i.i12.i.i.i, !llvm.loop !4
 
-_ZNK19OpenColorIO_v2_4dev9LogOpData18allComponentsEqualEv.exit.i.i: ; preds = %land.rhs.i.i.i.i
-  %m_blueParams23.i.i.i = getelementptr inbounds i8, ptr %this, i64 216
-  %_M_finish.i4.i524.i.i.i = getelementptr inbounds i8, ptr %this, i64 224
-  %10 = load ptr, ptr %_M_finish.i4.i524.i.i.i, align 8
-  %11 = load ptr, ptr %m_blueParams23.i.i.i, align 8
-  %sub.ptr.lhs.cast.i5.i625.i.i.i = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast.i6.i726.i.i.i = ptrtoint ptr %11 to i64
-  %sub.ptr.sub.i7.i827.i.i.i = sub i64 %sub.ptr.lhs.cast.i5.i625.i.i.i, %sub.ptr.rhs.cast.i6.i726.i.i.i
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 32
-  %12 = icmp eq i64 %sub.ptr.sub.i7.i827.i.i.i, 32
-  %or.cond.i.i = and i1 %cmp.i.i, %12
-  br i1 %or.cond.i.i, label %if.then.i.i, label %if.end19.i.i
-
 land.lhs.true.i.i:                                ; preds = %for.inc.i.i.i.i.i16.i.i.i
-  %cmp.old.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 32
-  br i1 %cmp.old.i.i, label %if.then.i.i, label %if.end19.i.i
+  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 32
+  br i1 %cmp.i.i, label %if.then.i.i, label %if.end19.i.i
 
-if.then.i.i:                                      ; preds = %land.lhs.true.i.i, %_ZNK19OpenColorIO_v2_4dev9LogOpData18allComponentsEqualEv.exit.i.i
-  %13 = load double, ptr %1, align 8
-  %cmp5.i.i = fcmp oeq double %13, 1.000000e+00
+if.then.i.i:                                      ; preds = %land.lhs.true.i.i
+  %10 = load double, ptr %1, align 8
+  %cmp5.i.i = fcmp oeq double %10, 1.000000e+00
   br i1 %cmp5.i.i, label %land.lhs.true6.i.i, label %if.end19.i.i
 
 land.lhs.true6.i.i:                               ; preds = %if.then.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
-  %14 = load double, ptr %add.ptr.i.i.i, align 8
-  %cmp9.i.i = fcmp oeq double %14, 1.000000e+00
+  %11 = load double, ptr %add.ptr.i.i.i, align 8
+  %cmp9.i.i = fcmp oeq double %11, 1.000000e+00
   br i1 %cmp9.i.i, label %land.lhs.true10.i.i, label %if.end19.i.i
 
 land.lhs.true10.i.i:                              ; preds = %land.lhs.true6.i.i
   %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %1, i64 24
-  %15 = load double, ptr %add.ptr.i1.i.i, align 8
-  %cmp13.i.i = fcmp oeq double %15, 0.000000e+00
+  %12 = load double, ptr %add.ptr.i1.i.i, align 8
+  %cmp13.i.i = fcmp oeq double %12, 0.000000e+00
   br i1 %cmp13.i.i, label %land.lhs.true14.i.i, label %if.end19.i.i
 
 land.lhs.true14.i.i:                              ; preds = %land.lhs.true10.i.i
   %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %16 = load double, ptr %add.ptr.i2.i.i, align 8
-  %cmp17.i.i = fcmp oeq double %16, 0.000000e+00
+  %13 = load double, ptr %add.ptr.i2.i.i, align 8
+  %cmp17.i.i = fcmp oeq double %13, 0.000000e+00
   br i1 %cmp17.i.i, label %_ZNK19OpenColorIO_v2_4dev9LogOpData9isLogBaseEd.exit, label %if.end19.i.i
 
-if.end19.i.i:                                     ; preds = %for.body.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i12.i.i.i, %land.lhs.true14.i.i, %land.lhs.true10.i.i, %land.lhs.true6.i.i, %if.then.i.i, %land.lhs.true.i.i, %_ZNK19OpenColorIO_v2_4dev9LogOpData18allComponentsEqualEv.exit.i.i, %land.rhs.i.i.i, %entry
+if.end19.i.i:                                     ; preds = %for.body.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i12.i.i.i, %land.lhs.true14.i.i, %land.lhs.true10.i.i, %land.lhs.true6.i.i, %if.then.i.i, %land.lhs.true.i.i, %land.rhs.i.i.i, %entry
   br label %_ZNK19OpenColorIO_v2_4dev9LogOpData9isLogBaseEd.exit
 
 _ZNK19OpenColorIO_v2_4dev9LogOpData9isLogBaseEd.exit: ; preds = %land.lhs.true14.i.i, %if.end19.i.i
   %retval.0.i.i = phi i1 [ false, %if.end19.i.i ], [ true, %land.lhs.true14.i.i ]
   %m_base.i = getelementptr inbounds i8, ptr %this, i64 240
-  %17 = load double, ptr %m_base.i, align 8
-  %cmp.i = fcmp oeq double %17, 2.000000e+00
+  %14 = load double, ptr %m_base.i, align 8
+  %cmp.i = fcmp oeq double %14, 2.000000e+00
   %or.cond.i = select i1 %retval.0.i.i, i1 %cmp.i, i1 false
   ret i1 %or.cond.i
 }
@@ -2152,16 +2105,14 @@ entry:
   %sub.ptr.lhs.cast.i5.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i6.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i7.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i5.i.i.i.i, %sub.ptr.rhs.cast.i6.i.i.i.i
-  %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, %sub.ptr.sub.i7.i.i.i.i
-  br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i.i, label %if.end19.i.i
-
-land.rhs.i.i.i.i:                                 ; preds = %entry
+  %cmp.i.i.i.i = icmp ne i64 %sub.ptr.sub.i.i.i.i.i, %sub.ptr.sub.i7.i.i.i.i
   %cmp.not4.i.i.i.i.i.i.i.i = icmp eq ptr %1, %0
-  br i1 %cmp.not4.i.i.i.i.i.i.i.i, label %_ZNK19OpenColorIO_v2_4dev9LogOpData18allComponentsEqualEv.exit.i.i, label %for.body.i.i.i.i.i.i.i.i
+  %or.cond.i.i = or i1 %cmp.not4.i.i.i.i.i.i.i.i, %cmp.i.i.i.i
+  br i1 %or.cond.i.i, label %if.end19.i.i, label %for.body.i.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i:                         ; preds = %land.rhs.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i
-  %__first2.addr.06.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr2.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ], [ %3, %land.rhs.i.i.i.i ]
-  %__first1.addr.05.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ], [ %1, %land.rhs.i.i.i.i ]
+for.body.i.i.i.i.i.i.i.i:                         ; preds = %entry, %for.inc.i.i.i.i.i.i.i.i
+  %__first2.addr.06.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr2.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ], [ %3, %entry ]
+  %__first1.addr.05.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ], [ %1, %entry ]
   %4 = load double, ptr %__first1.addr.05.i.i.i.i.i.i.i.i, align 8
   %5 = load double, ptr %__first2.addr.06.i.i.i.i.i.i.i.i, align 8
   %cmp1.i.i.i.i.i.i.i.i = fcmp oeq double %4, %5
@@ -2198,54 +2149,41 @@ for.inc.i.i.i.i.i16.i.i.i:                        ; preds = %for.body.i.i.i.i.i1
   %cmp.not.i.i.i.i.i19.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i17.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i19.i.i.i, label %land.lhs.true.i.i, label %for.body.i.i.i.i.i12.i.i.i, !llvm.loop !4
 
-_ZNK19OpenColorIO_v2_4dev9LogOpData18allComponentsEqualEv.exit.i.i: ; preds = %land.rhs.i.i.i.i
-  %m_blueParams23.i.i.i = getelementptr inbounds i8, ptr %this, i64 216
-  %_M_finish.i4.i524.i.i.i = getelementptr inbounds i8, ptr %this, i64 224
-  %10 = load ptr, ptr %_M_finish.i4.i524.i.i.i, align 8
-  %11 = load ptr, ptr %m_blueParams23.i.i.i, align 8
-  %sub.ptr.lhs.cast.i5.i625.i.i.i = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast.i6.i726.i.i.i = ptrtoint ptr %11 to i64
-  %sub.ptr.sub.i7.i827.i.i.i = sub i64 %sub.ptr.lhs.cast.i5.i625.i.i.i, %sub.ptr.rhs.cast.i6.i726.i.i.i
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 32
-  %12 = icmp eq i64 %sub.ptr.sub.i7.i827.i.i.i, 32
-  %or.cond.i.i = and i1 %cmp.i.i, %12
-  br i1 %or.cond.i.i, label %if.then.i.i, label %if.end19.i.i
-
 land.lhs.true.i.i:                                ; preds = %for.inc.i.i.i.i.i16.i.i.i
-  %cmp.old.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 32
-  br i1 %cmp.old.i.i, label %if.then.i.i, label %if.end19.i.i
+  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 32
+  br i1 %cmp.i.i, label %if.then.i.i, label %if.end19.i.i
 
-if.then.i.i:                                      ; preds = %land.lhs.true.i.i, %_ZNK19OpenColorIO_v2_4dev9LogOpData18allComponentsEqualEv.exit.i.i
-  %13 = load double, ptr %1, align 8
-  %cmp5.i.i = fcmp oeq double %13, 1.000000e+00
+if.then.i.i:                                      ; preds = %land.lhs.true.i.i
+  %10 = load double, ptr %1, align 8
+  %cmp5.i.i = fcmp oeq double %10, 1.000000e+00
   br i1 %cmp5.i.i, label %land.lhs.true6.i.i, label %if.end19.i.i
 
 land.lhs.true6.i.i:                               ; preds = %if.then.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
-  %14 = load double, ptr %add.ptr.i.i.i, align 8
-  %cmp9.i.i = fcmp oeq double %14, 1.000000e+00
+  %11 = load double, ptr %add.ptr.i.i.i, align 8
+  %cmp9.i.i = fcmp oeq double %11, 1.000000e+00
   br i1 %cmp9.i.i, label %land.lhs.true10.i.i, label %if.end19.i.i
 
 land.lhs.true10.i.i:                              ; preds = %land.lhs.true6.i.i
   %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %1, i64 24
-  %15 = load double, ptr %add.ptr.i1.i.i, align 8
-  %cmp13.i.i = fcmp oeq double %15, 0.000000e+00
+  %12 = load double, ptr %add.ptr.i1.i.i, align 8
+  %cmp13.i.i = fcmp oeq double %12, 0.000000e+00
   br i1 %cmp13.i.i, label %land.lhs.true14.i.i, label %if.end19.i.i
 
 land.lhs.true14.i.i:                              ; preds = %land.lhs.true10.i.i
   %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %16 = load double, ptr %add.ptr.i2.i.i, align 8
-  %cmp17.i.i = fcmp oeq double %16, 0.000000e+00
+  %13 = load double, ptr %add.ptr.i2.i.i, align 8
+  %cmp17.i.i = fcmp oeq double %13, 0.000000e+00
   br i1 %cmp17.i.i, label %_ZNK19OpenColorIO_v2_4dev9LogOpData9isLogBaseEd.exit, label %if.end19.i.i
 
-if.end19.i.i:                                     ; preds = %for.body.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i12.i.i.i, %land.lhs.true14.i.i, %land.lhs.true10.i.i, %land.lhs.true6.i.i, %if.then.i.i, %land.lhs.true.i.i, %_ZNK19OpenColorIO_v2_4dev9LogOpData18allComponentsEqualEv.exit.i.i, %land.rhs.i.i.i, %entry
+if.end19.i.i:                                     ; preds = %for.body.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i12.i.i.i, %land.lhs.true14.i.i, %land.lhs.true10.i.i, %land.lhs.true6.i.i, %if.then.i.i, %land.lhs.true.i.i, %land.rhs.i.i.i, %entry
   br label %_ZNK19OpenColorIO_v2_4dev9LogOpData9isLogBaseEd.exit
 
 _ZNK19OpenColorIO_v2_4dev9LogOpData9isLogBaseEd.exit: ; preds = %land.lhs.true14.i.i, %if.end19.i.i
   %retval.0.i.i = phi i1 [ false, %if.end19.i.i ], [ true, %land.lhs.true14.i.i ]
   %m_base.i = getelementptr inbounds i8, ptr %this, i64 240
-  %17 = load double, ptr %m_base.i, align 8
-  %cmp.i = fcmp oeq double %17, 1.000000e+01
+  %14 = load double, ptr %m_base.i, align 8
+  %cmp.i = fcmp oeq double %14, 1.000000e+01
   %or.cond.i = select i1 %retval.0.i.i, i1 %cmp.i, i1 false
   ret i1 %or.cond.i
 }
@@ -4270,16 +4208,14 @@ entry:
   %sub.ptr.lhs.cast.i5.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i6.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i7.i.i = sub i64 %sub.ptr.lhs.cast.i5.i.i, %sub.ptr.rhs.cast.i6.i.i
-  %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, %sub.ptr.sub.i7.i.i
-  br i1 %cmp.i.i, label %land.rhs.i.i, label %if.end19
-
-land.rhs.i.i:                                     ; preds = %entry
+  %cmp.i.i = icmp ne i64 %sub.ptr.sub.i.i.i, %sub.ptr.sub.i7.i.i
   %cmp.not4.i.i.i.i.i.i = icmp eq ptr %1, %0
-  br i1 %cmp.not4.i.i.i.i.i.i, label %_ZNK19OpenColorIO_v2_4dev9LogOpData18allComponentsEqualEv.exit, label %for.body.i.i.i.i.i.i
+  %or.cond = or i1 %cmp.i.i, %cmp.not4.i.i.i.i.i.i
+  br i1 %or.cond, label %if.end19, label %for.body.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i:                             ; preds = %land.rhs.i.i, %for.inc.i.i.i.i.i.i
-  %__first2.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr2.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i ], [ %3, %land.rhs.i.i ]
-  %__first1.addr.05.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i ], [ %1, %land.rhs.i.i ]
+for.body.i.i.i.i.i.i:                             ; preds = %entry, %for.inc.i.i.i.i.i.i
+  %__first2.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr2.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i ], [ %3, %entry ]
+  %__first1.addr.05.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i ], [ %1, %entry ]
   %4 = load double, ptr %__first1.addr.05.i.i.i.i.i.i, align 8
   %5 = load double, ptr %__first2.addr.06.i.i.i.i.i.i, align 8
   %cmp1.i.i.i.i.i.i = fcmp oeq double %4, %5
@@ -4316,47 +4252,34 @@ for.inc.i.i.i.i.i16.i:                            ; preds = %for.body.i.i.i.i.i1
   %cmp.not.i.i.i.i.i19.i = icmp eq ptr %incdec.ptr.i.i.i.i.i17.i, %0
   br i1 %cmp.not.i.i.i.i.i19.i, label %land.lhs.true, label %for.body.i.i.i.i.i12.i, !llvm.loop !4
 
-_ZNK19OpenColorIO_v2_4dev9LogOpData18allComponentsEqualEv.exit: ; preds = %land.rhs.i.i
-  %m_blueParams23.i = getelementptr inbounds i8, ptr %this, i64 216
-  %_M_finish.i4.i524.i = getelementptr inbounds i8, ptr %this, i64 224
-  %10 = load ptr, ptr %_M_finish.i4.i524.i, align 8
-  %11 = load ptr, ptr %m_blueParams23.i, align 8
-  %sub.ptr.lhs.cast.i5.i625.i = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast.i6.i726.i = ptrtoint ptr %11 to i64
-  %sub.ptr.sub.i7.i827.i = sub i64 %sub.ptr.lhs.cast.i5.i625.i, %sub.ptr.rhs.cast.i6.i726.i
-  %cmp = icmp eq i64 %sub.ptr.sub.i.i.i, 32
-  %12 = icmp eq i64 %sub.ptr.sub.i7.i827.i, 32
-  %or.cond = and i1 %cmp, %12
-  br i1 %or.cond, label %if.then, label %if.end19
-
 land.lhs.true:                                    ; preds = %for.inc.i.i.i.i.i16.i
-  %cmp.old = icmp eq i64 %sub.ptr.sub.i.i.i, 32
-  br i1 %cmp.old, label %if.then, label %if.end19
+  %cmp = icmp eq i64 %sub.ptr.sub.i.i.i, 32
+  br i1 %cmp, label %if.then, label %if.end19
 
-if.then:                                          ; preds = %_ZNK19OpenColorIO_v2_4dev9LogOpData18allComponentsEqualEv.exit, %land.lhs.true
-  %13 = load double, ptr %1, align 8
-  %cmp5 = fcmp oeq double %13, 1.000000e+00
+if.then:                                          ; preds = %land.lhs.true
+  %10 = load double, ptr %1, align 8
+  %cmp5 = fcmp oeq double %10, 1.000000e+00
   br i1 %cmp5, label %land.lhs.true6, label %if.end19
 
 land.lhs.true6:                                   ; preds = %if.then
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 16
-  %14 = load double, ptr %add.ptr.i, align 8
-  %cmp9 = fcmp oeq double %14, 1.000000e+00
+  %11 = load double, ptr %add.ptr.i, align 8
+  %cmp9 = fcmp oeq double %11, 1.000000e+00
   br i1 %cmp9, label %land.lhs.true10, label %if.end19
 
 land.lhs.true10:                                  ; preds = %land.lhs.true6
   %add.ptr.i1 = getelementptr inbounds i8, ptr %1, i64 24
-  %15 = load double, ptr %add.ptr.i1, align 8
-  %cmp13 = fcmp oeq double %15, 0.000000e+00
+  %12 = load double, ptr %add.ptr.i1, align 8
+  %cmp13 = fcmp oeq double %12, 0.000000e+00
   br i1 %cmp13, label %land.lhs.true14, label %if.end19
 
 land.lhs.true14:                                  ; preds = %land.lhs.true10
   %add.ptr.i2 = getelementptr inbounds i8, ptr %1, i64 8
-  %16 = load double, ptr %add.ptr.i2, align 8
-  %cmp17 = fcmp oeq double %16, 0.000000e+00
+  %13 = load double, ptr %add.ptr.i2, align 8
+  %cmp17 = fcmp oeq double %13, 0.000000e+00
   br i1 %cmp17, label %return, label %if.end19
 
-if.end19:                                         ; preds = %for.body.i.i.i.i.i.i, %for.body.i.i.i.i.i12.i, %land.rhs.i, %entry, %if.then, %land.lhs.true6, %land.lhs.true10, %land.lhs.true14, %land.lhs.true, %_ZNK19OpenColorIO_v2_4dev9LogOpData18allComponentsEqualEv.exit
+if.end19:                                         ; preds = %for.body.i.i.i.i.i.i, %for.body.i.i.i.i.i12.i, %land.rhs.i, %entry, %if.then, %land.lhs.true6, %land.lhs.true10, %land.lhs.true14, %land.lhs.true
   br label %return
 
 return:                                           ; preds = %land.lhs.true14, %if.end19
@@ -4381,16 +4304,14 @@ entry:
   %sub.ptr.lhs.cast.i5.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i6.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i7.i.i.i = sub i64 %sub.ptr.lhs.cast.i5.i.i.i, %sub.ptr.rhs.cast.i6.i.i.i
-  %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, %sub.ptr.sub.i7.i.i.i
-  br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %if.end19.i
-
-land.rhs.i.i.i:                                   ; preds = %entry
+  %cmp.i.i.i = icmp ne i64 %sub.ptr.sub.i.i.i.i, %sub.ptr.sub.i7.i.i.i
   %cmp.not4.i.i.i.i.i.i.i = icmp eq ptr %1, %0
-  br i1 %cmp.not4.i.i.i.i.i.i.i, label %_ZNK19OpenColorIO_v2_4dev9LogOpData18allComponentsEqualEv.exit.i, label %for.body.i.i.i.i.i.i.i
+  %or.cond.i = or i1 %cmp.not4.i.i.i.i.i.i.i, %cmp.i.i.i
+  br i1 %or.cond.i, label %if.end19.i, label %for.body.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i, %for.inc.i.i.i.i.i.i.i
-  %__first2.addr.06.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr2.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ], [ %3, %land.rhs.i.i.i ]
-  %__first1.addr.05.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ], [ %1, %land.rhs.i.i.i ]
+for.body.i.i.i.i.i.i.i:                           ; preds = %entry, %for.inc.i.i.i.i.i.i.i
+  %__first2.addr.06.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr2.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ], [ %3, %entry ]
+  %__first1.addr.05.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ], [ %1, %entry ]
   %4 = load double, ptr %__first1.addr.05.i.i.i.i.i.i.i, align 8
   %5 = load double, ptr %__first2.addr.06.i.i.i.i.i.i.i, align 8
   %cmp1.i.i.i.i.i.i.i = fcmp oeq double %4, %5
@@ -4427,54 +4348,41 @@ for.inc.i.i.i.i.i16.i.i:                          ; preds = %for.body.i.i.i.i.i1
   %cmp.not.i.i.i.i.i19.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i17.i.i, %0
   br i1 %cmp.not.i.i.i.i.i19.i.i, label %land.lhs.true.i, label %for.body.i.i.i.i.i12.i.i, !llvm.loop !4
 
-_ZNK19OpenColorIO_v2_4dev9LogOpData18allComponentsEqualEv.exit.i: ; preds = %land.rhs.i.i.i
-  %m_blueParams23.i.i = getelementptr inbounds i8, ptr %this, i64 216
-  %_M_finish.i4.i524.i.i = getelementptr inbounds i8, ptr %this, i64 224
-  %10 = load ptr, ptr %_M_finish.i4.i524.i.i, align 8
-  %11 = load ptr, ptr %m_blueParams23.i.i, align 8
-  %sub.ptr.lhs.cast.i5.i625.i.i = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast.i6.i726.i.i = ptrtoint ptr %11 to i64
-  %sub.ptr.sub.i7.i827.i.i = sub i64 %sub.ptr.lhs.cast.i5.i625.i.i, %sub.ptr.rhs.cast.i6.i726.i.i
-  %cmp.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 32
-  %12 = icmp eq i64 %sub.ptr.sub.i7.i827.i.i, 32
-  %or.cond.i = and i1 %cmp.i, %12
-  br i1 %or.cond.i, label %if.then.i, label %if.end19.i
-
 land.lhs.true.i:                                  ; preds = %for.inc.i.i.i.i.i16.i.i
-  %cmp.old.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 32
-  br i1 %cmp.old.i, label %if.then.i, label %if.end19.i
+  %cmp.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 32
+  br i1 %cmp.i, label %if.then.i, label %if.end19.i
 
-if.then.i:                                        ; preds = %land.lhs.true.i, %_ZNK19OpenColorIO_v2_4dev9LogOpData18allComponentsEqualEv.exit.i
-  %13 = load double, ptr %1, align 8
-  %cmp5.i = fcmp oeq double %13, 1.000000e+00
+if.then.i:                                        ; preds = %land.lhs.true.i
+  %10 = load double, ptr %1, align 8
+  %cmp5.i = fcmp oeq double %10, 1.000000e+00
   br i1 %cmp5.i, label %land.lhs.true6.i, label %if.end19.i
 
 land.lhs.true6.i:                                 ; preds = %if.then.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 16
-  %14 = load double, ptr %add.ptr.i.i, align 8
-  %cmp9.i = fcmp oeq double %14, 1.000000e+00
+  %11 = load double, ptr %add.ptr.i.i, align 8
+  %cmp9.i = fcmp oeq double %11, 1.000000e+00
   br i1 %cmp9.i, label %land.lhs.true10.i, label %if.end19.i
 
 land.lhs.true10.i:                                ; preds = %land.lhs.true6.i
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %1, i64 24
-  %15 = load double, ptr %add.ptr.i1.i, align 8
-  %cmp13.i = fcmp oeq double %15, 0.000000e+00
+  %12 = load double, ptr %add.ptr.i1.i, align 8
+  %cmp13.i = fcmp oeq double %12, 0.000000e+00
   br i1 %cmp13.i, label %land.lhs.true14.i, label %if.end19.i
 
 land.lhs.true14.i:                                ; preds = %land.lhs.true10.i
   %add.ptr.i2.i = getelementptr inbounds i8, ptr %1, i64 8
-  %16 = load double, ptr %add.ptr.i2.i, align 8
-  %cmp17.i = fcmp oeq double %16, 0.000000e+00
+  %13 = load double, ptr %add.ptr.i2.i, align 8
+  %cmp17.i = fcmp oeq double %13, 0.000000e+00
   br i1 %cmp17.i, label %_ZNK19OpenColorIO_v2_4dev9LogOpData11isSimpleLogEv.exit, label %if.end19.i
 
-if.end19.i:                                       ; preds = %for.body.i.i.i.i.i.i.i, %for.body.i.i.i.i.i12.i.i, %land.lhs.true14.i, %land.lhs.true10.i, %land.lhs.true6.i, %if.then.i, %land.lhs.true.i, %_ZNK19OpenColorIO_v2_4dev9LogOpData18allComponentsEqualEv.exit.i, %land.rhs.i.i, %entry
+if.end19.i:                                       ; preds = %for.body.i.i.i.i.i.i.i, %for.body.i.i.i.i.i12.i.i, %land.lhs.true14.i, %land.lhs.true10.i, %land.lhs.true6.i, %if.then.i, %land.lhs.true.i, %land.rhs.i.i, %entry
   br label %_ZNK19OpenColorIO_v2_4dev9LogOpData11isSimpleLogEv.exit
 
 _ZNK19OpenColorIO_v2_4dev9LogOpData11isSimpleLogEv.exit: ; preds = %land.lhs.true14.i, %if.end19.i
   %retval.0.i = phi i1 [ false, %if.end19.i ], [ true, %land.lhs.true14.i ]
   %m_base = getelementptr inbounds i8, ptr %this, i64 240
-  %17 = load double, ptr %m_base, align 8
-  %cmp = fcmp oeq double %17, %base
+  %14 = load double, ptr %m_base, align 8
+  %cmp = fcmp oeq double %14, %base
   %or.cond = select i1 %retval.0.i, i1 %cmp, i1 false
   ret i1 %or.cond
 }

@@ -2271,46 +2271,46 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   %.val3.i = load i64, ptr %9, align 8
   %10 = tail call noundef zeroext i1 @_ZN5vcpkgltENS_10StringViewES0_(ptr %.val.i, i64 %.val1.i, ptr %.val2.i, i64 %.val3.i) #15
   %11 = load ptr, ptr %.sroa.0.019, align 8
-  br i1 %10, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, label %17
+  br i1 %10, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, label %18
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit: ; preds = %5
   %12 = getelementptr inbounds i8, ptr %.pn18, i64 16
   %13 = ptrtoint ptr %.sroa.0.019 to i64
   %14 = sub i64 %13, %4
   %15 = ashr exact i64 %14, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %15
-  %16 = getelementptr inbounds ptr, ptr %12, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %14, i1 false)
+  %16 = sub nsw i64 0, %15
+  %17 = getelementptr inbounds ptr, ptr %12, i64 %16
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %14, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_23print_full_command_listEvE3$_0EEEvT_T0_.exit"
 
-17:                                               ; preds = %5
-  %18 = getelementptr i8, ptr %11, i64 8
+18:                                               ; preds = %5
+  %19 = getelementptr i8, ptr %11, i64 8
   %.val.val8.i = load ptr, ptr %11, align 8
-  %.val.val19.i = load i64, ptr %18, align 8
-  %19 = load ptr, ptr %.pn18, align 8
-  %.val3.i10.i = load ptr, ptr %19, align 8
-  %20 = getelementptr i8, ptr %19, i64 8
-  %.val4.i11.i = load i64, ptr %20, align 8
-  %21 = tail call noundef zeroext i1 @_ZN5vcpkgltENS_10StringViewES0_(ptr %.val.val8.i, i64 %.val.val19.i, ptr %.val3.i10.i, i64 %.val4.i11.i) #15
-  br i1 %21, label %.lr.ph.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_23print_full_command_listEvE3$_0EEEvT_T0_.exit"
+  %.val.val19.i = load i64, ptr %19, align 8
+  %20 = load ptr, ptr %.pn18, align 8
+  %.val3.i10.i = load ptr, ptr %20, align 8
+  %21 = getelementptr i8, ptr %20, i64 8
+  %.val4.i11.i = load i64, ptr %21, align 8
+  %22 = tail call noundef zeroext i1 @_ZN5vcpkgltENS_10StringViewES0_(ptr %.val.val8.i, i64 %.val.val19.i, ptr %.val3.i10.i, i64 %.val4.i11.i) #15
+  br i1 %22, label %.lr.ph.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_23print_full_command_listEvE3$_0EEEvT_T0_.exit"
 
-.lr.ph.i:                                         ; preds = %17, %.lr.ph.i
-  %.sroa.0.013.i = phi ptr [ %.sroa.0.0.i, %.lr.ph.i ], [ %.pn18, %17 ]
-  %.sroa.04.012.i = phi ptr [ %.sroa.0.013.i, %.lr.ph.i ], [ %.sroa.0.019, %17 ]
-  %22 = load ptr, ptr %.sroa.0.013.i, align 8
-  store ptr %22, ptr %.sroa.04.012.i, align 8
+.lr.ph.i:                                         ; preds = %18, %.lr.ph.i
+  %.sroa.0.013.i = phi ptr [ %.sroa.0.0.i, %.lr.ph.i ], [ %.pn18, %18 ]
+  %.sroa.04.012.i = phi ptr [ %.sroa.0.013.i, %.lr.ph.i ], [ %.sroa.0.019, %18 ]
+  %23 = load ptr, ptr %.sroa.0.013.i, align 8
+  store ptr %23, ptr %.sroa.04.012.i, align 8
   %.sroa.0.0.i = getelementptr inbounds i8, ptr %.sroa.0.013.i, i64 -8
   %.val.val.i = load ptr, ptr %11, align 8
-  %.val.val1.i = load i64, ptr %18, align 8
-  %23 = load ptr, ptr %.sroa.0.0.i, align 8
-  %.val3.i.i = load ptr, ptr %23, align 8
-  %24 = getelementptr i8, ptr %23, i64 8
-  %.val4.i.i = load i64, ptr %24, align 8
-  %25 = tail call noundef zeroext i1 @_ZN5vcpkgltENS_10StringViewES0_(ptr %.val.val.i, i64 %.val.val1.i, ptr %.val3.i.i, i64 %.val4.i.i) #15
-  br i1 %25, label %.lr.ph.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_23print_full_command_listEvE3$_0EEEvT_T0_.exit", !llvm.loop !5
+  %.val.val1.i = load i64, ptr %19, align 8
+  %24 = load ptr, ptr %.sroa.0.0.i, align 8
+  %.val3.i.i = load ptr, ptr %24, align 8
+  %25 = getelementptr i8, ptr %24, i64 8
+  %.val4.i.i = load i64, ptr %25, align 8
+  %26 = tail call noundef zeroext i1 @_ZN5vcpkgltENS_10StringViewES0_(ptr %.val.val.i, i64 %.val.val1.i, ptr %.val3.i.i, i64 %.val4.i.i) #15
+  br i1 %26, label %.lr.ph.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_23print_full_command_listEvE3$_0EEEvT_T0_.exit", !llvm.loop !5
 
-"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_23print_full_command_listEvE3$_0EEEvT_T0_.exit": ; preds = %.lr.ph.i, %17, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
-  %.sink = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit ], [ %.sroa.0.019, %17 ], [ %.sroa.0.013.i, %.lr.ph.i ]
+"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_23print_full_command_listEvE3$_0EEEvT_T0_.exit": ; preds = %.lr.ph.i, %18, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
+  %.sink = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit ], [ %.sroa.0.019, %18 ], [ %.sroa.0.013.i, %.lr.ph.i ]
   store ptr %11, ptr %.sink, align 8
   %.sroa.0.0 = getelementptr inbounds i8, ptr %.sroa.0.019, i64 8
   %.not = icmp eq ptr %.sroa.0.0, %1

@@ -2533,10 +2533,6 @@ invoke.cont18:                                    ; preds = %invoke.cont15
   %_M_finish.i50 = getelementptr inbounds i8, ptr %5, i64 144
   %6 = load ptr, ptr %_M_finish.i50, align 8
   %7 = load ptr, ptr %_headers2349, align 8
-  %sub.ptr.lhs.cast.i51 = ptrtoint ptr %6 to i64
-  %sub.ptr.rhs.cast.i52 = ptrtoint ptr %7 to i64
-  %sub.ptr.sub.i53 = sub i64 %sub.ptr.lhs.cast.i51, %sub.ptr.rhs.cast.i52
-  %sub.ptr.div.i54 = sdiv exact i64 %sub.ptr.sub.i53, 56
   %cmp2555.not = icmp eq ptr %6, %7
   br i1 %cmp2555.not, label %for.end42, label %for.body26.lr.ph
 
@@ -2644,7 +2640,7 @@ for.inc40:                                        ; preds = %_ZNSt6vectorIPN7Imf
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 56
   %cmp25 = icmp ult i64 %inc41, %sub.ptr.div.i
-  br i1 %cmp25, label %for.body26, label %for.end42, !llvm.loop !13
+  br i1 %cmp25, label %for.body26, label %for.end42.loopexit, !llvm.loop !13
 
 lpad13.loopexit:                                  ; preds = %for.body26, %cond.true.i.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2737,47 +2733,50 @@ delete.end:                                       ; preds = %delete.notnull, %ca
   invoke void @__cxa_rethrow() #24
           to label %unreachable unwind label %lpad62
 
-for.end42:                                        ; preds = %for.inc40, %invoke.cont18
-  %.lcssa42 = phi ptr [ %5, %invoke.cont18 ], [ %15, %for.inc40 ]
-  %.lcssa = phi ptr [ %7, %invoke.cont18 ], [ %17, %for.inc40 ]
-  %sub.ptr.div.i.lcssa = phi i64 [ %sub.ptr.div.i54, %invoke.cont18 ], [ %sub.ptr.div.i, %for.inc40 ]
+for.end42.loopexit:                               ; preds = %for.inc40
+  %24 = trunc i64 %sub.ptr.div.i to i32
+  br label %for.end42
+
+for.end42:                                        ; preds = %for.end42.loopexit, %invoke.cont18
+  %.lcssa42 = phi ptr [ %5, %invoke.cont18 ], [ %15, %for.end42.loopexit ]
+  %.lcssa = phi ptr [ %7, %invoke.cont18 ], [ %17, %for.end42.loopexit ]
+  %sub.ptr.div.i.lcssa = phi i32 [ 0, %invoke.cont18 ], [ %24, %for.end42.loopexit ]
   %os44 = getelementptr inbounds i8, ptr %.lcssa42, i64 40
-  %24 = load ptr, ptr %os44, align 8
-  %conv51 = trunc i64 %sub.ptr.div.i.lcssa to i32
-  invoke void @_ZN7Imf_3_217GenericOutputFile31writeMagicNumberAndVersionFieldERNS_7OStreamEPKNS_6HeaderEi(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull %.lcssa, i32 noundef %conv51)
+  %25 = load ptr, ptr %os44, align 8
+  invoke void @_ZN7Imf_3_217GenericOutputFile31writeMagicNumberAndVersionFieldERNS_7OStreamEPKNS_6HeaderEi(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull %.lcssa, i32 noundef %sub.ptr.div.i.lcssa)
           to label %invoke.cont52 unwind label %lpad13.loopexit.split-lp
 
 invoke.cont52:                                    ; preds = %for.end42
-  %25 = load ptr, ptr %_data, align 8
-  %_headers55 = getelementptr inbounds i8, ptr %25, i64 136
-  invoke void @_ZN7Imf_3_219MultiPartOutputFile4Data18writeHeadersToFileERKSt6vectorINS_6HeaderESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(160) %25, ptr noundef nonnull align 8 dereferenceable(24) %_headers55)
+  %26 = load ptr, ptr %_data, align 8
+  %_headers55 = getelementptr inbounds i8, ptr %26, i64 136
+  invoke void @_ZN7Imf_3_219MultiPartOutputFile4Data18writeHeadersToFileERKSt6vectorINS_6HeaderESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(160) %26, ptr noundef nonnull align 8 dereferenceable(24) %_headers55)
           to label %invoke.cont56 unwind label %lpad13.loopexit.split-lp
 
 invoke.cont56:                                    ; preds = %invoke.cont52
-  %26 = load ptr, ptr %_data, align 8
-  %parts59 = getelementptr inbounds i8, ptr %26, i64 56
-  invoke void @_ZN7Imf_3_219MultiPartOutputFile4Data22writeChunkTableOffsetsERSt6vectorIPNS_14OutputPartDataESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(160) %26, ptr noundef nonnull align 8 dereferenceable(24) %parts59)
+  %27 = load ptr, ptr %_data, align 8
+  %parts59 = getelementptr inbounds i8, ptr %27, i64 56
+  invoke void @_ZN7Imf_3_219MultiPartOutputFile4Data22writeChunkTableOffsetsERSt6vectorIPNS_14OutputPartDataESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(160) %27, ptr noundef nonnull align 8 dereferenceable(24) %parts59)
           to label %try.cont unwind label %lpad13.loopexit.split-lp
 
 lpad62:                                           ; preds = %delete.end
-  %27 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %ehcleanup85 unwind label %terminate.lpad
 
 lpad70:                                           ; preds = %invoke.cont82, %do.body
-  %28 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad72:                                           ; preds = %invoke.cont80, %invoke.cont77, %invoke.cont75, %invoke.cont73, %invoke.cont71
-  %29 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_replace_s) #25
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad72, %lpad70
-  %.pn15 = phi { ptr, i32 } [ %28, %lpad70 ], [ %29, %lpad72 ]
+  %.pn15 = phi { ptr, i32 } [ %29, %lpad70 ], [ %30, %lpad72 ]
   invoke void @__cxa_end_catch()
           to label %ehcleanup85 unwind label %terminate.lpad
 
@@ -2785,15 +2784,15 @@ try.cont:                                         ; preds = %invoke.cont56
   ret void
 
 ehcleanup85:                                      ; preds = %lpad.loopexit31, %lpad.loopexit.split-lp32, %ehcleanup, %lpad62
-  %.pn17 = phi { ptr, i32 } [ %.pn15, %ehcleanup ], [ %27, %lpad62 ], [ %lpad.loopexit33, %lpad.loopexit31 ], [ %lpad.loopexit.split-lp34, %lpad.loopexit.split-lp32 ]
+  %.pn17 = phi { ptr, i32 } [ %.pn15, %ehcleanup ], [ %28, %lpad62 ], [ %lpad.loopexit33, %lpad.loopexit31 ], [ %lpad.loopexit.split-lp34, %lpad.loopexit.split-lp32 ]
   call void @_ZN7Imf_3_217GenericOutputFileD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #25
   resume { ptr, i32 } %.pn17
 
 terminate.lpad:                                   ; preds = %ehcleanup, %lpad62
-  %30 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  %32 = extractvalue { ptr, i32 } %31, 0
+  call void @__clang_call_terminate(ptr %32) #29
   unreachable
 
 unreachable:                                      ; preds = %delete.end, %invoke.cont82
@@ -3222,10 +3221,6 @@ for.cond18.preheader:                             ; preds = %for.end
   %_M_finish.i50 = getelementptr inbounds i8, ptr %4, i64 144
   %5 = load ptr, ptr %_M_finish.i50, align 8
   %6 = load ptr, ptr %_headers2049, align 8
-  %sub.ptr.lhs.cast.i51 = ptrtoint ptr %5 to i64
-  %sub.ptr.rhs.cast.i52 = ptrtoint ptr %6 to i64
-  %sub.ptr.sub.i53 = sub i64 %sub.ptr.lhs.cast.i51, %sub.ptr.rhs.cast.i52
-  %sub.ptr.div.i54 = sdiv exact i64 %sub.ptr.sub.i53, 56
   %cmp2255.not = icmp eq ptr %5, %6
   br i1 %cmp2255.not, label %for.end39, label %for.body23.lr.ph
 
@@ -3333,7 +3328,7 @@ for.inc37:                                        ; preds = %_ZNSt6vectorIPN7Imf
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 56
   %cmp22 = icmp ult i64 %inc38, %sub.ptr.div.i
-  br i1 %cmp22, label %for.body23, label %for.end39, !llvm.loop !20
+  br i1 %cmp22, label %for.body23, label %for.end39.loopexit, !llvm.loop !20
 
 lpad15.loopexit:                                  ; preds = %for.body23, %cond.true.i.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -3423,47 +3418,50 @@ delete.end:                                       ; preds = %delete.notnull, %ca
   invoke void @__cxa_rethrow() #24
           to label %unreachable unwind label %lpad59
 
-for.end39:                                        ; preds = %for.inc37, %for.cond18.preheader
-  %.lcssa42 = phi ptr [ %4, %for.cond18.preheader ], [ %14, %for.inc37 ]
-  %.lcssa = phi ptr [ %6, %for.cond18.preheader ], [ %16, %for.inc37 ]
-  %sub.ptr.div.i.lcssa = phi i64 [ %sub.ptr.div.i54, %for.cond18.preheader ], [ %sub.ptr.div.i, %for.inc37 ]
+for.end39.loopexit:                               ; preds = %for.inc37
+  %22 = trunc i64 %sub.ptr.div.i to i32
+  br label %for.end39
+
+for.end39:                                        ; preds = %for.end39.loopexit, %for.cond18.preheader
+  %.lcssa42 = phi ptr [ %4, %for.cond18.preheader ], [ %14, %for.end39.loopexit ]
+  %.lcssa = phi ptr [ %6, %for.cond18.preheader ], [ %16, %for.end39.loopexit ]
+  %sub.ptr.div.i.lcssa = phi i32 [ 0, %for.cond18.preheader ], [ %22, %for.end39.loopexit ]
   %os41 = getelementptr inbounds i8, ptr %.lcssa42, i64 40
-  %22 = load ptr, ptr %os41, align 8
-  %conv48 = trunc i64 %sub.ptr.div.i.lcssa to i32
-  invoke void @_ZN7Imf_3_217GenericOutputFile31writeMagicNumberAndVersionFieldERNS_7OStreamEPKNS_6HeaderEi(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull %.lcssa, i32 noundef %conv48)
+  %23 = load ptr, ptr %os41, align 8
+  invoke void @_ZN7Imf_3_217GenericOutputFile31writeMagicNumberAndVersionFieldERNS_7OStreamEPKNS_6HeaderEi(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull %.lcssa, i32 noundef %sub.ptr.div.i.lcssa)
           to label %invoke.cont49 unwind label %lpad15.loopexit.split-lp
 
 invoke.cont49:                                    ; preds = %for.end39
-  %23 = load ptr, ptr %_data, align 8
-  %_headers52 = getelementptr inbounds i8, ptr %23, i64 136
-  invoke void @_ZN7Imf_3_219MultiPartOutputFile4Data18writeHeadersToFileERKSt6vectorINS_6HeaderESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(160) %23, ptr noundef nonnull align 8 dereferenceable(24) %_headers52)
+  %24 = load ptr, ptr %_data, align 8
+  %_headers52 = getelementptr inbounds i8, ptr %24, i64 136
+  invoke void @_ZN7Imf_3_219MultiPartOutputFile4Data18writeHeadersToFileERKSt6vectorINS_6HeaderESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(160) %24, ptr noundef nonnull align 8 dereferenceable(24) %_headers52)
           to label %invoke.cont53 unwind label %lpad15.loopexit.split-lp
 
 invoke.cont53:                                    ; preds = %invoke.cont49
-  %24 = load ptr, ptr %_data, align 8
-  %parts56 = getelementptr inbounds i8, ptr %24, i64 56
-  invoke void @_ZN7Imf_3_219MultiPartOutputFile4Data22writeChunkTableOffsetsERSt6vectorIPNS_14OutputPartDataESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(160) %24, ptr noundef nonnull align 8 dereferenceable(24) %parts56)
+  %25 = load ptr, ptr %_data, align 8
+  %parts56 = getelementptr inbounds i8, ptr %25, i64 56
+  invoke void @_ZN7Imf_3_219MultiPartOutputFile4Data22writeChunkTableOffsetsERSt6vectorIPNS_14OutputPartDataESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(160) %25, ptr noundef nonnull align 8 dereferenceable(24) %parts56)
           to label %try.cont unwind label %lpad15.loopexit.split-lp
 
 lpad59:                                           ; preds = %delete.end
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %ehcleanup84 unwind label %terminate.lpad
 
 lpad67:                                           ; preds = %invoke.cont81, %do.body
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad69:                                           ; preds = %invoke.cont79, %invoke.cont76, %invoke.cont74, %invoke.cont72, %invoke.cont70, %invoke.cont68
-  %27 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_replace_s) #25
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad69, %lpad67
-  %.pn15 = phi { ptr, i32 } [ %26, %lpad67 ], [ %27, %lpad69 ]
+  %.pn15 = phi { ptr, i32 } [ %27, %lpad67 ], [ %28, %lpad69 ]
   invoke void @__cxa_end_catch()
           to label %ehcleanup84 unwind label %terminate.lpad
 
@@ -3471,15 +3469,15 @@ try.cont:                                         ; preds = %invoke.cont53
   ret void
 
 ehcleanup84:                                      ; preds = %lpad.loopexit31, %lpad.loopexit.split-lp32, %ehcleanup, %lpad59
-  %.pn17 = phi { ptr, i32 } [ %.pn15, %ehcleanup ], [ %25, %lpad59 ], [ %lpad.loopexit33, %lpad.loopexit31 ], [ %lpad.loopexit.split-lp34, %lpad.loopexit.split-lp32 ]
+  %.pn17 = phi { ptr, i32 } [ %.pn15, %ehcleanup ], [ %26, %lpad59 ], [ %lpad.loopexit33, %lpad.loopexit31 ], [ %lpad.loopexit.split-lp34, %lpad.loopexit.split-lp32 ]
   call void @_ZN7Imf_3_217GenericOutputFileD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #25
   resume { ptr, i32 } %.pn17
 
 terminate.lpad:                                   ; preds = %ehcleanup, %lpad59
-  %28 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #29
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #29
   unreachable
 
 unreachable:                                      ; preds = %delete.end, %invoke.cont81
