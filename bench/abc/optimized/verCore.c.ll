@@ -5566,14 +5566,10 @@ Ver_ParseInsertsSuffix.exit.split.us:             ; preds = %Ver_ParseInsertsSuf
   br i1 %exitcond94.not, label %.loopexit, label %Ver_ParseInsertsSuffix.exit.split.us, !llvm.loop !86
 
 Ver_ParseInsertsSuffix.exit.split:                ; preds = %Ver_ParseInsertsSuffix.exit
-  br i1 %.not63, label %Ver_ParseInsertsSuffix.exit.split.split.us.preheader, label %Ver_ParseInsertsSuffix.exit.split.split
+  br i1 %.not63, label %Ver_ParseInsertsSuffix.exit.split.split.us, label %Ver_ParseInsertsSuffix.exit.split.split
 
-Ver_ParseInsertsSuffix.exit.split.split.us.preheader: ; preds = %Ver_ParseInsertsSuffix.exit.split
-  %smax91 = call i32 @llvm.smax.i32(i32 %68, i32 0)
-  br label %Ver_ParseInsertsSuffix.exit.split.split.us
-
-Ver_ParseInsertsSuffix.exit.split.split.us:       ; preds = %Ver_ParseInsertsSuffix.exit.split.split.us.preheader, %86
-  %.065.us66 = phi i32 [ %87, %86 ], [ 0, %Ver_ParseInsertsSuffix.exit.split.split.us.preheader ]
+Ver_ParseInsertsSuffix.exit.split.split.us:       ; preds = %Ver_ParseInsertsSuffix.exit.split, %86
+  %.065.us66 = phi i32 [ %87, %86 ], [ 0, %Ver_ParseInsertsSuffix.exit.split ]
   %strcpy.us68 = call ptr @strcpy(ptr nonnull dereferenceable(1) %4, ptr nonnull dereferenceable(1) %35)
   switch i32 %15, label %86 [
     i32 2, label %.thread61.us69
@@ -5592,7 +5588,7 @@ Ver_ParseInsertsSuffix.exit.split.split.us:       ; preds = %Ver_ParseInsertsSuf
 
 86:                                               ; preds = %.thread61.us69, %82, %Ver_ParseInsertsSuffix.exit.split.split.us
   %87 = add nuw i32 %.065.us66, 1
-  %exitcond92.not = icmp eq i32 %.065.us66, %smax91
+  %exitcond92.not = icmp eq i32 %.065.us66, %68
   br i1 %exitcond92.not, label %.loopexit, label %Ver_ParseInsertsSuffix.exit.split.split.us, !llvm.loop !86
 
 Ver_ParseInsertsSuffix.exit.split.split:          ; preds = %Ver_ParseInsertsSuffix.exit.split

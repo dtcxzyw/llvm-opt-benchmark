@@ -159,20 +159,22 @@ invoke.cont.i:                                    ; preds = %_ZNSt16allocator_tr
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, %6
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %do.body, label %if.then.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %do.body.thread, label %do.body
 
-if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %invoke.cont.i
+do.body.thread:                                   ; preds = %invoke.cont.i
+  %add.ptr.i.i.i.i.i.i.i.i.i190 = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i
+  store ptr %add.ptr.i.i.i.i.i.i.i.i.i190, ptr %_M_finish.i.i.i, align 8, !tbaa !3
+  br label %if.then
+
+do.body:                                          ; preds = %invoke.cont.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %cond.i.i.i.i, ptr align 8 %6, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, i1 false)
-  br label %do.body
-
-do.body:                                          ; preds = %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont.i
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !3
   %sub.ptr.div.i31 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, 3
   %cmp = icmp ugt i64 %sub.ptr.div.i31, 1
   br i1 %cmp, label %do.body32, label %if.then
 
-if.then:                                          ; preds = %do.body
+if.then:                                          ; preds = %do.body.thread, %do.body
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream) #17
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream)
           to label %invoke.cont5 unwind label %lpad4

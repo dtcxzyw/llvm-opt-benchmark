@@ -22145,8 +22145,8 @@ if.then.i.i.i.i.i.i.i1203:                        ; preds = %if.else.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i.i.i.i.pn to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.lhs.cast.i.i1194
   %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 2
-  %.pre.i.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i1204 = getelementptr inbounds i32, ptr %std_v.sroa.10.3, i64 %.pre.i.i.i.i.i.i.i
+  %idx.neg.i.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i1204 = getelementptr inbounds i32, ptr %std_v.sroa.10.3, i64 %idx.neg.i.i.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i.i1204, ptr align 4 %add.ptr.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIiSaIiEE13_M_insert_auxIiEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEOT_.exit.i
 
@@ -22942,8 +22942,8 @@ if.then.i.i.i.i.i.i1299:                          ; preds = %if.then11.i
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i1298 to i64
   %sub.ptr.sub.i.i.i.i.i.i1300 = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i, %sub.ptr.lhs.cast.i.i
   %sub.ptr.div.i.i.i.i.i.i1301 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i1300, 2
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i1301
-  %add.ptr.i.i.i.i.i.i1302 = getelementptr inbounds i32, ptr %std_v64.sroa.11.42291, i64 %.pre.i.i.i.i.i.i
+  %idx.neg.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i1301
+  %add.ptr.i.i.i.i.i.i1302 = getelementptr inbounds i32, ptr %std_v64.sroa.11.42291, i64 %idx.neg.i.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i.i1302, ptr align 4 %add.ptr.i215, i64 %sub.ptr.sub.i.i.i.i.i.i1300, i1 false)
   br label %for.body.i.i.i.i.preheader
 
@@ -23833,8 +23833,8 @@ if.then.i.i.i.i.i.i1446:                          ; preds = %_ZSt22__uninitializ
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i1447 = ptrtoint ptr %add.ptr.i1444 to i64
   %sub.ptr.sub.i.i.i.i.i.i1448 = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i1447, %sub.ptr.lhs.cast.i.i404
   %sub.ptr.div.i.i.i.i.i.i1449 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i1448, 2
-  %.pre.i.i.i.i.i.i1450 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i1449
-  %add.ptr.i.i.i.i.i.i1451 = getelementptr inbounds i32, ptr %std_v140.sroa.11.42297, i64 %.pre.i.i.i.i.i.i1450
+  %idx.neg.i.i.i.i.i.i1450 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i1449
+  %add.ptr.i.i.i.i.i.i1451 = getelementptr inbounds i32, ptr %std_v140.sroa.11.42297, i64 %idx.neg.i.i.i.i.i.i1450
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i.i1451, ptr align 4 %add.ptr.i403, i64 %sub.ptr.sub.i.i.i.i.i.i1448, i1 false)
   br label %if.then.i.i.i.i.i30.i
 
@@ -24742,8 +24742,8 @@ if.then.i.i.i.i.i.i1640:                          ; preds = %if.then16.i
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i1641 = ptrtoint ptr %add.ptr.i1637 to i64
   %sub.ptr.sub.i.i.i.i.i.i1642 = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i1641, %sub.ptr.lhs.cast.i.i607
   %sub.ptr.div.i.i.i.i.i.i1643 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i1642, 2
-  %.pre.i.i.i.i.i.i1644 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i1643
-  %add.ptr.i.i.i.i.i.i1645 = getelementptr inbounds i32, ptr %std_v239.sroa.11.42305, i64 %.pre.i.i.i.i.i.i1644
+  %idx.neg.i.i.i.i.i.i1644 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i1643
+  %add.ptr.i.i.i.i.i.i1645 = getelementptr inbounds i32, ptr %std_v239.sroa.11.42305, i64 %idx.neg.i.i.i.i.i.i1644
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i.i1645, ptr align 4 %add.ptr.i606, i64 %sub.ptr.sub.i.i.i.i.i.i1642, i1 false)
   br label %for.body.i.i.i.i.i.i.preheader
 
@@ -25695,8 +25695,8 @@ if.then.i.i.i.i.i.i1812:                          ; preds = %_ZSt22__uninitializ
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i1813 = ptrtoint ptr %add.ptr.i1810 to i64
   %sub.ptr.sub.i.i.i.i.i.i1814 = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i1813, %sub.ptr.lhs.cast.i.i812
   %sub.ptr.div.i.i.i.i.i.i1815 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i1814, 2
-  %.pre.i.i.i.i.i.i1816 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i1815
-  %add.ptr.i.i.i.i.i.i1817 = getelementptr inbounds i32, ptr %std_v344.sroa.11.42312, i64 %.pre.i.i.i.i.i.i1816
+  %idx.neg.i.i.i.i.i.i1816 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i1815
+  %add.ptr.i.i.i.i.i.i1817 = getelementptr inbounds i32, ptr %std_v344.sroa.11.42312, i64 %idx.neg.i.i.i.i.i.i1816
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i.i1817, ptr align 4 %add.ptr.i811, i64 %sub.ptr.sub.i.i.i.i.i.i1814, i1 false)
   br label %_ZSt4copyIPKiN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET0_T_SA_S9_.exit.i
 
@@ -26709,8 +26709,8 @@ if.then.i.i.i.i.i.i2033:                          ; preds = %_ZSt22__uninitializ
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i2034 = ptrtoint ptr %add.ptr.i2029 to i64
   %sub.ptr.sub.i.i.i.i.i.i2035 = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i2034, %sub.ptr.lhs.cast.i.i1032
   %sub.ptr.div.i.i.i.i.i.i2036 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i2035, 2
-  %.pre.i.i.i.i.i.i2037 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i2036
-  %add.ptr.i.i.i.i.i.i2038 = getelementptr inbounds i32, ptr %std_v440.sroa.11.42318, i64 %.pre.i.i.i.i.i.i2037
+  %idx.neg.i.i.i.i.i.i2037 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i2036
+  %add.ptr.i.i.i.i.i.i2038 = getelementptr inbounds i32, ptr %std_v440.sroa.11.42318, i64 %idx.neg.i.i.i.i.i.i2037
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i2038, ptr align 4 %add.ptr.i1031, i64 %sub.ptr.sub.i.i.i.i.i.i2035, i1 false)
   br label %_ZSt4copyIPKiN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET0_T_SA_S9_.exit.i2039
 
@@ -188640,9 +188640,7 @@ _ZNSt6vectorIN4absl13test_internal20CopyableOnlyInstanceESaIS2_EE17_S_check_init
 
 _ZNSt12_Vector_baseIN4absl13test_internal20CopyableOnlyInstanceESaIS2_EE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIN4absl13test_internal20CopyableOnlyInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i, %_ZNSt6vectorIN4absl13test_internal20CopyableOnlyInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.thread.i
   %new_contents_in.sroa.0.2.lcssa723752.i = phi ptr [ null, %_ZNSt6vectorIN4absl13test_internal20CopyableOnlyInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.thread.i ], [ %new_contents_in.sroa.0.3.i484, %_ZNSt6vectorIN4absl13test_internal20CopyableOnlyInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i ]
-  %sub.ptr.sub.i.i.i.i.i743748.i = phi i64 [ 0, %_ZNSt6vectorIN4absl13test_internal20CopyableOnlyInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.thread.i ], [ %sub.ptr.sub.i.i.i.i.i.i, %_ZNSt6vectorIN4absl13test_internal20CopyableOnlyInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i ]
-  %add.ptr7.i.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i743748.i
-  store ptr %add.ptr7.i.i.i, ptr %_M_end_of_storage.i.i52.i, align 8
+  store ptr null, ptr %_M_end_of_storage.i.i52.i, align 8
   br label %invoke.cont24.i495
 
 for.body.i.i.i.i.preheader.i.i.i:                 ; preds = %_ZNSt6vectorIN4absl13test_internal20CopyableOnlyInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i
@@ -190035,9 +190033,7 @@ _ZNSt6vectorIN4absl13test_internal20CopyableOnlyInstanceESaIS2_EE17_S_check_init
 
 _ZNSt12_Vector_baseIN4absl13test_internal20CopyableOnlyInstanceESaIS2_EE11_M_allocateEm.exit.thread.i.i.i1235: ; preds = %_ZNSt6vectorIN4absl13test_internal20CopyableOnlyInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i863, %_ZNSt6vectorIN4absl13test_internal20CopyableOnlyInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.thread.i1325
   %new_contents_in.sroa.0.2.lcssa723752.i1236 = phi ptr [ null, %_ZNSt6vectorIN4absl13test_internal20CopyableOnlyInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.thread.i1325 ], [ %new_contents_in.sroa.0.3.i853, %_ZNSt6vectorIN4absl13test_internal20CopyableOnlyInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i863 ]
-  %sub.ptr.sub.i.i.i.i.i743748.i1238 = phi i64 [ 0, %_ZNSt6vectorIN4absl13test_internal20CopyableOnlyInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.thread.i1325 ], [ %sub.ptr.sub.i.i.i.i.i.i861, %_ZNSt6vectorIN4absl13test_internal20CopyableOnlyInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i863 ]
-  %add.ptr7.i.i.i1239 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i743748.i1238
-  store ptr %add.ptr7.i.i.i1239, ptr %_M_end_of_storage.i.i52.i737, align 8
+  store ptr null, ptr %_M_end_of_storage.i.i52.i737, align 8
   br label %invoke.cont24.i917
 
 for.body.i.i.i.i.preheader.i.i.i865:              ; preds = %_ZNSt6vectorIN4absl13test_internal20CopyableOnlyInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i863
@@ -195310,9 +195306,7 @@ _ZNSt6vectorIN4absl13test_internal23CopyableMovableInstanceESaIS2_EE17_S_check_i
 
 _ZNSt12_Vector_baseIN4absl13test_internal23CopyableMovableInstanceESaIS2_EE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIN4absl13test_internal23CopyableMovableInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i, %_ZNSt6vectorIN4absl13test_internal23CopyableMovableInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.thread.i
   %new_contents_in.sroa.0.2.lcssa719748.i = phi ptr [ null, %_ZNSt6vectorIN4absl13test_internal23CopyableMovableInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.thread.i ], [ %new_contents_in.sroa.0.3.i478, %_ZNSt6vectorIN4absl13test_internal23CopyableMovableInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i ]
-  %sub.ptr.sub.i.i.i.i.i739744.i = phi i64 [ 0, %_ZNSt6vectorIN4absl13test_internal23CopyableMovableInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.thread.i ], [ %sub.ptr.sub.i.i.i.i.i.i, %_ZNSt6vectorIN4absl13test_internal23CopyableMovableInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i ]
-  %add.ptr7.i.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i739744.i
-  store ptr %add.ptr7.i.i.i, ptr %_M_end_of_storage.i.i52.i, align 8
+  store ptr null, ptr %_M_end_of_storage.i.i52.i, align 8
   br label %invoke.cont24.i489
 
 for.body.i.i.i.i.preheader.i.i.i:                 ; preds = %_ZNSt6vectorIN4absl13test_internal23CopyableMovableInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i
@@ -196698,9 +196692,7 @@ _ZNSt6vectorIN4absl13test_internal23CopyableMovableInstanceESaIS2_EE17_S_check_i
 
 _ZNSt12_Vector_baseIN4absl13test_internal23CopyableMovableInstanceESaIS2_EE11_M_allocateEm.exit.thread.i.i.i1225: ; preds = %_ZNSt6vectorIN4absl13test_internal23CopyableMovableInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i853, %_ZNSt6vectorIN4absl13test_internal23CopyableMovableInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.thread.i1313
   %new_contents_in.sroa.0.2.lcssa719748.i1226 = phi ptr [ null, %_ZNSt6vectorIN4absl13test_internal23CopyableMovableInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.thread.i1313 ], [ %new_contents_in.sroa.0.3.i843, %_ZNSt6vectorIN4absl13test_internal23CopyableMovableInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i853 ]
-  %sub.ptr.sub.i.i.i.i.i739744.i1228 = phi i64 [ 0, %_ZNSt6vectorIN4absl13test_internal23CopyableMovableInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.thread.i1313 ], [ %sub.ptr.sub.i.i.i.i.i.i851, %_ZNSt6vectorIN4absl13test_internal23CopyableMovableInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i853 ]
-  %add.ptr7.i.i.i1229 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i739744.i1228
-  store ptr %add.ptr7.i.i.i1229, ptr %_M_end_of_storage.i.i52.i730, align 8
+  store ptr null, ptr %_M_end_of_storage.i.i52.i730, align 8
   br label %invoke.cont24.i907
 
 for.body.i.i.i.i.preheader.i.i.i855:              ; preds = %_ZNSt6vectorIN4absl13test_internal23CopyableMovableInstanceESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i853

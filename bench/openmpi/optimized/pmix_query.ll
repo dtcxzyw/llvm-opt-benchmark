@@ -1107,7 +1107,7 @@ define internal fastcc i32 @request_help(ptr noundef %0) unnamed_addr #1 {
   %27 = getelementptr inbounds i8, ptr %0, i64 488
   %28 = load i64, ptr %27, align 8
   %29 = tail call i32 %24(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_globals, i64 4), ptr noundef %26, i64 noundef %28, ptr noundef nonnull @finalstep, ptr noundef nonnull %0) #12
-  br label %127
+  br label %125
 
 30:                                               ; preds = %._crit_edge
   %31 = load i8, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 1632), align 8
@@ -1116,7 +1116,7 @@ define internal fastcc i32 @request_help(ptr noundef %0) unnamed_addr #1 {
   fence release
   %33 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 168)) #12
   %34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 128)) #12
-  br i1 %32, label %35, label %127
+  br i1 %32, label %35, label %125
 
 35:                                               ; preds = %30
   %36 = getelementptr inbounds i8, ptr %0, i64 480
@@ -1175,7 +1175,7 @@ pmix_query_get_num_local_resolve.exit.thread:     ; preds = %35, %pmix_query_get
   %56 = getelementptr inbounds i8, ptr %0, i64 896
   %57 = load ptr, ptr %56, align 8
   %58 = tail call fastcc i32 @send_for_help(ptr noundef %37, i64 noundef %39, ptr noundef %55, ptr noundef %57)
-  br label %127
+  br label %125
 
 59:                                               ; preds = %pmix_query_get_num_local_resolve.exit
   %60 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_local_query_caddy_t_class, i64 56), align 8
@@ -1239,12 +1239,12 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %65, %6
   %89 = getelementptr inbounds i8, ptr %61, i64 488
   store i64 %88, ptr %89, align 8
   %.not28 = icmp eq i64 %85, %.1.lcssa.i
-  br i1 %.not28, label %116, label %90
+  br i1 %.not28, label %.thread, label %90
 
 90:                                               ; preds = %pmix_obj_new_tma.exit
   %91 = tail call ptr @PMIx_Query_create(i64 noundef %88) #12
   %.not3541.not.i = icmp eq i64 %85, 0
-  br i1 %.not3541.not.i, label %pmix_query_strip_local_keys.exit, label %.preheader.i31
+  br i1 %.not3541.not.i, label %.loopexit, label %.preheader.i31
 
 .preheader.i31:                                   ; preds = %90, %._crit_edge.i36
   %.02343.i = phi i64 [ %spec.select.i37, %._crit_edge.i36 ], [ 0, %90 ]
@@ -1302,44 +1302,43 @@ pmix_query_check_is_local_resolve.exit.thread.i34: ; preds = %105, %pmix_query_c
   %spec.select.i37 = add i64 %.022.lcssa.i, %.02343.i
   %113 = add nuw i64 %.02642.i, 1
   %exitcond.not.i38 = icmp eq i64 %113, %85
-  br i1 %exitcond.not.i38, label %pmix_query_strip_local_keys.exit, label %.preheader.i31, !llvm.loop !17
+  br i1 %exitcond.not.i38, label %.loopexit, label %.preheader.i31, !llvm.loop !17
 
 114:                                              ; preds = %103
   tail call void @PMIx_Query_release(ptr noundef %91) #12
-  br label %pmix_query_strip_local_keys.exit
+  br label %.loopexit
 
-pmix_query_strip_local_keys.exit:                 ; preds = %._crit_edge.i36, %90, %114
-  %.0.i = phi ptr [ null, %114 ], [ %91, %90 ], [ %91, %._crit_edge.i36 ]
+.thread:                                          ; preds = %pmix_obj_new_tma.exit
   %115 = getelementptr inbounds i8, ptr %61, i64 480
-  store ptr %.0.i, ptr %115, align 8
+  store ptr null, ptr %115, align 8
+  %116 = getelementptr inbounds i8, ptr %61, i64 848
+  store ptr @pmix_query_local_resolve_cbfunc, ptr %116, align 8
+  %117 = getelementptr inbounds i8, ptr %61, i64 896
+  store ptr %2, ptr %117, align 8
+  br label %122
+
+.loopexit:                                        ; preds = %._crit_edge.i36, %114, %90
+  %.0.i = phi ptr [ null, %114 ], [ %91, %90 ], [ %91, %._crit_edge.i36 ]
+  %118 = getelementptr inbounds i8, ptr %61, i64 480
+  store ptr %.0.i, ptr %118, align 8
   %.pre = load i64, ptr %89, align 8
-  br label %118
+  %119 = getelementptr inbounds i8, ptr %61, i64 848
+  store ptr @pmix_query_local_resolve_cbfunc, ptr %119, align 8
+  %120 = getelementptr inbounds i8, ptr %61, i64 896
+  store ptr %2, ptr %120, align 8
+  %121 = icmp eq i64 %.pre, 0
+  br i1 %121, label %122, label %123
 
-116:                                              ; preds = %pmix_obj_new_tma.exit
-  %117 = getelementptr inbounds i8, ptr %61, i64 480
-  store ptr null, ptr %117, align 8
-  br label %118
-
-118:                                              ; preds = %116, %pmix_query_strip_local_keys.exit
-  %119 = phi ptr [ null, %116 ], [ %.0.i, %pmix_query_strip_local_keys.exit ]
-  %120 = phi i64 [ %88, %116 ], [ %.pre, %pmix_query_strip_local_keys.exit ]
-  %121 = getelementptr inbounds i8, ptr %61, i64 848
-  store ptr @pmix_query_local_resolve_cbfunc, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %61, i64 896
-  store ptr %2, ptr %122, align 8
-  %123 = icmp eq i64 %120, 0
-  br i1 %123, label %124, label %125
-
-124:                                              ; preds = %118
+122:                                              ; preds = %.thread, %.loopexit
   call void @pmix_query_local_resolve_cbfunc(i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef nonnull %61, ptr noundef null, ptr noundef null)
-  br label %127
+  br label %125
 
-125:                                              ; preds = %118
-  %126 = call fastcc i32 @send_for_help(ptr noundef %119, i64 noundef %120, ptr noundef nonnull @pmix_query_local_resolve_cbfunc, ptr noundef nonnull %61)
-  br label %127
+123:                                              ; preds = %.loopexit
+  %124 = call fastcc i32 @send_for_help(ptr noundef %.0.i, i64 noundef %.pre, ptr noundef nonnull @pmix_query_local_resolve_cbfunc, ptr noundef nonnull %61)
+  br label %125
 
-127:                                              ; preds = %30, %pmix_query_get_num_local_resolve.exit.thread, %125, %124, %23
-  %.0 = phi i32 [ %29, %23 ], [ %58, %pmix_query_get_num_local_resolve.exit.thread ], [ 0, %124 ], [ %126, %125 ], [ -25, %30 ]
+125:                                              ; preds = %30, %pmix_query_get_num_local_resolve.exit.thread, %123, %122, %23
+  %.0 = phi i32 [ %29, %23 ], [ %58, %pmix_query_get_num_local_resolve.exit.thread ], [ 0, %122 ], [ %124, %123 ], [ -25, %30 ]
   ret i32 %.0
 }
 

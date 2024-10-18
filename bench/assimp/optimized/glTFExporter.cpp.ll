@@ -8580,10 +8580,6 @@ if.then45:                                        ; preds = %for.end44
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then45.thread:                                 ; preds = %for.body17
-  %sub.ptr.lhs.cast.i243 = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i244 = ptrtoint ptr %15 to i64
-  %sub.ptr.sub.i245 = sub i64 %sub.ptr.lhs.cast.i243, %sub.ptr.rhs.cast.i244
-  %sub.ptr.div.i246 = ashr exact i64 %sub.ptr.sub.i245, 4
   %_M_finish.i.le284 = getelementptr inbounds i8, ptr %13, i64 168
   %_M_end_of_storage.i299 = getelementptr inbounds i8, ptr %13, i64 176
   %30 = load ptr, ptr %_M_end_of_storage.i299, align 8
@@ -8612,7 +8608,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN10glTFCommon3RefIN4glTF4NodeEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.then45.thread, %if.else.i
   %_M_finish.i.le291302324 = phi ptr [ %_M_finish.i.le, %if.else.i ], [ %_M_finish.i.le284, %if.then45.thread ]
   %.pn = phi ptr [ %26, %if.else.i ], [ %13, %if.then45.thread ]
-  %sub.ptr.div.i.lcssa289304322 = phi i64 [ %sub.ptr.div.i, %if.else.i ], [ %sub.ptr.div.i246, %if.then45.thread ]
+  %sub.ptr.div.i.lcssa289304322 = phi i64 [ %sub.ptr.div.i, %if.else.i ], [ 0, %if.then45.thread ]
   %sub.ptr.sub.i.lcssa288305321 = phi i64 [ %sub.ptr.sub.i, %if.else.i ], [ 0, %if.then45.thread ]
   %.lcssa287306320 = phi ptr [ %28, %if.else.i ], [ %15, %if.then45.thread ]
   %.lcssa232286307319 = phi ptr [ %27, %if.else.i ], [ %14, %if.then45.thread ]

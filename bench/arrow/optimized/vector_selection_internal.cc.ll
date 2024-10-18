@@ -50015,44 +50015,40 @@ invoke.cont.i:                                    ; preds = %_ZNSt16allocator_tr
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %13, %12
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %invoke.cont12, label %invoke.cont12.thread
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.thread, label %invoke.cont12
+
+_ZNSt6vectorIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.thread: ; preds = %invoke.cont.i
+  %add.ptr.i.i.i.i.i.i.i.i.i41 = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i
+  store ptr %add.ptr.i.i.i.i.i.i.i.i.i41, ptr %_M_finish.i.i.i, align 8
+  %child_indices_builders_42 = getelementptr inbounds i8, ptr %this, i64 256
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %child_indices_builders_42, i8 0, i64 24, i1 false)
+  br label %_ZNSt12_Vector_baseIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EEC2EmRKS4_.exit.i
 
 invoke.cont12:                                    ; preds = %invoke.cont.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %cond.i.i.i.i, ptr align 1 %12, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   %cmp.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, 42700796466920258
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
+  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt16allocator_traitsISaIN5arrow14NumericBuilderINS0_9Int32TypeEEEEE8allocateERS4_m.exit.i.i.i.i
 
-invoke.cont12.thread:                             ; preds = %invoke.cont.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %cond.i.i.i.i, ptr align 1 %12, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, i1 false)
-  %add.ptr.i.i.i.i.i.i.i.i.i41 = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i
-  store ptr %add.ptr.i.i.i.i.i.i.i.i.i41, ptr %_M_finish.i.i.i, align 8
-  %cmp.i.i43 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, 42700796466920258
-  br i1 %cmp.i.i43, label %if.then.i.i, label %_ZNSt16allocator_traitsISaIN5arrow14NumericBuilderINS0_9Int32TypeEEEEE8allocateERS4_m.exit.i.i.i.i
-
-if.then.i.i:                                      ; preds = %invoke.cont12.thread, %invoke.cont12
+if.then.i.i:                                      ; preds = %invoke.cont12
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #25
           to label %.noexc22 unwind label %lpad15
 
 .noexc22:                                         ; preds = %if.then.i.i
   unreachable
 
-_ZNSt6vectorIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; preds = %invoke.cont12
+_ZNSt16allocator_traitsISaIN5arrow14NumericBuilderINS0_9Int32TypeEEEEE8allocateERS4_m.exit.i.i.i.i: ; preds = %invoke.cont12
   %child_indices_builders_ = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %child_indices_builders_, i8 0, i64 24, i1 false)
-  br label %_ZNSt12_Vector_baseIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EEC2EmRKS4_.exit.i
-
-_ZNSt16allocator_traitsISaIN5arrow14NumericBuilderINS0_9Int32TypeEEEEE8allocateERS4_m.exit.i.i.i.i: ; preds = %invoke.cont12.thread
-  %child_indices_builders_42 = getelementptr inbounds i8, ptr %this, i64 256
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %child_indices_builders_42, i8 0, i64 24, i1 false)
   %mul.i.i.i.i.i.i = mul nuw nsw i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i, 216
   %call5.i.i.i.i2.i.i23 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #21
           to label %_ZNSt12_Vector_baseIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EEC2EmRKS4_.exit.i unwind label %lpad15
 
-_ZNSt12_Vector_baseIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EEC2EmRKS4_.exit.i: ; preds = %_ZNSt6vectorIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i, %_ZNSt16allocator_traitsISaIN5arrow14NumericBuilderINS0_9Int32TypeEEEEE8allocateERS4_m.exit.i.i.i.i
-  %child_indices_builders_4447 = phi ptr [ %child_indices_builders_, %_ZNSt6vectorIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ], [ %child_indices_builders_42, %_ZNSt16allocator_traitsISaIN5arrow14NumericBuilderINS0_9Int32TypeEEEEE8allocateERS4_m.exit.i.i.i.i ]
-  %cond.i.i.i.i17 = phi ptr [ null, %_ZNSt6vectorIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ], [ %call5.i.i.i.i2.i.i23, %_ZNSt16allocator_traitsISaIN5arrow14NumericBuilderINS0_9Int32TypeEEEEE8allocateERS4_m.exit.i.i.i.i ]
-  store ptr %cond.i.i.i.i17, ptr %child_indices_builders_4447, align 8
+_ZNSt12_Vector_baseIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EEC2EmRKS4_.exit.i: ; preds = %_ZNSt6vectorIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.thread, %_ZNSt16allocator_traitsISaIN5arrow14NumericBuilderINS0_9Int32TypeEEEEE8allocateERS4_m.exit.i.i.i.i
+  %child_indices_builders_4446 = phi ptr [ %child_indices_builders_, %_ZNSt16allocator_traitsISaIN5arrow14NumericBuilderINS0_9Int32TypeEEEEE8allocateERS4_m.exit.i.i.i.i ], [ %child_indices_builders_42, %_ZNSt6vectorIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.thread ]
+  %cond.i.i.i.i17 = phi ptr [ %call5.i.i.i.i2.i.i23, %_ZNSt16allocator_traitsISaIN5arrow14NumericBuilderINS0_9Int32TypeEEEEE8allocateERS4_m.exit.i.i.i.i ], [ null, %_ZNSt6vectorIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.thread ]
+  store ptr %cond.i.i.i.i17, ptr %child_indices_builders_4446, align 8
   %_M_finish.i.i.i18 = getelementptr inbounds i8, ptr %this, i64 264
   store ptr %cond.i.i.i.i17, ptr %_M_finish.i.i.i18, align 8
   %add.ptr.i.i.i19 = getelementptr inbounds %"class.arrow::NumericBuilder", ptr %cond.i.i.i.i17, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i
@@ -50064,7 +50060,7 @@ _ZNSt12_Vector_baseIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EEC2EmRKS4_.e
 lpad.i:                                           ; preds = %_ZNSt12_Vector_baseIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EEC2EmRKS4_.exit.i
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = load ptr, ptr %child_indices_builders_4447, align 8
+  %15 = load ptr, ptr %child_indices_builders_4446, align 8
   %tobool.not.i.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i, label %ehcleanup, label %if.then.i.i.i
 
@@ -50074,7 +50070,7 @@ if.then.i.i.i:                                    ; preds = %lpad.i
 
 invoke.cont16:                                    ; preds = %_ZNSt12_Vector_baseIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EEC2EmRKS4_.exit.i
   store ptr %call.i.i.i3.i, ptr %_M_finish.i.i.i18, align 8
-  %16 = load ptr, ptr %child_indices_builders_4447, align 8
+  %16 = load ptr, ptr %child_indices_builders_4446, align 8
   %cmp.i.not39 = icmp eq ptr %16, %call.i.i.i3.i
   br i1 %cmp.i.not39, label %for.end, label %invoke.cont25.lr.ph
 
@@ -50142,7 +50138,7 @@ lpad.i27:                                         ; preds = %invoke.cont25
   %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow12ArrayBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %ref.tmp23) #23
-  call void @_ZNSt6vectorIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %child_indices_builders_4447) #23
+  call void @_ZNSt6vectorIN5arrow14NumericBuilderINS0_9Int32TypeEEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %child_indices_builders_4446) #23
   br label %ehcleanup
 
 invoke.cont27:                                    ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %call.i.noexc.i

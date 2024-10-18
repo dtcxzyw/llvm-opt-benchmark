@@ -42914,8 +42914,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %sub.ptr.lhs.cast.i.i.i.i.i.i32.i = ptrtoint ptr %__i.sroa.0.013.i16.i to i64
   %sub.ptr.sub.i.i.i.i.i.i33.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i32.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i, 2
-  %.pre.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
-  %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds i32, ptr %add.ptr.i3.i31.i, i64 %.pre.i.i.i.i.i.i35.i
+  %idx.neg.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
+  %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds i32, ptr %add.ptr.i3.i31.i, i64 %idx.neg.i.i.i.i.i.i35.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i, ptr noundef nonnull align 4 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
   br label %for.inc.i21.i
 
@@ -64671,7 +64671,7 @@ if.then.i.i.i.i.i35:                              ; preds = %if.else49
   br label %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPiS0_ET0_T_S2_S1_.exit:                 ; preds = %if.else49, %if.then.i.i.i.i.i35
-  %sub.ptr.sub.i40.pre-phi = phi i64 [ %sub.ptr.sub.i22, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
+  %sub.ptr.sub.i40.pre-phi = phi i64 [ 0, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
   %5 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
   %6 = phi ptr [ %4, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
   %7 = phi ptr [ %1, %if.else49 ], [ %.pre, %if.then.i.i.i.i.i35 ]
@@ -74664,7 +74664,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   %included_fields.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %included_fields.i.i.i.i.i, i8 0, i64 24, i1 false)
-  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.thread, label %cond.true.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.thread, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i.i.thread:                   ; preds = %invoke.cont
   %_M_finish.i.i.i.i.i.i.i.i11 = getelementptr inbounds i8, ptr %call, i64 48
@@ -74674,18 +74674,7 @@ invoke.cont.i.i.i.i.i.i.thread:                   ; preds = %invoke.cont
   store ptr %add.ptr.i.i.i.i.i.i.i.i12, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i13, align 8
   br label %invoke.cont3
 
-cond.true.i.i.i.i.i.i.i.i.i:                      ; preds = %invoke.cont
-  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i.i, 9223372036854775804
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i
-
-if.then3.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %cond.true.i.i.i.i.i.i.i.i.i
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #34
-          to label %.noexc.i.i.i.i unwind label %lpad.i.i.i.i
-
-.noexc.i.i.i.i:                                   ; preds = %if.then3.i.i.i.i.i.i.i.i.i.i.i
-  unreachable
-
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %cond.true.i.i.i.i.i.i.i.i.i
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %invoke.cont
   %call5.i.i.i.i2.i6.i.i2.i.i.i.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i.i.i) #35
           to label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i
 
@@ -74699,7 +74688,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %_ZNSt16allocator_tr
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i6.i.i2.i.i.i.i, ptr align 4 %cond.i.i.i.i.i.i.i.i8, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   br label %invoke.cont3
 
-lpad.i.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i.i.i.i.i
+lpad.i.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i
   %10 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt10shared_ptrIN5arrow3ipc25RecordBatchFileReaderImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %fn_.i) #32

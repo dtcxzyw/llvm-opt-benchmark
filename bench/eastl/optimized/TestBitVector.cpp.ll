@@ -14853,14 +14853,10 @@ invoke.cont120:                                   ; preds = %return.loopexit.i.i
 
 for.cond125.preheader:                            ; preds = %invoke.cont120
   %cmp1273676.not = icmp eq i64 %mul.i.i, %10
-  br i1 %cmp1273676.not, label %for.end137, label %for.body128.preheader
+  br i1 %cmp1273676.not, label %for.end137, label %for.body128
 
-for.body128.preheader:                            ; preds = %for.cond125.preheader
-  %umax = call i64 @llvm.umax.i64(i64 %sub.i.i, i64 1)
-  br label %for.body128
-
-for.body128:                                      ; preds = %for.body128.preheader, %for.inc135
-  %i124.03677 = phi i64 [ %inc136, %for.inc135 ], [ 0, %for.body128.preheader ]
+for.body128:                                      ; preds = %for.cond125.preheader, %for.inc135
+  %i124.03677 = phi i64 [ %inc136, %for.inc135 ], [ 0, %for.cond125.preheader ]
   %cmp.i.i.i272 = icmp sgt i64 %i124.03677, -1
   br i1 %cmp.i.i.i272, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -14890,7 +14886,7 @@ invoke.cont129:                                   ; preds = %if.else.i.i.i, %if.
 
 for.inc135:                                       ; preds = %invoke.cont129
   %inc136 = add nuw i64 %i124.03677, 1
-  %exitcond.not = icmp eq i64 %inc136, %umax
+  %exitcond.not = icmp eq i64 %inc136, %sub.i.i
   br i1 %exitcond.not, label %for.end137, label %for.body128, !llvm.loop !43
 
 for.end137:                                       ; preds = %for.inc135, %for.cond125.preheader
@@ -18219,8 +18215,7 @@ if.then.i2217:                                    ; preds = %invoke.cont889
   br i1 %cmp.i.i3176, label %if.then.i.i3180, label %if.else.i.i3177
 
 if.then.i.i3180:                                  ; preds = %if.then.i2217
-  %sub.ptr.div.i.i3175 = ashr exact i64 %sub.ptr.sub.i.i.i2212, 3
-  %sub.i.i3181 = sub nuw nsw i64 1, %sub.ptr.div.i.i3175
+  %sub.i.i3181 = sub nuw nsw i64 1, %sub.ptr.sub.i.i.i2212
   %561 = load ptr, ptr %mCapacityAllocator.i.i.i1627, align 8
   %sub.ptr.lhs.cast.i.i.i3183 = ptrtoint ptr %561 to i64
   %sub.ptr.sub.i.i.i3184 = sub i64 %sub.ptr.lhs.cast.i.i.i3183, %sub.ptr.lhs.cast.i.i.i2210

@@ -8433,7 +8433,7 @@ define hidden { i64, ptr } @_ZN9actix_web4rmap11ResourceMap19_find_matching_node
 
 7:                                                ; preds = %3
   %8 = icmp eq i64 %6, 0
-  br i1 %8, label %18, label %9
+  br i1 %8, label %17, label %9
 
 9:                                                ; preds = %7
   %.not.i.i = icmp ult i64 %6, %2
@@ -8441,62 +8441,61 @@ define hidden { i64, ptr } @_ZN9actix_web4rmap11ResourceMap19_find_matching_node
 
 10:                                               ; preds = %9
   %11 = icmp eq i64 %6, %2
-  %12 = sub i64 %2, %6
-  br i1 %11, label %18, label %17
+  br i1 %11, label %17, label %16
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i": ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %1, i64 %6
-  %14 = load i8, ptr %13, align 1, !alias.scope !1996, !noundef !13
-  %15 = icmp sgt i8 %14, -65
-  %16 = sub nuw i64 %2, %6
-  br i1 %15, label %18, label %17
+  %12 = getelementptr inbounds i8, ptr %1, i64 %6
+  %13 = load i8, ptr %12, align 1, !alias.scope !1996, !noundef !13
+  %14 = icmp sgt i8 %13, -65
+  %15 = sub nuw i64 %2, %6
+  br i1 %14, label %17, label %16
 
-17:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %10
+16:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %10
   tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %6, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.972a82340b04216d2ae9c135c478131e.50) #35
   unreachable
 
-18:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %10, %7
-  %19 = phi i64 [ %16, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i" ], [ %12, %10 ], [ %2, %7 ]
-  %20 = getelementptr inbounds i8, ptr %1, i64 %6
-  %21 = getelementptr inbounds i8, ptr %0, i64 152
-  %22 = load i64, ptr %21, align 8, !range !583, !noundef !13
-  %23 = icmp eq i64 %22, -9223372036854775808
-  br i1 %23, label %.loopexit, label %24
+17:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %10, %7
+  %18 = phi i64 [ %15, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i" ], [ 0, %10 ], [ %2, %7 ]
+  %19 = getelementptr inbounds i8, ptr %1, i64 %6
+  %20 = getelementptr inbounds i8, ptr %0, i64 152
+  %21 = load i64, ptr %20, align 8, !range !583, !noundef !13
+  %22 = icmp eq i64 %21, -9223372036854775808
+  br i1 %22, label %.loopexit, label %23
 
-24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %0, i64 160
-  %26 = load ptr, ptr %25, align 8, !nonnull !13, !noundef !13
-  %27 = getelementptr inbounds i8, ptr %0, i64 168
-  %28 = load i64, ptr %27, align 8, !noundef !13
-  %29 = getelementptr inbounds ptr, ptr %26, i64 %28
-  br label %30
+23:                                               ; preds = %17
+  %24 = getelementptr inbounds i8, ptr %0, i64 160
+  %25 = load ptr, ptr %24, align 8, !nonnull !13, !noundef !13
+  %26 = getelementptr inbounds i8, ptr %0, i64 168
+  %27 = load i64, ptr %26, align 8, !noundef !13
+  %28 = getelementptr inbounds ptr, ptr %25, i64 %27
+  br label %29
 
-30:                                               ; preds = %32, %24
-  %.sroa.0.017 = phi ptr [ %26, %24 ], [ %33, %32 ]
-  %31 = icmp eq ptr %.sroa.0.017, %29
-  br i1 %31, label %.loopexit, label %32
+29:                                               ; preds = %31, %23
+  %.sroa.0.017 = phi ptr [ %25, %23 ], [ %32, %31 ]
+  %30 = icmp eq ptr %.sroa.0.017, %28
+  br i1 %30, label %.loopexit, label %31
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %.sroa.0.017, i64 8
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds i8, ptr %.sroa.0.017, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2001)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2004), !noalias !2007
-  %34 = load ptr, ptr %.sroa.0.017, align 8, !alias.scope !2010, !noalias !2011, !nonnull !13, !noundef !13
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
-  %36 = tail call { i64, ptr } @_ZN9actix_web4rmap11ResourceMap19_find_matching_node17h4ba6c5561c1cc5fbE(ptr noundef nonnull align 8 %35, ptr noalias noundef nonnull readonly align 1 %20, i64 noundef %19), !noalias !2014
-  %37 = extractvalue { i64, ptr } %36, 0
-  %38 = icmp eq i64 %37, 1
-  br i1 %38, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h9b0513f8a4c49d88E.exit", label %30
+  %33 = load ptr, ptr %.sroa.0.017, align 8, !alias.scope !2010, !noalias !2011, !nonnull !13, !noundef !13
+  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %35 = tail call { i64, ptr } @_ZN9actix_web4rmap11ResourceMap19_find_matching_node17h4ba6c5561c1cc5fbE(ptr noundef nonnull align 8 %34, ptr noalias noundef nonnull readonly align 1 %19, i64 noundef %18), !noalias !2014
+  %36 = extractvalue { i64, ptr } %35, 0
+  %37 = icmp eq i64 %36, 1
+  br i1 %37, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h9b0513f8a4c49d88E.exit", label %29
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h9b0513f8a4c49d88E.exit": ; preds = %32
-  %39 = extractvalue { i64, ptr } %36, 1
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h9b0513f8a4c49d88E.exit": ; preds = %31
+  %38 = extractvalue { i64, ptr } %35, 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %30, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h9b0513f8a4c49d88E.exit", %3, %18
-  %.sroa.3.0 = phi ptr [ undef, %3 ], [ %0, %18 ], [ %39, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h9b0513f8a4c49d88E.exit" ], [ null, %30 ]
-  %.sroa.0.0 = phi i64 [ 0, %3 ], [ 1, %18 ], [ 1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h9b0513f8a4c49d88E.exit" ], [ 1, %30 ]
-  %40 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %41 = insertvalue { i64, ptr } %40, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %41
+.loopexit:                                        ; preds = %29, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h9b0513f8a4c49d88E.exit", %3, %17
+  %.sroa.3.0 = phi ptr [ undef, %3 ], [ %0, %17 ], [ %38, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h9b0513f8a4c49d88E.exit" ], [ null, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %3 ], [ 1, %17 ], [ 1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h9b0513f8a4c49d88E.exit" ], [ 1, %29 ]
+  %39 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %40 = insertvalue { i64, ptr } %39, ptr %.sroa.3.0, 1
+  ret { i64, ptr } %40
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -2192,21 +2192,20 @@ _ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.i.i8.i: ; preds = 
 
 55:                                               ; preds = %54
   %56 = icmp eq i64 %.0.sroa.speculated.i23.i, %.sroa.4.0.i.i3.i
-  %57 = sub nsw i64 %.sroa.4.0.i.i3.i, %.0.sroa.speculated.i23.i
   br i1 %56, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.i", label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.thread.i"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i": ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i4.i, i64 %.0.sroa.speculated.i23.i
-  %59 = load i8, ptr %58, align 1, !alias.scope !374, !noundef !4
-  %60 = icmp sgt i8 %59, -65
-  %61 = sub nuw i64 %.sroa.4.0.i.i3.i, %.0.sroa.speculated.i23.i
-  br i1 %60, label %"_ZN12actix_router4path13Path$LT$T$GT$11unprocessed17h6b9fd6db0e2eb89dE.exit", label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.thread.i"
+  %57 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i4.i, i64 %.0.sroa.speculated.i23.i
+  %58 = load i8, ptr %57, align 1, !alias.scope !374, !noundef !4
+  %59 = icmp sgt i8 %58, -65
+  %60 = sub nuw i64 %.sroa.4.0.i.i3.i, %.0.sroa.speculated.i23.i
+  br i1 %59, label %"_ZN12actix_router4path13Path$LT$T$GT$11unprocessed17h6b9fd6db0e2eb89dE.exit", label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.thread.i"
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.i": ; preds = %55, %"_ZN84_$LT$actix_router..url..Url$u20$as$u20$actix_router..resource_path..ResourcePath$GT$4path17h01636b12c6cfed63E.exit18.i"
   %.0.sroa.speculated.i23.i11 = phi i64 [ %.0.sroa.speculated.i23.i, %55 ], [ 0, %"_ZN84_$LT$actix_router..url..Url$u20$as$u20$actix_router..resource_path..ResourcePath$GT$4path17h01636b12c6cfed63E.exit18.i" ]
-  %62 = phi i64 [ %57, %55 ], [ %.sroa.4.0.i.i3.i, %"_ZN84_$LT$actix_router..url..Url$u20$as$u20$actix_router..resource_path..ResourcePath$GT$4path17h01636b12c6cfed63E.exit18.i" ]
-  %63 = icmp ne ptr %.sroa.0.0.i.i4.i, null
-  tail call void @llvm.assume(i1 %63)
+  %61 = phi i64 [ 0, %55 ], [ %.sroa.4.0.i.i3.i, %"_ZN84_$LT$actix_router..url..Url$u20$as$u20$actix_router..resource_path..ResourcePath$GT$4path17h01636b12c6cfed63E.exit18.i" ]
+  %62 = icmp ne ptr %.sroa.0.0.i.i4.i, null
+  tail call void @llvm.assume(i1 %62)
   br label %"_ZN12actix_router4path13Path$LT$T$GT$11unprocessed17h6b9fd6db0e2eb89dE.exit"
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.thread.i": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", %55
@@ -2216,10 +2215,10 @@ _ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.i.i8.i: ; preds = 
 "_ZN12actix_router4path13Path$LT$T$GT$11unprocessed17h6b9fd6db0e2eb89dE.exit": ; preds = %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.i", %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i.i, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i"
   %.sroa.0.0.i.i4.i17 = phi ptr [ %.sroa.0.0.i.i4.i, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.i" ], [ %.sroa.0.0.i.i4.i, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ @anon.2c6cd919f5e2d791ec1f2903047be799.4.llvm.10116804099265645101, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i.i ]
   %.0.sroa.speculated.i23.i12 = phi i64 [ %.0.sroa.speculated.i23.i11, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.i" ], [ %.0.sroa.speculated.i23.i, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ 0, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i.i ]
-  %64 = phi i64 [ %62, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.i" ], [ %61, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ 0, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i.i ]
-  %65 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i4.i17, i64 %.0.sroa.speculated.i23.i12
+  %63 = phi i64 [ %61, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.i" ], [ %60, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ 0, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i.i ]
+  %64 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i4.i17, i64 %.0.sroa.speculated.i23.i12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call void @_ZN11actix_files8path_buf11PathBufWrap10parse_path17hec1a22edd47e4ef5E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %65, i64 noundef %64, i1 noundef zeroext false)
+  call void @_ZN11actix_files8path_buf11PathBufWrap10parse_path17hec1a22edd47e4ef5E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %64, i64 noundef %63, i1 noundef zeroext false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void

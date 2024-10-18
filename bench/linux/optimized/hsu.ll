@@ -273,59 +273,58 @@ define internal fastcc void @hsu_dma_start_channel(ptr nocapture noundef readonl
 34:                                               ; preds = %16
   %35 = tail call i32 @llvm.umin.i32(i32 %32, i32 4)
   %36 = getelementptr inbounds i8, ptr %3, i64 120
-  %37 = tail call i32 @llvm.umax.i32(i32 %35, i32 1)
-  %38 = zext nneg i32 %37 to i64
-  br label %39
+  %37 = zext nneg i32 %35 to i64
+  br label %38
 
-39:                                               ; preds = %39, %34
-  %40 = phi i64 [ 0, %34 ], [ %61, %39 ]
-  %41 = phi i32 [ 8421376, %34 ], [ %58, %39 ]
-  %42 = shl nuw nsw i64 %40, 3
-  %43 = or disjoint i64 %42, 32
-  %44 = load ptr, ptr %36, align 8
-  %45 = getelementptr %struct.hsu_dma_sg, ptr %44, i64 %40
-  %46 = load i64, ptr %45, align 8
-  %47 = trunc i64 %46 to i32
-  %48 = load ptr, ptr %19, align 8
-  %49 = getelementptr i8, ptr %48, i64 %43
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %47, ptr elementtype(i32) %49) #11, !srcloc !11
-  %50 = or disjoint i64 %42, 36
-  %51 = load ptr, ptr %36, align 8
-  %52 = getelementptr %struct.hsu_dma_sg, ptr %51, i64 %40, i32 1
-  %53 = load i32, ptr %52, align 8
-  %54 = load ptr, ptr %19, align 8
-  %55 = getelementptr i8, ptr %54, i64 %50
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %53, ptr elementtype(i32) %55) #11, !srcloc !11
-  %56 = shl i64 16777217, %40
-  %57 = trunc i64 %56 to i32
-  %58 = or i32 %41, %57
-  %59 = load i32, ptr %30, align 8
-  %60 = add i32 %59, 1
-  store i32 %60, ptr %30, align 8
-  %61 = add nuw nsw i64 %40, 1
-  %62 = icmp eq i64 %61, %38
-  br i1 %62, label %.loopexit, label %39, !llvm.loop !12
+38:                                               ; preds = %38, %34
+  %39 = phi i64 [ 0, %34 ], [ %60, %38 ]
+  %40 = phi i32 [ 8421376, %34 ], [ %57, %38 ]
+  %41 = shl nuw nsw i64 %39, 3
+  %42 = or disjoint i64 %41, 32
+  %43 = load ptr, ptr %36, align 8
+  %44 = getelementptr %struct.hsu_dma_sg, ptr %43, i64 %39
+  %45 = load i64, ptr %44, align 8
+  %46 = trunc i64 %45 to i32
+  %47 = load ptr, ptr %19, align 8
+  %48 = getelementptr i8, ptr %47, i64 %42
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %46, ptr elementtype(i32) %48) #11, !srcloc !11
+  %49 = or disjoint i64 %41, 36
+  %50 = load ptr, ptr %36, align 8
+  %51 = getelementptr %struct.hsu_dma_sg, ptr %50, i64 %39, i32 1
+  %52 = load i32, ptr %51, align 8
+  %53 = load ptr, ptr %19, align 8
+  %54 = getelementptr i8, ptr %53, i64 %49
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %52, ptr elementtype(i32) %54) #11, !srcloc !11
+  %55 = shl i64 16777217, %39
+  %56 = trunc i64 %55 to i32
+  %57 = or i32 %40, %56
+  %58 = load i32, ptr %30, align 8
+  %59 = add i32 %58, 1
+  store i32 %59, ptr %30, align 8
+  %60 = add nuw nsw i64 %39, 1
+  %61 = icmp eq i64 %60, %37
+  br i1 %61, label %.loopexit, label %38, !llvm.loop !12
 
-.loopexit:                                        ; preds = %39, %16
-  %63 = phi i32 [ 8421376, %16 ], [ %58, %39 ]
-  %64 = add i32 %32, 7
-  %65 = zext nneg i32 %64 to i64
-  %66 = shl nuw i64 1, %65
-  %67 = add i32 %32, 15
-  %68 = zext nneg i32 %67 to i64
-  %69 = shl nuw i64 1, %68
-  %70 = or i64 %66, %69
-  %71 = trunc i64 %70 to i32
-  %72 = or i32 %63, %71
-  %73 = load ptr, ptr %19, align 8
-  %74 = getelementptr i8, ptr %73, i64 8
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %72, ptr elementtype(i32) %74) #11, !srcloc !11
-  %75 = load i32, ptr %4, align 8
-  %76 = icmp eq i32 %75, 2
-  %77 = select i1 %76, i32 3, i32 1
-  %78 = load ptr, ptr %19, align 8
-  %79 = getelementptr i8, ptr %78, i64 4
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %77, ptr elementtype(i32) %79) #11, !srcloc !11
+.loopexit:                                        ; preds = %38, %16
+  %62 = phi i32 [ 8421376, %16 ], [ %57, %38 ]
+  %63 = add i32 %32, 7
+  %64 = zext nneg i32 %63 to i64
+  %65 = shl nuw i64 1, %64
+  %66 = add i32 %32, 15
+  %67 = zext nneg i32 %66 to i64
+  %68 = shl nuw i64 1, %67
+  %69 = or i64 %65, %68
+  %70 = trunc i64 %69 to i32
+  %71 = or i32 %62, %70
+  %72 = load ptr, ptr %19, align 8
+  %73 = getelementptr i8, ptr %72, i64 8
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %71, ptr elementtype(i32) %73) #11, !srcloc !11
+  %74 = load i32, ptr %4, align 8
+  %75 = icmp eq i32 %74, 2
+  %76 = select i1 %75, i32 3, i32 1
+  %77 = load ptr, ptr %19, align 8
+  %78 = getelementptr i8, ptr %77, i64 4
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %76, ptr elementtype(i32) %78) #11, !srcloc !11
   ret void
 }
 
@@ -1191,9 +1190,6 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #10
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

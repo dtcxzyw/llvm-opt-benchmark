@@ -5074,23 +5074,24 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i: ; preds = %19, %16
 
 _ZSt7advanceIPKdmEvRT_T0_.exit.i:                 ; preds = %21
   %.not.i.i.i.i.i17.i = icmp eq ptr %23, %11
-  br i1 %.not.i.i.i.i.i17.i, label %_ZSt4copyIPKdPdET0_T_S4_S3_.exit18.i, label %29
+  br i1 %.not.i.i.i.i.i17.i, label %_ZSt4copyIPKdPdET0_T_S4_S3_.exit18.i.thread, label %_ZSt4copyIPKdPdET0_T_S4_S3_.exit18.i
 
-29:                                               ; preds = %_ZSt7advanceIPKdmEvRT_T0_.exit.i
+_ZSt4copyIPKdPdET0_T_S4_S3_.exit18.i:             ; preds = %_ZSt7advanceIPKdmEvRT_T0_.exit.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(1) %4, i64 %25, i1 false)
   %.pre26.i = load ptr, ptr %22, align 8
-  br label %_ZSt4copyIPKdPdET0_T_S4_S3_.exit18.i
+  br label %_ZSt4copyIPKdPdET0_T_S4_S3_.exit18.i.thread
 
-_ZSt4copyIPKdPdET0_T_S4_S3_.exit18.i:             ; preds = %29, %_ZSt7advanceIPKdmEvRT_T0_.exit.i
-  %30 = phi ptr [ %23, %_ZSt7advanceIPKdmEvRT_T0_.exit.i ], [ %.pre26.i, %29 ]
-  %gepdiff = sub nuw nsw i64 16, %25
-  %.sink.i.i25.i.ptr = getelementptr inbounds i8, ptr %4, i64 %25
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %30, ptr nonnull align 8 %.sink.i.i25.i.ptr, i64 %gepdiff, i1 false)
-  %31 = getelementptr inbounds i8, ptr %30, i64 %gepdiff
+_ZSt4copyIPKdPdET0_T_S4_S3_.exit18.i.thread:      ; preds = %_ZSt7advanceIPKdmEvRT_T0_.exit.i, %_ZSt4copyIPKdPdET0_T_S4_S3_.exit18.i
+  %.sink.i.i25.i.idx6 = phi i64 [ %25, %_ZSt4copyIPKdPdET0_T_S4_S3_.exit18.i ], [ 0, %_ZSt7advanceIPKdmEvRT_T0_.exit.i ]
+  %29 = phi ptr [ %.pre26.i, %_ZSt4copyIPKdPdET0_T_S4_S3_.exit18.i ], [ %23, %_ZSt7advanceIPKdmEvRT_T0_.exit.i ]
+  %30 = sub nuw nsw i64 16, %25
+  %.sink.i.i25.i.ptr = getelementptr inbounds i8, ptr %4, i64 %.sink.i.i25.i.idx6
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %29, ptr nonnull align 8 %.sink.i.i25.i.ptr, i64 %30, i1 false)
+  %31 = getelementptr inbounds i8, ptr %29, i64 %30
   store ptr %31, ptr %22, align 8
   br label %_ZNSt6vectorIdSaIdEE13_M_assign_auxIPKdEEvT_S5_St20forward_iterator_tag.exit
 
-_ZNSt6vectorIdSaIdEE13_M_assign_auxIPKdEEvT_S5_St20forward_iterator_tag.exit: ; preds = %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i, %26, %28, %_ZSt4copyIPKdPdET0_T_S4_S3_.exit18.i
+_ZNSt6vectorIdSaIdEE13_M_assign_auxIPKdEEvT_S5_St20forward_iterator_tag.exit: ; preds = %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i, %26, %28, %_ZSt4copyIPKdPdET0_T_S4_S3_.exit18.i.thread
   ret void
 }
 

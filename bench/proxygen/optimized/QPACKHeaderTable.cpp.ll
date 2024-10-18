@@ -1595,29 +1595,26 @@ entry:
   %refCount_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %refCount_, align 8
   %cmp.i.not = icmp eq ptr %0, null
-  br i1 %cmp.i.not, label %if.end, label %if.then
+  %tobool.not.i.i.i.i.i = icmp eq i32 %oldLength, %oldTail
+  %or.cond = or i1 %tobool.not.i.i.i.i.i, %cmp.i.not
+  br i1 %or.cond, label %if.end, label %if.then.i.i.i.i.i
 
-if.then:                                          ; preds = %entry
+if.then.i.i.i.i.i:                                ; preds = %entry
   %conv = zext i32 %oldTail to i64
-  %add.ptr.i.idx = shl nuw nsw i64 %conv, 1
   %conv13 = zext i32 %oldLength to i64
-  %add.ptr.i4.idx = shl nuw nsw i64 %conv13, 1
-  %tobool.not.i.i.i.i.i = icmp eq i64 %add.ptr.i4.idx, %add.ptr.i.idx
-  br i1 %tobool.not.i.i.i.i.i, label %if.end, label %if.then.i.i.i.i.i
-
-if.then.i.i.i.i.i:                                ; preds = %if.then
-  %gepdiff = sub nsw i64 %add.ptr.i4.idx, %add.ptr.i.idx
-  %sub.ptr.div.i.i.i.i.i = ashr exact i64 %gepdiff, 1
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
   %1 = load ptr, ptr %0, align 8
+  %add.ptr.i.idx = shl nuw nsw i64 %conv, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %add.ptr.i.idx
   %conv22 = zext i32 %newLength to i64
   %add.ptr.i5 = getelementptr inbounds i16, ptr %1, i64 %conv22
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i16, ptr %add.ptr.i5, i64 %.pre.i.i.i.i.i
+  %2 = sub nsw i64 %conv13, %conv
+  %gepdiff = shl nsw i64 %2, 1
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %2
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i16, ptr %add.ptr.i5, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr.i.i.i.i.i, ptr align 2 %add.ptr.i, i64 %gepdiff, i1 false)
   br label %if.end
 
-if.end:                                           ; preds = %if.then.i.i.i.i.i, %if.then, %entry
+if.end:                                           ; preds = %if.then.i.i.i.i.i, %entry
   ret void
 }
 

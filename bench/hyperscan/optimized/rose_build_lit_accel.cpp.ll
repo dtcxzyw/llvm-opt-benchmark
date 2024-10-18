@@ -369,7 +369,7 @@ _ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.i: ; preds = %for.inc.i.i, %for
 
 _ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.thread.i: ; preds = %if.then185.i
   %spec.select.i414.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %sub.ptr.sub.i.i.i, i64 %31)
-  %add189415.i = add i64 %spec.select.i414.i, %.us-phi
+  %add189415.i = add nuw nsw i64 %spec.select.i414.i, %.us-phi
   %cmp190416.i = icmp ult i64 %add189415.i, %conv186.i
   br i1 %cmp190416.i, label %cleanup208.i, label %cond.end198.i
 
@@ -622,7 +622,7 @@ _ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.i295: ; preds = %for.inc.i.i299
 
 _ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.thread.i303: ; preds = %if.then138.i
   %spec.select.i313.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %sub.ptr.sub.i.i.i290, i64 %64)
-  %add314.i = add i64 %spec.select.i313.i, %indvars.iv.i
+  %add314.i = add nuw nsw i64 %spec.select.i313.i, %indvars.iv.i
   %spec.select519 = tail call i64 @llvm.umax.i64(i64 %add314.i, i64 %conv139.i)
   br label %cond.end150.i
 
@@ -738,15 +738,18 @@ if.end18:                                         ; preds = %for.body
   %_M_finish.i.i313 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0439, i64 48
   %80 = load ptr, ptr %_M_finish.i.i313, align 8
   %81 = load ptr, ptr %msk.i, align 8
+  %cmp.i.not27.i = icmp eq ptr %81, %80
+  br i1 %cmp.i.not27.i, label %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit, label %for.body.i314.preheader
+
+for.body.i314.preheader:                          ; preds = %if.end18
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %80 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %81 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i.not27.i = icmp eq ptr %81, %80
-  br i1 %cmp.i.not27.i, label %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit, label %for.body.i314
+  br label %for.body.i314
 
-for.body.i314:                                    ; preds = %if.end18, %for.inc.i
-  %msk_true_size.029.i = phi i64 [ %dec.i, %for.inc.i ], [ %sub.ptr.sub.i.i, %if.end18 ]
-  %__begin1.sroa.0.028.i = phi ptr [ %incdec.ptr.i.i318, %for.inc.i ], [ %81, %if.end18 ]
+for.body.i314:                                    ; preds = %for.body.i314.preheader, %for.inc.i
+  %msk_true_size.029.i = phi i64 [ %dec.i, %for.inc.i ], [ %sub.ptr.sub.i.i, %for.body.i314.preheader ]
+  %__begin1.sroa.0.028.i = phi ptr [ %incdec.ptr.i.i318, %for.inc.i ], [ %81, %for.body.i314.preheader ]
   %82 = load i8, ptr %__begin1.sroa.0.028.i, align 1
   %tobool.not.i315 = icmp eq i8 %82, 0
   br i1 %tobool.not.i315, label %for.inc.i, label %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit
@@ -758,7 +761,7 @@ for.inc.i:                                        ; preds = %for.body.i314
   br i1 %cmp.i.not.i319, label %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit, label %for.body.i314
 
 _ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit: ; preds = %for.inc.i, %for.body.i314, %if.end18
-  %msk_true_size.0.lcssa.i = phi i64 [ %sub.ptr.sub.i.i, %if.end18 ], [ 0, %for.inc.i ], [ %msk_true_size.029.i, %for.body.i314 ]
+  %msk_true_size.0.lcssa.i = phi i64 [ 0, %if.end18 ], [ 0, %for.inc.i ], [ %msk_true_size.029.i, %for.body.i314 ]
   %_M_string_length.i.i316 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0439, i64 8
   %83 = load i64, ptr %_M_string_length.i.i316, align 8
   %spec.select.i317 = tail call noundef i64 @llvm.usub.sat.i64(i64 %msk_true_size.0.lcssa.i, i64 %83)

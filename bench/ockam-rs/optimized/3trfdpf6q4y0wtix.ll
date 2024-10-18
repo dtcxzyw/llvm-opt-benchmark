@@ -76372,89 +76372,88 @@ _ZN3url3Url5slice17hc70af650c4dbd15fE.exit:       ; preds = %2, %20, %"_ZN4core3
 
 31:                                               ; preds = %30
   %32 = icmp eq i64 %.val21, %28
-  %33 = sub nsw i64 %.val21, %28
-  br i1 %32, label %_ZN3url3Url5slice17h06501f83605da4b2E.exit.i, label %38
+  br i1 %32, label %_ZN3url3Url16cannot_be_a_base17hb6e02a430d8a0aa9E.exit, label %37
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h23ef7677179467b7E.exit.i.i.i.i": ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %.val, i64 %28
-  %35 = load i8, ptr %34, align 1, !alias.scope !10962, !noalias !10969, !noundef !4
-  %36 = icmp sgt i8 %35, -65
-  %37 = sub nuw i64 %.val21, %28
-  br i1 %36, label %_ZN3url3Url5slice17h06501f83605da4b2E.exit.i, label %38
+  %33 = getelementptr inbounds i8, ptr %.val, i64 %28
+  %34 = load i8, ptr %33, align 1, !alias.scope !10962, !noalias !10969, !noundef !4
+  %35 = icmp sgt i8 %34, -65
+  %36 = sub nuw i64 %.val21, %28
+  br i1 %35, label %_ZN3url3Url5slice17h06501f83605da4b2E.exit.i, label %37
 
-38:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h23ef7677179467b7E.exit.i.i.i.i", %31
+37:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h23ef7677179467b7E.exit.i.i.i.i", %31
   call void @_ZN4core3str16slice_error_fail17h4754d574702f62bbE(ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val21, i64 noundef %28, i64 noundef %.val21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbfca8abf0772dc66d1b514120c70946.677) #49, !noalias !10969
   unreachable
 
-_ZN3url3Url5slice17h06501f83605da4b2E.exit.i:     ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h23ef7677179467b7E.exit.i.i.i.i", %31, %_ZN3url3Url5slice17hc70af650c4dbd15fE.exit
-  %39 = phi i64 [ %37, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h23ef7677179467b7E.exit.i.i.i.i" ], [ %33, %31 ], [ %.val21, %_ZN3url3Url5slice17hc70af650c4dbd15fE.exit ]
-  %.not.i.i = icmp eq i64 %39, 0
+_ZN3url3Url5slice17h06501f83605da4b2E.exit.i:     ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h23ef7677179467b7E.exit.i.i.i.i", %_ZN3url3Url5slice17hc70af650c4dbd15fE.exit
+  %38 = phi i64 [ %36, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h23ef7677179467b7E.exit.i.i.i.i" ], [ %.val21, %_ZN3url3Url5slice17hc70af650c4dbd15fE.exit ]
+  %.not.i.i = icmp eq i64 %38, 0
   br i1 %.not.i.i, label %_ZN3url3Url16cannot_be_a_base17hb6e02a430d8a0aa9E.exit, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit.i.i"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit.i.i": ; preds = %_ZN3url3Url5slice17h06501f83605da4b2E.exit.i
-  %40 = getelementptr inbounds i8, ptr %.val, i64 %28
-  %rhsc.i = load i8, ptr %40, align 1, !noalias !10969
-  %41 = icmp ne i8 %rhsc.i, 47
-  %42 = zext i1 %41 to i8
+  %39 = getelementptr inbounds i8, ptr %.val, i64 %28
+  %rhsc.i = load i8, ptr %39, align 1, !noalias !10969
+  %40 = icmp ne i8 %rhsc.i, 47
+  %41 = zext i1 %40 to i8
   br label %_ZN3url3Url16cannot_be_a_base17hb6e02a430d8a0aa9E.exit
 
-_ZN3url3Url16cannot_be_a_base17hb6e02a430d8a0aa9E.exit: ; preds = %_ZN3url3Url5slice17h06501f83605da4b2E.exit.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit.i.i"
-  %.0.i.i = phi i8 [ %42, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit.i.i" ], [ 1, %_ZN3url3Url5slice17h06501f83605da4b2E.exit.i ]
+_ZN3url3Url16cannot_be_a_base17hb6e02a430d8a0aa9E.exit: ; preds = %31, %_ZN3url3Url5slice17h06501f83605da4b2E.exit.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit.i.i"
+  %.0.i.i = phi i8 [ %41, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h78c7580bd95c3a89E.exit.i.i" ], [ 1, %_ZN3url3Url5slice17h06501f83605da4b2E.exit.i ], [ 1, %31 ]
   store i8 %.0.i.i, ptr %10, align 1
-  %43 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17haf2f6c53e543649eE(ptr noalias noundef nonnull align 8 dereferenceable(16) %26, ptr noalias noundef nonnull readonly align 1 @anon.fbfca8abf0772dc66d1b514120c70946.428, i64 noundef 16, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbfca8abf0772dc66d1b514120c70946.221)
+  %42 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17haf2f6c53e543649eE(ptr noalias noundef nonnull align 8 dereferenceable(16) %26, ptr noalias noundef nonnull readonly align 1 @anon.fbfca8abf0772dc66d1b514120c70946.428, i64 noundef 16, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbfca8abf0772dc66d1b514120c70946.221)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  %44 = call { ptr, i64 } @_ZN3url3Url8username17ha5c44629cdaf7742E(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %0)
-  %.fca.0.extract1 = extractvalue { ptr, i64 } %44, 0
+  %43 = call { ptr, i64 } @_ZN3url3Url8username17ha5c44629cdaf7742E(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %0)
+  %.fca.0.extract1 = extractvalue { ptr, i64 } %43, 0
   store ptr %.fca.0.extract1, ptr %9, align 8
-  %.fca.1.extract3 = extractvalue { ptr, i64 } %44, 1
+  %.fca.1.extract3 = extractvalue { ptr, i64 } %43, 1
   %.fca.1.gep4 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %.fca.1.extract3, ptr %.fca.1.gep4, align 8
-  %45 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17haf2f6c53e543649eE(ptr noalias noundef nonnull align 8 dereferenceable(16) %43, ptr noalias noundef nonnull readonly align 1 @anon.fbfca8abf0772dc66d1b514120c70946.429, i64 noundef 8, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbfca8abf0772dc66d1b514120c70946.427)
+  %44 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17haf2f6c53e543649eE(ptr noalias noundef nonnull align 8 dereferenceable(16) %42, ptr noalias noundef nonnull readonly align 1 @anon.fbfca8abf0772dc66d1b514120c70946.429, i64 noundef 8, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbfca8abf0772dc66d1b514120c70946.427)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %46 = call { ptr, i64 } @_ZN3url3Url8password17hd41370778fe9d6e6E(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %0)
-  %.fca.0.extract5 = extractvalue { ptr, i64 } %46, 0
+  %45 = call { ptr, i64 } @_ZN3url3Url8password17hd41370778fe9d6e6E(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %0)
+  %.fca.0.extract5 = extractvalue { ptr, i64 } %45, 0
   store ptr %.fca.0.extract5, ptr %8, align 8
-  %.fca.1.extract7 = extractvalue { ptr, i64 } %46, 1
+  %.fca.1.extract7 = extractvalue { ptr, i64 } %45, 1
   %.fca.1.gep8 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %.fca.1.extract7, ptr %.fca.1.gep8, align 8
-  %47 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17haf2f6c53e543649eE(ptr noalias noundef nonnull align 8 dereferenceable(16) %45, ptr noalias noundef nonnull readonly align 1 @anon.fbfca8abf0772dc66d1b514120c70946.430, i64 noundef 8, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbfca8abf0772dc66d1b514120c70946.431)
+  %46 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17haf2f6c53e543649eE(ptr noalias noundef nonnull align 8 dereferenceable(16) %44, ptr noalias noundef nonnull readonly align 1 @anon.fbfca8abf0772dc66d1b514120c70946.430, i64 noundef 8, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbfca8abf0772dc66d1b514120c70946.431)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @_ZN3url3Url4host17h440ebe33ad3342d8E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %0)
-  %48 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17haf2f6c53e543649eE(ptr noalias noundef nonnull align 8 dereferenceable(16) %47, ptr noalias noundef nonnull readonly align 1 @anon.fbfca8abf0772dc66d1b514120c70946.432, i64 noundef 4, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbfca8abf0772dc66d1b514120c70946.433)
+  %47 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17haf2f6c53e543649eE(ptr noalias noundef nonnull align 8 dereferenceable(16) %46, ptr noalias noundef nonnull readonly align 1 @anon.fbfca8abf0772dc66d1b514120c70946.432, i64 noundef 4, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbfca8abf0772dc66d1b514120c70946.433)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %49 = getelementptr inbounds i8, ptr %0, i64 40
-  %50 = load i16, ptr %49, align 8, !range !10972, !noundef !4
-  %51 = getelementptr inbounds i8, ptr %0, i64 42
-  %52 = load i16, ptr %51, align 2
-  store i16 %50, ptr %6, align 2
-  %53 = getelementptr inbounds i8, ptr %6, i64 2
-  store i16 %52, ptr %53, align 2
-  %54 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17haf2f6c53e543649eE(ptr noalias noundef nonnull align 8 dereferenceable(16) %48, ptr noalias noundef nonnull readonly align 1 @anon.fbfca8abf0772dc66d1b514120c70946.434, i64 noundef 4, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbfca8abf0772dc66d1b514120c70946.435)
+  %48 = getelementptr inbounds i8, ptr %0, i64 40
+  %49 = load i16, ptr %48, align 8, !range !10972, !noundef !4
+  %50 = getelementptr inbounds i8, ptr %0, i64 42
+  %51 = load i16, ptr %50, align 2
+  store i16 %49, ptr %6, align 2
+  %52 = getelementptr inbounds i8, ptr %6, i64 2
+  store i16 %51, ptr %52, align 2
+  %53 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17haf2f6c53e543649eE(ptr noalias noundef nonnull align 8 dereferenceable(16) %47, ptr noalias noundef nonnull readonly align 1 @anon.fbfca8abf0772dc66d1b514120c70946.434, i64 noundef 4, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbfca8abf0772dc66d1b514120c70946.435)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %55 = call { ptr, i64 } @_ZN3url3Url4path17hb99f36ef817ec856E(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %0)
-  %.fca.0.extract9 = extractvalue { ptr, i64 } %55, 0
+  %54 = call { ptr, i64 } @_ZN3url3Url4path17hb99f36ef817ec856E(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %0)
+  %.fca.0.extract9 = extractvalue { ptr, i64 } %54, 0
   store ptr %.fca.0.extract9, ptr %5, align 8
-  %.fca.1.extract11 = extractvalue { ptr, i64 } %55, 1
+  %.fca.1.extract11 = extractvalue { ptr, i64 } %54, 1
   %.fca.1.gep12 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %.fca.1.extract11, ptr %.fca.1.gep12, align 8
-  %56 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17haf2f6c53e543649eE(ptr noalias noundef nonnull align 8 dereferenceable(16) %54, ptr noalias noundef nonnull readonly align 1 @anon.fbfca8abf0772dc66d1b514120c70946.436, i64 noundef 4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbfca8abf0772dc66d1b514120c70946.427)
+  %55 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17haf2f6c53e543649eE(ptr noalias noundef nonnull align 8 dereferenceable(16) %53, ptr noalias noundef nonnull readonly align 1 @anon.fbfca8abf0772dc66d1b514120c70946.436, i64 noundef 4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbfca8abf0772dc66d1b514120c70946.427)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %57 = call { ptr, i64 } @_ZN3url3Url5query17h0427d223bac61676E(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %0)
-  %.fca.0.extract13 = extractvalue { ptr, i64 } %57, 0
+  %56 = call { ptr, i64 } @_ZN3url3Url5query17h0427d223bac61676E(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %0)
+  %.fca.0.extract13 = extractvalue { ptr, i64 } %56, 0
   store ptr %.fca.0.extract13, ptr %4, align 8
-  %.fca.1.extract15 = extractvalue { ptr, i64 } %57, 1
+  %.fca.1.extract15 = extractvalue { ptr, i64 } %56, 1
   %.fca.1.gep16 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %.fca.1.extract15, ptr %.fca.1.gep16, align 8
-  %58 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17haf2f6c53e543649eE(ptr noalias noundef nonnull align 8 dereferenceable(16) %56, ptr noalias noundef nonnull readonly align 1 @anon.fbfca8abf0772dc66d1b514120c70946.437, i64 noundef 5, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbfca8abf0772dc66d1b514120c70946.431)
+  %57 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17haf2f6c53e543649eE(ptr noalias noundef nonnull align 8 dereferenceable(16) %55, ptr noalias noundef nonnull readonly align 1 @anon.fbfca8abf0772dc66d1b514120c70946.437, i64 noundef 5, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbfca8abf0772dc66d1b514120c70946.431)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %59 = call { ptr, i64 } @_ZN3url3Url8fragment17h61a1e17251b78277E(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %0)
-  %.fca.0.extract17 = extractvalue { ptr, i64 } %59, 0
+  %58 = call { ptr, i64 } @_ZN3url3Url8fragment17h61a1e17251b78277E(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %0)
+  %.fca.0.extract17 = extractvalue { ptr, i64 } %58, 0
   store ptr %.fca.0.extract17, ptr %3, align 8
-  %.fca.1.extract19 = extractvalue { ptr, i64 } %59, 1
+  %.fca.1.extract19 = extractvalue { ptr, i64 } %58, 1
   %.fca.1.gep20 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %.fca.1.extract19, ptr %.fca.1.gep20, align 8
-  %60 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17haf2f6c53e543649eE(ptr noalias noundef nonnull align 8 dereferenceable(16) %58, ptr noalias noundef nonnull readonly align 1 @anon.fbfca8abf0772dc66d1b514120c70946.438, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbfca8abf0772dc66d1b514120c70946.431)
-  %61 = call noundef zeroext i1 @_ZN4core3fmt8builders11DebugStruct6finish17h5cca625c6aa0e92fE(ptr noalias noundef nonnull align 8 dereferenceable(16) %60)
+  %59 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17haf2f6c53e543649eE(ptr noalias noundef nonnull align 8 dereferenceable(16) %57, ptr noalias noundef nonnull readonly align 1 @anon.fbfca8abf0772dc66d1b514120c70946.438, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbfca8abf0772dc66d1b514120c70946.431)
+  %60 = call noundef zeroext i1 @_ZN4core3fmt8builders11DebugStruct6finish17h5cca625c6aa0e92fE(ptr noalias noundef nonnull align 8 dereferenceable(16) %59)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -76465,7 +76464,7 @@ _ZN3url3Url16cannot_be_a_base17hb6e02a430d8a0aa9E.exit: ; preds = %_ZN3url3Url5s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  ret i1 %61
+  ret i1 %60
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

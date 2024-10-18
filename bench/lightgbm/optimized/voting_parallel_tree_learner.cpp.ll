@@ -13951,7 +13951,7 @@ _ZNSt12_Vector_baseIaSaIaEE13_M_deallocateEPam.exit: ; preds = %_ZNSt6vectorIaSa
   br label %_ZSt4copyIPaS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPaS0_ET0_T_S2_S1_.exit:                 ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]
@@ -14061,7 +14061,7 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit: ; preds = %_ZNSt6vectorIdSa
   br label %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPdS0_ET0_T_S2_S1_.exit:                 ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]
@@ -14171,7 +14171,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %_ZNSt6vectorIiSa
   br label %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPiS0_ET0_T_S2_S1_.exit:                 ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]
@@ -268853,11 +268853,11 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS
   br label %.outer
 
 .outer:                                           ; preds = %58, %42
-  %.sroa.024.0.i.ph.pn = phi ptr [ %.tr109125, %42 ], [ %.sroa.024.0.i.ph, %58 ]
+  %.sroa.025.0.i.ph.pn = phi ptr [ %.tr109125, %42 ], [ %.sroa.025.0.i.ph, %58 ]
   %.sroa.0.0.i.ph = phi ptr [ %2, %42 ], [ %59, %58 ]
   %.0.i.ph = phi ptr [ %43, %42 ], [ %.0.i, %58 ]
-  %.sroa.024.0.i.ph = getelementptr inbounds i8, ptr %.sroa.024.0.i.ph.pn, i64 -24
-  %44 = getelementptr inbounds i8, ptr %.sroa.024.0.i.ph.pn, i64 -16
+  %.sroa.025.0.i.ph = getelementptr inbounds i8, ptr %.sroa.025.0.i.ph.pn, i64 -24
+  %44 = getelementptr inbounds i8, ptr %.sroa.025.0.i.ph.pn, i64 -16
   br label %45
 
 45:                                               ; preds = %.outer, %66
@@ -268875,7 +268875,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN8LightGBM14LightSplitInfoEEEclIPS4_NS_17__normal_iteratorIS8_St6vectorIS4_SaIS4_EEEEEEbT_T0_.exit.i: ; preds = %45
   %52 = load i32, ptr %.0.i, align 8
-  %53 = load i32, ptr %.sroa.024.0.i.ph, align 8
+  %53 = load i32, ptr %.sroa.025.0.i.ph, align 8
   %54 = icmp ne i32 %52, -1
   %55 = icmp eq i32 %53, -1
   %spec.store.select1.i.i.i.i84 = select i1 %55, i32 2147483647, i32 %53
@@ -268885,14 +268885,14 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN8LightGBM14LightSplitInfoEEEclI
 
 58:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN8LightGBM14LightSplitInfoEEEclIPS4_NS_17__normal_iteratorIS8_St6vectorIS4_SaIS4_EEEEEEbT_T0_.exit.i, %50
   %59 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.024.0.i.ph, i64 24, i1 false)
-  %60 = icmp eq ptr %.tr124, %.sroa.024.0.i.ph
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.025.0.i.ph, i64 24, i1 false)
+  %60 = icmp eq ptr %.tr124, %.sroa.025.0.i.ph
   br i1 %60, label %61, label %.outer, !llvm.loop !890
 
 61:                                               ; preds = %58
   %62 = getelementptr inbounds i8, ptr %.0.i, i64 24
-  %.not.i.i.i.i.i19.i = icmp eq ptr %62, %5
-  br i1 %.not.i.i.i.i.i19.i, label %_ZSt21__move_merge_adaptiveIPN8LightGBM14LightSplitInfoEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterISt7greaterIS1_EEEEvT_SE_T0_SF_T1_T2_.exit, label %_ZSt13move_backwardIPN8LightGBM14LightSplitInfoEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.sink.split.i
+  %.not.i.i.i.i.i18.i = icmp eq ptr %62, %5
+  br i1 %.not.i.i.i.i.i18.i, label %_ZSt21__move_merge_adaptiveIPN8LightGBM14LightSplitInfoEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterISt7greaterIS1_EEEEvT_SE_T0_SF_T1_T2_.exit, label %_ZSt13move_backwardIPN8LightGBM14LightSplitInfoEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.sink.split.i
 
 63:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN8LightGBM14LightSplitInfoEEEclIPS4_NS_17__normal_iteratorIS8_St6vectorIS4_SaIS4_EEEEEEbT_T0_.exit.i, %50
   %64 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -24
@@ -268910,8 +268910,8 @@ _ZSt13move_backwardIPN8LightGBM14LightSplitInfoEN9__gnu_cxx17__normal_iteratorIS
   %68 = ptrtoint ptr %.sink.i to i64
   %69 = ptrtoint ptr %5 to i64
   %70 = sub i64 %68, %69
-  %.neg.i.i.i.i.i18.i = sdiv exact i64 %70, -24
-  %71 = getelementptr inbounds %"struct.LightGBM::LightSplitInfo", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i18.i
+  %.neg.i.i.i.i.i19.i = sdiv exact i64 %70, -24
+  %71 = getelementptr inbounds %"struct.LightGBM::LightSplitInfo", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i19.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %71, ptr align 8 %5, i64 %70, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPN8LightGBM14LightSplitInfoEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterISt7greaterIS1_EEEEvT_SE_T0_SF_T1_T2_.exit
 
@@ -269773,16 +269773,17 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit40, %31
-  %.neg.i.i.i.i.i42 = sdiv exact i64 %29, -24
   br i1 %.not.i.i.i.i.i39, label %_ZSt13move_backwardIPN8LightGBM14LightSplitInfoEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit, label %34
 
 34:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit
-  %35 = getelementptr inbounds %"struct.LightGBM::LightSplitInfo", ptr %2, i64 %.neg.i.i.i.i.i42
+  %.neg.i.i.i.i.i43 = sdiv exact i64 %29, -24
+  %35 = getelementptr inbounds %"struct.LightGBM::LightSplitInfo", ptr %2, i64 %.neg.i.i.i.i.i43
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %35, ptr align 8 %5, i64 %29, i1 false)
   br label %_ZSt13move_backwardIPN8LightGBM14LightSplitInfoEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit
 
 _ZSt13move_backwardIPN8LightGBM14LightSplitInfoEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, %34
-  %36 = getelementptr inbounds %"struct.LightGBM::LightSplitInfo", ptr %2, i64 %.neg.i.i.i.i.i42
+  %.pre-phi.i.i.i.i.i44 = phi i64 [ %.neg.i.i.i.i.i43, %34 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ]
+  %36 = getelementptr inbounds %"struct.LightGBM::LightSplitInfo", ptr %2, i64 %.pre-phi.i.i.i.i.i44
   br label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_.exit
 
 37:                                               ; preds = %24
@@ -273560,7 +273561,7 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit: ; preds = %_ZNSt6vectorIjSa
   br label %_ZSt4copyIPjS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPjS0_ET0_T_S2_S1_.exit:                 ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]

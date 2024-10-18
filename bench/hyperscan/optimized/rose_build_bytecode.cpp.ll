@@ -17919,11 +17919,10 @@ _ZNK3ue215rose_literal_id22elength_including_maskEv.exit.i: ; preds = %for.inc.i
 _ZNK3ue215rose_literal_id22elength_including_maskEv.exit.thread.i: ; preds = %sw.bb.i
   %_M_string_length.i.i.i225297.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i.i.i.i2707, i64 8
   %1816 = load i64, ptr %_M_string_length.i.i.i225297.i, align 8
-  %spec.select.i298.i = call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i.i224.i, i64 %1816)
   %delay.i299.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i.i.i.i2707, i64 116
   %1817 = load i32, ptr %delay.i299.i, align 4
   %conv.i226300.i = zext i32 %1817 to i64
-  %add.i301.i = add i64 %spec.select.i298.i, %conv.i226300.i
+  %add.i301.i = add i64 %1816, %conv.i226300.i
   %cmp52.not302.i = icmp ugt i64 %add.i301.i, %conv50.i
   br i1 %cmp52.not302.i, label %if.else.i2733, label %_ZNK3ue215rose_literal_id22elength_including_maskEv.exit247.thread.i
 
@@ -17950,7 +17949,7 @@ _ZNK3ue215rose_literal_id22elength_including_maskEv.exit247.i: ; preds = %for.in
   br i1 %cmp58.i, label %cond.end65.i, label %for.body.i254.i
 
 _ZNK3ue215rose_literal_id22elength_including_maskEv.exit247.thread.i: ; preds = %_ZNK3ue215rose_literal_id22elength_including_maskEv.exit.thread.i
-  %1821 = trunc i64 %spec.select.i298.i to i32
+  %1821 = trunc i64 %1816 to i32
   %1822 = add i32 %1817, %1821
   %sub57279.i = sub i32 %1800, %1822
   %spec.select = call i32 @llvm.umin.i32(i32 %1792, i32 %sub57279.i)

@@ -7071,20 +7071,21 @@ _ZN12MeshDocument19RasterRangeIterator3endEv.exit._crit_edge: ; preds = %_ZNSt6v
   br i1 %286, label %.lr.ph146, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %.lr.ph146, %.preheader
+  %287 = phi i64 [ 0, %.preheader ], [ %11, %.lr.ph146 ]
   %.019.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %283, %.lr.ph146 ]
   %.not.i.i.i80 = icmp eq ptr %.sroa.0103.2.lcssa, null
-  br i1 %.not.i.i.i80, label %_ZNSt6vectorIfSaIfEED2Ev.exit81, label %287
+  br i1 %.not.i.i.i80, label %_ZNSt6vectorIfSaIfEED2Ev.exit81, label %288
 
-287:                                              ; preds = %._crit_edge
+288:                                              ; preds = %._crit_edge
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0103.2.lcssa) #26
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit81
 
-_ZNSt6vectorIfSaIfEED2Ev.exit81:                  ; preds = %4, %._crit_edge, %287
-  %.019.lcssa163 = phi float [ %.019.lcssa, %._crit_edge ], [ %.019.lcssa, %287 ], [ 0.000000e+00, %4 ]
-  %288 = phi i64 [ %11, %._crit_edge ], [ %11, %287 ], [ 0, %4 ]
-  %289 = uitofp nneg i64 %288 to float
-  %290 = fdiv float %.019.lcssa163, %289
-  ret float %290
+_ZNSt6vectorIfSaIfEED2Ev.exit81:                  ; preds = %4, %._crit_edge, %288
+  %.019.lcssa163 = phi float [ %.019.lcssa, %._crit_edge ], [ %.019.lcssa, %288 ], [ 0.000000e+00, %4 ]
+  %289 = phi i64 [ %287, %._crit_edge ], [ %287, %288 ], [ 0, %4 ]
+  %290 = uitofp nneg i64 %289 to float
+  %291 = fdiv float %.019.lcssa163, %290
+  ret float %291
 }
 
 declare void @_ZN12FilterPlugin17wrongActionCalledEPK7QAction(ptr noundef) local_unnamed_addr #0
@@ -9118,7 +9119,7 @@ _ZN4NodeD2Ev.exit:                                ; preds = %_ZNSt6vectorI4NodeS
   %66 = sub i64 %64, %65
   %67 = ashr exact i64 %66, 2
   %.not73282.not = icmp eq ptr %.sroa.12.0292, %.sroa.0190.0293
-  br i1 %.not73282.not, label %.critedge, label %.lr.ph284
+  br i1 %.not73282.not, label %.critedge.thread, label %.lr.ph284
 
 68:                                               ; preds = %.lr.ph284
   %69 = add i32 %.059283, 1
@@ -9134,11 +9135,15 @@ _ZN4NodeD2Ev.exit:                                ; preds = %_ZNSt6vectorI4NodeS
   %74 = icmp eq i32 %73, %63
   br i1 %74, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, label %68
 
-.critedge:                                        ; preds = %68, %.lr.ph295
+.critedge:                                        ; preds = %68
   %.not.i85 = icmp eq ptr %.sroa.12.0292, %.sroa.23.0291
   br i1 %.not.i85, label %77, label %75
 
-75:                                               ; preds = %.critedge
+.critedge.thread:                                 ; preds = %.lr.ph295
+  %.not.i85352 = icmp eq ptr %.sroa.12.0292, %.sroa.23.0291
+  br i1 %.not.i85352, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i, label %75
+
+75:                                               ; preds = %.critedge.thread, %.critedge
   store i32 %63, ptr %.sroa.12.0292, align 4
   %76 = getelementptr inbounds i8, ptr %.sroa.12.0292, i64 4
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
@@ -9154,7 +9159,7 @@ _ZN4NodeD2Ev.exit:                                ; preds = %_ZNSt6vectorI4NodeS
 .noexc86:                                         ; preds = %79
   unreachable
 
-_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %77
+_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %.critedge.thread, %77
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %67, i64 1)
   %80 = add nuw nsw i64 %.sroa.speculated.i.i.i, %67
   %81 = shl nuw nsw i64 %80, 2

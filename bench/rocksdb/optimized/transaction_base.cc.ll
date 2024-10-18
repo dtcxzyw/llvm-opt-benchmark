@@ -4762,10 +4762,15 @@ invoke.cont.i.i:                                  ; preds = %for.body.i.i.i.i.i
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit: ; preds = %if.then.i, %if.else.i, %if.then5.i, %invoke.cont.i.i
   %cmp481.not = icmp eq ptr %0, %1
-  %cmp.i.i5888 = icmp ugt i64 %sub.ptr.div.i, 576460752303423487
-  br i1 %cmp481.not, label %for.end.thread, label %invoke.cont9.lr.ph
+  br i1 %cmp481.not, label %_ZNSt6vectorIN7rocksdb6StatusESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i59.thread, label %invoke.cont9.lr.ph
+
+_ZNSt6vectorIN7rocksdb6StatusESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i59.thread: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
+  br label %return
 
 invoke.cont9.lr.ph:                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
+  %cmp.i.i31 = icmp ugt i64 %sub.ptr.div.i, 576460752303423487
   %_M_finish.i.i.i37 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_end_of_storage.i.i.i39 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %state_.i50 = getelementptr inbounds i8, ptr %s5, i64 8
@@ -4793,7 +4798,7 @@ invoke.cont9:                                     ; preds = %invoke.cont9.lr.ph,
   br i1 %cmp.i30, label %cleanup, label %if.then11
 
 if.then11:                                        ; preds = %invoke.cont9
-  br i1 %cmp.i.i5888, label %if.then.i.i44, label %_ZNSt16allocator_traitsISaIN7rocksdb6StatusEEE8allocateERS2_m.exit.i.i.i.i34
+  br i1 %cmp.i.i31, label %if.then.i.i44, label %_ZNSt16allocator_traitsISaIN7rocksdb6StatusEEE8allocateERS2_m.exit.i.i.i.i34
 
 if.then.i.i44:                                    ; preds = %if.then11
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #26
@@ -4863,15 +4868,7 @@ for.end:                                          ; preds = %for.cond
   %cmp.i.i58 = icmp ugt i64 %sub.ptr.div.i, 576460752303423487
   br i1 %cmp.i.i58, label %if.then.i.i66, label %_ZNSt6vectorIN7rocksdb6StatusESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i59
 
-for.end.thread:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
-  br i1 %cmp.i.i5888, label %if.then.i.i66, label %_ZNSt6vectorIN7rocksdb6StatusESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i59.thread
-
-_ZNSt6vectorIN7rocksdb6StatusESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i59.thread: ; preds = %for.end.thread
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  br label %return
-
-if.then.i.i66:                                    ; preds = %for.end.thread, %for.end
+if.then.i.i66:                                    ; preds = %for.end
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #26
   unreachable
 

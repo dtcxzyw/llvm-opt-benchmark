@@ -3907,72 +3907,70 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit:     ; preds = %.loopexit.split-lp,
   %83 = sub i64 %81, %82
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i23 = icmp eq ptr %.sroa.7.1, %.sroa.038.2
-  br i1 %.not.i.i.i.i.i23, label %.noexc25.thread, label %89
+  br i1 %.not.i.i.i.i.i23, label %.noexc25.thread, label %87
 
 .noexc25.thread:                                  ; preds = %._crit_edge.thread, %._crit_edge
-  %84 = phi i64 [ 0, %._crit_edge.thread ], [ %83, %._crit_edge ]
-  %85 = phi i64 [ 0, %._crit_edge.thread ], [ %82, %._crit_edge ]
+  %84 = phi i64 [ 0, %._crit_edge.thread ], [ %82, %._crit_edge ]
   %spec.select.i22137 = phi i8 [ %spec.select.i22128, %._crit_edge.thread ], [ %spec.select.i22, %._crit_edge ]
   %.sroa.038.1.lcssa135 = phi ptr [ null, %._crit_edge.thread ], [ %.sroa.038.2, %._crit_edge ]
   %.sroa.13.1.lcssa133 = phi ptr [ null, %._crit_edge.thread ], [ %.sroa.13.2, %._crit_edge ]
   %.sroa.028.0.lcssa131 = phi ptr [ %.sroa.028.3.ph, %._crit_edge.thread ], [ %.sroa.028.6, %._crit_edge ]
-  %86 = getelementptr inbounds i8, ptr %0, i64 8
-  %87 = getelementptr inbounds i8, ptr null, i64 %84
-  %88 = getelementptr inbounds i8, ptr %0, i64 16
+  %85 = getelementptr inbounds i8, ptr %0, i64 8
+  %86 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  store ptr %87, ptr %88, align 8
-  br label %96
+  store ptr null, ptr %86, align 8
+  br label %94
 
-89:                                               ; preds = %._crit_edge
-  %90 = icmp ugt i64 %83, 9223372036854775800
-  br i1 %90, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIPKN4Luau4TypeEEE8allocateERS4_m.exit.i.i.i.i.i
+87:                                               ; preds = %._crit_edge
+  %88 = icmp ugt i64 %83, 9223372036854775800
+  br i1 %88, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIPKN4Luau4TypeEEE8allocateERS4_m.exit.i.i.i.i.i
 
-.noexc.i.i.i:                                     ; preds = %89
+.noexc.i.i.i:                                     ; preds = %87
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
           to label %.noexc24 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc24:                                         ; preds = %.noexc.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIPKN4Luau4TypeEEE8allocateERS4_m.exit.i.i.i.i.i: ; preds = %89
-  %91 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %83) #24
-          to label %92 unwind label %.loopexit.split-lp.loopexit.split-lp
+_ZNSt16allocator_traitsISaIPKN4Luau4TypeEEE8allocateERS4_m.exit.i.i.i.i.i: ; preds = %87
+  %89 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %83) #24
+          to label %90 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-92:                                               ; preds = %_ZNSt16allocator_traitsISaIPKN4Luau4TypeEEE8allocateERS4_m.exit.i.i.i.i.i
-  store ptr %91, ptr %0, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %91, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %91, i64 %83
-  %95 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %94, ptr %95, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %91, ptr align 8 %.sroa.038.2, i64 %83, i1 false)
-  br label %96
+90:                                               ; preds = %_ZNSt16allocator_traitsISaIPKN4Luau4TypeEEE8allocateERS4_m.exit.i.i.i.i.i
+  store ptr %89, ptr %0, align 8
+  %91 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %89, ptr %91, align 8
+  %92 = getelementptr inbounds i8, ptr %89, i64 %83
+  %93 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %92, ptr %93, align 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %89, ptr align 8 %.sroa.038.2, i64 %83, i1 false)
+  br label %94
 
-96:                                               ; preds = %92, %.noexc25.thread
-  %97 = phi i64 [ %84, %.noexc25.thread ], [ %83, %92 ]
-  %98 = phi i64 [ %85, %.noexc25.thread ], [ %82, %92 ]
-  %spec.select.i22136 = phi i8 [ %spec.select.i22137, %.noexc25.thread ], [ %spec.select.i22, %92 ]
-  %.sroa.038.1.lcssa134 = phi ptr [ %.sroa.038.1.lcssa135, %.noexc25.thread ], [ %.sroa.038.2, %92 ]
-  %.sroa.13.1.lcssa132 = phi ptr [ %.sroa.13.1.lcssa133, %.noexc25.thread ], [ %.sroa.13.2, %92 ]
-  %.sroa.028.0.lcssa130 = phi ptr [ %.sroa.028.0.lcssa131, %.noexc25.thread ], [ %.sroa.028.6, %92 ]
-  %99 = phi ptr [ %86, %.noexc25.thread ], [ %93, %92 ]
-  %100 = phi ptr [ null, %.noexc25.thread ], [ %91, %92 ]
-  %101 = getelementptr inbounds i8, ptr %100, i64 %97
-  store ptr %101, ptr %99, align 8
-  %102 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sroa.028.0.lcssa130, ptr %102, align 8
+94:                                               ; preds = %90, %.noexc25.thread
+  %95 = phi i64 [ 0, %.noexc25.thread ], [ %83, %90 ]
+  %96 = phi i64 [ %84, %.noexc25.thread ], [ %82, %90 ]
+  %spec.select.i22136 = phi i8 [ %spec.select.i22137, %.noexc25.thread ], [ %spec.select.i22, %90 ]
+  %.sroa.038.1.lcssa134 = phi ptr [ %.sroa.038.1.lcssa135, %.noexc25.thread ], [ %.sroa.038.2, %90 ]
+  %.sroa.13.1.lcssa132 = phi ptr [ %.sroa.13.1.lcssa133, %.noexc25.thread ], [ %.sroa.13.2, %90 ]
+  %.sroa.028.0.lcssa130 = phi ptr [ %.sroa.028.0.lcssa131, %.noexc25.thread ], [ %.sroa.028.6, %90 ]
+  %97 = phi ptr [ %85, %.noexc25.thread ], [ %91, %90 ]
+  %98 = phi ptr [ null, %.noexc25.thread ], [ %89, %90 ]
+  %99 = getelementptr inbounds i8, ptr %98, i64 %95
+  store ptr %99, ptr %97, align 8
+  %100 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %.sroa.028.0.lcssa130, ptr %100, align 8
   %.sroa.237.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store i8 %spec.select.i22136, ptr %.sroa.237.0..sroa_idx, align 8
   %.not.i.i.i26 = icmp eq ptr %.sroa.038.1.lcssa134, null
-  br i1 %.not.i.i.i26, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit27, label %103
+  br i1 %.not.i.i.i26, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit27, label %101
 
-103:                                              ; preds = %96
-  %104 = ptrtoint ptr %.sroa.13.1.lcssa132 to i64
-  %105 = sub i64 %104, %98
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.038.1.lcssa134, i64 noundef %105) #25
+101:                                              ; preds = %94
+  %102 = ptrtoint ptr %.sroa.13.1.lcssa132 to i64
+  %103 = sub i64 %102, %96
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.038.1.lcssa134, i64 noundef %103) #25
   br label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit27
 
-_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit27:   ; preds = %96, %103
+_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit27:   ; preds = %94, %101
   ret void
 }
 

@@ -1149,9 +1149,11 @@ define void @_ZN8WasmEdge6Loader6Loader8loadUnitEv(ptr dead_on_unwind noalias no
   %18 = load i8, ptr %3, align 8
   %19 = trunc i8 %18 to i1
   %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sink.i.i25.i51.idx.sroa.gep77 = getelementptr inbounds i8, ptr %14, i64 1
+  %.sink.i.i25.i.idx.sroa.gep78 = getelementptr inbounds i8, ptr %13, i64 1
   %.sink.sroa.gep = getelementptr inbounds i8, ptr %7, i64 4
-  %.sink.sroa.gep77 = getelementptr inbounds i8, ptr %8, i64 4
-  %.sink.sroa.gep78 = getelementptr inbounds i8, ptr %9, i64 4
+  %.sink.sroa.gep79 = getelementptr inbounds i8, ptr %8, i64 4
+  %.sink.sroa.gep80 = getelementptr inbounds i8, ptr %9, i64 4
   br i1 %19, label %25, label %_ZNSt6vectorIhSaIhEED2Ev.exit34.thread
 
 _ZNSt6vectorIhSaIhEED2Ev.exit34.thread:           ; preds = %2
@@ -1389,7 +1391,7 @@ _ZN8WasmEdge7FileMgr4seekEm.exit:                 ; preds = %102, %105
   br label %_ZNSt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS2_EED2Ev.exit
 
 _ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i: ; preds = %120, %110, %93
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %93 ], [ %.sink.sroa.gep77, %110 ], [ %.sink.sroa.gep78, %120 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %93 ], [ %.sink.sroa.gep79, %110 ], [ %.sink.sroa.gep80, %120 ]
   %125 = load i32, ptr %.sink.sroa.phi, align 4, !noalias !13
   store i8 0, ptr %0, align 8
   %126 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1552,9 +1554,9 @@ _ZSt7advanceIPKhmEvRT_T0_.exit.i:                 ; preds = %175
 
 _ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %184, %_ZSt7advanceIPKhmEvRT_T0_.exit.i
   %185 = phi ptr [ %177, %_ZSt7advanceIPKhmEvRT_T0_.exit.i ], [ %.pre26.i, %184 ]
+  %.sink.i.i25.i.idx.sroa.phi = phi ptr [ %13, %_ZSt7advanceIPKhmEvRT_T0_.exit.i ], [ %.sink.i.i25.i.idx.sroa.gep78, %184 ]
   %gepdiff = sub nuw nsw i64 2, %179
-  %.sink.i.i25.i.ptr = getelementptr inbounds i8, ptr %13, i64 %179
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %185, ptr nonnull align 1 %.sink.i.i25.i.ptr, i64 %gepdiff, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %185, ptr nonnull align 1 %.sink.i.i25.i.idx.sroa.phi, i64 %gepdiff, i1 false)
   %186 = getelementptr inbounds i8, ptr %185, i64 %gepdiff
   store ptr %186, ptr %176, align 8
   br label %_ZNSt6vectorIhSaIhEEaSESt16initializer_listIhE.exit
@@ -1631,9 +1633,9 @@ _ZSt7advanceIPKhmEvRT_T0_.exit.i46:               ; preds = %206
 
 _ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit.i53: ; preds = %215, %_ZSt7advanceIPKhmEvRT_T0_.exit.i46
   %216 = phi ptr [ %208, %_ZSt7advanceIPKhmEvRT_T0_.exit.i46 ], [ %.pre26.i49, %215 ]
+  %.sink.i.i25.i51.idx.sroa.phi = phi ptr [ %14, %_ZSt7advanceIPKhmEvRT_T0_.exit.i46 ], [ %.sink.i.i25.i51.idx.sroa.gep77, %215 ]
   %gepdiff76 = sub nuw nsw i64 2, %210
-  %.sink.i.i25.i51.ptr = getelementptr inbounds i8, ptr %14, i64 %210
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %216, ptr nonnull align 1 %.sink.i.i25.i51.ptr, i64 %gepdiff76, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %216, ptr nonnull align 1 %.sink.i.i25.i51.idx.sroa.phi, i64 %gepdiff76, i1 false)
   %217 = getelementptr inbounds i8, ptr %216, i64 %gepdiff76
   store ptr %217, ptr %207, align 8
   br label %_ZNSt6vectorIhSaIhEEaSESt16initializer_listIhE.exit31
@@ -1859,7 +1861,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit: ; preds = %_ZNSt6vectorIhSa
   br label %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPhS0_ET0_T_S2_S1_.exit:                 ; preds = %31, %32
-  %.pre-phi33 = phi i64 [ %28, %31 ], [ %.pre32, %32 ]
+  %.pre-phi33 = phi i64 [ 0, %31 ], [ %.pre32, %32 ]
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]

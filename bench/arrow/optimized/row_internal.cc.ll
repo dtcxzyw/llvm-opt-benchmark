@@ -174,10 +174,6 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
 _ZNSt6vectorIN5arrow7compute17KeyColumnMetadataESaIS2_EE6resizeEm.exit: ; preds = %if.then.i, %if.else.i, %if.then5.i, %invoke.cont.i.i
   %4 = load ptr, ptr %_M_finish.i, align 8
   %5 = load ptr, ptr %cols, align 8
-  %sub.ptr.lhs.cast.i43108 = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast.i44109 = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i45110 = sub i64 %sub.ptr.lhs.cast.i43108, %sub.ptr.rhs.cast.i44109
-  %sub.ptr.div.i46111 = ashr exact i64 %sub.ptr.sub.i45110, 3
   %cmp112.not = icmp eq ptr %4, %5
   br i1 %cmp112.not, label %for.end, label %for.body
 
@@ -200,7 +196,7 @@ for.body:                                         ; preds = %_ZNSt6vectorIN5arro
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body, %_ZNSt6vectorIN5arrow7compute17KeyColumnMetadataESaIS2_EE6resizeEm.exit
-  %sub.ptr.div.i46.lcssa = phi i64 [ %sub.ptr.div.i46111, %_ZNSt6vectorIN5arrow7compute17KeyColumnMetadataESaIS2_EE6resizeEm.exit ], [ %sub.ptr.div.i46, %for.body ]
+  %sub.ptr.div.i46.lcssa = phi i64 [ 0, %_ZNSt6vectorIN5arrow7compute17KeyColumnMetadataESaIS2_EE6resizeEm.exit ], [ %sub.ptr.div.i46, %for.body ]
   %conv = trunc i64 %sub.ptr.div.i46.lcssa to i32
   %column_order = getelementptr inbounds i8, ptr %this, i64 48
   %conv7 = and i64 %sub.ptr.div.i46.lcssa, 4294967295
@@ -2373,7 +2369,7 @@ if.then.i.i.i.i.i35:                              ; preds = %if.else49
   br label %_ZSt4copyIPN5arrow7compute17KeyColumnMetadataES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPN5arrow7compute17KeyColumnMetadataES3_ET0_T_S5_S4_.exit: ; preds = %if.else49, %if.then.i.i.i.i.i35
-  %sub.ptr.sub.i40.pre-phi = phi i64 [ %sub.ptr.sub.i22, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
+  %sub.ptr.sub.i40.pre-phi = phi i64 [ 0, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
   %5 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
   %6 = phi ptr [ %4, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
   %7 = phi ptr [ %1, %if.else49 ], [ %.pre, %if.then.i.i.i.i.i35 ]
@@ -2484,7 +2480,7 @@ if.then.i.i.i.i.i35:                              ; preds = %if.else49
   br label %_ZSt4copyIPjS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPjS0_ET0_T_S2_S1_.exit:                 ; preds = %if.else49, %if.then.i.i.i.i.i35
-  %sub.ptr.sub.i40.pre-phi = phi i64 [ %sub.ptr.sub.i22, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
+  %sub.ptr.sub.i40.pre-phi = phi i64 [ 0, %if.else49 ], [ %.pre47, %if.then.i.i.i.i.i35 ]
   %5 = phi ptr [ %0, %if.else49 ], [ %.pre44, %if.then.i.i.i.i.i35 ]
   %6 = phi ptr [ %4, %if.else49 ], [ %.pre42, %if.then.i.i.i.i.i35 ]
   %7 = phi ptr [ %1, %if.else49 ], [ %.pre, %if.then.i.i.i.i.i35 ]
@@ -3734,8 +3730,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %__i.sroa.0.012 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %add.ptr.i2, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %add.ptr.i2, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %for.inc
 

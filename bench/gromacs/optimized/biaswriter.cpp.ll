@@ -2046,49 +2046,48 @@ define noundef i32 @_ZN3gmx10BiasWriter22writeToEnergySubblocksERKNS_4BiasEP13t_
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = ptrtoint ptr %5 to i64
-  %8 = ptrtoint ptr %6 to i64
-  %9 = sub i64 %7, %8
-  %10 = ashr exact i64 %9, 5
   %.not = icmp eq ptr %5, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.015 = phi i64 [ %28, %.lr.ph ], [ 0, %3 ]
-  %11 = getelementptr inbounds %struct.t_enxsubblock, ptr %2, i64 %.015
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
-  store i32 1, ptr %12, align 4
-  %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds %"class.gmx::AwhEnergyBlock", ptr %13, i64 %.015
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
-  %18 = load ptr, ptr %17, align 8
-  %19 = ptrtoint ptr %18 to i64
-  %20 = ptrtoint ptr %16 to i64
-  %21 = sub i64 %19, %20
-  %22 = lshr exact i64 %21, 2
-  %23 = trunc i64 %22 to i32
-  store i32 %23, ptr %11, align 8
-  %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds %"class.gmx::AwhEnergyBlock", ptr %24, i64 %.015, i32 2
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr %26, ptr %27, align 8
-  %28 = add nuw i64 %.015, 1
-  %29 = load ptr, ptr %4, align 8
-  %30 = load ptr, ptr %0, align 8
-  %31 = ptrtoint ptr %29 to i64
-  %32 = ptrtoint ptr %30 to i64
-  %33 = sub i64 %31, %32
-  %34 = ashr exact i64 %33, 5
-  %35 = icmp ult i64 %28, %34
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  %.015 = phi i64 [ %24, %.lr.ph ], [ 0, %3 ]
+  %7 = getelementptr inbounds %struct.t_enxsubblock, ptr %2, i64 %.015
+  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 1, ptr %8, align 4
+  %9 = load ptr, ptr %0, align 8
+  %10 = getelementptr inbounds %"class.gmx::AwhEnergyBlock", ptr %9, i64 %.015
+  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %10, i64 16
+  %14 = load ptr, ptr %13, align 8
+  %15 = ptrtoint ptr %14 to i64
+  %16 = ptrtoint ptr %12 to i64
+  %17 = sub i64 %15, %16
+  %18 = lshr exact i64 %17, 2
+  %19 = trunc i64 %18 to i32
+  store i32 %19, ptr %7, align 8
+  %20 = load ptr, ptr %0, align 8
+  %21 = getelementptr inbounds %"class.gmx::AwhEnergyBlock", ptr %20, i64 %.015, i32 2
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %22, ptr %23, align 8
+  %24 = add nuw i64 %.015, 1
+  %25 = load ptr, ptr %4, align 8
+  %26 = load ptr, ptr %0, align 8
+  %27 = ptrtoint ptr %25 to i64
+  %28 = ptrtoint ptr %26 to i64
+  %29 = sub i64 %27, %28
+  %30 = ashr exact i64 %29, 5
+  %31 = icmp ult i64 %24, %30
+  br i1 %31, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.lcssa = phi i64 [ %10, %3 ], [ %34, %.lr.ph ]
-  %36 = trunc i64 %.lcssa to i32
-  ret i32 %36
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %32 = trunc i64 %30 to i32
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
+  %.lcssa = phi i32 [ 0, %3 ], [ %32, %._crit_edge.loopexit ]
+  ret i32 %.lcssa
 }
 
 ; Function Attrs: uwtable

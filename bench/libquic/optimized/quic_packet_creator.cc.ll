@@ -2046,8 +2046,8 @@ entry:
   %ref.tmp71 = alloca %"class.logging::LogMessage", align 8
   %iov_count = getelementptr inbounds i8, ptr %iov, i64 8
   %0 = load i32, ptr %iov_count, align 8
-  %cmp42 = icmp sgt i32 %0, 0
-  br i1 %cmp42, label %land.rhs.lr.ph, label %if.end18
+  %cmp45 = icmp sgt i32 %0, 0
+  br i1 %cmp45, label %land.rhs.lr.ph, label %if.end18
 
 land.rhs.lr.ph:                                   ; preds = %entry
   %1 = load ptr, ptr %iov, align 8
@@ -2056,14 +2056,14 @@ land.rhs.lr.ph:                                   ; preds = %entry
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.body
   %indvars.iv = phi i64 [ 0, %land.rhs.lr.ph ], [ %indvars.iv.next, %while.body ]
-  %iov_offset.addr.044 = phi i64 [ %iov_offset, %land.rhs.lr.ph ], [ %sub, %while.body ]
+  %iov_offset.addr.047 = phi i64 [ %iov_offset, %land.rhs.lr.ph ], [ %sub, %while.body ]
   %iov_len = getelementptr inbounds %struct.iovec, ptr %1, i64 %indvars.iv, i32 1
   %2 = load i64, ptr %iov_len, align 8
-  %cmp2.not = icmp ult i64 %iov_offset.addr.044, %2
+  %cmp2.not = icmp ult i64 %iov_offset.addr.047, %2
   br i1 %cmp2.not, label %if.end18.loopexit, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %sub = sub nuw i64 %iov_offset.addr.044, %2
+  %sub = sub nuw i64 %iov_offset.addr.047, %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %cleanup.done, label %land.rhs, !llvm.loop !20
@@ -2074,7 +2074,7 @@ if.end18.loopexit:                                ; preds = %land.rhs
 
 if.end18:                                         ; preds = %if.end18.loopexit, %entry
   %iovnum.0.lcssa = phi i32 [ 0, %entry ], [ %3, %if.end18.loopexit ]
-  %iov_offset.addr.0.lcssa = phi i64 [ %iov_offset, %entry ], [ %iov_offset.addr.044, %if.end18.loopexit ]
+  %iov_offset.addr.0.lcssa = phi i64 [ %iov_offset, %entry ], [ %iov_offset.addr.047, %if.end18.loopexit ]
   %cmp20 = icmp sge i32 %iovnum.0.lcssa, %0
   %cmp21 = icmp eq i64 %length, 0
   %or.cond = or i1 %cmp21, %cmp20
@@ -2091,41 +2091,42 @@ if.end23:                                         ; preds = %if.end18
   %6 = load ptr, ptr %arrayidx45, align 8
   %add.ptr = getelementptr inbounds i8, ptr %6, i64 %iov_offset.addr.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer, ptr align 1 %add.ptr, i64 %.sroa.speculated, i1 false)
-  %sub4850 = sub i64 %length, %.sroa.speculated
-  %cmp5052.not = icmp ugt i64 %length, %sub28
-  br i1 %cmp5052.not, label %lor.lhs.false51.preheader, label %while.end66
+  %cmp5055.not = icmp ugt i64 %length, %sub28
+  br i1 %cmp5055.not, label %lor.lhs.false51.preheader, label %while.end66.thread
 
 lor.lhs.false51.preheader:                        ; preds = %if.end23
-  %add.ptr4951 = getelementptr inbounds i8, ptr %buffer, i64 %.sroa.speculated
+  %add.ptr4954 = getelementptr inbounds i8, ptr %buffer, i64 %.sroa.speculated
+  %sub4853 = sub i64 %length, %.sroa.speculated
   br label %lor.lhs.false51
 
+while.end66.thread:                               ; preds = %if.end56, %if.end23
+  %call6742 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
+  br label %cleanup.done
+
 lor.lhs.false51:                                  ; preds = %lor.lhs.false51.preheader, %if.end56
-  %indvars.iv59 = phi i64 [ %idxprom25, %lor.lhs.false51.preheader ], [ %indvars.iv.next60, %if.end56 ]
-  %add.ptr4955 = phi ptr [ %add.ptr4951, %lor.lhs.false51.preheader ], [ %add.ptr49, %if.end56 ]
-  %sub4854 = phi i64 [ %sub4850, %lor.lhs.false51.preheader ], [ %sub48, %if.end56 ]
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %7 = trunc nuw i64 %indvars.iv.next60 to i32
+  %indvars.iv60 = phi i64 [ %idxprom25, %lor.lhs.false51.preheader ], [ %indvars.iv.next61, %if.end56 ]
+  %add.ptr4958 = phi ptr [ %add.ptr4954, %lor.lhs.false51.preheader ], [ %add.ptr49, %if.end56 ]
+  %sub4857 = phi i64 [ %sub4853, %lor.lhs.false51.preheader ], [ %sub48, %if.end56 ]
+  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
+  %7 = trunc nuw i64 %indvars.iv.next61 to i32
   %cmp54.not = icmp sgt i32 %0, %7
   br i1 %cmp54.not, label %if.end56, label %while.end66
 
 if.end56:                                         ; preds = %lor.lhs.false51
-  %arrayidx59 = getelementptr inbounds %struct.iovec, ptr %4, i64 %indvars.iv.next60
+  %arrayidx59 = getelementptr inbounds %struct.iovec, ptr %4, i64 %indvars.iv.next61
   %8 = load ptr, ptr %arrayidx59, align 8
   %iov_len64 = getelementptr inbounds i8, ptr %arrayidx59, i64 8
   %9 = load i64, ptr %iov_len64, align 8
-  %.sroa.speculated35 = tail call i64 @llvm.umin.i64(i64 %9, i64 %sub4854)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr4955, ptr align 1 %8, i64 %.sroa.speculated35, i1 false)
-  %sub48 = sub i64 %sub4854, %.sroa.speculated35
-  %add.ptr49 = getelementptr inbounds i8, ptr %add.ptr4955, i64 %.sroa.speculated35
-  %cmp50.not = icmp ugt i64 %sub4854, %9
-  br i1 %cmp50.not, label %lor.lhs.false51, label %while.end66, !llvm.loop !21
+  %.sroa.speculated35 = tail call i64 @llvm.umin.i64(i64 %9, i64 %sub4857)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr4958, ptr align 1 %8, i64 %.sroa.speculated35, i1 false)
+  %sub48 = sub i64 %sub4857, %.sroa.speculated35
+  %add.ptr49 = getelementptr inbounds i8, ptr %add.ptr4958, i64 %.sroa.speculated35
+  %cmp50.not = icmp ugt i64 %sub4857, %9
+  br i1 %cmp50.not, label %lor.lhs.false51, label %while.end66.thread, !llvm.loop !21
 
-while.end66:                                      ; preds = %lor.lhs.false51, %if.end56, %if.end23
-  %sub48.lcssa = phi i64 [ %sub4850, %if.end23 ], [ %sub48, %if.end56 ], [ %sub4854, %lor.lhs.false51 ]
+while.end66:                                      ; preds = %lor.lhs.false51
   %call67 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-  %cmp69 = icmp ne i64 %sub48.lcssa, 0
-  %or.cond1 = and i1 %cmp69, %call67
-  br i1 %or.cond1, label %cond.false, label %cleanup.done
+  br i1 %call67, label %cond.false, label %cleanup.done
 
 cond.false:                                       ; preds = %while.end66
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp71, ptr noundef nonnull @.str, i32 noundef 290, i32 noundef 2)
@@ -2137,7 +2138,7 @@ cleanup.action:                                   ; preds = %cond.false
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp71) #19
   br label %cleanup.done
 
-cleanup.done:                                     ; preds = %while.body, %while.end66, %if.end18, %cleanup.action
+cleanup.done:                                     ; preds = %while.body, %while.end66.thread, %while.end66, %if.end18, %cleanup.action
   ret void
 
 lpad72:                                           ; preds = %cond.false

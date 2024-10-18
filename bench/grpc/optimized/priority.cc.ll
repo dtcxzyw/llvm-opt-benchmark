@@ -6413,10 +6413,6 @@ if.end72:                                         ; preds = %if.then71, %for.end
   %_M_finish.i124257 = getelementptr inbounds i8, ptr %config_.val34255, i64 72
   %91 = load ptr, ptr %_M_finish.i124257, align 8
   %92 = load ptr, ptr %priorities_.i123256, align 8
-  %sub.ptr.lhs.cast.i125258 = ptrtoint ptr %91 to i64
-  %sub.ptr.rhs.cast.i126259 = ptrtoint ptr %92 to i64
-  %sub.ptr.sub.i127260 = sub i64 %sub.ptr.lhs.cast.i125258, %sub.ptr.rhs.cast.i126259
-  %sub.ptr.div.i128261 = ashr exact i64 %sub.ptr.sub.i127260, 5
   %cmp80262.not = icmp eq ptr %91, %92
   br i1 %cmp80262.not, label %for.end107, label %for.body81.lr.ph
 
@@ -6471,13 +6467,16 @@ for.inc105:                                       ; preds = %do.end
   %sub.ptr.sub.i127 = sub i64 %sub.ptr.lhs.cast.i125, %sub.ptr.rhs.cast.i126
   %sub.ptr.div.i128 = ashr exact i64 %sub.ptr.sub.i127, 5
   %cmp80 = icmp ugt i64 %sub.ptr.div.i128, %conv75
-  br i1 %cmp80, label %for.body81, label %for.end107, !llvm.loop !81
+  br i1 %cmp80, label %for.body81, label %for.end107.loopexit, !llvm.loop !81
 
-for.end107:                                       ; preds = %for.inc105, %if.end72
-  %sub.ptr.div.i128.lcssa = phi i64 [ %sub.ptr.div.i128261, %if.end72 ], [ %sub.ptr.div.i128, %for.inc105 ]
-  %98 = trunc i64 %sub.ptr.div.i128.lcssa to i32
-  %conv112 = add i32 %98, -1
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_110PriorityLb24SetCurrentPriorityLockedEibPKc(ptr noundef nonnull align 8 dereferenceable(228) %this, i32 noundef %conv112, i1 noundef zeroext false, ptr noundef nonnull @.str.56)
+for.end107.loopexit:                              ; preds = %for.inc105
+  %98 = trunc i64 %sub.ptr.div.i128 to i32
+  %99 = add i32 %98, -1
+  br label %for.end107
+
+for.end107:                                       ; preds = %for.end107.loopexit, %if.end72
+  %sub.ptr.div.i128.lcssa = phi i32 [ -1, %if.end72 ], [ %99, %for.end107.loopexit ]
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_110PriorityLb24SetCurrentPriorityLockedEibPKc(ptr noundef nonnull align 8 dereferenceable(228) %this, i32 noundef %sub.ptr.div.i128.lcssa, i1 noundef zeroext false, ptr noundef nonnull @.str.56)
   br label %return
 
 return:                                           ; preds = %if.then.i.i57, %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy22TransientFailurePickerEED2Ev.exit, %for.end107, %if.then103, %if.then59, %if.then52

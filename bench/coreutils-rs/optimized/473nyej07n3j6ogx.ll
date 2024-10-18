@@ -2228,7 +2228,7 @@ define void @"_ZN46_$LT$str$u20$as$u20$uu_dircolors..StrUtils$GT$9split_two17h57
   tail call void @llvm.experimental.noalias.scope.decl(metadata !503)
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   %5 = icmp eq i64 %2, 0
-  br i1 %5, label %.loopexit30, label %.lr.ph.i.i
+  br i1 %5, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3, %71
   %6 = phi i64 [ %48, %71 ], [ 0, %3 ]
@@ -2284,7 +2284,7 @@ define void @"_ZN46_$LT$str$u20$as$u20$uu_dircolors..StrUtils$GT$9split_two17h57
   %43 = or disjoint i32 %40, %42
   %44 = or disjoint i32 %43, %39
   %45 = icmp eq i32 %44, 1114112
-  br i1 %45, label %.loopexit30, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread11.i.i.i"
+  br i1 %45, label %.loopexit, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread11.i.i.i"
 
 "_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread11.i.i.i": ; preds = %34, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h68cf88b08b299411E.exit15.i.i.i.i.i", %22, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h68cf88b08b299411E.exit13.i.i.i.i.i"
   %.sink18.i.i.i = phi ptr [ %15, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h68cf88b08b299411E.exit13.i.i.i.i.i" ], [ %25, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h68cf88b08b299411E.exit15.i.i.i.i.i" ], [ %9, %22 ], [ %36, %34 ]
@@ -2346,7 +2346,7 @@ define void @"_ZN46_$LT$str$u20$as$u20$uu_dircolors..StrUtils$GT$9split_two17h57
 
 71:                                               ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h6377f41f0d1c455fE.exit.i.i.i", %51, %49
   %72 = icmp eq ptr %.sink18.i.i.i, %4
-  br i1 %72, label %.loopexit30, label %.lr.ph.i.i
+  br i1 %72, label %.loopexit, label %.lr.ph.i.i
 
 73:                                               ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h6377f41f0d1c455fE.exit.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread11.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread11.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread11.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread11.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread11.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread11.i.i.i"
   %74 = icmp eq i64 %6, 0
@@ -2358,7 +2358,7 @@ define void @"_ZN46_$LT$str$u20$as$u20$uu_dircolors..StrUtils$GT$9split_two17h57
 
 76:                                               ; preds = %75
   %77 = icmp eq i64 %6, %2
-  br i1 %77, label %87, label %81
+  br i1 %77, label %.loopexit, label %81
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i": ; preds = %75
   %78 = getelementptr inbounds i8, ptr %1, i64 %6
@@ -2381,13 +2381,13 @@ define void @"_ZN46_$LT$str$u20$as$u20$uu_dircolors..StrUtils$GT$9split_two17h57
   tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %6, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0e465fe6be52864fcdae16bb4d6a5c56.73) #14
   unreachable
 
-87:                                               ; preds = %76, %73, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i15"
-  %88 = phi i64 [ %85, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i15" ], [ %2, %73 ], [ 0, %76 ]
+87:                                               ; preds = %73, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i15"
+  %88 = phi i64 [ %85, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i15" ], [ %2, %73 ]
   %89 = getelementptr inbounds i8, ptr %1, i64 %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !528)
   %90 = getelementptr inbounds i8, ptr %89, i64 %88
   %91 = icmp eq i64 %88, 0
-  br i1 %91, label %.loopexit30, label %.lr.ph.i.i16
+  br i1 %91, label %.loopexit, label %.lr.ph.i.i16
 
 .lr.ph.i.i16:                                     ; preds = %87, %157
   %92 = phi i64 [ %134, %157 ], [ 0, %87 ]
@@ -2443,7 +2443,7 @@ define void @"_ZN46_$LT$str$u20$as$u20$uu_dircolors..StrUtils$GT$9split_two17h57
   %129 = or disjoint i32 %126, %128
   %130 = or disjoint i32 %129, %125
   %131 = icmp eq i32 %130, 1114112
-  br i1 %131, label %.loopexit30, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread11.i.i.i18"
+  br i1 %131, label %.loopexit, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread11.i.i.i18"
 
 "_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread11.i.i.i18": ; preds = %120, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h68cf88b08b299411E.exit15.i.i.i.i.i22", %108, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h68cf88b08b299411E.exit13.i.i.i.i.i17"
   %.sink18.i.i.i19 = phi ptr [ %101, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h68cf88b08b299411E.exit13.i.i.i.i.i17" ], [ %111, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h68cf88b08b299411E.exit15.i.i.i.i.i22" ], [ %95, %108 ], [ %122, %120 ]
@@ -2505,12 +2505,12 @@ define void @"_ZN46_$LT$str$u20$as$u20$uu_dircolors..StrUtils$GT$9split_two17h57
 
 157:                                              ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h923c338a047931bcE.exit.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread11.i.i.i18", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread11.i.i.i18", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread11.i.i.i18", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread11.i.i.i18", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread11.i.i.i18", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread11.i.i.i18"
   %158 = icmp eq ptr %.sink18.i.i.i19, %90
-  br i1 %158, label %.loopexit30, label %.lr.ph.i.i16
+  br i1 %158, label %.loopexit, label %.lr.ph.i.i16
 
 159:                                              ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h923c338a047931bcE.exit.i.i.i", %137, %135
   %160 = add i64 %92, %6
   %161 = icmp eq i64 %160, 0
-  br i1 %161, label %171, label %162
+  br i1 %161, label %170, label %162
 
 162:                                              ; preds = %159
   %.not.i.i23 = icmp ult i64 %160, %2
@@ -2518,37 +2518,36 @@ define void @"_ZN46_$LT$str$u20$as$u20$uu_dircolors..StrUtils$GT$9split_two17h57
 
 163:                                              ; preds = %162
   %164 = icmp eq i64 %160, %2
-  %165 = sub i64 %2, %160
-  br i1 %164, label %171, label %170
+  br i1 %164, label %170, label %169
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i25": ; preds = %162
-  %166 = getelementptr inbounds i8, ptr %1, i64 %160
-  %167 = load i8, ptr %166, align 1, !alias.scope !543, !noundef !4
-  %168 = icmp sgt i8 %167, -65
-  %169 = sub nuw i64 %2, %160
-  br i1 %168, label %171, label %170
+  %165 = getelementptr inbounds i8, ptr %1, i64 %160
+  %166 = load i8, ptr %165, align 1, !alias.scope !543, !noundef !4
+  %167 = icmp sgt i8 %166, -65
+  %168 = sub nuw i64 %2, %160
+  br i1 %167, label %170, label %169
 
-170:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i25", %163
+169:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i25", %163
   tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %160, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0e465fe6be52864fcdae16bb4d6a5c56.74) #14
   unreachable
 
-171:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i25", %163, %159
-  %172 = phi i64 [ %169, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i25" ], [ %165, %163 ], [ %2, %159 ]
-  %173 = getelementptr inbounds i8, ptr %1, i64 %160
-  br label %.loopexit30
+170:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i25", %163, %159
+  %171 = phi i64 [ %168, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i25" ], [ 0, %163 ], [ %2, %159 ]
+  %172 = getelementptr inbounds i8, ptr %1, i64 %160
+  br label %.loopexit
 
-.loopexit30:                                      ; preds = %34, %71, %120, %157, %87, %3, %171
-  %.sink40 = phi ptr [ %1, %171 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %3 ], [ %1, %87 ], [ %1, %157 ], [ %1, %120 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %71 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %34 ]
-  %.lcssa36.sink = phi i64 [ %6, %171 ], [ 0, %3 ], [ %6, %87 ], [ %6, %157 ], [ %6, %120 ], [ 0, %71 ], [ 0, %34 ]
-  %anon.0e465fe6be52864fcdae16bb4d6a5c56.6.sink = phi ptr [ %173, %171 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %3 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %87 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %157 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %120 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %71 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %34 ]
-  %.sink = phi i64 [ %172, %171 ], [ 0, %3 ], [ 0, %87 ], [ 0, %157 ], [ 0, %120 ], [ 0, %71 ], [ 0, %34 ]
+.loopexit:                                        ; preds = %34, %71, %120, %157, %87, %76, %3, %170
+  %.sink40 = phi ptr [ %1, %170 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %3 ], [ %1, %76 ], [ %1, %87 ], [ %1, %157 ], [ %1, %120 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %71 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %34 ]
+  %.lcssa36.sink = phi i64 [ %6, %170 ], [ 0, %3 ], [ %6, %76 ], [ %6, %87 ], [ %6, %157 ], [ %6, %120 ], [ 0, %71 ], [ 0, %34 ]
+  %anon.0e465fe6be52864fcdae16bb4d6a5c56.6.sink = phi ptr [ %172, %170 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %3 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %76 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %87 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %157 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %120 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %71 ], [ @anon.0e465fe6be52864fcdae16bb4d6a5c56.6, %34 ]
+  %.sink = phi i64 [ %171, %170 ], [ 0, %3 ], [ 0, %76 ], [ 0, %87 ], [ 0, %157 ], [ 0, %120 ], [ 0, %71 ], [ 0, %34 ]
   store ptr %.sink40, ptr %0, align 8
-  %174 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.lcssa36.sink, ptr %174, align 8
-  %175 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %anon.0e465fe6be52864fcdae16bb4d6a5c56.6.sink, ptr %175, align 8
-  %176 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sink, ptr %176, align 8
+  %173 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.lcssa36.sink, ptr %173, align 8
+  %174 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %anon.0e465fe6be52864fcdae16bb4d6a5c56.6.sink, ptr %174, align 8
+  %175 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %.sink, ptr %175, align 8
   ret void
 }
 

@@ -46597,11 +46597,11 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3
   br label %.outer
 
 .outer:                                           ; preds = %52, %39
-  %.sroa.024.0.i.ph.pn = phi ptr [ %.tr109125, %39 ], [ %.sroa.024.0.i.ph, %52 ]
+  %.sroa.025.0.i.ph.pn = phi ptr [ %.tr109125, %39 ], [ %.sroa.025.0.i.ph, %52 ]
   %.sroa.0.0.i.ph = phi ptr [ %2, %39 ], [ %53, %52 ]
   %.0.i.ph = phi ptr [ %40, %39 ], [ %.0.i, %52 ]
-  %.sroa.024.0.i.ph = getelementptr inbounds i8, ptr %.sroa.024.0.i.ph.pn, i64 -24
-  %41 = getelementptr inbounds i8, ptr %.sroa.024.0.i.ph.pn, i64 -8
+  %.sroa.025.0.i.ph = getelementptr inbounds i8, ptr %.sroa.025.0.i.ph.pn, i64 -24
+  %41 = getelementptr inbounds i8, ptr %.sroa.025.0.i.ph.pn, i64 -8
   br label %42
 
 42:                                               ; preds = %.outer, %60
@@ -46619,21 +46619,21 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15AstToDfgVisitor18canonicalizePackedEvEUlRKNS2_6DriverES5_E_EclIPS3_NS_17__normal_iteratorIS9_St6vectorIS3_SaIS3_EEEEEEbT_T0_.exit.i: ; preds = %42
   %48 = load ptr, ptr %.0.i, align 8
-  %49 = load ptr, ptr %.sroa.024.0.i.ph, align 8
+  %49 = load ptr, ptr %.sroa.025.0.i.ph, align 8
   %50 = tail call noundef i32 @_ZNK8FileLine15operatorCompareERKS_(ptr noundef nonnull align 8 dereferenceable(40) %48, ptr noundef nonnull align 8 dereferenceable(40) %49)
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %52, label %57
 
 52:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15AstToDfgVisitor18canonicalizePackedEvEUlRKNS2_6DriverES5_E_EclIPS3_NS_17__normal_iteratorIS9_St6vectorIS3_SaIS3_EEEEEEbT_T0_.exit.i, %46
   %53 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %53, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.024.0.i.ph, i64 20, i1 false)
-  %54 = icmp eq ptr %.tr124, %.sroa.024.0.i.ph
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %53, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.025.0.i.ph, i64 20, i1 false)
+  %54 = icmp eq ptr %.tr124, %.sroa.025.0.i.ph
   br i1 %54, label %55, label %.outer, !llvm.loop !65
 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds i8, ptr %.0.i, i64 24
-  %.not.i.i.i.i.i19.i = icmp eq ptr %56, %5
-  br i1 %.not.i.i.i.i.i19.i, label %_ZSt21__move_merge_adaptiveIPN15AstToDfgVisitor6DriverEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterIZNS0_18canonicalizePackedEvEUlRKS1_SC_E_EEEvT_SF_T0_SG_T1_T2_.exit, label %_ZSt13move_backwardIPN15AstToDfgVisitor6DriverEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.sink.split.i
+  %.not.i.i.i.i.i18.i = icmp eq ptr %56, %5
+  br i1 %.not.i.i.i.i.i18.i, label %_ZSt21__move_merge_adaptiveIPN15AstToDfgVisitor6DriverEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterIZNS0_18canonicalizePackedEvEUlRKS1_SC_E_EEEvT_SF_T0_SG_T1_T2_.exit, label %_ZSt13move_backwardIPN15AstToDfgVisitor6DriverEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.sink.split.i
 
 57:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15AstToDfgVisitor18canonicalizePackedEvEUlRKNS2_6DriverES5_E_EclIPS3_NS_17__normal_iteratorIS9_St6vectorIS3_SaIS3_EEEEEEbT_T0_.exit.i, %46
   %58 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -24
@@ -46651,8 +46651,8 @@ _ZSt13move_backwardIPN15AstToDfgVisitor6DriverEN9__gnu_cxx17__normal_iteratorIS2
   %62 = ptrtoint ptr %.sink.i to i64
   %63 = ptrtoint ptr %5 to i64
   %64 = sub i64 %62, %63
-  %.neg.i.i.i.i.i18.i = sdiv exact i64 %64, -24
-  %65 = getelementptr inbounds %"struct.AstToDfgVisitor::Driver", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i18.i
+  %.neg.i.i.i.i.i19.i = sdiv exact i64 %64, -24
+  %65 = getelementptr inbounds %"struct.AstToDfgVisitor::Driver", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i19.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %65, ptr align 8 %5, i64 %64, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPN15AstToDfgVisitor6DriverEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterIZNS0_18canonicalizePackedEvEUlRKS1_SC_E_EEEvT_SF_T0_SG_T1_T2_.exit
 
@@ -47665,16 +47665,17 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit40, %31
-  %.neg.i.i.i.i.i42 = sdiv exact i64 %29, -24
   br i1 %.not.i.i.i.i.i39, label %_ZSt13move_backwardIPN15AstToDfgVisitor6DriverEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit, label %34
 
 34:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit
-  %35 = getelementptr inbounds %"struct.AstToDfgVisitor::Driver", ptr %2, i64 %.neg.i.i.i.i.i42
+  %.neg.i.i.i.i.i43 = sdiv exact i64 %29, -24
+  %35 = getelementptr inbounds %"struct.AstToDfgVisitor::Driver", ptr %2, i64 %.neg.i.i.i.i.i43
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %35, ptr align 8 %5, i64 %29, i1 false)
   br label %_ZSt13move_backwardIPN15AstToDfgVisitor6DriverEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit
 
 _ZSt13move_backwardIPN15AstToDfgVisitor6DriverEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, %34
-  %36 = getelementptr inbounds %"struct.AstToDfgVisitor::Driver", ptr %2, i64 %.neg.i.i.i.i.i42
+  %.pre-phi.i.i.i.i.i44 = phi i64 [ %.neg.i.i.i.i.i43, %34 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ]
+  %36 = getelementptr inbounds %"struct.AstToDfgVisitor::Driver", ptr %2, i64 %.pre-phi.i.i.i.i.i44
   br label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS4_SaIS4_EEEEEET_SA_SA_SA_.exit
 
 37:                                               ; preds = %24

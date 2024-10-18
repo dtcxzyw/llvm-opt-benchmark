@@ -2536,11 +2536,7 @@ define hidden range(i32 0, 2) i32 @fcgi_flush(ptr noundef %0, i32 noundef %1) lo
   store i8 0, ptr %28, align 1
   store i8 1, ptr %4, align 1
   %.not.i.i = icmp eq i32 %14, %10
-  br i1 %.not.i.i, label %.fcgi_make_header.exit_crit_edge.i, label %29
-
-.fcgi_make_header.exit_crit_edge.i:               ; preds = %5
-  %.pre.i = sext i32 %15 to i64
-  br label %fcgi_make_header.exit.i
+  br i1 %.not.i.i, label %fcgi_make_header.exit.i, label %29
 
 29:                                               ; preds = %5
   %sext.i = shl i64 %9, 32
@@ -2550,8 +2546,8 @@ define hidden range(i32 0, 2) i32 @fcgi_flush(ptr noundef %0, i32 noundef %1) lo
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %31, i8 0, i64 %32, i1 false)
   br label %fcgi_make_header.exit.i
 
-fcgi_make_header.exit.i:                          ; preds = %29, %.fcgi_make_header.exit_crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre.i, %.fcgi_make_header.exit_crit_edge.i ], [ %32, %29 ]
+fcgi_make_header.exit.i:                          ; preds = %29, %5
+  %.pre-phi.i = phi i64 [ %32, %29 ], [ 0, %5 ]
   %33 = load ptr, ptr %.phi.trans.insert, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 %.pre-phi.i
   store ptr %34, ptr %.phi.trans.insert, align 8
@@ -2698,11 +2694,7 @@ define hidden range(i32 -1, -2147483648) i32 @fcgi_write(ptr noundef %0, i32 nou
   store i8 0, ptr %38, align 1
   store i8 1, ptr %8, align 1
   %.not.i.i = icmp eq i32 %24, %20
-  br i1 %.not.i.i, label %.fcgi_make_header.exit_crit_edge.i, label %39
-
-.fcgi_make_header.exit_crit_edge.i:               ; preds = %13
-  %.pre.i = sext i32 %25 to i64
-  br label %close_packet.exit
+  br i1 %.not.i.i, label %close_packet.exit, label %39
 
 39:                                               ; preds = %13
   %sext.i = shl i64 %19, 32
@@ -2712,8 +2704,8 @@ define hidden range(i32 -1, -2147483648) i32 @fcgi_write(ptr noundef %0, i32 nou
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %41, i8 0, i64 %42, i1 false)
   br label %close_packet.exit
 
-close_packet.exit:                                ; preds = %.fcgi_make_header.exit_crit_edge.i, %39
-  %.pre-phi.i = phi i64 [ %.pre.i, %.fcgi_make_header.exit_crit_edge.i ], [ %42, %39 ]
+close_packet.exit:                                ; preds = %13, %39
+  %.pre-phi.i = phi i64 [ %42, %39 ], [ 0, %13 ]
   %43 = load ptr, ptr %14, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 %.pre-phi.i
   store ptr %44, ptr %14, align 8
@@ -2815,7 +2807,7 @@ close_packet.exit:                                ; preds = %.fcgi_make_header.e
   br label %.loopexit
 
 95:                                               ; preds = %66
-  br i1 %.not110, label %close_packet.exit127, label %96
+  br i1 %.not110, label %close_packet.exit125, label %96
 
 96:                                               ; preds = %95
   %97 = getelementptr inbounds i8, ptr %46, i64 8
@@ -2848,11 +2840,7 @@ close_packet.exit:                                ; preds = %.fcgi_make_header.e
   store i8 0, ptr %118, align 1
   store i8 1, ptr %46, align 1
   %.not.i.i121 = icmp eq i32 %104, %100
-  br i1 %.not.i.i121, label %.fcgi_make_header.exit_crit_edge.i125, label %119
-
-.fcgi_make_header.exit_crit_edge.i125:            ; preds = %96
-  %.pre.i126 = sext i32 %105 to i64
-  br label %fcgi_make_header.exit.i123
+  br i1 %.not.i.i121, label %fcgi_make_header.exit.i123, label %119
 
 119:                                              ; preds = %96
   %sext.i122 = shl i64 %99, 32
@@ -2862,20 +2850,20 @@ close_packet.exit:                                ; preds = %.fcgi_make_header.e
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %121, i8 0, i64 %122, i1 false)
   br label %fcgi_make_header.exit.i123
 
-fcgi_make_header.exit.i123:                       ; preds = %119, %.fcgi_make_header.exit_crit_edge.i125
-  %.pre-phi.i124 = phi i64 [ %.pre.i126, %.fcgi_make_header.exit_crit_edge.i125 ], [ %122, %119 ]
+fcgi_make_header.exit.i123:                       ; preds = %119, %96
+  %.pre-phi.i124 = phi i64 [ %122, %119 ], [ 0, %96 ]
   %123 = load ptr, ptr %47, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 %.pre-phi.i124
   store ptr %124, ptr %47, align 8
-  br label %close_packet.exit127
+  br label %close_packet.exit125
 
-close_packet.exit127:                             ; preds = %95, %fcgi_make_header.exit.i123
+close_packet.exit125:                             ; preds = %95, %fcgi_make_header.exit.i123
   %125 = phi ptr [ %48, %95 ], [ %124, %fcgi_make_header.exit.i123 ]
   %126 = icmp ugt i32 %3, 65535
   %127 = trunc i32 %1 to i8
   br i1 %126, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %close_packet.exit127
+.lr.ph:                                           ; preds = %close_packet.exit125
   %128 = getelementptr inbounds i8, ptr %0, i64 12
   %129 = getelementptr inbounds i8, ptr %0, i64 8
   br label %130
@@ -2948,8 +2936,8 @@ close_packet.exit127:                             ; preds = %95, %fcgi_make_head
   br i1 %.not18.i, label %safe_write.exit.thread, label %151
 
 safe_write.exit:                                  ; preds = %161
-  %sext.i128.mask = and i64 %155, 4294967295
-  %.not116 = icmp eq i64 %sext.i128.mask, 65528
+  %sext.i126.mask = and i64 %155, 4294967295
+  %.not116 = icmp eq i64 %sext.i126.mask, 65528
   br i1 %.not116, label %safe_write.exit.thread, label %164
 
 164:                                              ; preds = %safe_write.exit
@@ -2969,14 +2957,14 @@ safe_write.exit.thread:                           ; preds = %163, %safe_write.ex
   %169 = and i64 %indvars.iv.next, 4294967288
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %close_packet.exit127, %._crit_edge.loopexit
-  %170 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %125, %close_packet.exit127 ]
-  %.0103.lcssa = phi i64 [ %169, %._crit_edge.loopexit ], [ 0, %close_packet.exit127 ]
-  %.lcssa143 = phi i32 [ %167, %._crit_edge.loopexit ], [ %3, %close_packet.exit127 ]
-  %171 = add nsw i32 %.lcssa143, 7
+._crit_edge:                                      ; preds = %close_packet.exit125, %._crit_edge.loopexit
+  %170 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %125, %close_packet.exit125 ]
+  %.0103.lcssa = phi i64 [ %169, %._crit_edge.loopexit ], [ 0, %close_packet.exit125 ]
+  %.lcssa141 = phi i32 [ %167, %._crit_edge.loopexit ], [ %3, %close_packet.exit125 ]
+  %171 = add nsw i32 %.lcssa141, 7
   %172 = and i32 %171, -8
-  %.neg112 = sub i32 %.lcssa143, %172
-  %.not111 = icmp eq i32 %172, %.lcssa143
+  %.neg112 = sub i32 %.lcssa141, %172
+  %.not111 = icmp eq i32 %172, %.lcssa141
   %173 = add i32 %.neg112, 8
   %174 = select i1 %.not111, i32 0, i32 %173
   store ptr %170, ptr %7, align 8
@@ -2988,7 +2976,7 @@ safe_write.exit.thread:                           ; preds = %163, %safe_write.ex
   %178 = load ptr, ptr %7, align 8
   %179 = getelementptr inbounds i8, ptr %0, i64 12
   %180 = load i32, ptr %179, align 4
-  %181 = sub nsw i32 %.lcssa143, %174
+  %181 = sub nsw i32 %.lcssa141, %174
   %182 = add nsw i32 %181, 7
   %183 = and i32 %182, -8
   %184 = sub nsw i32 %183, %181
@@ -3014,8 +3002,8 @@ safe_write.exit.thread:                           ; preds = %163, %safe_write.ex
   %198 = getelementptr inbounds i8, ptr %178, i64 1
   store i8 %127, ptr %198, align 1
   store i8 1, ptr %178, align 1
-  %.not.i129 = icmp eq i32 %183, %181
-  br i1 %.not.i129, label %fcgi_make_header.exit, label %199
+  %.not.i127 = icmp eq i32 %183, %181
+  br i1 %.not.i127, label %fcgi_make_header.exit, label %199
 
 199:                                              ; preds = %._crit_edge
   %200 = getelementptr inbounds i8, ptr %178, i64 8
@@ -3039,11 +3027,11 @@ fcgi_make_header.exit:                            ; preds = %._crit_edge, %199
   br label %210
 
 210:                                              ; preds = %222, %205
-  %.0.i130 = phi i64 [ 0, %205 ], [ %.1.i131, %222 ]
+  %.0.i128 = phi i64 [ 0, %205 ], [ %.1.i129, %222 ]
   store i32 0, ptr %208, align 4
   %211 = load i32, ptr %209, align 8
-  %212 = getelementptr inbounds i8, ptr %206, i64 %.0.i130
-  %213 = sub i64 %207, %.0.i130
+  %212 = getelementptr inbounds i8, ptr %206, i64 %.0.i128
+  %213 = sub i64 %207, %.0.i128
   %214 = tail call i64 @write(i32 noundef %211, ptr noundef readonly %212, i64 noundef %213) #32
   %215 = trunc i64 %214 to i32
   %216 = icmp sgt i32 %215, 0
@@ -3051,36 +3039,36 @@ fcgi_make_header.exit:                            ; preds = %._crit_edge, %199
 
 217:                                              ; preds = %210
   %218 = and i64 %214, 2147483647
-  %219 = add i64 %218, %.0.i130
+  %219 = add i64 %218, %.0.i128
   br label %222
 
 220:                                              ; preds = %210
   %221 = load i32, ptr %208, align 4
-  switch i32 %221, label %safe_write.exit135 [
+  switch i32 %221, label %safe_write.exit133 [
     i32 0, label %222
     i32 4, label %222
   ]
 
 222:                                              ; preds = %220, %220, %217
-  %.1.i131 = phi i64 [ %219, %217 ], [ %.0.i130, %220 ], [ %.0.i130, %220 ]
-  %.not18.i132 = icmp eq i64 %.1.i131, %207
-  br i1 %.not18.i132, label %safe_write.exit135.thread, label %210
+  %.1.i129 = phi i64 [ %219, %217 ], [ %.0.i128, %220 ], [ %.0.i128, %220 ]
+  %.not18.i130 = icmp eq i64 %.1.i129, %207
+  br i1 %.not18.i130, label %safe_write.exit133.thread, label %210
 
-safe_write.exit135:                               ; preds = %220
-  %sext.i134 = shl i64 %214, 32
-  %223 = ashr exact i64 %sext.i134, 32
+safe_write.exit133:                               ; preds = %220
+  %sext.i132 = shl i64 %214, 32
+  %223 = ashr exact i64 %sext.i132, 32
   %.not114 = icmp eq i64 %223, %207
-  br i1 %.not114, label %safe_write.exit135.thread, label %224
+  br i1 %.not114, label %safe_write.exit133.thread, label %224
 
-224:                                              ; preds = %safe_write.exit135
+224:                                              ; preds = %safe_write.exit133
   %225 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %225, align 8
   br label %.loopexit
 
-safe_write.exit135.thread:                        ; preds = %222, %safe_write.exit135
+safe_write.exit133.thread:                        ; preds = %222, %safe_write.exit133
   br i1 %.not111, label %.loopexit, label %226
 
-226:                                              ; preds = %safe_write.exit135.thread
+226:                                              ; preds = %safe_write.exit133.thread
   %227 = load ptr, ptr %47, align 8
   store ptr %227, ptr %7, align 8
   %228 = getelementptr inbounds i8, ptr %227, i64 1
@@ -3098,8 +3086,8 @@ safe_write.exit135.thread:                        ; preds = %222, %safe_write.ex
   store ptr %236, ptr %47, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %130, %62, %safe_write.exit135.thread, %226, %83, %85, %fcgi_make_header.exit, %81, %4, %224, %164
-  %.0 = phi i32 [ -1, %164 ], [ -1, %224 ], [ 0, %4 ], [ -1, %81 ], [ -1, %fcgi_make_header.exit ], [ %3, %85 ], [ %3, %83 ], [ %3, %226 ], [ %3, %safe_write.exit135.thread ], [ %3, %62 ], [ -1, %130 ]
+.loopexit:                                        ; preds = %130, %62, %safe_write.exit133.thread, %226, %83, %85, %fcgi_make_header.exit, %81, %4, %224, %164
+  %.0 = phi i32 [ -1, %164 ], [ -1, %224 ], [ 0, %4 ], [ -1, %81 ], [ -1, %fcgi_make_header.exit ], [ %3, %85 ], [ %3, %83 ], [ %3, %226 ], [ %3, %safe_write.exit133.thread ], [ %3, %62 ], [ -1, %130 ]
   ret i32 %.0
 }
 

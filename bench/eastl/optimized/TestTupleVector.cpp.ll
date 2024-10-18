@@ -21789,7 +21789,6 @@ invoke.cont:                                      ; preds = %if.then, %_ZN5eastl
   %temp.sroa.0.0 = phi ptr [ %call.i.i.i.i.i.i.i.i.i, %_ZN5eastl22uninitialized_copy_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit.i.i ], [ null, %if.then ]
   %temp.sroa.5.0 = phi ptr [ %5, %_ZN5eastl22uninitialized_copy_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit.i.i ], [ null, %if.then ]
   %temp.sroa.9.0 = phi ptr [ %4, %_ZN5eastl22uninitialized_copy_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit.i.i ], [ null, %if.then ]
-  %temp.sroa.22.0 = phi i64 [ %sub.i, %_ZN5eastl22uninitialized_copy_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit.i.i ], [ 0, %if.then ]
   %temp.sroa.25.0 = phi i64 [ %add.i.i.i.i.i.i.i, %_ZN5eastl22uninitialized_copy_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit.i.i ], [ 0, %if.then ]
   store ptr %temp.sroa.0.0, ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -21803,7 +21802,7 @@ invoke.cont:                                      ; preds = %if.then, %_ZN5eastl
   %mNumElements.i46 = getelementptr inbounds i8, ptr %this, i64 32
   %14 = load i64, ptr %mNumElements.i46, align 8
   store i64 %sub.i, ptr %mNumElements.i46, align 8
-  store i64 %temp.sroa.22.0, ptr %mNumCapacity, align 8
+  store i64 %sub.i, ptr %mNumCapacity, align 8
   %mDataSizeAndAllocator.i9.i = getelementptr inbounds i8, ptr %this, i64 48
   store i64 %temp.sroa.25.0, ptr %mDataSizeAndAllocator.i9.i, align 8
   %add.ptr8.i = getelementptr inbounds %struct.TestObject, ptr %12, i64 %14
@@ -22004,19 +22003,20 @@ _ZN5eastl22uninitialized_copy_ptrIPfS1_S1_EET1_T_T0_S2_.exit: ; preds = %_ZN5eas
 
 if.else67:                                        ; preds = %if.else
   %cmp.i.i.i.i69 = icmp eq i64 %1, %0
-  br i1 %cmp.i.i.i.i69, label %_ZN5eastl4copyIPbS1_EET0_T_S3_S2_.exit74, label %if.end.i.i.i.i70
+  br i1 %cmp.i.i.i.i69, label %_ZN5eastl4copyIP10TestObjectS2_EET0_T_S4_S3_.exit101.thread, label %_ZN5eastl4copyIPbS1_EET0_T_S3_S2_.exit74
 
-if.end.i.i.i.i70:                                 ; preds = %if.else67
+_ZN5eastl4copyIP10TestObjectS2_EET0_T_S4_S3_.exit101.thread: ; preds = %if.else67
+  %add.ptr79187 = getelementptr inbounds i8, ptr %this, i64 8
+  br label %_ZN5eastl4copyIPfS1_EET0_T_S3_S2_.exit107
+
+_ZN5eastl4copyIPbS1_EET0_T_S3_S2_.exit74:         ; preds = %if.else67
   %add.ptr69 = getelementptr inbounds i8, ptr %agg.tmp.sroa.2.0.copyload, i64 %1
   %35 = load ptr, ptr %this, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %35, ptr align 1 %add.ptr69, i64 %sub.i, i1 false)
-  br label %_ZN5eastl4copyIPbS1_EET0_T_S3_S2_.exit74
-
-_ZN5eastl4copyIPbS1_EET0_T_S3_S2_.exit74:         ; preds = %if.else67, %if.end.i.i.i.i70
   %add.ptr79 = getelementptr inbounds i8, ptr %this, i64 8
   %gepdiff153 = mul i64 %sub.i, 24
   %cmp6.i.i.i.i78 = icmp sgt i64 %gepdiff153, 0
-  br i1 %cmp6.i.i.i.i78, label %for.body.preheader.i.i.i.i80, label %_ZN5eastl4copyIP10TestObjectS2_EET0_T_S4_S3_.exit101
+  br i1 %cmp6.i.i.i.i78, label %for.body.preheader.i.i.i.i80, label %if.end.i.i.i.i103
 
 for.body.preheader.i.i.i.i80:                     ; preds = %_ZN5eastl4copyIPbS1_EET0_T_S3_S2_.exit74
   %add.ptr76.idx = mul nsw i64 %1, 24
@@ -22057,12 +22057,9 @@ _ZN10TestObjectaSERKS_.exit.i.i.i.i96:            ; preds = %if.then.i.i.i.i.i89
   %incdec.ptr.i.i.i.i98 = getelementptr inbounds i8, ptr %first.addr.07.i.i.i.i86, i64 24
   %incdec.ptr1.i.i.i.i99 = getelementptr inbounds i8, ptr %result.addr.08.i.i.i.i85, i64 24
   %cmp.i.i.i.i100 = icmp sgt i64 %n.09.i.i.i.i84, 1
-  br i1 %cmp.i.i.i.i100, label %for.body.i.i.i.i83, label %_ZN5eastl4copyIP10TestObjectS2_EET0_T_S4_S3_.exit101, !llvm.loop !725
+  br i1 %cmp.i.i.i.i100, label %for.body.i.i.i.i83, label %if.end.i.i.i.i103, !llvm.loop !725
 
-_ZN5eastl4copyIP10TestObjectS2_EET0_T_S4_S3_.exit101: ; preds = %_ZN10TestObjectaSERKS_.exit.i.i.i.i96, %_ZN5eastl4copyIPbS1_EET0_T_S3_S2_.exit74
-  br i1 %cmp.i.i.i.i69, label %_ZN5eastl4copyIPfS1_EET0_T_S3_S2_.exit107, label %if.end.i.i.i.i103
-
-if.end.i.i.i.i103:                                ; preds = %_ZN5eastl4copyIP10TestObjectS2_EET0_T_S4_S3_.exit101
+if.end.i.i.i.i103:                                ; preds = %_ZN10TestObjectaSERKS_.exit.i.i.i.i96, %_ZN5eastl4copyIPbS1_EET0_T_S3_S2_.exit74
   %add.ptr84.idx = shl nsw i64 %1, 2
   %add.ptr84 = getelementptr inbounds i8, ptr %agg.tmp.sroa.4.0.copyload, i64 %add.ptr84.idx
   %add.ptr87 = getelementptr inbounds i8, ptr %this, i64 16
@@ -22071,14 +22068,15 @@ if.end.i.i.i.i103:                                ; preds = %_ZN5eastl4copyIP10T
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %42, ptr align 4 %add.ptr84, i64 %gepdiff155, i1 false)
   br label %_ZN5eastl4copyIPfS1_EET0_T_S3_S2_.exit107
 
-_ZN5eastl4copyIPfS1_EET0_T_S3_S2_.exit107:        ; preds = %_ZN5eastl4copyIP10TestObjectS2_EET0_T_S4_S3_.exit101, %if.end.i.i.i.i103
+_ZN5eastl4copyIPfS1_EET0_T_S3_S2_.exit107:        ; preds = %_ZN5eastl4copyIP10TestObjectS2_EET0_T_S4_S3_.exit101.thread, %if.end.i.i.i.i103
+  %add.ptr79190192 = phi ptr [ %add.ptr79187, %_ZN5eastl4copyIP10TestObjectS2_EET0_T_S4_S3_.exit101.thread ], [ %add.ptr79, %if.end.i.i.i.i103 ]
   %43 = load i64, ptr %mNumElements, align 8, !noalias !172
   %cmp.not.i.i.not = icmp eq i64 %sub.i, %43
   br i1 %cmp.not.i.i.not, label %if.end96, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN5eastl4copyIPfS1_EET0_T_S3_S2_.exit107
   store i64 %sub.i, ptr %mNumElements, align 8, !noalias !726
-  %44 = load ptr, ptr %add.ptr79, align 8, !noalias !726
+  %44 = load ptr, ptr %add.ptr79190192, align 8, !noalias !726
   %add.ptr45.i = getelementptr inbounds %struct.TestObject, ptr %44, i64 %43
   %add.ptr42.i = getelementptr inbounds %struct.TestObject, ptr %44, i64 %sub.i
   %_ZN10TestObject12sTODtorCountE.promoted.i.i.i129 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !726

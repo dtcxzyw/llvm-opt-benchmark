@@ -9152,8 +9152,8 @@ if.then3:                                         ; preds = %for.body
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %__i.0150 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 4
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.llvh::cfg::Update", ptr %add.ptr4, i64 %.pre.i.i.i.i.i
+  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.llvh::cfg::Update", ptr %add.ptr4, i64 %idx.neg.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first, ptr noundef nonnull align 8 dereferenceable(16) %__val, i64 16, i1 false)
   br label %for.inc
@@ -20344,10 +20344,8 @@ _ZNSt12_Vector_baseIPN6hermes10BasicBlockESaIS2_EE13_M_deallocateEPS2_m.exit.i: 
 if.else.i:                                        ; preds = %entry
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %_M_finish.i.i, align 8
-  %sub.ptr.lhs.cast.i14.i = ptrtoint ptr %2 to i64
-  %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i.i
   %cmp24.not.i = icmp eq ptr %2, %1
-  br i1 %cmp24.not.i, label %_ZSt4copyIPKPN6hermes10BasicBlockEPS2_ET0_T_S7_S6_.exit32.i, label %if.then25.i
+  br i1 %cmp24.not.i, label %_ZSt22__uninitialized_copy_aIPKPN6hermes10BasicBlockEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.else.i
   store i64 0, ptr %1, align 8
@@ -20360,17 +20358,12 @@ if.then.i20.i:                                    ; preds = %if.then25.i
   store ptr %add.ptr.i.i.i.i.i.i3, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorIPN6hermes10BasicBlockESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit
 
-_ZSt4copyIPKPN6hermes10BasicBlockEPS2_ET0_T_S7_S6_.exit32.i: ; preds = %if.else.i
+_ZSt22__uninitialized_copy_aIPKPN6hermes10BasicBlockEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.i: ; preds = %if.else.i
+  %sub.ptr.lhs.cast.i14.i = ptrtoint ptr %2 to i64
+  %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i.i
   %gepdiff = sub nsw i64 8, %sub.ptr.sub.i16.i
-  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i16.i, 8
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKPN6hermes10BasicBlockEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.i, label %if.then.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZSt4copyIPKPN6hermes10BasicBlockEPS2_ET0_T_S7_S6_.exit32.i
   %incdec.ptr4.sink.i.i46.i.ptr = getelementptr inbounds i8, ptr %ref.tmp, i64 %sub.ptr.sub.i16.i
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %2, ptr nonnull align 8 %incdec.ptr4.sink.i.i46.i.ptr, i64 %gepdiff, i1 false)
-  br label %_ZSt22__uninitialized_copy_aIPKPN6hermes10BasicBlockEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.i
-
-_ZSt22__uninitialized_copy_aIPKPN6hermes10BasicBlockEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZSt4copyIPKPN6hermes10BasicBlockEPS2_ET0_T_S7_S6_.exit32.i
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 %gepdiff
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorIPN6hermes10BasicBlockESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit
@@ -24623,8 +24616,8 @@ if.then2.i39:                                     ; preds = %for.body.i20
   %sub.ptr.lhs.cast.i.i.i.i.i.i41 = ptrtoint ptr %__i.015.i21 to i64
   %sub.ptr.sub.i.i.i.i.i.i42 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i41, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i.i43 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i42, 3
-  %.pre.i.i.i.i.i.i44 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i43
-  %add.ptr.i.i.i.i.i.i45 = getelementptr inbounds ptr, ptr %add.ptr3.i40, i64 %.pre.i.i.i.i.i.i44
+  %idx.neg.i.i.i.i.i.i44 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i43
+  %add.ptr.i.i.i.i.i.i45 = getelementptr inbounds ptr, ptr %add.ptr3.i40, i64 %idx.neg.i.i.i.i.i.i44
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i45, ptr noundef nonnull align 8 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i42, i1 false)
   br label %for.inc.i29
 

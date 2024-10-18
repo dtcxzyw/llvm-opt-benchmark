@@ -1500,8 +1500,8 @@ _ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit70.thread: ;
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds i8, ptr %.024.i71, i64 56
-  %.not.i.i.i.i.i33.i = icmp eq ptr %46, %5
-  br i1 %.not.i.i.i.i.i33.i, label %_ZSt21__move_merge_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_SC_T1_T2_.exit, label %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.sink.split.i
+  %.not.i.i.i.i.i32.i = icmp eq ptr %46, %5
+  br i1 %.not.i.i.i.i.i32.i, label %_ZSt21__move_merge_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_SC_T1_T2_.exit, label %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.sink.split.i
 
 47:                                               ; preds = %40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %42, ptr noundef nonnull align 8 dereferenceable(56) %.024.i71, i64 56, i1 false)
@@ -1518,8 +1518,8 @@ _ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.s
   %51 = ptrtoint ptr %.sink.i to i64
   %52 = ptrtoint ptr %5 to i64
   %53 = sub i64 %51, %52
-  %.neg.i.i.i.i.i32.i = sdiv exact i64 %53, -56
-  %54 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i32.i
+  %.neg.i.i.i.i.i33.i = sdiv exact i64 %53, -56
+  %54 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i33.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %54, ptr align 8 %5, i64 %53, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_SC_T1_T2_.exit
 
@@ -1679,24 +1679,25 @@ _ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit40.i: ; pred
   br label %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit42.i
 
 _ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit42.i: ; preds = %108, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit40.i
-  %.neg.i.i.i.i.i43.i = sdiv exact i64 %106, -56
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit45.i, label %111
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit46.i, label %111
 
 111:                                              ; preds = %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit42.i
-  %112 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.0101, i64 %.neg.i.i.i.i.i43.i
+  %.neg.i.i.i.i.i44.i = sdiv exact i64 %106, -56
+  %112 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.0101, i64 %.neg.i.i.i.i.i44.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %112, ptr align 8 %5, i64 %106, i1 false)
-  br label %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit45.i
+  br label %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit46.i
 
-_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit45.i: ; preds = %111, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit42.i
-  %113 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.0101, i64 %.neg.i.i.i.i.i43.i
+_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit46.i: ; preds = %111, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit42.i
+  %.pre-phi.i.i.i.i.i45.i = phi i64 [ %.neg.i.i.i.i.i44.i, %111 ], [ 0, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit42.i ]
+  %113 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.0101, i64 %.pre-phi.i.i.i.i.i45.i
   br label %_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit
 
 114:                                              ; preds = %101
   %115 = tail call noundef ptr @_ZNSt3_V28__rotateIPN4llvm28ASanStackVariableDescriptionEEET_S4_S4_S4_St26random_access_iterator_tag(ptr noundef %.0102, ptr noundef %.tr105123, ptr noundef %.0101)
   br label %_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit
 
-_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit: ; preds = %89, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit38.i, %102, %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit45.i, %114
-  %.0.i91 = phi ptr [ %100, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit38.i ], [ %113, %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit45.i ], [ %115, %114 ], [ %.0102, %89 ], [ %.0101, %102 ]
+_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit: ; preds = %89, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit38.i, %102, %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit46.i, %114
+  %.0.i91 = phi ptr [ %100, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit38.i ], [ %113, %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit46.i ], [ %115, %114 ], [ %.0102, %89 ], [ %.0101, %102 ]
   tail call void @_ZSt16__merge_adaptiveIPN4llvm28ASanStackVariableDescriptionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_T0_SC_T1_SC_T2_(ptr noundef %.tr122, ptr noundef %.0102, ptr noundef %.0.i91, i64 noundef %.0, i64 noundef %.063, ptr noundef %5, i64 noundef %6, i64 %7)
   %116 = sub nsw i64 %.tr108126, %.063
   %.not = icmp sgt i64 %87, %116
